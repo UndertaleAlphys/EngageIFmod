@@ -237,9 +237,9 @@ function 自軍入場演出()
 end
 
 function ベルを攻撃したかチェック()
-    if VariableGet(g_key_attacked_Bel) == 1 then
-        return
-    end
+    if VariableGet( g_key_4docs_Ivy ) == 1 then
+		return false
+   end
 
    VariableSet(g_key_attacked_Bel, 1 )
     
