@@ -1,0 +1,401 @@
+Include("Common")
+Include("Common_P0")
+Include("G002_Gimmick")
+
+g_pid_boss		= "PID_G002_ヘクトル"
+g_key_hectorAttacked = "非アクティブヘクトルを攻撃_済み"
+g_key_StrongEnemy = "強力な増援_済み"
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup");
+	
+	Startup_神竜の章_対象紋章士を一時的に無効化( "GID_ヘクトル" )
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_G002_WIN" )
+	
+	変数登録()
+	イベント登録()
+
+end
+
+-- -----------------------------------
+
+function Cleanup()
+	
+	Log("Cleanup");
+	
+	Cleanup_神竜の章_対象紋章士の無効化解除( "GID_ヘクトル" )
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening");
+	
+	PuppetDemo("G002", "MID_OP1")
+	FadeInAndWait(FADE_NORMAL)
+	Movie("Kengen15")
+	SkipEscape()
+	FadeOutAndWait(FADE_NORMAL)
+	PuppetDemo("G002", "MID_OP2")
+
+end
+
+-- -----------------------------------
+
+function MapOpening()
+	
+	Log("MapOpening");
+
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding");
+	
+end
+
+-- -----------------------------------
+
+function Ending()
+	
+	Log("Ending");
+	
+	PuppetDemo("G002", "MID_ED1")
+	
+	神竜の章_紋章士加入( "GID_ヘクトル" )
+	
+	if GodUnitExists("GID_リン") then
+		PuppetDemo("G002", "MID_ED2")
+	end
+	
+	FadeInAndWait(FADE_FAST)
+	Tutorial("TUTID_紋章士ヘクトル")
+	
+end
+
+-- -----------------------------------
+
+function GameOver()
+	
+	Log("GameOver");
+	
+end
+
+-- -----------------------------------
+
+function 変数登録() 
+	
+	VariableEntry( "戦闘前会話_ヘクトル_リン_済", 0 )
+	
+	VariableEntry( g_key_hectorAttacked, 0 )
+	VariableEntry( g_key_StrongEnemy, 0 )
+end
+
+-- -----------------------------------
+
+function イベント登録()
+	
+	毒ガスイベント登録( true )
+
+	EventEntryTurn( 戦闘開始直後,	1,  1, FORCE_PLAYER )
+
+	EventEntryTurn( 勝利条件_紋章士にフォーカス, 1, 1, FORCE_PLAYER )
+
+	EventEntryArea(エリア_ヘクトル, 1, 8, 8, 21, FORCE_PLAYER, "エリア進入_済" )
+
+	EventEntryTurn(増援１,  5,  5, FORCE_PLAYER)
+	EventEntryTurn(増援２,  8,  8, FORCE_PLAYER)	
+	EventEntryTurn(増援３, 11, 11, FORCE_PLAYER)	
+	EventEntryTurn(増援４, 14, 14, FORCE_PLAYER)	
+	
+	EventEntryTbox(宝箱入手,28, 21, "IID_2000G")
+	EventEntryTbox(宝箱入手,13, 21, "IID_竜の盾")
+	EventEntryTbox(宝箱入手,17,  2, "IID_聖水")
+	EventEntryTbox(宝箱入手, 2, 13, "IID_特効薬")
+
+
+	EventEntryBattleBefore(VariableSet, "", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, false, condition_非アクティブヘクトルが攻撃された, g_key_hectorAttacked, 1)
+	EventEntryTurn(強力な増援, -1 , -1, FORCE_PLAYER, condition_強力な増援)
+	
+	EventEntryBattleTalk( リュールと戦闘,	"PID_リュール",	FORCE_PLAYER, g_pid_boss,			FORCE_ENEMY, true, "戦闘開始前会話_ヘクトル_リュール_済" )
+--	EventEntryBattleTalk( リュールと戦闘,	"PID_リュール",	FORCE_PLAYER, g_pid_boss_moveDown,	FORCE_ENEMY, true, "戦闘開始前会話_ヘクトル_リュール_済" )
+	EventEntryBattleTalk( リンと戦闘,	"",	FORCE_PLAYER, g_pid_boss,			FORCE_ENEMY, true, condition_リンと戦闘 )
+--	EventEntryBattleTalk( リンと戦闘,	"",	FORCE_PLAYER, g_pid_boss_moveDown,	FORCE_ENEMY, "戦闘前会話_ヘクトル_リン_済" )
+
+-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 25, 3, "PID_リュール", condition_true)
+end
+
+-- -----------------------------------
+
+function condition_非アクティブヘクトルが攻撃された()
+	
+	if VariableGet( g_key_hectorAttacked ) == 1 then
+		return false
+	end
+	
+	
+	if AiGetActive( g_pid_boss ) then
+		return false
+	end
+	
+	
+	return true
+	
+end
+
+-- -----------------------------------
+
+function condition_強力な増援()
+	
+	if VariableGet( g_key_StrongEnemy ) == 1 then
+		return false
+	end
+	
+	if VariableGet( g_key_hectorAttacked ) == 0 then
+		return false
+	end
+	
+	-- (1, 1)～(9, 22)の範囲に自軍が居なければ増援登場
+	local unit = ForceUnitGetFirst( FORCE_PLAYER )
+	while unit != nil do
+		
+		if UnitGetX( unit ) <= 9 then
+			return false
+		end
+		
+		unit = ForceUnitGetNext( unit )
+	end
+	
+	return true
+	
+end
+
+-- -----------------------------------
+
+function 強力な増援()
+	
+	Dispos( "ReinforcementD1", DISPOS_FLAG_WARP + DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	
+	Dispos( "ReinforcementD2", DISPOS_FLAG_WARP + DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	VariableSet( g_key_StrongEnemy, 1 )
+	
+end
+
+-- -----------------------------------
+function 戦闘開始直後()
+	
+	会話イベント_ヘクトル_戦闘開始宣言()
+	警告イベント_ヴァンドレ_毒ガスへの警戒()
+
+end
+
+-- -----------------------------------
+
+function 勝利条件_紋章士にフォーカス()
+	CursorAnimeCreate_FromPid( g_pid_boss )
+	WinRule()
+	CursorAnimeDelete()
+end
+
+-- -----------------------------------
+
+function 会話イベント_ヘクトル_戦闘開始宣言()
+
+	CursorSetPos_FromPid( "PID_G002_ヘクトル" )
+	Talk( "MID_EV1" )
+
+end
+
+-- -----------------------------------
+
+function 警告イベント_ヴァンドレ_毒ガスへの警戒()
+
+	-- 毒ガスの噴出場所までカメラを動かす
+	CursorSetPos(26, 8)
+	MapCameraWait()
+
+	-- 毒ガスの存在を知らせるため、注視エフェクトを表示する
+	CursorAnimeCreate( 24, 8, "W2H1" )
+	CursorAnimeDelete()
+
+	WaitTime( 0.5 )
+
+	-- 毒ガスを噴出させる
+	local deg = 毒ガスの噴出方向を取得する( "左" )	
+	毒ガスの噴出エフェクトを再生する( 26, 8, 2, deg )
+
+	WaitTime( 1.5 )
+
+	-- ヴァンドレによる毒ガスへの警戒会話を流す
+	Talk("MID_EV2")
+
+end
+
+-- -----------------------------------
+
+function エリア_ヘクトル()
+
+		-- ヘクトル進軍()
+		CursorSetPos(5, 21)
+		MapCameraWait()
+
+		Talk( "MID_EV4" )
+		AiSetActive( "PID_G002_ヘクトル", true )
+		CursorSetPos_FromPid( "PID_リュール" )
+		
+	end
+
+-- -----------------------------------
+
+function 増援１()
+	
+	Dispos( "Reinforcement1_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	増援AI設定の変更()
+	
+end
+
+-- -----------------------------------
+
+function 増援２()
+	
+	Dispos( "Reinforcement1_2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	増援AI設定の変更()
+	
+end
+
+-- -----------------------------------
+
+function 増援３()
+	
+	Dispos( "Reinforcement1_3", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	増援AI設定の変更()
+	
+end
+
+-- -----------------------------------
+
+function 増援４()
+	
+	Dispos( "Reinforcement1_4", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	増援AI設定の変更()
+	
+end
+
+-- -----------------------------------
+
+function 増援AI設定の変更()
+	
+	local unit = ForceUnitGetFirst( FORCE_ENEMY )
+	while unit != nil do
+		
+		local pid = UnitGetPID( unit )
+		
+		if	( pid == "PID_G002_幻影兵_ソードナイト_増援" ) or
+			( pid == "PID_G002_幻影兵_ランスナイト_増援" ) or
+			( pid == "PID_G002_幻影兵_アクスペガサス_増援" ) or
+			( pid == "PID_G002_幻影兵_ソードペガサス_増援" ) or
+			( pid == "PID_G002_幻影兵_アクスアーマー_増援" ) or
+			( pid == "PID_G002_幻影兵_ランスファイター_増援" ) or
+			( pid == "PID_G002_幻影兵_ランスペガサス_増援" ) then
+			
+			AiSetRejectPower0Attack( unit, false )
+			
+		end
+		
+		unit = ForceUnitGetNext( unit )
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function リュールと戦闘()
+	
+	Talk( "MID_BT2" )
+	
+ 	if condition_リンと戦闘() then
+		リンと戦闘()
+	end
+	
+end
+
+-- -----------------------------------
+
+function condition_リンと戦闘()
+
+	-- 既に再生済みの場合は二度と再生しない
+	if VariableGet( "戦闘前会話_ヘクトル_リン_済" ) == 1 then
+		return false
+	end
+	
+	-- 戦闘に参加した味方がつけている紋章士のGIDを取得する
+	local god = nil
+	if MindGetForce() == FORCE_PLAYER then
+		god = UnitGetGodUnit( MindGetUnit() )
+	else
+		god = UnitGetGodUnit( MindGetTargetUnit() )
+	end
+
+	if ( god == "GID_リン" ) then
+		return true
+	else
+		return false
+	end
+	
+end
+
+-- -----------------------------------
+
+function リンと戦闘()
+	
+	Talk( "MID_BT1" )
+
+	VariableSet( "戦闘前会話_ヘクトル_リン_済", 1 )
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------

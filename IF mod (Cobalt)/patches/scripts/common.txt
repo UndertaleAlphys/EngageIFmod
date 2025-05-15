@@ -1,0 +1,1171 @@
+----------------------------------------------
+-- 軍定義
+----------------------------------------------
+FORCE_PLAYER	= 0		--自軍
+FORCE_ENEMY		= 1		--敵軍
+FORCE_ALLY		= 2		--味方軍
+FORCE_ABSENT	= 3		--待機軍
+FORCE_CANDIDATE	= 4		--仲間候補軍
+FORCE_DEAD		= 5		--死亡
+FORCE_LOST		= 6		--消失(仮)
+FORCE_TEMP		= 7		--一時
+FORCE_EMPTY		= 8		--未使用
+FORCE_ALL		= -1
+
+----------------------------------------------
+--難易度
+----------------------------------------------
+DIFFICULTY_NORMAL	= 0	--ノーマル
+DIFFICULTY_HARD		= 1	--ハード
+DIFFICULTY_LUNATIC	= 2	--ルナティック
+
+----------------------------------------------
+--ゲームモード
+----------------------------------------------
+GAMEMODE_CASUAL		= 0	--カジュアル
+GAMEMODE_CLASSIC	= 1	--クラシック
+GAMEMODE_PHOENIX	= 2	--フェニックス
+
+----------------------------------------------
+-- フェード時間
+----------------------------------------------
+FADE_VERY_FAST	= 0.125
+FADE_FAST		= 0.25
+FADE_NORMAL		= 0.5
+FADE_SLOW		= 1.0
+FADE_VERY_SLOW	= 2.0
+
+----------------------------------------------
+-- フェード時間(サウンド用)
+----------------------------------------------
+SOUND_FADE_IMMIDIATE	= 0
+SOUND_FADE_VERY_FAST	= 1
+SOUND_FADE_FAST			= 2
+SOUND_FADE_NORMAL		= 3
+SOUND_FADE_SLOW			= 4
+SOUND_FADE_VERY_SLOW	= 5
+
+----------------------------------------------
+--能力値
+----------------------------------------------
+CAPABILITY_HP	= 0		--HP(最大)
+CAPABILITY_STR	= 1		--力
+CAPABILITY_TECH	= 2		--技
+CAPABILITY_QUICK= 3		--速さ
+CAPABILITY_LUCK	= 4		--運
+CAPABILITY_DEF	= 5		--防御
+CAPABILITY_MAGIC= 6		--魔力
+CAPABILITY_RES	= 7		--魔防
+CAPABILITY_PHYS	= 8		--体格
+CAPABILITY_SIGHT= 9		--視界
+CAPABILITY_MOVE	= 10	--移動
+
+----------------------------------------------
+--メニュー条件
+----------------------------------------------
+MENU_CONDITION_HIDE		= 0	--非表示
+MENU_CONDITION_ENABLE	= 1	--有効
+MENU_CONDITION_DISABLE	= 2	--無効
+
+----------------------------------------------
+--AI定数
+----------------------------------------------
+AI_ORDER_CAUSE	= 0	--条件
+AI_ORDER_MIND	= 1	--行動
+AI_ORDER_ATTACK	= 2	--攻撃
+AI_ORDER_MOVE	= 3	--移動
+
+----------------------------------------------
+--結果定数
+----------------------------------------------
+RESULT_NO	= 0	
+RESULT_YES	= 1
+
+----------------------------------------------
+--メニュー定数
+----------------------------------------------
+MENU_ITEM_HIDE = 0
+MENU_ITEM_SHOW = 1
+
+----------------------------------------------
+--カーソル距離
+----------------------------------------------
+CURSOR_DISTANCE_NEAR	= 0
+CURSOR_DISTANCE_MIDDLE	= 1
+CURSOR_DISTANCE_FAR	= 2
+
+----------------------------------------------
+--デバッグボタン
+----------------------------------------------
+DEBUG_BUTTON_A		= 1		--(1 << 0)
+DEBUG_BUTTON_B		= 2		--(1 << 1)
+DEBUG_BUTTON_X		= 4		--(1 << 2)
+DEBUG_BUTTON_Y		= 8		--(1 << 3)
+DEBUG_BUTTON_L		= 16	--(1 << 4)
+DEBUG_BUTTON_R		= 32	--(1 << 5)
+DEBUG_BUTTON_LEFT	= 64	--(1 << 6)
+DEBUG_BUTTON_UP		= 128	--(1 << 7)
+DEBUG_BUTTON_RIGHT	= 256	--(1 << 8)
+DEBUG_BUTTON_DOWN	= 512	--(1 << 9)
+DEBUG_BUTTON_PLUS	= 1024	--(1 << 10)
+DEBUG_BUTTON_MINUS	= 2048	--(1 << 11)
+
+----------------------------------------------
+--デバッグパラメータ
+----------------------------------------------
+
+-- 確率操作
+DEBUG_FAKE_PERCENT_OFF	= 0 -- 無効
+DEBUG_FAKE_PERCENT_0	= 1 -- 0%固定
+DEBUG_FAKE_PERCENT_50	= 2 -- 50%
+DEBUG_FAKE_PERCENT_100	= 3 -- 100%
+
+-- 経験取得
+DEBUG_FAKE_EXP_OFF	= 0 -- 無効
+DEBUG_FAKE_EXP_0	= 1 -- 0%固定
+DEBUG_FAKE_EXP_1	= 2 -- 1
+DEBUG_FAKE_EXP_10	= 3 -- 10
+DEBUG_FAKE_EXP_100	= 4 -- 100
+
+----------------------------------------------
+--配置フラグ
+----------------------------------------------
+DISPOS_FLAG_NONE		= 0	--無し
+DISPOS_FLAG_FOCUS		= 1	--配置位置にフォーカス
+DISPOS_FLAG_FOCUS_UNIT	= 2	--移動ユニットにフォーカス
+DISPOS_FLAG_FORCED		= 4	--出現先が埋まっていても強制配置
+DISPOS_FLAG_WARP		= 8	--ワープで出現
+DISPOS_FLAG_NOT_FORCED	= 16--強制配置を無効化
+DISPOS_FLAG_LOOSE		= 32--配置制限を緩和
+
+----------------------------------------------
+--ユニットステータス
+----------------------------------------------
+UNIT_STATUS_FIXED			= 1				--行動済み(1<<0)
+UNIT_STATUS_MOVE_NOT_ALLOW	= 2				--移動禁止(1<<1)
+UNIT_STATUS_MUST_SORTIE		= 4				--強制出撃(1<<2)
+UNIT_STATUS_NEVER_SORTIE	= 8				--出撃不可(1<<3)
+UNIT_STATUS_DONT_POS_CHANGE	= 16			--移動禁止(1<<4)
+UNIT_STATUS_DANGER_SHOWING	= 32			--攻撃範囲表示(1<<5)
+UNIT_STATUS_CANDIDATE		= 64			--短期契約状態(1<<6)
+UNIT_STATUS_ENGAGING		= 8388608		--エンゲージ中(1<<23)
+UNIT_STATUS_DEFECT			= 1073741824	--一時離脱中(1<<30)
+
+----------------------------------------------
+--移動フラグ
+----------------------------------------------
+MOVE_FLAG_NONE		= 0	--無し
+MOVE_FLAG_FOCUS		= 1	--カメラ追尾(1<<0)
+MOVE_FLAG_ESCAPE	= 2	--離脱（最後の1マスで消す）(1<<1)
+MOVE_FLAG_ARRIVAL	= 4	--出現（最初の1マスで出現）(1<<2)
+
+----------------------------------------------
+--向き
+----------------------------------------------
+ROTATE_UP		= 0
+ROTATE_RIGHT	= 90
+ROTATE_DOWN		= 180
+ROTATE_LEFT		= 270
+
+ROTATE_UP_RIGHT		= 45
+ROTATE_DOWN_RIGHT	= 135
+ROTATE_DOWN_LEFT	= 225
+ROTATE_UP_LEFT		= 315
+
+----------------------------------------------
+--紋章士支援値
+----------------------------------------------
+GOD_RELIANCE_D = 0
+GOD_RELIANCE_C = 1
+GOD_RELIANCE_B = 2
+GOD_RELIANCE_A = 3
+
+----------------------------------------------
+--紋章士の状態
+----------------------------------------------
+GOD_STATE_NORMAL  = 0	--通常状態
+GOD_STATE_RAMPAGE = 1	--暴走状態
+
+----------------------------------------------
+--動作
+----------------------------------------------
+MAP_ACTION_NONE = 0
+MAP_ACTION_IDLE	= 1
+MAP_ACTION_DONE	= 2
+
+----------------------------------------------
+--アニメ
+----------------------------------------------
+UNIT_ANIM_NONE			= 0
+UNIT_ANIM_SDAND_BY		= 1
+UNIT_ANIM_IDLE_RELAX	= 2
+UNIT_ANIM_IDLE_NORMAL	= 3
+UNIT_ANIM_RUN_LOOP		= 4
+UNIT_ANIM_START			= 5
+UNIT_ANIM_ATTACK		= 6
+UNIT_ANIM_SHOOT			= 7
+UNIT_ANIM_SPECIAL		= 8
+UNIT_ANIM_ROD        	= 9
+UNIT_ANIM_DANCE			= 10
+UNIT_ANIM_MAGIC_WEAPON	= 11
+UNIT_ANIM_EVENT1		= 12
+UNIT_ANIM_EVENT2		= 13
+UNIT_ANIM_EVENT3		= 14
+UNIT_ANIM_EVENT4		= 15
+
+----------------------------------------------
+-- 環境設定
+----------------------------------------------
+CONFIG_ANIM_OFF			= 0
+CONFIG_ANIM_ON			= 1
+CONFIG_ANIM_PLAYER_UNIT	= 2
+CONFIG_ANIM_PLAYER_TURN	= 3
+
+----------------------------------------------
+-- システム系
+----------------------------------------------
+
+-- 一定時間停止(1秒=1.0)
+function WaitTime(time)
+	while time > 0 do
+		if SkipIsBlackOut() then
+			break	--スキップ
+		end
+		-- 時間経過
+		time = time - TimeGetDelta()
+		-- 待ち
+		coroutine.yield(true)
+	end
+end
+
+-- キー入力待ち(デバッグ用)
+function WaitKeyForDebug()
+	while true do
+		if SkipIsBlackOut() then
+			break	--スキップ
+		end
+		if DebugIsButton(DEBUG_BUTTON_A) then
+			break	--キー入力
+		end
+		if DebugIsButton(DEBUG_BUTTON_Y) and DebugIsTrigger(DEBUG_BUTTON_X) then
+			DebugCreateMenu()
+		end
+		coroutine.yield(true)
+	end
+end
+
+-- フェード待ち
+function FadeWait()
+	while IsFading() do
+		coroutine.yield(true)
+	end
+end
+
+-- ロード待ち
+function LoadWait()
+	while IsLoading() do
+		coroutine.yield(true)
+	end
+end
+
+-- フェードイン＋待ち
+function FadeInAndWait(time)
+	LoadWait()
+	FadeIn(time)
+	FadeWait()
+end
+
+-- フェードアウト＋待ち
+function FadeOutAndWait(time)
+	FadeOut(time)
+	FadeWait()
+end
+
+-- 最小値取得
+function Min(value, min)
+	if value > min then
+		return min
+	else
+		return value
+	end
+end
+
+-- ホワイトアウト
+function WhiteOut(time)
+	FadeOut(time, 1, 1, 1)
+end
+
+-- 最大値取得
+function Max(value, max)
+	if value < max then
+		return max
+	else
+		return value
+	end
+end
+
+-- クランプ
+function Clamp(value, min, max)
+	value = Min(value, max)
+	value = Max(value, min)
+	return value
+end
+
+-- 変数の加算
+function VariableAdd(key, value, min, max)
+	value = VariableGet(key) + value
+	value = Clamp(value, min, max)
+	VariableSet(key, value)
+	return value
+end
+
+-- 変数の加算(+1)
+function VariableInc(key, min, max)
+	return VariableAdd(key, 1, min, max)
+end
+
+-- 変数の減算(-1)
+function VariableDec(key, min, max)
+	return VariableAdd(key, -1, min, max)
+end
+
+--軍のユニット数を取得
+function ForceUnitGetCount(force)
+	local count = 0
+	local index = ForceUnitGetFirst(force)
+	while index != nil do
+		index = ForceUnitGetNext(index)	
+		count = count + 1
+	end
+	return count
+end
+
+-- エフェクト待ち
+function EffectWait()
+	while EffectIsPlaying() do
+		coroutine.yield(true)
+	end
+end
+
+
+----------------------------------------------
+-- ゲーム系
+----------------------------------------------
+
+-- 汎用の宝箱入手
+function 宝箱入手(iid)
+	EventOpenObject()
+	WaitTime(1.0)
+	ItemGain(MindGetUnit(), iid)
+end
+
+-- ターゲットへの射程判定
+function 射程判定(unit, target)
+
+	if UnitIsExist(unit) and UnitIsExist(target) then
+
+		local sx = UnitGetX(unit)
+		local sz = UnitGetZ(unit)
+
+		local tx = UnitGetX(target)
+		local tz = UnitGetZ(target)
+
+		--相手のとの距離を取得
+		local distance = math.abs(tx - sx) + math.abs(tz - sz)
+		
+		--武器を取得
+		for i = 0 , UnitGetItemCount(unit) do
+			--武器の射程を取得
+			local rangeI = UnitGetItemRangeI(unit, i)
+			local rangeO = UnitGetItemRangeO(unit, i)
+			--射程判定
+			if rangeI <= distance and distance <= rangeO then
+				return true
+			end
+		end
+		
+	end
+
+	return false
+end
+
+----------------------------------------------
+--メニュー拡張
+----------------------------------------------
+--Callコマンド追加
+function MenuAddCall(menu, mid, func, condition, args)
+	local item = MenuItemCreate(menu)
+	MenuItemSetMid(item, mid)
+	MenuItemSetFunc(item, func, args)
+	MenuItemSetCondition(item, condition)
+	return item
+end
+
+--Jumpコマンド追加
+function MenuAddJump(menu, mid, func, condition)
+	return MenuAddCall(menu, mid, Jump, condition, func)
+end
+
+--Talkコマンド追加
+function MenuAddTalk(menu, mid, talkId, condition)
+	local item = MenuAddCall(menu, mid, Talk, condition, talkId)
+	return item
+end
+
+--Backコマンド追加
+function MenuAddBack(menu, mid, func, condition)
+	MenuCancelJump(menu, func, condtion)
+	return MenuAddJump(menu, mid, func, condtion)
+end
+
+--選択コマンド追加
+function MenuAddCallWithObjectFlash(menu, mid, func, condition, objName)
+	local item = MenuAddCall(menu, mid, func, condition)
+	MenuItemSetSelectFunc(item, ObjectFlash, objName)
+	return item
+end
+
+--メニューアイテムの有無をチェック
+function MenuItemExist(mid)
+	--ラベルが無い
+	if MessIsExist(mid) == false then
+			return false;
+	end
+	--メニューラベル名で定義済み変数が非表示なら隠す
+	if VariableIsExist(mid) then
+		if VariableGet(mid) == MENU_ITEM_HIDE then
+			return false;
+		end
+	end
+	return true;
+end
+
+--メニューラベル追加
+function TryMenuAddLabel(menu, label)
+	if MenuItemExist(label) then
+		MenuAddLabel(menu, label)
+	end
+end
+
+--会話コマンド追加
+function TryMenuAddTalk(menu, selectId, talkId)
+	if MenuItemExist(selectId) then
+		MenuAddTalk(menu, selectId, talkId, condition)
+	end
+end
+
+--選択会話("mid_TITLE", "mid_SELECT_A～", "mid_TALK_A～")
+function MenuTalkSelect(mid)
+	local menu = MenuCreate()
+	TryMenuAddLabel(menu, mid.."_TITLE")
+	TryMenuAddTalk(menu, mid.."_SELECT_A", mid.."_TALK_A")
+	TryMenuAddTalk(menu, mid.."_SELECT_B", mid.."_TALK_B", true)
+	TryMenuAddTalk(menu, mid.."_SELECT_C", mid.."_TALK_C", true)
+	TryMenuAddTalk(menu, mid.."_SELECT_D", mid.."_TALK_D", true)
+	TryMenuAddTalk(menu, mid.."_SELECT_E", mid.."_TALK_E", true)
+	TryMenuAddTalk(menu, mid.."_SELECT_F", mid.."_TALK_F", true)
+	TryMenuAddTalk(menu, mid.."_SELECT_G", mid.."_TALK_G", true)
+	MenuShow(menu)
+	return MenuGetResult()
+end
+
+----------------------------------------------
+--コールバック
+----------------------------------------------
+function Callback(func, ...)
+	func(...)
+end
+
+
+----------------------------------------------
+--ユニット移動待ち
+----------------------------------------------
+function UnitMoveWait()
+	while UnitIsAction() do
+		coroutine.yield(true)
+	end
+end
+
+
+----------------------------------------------
+--紋章士新規生成
+----------------------------------------------
+function UnitCreateGodUnit(pid, gid)
+	GodUnitCreate(gid)
+	UnitSetGodUnit(pid, gid)
+end
+
+----------------------------------------------
+
+-- カーソルアニメ
+-- 		int x：左下マスⅩ座標
+-- 		int z：左下マスＺ座標
+-- 		string size = "W1H1"：使用するエフェクトのサイズ
+-- 		string name = "Eff_Cursor01"：生成するエフェクト名（削除するときに指定する必要あり）
+function CursorAnimeCreate( x, z, ... )
+	
+	local size = "W1H1"
+	local name = "Eff_Cursor01"
+	
+	local var = {...}
+	if #var >= 1 then
+		size = var[1]
+	end
+	if #var >= 2 then
+		name = var[2]
+	end
+	
+	-- --------------------
+	
+	if ( size == "W1H1" ) then
+		CursorSetPos(x,z)
+		MapCameraWait()
+	end
+	MapObjectCreate(name, "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_" .. size, x, z)
+	WaitTime( 2.0 )
+	
+end
+
+-- カーソルアニメの削除
+-- 		string name = "Eff_Cursor01"：生成するエフェクト名（削除するときに指定する必要あり）
+function CursorAnimeDelete( ... )
+	
+	local name = "Eff_Cursor01"
+	local var = {...}
+	if #var >= 1 then
+		name = var[1]
+	end
+	
+	-- --------------------
+	
+	MapObjectDelete( name )
+	
+end
+
+-- カーソルアニメ
+-- 		int x：左下マスⅩ座標
+-- 		int z：左下マスＺ座標
+-- 		string size = "W1H1"：使用するエフェクトのサイズ
+-- 		string name = "Eff_Cursor01"：生成するエフェクト名（削除するときに指定する必要あり）
+function CursorAnimeCreate_DistanceModeNear( x, z, ... )
+	
+	local size = "W1H1"
+	local name = "Eff_Cursor01"
+	
+	local var = {...}
+	if #var >= 1 then
+		size = var[1]
+	end
+	if #var >= 2 then
+		name = var[2]
+	end
+	
+	-- --------------------
+	
+	if ( size == "W1H1" ) then
+		CursorSetPos(x,z)
+	end
+	CursorSetDistanceMode(CURSOR_DISTANCE_NEAR)
+	MapCameraWait()
+	MapObjectCreate(name, "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_" .. size, x, z)
+	WaitTime( 2.0 )
+	
+end
+
+-- カーソルアニメ
+-- 		pid：注目するユニット
+-- 		string size = "W1H1"：使用するエフェクトのサイズ
+-- 		string name = "Eff_Cursor01"：生成するエフェクト名（削除するときに指定する必要あり）
+function CursorAnimeCreate_FromPid( pid, ... )
+	
+	local size = "W1H1"
+	local name = "Eff_Cursor01"
+	
+	local var = {...}
+	if #var >= 1 then
+		size = var[1]
+	end
+	if #var >= 2 then
+		name = var[2]
+	end
+	
+	-- --------------------
+	
+	if UnitExistOnMap( pid ) then
+		CursorSetPos_FromPid(pid)
+		
+		local x = UnitGetX( pid )
+		local z = UnitGetZ( pid )
+		MapObjectCreate(name, "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_" .. size, x, z)
+		WaitTime( 2.0 )
+	end
+end
+
+----------------------------------------------
+
+function CursorSetPos_FromPid( pid )
+	if UnitExistOnMap( pid ) then
+		CursorSetPos_FromPid_Sub( pid )
+		MapCameraWait()
+	end
+end
+
+function CursorSetPos_FromPid_DistanceModeNear( pid )
+	if UnitExistOnMap( pid ) then
+		CursorSetPos_FromPid_Sub( pid )
+		CursorSetDistanceMode( CURSOR_DISTANCE_NEAR )
+		MapCameraWait()
+	end
+end
+
+function CursorSetPos_FromPid_Sub( unit )
+	if UnitExistOnMap( unit ) then
+		CursorSetPos( unit )
+	end
+end
+
+
+----------------------------------------------
+
+-- 周回カメラ用
+function AroundCameraSetPos( x, z )
+	local camera_speed = 4.125;
+	CursorSetPos(x, z, camera_speed);
+	MapCameraWait()
+end
+
+----------------------------------------------
+
+function UnitExistOnMap(pid)
+
+	if UnitIsExist(pid) == true then
+		force = UnitGetForce(pid);
+		if ( force == FORCE_PLAYER ) or ( force == FORCE_ALLY ) or ( force == FORCE_ENEMY ) then
+			return true;
+		end
+	end
+	
+	return false;
+
+end
+
+----------------------------------------------
+
+-- マップオブジェクトの起動
+function MapObjectAction(x, z, action)
+	--地形動作開始
+	EventActionObject(x, z, action)
+	--地形動作待ち
+	while EventIsPlayingObject(x, z) do
+		coroutine.yield(true)
+	end
+end
+
+----------------------------------------------
+
+-- マップオブジェクトの起動(動作待ちなし)
+function MapObjectActionNoWait(x, z, action)
+	--地形動作開始
+	EventActionObject(x, z, action)
+end
+
+----------------------------------------------
+
+-- マップオブジェクトの起動(G003の浮島移動、動作待ちなし)
+function MapObjectActionMoveNoWait(x, z, movedX, movedZ, action)
+	--地形動作開始
+	EventActionMoveObject(x, z, movedX, movedZ, action)
+end
+
+----------------------------------------------
+
+-- マップオブジェクトを生成
+function MapObjectCreate(name, path, x, z)
+
+	local px = MapGetPosition(x + 0.5)
+	local pz = MapGetPosition(z + 0.5)
+	local py = MapGetHeight(px, pz)
+	
+	local rx = 0
+	local ry = 0
+	local rz = 0
+
+	ObjectCreate(name, path, px, py, pz, rx, ry, rz);
+
+end
+
+----------------------------------------------
+
+-- マップオブジェクトを削除
+function MapObjectDelete(name)
+	while ObjectIsExist(name) do
+		ObjectDelete(name)
+		coroutine.yield(true)
+	end
+end
+
+----------------------------------------------
+
+-- マップオブジェクトが消えるまで待機
+function MapObjectWaitDelete(name)
+	while ObjectIsExist(name) do
+		
+		if SkipIsBlackOut() == true then
+			MapObjectDelete(name);
+		end
+		
+		coroutine.yield(true)
+		
+	end
+end
+
+----------------------------------------------
+--マップカメラ
+----------------------------------------------
+function MapCameraWait()
+	while MapCameraIsScroll() do
+		coroutine.yield(true)
+	end
+end
+
+function MapCameraLooseWait()
+	while MapCameraIsScroll(true) do
+		coroutine.yield(true)
+	end
+end
+
+----------------------------------------------
+--訪問カメラ
+----------------------------------------------
+function VisitCameraIn()
+	VisitCameraGo();
+
+	while VisitCameraIsAction() do
+		coroutine.yield(true)
+	end
+end
+
+function VisitCameraOut()
+	VisitCameraBack();
+	
+	while VisitCameraIsAction() do
+		coroutine.yield(true)
+	end
+end
+
+----------------------------------------------
+--指定座標にいるキャラクタを
+--		指定座標に移動させる
+----------------------------------------------
+function UnitSetPosFromPos( x, z, toX, toZ )
+	local unit = UnitGetByPos(x, z);
+	if unit != nil then
+		UnitSetPos(unit, toX, toZ);
+	end
+end
+function UnitMovePosFromPos( x, z, toX, toZ )
+	local unit = UnitGetByPos(x, z);
+	if unit != nil then
+		UnitMovePos(unit, toX, toZ, MOVE_FLAG_NONE);
+	end
+end
+
+
+----------------------------------------------
+--プレイヤー軍の中心点を算出します
+----------------------------------------------
+function プレイヤー軍の中心点を算出()
+	local x = 0
+	local z = 0
+	local count = 0
+	
+	local index = ForceUnitGetFirst(FORCE_PLAYER)
+	while index != nil do
+		
+		x = ( x + UnitGetX(index) )
+		z = ( z + UnitGetZ(index) )
+		
+		count = count + 1
+		index = ForceUnitGetNext(index)
+	end
+	
+	local center_x = math.floor(x/count + 0.5);
+	local center_z = math.floor(z/count + 0.5);
+	
+	return center_x, center_z
+end
+
+----------------------------------------------
+-- 二点間距離の算出
+----------------------------------------------
+function 二点間距離(x1, z1, x2, z2)
+	local _distance = math.abs( x1 - x2 ) + math.abs( z1 - z2 );
+	return _distance
+end
+
+
+----------------------------------------------
+-- スキル
+----------------------------------------------
+function スキル装備( pid, ... )
+	if UnitIsExist( pid ) then
+	
+		local sid_list = {...}
+		for index in pairs( sid_list ) do
+		
+			local sid = sid_list[index]
+			
+			if not UnitHasPrivateSkill( pid, sid ) then
+			
+				UnitSetPrivateSkill( pid, sid )
+				-- Dialog(pid .. "に" .. sid .. "を付与した");
+				
+			end
+			
+		end
+		
+	end
+end
+
+function スキル解除( pid, ... )
+	if UnitIsExist( pid ) then
+		
+		local sid_list = {...}
+		for index in pairs( sid_list ) do
+		
+			local sid = sid_list[index]
+			
+			if UnitHasPrivateSkill( pid, sid ) then
+			
+				UnitClearPrivateSkill( pid, sid )
+				-- Dialog(pid .. "から" .. sid .. "を解除した");
+				
+			end
+			
+		end
+		
+	end
+end
+
+
+----------------------------------------------
+--AI系
+----------------------------------------------
+--Aiアクティブ設定
+function AiSetActiveAll(force, pid, active)
+	
+	local unit = ForceUnitGetFirst(force)
+	while unit != nil do
+		
+		local _pid = UnitGetPID( unit )
+		
+		if _pid == pid then
+			AiSetActive(unit, active)
+		end
+		
+		unit = ForceUnitGetNext( unit )
+		
+	end
+	
+end
+
+--Aiシーケンス設定
+function AiSetSequenceAll(force, pid, order, sequence, values)
+	
+	local unit = ForceUnitGetFirst(force)
+	while unit != nil do
+		
+		local _pid = UnitGetPID( unit )
+		
+		if _pid == pid then
+			AiSetSequence(unit, order, sequence, values)
+		end
+		
+		unit = ForceUnitGetNext( unit )
+		
+	end
+	
+end
+
+
+----------------------------------------------
+--紋章士外伝
+----------------------------------------------
+function Startup_紋章士外伝_対象紋章士を一時的に無効化( gid )
+	
+	local index = ForceUnitGetFirst( FORCE_ABSENT )
+	while ( index != nil ) do
+		
+		if UnitGetGodUnit( index ) == gid  then
+			UnitSetGodUnit( index, nil )
+			break
+		end
+		
+		index = ForceUnitGetNext( index )
+	end
+	
+	-- 対象紋章士の指輪が使用不可になる
+	GodUnitSetEscape(gid, true)
+	
+end
+
+----------------------------------------------
+
+function Cleanup_紋章士外伝_対象紋章士の無効化解除( gid )
+	
+	-- 対象紋章士の指輪が使用可能になる
+	GodUnitSetEscape(gid, false)
+	
+end
+
+
+----------------------------------------------
+--遭遇戦
+----------------------------------------------
+
+-- レア敵がいるかどうか
+function ExistRareEnemy()
+	
+	return (VariableGet("G_遭遇戦_レア敵お金") + VariableGet("G_遭遇戦_レア敵経験値")) > 0
+	
+end
+
+----------------------------------------------
+--必ずtrueを返すcondition
+--		表記省略用
+----------------------------------------------
+function condition_true()
+	return true
+end
+
+----------------------------------------------
+--難易度チェック用のcondition
+----------------------------------------------
+function モードはノーマル()
+	return DifficultyGet() == DIFFICULTY_NORMAL
+end
+
+function モードはハード()
+	return DifficultyGet() == DIFFICULTY_HARD
+end
+
+function モードはルナティック()
+	return DifficultyGet() == DIFFICULTY_LUNATIC
+end
+
+----------------------------------------------
+--民家破壊用
+----------------------------------------------
+function 民家破壊(x1, z1, x2, z2)
+	TerrainSetBegin()
+	for z = z1, z2 do
+		for x = x1, x2 do
+			TerrainSet( x, z, "TID_廃墟" )
+		end
+	end
+	TerrainSetEnd()
+	
+	WaitTime( 1.0 )
+end
+
+function 民家破壊_フラグセット(x1, z1, x2, z2, flag)
+	民家破壊( x1, z1, x2, z2 )
+	VariableSet( flag, 1 )
+end
+
+----------------------------------------------
+--紋章士外伝用仮ダイアログ
+----------------------------------------------
+function 紋章士外伝_レベルキャップ開放( godName, message )
+	
+	FadeInAndWait( FADE_NORMAL )
+		
+		local flag = "G_" .. godName .. "レベルキャップ解放"
+		
+		if not VariableIsExist( flag ) then
+			VariableEntry( flag, 1 )
+		else
+			VariableSet( flag, 1 )
+		end
+		
+		-- Dialog( "【仮】レベルキャップ開放！！" )
+		
+		SkipEscape()
+		PuppetDemo( message, "MID_LC1" )
+		
+	FadeOutAndWait( FADE_NORMAL )
+	
+end
+
+----------------------------------------------
+-- 勝利条件テロップ表示
+----------------------------------------------
+function 勝利条件()
+	if UnitExistOnMap( "PID_リュール" ) then
+		CursorSetPos_FromPid( "PID_リュール" )
+	end
+	
+	WinRule()
+end
+
+
+function 勝利条件_敵将フォーカス( pid )
+	CursorAnimeCreate_FromPid( pid )
+	WinRule()
+	CursorAnimeDelete()
+end
+
+----------------------------------------------
+-- 加勢ポイントのエフェクト展開
+----------------------------------------------
+HELP_POINT_UP		= 1
+HELP_POINT_RIGHT	= 10
+HELP_POINT_DOWN		= 100
+HELP_POINT_LEFT		= 1000
+
+HELP_POINT_ALL			= HELP_POINT_UP + HELP_POINT_RIGHT + HELP_POINT_DOWN + HELP_POINT_LEFT
+HELP_POINT_OTHER_LEFT	= HELP_POINT_UP + HELP_POINT_RIGHT + HELP_POINT_DOWN
+HELP_POINT_OTHER_RIGHT	= HELP_POINT_UP + HELP_POINT_DOWN + HELP_POINT_LEFT
+HELP_POINT_OTHER_UP		= HELP_POINT_RIGHT + HELP_POINT_DOWN + HELP_POINT_LEFT
+HELP_POINT_OTHER_DOWN	= HELP_POINT_UP + HELP_POINT_RIGHT + HELP_POINT_LEFT
+
+function 加勢ポイントのエリアイベント登録( list )
+	for pointer = 1, #list do
+		local x			= list[pointer][1]
+		local z			= list[pointer][2]
+		local flag = "加勢ポイント_" .. tostring( x ) .. "_" .. tostring( z ) .. "_エフェクト展開_済み"
+		
+		local option	= HELP_POINT_ALL
+		if #list[pointer] >= 3 then
+			option	= list[pointer][3]
+		end
+		
+		EventEntryArea(加勢ポイントのエフェクト展開, x, z, x, z, FORCE_PLAYER, flag, x, z, option )
+	end
+	
+end
+
+function 加勢ポイントのエフェクト展開( x, z, option )
+
+	-- この処理に数フレームかかるのでスキップを無効にする
+	-- (必ず SkipPopState() と対にすること)
+	SkipPushStateAndDisable()
+	
+	-- ===================================================================
+
+	EventStateObject( x, z, 1 )
+	
+	-- ===================================================================
+	
+	local isLeft = ( option / HELP_POINT_LEFT >= 1 )
+	option = option % HELP_POINT_LEFT
+	
+	local isDown = ( option / HELP_POINT_DOWN >= 1 )
+	option = option % HELP_POINT_DOWN
+	
+	local isRight = ( option / HELP_POINT_RIGHT >= 1 )
+	option = option % HELP_POINT_RIGHT
+	
+	local isUp = ( option / HELP_POINT_UP >= 1 )
+	option = option % HELP_POINT_UP
+	
+	-- ===================================================================
+	
+	if isUp then
+		EffectPlay( "加勢ポイント_発動", x, z+1 )
+	end
+	
+	if isRight then
+		EffectPlay( "加勢ポイント_発動", x+1, z )
+	end
+	
+	if isDown then
+		EffectPlay( "加勢ポイント_発動", x, z-1 )
+	end
+	
+	if isLeft then
+		EffectPlay( "加勢ポイント_発動", x-1, z )
+	end
+	
+	-- ===================================================================
+	
+	WaitTime( 0.2 )
+	
+	-- ===================================================================
+	
+	if isUp then
+		EffectCreate( "加勢ポイント_ループ", x, z+1 )
+	end
+	
+	if isRight then
+		EffectCreate( "加勢ポイント_ループ", x+1, z )
+	end
+	
+	if isDown then
+		EffectCreate( "加勢ポイント_ループ", x, z-1 )
+	end
+	
+	if isLeft then
+		EffectCreate( "加勢ポイント_ループ", x-1, z )
+	end
+	
+	-- ===================================================================
+	
+	-- スキップを無効にしていたのを元に戻す
+	-- (必ず SkipPushStateAndDisable() と対にすること)
+	SkipPopState()
+
+end
+
+----------------------------------------------
+-- 飛行ユニットの０ダメージ攻撃拒否を解除する
+-- （ハマりにつながるおそれがあったため）
+----------------------------------------------
+function 飛行ユニットの０ダメージ攻撃を許可()
+	if DifficultyGet() == DIFFICULTY_LUNATIC then
+		
+		local index	= ForceUnitGetFirst( FORCE_ENEMY )
+		
+		while ( index != nil ) do
+			
+			if ( UnitGetMoveCost( index ) == "COST_飛行" ) then
+				AiSetRejectPower0Attack( index, false )
+			end
+			
+			index = ForceUnitGetNext( index )
+		end
+	end
+end
+
+function Set_Interference_AI_by_Pid(pid)
+	local targetresult_pid = ""
+	local min_distance = 64
+	local index	= ForceUnitGetFirst( FORCE_PLAYER )
+	while ( index != nil ) do
+		local target_pid = UnitGetPID( index )
+		local can_choose = 1	
+		
+		if UnitHasWholeSkill( target_pid, "SID_力封じ_効果-1") or UnitHasWholeSkill( target_pid, "SID_力封じ_効果-2") or UnitHasWholeSkill( target_pid, "SID_力封じ_効果-3") or UnitHasWholeSkill( target_pid, "SID_力封じ_効果-4") or UnitHasWholeSkill( target_pid, "SID_力封じ_効果-5") or UnitHasWholeSkill( target_pid, "SID_力封じ_効果-6") and UnitHasWholeSkill( target_pid, "SID_魔力封じ_効果-1") or UnitHasWholeSkill( target_pid, "SID_魔力封じ_効果-2") or UnitHasWholeSkill( target_pid, "SID_魔力封じ_効果-3") or UnitHasWholeSkill( target_pid, "SID_魔力封じ_効果-4") or UnitHasWholeSkill( target_pid, "SID_魔力封じ_効果-5") or UnitHasWholeSkill( target_pid, "SID_魔力封じ_効果-6") and UnitHasWholeSkill( target_pid, "SID_守備封じ_効果-1") or UnitHasWholeSkill( target_pid, "SID_守備封じ_効果-2") or UnitHasWholeSkill( target_pid, "SID_守備封じ_効果-3") or UnitHasWholeSkill( target_pid, "SID_守備封じ_効果-4") or UnitHasWholeSkill( target_pid, "SID_守備封じ_効果-5") or UnitHasWholeSkill( target_pid, "SID_守備封じ_効果-6") and UnitHasWholeSkill( target_pid, "SID_速さ封じ_効果-1") or UnitHasWholeSkill( target_pid, "SID_速さ封じ_効果-2") or UnitHasWholeSkill( target_pid, "SID_速さ封じ_効果-3") or UnitHasWholeSkill( target_pid, "SID_速さ封じ_効果-4") or UnitHasWholeSkill( target_pid, "SID_速さ封じ_効果-5") or UnitHasWholeSkill( target_pid, "SID_速さ封じ_効果-6") and UnitHasWholeSkill( target_pid, "SID_魔防封じ_効果-1") or UnitHasWholeSkill( target_pid, "SID_魔防封じ_効果-2") or UnitHasWholeSkill( target_pid, "SID_魔防封じ_効果-3") or UnitHasWholeSkill( target_pid, "SID_魔防封じ_効果-4") or UnitHasWholeSkill( target_pid, "SID_魔防封じ_効果-5") or UnitHasWholeSkill( target_pid, "SID_魔防封じ_効果-6") and UnitHasWholeSkill( target_pid, "SID_技封じ_効果-1") or UnitHasWholeSkill( target_pid, "SID_技封じ_効果-2") or UnitHasWholeSkill( target_pid, "SID_技封じ_効果-3") or UnitHasWholeSkill( target_pid, "SID_技封じ_効果-4") or UnitHasWholeSkill( target_pid, "SID_技封じ_効果-5") or UnitHasWholeSkill( target_pid, "SID_技封じ_効果-6") and UnitHasWholeSkill( target_pid, "SID_幸運封じ_効果-1") or UnitHasWholeSkill( target_pid, "SID_幸運封じ_効果-2") or UnitHasWholeSkill( target_pid, "SID_幸運封じ_効果-3") or UnitHasWholeSkill( target_pid, "SID_幸運封じ_効果-4") or UnitHasWholeSkill( target_pid, "SID_幸運封じ_効果-5") or UnitHasWholeSkill( target_pid, "SID_幸運封じ_効果-6") then
+			-- has debuff status or out of range
+			can_choose = 0
+		end
+		
+		if can_choose == 1 then
+			local distance = math.abs(UnitGetX( pid ) - UnitGetX( index )) + math.abs(UnitGetZ( pid ) - UnitGetZ( index ))
+			if distance < min_distance then
+				min_distance = distance
+				targetresult_pid = target_pid
+			end
+		end
+		index = ForceUnitGetNext( index )
+	end
+		
+	AiSetSequence( pid, AI_ORDER_ATTACK, "AI_AT_InterferencePerson", targetresult_pid )
+	AiSetActive(pid, true)
+	
+	if targetresult_pid == "" then
+		AiSetSequence ( pid, AI_ORDER_ATTACK, "AI_AT_Attack", "" )
+	end
+	
+	return targetresult_pid
+end

@@ -1,0 +1,314 @@
+Include("Common")
+g_pid_lueur = "PID_リュール"
+
+g_key_reinforcement1 = "増援１_済"
+g_key_reinforcement2 = "増援２_済"
+g_key_reinforcement3 = "増援３_済"
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	WinRuleSetMID( "MID_RULE_M012_WIN" )
+	
+	変数登録()
+	イベント登録()
+	
+end
+
+-- -----------------------------------
+
+function 変数登録()
+	
+	VariableEntry( g_key_reinforcement1, 0 )
+	VariableEntry( g_key_reinforcement2, 0 )
+	VariableEntry( g_key_reinforcement3, 0 )
+	
+end
+
+-- -----------------------------------
+
+function イベント登録()
+	EventEntryTurn(自軍ターン前_自警団仲間入り, 1, 1, FORCE_PLAYER)
+	
+	EventEntryTurn( 勝利条件, 1, 1, FORCE_PLAYER )
+	
+	EventEntryPickup(ピックアップ_パンドロ, "PID_パンドロ", "ピックアップ_パンドロ_済")
+	
+	
+	-- ノーマル増援
+	EventEntryTurn(増援１, 4, 4, FORCE_ALLY, condition_増援１_ノーマル)
+	EventEntryTurn(増援２, 5, 5, FORCE_ALLY, condition_増援２_ノーマル)
+	EventEntryTurn(増援３, 7, 7, FORCE_ALLY, condition_増援３_ノーマル)
+	
+	-- ハード以上の増援
+	EventEntryTurn(増援１, 3, 3, FORCE_ALLY, condition_増援１)
+	EventEntryTurn(増援２, 4, 4, FORCE_ALLY, condition_増援２)
+	EventEntryTurn(増援３, 6, 6, FORCE_ALLY, condition_増援３)
+	
+	
+	EventEntryDie(EmptyFunction, "PID_M012_村人Ａ", FORCE_ALLY, "S_M012_村人Ａ_死亡")
+	EventEntryDie(EmptyFunction, "PID_M012_村人Ｂ", FORCE_ALLY, "S_M012_村人Ｂ_死亡")
+	EventEntryDie(EmptyFunction, "PID_M012_村人Ｃ", FORCE_ALLY, "S_M012_村人Ｃ_死亡")
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 16, 9, "PID_リュール", condition_true)
+	
+end
+
+-- -----------------------------------
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	PuppetDemo("M012", "MID_OP1")
+	PuppetDemo("M012", "MID_OP2")
+
+	Movie("Scene17")
+	SkipEscape()
+
+	PuppetDemo("M012", "MID_OP2_2")
+	PuppetDemo("M012", "MID_OP3")
+	
+end
+
+-- -----------------------------------
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+end
+
+-- -----------------------------------
+
+function 自軍ターン前_自警団仲間入り()
+	
+	CursorSetPos_FromPid( "PID_M012_村人Ａ" )
+	
+	SoundPostEvent(Env_Evt_Solum_Desert_Start)
+	PlayFieldBgm(FORCE_PLAYER)
+	
+	if UnitExistOnMap( "PID_M012_村人Ａ" ) then
+		MapObjectCreate("Eff_Cursor01", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", UnitGetX( "PID_M012_村人Ａ" ), UnitGetZ( "PID_M012_村人Ａ" ))
+	end
+	if UnitExistOnMap( "PID_M012_村人Ｂ" ) then
+		MapObjectCreate("Eff_Cursor02", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", UnitGetX( "PID_M012_村人Ｂ" ), UnitGetZ( "PID_M012_村人Ｂ" ))
+	end
+	if UnitExistOnMap( "PID_M012_村人Ｃ" ) then
+		MapObjectCreate("Eff_Cursor03", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", UnitGetX( "PID_M012_村人Ｃ" ), UnitGetZ( "PID_M012_村人Ｃ" ))
+	end
+	WaitTime( 2.0 )
+	
+	Talk("MID_EV1")
+	
+	MapObjectDelete("Eff_Cursor01")
+	MapObjectDelete("Eff_Cursor02")
+	MapObjectDelete("Eff_Cursor03")
+	
+	
+	Dialog( "MID_TUT_NAVI_M012_RESCUE" )
+	
+	CursorSetPos_FromPid("PID_フォガート")
+	
+	Talk("MID_EV2")
+	
+	Tutorial( "TUTID_流砂" )
+	
+	-- 緑軍→青軍
+	UnitJoin( "PID_フォガート", "PID_パンドロ", "PID_ボネ" )
+	WaitTime(0.5)
+	
+	CursorSetPos_FromPid(g_pid_lueur)
+	
+end
+
+-- -----------------------------------
+
+function ピックアップ_パンドロ()
+	CursorSetPos_FromPid(MindGetUnit())
+	MapCameraWait()
+	Talk( "MID_EV3" )
+end
+
+-- -----------------------------------
+
+function condition_増援１_ノーマル()
+	if VariableGet( g_key_reinforcement1 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		return true
+	end
+	
+	return false
+end
+
+function condition_増援１()
+	if VariableGet( g_key_reinforcement1 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		return true
+	end
+	
+	return false
+end
+
+function 増援１()
+	Dispos( "Reinforcement1_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Dispos( "Reinforcement1_2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Dispos( "Reinforcement1_3", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		Dispos( "Reinforcement1_4", DISPOS_FLAG_FOCUS )
+		Yield()
+		WaitTime( 0.5 )
+	end
+	
+	VariableSet( g_key_reinforcement1, 1 )
+end
+
+-- -----------------------------------
+
+function condition_増援２_ノーマル()
+	if VariableGet( g_key_reinforcement2 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		return true
+	end
+	
+	return false
+end
+
+function condition_増援２()
+	if VariableGet( g_key_reinforcement2 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		return true
+	end
+	
+	return false
+end
+
+function 増援２()
+	Dispos( "Reinforcement2_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Dispos( "Reinforcement2_2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	VariableSet( g_key_reinforcement2, 1 )
+end
+
+-- -----------------------------------
+
+function condition_増援３_ノーマル()
+	if VariableGet( g_key_reinforcement3 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		return true
+	end
+	
+	return false
+end
+
+function condition_増援３()
+	if VariableGet( g_key_reinforcement3 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		return true
+	end
+	
+	return false
+end
+
+function 増援３()
+	Dispos( "Reinforcement3_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Dispos( "Reinforcement3_2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	VariableSet( g_key_reinforcement3, 1 )
+end
+
+-- -----------------------------------
+
+function EmptyFunction()
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+	お礼品取得()
+	
+end
+
+function お礼品取得()
+	
+	SkipEscape()
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end

@@ -1,0 +1,64 @@
+-- 参照ファイル
+Include("Common")
+Include("Hub_Common")
+
+
+-- -----------------------------------
+
+function HubSolanelNoticeP3()
+	
+	Log("HubSolanelNoticeP3")
+
+	if (CanStartEvil()) then
+		Notice("MID_TUT_HUB_EVIL_START_NOTICE")
+	end
+
+end
+
+function HubSolanelEvilEnd()
+	
+	Log("HubSolanelEvilEnd")
+
+	if (HubIsCompleteChapter("E006") and TryVariable("G_拠点_邪竜エンディング") == false) then
+		VariableEntry("G_拠点_邪竜エンディング", 1)
+
+		MessLoad("E006")
+
+		PuppetDemo("E006", "MID_ED2")
+
+
+		-- ED主題歌ムービー
+		Movie("E07")
+		SkipEscape()
+
+
+		UnitJoin( "PID_セレスティア", "PID_グレゴリー", "PID_マデリーン" )
+		WaitTime(0.2)
+
+		PuppetDemo("E006", "MID_ED3")	
+		MessFree("E006")
+
+		UnitJoin( "PID_エル", "PID_ラファール" )
+		WaitTime(0.2)
+
+	end
+	
+end
+
+
+-- 邪竜の章開始デモ
+function CanStartEvil()
+	return false;
+
+end
+
+function ScriptStartEvil()
+	
+	if (HubIsCompleteChapter("M022")) then
+		PuppetDemo("HubCommon", "MID_HUB_DLC2")
+		FadeInAndWait(FADE_FAST)
+		Tutorial("TUTID_邪竜の章");
+	end
+end
+
+

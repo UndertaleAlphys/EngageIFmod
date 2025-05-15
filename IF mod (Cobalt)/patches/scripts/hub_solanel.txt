@@ -1,0 +1,216 @@
+-- 参照ファイル
+Include("Common")
+Include("Hub_Common")
+
+Include("Hub_SolanelCommon_P0")
+Include("Hub_SolanelCommon_P1")
+Include("Hub_SolanelCommon_P2")
+Include("Hub_SolanelCommon_P3")
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+
+end
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Solanel Opening")
+
+	HubSolanelEvilEnd()
+
+end
+
+function MapOpening()
+
+	Log("MapOpening")
+
+	if (HubIsCompleteChapter("M004") == false) then
+		Tutorial("TUTID_拠点")
+	end
+
+	if (HubIsCompleteChapter("M004") and TryVariable("G_拠点_武器道具屋") == false) then
+		VariableEntry("G_拠点_武器道具屋", 1)
+		Notice("MID_TUT_HUB_WEAPONSHOP_OPEN")
+	end
+	
+	if (HubIsCompleteChapter("M004") and TryVariable("G_拠点_紋章士の間") == false) then
+		VariableEntry("G_拠点_紋章士の間", 1)
+		Notice("MID_TUT_HUB_HERALDICSPACE_OPEN")
+	end
+	
+	if (HubIsCompleteChapter("M004") and TryVariable("G_拠点_マスコット") == false) then
+		VariableEntry("G_拠点_マスコット", 1)
+		Notice("MID_TUT_HUB_MASCOT_OPEN")
+	end
+
+	if (HubIsCompleteChapter("M005") and TryVariable("G_拠点_錬成アクセサリ屋") == false) then
+		VariableEntry("G_拠点_錬成アクセサリ屋", 1)
+		Notice("MID_TUT_HUB_DRILLINGSHOP_OPEN")
+	end
+
+	if (HubIsCompleteChapter("M005") and TryVariable("G_拠点_闘技場") == false) then
+		VariableEntry("G_拠点_闘技場", 1)
+		Notice("MID_TUT_HUB_ARENA_OPEN")
+	end
+
+	if (HubIsCompleteChapter("M006") and TryVariable("G_拠点_エンゲージ武器強化") == false) then
+		VariableEntry("G_拠点_エンゲージ武器強化", 1)
+		Notice("MID_TUT_HUB_ENGWEAPON_REFINE_OPEN")
+	end
+
+	if (HubIsCompleteChapter("M026") and TryVariable("G_拠点_スタッフロール") == false) then
+		VariableEntry("G_拠点_スタッフロール", 1)
+		Notice("MID_Hub_MyRoom_Piano_Release")
+	end
+
+	-- 筋肉体操
+	if HubIsFacilityComplete("AID_筋肉体操") and TryVariable("G_拠点_筋肉体操通知") == false then
+		VariableEntry("G_拠点_筋肉体操通知", 1)
+		Notice("MID_TUT_HUB_MUSCLEEXERCISES_OPEN")
+	end
+	
+	-- 動物小屋
+	if HubIsFacilityComplete("AID_動物小屋") and TryVariable("G_拠点_動物小屋通知") == false then
+		VariableEntry("G_拠点_動物小屋通知", 1)
+		Notice("MID_TUT_HUB_ANIMAL_OPEN")
+	end
+
+	-- amiiboスポット
+	if HubIsFacilityComplete("AID_アミーボスポット") and TryVariable("G_拠点_アミーボスポット通知") == false then
+		VariableEntry("G_拠点_アミーボスポット通知", 1)
+		Notice("MID_TUT_HUB_AMIIBO_OPEN")
+	end
+
+	-- 料理
+	if HubIsFacilityComplete("AID_料理") and TryVariable("G_拠点_料理通知") == false then
+		VariableEntry("G_拠点_料理通知", 1)
+		Notice("MID_TUT_HUB_COOK_OPEN")
+	end
+
+	-- 釣り
+	if HubIsFacilityComplete("AID_釣り") and TryVariable("G_拠点_釣り通知") == false then
+		VariableEntry("G_拠点_釣り通知", 1)
+		Notice("MID_TUT_HUB_FISHING_OPEN")
+	end
+
+	-- ドラゴンライド
+	if CanDragonRideWithLocator() and TryVariable("G_拠点_ドラゴンライド通知") == false then
+		VariableEntry("G_拠点_ドラゴンライド通知", 1)
+		Notice("MID_TUT_HUB_DRAGONRIDE_OPEN")
+	end
+
+	-- 蚤の市
+	if HubIsFacilityComplete("AID_蚤の市") and TryVariable("G_拠点_蚤の市通知") == false then
+		VariableEntry("G_拠点_蚤の市通知", 1)
+		Notice("MID_TUT_HUB_FLEAMARKET_OPEN")
+	end
+
+	-- 占い小屋
+	if HubIsFacilityComplete("AID_占い小屋") and TryVariable("G_拠点_占い小屋通知") == false then
+		VariableEntry("G_拠点_占い小屋通知", 1)
+		Notice("MID_TUT_HUB_FORTUNE_OPEN")
+	end
+
+	-- 活動記録の館
+	if HubIsFacilityComplete("AID_活動記録の館") and TryVariable("G_拠点_活動記録の館通知") == false then
+		VariableEntry("G_拠点_活動記録の館通知", 1)
+		Notice("MID_TUT_HUB_PROFILE_OPEN")
+	end
+	
+	if (HubIsCompleteChapter("M011")) then
+		HubSolanelNoticeP0()
+		HubSolanelNoticeP1()
+		HubSolanelNoticeP2()
+		HubSolanelNoticeP3()
+	end
+end
+
+function MapEnding()
+	
+	Log("MapEnding")
+
+end
+
+function Ending()
+	
+	Log("Ending")
+
+end
+
+
+function Main()
+
+	Log("Main")
+
+end
+
+--デバッグスキップ(Mainと排他)
+function DebugSkip()
+
+	Log("拠点スキップ")
+
+end
+
+-- 最終章へ
+function ToLastChapter()
+
+    HubNextChapter("CID_M025");
+
+end
+
+-- マイルームへ移動
+function ToMyRoom()
+
+	HubNextMap("Hub_MyRoom", "From_Cafe")
+
+end
+
+-- 闘技場へ移動
+function ToArena()
+
+	if (HubIsCompleteChapter("M005")) then
+		HubNextMap("Hub_Arena", "From_Cafe")
+	else
+		Dialog("MID_Hub_Arena_Closed")
+	end
+
+end
+
+function ToArena2()
+
+	if (HubIsCompleteChapter("M005")) then
+		HubNextMap("Hub_Arena", "From_Corridor")
+	else
+		Dialog("MID_Hub_Arena_Closed")
+	end
+
+end
+
+-- 紋章士の間へ移動
+function ToGodRoom()
+
+	if (HubIsCompleteChapter("M004")) then
+		HubNextMap("Hub_GodRoom", "From_Solanel")
+	else
+		Dialog("MID_Hub_Arena_Closed")
+	end
+
+end
+
+-- 岬の塔へ移動
+function ToCapeHouse()
+
+	HubNextMap("Hub_CapeHouse", "From_Cape")
+
+end

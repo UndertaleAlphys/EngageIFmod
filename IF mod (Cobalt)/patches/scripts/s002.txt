@@ -1,0 +1,370 @@
+Include("Common")
+g_pid_lueur = "PID_リュール"
+g_key_Boss_act = "ボス初回行動_済"
+g_key_reinforcement = "増援_Lunatic_済"
+g_key_anna_dead = "S_アンナ_死亡"
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_S002_WIN" )
+	
+	変数登録()
+	イベント登録()
+	
+end
+
+function 変数登録()
+	VariableEntry( g_key_reinforcement, 0 )
+	VariableEntry( g_key_anna_dead, 0 )
+end
+	
+function イベント登録()
+	
+	EventEntryTurn(勝利条件_敵将フォーカス, 1, 1, FORCE_PLAYER, condition_true, "PID_S002_蛮族_お頭")
+
+	-- シーフ裏切り
+	-- EventEntryTurnAfter(シーフ裏切り, 1, 1, FORCE_ENEMY, "シーフ裏切り_済");
+	
+	-- 宝箱から緑軍登場
+	EventEntryTbox(宝箱から登場, 13, 3)
+	
+	-- アンナ仲間入り
+	EventEntryTalk(アンナ加入, g_pid_lueur, FORCE_PLAYER, "PID_アンナ", FORCE_ALLY, true, "アンナ会話_リュール_済")
+	
+	-- ボス
+	EventEntryBattleTalk(Talk, "PID_アンナ",	FORCE_ALL,		"PID_S002_蛮族_お頭", FORCE_ENEMY, true, "戦闘前会話_ボス_アンナ_済",	"MID_BT4")
+	EventEntryBattleTalk(Talk, "",				FORCE_PLAYER,	"PID_S002_蛮族_お頭", FORCE_ENEMY, true, "戦闘前会話_ボス_済",			"MID_BT3")
+	EventEntryDie(Talk, "PID_S002_蛮族_お頭", FORCE_ENEMY, "死亡セリフ_ボス_済", "MID_BT5")
+	
+	-- アンナ
+	EventEntryBattleTalk(Talk, "", FORCE_ENEMY, "PID_アンナ", FORCE_ALLY, true, "戦闘前会話_アンナ_済", "MID_BT1");
+	--EventEntryDie(Talk, "PID_アンナ", FORCE_ALL, "死亡会話_アンナ_済", "MID_DIE_LOCAL_Anna")
+	
+	-- アンナ死亡
+	EventEntryDie(EmptyFunction, "PID_アンナ", FORCE_ALL, "S_アンナ_死亡")
+	
+	-- 宝箱
+	EventEntryTbox(宝箱入手, 11, 3, "IID_2000G");
+	EventEntryTbox(宝箱入手, 15, 3, "IID_女神の像");
+	
+	-- 戦闘後増援
+	EventEntryBattleAfter(EmptyFunction, "PID_S002_蛮族_お頭", FORCE_ENEMY, "", FORCE_ALL, true, g_key_Boss_act)
+	EventEntryTurn(増援_Lunatic, -1, -1, FORCE_PLAYER, condition_増援_Lunatic)
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 3, 5, "PID_リュール", condition_true)
+
+end
+
+function シーフ裏切り()
+	CursorSetPos(11, 9);
+	MapCameraWait();
+	CursorSetPos(15, 9);
+	MapCameraWait();
+
+	TalkBeginContinue()
+	Talk("MID_EV5_INIT");
+	Talk("MID_EV5");
+	TalkEndContinue()
+end
+
+function Cleanup()
+	
+	Log("Cleanup");
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening");
+	
+	FadeInAndWait(FADE_SLOW)
+		PuppetDemo( "S002", "MID_OP1")
+	FadeOutAndWait(FADE_NORMAL)
+	
+end
+
+
+function MapOpening()
+	
+	Log("MapOpening");
+	
+	-- -----------------------------------
+	
+	FadeOutAndWait(FADE_FAST)
+	
+	-- 宝箱を開けておく
+	MapObjectAction( 13, 3, MAP_ACTION_DONE)
+	
+	CursorSetPos(13,5)
+	CursorSetDistanceMode(CURSOR_DISTANCE_NEAR)
+	MapCameraWait()
+	
+	FadeInAndWait(FADE_FAST)
+	
+	Talk("MID_OP2")
+	
+	-- 宝箱見る
+	CursorAnimeCreate(13, 3)
+	CursorAnimeDelete()
+	
+	-- アンナを見る
+	CursorSetPos_FromPid_DistanceModeNear("PID_アンナ")
+	
+	Talk("MID_OP3")
+	
+	-- 離脱
+	if UnitExistOnMap("PID_アンナ") then
+		UnitMovePos("PID_アンナ", 13, 4, MOVE_FLAG_ESCAPE)
+		UnitMoveWait()
+		UnitDelete("PID_アンナ")
+	end
+	
+	-- 宝箱を閉じる
+	MapObjectAction( 13, 3, MAP_ACTION_IDLE)
+	
+	
+	盗賊たちを配置()
+	
+	WaitTime(0.5);
+	
+	CursorSetPos(13,7);
+	MapCameraWait();
+	
+	Talk("MID_OP4")
+	
+	CursorSetPos(13,3);
+	MapCameraWait();
+	
+	Talk("MID_OP5")
+	
+	-- -----------------------------------
+	
+	リュールたち入場()
+	
+	Talk("MID_OP6")
+	
+end
+
+-- ---------------------------------------------------------
+
+function 盗賊たちを配置()
+	
+	UnitMovePos("PID_S002_IFMOD_蛮族_ランスアーマー_中央",		13, 7, MOVE_FLAG_ESCAPE)
+	UnitMovePos("PID_S002_IFMOD_蛮族_ロッドナイト_中央",			13, 8, MOVE_FLAG_ESCAPE)
+	UnitRotation("PID_S002_IFMOD_蛮族_ランスアーマー_中央", ROTATE_DOWN)
+	UnitRotation("PID_S002_IFMOD_蛮族_ロッドナイト_中央", ROTATE_DOWN)
+	UnitMoveWait()
+	
+end
+
+function リュールたち入場()
+	
+	-- リュール達一旦退避
+	UnitSetPosFromPos( 2, 4, 2, 2)
+	UnitSetPosFromPos( 3, 3, 3, 1)
+	UnitSetPosFromPos( 4, 4, 4, 2)
+	UnitSetPosFromPos( 3, 5, 3, 3)
+	
+	UnitSetPosFromPos(22,18,22,19)
+	UnitSetPosFromPos(23,19,23,20)
+	UnitSetPosFromPos(24,18,24,19)
+	UnitSetPosFromPos(23,17,23,18)
+	UnitMoveWait()
+	
+	CursorSetPos(3,4)
+	MapCameraWait()
+	
+	-- リュール達登場
+	UnitMovePosFromPos( 3, 3, 3, 5)
+	UnitMovePosFromPos( 4, 2, 4, 4)
+	UnitMovePosFromPos( 3, 1, 3, 3)
+	UnitMovePosFromPos( 2, 2, 2, 4)
+	UnitMoveWait()
+	WaitTime(0.5)
+	
+	CursorSetPos(23,18)
+	MapCameraWait()
+	
+	UnitMovePosFromPos(23,18,23,17)
+	UnitMovePosFromPos(24,19,24,18)
+	UnitMovePosFromPos(23,20,23,19)
+	UnitMovePosFromPos(22,19,22,18)
+	UnitMoveWait()
+	WaitTime(0.5)
+	
+	CursorSetPos(3,4)
+	MapCameraWait()
+	WaitTime(0.5)
+	
+end
+
+-- ---------------------------------------------------------
+
+function 宝箱から登場()
+	
+	local force = MindGetForce()
+	if force == FORCE_ENEMY then
+		
+		Talk("MID_EV1")
+		
+		EventOpenObject()
+		WaitTime(1.0)
+		
+		-- アンナ登場
+		Dispos("Ally_Tbox", DISPOS_FLAG_FORCED)
+		Yield()
+		WaitTime(0.5)
+		
+		TalkBeginContinue()
+		Talk("MID_EV2")
+		Talk("MID_EV3")
+		TalkEndContinue()
+		
+		CursorSetPos_FromPid( g_pid_lueur )
+		Talk("MID_EV4")
+		Tutorial("TUTID_会話")
+		
+	else
+		
+		EventOpenObject()
+		WaitTime(1.0)
+		
+		-- アンナ登場
+		Dispos("Ally_Tbox", DISPOS_FLAG_FORCED)
+		Yield()
+		WaitTime(0.5)
+		
+		local unit = MindGetUnit()
+		if UnitGetPID( unit ) == g_pid_lueur then
+			
+			TalkBeginContinue()
+			Talk( "MID_EV2" )
+			Talk( "MID_EV5" )
+			TalkEndContinue()
+			
+			local pid = "PID_アンナ"
+			if UnitExistOnMap( pid ) then
+				UnitJoin( pid )
+			end
+			
+			VariableSet( "アンナ会話_リュール_済", 1 )
+			
+		else
+			
+			TalkBeginContinue()
+			Talk("MID_EV2")
+			Talk("MID_EV3")
+			TalkEndContinue()
+			
+			CursorSetPos_FromPid( g_pid_lueur )
+			Talk("MID_EV4")
+			Tutorial("TUTID_会話")
+			
+		end
+		
+	end
+	
+end
+
+-- ---------------------------------------------------------
+
+function アンナ加入()
+	
+	TalkBeginContinue()
+	Talk("MID_EV5_INIT")
+	Talk("MID_EV5")
+	TalkEndContinue()
+	
+	local pid = "PID_アンナ"
+	if UnitExistOnMap( pid ) then
+		UnitJoin( pid );
+	end
+	
+	VariableSet( "アンナ会話_リュール_済", 1 )
+end
+
+-- ---------------------------------------------------------
+
+function condition_増援_Lunatic()
+	
+	if VariableGet( g_key_reinforcement ) == 1 then
+		return false
+	end
+	
+	if VariableGet( g_key_Boss_act ) == 1 then
+		return true
+	end
+	
+	return 	false
+	
+end
+
+-- -----------------------------------
+
+function 増援_Lunatic()
+	
+end
+
+-- -----------------------------------
+
+function EmptyFunction()
+	-- なにも処理しない
+	-- 空のイベント関数
+end
+
+-- ---------------------------------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding");
+	
+	if VariableGet( "宝_13_3" ) == 0 then
+		
+		CursorSetPos(13, 3)
+		MapCameraWait()
+		
+		-- アンナ登場
+		Dispos("Ally_Tbox", DISPOS_FLAG_FORCED)
+		Yield()
+		WaitTime(0.5)
+		
+		Talk( "MID_EV6" )
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+function Ending()
+	
+	Log("Ending");
+	
+end
+
+function GameOver()
+	
+	Log("GameOver");
+	
+end

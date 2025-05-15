@@ -1,0 +1,343 @@
+Include("Common")
+Include("Common_E")
+
+g_pid_lueur				= "PID_リュール"
+
+g_key_highTide			= "満潮"
+g_key_highTide_turn		= "満ち引きターン"
+
+map_width				= 32
+map_height				= 24
+
+g_key_bandit			= "蛮族登場_済"
+g_key_houseDestroy		= "S_民家破壊_済"
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	-- 勝利条件設定：敵将撃破
+	WinRuleSetDestroyBoss(true)
+	WinRuleSetMID( "MID_RULE_M016_WIN" )
+	
+	変数登録()
+	イベント登録()
+	
+end
+
+function 変数登録()
+	
+	VariableEntry( g_key_highTide, 0 )
+	VariableEntry( g_key_highTide_turn, 1 )
+	VariableEntry( g_key_bandit, 0 )
+	VariableEntry( g_key_houseDestroy, 0 )
+	
+	E_BattleTalk_VariableEntry()
+	
+end
+
+function イベント登録()
+	
+	EventEntryTurn(進撃開始直後イベント, 1, 1,  FORCE_PLAYER)
+	EventEntryTurn( 勝利条件, 1, 1, FORCE_PLAYER )
+	
+	EventEntryPickup(チュートリアル_エイリーク, "PID_ロサード", "チュートリアル_エイリーク_済")
+	
+	EventEntryTurn(潮の満ち引き, 2, -1, FORCE_PLAYER, condition_潮の満ち引き)
+	
+	EventEntryTurn(蛮族登場, 2, 2, FORCE_PLAYER, condition_蛮族登場)
+	EventEntryTurn(蛮族登場, 4, 4, FORCE_PLAYER, condition_蛮族登場_ノーマル)
+	
+	EventEntryTurn(増援１, 6, 6, FORCE_PLAYER)
+	EventEntryTurn(増援２, 10, 10, FORCE_PLAYER)
+	
+	-- ボス
+	E_BattleTalkEntry_Marron( "PID_M016_マロン" )
+	EventEntryBattleTalk(Talk, "PID_ロサード",		FORCE_PLAYER, "PID_M016_マロン", FORCE_ENEMY, true, "戦闘前_マロン_ロサード・ゴルドマリー_済",	"MID_BT2")
+	EventEntryBattleTalk(Talk, "PID_ゴルドマリー",	FORCE_PLAYER, "PID_M016_マロン", FORCE_ENEMY, true, "戦闘前_マロン_ロサード・ゴルドマリー_済",	"MID_BT2")
+	EventEntryBattleTalk(Talk, "",					FORCE_PLAYER, "PID_M016_マロン", FORCE_ENEMY, true, "戦闘前_マロン_済",							"MID_BT1")
+	EventEntryDie(Talk, "PID_M016_マロン", FORCE_ENEMY, condition_true, "MID_BT4")
+	
+	EventEntryBattleTalk(Talk, "PID_ロサード",		FORCE_PLAYER, "PID_M016_モーヴ", FORCE_ENEMY, true, "戦闘前_モーヴ_ロサード・ゴルドマリー_済",	"MID_BT6")
+	EventEntryBattleTalk(Talk, "PID_ゴルドマリー",	FORCE_PLAYER, "PID_M016_モーヴ", FORCE_ENEMY, true, "戦闘前_モーヴ_ロサード・ゴルドマリー_済",	"MID_BT6")
+	EventEntryBattleTalk(Talk, "",					FORCE_PLAYER, "PID_M016_モーヴ", FORCE_ENEMY, true, "戦闘前_モーヴ_済",							"MID_BT5")
+	EventEntryDie(Talk, "PID_M016_モーヴ", FORCE_ENEMY, condition_true, "MID_BT8")
+	
+	EventEntryVisit(訪問イベント, 5, 20)
+	EventEntryDestroy(民家破壊_フラグセット, 5, 20, 5, 20,	4, 21, 5, 22,	g_key_houseDestroy)
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 27, 11, "PID_リュール", condition_true)
+	
+end
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	PuppetDemo("M016", "MID_OP1")
+	PuppetDemo("M016", "MID_OP2")
+	PuppetDemo("M016", "MID_OP3")
+	PuppetDemo("M016", "MID_OP4")
+	
+end
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+	-- -----------------------------------
+	
+	FadeOutAndWait(FADE_FAST)
+	
+	CursorSetPos_FromPid( g_pid_lueur )
+	
+	FadeInAndWait(FADE_FAST)
+	FadeWait()
+	
+	Talk("MID_OP5")
+	
+	Dispos( "Ally_Rosado", DISPOS_FLAG_NONE )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Dispos( "Ally_Goldmary", DISPOS_FLAG_NONE )
+	Yield()
+	WaitTime( 0.5 )
+	
+	FadeOutAndWait(FADE_FAST)
+		PuppetDemo("M016", "MID_OP6")
+		Movie("Kengen11")
+		SkipEscape()
+	FadeInAndWait(FADE_FAST)
+	
+	Talk("MID_OP7")
+	
+	UnitCreateGodUnit( "PID_ロサード", "GID_エイリーク" )
+	UnitSetEngageCount( "PID_ロサード", 7 )
+	
+	-- -----------------------------------
+	
+	Dispos( "Reinforcement_4dogs", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Talk("MID_EV1")
+	
+	UnitRotation("PID_ロサード",		ROTATE_LEFT)
+	UnitRotation("PID_ゴルドマリー",	ROTATE_LEFT)
+	CursorSetPos_FromPid( g_pid_lueur )
+	
+end
+
+-- -----------------------------------
+
+function 進撃開始直後イベント()
+	
+	-- 緑軍→青軍
+	UnitJoin( "PID_ロサード", "PID_ゴルドマリー" )
+	WaitTime( 0.5 )
+	
+	CursorSetPos_FromPid( "PID_ゴルドマリー" )
+	
+	潮の満ち引き()
+	
+	Talk( "MID_EV2" )
+	
+end
+
+-- -----------------------------------
+
+function チュートリアル_エイリーク()
+	
+	local pid = "PID_M016_イルシオン兵_異形竜"
+	CursorAnimeCreate_FromPid( pid, "W2H2" )
+	
+	Talk( "MID_EV3" )
+	
+	if UnitExistOnMap( pid ) then
+		CursorAnimeDelete()
+	end
+	
+	Tutorial( "TUTID_紋章士エイリーク" )
+	
+end
+
+-- -----------------------------------
+
+function condition_潮の満ち引き()
+	
+	local turn = VariableGet( g_key_highTide_turn )
+	
+	if turn == 1 then
+		VariableSet( g_key_highTide_turn, 0 )
+		return true
+	else
+		VariableSet( g_key_highTide_turn, turn + 1 )
+		return false
+	end
+	
+end
+
+function 潮の満ち引き()
+	
+	if VariableGet( g_key_highTide ) == 1 then
+		--Dialog("潮が引く")
+		
+		MapObjectAction( 9, 1, MAP_ACTION_IDLE)
+		マップ全体の地形変化( "TID_浅瀬", "TID_砂浜_M016" )
+		
+		VariableSet( g_key_highTide, 0 )
+	else
+		--Dialog("潮が満ちる")
+		
+		MapObjectAction( 9, 1, MAP_ACTION_DONE)
+		マップ全体の地形変化( "TID_砂浜_M016", "TID_浅瀬" )
+		
+		VariableSet( g_key_highTide, 1 )
+	end
+	
+end
+
+function マップ全体の地形変化( fromTid, toTid )
+	
+	TerrainSetBegin()
+	for x = 0, map_width-1 do
+		for z = 0, map_height-1 do
+			if TerrainGet(x, z) == fromTid then
+				TerrainSet(x, z, toTid)
+			end
+		end
+	end
+	TerrainSetEnd()
+	
+end
+
+-- -----------------------------------
+
+function condition_蛮族登場()
+	
+	if VariableGet( g_key_bandit ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		return true
+	end
+	
+	return false
+	
+end
+
+function condition_蛮族登場_ノーマル()
+	
+	if VariableGet( g_key_bandit ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		return true
+	end
+	
+	return false
+	
+end
+
+function 蛮族登場()
+	
+	Dispos( "Bandit", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	VariableSet( g_key_bandit, 1 )
+	
+end
+
+-- -----------------------------------
+
+function 増援１()
+	
+	Dispos( "Reinforcement1_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Dispos( "Reinforcement1_2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+end
+
+-- -----------------------------------
+
+function 増援２()
+	
+	Dispos( "Reinforcement2_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Dispos( "Reinforcement2_2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Dispos( "Reinforcement2_3", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Dispos( "Reinforcement2_4", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+end
+
+-- -----------------------------------
+
+function 訪問イベント()
+	
+	Talk( "MID_EV4" )
+	ItemGain( MindGetUnit(), "IID_リカバー" )
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end

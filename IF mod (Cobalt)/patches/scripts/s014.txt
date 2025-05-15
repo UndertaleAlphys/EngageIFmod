@@ -1,0 +1,254 @@
+Include("Common")
+g_pid_lueur = "PID_リュール"
+
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	Startup_紋章士外伝_対象紋章士を一時的に無効化( "GID_マルス" )
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_S014_WIN" )
+	
+	変数登録()
+	イベント登録()
+	
+end
+
+-- -----------------------------------
+
+function 変数登録()
+	VariableEntry("玉座侵入", 0)
+
+	VariableEntry( "増援開始", 0 )
+	VariableEntry( "下増援カウント", 0 )
+	VariableEntry( "右増援カウント", 0 )
+	VariableEntry( "宝箱増援カウント", 0 )
+end
+
+-- -----------------------------------
+
+function イベント登録()
+	EventEntryTurn(開始直後, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
+
+	EventEntryBattleTalk(Talk, "PID_S014_マルス", FORCE_ENEMY, g_pid_lueur,			FORCE_PLAYER, true, "戦闘前会話_マルス_リュール_済", "MID_BT1")
+	EventEntryBattleTalk(Talk, "PID_S014_マルス", FORCE_ENEMY, "PID_ヴェイル",		FORCE_PLAYER, true, "戦闘前会話_マルス_ヴェイル_済", "MID_BT2")
+	
+--	EventEntryArea(玉座の間侵入, 18,12, 27, 25, FORCE_PLAYER, "玉座侵入")
+	EventEntryTurn(玉座の間侵入, -1, -1, FORCE_PLAYER)
+
+
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		-- 増援
+		EventEntryTurn(下増援, 10,10, FORCE_PLAYER);
+
+	elseif DifficultyGet() == DIFFICULTY_LUNATIC then
+		-- 増援
+		EventEntryTurn(下増援, 8,10, FORCE_PLAYER);
+
+	else
+		-- 増援
+		EventEntryTurn(下増援, 9,10, FORCE_PLAYER);
+	end
+
+	-- 特殊増援
+	EventEntryTurn(扉開閉増援, -1, -1, FORCE_PLAYER)
+--	EventEntryTurn(宝箱増援, -1, -1, FORCE_PLAYER)
+
+	-- 宝箱
+	EventEntryTbox(宝箱入手, 4,  9, "IID_特効薬")
+	EventEntryTbox(宝箱入手, 7,  9, "IID_速さの薬")
+	EventEntryTbox(宝箱入手, 5,  7, "IID_銀の大斧")
+	EventEntryTbox(宝箱入手, 8,  7, "IID_毒消し")
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 14, 8, "PID_リュール", condition_true)
+
+end
+
+-- -----------------------------------
+
+function Cleanup()
+	
+	Log("Cleanup")
+
+	Cleanup_紋章士外伝_対象紋章士の無効化解除( "GID_マルス" )
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	PuppetDemo("S014", "MID_OP1")
+	
+end
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+end
+
+function 開始直後()
+	
+	CursorAnimeCreate_FromPid("PID_S014_マルス")
+	Talk( "MID_EV1" )
+	CursorAnimeDelete()
+	
+end
+
+-- -----------------------------------
+
+function EmptyFunction()
+end
+
+function 玉座の間侵入()
+
+	if VariableGet( "玉座侵入" ) == 0 then
+		if AiGetActive( "PID_S014_マルス" ) == true then
+			
+			CursorAnimeCreate_FromPid("PID_S014_マルス")
+			Talk( "MID_EV2" )
+			CursorAnimeDelete()
+			
+
+			CursorSetPos(22, 12 )
+			WaitTime(2.0)
+
+--			EventBrokenObject(22, 12)
+--			TerrainSetOne( 22,12, "TID_床" )
+			EventOpenDoor(22,12)
+			VariableSet("玉座侵入", 1)
+--			VariableSet("右増援カウント", 0)
+			
+		end
+	end
+
+end
+
+-- -----------------------------------
+function 下増援()
+	
+	Dispos("Enemy_Reinforcement2_3", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+	
+end
+
+
+function 扉開閉増援()
+
+
+	if VariableGet( "増援開始" ) == 1 then
+		VariableInc("右増援カウント", 0, 8)
+
+		if (VariableGet( "右増援カウント" ) + 1 ) % 2 == 1 then
+			Dispos("Enemy_Reinforcement1", DISPOS_FLAG_FOCUS)
+			Yield()
+			WaitTime(0.5)
+		else
+--			if VariableGet( "玉座侵入" ) == 1 then
+--				Dispos("Enemy_Reinforcement1_2", DISPOS_FLAG_FOCUS)
+--				Yield()
+--				WaitTime(0.5)
+--			end
+		end
+
+		if VariableGet( "玉座侵入" ) == 1 then
+--			if VariableGet( "右増援カウント" )  > 3 then
+--				VariableInc("下増援カウント", 0, 10)
+--				if (VariableGet( "下増援カウント" ) + 1 ) % 2 == 1 then
+--					Dispos("Enemy_Reinforcement2", DISPOS_FLAG_FOCUS)
+--					Yield()
+--					WaitTime(0.5)
+--				else
+--					Dispos("Enemy_Reinforcement2_2", DISPOS_FLAG_FOCUS)
+--					Yield()
+--					WaitTime(0.5)
+--				end
+--			end
+		end
+	end
+
+	if TerrainGet(22,12) == "TID_床" then
+		VariableSet( "増援開始", 1 )
+	end
+
+
+end
+
+function 宝箱増援()
+
+	if VariableGet( "宝箱増援カウント" ) < 2 then
+		tbox = 0
+		if TerrainGet(4,9) == "TID_空宝箱" then
+			tbox = 1
+		elseif TerrainGet(7,9) == "TID_空宝箱" then
+			tbox = 1
+		elseif TerrainGet(5,7) == "TID_空宝箱" then
+			tbox = 1
+		elseif TerrainGet(8,7) == "TID_空宝箱" then
+			tbox = 1
+		end
+
+		if tbox == 1 then
+			VariableInc("宝箱増援カウント", 0, 3)
+			if VariableGet( "宝箱増援カウント" ) == 1 then
+				Dispos("Enemy_Reinforcement2_3", DISPOS_FLAG_FOCUS)
+				Yield()
+				WaitTime(0.5)
+			end
+		end
+	end
+
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+
+-- -----------------------------------
+
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+	FadeInAndWait(FADE_NORMAL)
+	PuppetDemo("S014", "MID_ED1" )
+	FadeOutAndWait(FADE_NORMAL)
+	
+	紋章士外伝_レベルキャップ開放( "マルス", "S014" )
+	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end

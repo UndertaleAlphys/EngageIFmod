@@ -1,0 +1,337 @@
+Include("Common")
+Include("Common_E")
+
+g_pid_lueur = "PID_リュール"
+g_pid_boss = "PID_M020_グリ"
+
+g_key_warp_first_event	= "グリ_ライナワープ初回_イベント_済"
+g_key_warp_end			= "グリ_ライナワープ終了_済"
+g_key_warp_end_event	= "グリ_ライナワープ終了イベント_済"
+
+g_key_thief				= "盗賊登場_済"
+
+
+g_last_warp_x			= 10
+g_last_warp_z			= 25
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )		-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_M020_WIN" )
+	
+	フラグ登録()
+	イベント登録()
+	
+end
+
+function フラグ登録()
+	
+	VariableEntry( g_key_warp_first_event, 0 )
+	VariableEntry( g_key_warp_end, 0 )
+	VariableEntry( g_key_warp_end_event, 0 )
+	
+	VariableEntry( g_key_thief, 0 )
+	
+	E_BattleTalk_VariableEntry()
+	
+end
+
+function イベント登録()
+	
+	EventEntryTurn(青軍１ターン直前,				1,	1,	FORCE_PLAYER)
+	EventEntryTurn(勝利条件,						1,	1,	FORCE_PLAYER )
+	
+	EventEntryTurn(盗賊登場,						4,	4,	FORCE_PLAYER, condition_盗賊登場_ノーマル)
+	EventEntryTurn(盗賊登場,						2,	2,	FORCE_PLAYER, condition_盗賊登場)
+	
+	
+	-- 宝箱
+	EventEntryTbox(宝箱入手,  1, 24, "IID_銀の大剣")
+	EventEntryTbox(宝箱入手,  3, 24, "IID_レスキュー")
+	
+	EventEntryTbox(宝箱入手, 17, 24, "IID_勇者の弓")
+	EventEntryTbox(宝箱入手, 19, 24, "IID_秘伝の書")
+	
+	-- グリ
+	E_BattleTalkEntry_Gris( g_pid_boss )
+	EventEntryBattleTalk(Talk, g_pid_lueur,	FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_グリ_リュール_済",	"MID_BT2")
+	EventEntryBattleTalk(Talk, "",			FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_グリ_済",			"MID_BT1")
+	
+	EventEntryReviveBefore(	グリ暴走前, g_pid_boss, FORCE_ENEMY, "グリ暴走前_済" )
+	EventEntryReviveAfter(	グリ暴走後, g_pid_boss, FORCE_ENEMY, "グリ暴走後_済" )
+	
+	EventEntryDie(Talk, g_pid_boss, FORCE_ENEMY, condition_true, "MID_BT3")
+	
+	-- グリのAI関係
+	EventEntryFixed( グリ_ライナワープ初回イベント,	g_pid_boss, FORCE_ENEMY, condition_グリ_ライナワープ初回イベント )
+	EventEntryFixed( グリ_ライナワープ終了イベント,	g_pid_boss, FORCE_ENEMY, condition_グリ_ライナワープ終了イベント )
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 10, 3, "PID_リュール", condition_true)
+	
+end
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	PuppetDemo("M020", "MID_OP1")
+	PuppetDemo("M020", "MID_OP2")
+	PuppetDemo("M020", "MID_OP3")
+	
+end
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+	UnitSetItemEquip( g_pid_boss, "IID_セリカ_ライナロック" )
+	
+	AiSetRejectPower0Attack(g_pid_boss, false)
+	ライナワープ回数設定()
+	
+end
+
+function ライナワープ回数設定()
+	
+	-- グリのライナワープの回数を設定	
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		AiSetRerewarp( g_pid_boss, 2, g_last_warp_x, g_last_warp_z, g_key_warp_end )
+	else
+		AiSetRerewarp( g_pid_boss, 4, g_last_warp_x, g_last_warp_z, g_key_warp_end )
+	end
+	
+end
+
+-- -----------------------------------
+
+function 青軍１ターン直前()
+	
+	CursorSetPos_FromPid( g_pid_boss )
+	PlayFieldBgm(FORCE_PLAYER)
+	Talk( "MID_EV1" )
+	
+	グリがワープする()
+	
+	CursorSetPos_FromPid( g_pid_lueur )
+	Talk( "MID_EV2" )
+	
+end
+
+-- -----------------------------------
+
+function condition_盗賊登場_ノーマル()
+	
+	if VariableGet( g_key_thief ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		return true
+	end
+	
+	return false
+	
+end
+
+function condition_盗賊登場()
+	
+	if VariableGet( g_key_thief ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		return true
+	end
+	
+	return false
+	
+end
+
+function 盗賊登場()
+	
+	Dispos( "Theif_1_2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Dispos( "Theif_1_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	VariableSet( g_key_thief, 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_グリ_ライナワープ初回イベント()
+	
+	if VariableGet( g_key_warp_first_event ) == 1 then
+		return false
+	end
+	
+	if VariableGet( g_key_warp_end_event ) == 1 then
+		return false
+	end
+	
+	if VariableGet( g_key_warp_end ) == 1 then
+		return false
+	end
+	
+	return true
+	
+end
+
+function グリ_ライナワープ初回イベント()
+	
+	Talk( "MID_EV3" )
+	VariableSet( g_key_warp_first_event, 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_グリ_ライナワープ終了イベント()
+	
+	if VariableGet( g_key_warp_end_event ) == 1 then
+		return false
+	end
+	
+	if VariableGet( g_key_warp_end ) == 1 then
+		return true
+	end
+	
+	return false
+	
+end
+
+function グリ_ライナワープ終了イベント()
+	
+	CursorSetPos_FromPid( g_pid_boss )
+	
+	Talk( "MID_EV4" )
+	
+	--グリのAI変更
+	AiSetActive(g_pid_boss, false)
+	AiSetBandNo(g_pid_boss, 1)
+	AiSetSequence(g_pid_boss, AI_ORDER_ATTACK, "AI_AT_AttackCS", "")
+	AiSetSequence(g_pid_boss, AI_ORDER_MOVE, "AI_MV_WeakEnemy", "")
+	
+	VariableSet( g_key_warp_end_event, 1 )
+	
+end
+
+-- -----------------------------------
+
+function グリ暴走前()
+	CursorSetPos_FromPid( g_pid_boss )
+	Talk( "MID_EV5" )
+end
+
+function グリ暴走後()
+	CursorSetPos_FromPid( g_pid_boss )
+	Talk( "MID_EV6" )
+	
+	
+	-- ワープ強制終了
+	if VariableGet( g_key_warp_end_event ) == 0 then
+		
+		VariableSet( g_key_warp_end, 1 )
+		
+		
+		-- ワープアウト
+				EffectPlay( "ワープアウト_闇", UnitGetX( g_pid_boss ), UnitGetZ( g_pid_boss ) )
+				WaitTime( 0.3 )
+				
+				UnitSetPos( g_pid_boss, 10, 1 )
+				UnitMoveWait()
+		
+		
+		CursorSetPos( g_last_warp_x, g_last_warp_z )
+		WaitTime( 0.3 )
+		MapCameraWait()
+		
+		
+		-- ワープイン
+				UnitSetPos( g_pid_boss, g_last_warp_x, g_last_warp_z )
+				UnitMoveWait()
+				
+				EffectPlay( "ワープイン_闇", UnitGetX( g_pid_boss ), UnitGetZ( g_pid_boss ) )
+				WaitTime( 0.3 )
+		
+		
+		グリ_ライナワープ終了イベント()
+		
+	end
+end
+
+-- -----------------------------------
+
+function グリがワープする()
+	
+	local pos = AiGetRerewarpPosition( g_pid_boss )
+		
+	if pos != nil then
+		
+		EffectPlay( "ワープアウト_闇", UnitGetX( g_pid_boss ), UnitGetZ( g_pid_boss ) )
+		WaitTime( 0.3 )
+		
+		UnitSetPos( g_pid_boss, pos["x"], pos["z"] )
+		UnitMoveWait()
+		WaitTime( 1.5 )
+		
+	else
+		
+		Warning( "エラー：グリの初回ワープ失敗" )
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end
+

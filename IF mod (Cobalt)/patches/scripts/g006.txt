@@ -1,0 +1,753 @@
+Include("Common")
+Include("Common_P0")
+
+g_pid_lueur						= "PID_リュール"
+g_pid_bossA						= "PID_G006_クロム"
+g_pid_bossA2					= "PID_G006_クロム_移動－１"
+g_pid_bossB						= "PID_G006_ルフレ"
+g_pid_bossB2					= "PID_G006_ルフレ_移動－１"
+
+g_CrystalMaxNum					= 3
+g_CrystalPos = {
+	{  2, 15 },
+	{ 13,  7 },
+	{ 24, 15 }
+}
+
+g_key_SortieNum					= "戦闘開始時出撃人数"
+g_key_BrokenCrystalNum			= "水晶破壊数"
+g_key_FirstBrokenCrystal		= "水晶破壊_初回_済"
+g_key_FirstResetCrystal			= "水晶リセット_初回_済"
+g_key_puddleOn_Judge			= "水たまり配置_判定"
+g_key_puddleOn					= "水たまり配置_済"
+g_key_BrokenBarrier				= "魔法障壁解除_済"
+g_key_ReinforcementBrokenBarrier= "障壁破壊後増援_済"
+
+g_key_battleTalk_chrom_lueur	= "戦闘会話_クロム_リュール_済"
+g_key_battleTalk_chrom_lucina	= "戦闘会話_クロム_ルキナ_済"
+g_key_battleTalk_reflet_lueur	= "戦闘会話_ルフレ_リュール_済"
+g_key_battleTalk_reflet_lucina	= "戦闘会話_ルフレ_ルキナ_済"
+
+
+g_key_ChromDie					= "クロム死亡_済"
+g_key_RobinDie					= "ルフレ死亡_済"
+
+
+g_width		= 27
+g_height	= 27
+g_puddleMap = {
+	0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,1,0,1,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,
+	0,0,0,0,1,0,0,0,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,
+	0,0,0,1,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,1,0,1,0,0,
+	0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,
+	0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,1,1,0,1,0,0,0,1,0,
+	1,0,0,1,1,1,0,1,0,0,0,0,0,0,0,1,1,0,1,0,0,0,1,0,0,
+	0,1,0,0,0,1,1,0,1,1,0,1,0,0,0,1,0,1,0,0,0,0,0,0,1,
+	0,0,1,0,1,0,1,0,1,0,1,0,1,1,1,0,1,1,1,0,1,0,0,0,0,
+	0,0,0,0,0,1,0,1,0,1,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,1,1,0,0,1,0,1,0,0,1,0,1,0,1,0,0,1,0,0,0,0,
+	0,0,0,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,
+	0,0,0,1,0,0,1,0,0,1,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,
+	0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+}
+
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup");
+	
+	Startup_神竜の章_対象紋章士を一時的に無効化( "GID_クロム" )
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_G006_WIN" )
+	
+	変数登録()
+	イベント登録()
+	
+end
+
+function 変数登録()
+	
+	VariableEntry( g_key_SortieNum,					0 )
+	VariableEntry( g_key_BrokenCrystalNum,			0 )
+	VariableEntry( g_key_FirstBrokenCrystal,		0 )
+	VariableEntry( g_key_FirstResetCrystal,			0 )
+	VariableEntry( g_key_puddleOn_Judge,			0 )
+	VariableEntry( g_key_puddleOn,					0 )
+	VariableEntry( g_key_BrokenBarrier,				0 )
+	VariableEntry( g_key_ReinforcementBrokenBarrier,0 )
+	VariableEntry( g_key_ChromDie,					0 )
+	VariableEntry( g_key_RobinDie,					0 )
+	VariableEntry( g_key_battleTalk_chrom_lueur,	0 )
+	VariableEntry( g_key_battleTalk_chrom_lucina,	0 )
+	VariableEntry( g_key_battleTalk_reflet_lueur,	0 )
+	VariableEntry( g_key_battleTalk_reflet_lucina,	0 )
+	
+end
+
+function イベント登録()
+	
+	EventEntryDestroy(水晶_破壊,		g_CrystalPos[1][1], g_CrystalPos[1][2])
+	EventEntryDestroy(水晶_破壊,		g_CrystalPos[2][1], g_CrystalPos[2][2])
+	EventEntryDestroy(水晶_破壊,		g_CrystalPos[3][1], g_CrystalPos[3][2])
+	
+	EventEntryTurn(進撃開始直後,		 1,  1, FORCE_PLAYER)
+	EventEntryTurn(勝利条件_紋章士にフォーカス,	 1,  1, FORCE_PLAYER)
+	EventEntryTurn(水晶_リセット,		 2, -1, FORCE_PLAYER, condition_水晶_リセット)
+	
+	EventEntryTurn(増援４ターンめ,		 4,  4, FORCE_PLAYER, condition_増援４ターンめ)
+	EventEntryTurn(増援６ターンめ,		 6,  6, FORCE_PLAYER, condition_増援６ターンめ)
+	
+	EventEntryTurn(増援_エリア奥,		 2, 50, FORCE_PLAYER, condition_増援_エリア奥)
+	
+	EventEntryFixed(EmptyFunction, "", FORCE_PLAYER, condition_プレイヤー軍ばらつきチェック)
+	EventEntryTurn(水浸しイベント,		-1, -1, FORCE_PLAYER, condition_水浸しイベント)
+	
+	EventEntryTurn(障壁破壊後増援,		-1, -1, FORCE_PLAYER, condition_障壁破壊後増援)
+	
+	EventEntryDie(EmptyFunction,		"PID_G006_クロム",		FORCE_ENEMY, g_key_ChromDie)
+	EventEntryDie(EmptyFunction,		"G006_クロム_移動－１",	FORCE_ENEMY, g_key_ChromDie)
+	
+	EventEntryDie(クロムエンゲ技AI変更, "PID_G006_ルフレ",		FORCE_ENEMY, g_key_RobinDie)
+	EventEntryDie(クロムエンゲ技AI変更, "G006_ルフレ_移動－１",	FORCE_ENEMY, g_key_RobinDie)
+	
+	EventEntryBattleTalk( クロム_リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, g_pid_bossA,	FORCE_ENEMY, true, g_key_battleTalk_chrom_lueur )
+	EventEntryBattleTalk( クロム_リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, g_pid_bossA2,	FORCE_ENEMY, true, g_key_battleTalk_chrom_lueur )
+	EventEntryBattleTalk( クロム_ルキナと戦闘,		"",				FORCE_PLAYER, g_pid_bossA,	FORCE_ENEMY, true, condition_クロム_ルキナと戦闘 )
+	EventEntryBattleTalk( クロム_ルキナと戦闘,		"",				FORCE_PLAYER, g_pid_bossA2,	FORCE_ENEMY, true, condition_クロム_ルキナと戦闘 )
+	EventEntryBattleTalk( ルフレ_リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, g_pid_bossB,	FORCE_ENEMY, true, g_key_battleTalk_reflet_lueur )
+	EventEntryBattleTalk( ルフレ_リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, g_pid_bossB2,	FORCE_ENEMY, true, g_key_battleTalk_reflet_lueur )
+	EventEntryBattleTalk( ルフレ_ルキナと戦闘,		"",				FORCE_PLAYER, g_pid_bossB,	FORCE_ENEMY, true, condition_ルフレ_ルキナと戦闘 )
+	EventEntryBattleTalk( ルフレ_ルキナと戦闘,		"",				FORCE_PLAYER, g_pid_bossB2,	FORCE_ENEMY, true, condition_ルフレ_ルキナと戦闘 )
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 13, 4, "PID_リュール", condition_true)
+end
+
+function Cleanup()
+	
+	Log("Cleanup");
+	
+	Cleanup_神竜の章_対象紋章士の無効化解除( "GID_クロム" )
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening");
+	
+	PuppetDemo("G006", "MID_OP1")
+	FadeInAndWait(FADE_NORMAL)
+	Movie("Kengen18")
+	SkipEscape()
+	FadeOutAndWait(FADE_NORMAL)
+	PuppetDemo("G006", "MID_OP2")
+
+end
+
+function MapOpening()
+	
+	Log("MapOpening");
+	
+	FadeOutAndWait( FADE_NORMAL )
+	
+	EffectCreate( "水晶障壁_ループ", 13, 15 )
+	クロムとルフレのスキル設定()
+	
+	FadeInAndWait( FADE_NORMAL )
+	
+end
+
+-- -----------------------------------
+
+function EmptyFunction()
+end
+
+-- -----------------------------------
+
+function クロムのPID取得()
+	
+	if UnitExistOnMap( g_pid_bossA2 ) then
+		return g_pid_bossA2
+		
+	end
+	
+	return g_pid_bossA
+	
+end
+
+-- -----------------------------------
+
+function ルフレのPID取得()
+	
+	if UnitExistOnMap( g_pid_bossB2 ) then
+		return g_pid_bossB2
+		
+	end
+	
+	return g_pid_bossB
+	
+end
+
+-- -----------------------------------
+
+function 進撃開始直後()
+	
+	CursorSetPos_FromPid( クロムのPID取得() )
+	
+	Talk( "MID_EV1" )
+	
+	CursorSetPos( 13, 16 )
+	MapCameraWait()
+	WaitTime( 1.0 )
+	Talk( "MID_EV2" )
+	
+	CursorAnimeCreate( g_CrystalPos[1][1], g_CrystalPos[1][2] )
+	CursorAnimeDelete()
+	
+	CursorAnimeCreate( g_CrystalPos[3][1], g_CrystalPos[3][2] )
+	CursorAnimeDelete()
+	
+	CursorAnimeCreate( g_CrystalPos[2][1], g_CrystalPos[2][2] )
+	Talk( "MID_EV3" )
+	CursorAnimeDelete()
+	
+	出撃人数のチェック()
+	
+end
+
+-- -----------------------------------
+
+function 出撃人数のチェック()
+	
+	local count = 0
+	local unit = ForceUnitGetFirst(FORCE_PLAYER)
+	while unit != nil do
+		count = count + 1
+		unit = ForceUnitGetNext(unit)
+	end
+	
+	VariableSet( g_key_SortieNum, count )
+	
+end
+
+-- -----------------------------------
+
+function 勝利条件_紋章士にフォーカス()
+	
+	CursorSetPos_FromPid( クロムのPID取得() )
+	
+	local x = UnitGetX( クロムのPID取得() )
+	local z = UnitGetZ( クロムのPID取得() )
+	MapObjectCreate("Eff_Cursor01", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_" .. "W1H1", x, z)
+	
+	x = UnitGetX( ルフレのPID取得() )
+	z = UnitGetZ( ルフレのPID取得() )
+	MapObjectCreate("Eff_Cursor02", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_" .. "W1H1", x, z)
+	
+	WaitTime( 2.0 )
+	
+	-- --------------------
+	
+	WinRule()
+	
+	-- --------------------
+	
+	MapObjectDelete( "Eff_Cursor01" )
+	MapObjectDelete( "Eff_Cursor02" )
+	
+end
+
+-- -----------------------------------
+
+function 水晶_破壊()
+	
+	
+	local num = VariableGet( g_key_BrokenCrystalNum )
+	num = num + 1
+	VariableSet( g_key_BrokenCrystalNum, num )
+	
+	
+	if ( num == g_CrystalMaxNum ) then
+		水晶_全破壊()
+	end
+	
+	
+	-- 初回破壊イベント
+	if VariableGet( g_key_FirstBrokenCrystal ) == 0 then
+		水晶_初回破壊イベント()
+	end
+	
+	
+end
+
+-- -----------------------------------
+
+function 水晶_初回破壊イベント()
+	CursorSetPos( 13, 15 )
+	MapCameraWait()
+	
+	Talk( "MID_EV4" )
+	
+	VariableSet( g_key_FirstBrokenCrystal, 1 )
+end
+
+-- -----------------------------------
+
+function 水晶_全破壊()
+	
+	Talk( "MID_EV8" )
+	
+	魔法障壁解除()
+	
+	クロムとルフレのスキル解除()
+	
+	if VariableGet( g_key_puddleOn ) == 0 then
+		水浸しイベント()
+	end
+	
+	VariableSet( g_key_BrokenBarrier, 1 )
+	
+end
+
+-- -----------------------------------
+
+function 魔法障壁解除()
+	
+	CursorSetPos( 13, 15 )
+	MapCameraWait()
+	
+	EffectPlay( "水晶障壁_破壊", 13, 15 )
+	EffectDelete( "水晶障壁_ループ", 13, 15 )
+	
+	TerrainFill(	13, 15, "TID_床" )
+	TerrainFill(	13, 18, "TID_床" )
+	TerrainFill(	13, 20, "TID_防衛床" )
+	
+	TerrainSetBegin()
+		TerrainSet(	 9,	21,	"TID_柱" )
+		TerrainSet(	 9,	23,	"TID_柱" )
+		TerrainSet(	17,	21,	"TID_柱" )
+		TerrainSet(	17,	23,	"TID_柱" )
+	TerrainSetEnd()
+	
+	Talk( "MID_EV9" )
+	
+end
+
+-- -----------------------------------
+
+function クロムとルフレのスキル設定()
+	
+	スキル装備( クロムのPID取得(), "SID_ダメージ無効化" )
+	スキル装備( ルフレのPID取得(), "SID_ダメージ無効化" )
+	
+end
+
+-- -----------------------------------
+
+function クロムとルフレのスキル解除()
+	
+	スキル解除( クロムのPID取得(), "SID_ダメージ無効化" )
+	スキル解除( ルフレのPID取得(), "SID_ダメージ無効化" )
+	
+end
+
+-- -----------------------------------
+
+function 水晶の最大HP()
+	if		モードはノーマル() then
+		return 30
+		
+	elseif	モードはハード() then
+		return 40
+		
+	elseif	モードはルナティック() then
+		return 50
+		
+	end
+end
+
+-- -----------------------------------
+
+function condition_水晶_リセット()
+	
+	if VariableGet( g_key_BrokenBarrier ) == 1 then
+		return false
+	end
+	
+	if VariableGet( g_key_SortieNum ) < 3 then
+		return false
+	end
+	
+	if		( VariableGet( "破壊_" .. tostring( g_CrystalPos[1][1] ) .. "_" .. tostring( g_CrystalPos[1][2] ) ) == 1 )
+		or	( VariableGet( "破壊_" .. tostring( g_CrystalPos[2][1] ) .. "_" .. tostring( g_CrystalPos[2][2] ) ) == 1 )
+		or	( VariableGet( "破壊_" .. tostring( g_CrystalPos[3][1] ) .. "_" .. tostring( g_CrystalPos[3][2] ) ) == 1 ) then
+		
+		return true
+	end
+	
+	return false
+	
+end
+
+-- -----------------------------------
+
+function 水晶_リセット()
+	
+	水晶_リセット個別( g_CrystalPos[1][1], g_CrystalPos[1][2] )
+	水晶_リセット個別( g_CrystalPos[2][1], g_CrystalPos[2][2] )
+	水晶_リセット個別( g_CrystalPos[3][1], g_CrystalPos[3][2] )
+	
+	-- 水晶リセットイベント（初回）
+	if VariableGet( g_key_FirstResetCrystal ) == 0 then
+		Talk( "MID_EV5" )
+		
+		VariableSet( g_key_FirstResetCrystal, 1 )
+	end
+	
+	VariableSet( g_key_BrokenCrystalNum, 0 )
+	
+end
+
+-- -----------------------------------
+
+function 水晶_リセット個別( x, z )
+	
+	local 破壊フラグ	= "破壊_" .. tostring( x ) .. "_" .. tostring( z )
+	local HPフラグ		= "破壊_HP_" .. tostring( x ) .. "_" .. tostring( z )
+	
+	if VariableGet( 破壊フラグ ) == 1 then
+		CursorSetPos( x, z )
+		MapCameraWait()
+		
+		EffectPlay( "水晶修復", x, z )
+		WaitTime( 0.5 )
+		EventStateObject( x, z, 0 )
+		
+		VariableSet( 破壊フラグ, 0 )
+		VariableSet( HPフラグ, 水晶の最大HP() )
+		TerrainSetOne( x, z, "TID_水晶_味方破壊" )
+		WaitTime( 1.0 )
+	end
+	
+end
+
+-- -----------------------------------
+
+function condition_プレイヤー軍ばらつきチェック()
+	
+	if VariableGet( g_key_puddleOn ) == 1 then
+		return false
+	end
+	
+	
+	-- ユニット配置のばらつきが大きくなりはじめたらイベント再生
+	
+	local center_x, center_z = プレイヤー軍の中心点を算出()
+	
+	local totalS = 0
+	local count = 0
+	
+	local unit = ForceUnitGetFirst(FORCE_PLAYER)
+	while unit != nil do
+		
+		local sx = math.abs( UnitGetX( unit ) - center_x )
+		local sz = math.abs( UnitGetZ( unit ) - center_z )
+		
+		totalS = totalS + sx + sz
+		count = count + 1
+		
+		unit = ForceUnitGetNext(unit)
+	end
+	
+	local aveS = totalS / count
+	-- Log( "標準偏差の平均は " .. tostring( aveS ) )
+	if aveS >= 5 then
+		VariableSet( g_key_puddleOn_Judge, 1 )
+	end
+	
+end
+
+-- -----------------------------------
+
+function condition_増援４ターンめ()
+	return ( VariableGet( g_key_ReinforcementBrokenBarrier ) == 0 ) 
+end
+
+function 増援４ターンめ()
+	
+	増援( "Reinforcement1_1", DISPOS_FLAG_FOCUS )
+	
+end
+
+-- -----------------------------------
+
+function condition_水浸しイベント()
+	
+	if VariableGet( g_key_puddleOn ) == 1 then
+		return false
+	end
+	
+	return ( VariableGet( g_key_puddleOn_Judge ) == 1 )
+	
+end
+
+function 水浸しイベント()
+	
+	CursorSetPos_FromPid_DistanceModeNear( ルフレのPID取得() )
+	Talk( "MID_EV6" )
+	
+	水浸し()
+	
+	CursorSetPos_FromPid( g_pid_lueur )
+	Talk( "MID_EV7" )
+	
+	増援( "Reinforcement2_1", DISPOS_FLAG_FOCUS )
+	増援( "Reinforcement2_2", DISPOS_FLAG_FOCUS )
+	増援( "Reinforcement2_3", DISPOS_FLAG_FOCUS )
+	増援( "Reinforcement2_4", DISPOS_FLAG_FOCUS )
+	
+	VariableSet( g_key_puddleOn, 1 )
+	
+end
+
+function 水浸し()
+	
+	MapOverlapSetBegin()
+	
+	for z = 1, g_height-2 do
+		for x = 1, g_width-2 do
+			
+			local key = x + ( z - 1 ) * ( g_width - 2 )
+			
+			if g_puddleMap[key] == 1 then
+				MapOverlapSet(x, z, "TID_水溜まり_永続")
+			end
+			
+		end
+	end
+	
+	MapOverlapSetEnd()
+	
+end
+
+-- -----------------------------------
+
+function condition_増援６ターンめ()
+	return ( VariableGet( g_key_ReinforcementBrokenBarrier ) == 0 ) and ( DifficultyGet() > DIFFICULTY_NORMAL )
+end
+
+function 増援６ターンめ()
+	
+	増援( "Reinforcement3_1", DISPOS_FLAG_FOCUS )
+	増援( "Reinforcement3_2", DISPOS_FLAG_FOCUS )
+	増援( "Reinforcement3_3", DISPOS_FLAG_FOCUS )
+	
+end
+
+-- -----------------------------------
+
+function condition_増援_エリア奥()
+	
+	return ( VariableGet( g_key_BrokenBarrier ) == 0 )
+	
+end
+
+function 増援_エリア奥()
+	
+	local turn = MapGetTurn()
+	local label = "Reinforcement_turn" .. tostring(turn)
+	
+	増援( label .. "L", DISPOS_FLAG_FOCUS )
+	増援( label .. "R", DISPOS_FLAG_FOCUS )
+	
+end
+
+-- -----------------------------------
+
+function condition_障壁破壊後増援()
+	
+	return ( VariableGet( g_key_ReinforcementBrokenBarrier ) == 0 ) and ( VariableGet( g_key_BrokenBarrier ) == 1 )
+	
+end
+
+function 障壁破壊後増援()
+	
+	増援( "Reinforcement4_1", DISPOS_FLAG_FOCUS )
+	増援( "Reinforcement4_2", DISPOS_FLAG_FOCUS )
+	増援( "Reinforcement4_3", DISPOS_FLAG_FOCUS )
+	
+	VariableSet( g_key_ReinforcementBrokenBarrier, 1 )
+	
+end
+
+-- -----------------------------------
+
+function クロムエンゲ技AI変更()
+	
+	if VariableGet( g_key_ChromDie ) == 0 then
+		
+		if UnitExistOnMap("PID_G006_クロム") then
+			AiSetSequence("PID_G006_クロム",			AI_ORDER_ATTACK, "AI_AT_Attack")
+		end
+		
+		if UnitExistOnMap("PID_G006_クロム_移動－１") then
+			AiSetSequence("PID_G006_クロム_移動－１",	AI_ORDER_ATTACK, "AI_AT_Attack")
+		end
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function 増援( dispos, disposFlag )
+	
+	Dispos( dispos, disposFlag )
+	Yield()
+	WaitTime( 0.5 )
+	
+end
+
+-- -----------------------------------
+
+function クロム_リュールと戦闘()
+	
+	Talk( "MID_BT2" )
+	
+	if condition_クロム_ルキナと戦闘() then
+		クロム_ルキナと戦闘()
+	end
+	
+end
+
+-- -----------------------------------
+
+function condition_クロム_ルキナと戦闘()
+	
+	if VariableGet( g_key_battleTalk_chrom_lucina ) == 1 then
+		return false
+	end
+	
+	
+	local god = nil
+	if MindGetForce() == FORCE_PLAYER then
+		god = UnitGetGodUnit( MindGetUnit() )
+	else
+		god = UnitGetGodUnit( MindGetTargetUnit() )
+	end
+	
+	return ( god == "GID_ルキナ" )
+	
+end
+
+function クロム_ルキナと戦闘()
+	
+	Talk( "MID_BT1" )
+	
+	VariableSet( g_key_battleTalk_chrom_lucina, 1 )
+	
+end
+
+-- -----------------------------------
+
+function ルフレ_リュールと戦闘()
+	
+	Talk( "MID_BT4" )
+	
+	if condition_ルフレ_ルキナと戦闘() then
+		ルフレ_ルキナと戦闘()
+	end
+	
+end
+
+-- -----------------------------------
+
+function condition_ルフレ_ルキナと戦闘()
+	
+	if VariableGet( g_key_battleTalk_reflet_lucina ) == 1 then
+		return false
+	end
+	
+	
+	local god = nil
+	if MindGetForce() == FORCE_PLAYER then
+		god = UnitGetGodUnit( MindGetUnit() )
+	else
+		god = UnitGetGodUnit( MindGetTargetUnit() )
+	end
+	
+	return ( god == "GID_ルキナ" )
+	
+end
+
+function ルフレ_ルキナと戦闘()
+	
+	Talk( "MID_BT3" )
+	
+	VariableSet( g_key_battleTalk_reflet_lucina, 1 )
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding");
+	
+end
+
+function Ending()
+	
+	Log("Ending");
+
+	PuppetDemo("G006", "MID_ED1")
+	
+	神竜の章_紋章士加入( "GID_クロム" )
+	
+	if GodUnitExists("GID_ルキナ") then
+		PuppetDemo("G006", "MID_ED2")
+	end
+	
+	FadeInAndWait(FADE_FAST)
+	Tutorial("TUTID_紋章士クロム")
+	
+end
+
+function GameOver()
+	
+	Log("GameOver");
+	
+end

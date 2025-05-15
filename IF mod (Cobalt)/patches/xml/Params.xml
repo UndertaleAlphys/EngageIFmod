@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Book Count="1">
+  <Sheet Name="パラメータ" Count="400">
+    <Header>
+      <Param Name="出力先" Ident="Out" Type="PublicFile" Min="" Max="" Chg="" />
+      <Param Name="名前" Ident="Name" Type="PublicString" Min="" Max="" Chg="" />
+      <Param Name="英名" Ident="English" Type="string" Min="" Max="" Chg="" />
+      <Param Name="値" Ident="Value" Type="float" Min="" Max="" Chg="" />
+      <Param Name="最小値" Ident="Min" Type="float" Min="" Max="" Chg="" />
+      <Param Name="最大値" Ident="Max" Type="float" Min="" Max="" Chg="" />
+      <Param Name="変化値" Ident="Step" Type="float" Min="" Max="" Chg="" />
+      <Param Name="列挙子" Ident="Enum" Type="string" Min="" Max="" Chg="" />
+    </Header>
+    <Data>
+      <Param Out="" Name="&gt;システム" English="System" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="スロー停止時間" English="Slow stop time" Value="10" Min="0" Max="1000" Step="1" Enum="" />
+      <Param Out="" Name="イベントログ出力" English="Event log output" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="フェード透過" English="Fade transparency" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="キャラリスト遅延ロード" English="Character Info Load Delay" Value="1" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="イベントスキップ" English="Skip event" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="フレームスキップ限界率" English="Frame skip limit rate" Value="2" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="簡易キャラモデル" English="Simple chara model" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="UI振動" English="UI vibration" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="振動ampLow" English="vibration ampLow" Value="0" Min="0" Max="1000" Step="0.01" Enum="" />
+      <Param Out="" Name="振動ampHigh" English="vibration ampHigh" Value="0.1" Min="0" Max="1000" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラクター生成時間計測" English="Character generation time measurement" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="キャラクターアセットダンプ" English="Character assets dump" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="ヒープ確保数" English="Heap allocation number" Value="0" Min="0" Max="1024" Step="1" Enum="" />
+      <Param Out="" Name="ヒープ確保サイズ" English="Heap allocation size" Value="0" Min="0" Max="1024" Step="1" Enum="" />
+      <Param Out="" Name="背景表示" English="Background display" Value="3" Min="0" Max="0" Step="1" Enum="OFF,ぼかし,壁紙,キャプチャ" />
+      <Param Out="" Name="キーリピート待ち初回" English="Key repeat wait first" Value="12" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="キーリピート待ち継続" English="Key repeat wait loop" Value="4" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="キー待ち無効" English="Nullify key wait" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="キー連打" English="Key mash" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="ロード時間計測" English="Loading time" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="インスタンス生成時間計測" English="Instantiate time" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="コンソール出力" English="Console log output" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="サウンド無効" English="Nullify Sound" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="ムービー無効" English="Nullify Movie" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="カットシーン無効" English="Nullify Demo" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="会話再生無効" English="Nullify Talk" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="再生サウンド出力" English="Sound log output" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="メモリダンプ間隔" English="Memory dump count" Value="0" Min="1" Max="60" Step="1" Enum="" />
+      <Param Out="" Name="メモリログ詳細" English="Output detailed memory log" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="&lt;システム" English="System" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="&gt;ゲームデバッグ" English="GameDebug" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="操作対象" English="Control target" Value="0" Min="0" Max="0" Step="1" Enum="両方,攻め,受け,援護" />
+      <Param Out="" Name="命中操作" English="Hit control" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="必殺操作" English="Critical control" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="吹き飛び操作" English="Blow away control" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="ダメージ操作" English="Damage control" Value="-1" Min="-1" Max="999" Step="1" Enum="" />
+      <Param Out="" Name="取得経験操作" English="Gained Exp control" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="武器経験操作" English="Weapon Exp control" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="武器消費操作" English="Weapon consumption control" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="スキル確率操作" English="Skill probability control" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="スキル確率加算" English="Skill probability addition" Value="0" Min="-100" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="エンゲージ操作" English="Engage control" Value="0" Min="0" Max="0" Step="1" Enum="OFF,0,MAX" />
+      <Param Out="" Name="戦闘パラメータ表示" English="Display combat parameters" Value="0" Min="0" Max="0" Step="1" Enum="OFF,簡易,詳細" />
+      <Param Out="" Name="戦闘ログ出力" English="Combat log output" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="視界操作" English="Visibility control" Value="0" Min="0" Max="0" Step="1" Enum="OFF,１軍,２軍,３軍,現在の軍" />
+      <Param Out="" Name="無限行動" English="Unlimited actions" Value="0" Min="0" Max="0" Step="1" Enum="OFF,自軍,敵軍,友軍,全軍" />
+      <Param Out="" Name="不死身" English="Immortal" Value="0" Min="0" Max="0" Step="1" Enum="OFF,自軍,敵軍,友軍,全軍" />
+      <Param Out="" Name="自動復活" English="Automatic Revival" Value="0" Min="0" Max="0" Step="1" Enum="OFF,自軍,敵軍,友軍,全軍" />
+      <Param Out="" Name="進撃無効" English="Nullify advance" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="勝敗無効" English="Nullify winlose" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="自動終了無効" English="Nullify auto turn end" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="武器レベル制限解除" English="Lift weapon level limit" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="配置数制限無効化" English="Nullify placement number limit" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="AI戦闘計算ログ表示" English="AI combat calculation log display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="支援スコア結果ログ表示" English="Support score result log display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="巻き戻し無効" English="Nullify rewind" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="巻き戻し回数制限なし" English="Unlimited rewind" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="自動成長補正操作" English="Automatic growth correction control" Value="0" Min="-10" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="成長率出力" English="Growth rate output" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="リレー参加済みチェック無効" English="リレー参加済みチェック無効" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="リレー個人賞カウント０許可" English="リレー個人賞カウント０許可" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="プレイヤー配置グループを捏造" English="プレイヤー配置グループを捏造" Value="0" Min="0" Max="0" Step="1" Enum="OFF,0,1,2,3" />
+      <Param Out="" Name="モブ配置グループを捏造" English="モブ配置グループを捏造" Value="0" Min="0" Max="0" Step="1" Enum="OFF,0,1,2,3" />
+      <Param Out="" Name="クラスチェンジ制限解除" English="クラスチェンジ制限解除" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="素材確認の０表示" English="素材確認の０表示" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="セーブ処理強制エラー" English="セーブ処理強制エラー" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="セーブ処理強制バージョン不一致" English="セーブ処理強制バージョン不一致" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="戦死者の魂データ無し扱い" English="戦死者の魂データ無し扱い" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="戦死者の魂自分データ無し扱い" English="戦死者の魂自分データ無し扱い" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="召喚レベル操作" English="召喚レベル操作" Value="-1" Min="-1" Max="40" Step="1" Enum="" />
+      <Param Out="" Name="召喚武器レベル操作" English="召喚武器レベル操作" Value="-1" Min="-1" Max="2" Step="1" Enum="" />
+      <Param Out="" Name="報酬確率操作" English="報酬確率操作" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="&lt;ゲームデバッグ" English="Game debug" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="&gt;ゲームルール" English="GameRule" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="支援スコア加算隣接" English="Support score addition adjacent" Value="1" Min="1" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="支援スコア加算回復杖" English="Support score addition healing staff" Value="1" Min="1" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="支援スコア加算踊る" English="Support score addition dance" Value="1" Min="1" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="支援スコア閾値１位" English="Support score threshold 1st" Value="0" Min="1" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="支援スコア閾値２位" English="Support score threshold 2nd" Value="0" Min="1" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="支援スコア閾値３位" English="Support score threshold 3rd" Value="0" Min="1" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="支援値加算１位" English="Support value addition 1st" Value="3" Min="1" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="支援値加算２位" English="Support value addition 2nd" Value="2" Min="1" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="支援値加算３位" English="Support value addition 3rd" Value="1" Min="1" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="闘技場武器LV勝数" English="Arena Weapon LV Wins" Value="2" Min="1" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="闘技場補正勝数" English="Arena bonus wins" Value="5" Min="1" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="戦闘経験倍率" English="Combat Exp multiplier" Value="1.2" Min="0" Max="10" Step="0.1" Enum="" />
+      <Param Out="" Name="エンゲージ初期値" English="Engage init param" Value="7" Min="0" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="エンゲージ増加フェイズ" English="Engage increase phase" Value="0" Min="0" Max="0" Step="1" Enum="常時,自フェイズ" />
+      <Param Out="" Name="エンゲージ継続ターン" English="Engage continuation turns" Value="3" Min="0" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="絆経験加算待機ENG" English="Bond Exp addition wait ENG" Value="1" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="絆経験加算戦闘" English="Bond Exp addition combat" Value="1" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="絆経験加算戦闘ENG" English="Bond Exp addition combat ENG" Value="2" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="絆経験加算杖" English="Bond Exp addition staff" Value="1" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="絆経験加算杖ENG" English="Bond Exp addition staff ENG" Value="2" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="絆経験加算コマンドスキル" English="Bond Exp addition command skill" Value="2" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="絆経験加算コマンドスキルENG" English="Bond Exp addition command skill ENG" Value="3" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="絆経験加算エンゲージ技ENG" English="Bond Exp addition engage art ENG" Value="5" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="絆経験加算撃破" English="Bond Exp addition defeats" Value="2" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="絆経験リュール倍率" English="Bond Exp Lueur multiplier" Value="3" Min="1" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="指輪汚れ加算待機ENG" English="指輪汚れ加算待機ENG" Value="1" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="指輪汚れ加算戦闘" English="指輪汚れ加算戦闘" Value="1" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="指輪汚れ加算戦闘ENG" English="指輪汚れ加算戦闘ENG" Value="2" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="指輪汚れ加算杖" English="指輪汚れ加算杖" Value="1" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="指輪汚れ加算杖ENG" English="指輪汚れ加算杖ENG" Value="2" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="指輪汚れ加算コマンドスキル" English="指輪汚れ加算コマンドスキル" Value="2" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="指輪汚れ加算コマンドスキルENG" English="指輪汚れ加算コマンドスキルENG" Value="3" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="指輪汚れ加算エンゲージ技ENG" English="指輪汚れ加算エンゲージ技ENG" Value="5" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="指輪汚れ加算撃破" English="指輪汚れ加算撃破" Value="2" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="錬成屋刻むコスト" English="Refinery engraving cost" Value="100" Min="0" Max="10000" Step="1" Enum="" />
+      <Param Out="" Name="錬成屋紋章刻印コスト率" English="Refinery engraving cost rate" Value="0.1" Min="0" Max="100" Step="0.01" Enum="" />
+      <Param Out="" Name="指輪精製コスト" English="Ring forging cost" Value="100" Min="0" Max="10000" Step="1" Enum="" />
+      <Param Out="" Name="指輪精製確率S" English="指輪精製確率S" Value="3" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="指輪精製確率A" English="指輪精製確率A" Value="7" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="指輪精製確率B" English="指輪精製確率B" Value="30" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="指輪合成指輪コストS" English="Ring fusion cost S" Value="4" Min="0" Max="250" Step="1" Enum="" />
+      <Param Out="" Name="指輪合成指輪コストA" English="Ring fusion cost A" Value="3" Min="0" Max="250" Step="1" Enum="" />
+      <Param Out="" Name="指輪合成指輪コストB" English="Ring fusion cost B" Value="2" Min="0" Max="250" Step="1" Enum="" />
+      <Param Out="" Name="指輪合成絆のかけらコストS" English="Ring fusion - bonds for S" Value="10000" Min="0" Max="999999" Step="1" Enum="" />
+      <Param Out="" Name="指輪合成絆のかけらコストA" English="Ring fusion - bonds for A" Value="1000" Min="0" Max="999999" Step="1" Enum="" />
+      <Param Out="" Name="指輪合成絆のかけらコストB" English="Ring fusion - bonds for B" Value="100" Min="0" Max="999999" Step="1" Enum="" />
+      <Param Out="" Name="エンゲージ武器強化限界値絆レベル" English="Engage Wep - bond level to inc capacity" Value="10" Min="1" Max="20" Step="1" Enum="" />
+      <Param Out="" Name="残像能力倍率" English="Doubles stats multiplier" Value="1" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="AIガード死亡率" English="AI guard death rate" Value="0.3" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="AIガード殺害率" English="AI guard kill rate" Value="0.5" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="AIガード与ダメ率" English="AI guard damage dealt rate" Value="0.4" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="アイテム売却率" English="Item sale rate" Value="0.5" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="錬成売却率" English="Forging sale rate" Value="0.2" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="シルバーカード割引率" English="Silver Card discount rate" Value="0.3" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="巻き戻し最大回数ノーマル" English="Max rewinds Normal" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="巻き戻し最大回数ハード" English="Max rewinds Hard" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="巻き戻し最大回数ルナティック" English="Max rewinds Lunatic" Value="100" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="巻き戻し最大項目数" English="Max rewind items" Value="1000" Min="1" Max="10000" Step="1" Enum="" />
+      <Param Out="" Name="リレープレイ中有効期間" English="リレープレイ中有効期間" Value="24" Min="0" Max="720" Step="1" Enum="" />
+      <Param Out="" Name="リレー個人賞最小数" English="リレー個人賞最小数" Value="3" Min="1" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="リレー個人賞最大数" English="リレー個人賞最大数" Value="5" Min="1" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="リレーチケット入手間隔" English="リレーチケット入手間隔" Value="1440" Min="1" Max="1440" Step="1" Enum="" />
+      <Param Out="" Name="やり込みレベル最小値" English="やり込みレベル最小値" Value="1" Min="0" Max="1" Step="1" Enum="" />
+      <Param Out="" Name="やり込みレベル最大値" English="やり込みレベル最大値" Value="40" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="やり込みレベルクリア後最大値" English="やり込みレベルクリア後最大値" Value="50" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="やり込みレベル加算値" English="やり込みレベル加算値" Value="0" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="やり込みレベルハード" English="やり込みレベルハード" Value="21" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="やり込みレベルルナティック" English="やり込みレベルルナティック" Value="41" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="やり込み報酬最小" English="やり込み報酬最小" Value="1" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="やり込み報酬最大" English="やり込み報酬最大" Value="900" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="撃破マス最大数" English="撃破マス最大数" Value="3" Min="1" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="被撃破マス最大数" English="被撃破マス最大数" Value="5" Min="1" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="amiibo紋章士支援A達成人数" English="amiibo紋章士支援A達成人数" Value="36" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="遭遇戦クリア後報酬経験値" English="遭遇戦クリア後報酬経験値" Value="30" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="遭遇戦クリア後報酬お金" English="遭遇戦クリア後報酬お金" Value="1000" Min="0" Max="10000" Step="100" Enum="" />
+      <Param Out="" Name="神竜の章投資レベル" English="神竜の章投資レベル" Value="5" Min="1" Max="5" Step="1" Enum="" />
+      <Param Out="" Name="邪竜の章投資レベル" English="邪竜の章投資レベル" Value="5" Min="1" Max="5" Step="1" Enum="" />
+      <Param Out="" Name="出現率★１" English="出現率★１" Value="30" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="出現率★２" English="出現率★２" Value="40" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="出現率★３" English="出現率★３" Value="30" Min="0" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="★１召喚レベルオフセット" English="★１召喚レベルオフセット" Value="-2" Min="-50" Max="50" Step="1" Enum="" />
+      <Param Out="" Name="★３召喚レベルオフセット" English="★３召喚レベルオフセット" Value="2" Min="-50" Max="50" Step="1" Enum="" />
+      <Param Out="" Name="召喚紋章士武器２レベル" English="召喚紋章士武器２レベル" Value="16" Min="1" Max="40" Step="1" Enum="" />
+      <Param Out="" Name="召喚紋章士武器３レベル" English="召喚紋章士武器３レベル" Value="29" Min="1" Max="40" Step="1" Enum="" />
+      <Param Out="" Name="&lt;ゲームルール" English="GameRule" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="&gt;コンバット" English="Combat" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="キャラ高さ：歩兵" English="Character Height: Walk" Value="1.1" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：騎馬" English="Character Height: Horse" Value="1.9" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：狼" English="Character Height: Wolf" Value="1.1" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：ペガサス" English="Character Height: Pegasus" Value="2.3" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：ドラゴン" English="Character Height: Dragon" Value="2.3" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：グリフォン" English="Character Height: Griffon" Value="2.3" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：エンゲージ" English="Character Height: Engage" Value="1.2" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：エンゲージ(チキ)" English="Character Height: Engage Tiki" Value="2.5" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：ソンブル(人)" English="Character Height: Sombron Human" Value="1.6" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：ソンブル(竜)" English="Character Height: Sombron Dragon" Value="1.1" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：幻影狼" English="Character Height: Corrupt Wolf" Value="0.7" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：異形飛竜" English="Character Height: Corrupt Dragon" Value="3.5" Min="0.5" Max="5" Step="0.01" Enum="" />
+      <Param Out="" Name="キャラ高さ：幻影飛竜" English="Character Height: Pahtom Dragon" Value="1.8" Min="0.5" Max="5" Step="0.01" Enum="" />
+      <Param Out="" Name="レイヤ変更閾値" English="Back Ground Change Rate" Value="0.7" Min="0" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="コンバット用アセット事前読込" English="Pre-load combat assets" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="コンバット読込方式" English="Combat loading method" Value="1" Min="0" Max="0" Step="1" Enum="読込遅・ラグ無,読込速・ラグ有" />
+      <Param Out="" Name="カメラ透過範囲" English="Camera transmission range" Value="1" Min="0" Max="10" Step="0.1" Enum="" />
+      <Param Out="" Name="LookAt軌跡描画" English="LookAt trajectory drawing" Value="0" Min="0" Max="1000" Step="1" Enum="" />
+      <Param Out="" Name="ユニット詳細:自キャラ配置方向" English="Unit Detail: Player Locate Direction" Value="55" Min="-180" Max="180" Step="1" Enum="" />
+      <Param Out="" Name="ユニット詳細:敵キャラ配置方向" English="Unit Detail: Enemy Locate Direction" Value="55" Min="-180" Max="180" Step="1" Enum="" />
+      <Param Out="" Name="ユニット詳細:自キャラカメラ角度" English="Unit Detail: Player Camera Direction" Value="30" Min="-180" Max="180" Step="1" Enum="" />
+      <Param Out="" Name="ユニット詳細:敵キャラカメラ角度" English="Unit Detail: Enemy Camera Direction" Value="30" Min="-180" Max="180" Step="1" Enum="" />
+      <Param Out="" Name="ユニット詳細:ルフレ角度" English="Unit Detail: Robin Degree" Value="-120" Min="-180" Max="180" Step="1" Enum="" />
+      <Param Out="" Name="OP兵種紹介パターン" English="Job Introduction Pattern" Value="0" Min="0" Max="0" Step="1" Enum="OFF,M000,M001,M009,M013,M015,M019,M022,Debug" />
+      <Param Out="" Name="ラスボスエンゲ技サイズ" English="Final Boss Scale in SpecialAttack" Value="0.5" Min="0.1" Max="1" Step="0.01" Enum="" />
+      <Param Out="" Name="パーツ破壊力" English="Explosion Force" Value="1" Min="0" Max="10" Step="0.1" Enum="" />
+      <Param Out="" Name="&lt;コンバット" English="Game debug" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="&gt;マップデバッグ" English="MapDebug" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="簡易マップ表示" English="Simple map display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="地形属性の透明度" English="Terrain attribute transparency level" Value="0" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="地形属性の明るさ" English="Terrain attribute brightness" Value="0.6" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="イベントの透明度" English="Event trasparency level" Value="0" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="マップパネルの透明度" English="Map panel transparency level" Value="1" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="配置地形の透明度" English="Terrain placement transparency level" Value="0" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="自動候補ユニット" English="Unit candidate automatic" Value="0" Min="0" Max="0" Step="1" Enum="近接,巡回,順番" />
+      <Param Out="" Name="手動候補ユニット" English="Unit candidate manual" Value="1" Min="0" Max="0" Step="1" Enum="近接,巡回,順番" />
+      <Param Out="" Name="行動終了待ち時間" English="Action end wait time" Value="0.25" Min="0" Max="1" Step="0.125" Enum="" />
+      <Param Out="" Name="マップユニット接触半径" English="Map unit contact radius" Value="2" Min="0" Max="2.5" Step="0.125" Enum="" />
+      <Param Out="" Name="マップユニット正面表示" English="Map unit front display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,正面方向,正面範囲,全表示" />
+      <Param Out="" Name="待機ユニット頭補正" English="Stanby unit head correction" Value="0.5" Min="0" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="待機ユニット上半身補正" English="Stanby unit upper body correction" Value="0.5" Min="0" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="歩兵ユニット正面角度" English="Infantry front angle" Value="0" Min="-90" Max="90" Step="1" Enum="" />
+      <Param Out="" Name="騎乗ユニット正面角度" English="Cavalry front angle" Value="45" Min="-90" Max="90" Step="1" Enum="" />
+      <Param Out="" Name="歩兵ユニット旋回範囲" English="Infantry turning range" Value="15" Min="0" Max="90" Step="1" Enum="" />
+      <Param Out="" Name="騎乗ユニット旋回範囲" English="Cavalry turning range" Value="45" Min="0" Max="90" Step="1" Enum="" />
+      <Param Out="" Name="マップユニット名表示" English="Map unit name display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="マップモーション名表示" English="Map motion name display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="マップステータス表示" English="Map status display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="ユニットサークル透過率" English="Unit circle transmission" Value="0.5" Min="0" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="地面属性結果表示" English="Terrain attribute effect display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="視界遮蔽" English="Visibility shield" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="視界外地形隠蔽" English="Hide out of sight terrain" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="視界ピクセル数" English="Visiblity pixels number" Value="2" Min="0" Max="0" Step="1" Enum="1,2,4" />
+      <Param Out="" Name="視界フィルタ" English="Visibility filter" Value="2" Min="0" Max="0" Step="1" Enum="ポイント,バイリニア,トライリニア" />
+      <Param Out="" Name="松明使用制限無効" English="Nullify torch use limit" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="配置レベルオフセット" English="Placement level offset" Value="0" Min="-40" Max="40" Step="1" Enum="" />
+      <Param Out="" Name="マップコマンド数捏造" English="Fake map command" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="ｺﾝﾊﾞｯﾄ開始時ｶﾒﾗ回転角度" English="Camera rotate degree when combat start" Value="180" Min="90" Max="180" Step="1" Enum="" />
+      <Param Out="" Name="&lt;マップデバッグ" English="Map debug" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="&gt;マップカメラ" English="MapCamera" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="マップカメラ視野角" English="Map camera viewing angle" Value="30" Min="10" Max="90" Step="1" Enum="" />
+      <Param Out="" Name="マップカメラ入力" English="Map camera input" Value="0" Min="0" Max="0" Step="1" Enum="１ボタン,２ボタン" />
+      <Param Out="" Name="マップカメラ切り替え" English="Toggle map camera" Value="1" Min="0" Max="0" Step="1" Enum="近遠,近中遠" />
+      <Param Out="" Name="マップカメラ回転単位" English="Map camera rotation unit" Value="45" Min="0" Max="180" Step="1" Enum="" />
+      <Param Out="" Name="マップカメラ回転制限" English="Map camera rotation limit" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="マップカメラ傾き遊び" English="Map camera tilt looseness " Value="10" Min="0" Max="50" Step="1" Enum="" />
+      <Param Out="" Name="マップカメラ傾き速度" English="Map camera tilt level" Value="2" Min="0" Max="10" Step="0.5" Enum="" />
+      <Param Out="" Name="マップカメラ傾き初期化" English="Map camera tilt reset" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="マップカメラ傾き近" English="Map camera tilt near " Value="50" Min="0" Max="90" Step="1" Enum="" />
+      <Param Out="" Name="マップカメラ傾き遠" English="Map camera tilt far" Value="80" Min="0" Max="90" Step="1" Enum="" />
+      <Param Out="" Name="マップカメラ距離近" English="Map camera distance near" Value="15" Min="10" Max="1000" Step="1" Enum="" />
+      <Param Out="" Name="マップカメラ距離遠" English="Map camera distance far" Value="200" Min="10" Max="1000" Step="1" Enum="" />
+      <Param Out="" Name="マップカメラ位置補間時間" English="Map camera position interpolation time" Value="0.75" Min="0.01" Max="10" Step="0.01" Enum="" />
+      <Param Out="" Name="マップカメラ回転補間時間" English="Map camera rotation interpolation time" Value="0.75" Min="0.01" Max="10" Step="0.01" Enum="" />
+      <Param Out="" Name="マップＨＰゲージオフセット率" English="Map HP gauge offset rate" Value="1" Min="0" Max="2" Step="0.01" Enum="" />
+      <Param Out="" Name="マップカメラ押し出しＸ近" English="Map camera extrusion X near" Value="2.5" Min="0" Max="10" Step="0.125" Enum="" />
+      <Param Out="" Name="マップカメラ押し出しＺ近" English="Map camera extrusion Z near" Value="0.5" Min="0" Max="10" Step="0.125" Enum="" />
+      <Param Out="" Name="マップカメラ押し出しＸ遠" English="Map camera extrusion X far" Value="5" Min="0" Max="10" Step="0.125" Enum="" />
+      <Param Out="" Name="マップカメラ押し出しＺ遠" English="Map camera extrusion Z far" Value="1" Min="0" Max="10" Step="0.125" Enum="" />
+      <Param Out="" Name="マップカメラ高度率" English="Map camera altitude" Value="0" Min="0" Max="1" Step="0.125" Enum="" />
+      <Param Out="" Name="マップカメラ透過カメラ" English="Map camera alpha camera" Value="0" Min="0" Max="1" Step="0.01" Enum="" />
+      <Param Out="" Name="マップカメラ透過キャラ" English="Map camera alpha character" Value="0" Min="0" Max="1" Step="0.01" Enum="" />
+      <Param Out="" Name="マップカメラ透過あいだ" English="Map camera alpha between" Value="0.5" Min="0" Max="1" Step="0.01" Enum="" />
+      <Param Out="" Name="&lt;マップカメラ" English="Map camera" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="&gt;解像度" English="Resolution" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="マップ解像度" English="Map resolution" Value="0.9" Min="0.1" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="コンバット解像度" English="Combat resolution" Value="0.9" Min="0.1" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="戦闘予測解像度" English="Combat prediction resolution" Value="0.9" Min="0.1" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="拠点解像度" English="Base resolution" Value="0.9" Min="0.1" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="拠点解像度2" English="Base resolution 2" Value="0.85" Min="0.1" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="絆解像度" English="Kizuna resolution" Value="0.9" Min="0.1" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="絆解像度2" English="Kizuna resolution 2" Value="0.9" Min="0.1" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="GMAP解像度" English="GMAP resolution" Value="0.9" Min="0.1" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="デモ解像度" English="Demo resolution" Value="1" Min="0.1" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="背景解像度" English="Background resolution" Value="0.5" Min="0.1" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="背景暗転率" English="Background fade resolution" Value="0.8" Min="0.1" Max="1" Step="0.05" Enum="" />
+      <Param Out="" Name="背景ぼかし強度" English="Background blur level" Value="3" Min="0" Max="4" Step="1" Enum="" />
+      <Param Out="" Name="&lt;解像度" English="Resolution" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="&gt;デバッグモニタ" English="DebugMonitor" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="デバッグモニタ表示" English="Debug monitor display" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="ＦＰＳ表示" English="FPS display" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="ＧＰＵステート表示" English="GPU state display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="メモリ表示" English="Memory display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,簡易,詳細" />
+      <Param Out="" Name="GC回数表示" English="GC number display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="動作モード表示" English="Operation mode display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="シーン名表示" English="Scene name display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="カメラ名表示" English="Camera name display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="解像度表示" English="Resolution display" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="スティック入力表示" English="Stink input display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="ボタン入力表示" English="Button input display" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="チャプター名表示" English="Character name display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="パフォーマンス表示" English="Performance display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="経過時間表示" English="Elapsed time display" Value="1" Min="0" Max="0" Step="1" Enum="OFF,簡易,詳細" />
+      <Param Out="" Name="プロセス表示" English="Process display" Value="1" Min="0" Max="0" Step="1" Enum="OFF,簡易,詳細" />
+      <Param Out="" Name="変数表示" English="Variable display" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="乱数表示" English="Random number display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,簡易,詳細" />
+      <Param Out="" Name="イベント表示" English="Event display" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="会話デバッグ表示" English="Convo debug display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="センター表示" English="Center display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,４分割,３分割" />
+      <Param Out="" Name="マテリアル表示" English="Material display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="プロファイル表示" English="Profile display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,Basic,Memory,GPU" />
+      <Param Out="" Name="サウンド表示" English="Sound display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,簡易,詳細" />
+      <Param Out="" Name="警告自動表示" English="Warning automatic display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,左上,右上,左下,右下" />
+      <Param Out="" Name="メッセージラベル表示" English="Message ID display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="UILayoutリビルド検出" English="UI Layout Rebuild Check" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON,+ログ" />
+      <Param Out="" Name="ビルドキャンバス表示" English="Build canvas display" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="&lt;デバッグモニタ" English="DebugMonitor" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="&gt;拠点" English="Base" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="拠点制限人数" English="Max people in base" Value="23" Min="0" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="拠点紋章士人数" English="Emblems in base" Value="3" Min="0" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="絆リザルト制限人数" English="Bond result max people" Value="30" Min="0" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="動物制限数" English="Animal max num" Value="10" Min="0" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="拠点マスコットなつき度上限" English="Base mascot turn limit num" Value="35" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="拠点カメラ押出処理" English="Base camera extrusion disposal" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="拠点カメラサブ押出処理" English="Base camera sub extrusion disposal" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="拠点カメラ高さ押出処理" English="Base camera altitude extrusion disposal" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="拠点カメラ押し出し半径" English="Base camera extrusion radius" Value="0.2" Min="0" Max="1" Step="0.01" Enum="" />
+      <Param Out="" Name="拠点カメラ押し出し時間" English="Base camera extrusion time" Value="0.15" Min="0" Max="1" Step="0.01" Enum="" />
+      <Param Out="" Name="拠点カメラ高さ補正" English="Base camera altitude correction" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="拠点カメラ高さ補正時間" English="Base camera altitude correction time" Value="2" Min="0" Max="5" Step="0.1" Enum="" />
+      <Param Out="" Name="拠点カメラ補間時間" English="Base camera interpolation time" Value="0" Min="0" Max="3" Step="0.1" Enum="" />
+      <Param Out="" Name="拠点カメラ距離補間時間" English="Base camera distance interpolation time" Value="0.5" Min="0" Max="3" Step="0.1" Enum="" />
+      <Param Out="" Name="拠点コリジョン情報" English="Base collision info" Value="0" Min="0" Max="0" Step="1" Enum="OFF,表示,選択" />
+      <Param Out="" Name="拠点キャラ回転傾き" English="Base characters tilt rotation" Value="10" Min="0" Max="80" Step="1" Enum="" />
+      <Param Out="" Name="拠点キャラ高さ補間" English="Base characters height lerp" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="拠点操作タイプ" English="Base control type" Value="0" Min="0" Max="3" Step="1" Enum="" />
+      <Param Out="" Name="拠点カメラ上下角度幅" English="Base camera Y angle range" Value="60" Min="0" Max="90" Step="1" Enum="" />
+      <Param Out="" Name="拠点カメラ上下角度遊び幅" English="Base camera Y angle free range" Value="6" Min="0" Max="20" Step="1" Enum="" />
+      <Param Out="" Name="拠点カメラ下限高さ" English="Base camera limit height" Value="1" Min="0" Max="3" Step="0.1" Enum="" />
+      <Param Out="" Name="拠点ミニマップ回転" English="Base minimap rotate" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="闘技場:回数制限" English="Arena:Battle Limmit" Value="3" Min="0" Max="1000" Step="1" Enum="" />
+      <Param Out="" Name="闘技場:支援値(仲間・勝利)" English="Arena:Reliance(win)" Value="5" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="闘技場:支援値(仲間・引分)" English="Arena:Reliance(draw)" Value="5" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="闘技場:支援値(仲間・敗北)" English="Arena:Reliance(Lose)" Value="5" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="闘技場:絆値(紋章・勝利)" English="Arena:Bond(win)" Value="5" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="闘技場:絆値(紋章・引分)" English="Arena:Bond(draw)" Value="3" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="闘技場:絆値(紋章・敗北)" English="Arena:Bond(Lose)" Value="2" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="闘技場：紋章士戦確率" English="Arena:Rate of 'VS Emblem'" Value="0.05" Min="0" Max="1" Step="0.01" Enum="" />
+      <Param Out="" Name="闘技場：戦闘相手選択乱数固定" English="Arena:Fix random numbers of chara choice" Value="-1" Min="-1" Max="9999" Step="1" Enum="" />
+      <Param Out="" Name="闘技場：武器乱数固定" English="Arena:Fix random numbers of weapon choice" Value="-1" Min="-1" Max="9999" Step="1" Enum="" />
+      <Param Out="" Name="DSジャイロ感度" English="DS gyro sensitivity" Value="2" Min="0.5" Max="3" Step="0.01" Enum="" />
+      <Param Out="" Name="スタンプ：移動量" English="Stamp: speed" Value="20" Min="1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="スタンプ：回転量" English="Stamp: rotation per frame" Value="6" Min="1" Max="90" Step="1" Enum="" />
+      <Param Out="" Name="スタンプ：拡縮量" English="Stamp: scaling per frame" Value="0.05" Min="0.01" Max="1" Step="0.01" Enum="" />
+      <Param Out="" Name="スタンプ：拡縮最小" English="Stamp: scaling min" Value="0.5" Min="0.1" Max="10" Step="0.1" Enum="" />
+      <Param Out="" Name="スタンプ：拡縮最大" English="Stamp: scaling max" Value="2" Min="1" Max="10" Step="0.1" Enum="" />
+      <Param Out="" Name="スタンプ：スティック移動倍率" English="Stamp: stick rate of speed up" Value="2" Min="1" Max="10" Step="0.1" Enum="" />
+      <Param Out="" Name="スタンプ：十字キー移動倍率" English="Stamp: arrow key rate of speed up" Value="15" Min="1" Max="30" Step="1" Enum="" />
+      <Param Out="" Name="スタンプ：左スティック遊び" English="Stamp: free range of Left stick " Value="0.125" Min="0" Max="1" Step="0.005" Enum="" />
+      <Param Out="" Name="スタンプ：右スティック遊び" English="Stamp: free range of Right stick" Value="0.25" Min="0" Max="1" Step="0.005" Enum="" />
+      <Param Out="" Name="写真撮影：Y加速倍率" English="写真撮影：Y加速倍率" Value="2" Min="0" Max="5" Step="0.1" Enum="" />
+      <Param Out="" Name="写真撮影：カメラ横移動速度" English="写真撮影：カメラ横移動速度" Value="0.1" Min="0" Max="1" Step="0.01" Enum="" />
+      <Param Out="" Name="写真撮影：カメラ縦移動速度" English="写真撮影：カメラ縦移動速度" Value="0.07" Min="0" Max="1" Step="0.01" Enum="" />
+      <Param Out="" Name="写真撮影：スティック遊び" English="写真撮影：スティック遊び" Value="0.1" Min="0" Max="1" Step="0.01" Enum="" />
+      <Param Out="" Name="写真撮影：カメラ回転速度" English="写真撮影：カメラ回転速度" Value="1.5" Min="0" Max="10" Step="0.1" Enum="" />
+      <Param Out="" Name="写真撮影：カメラズーム速度" English="写真撮影：カメラズーム速度" Value="1.5" Min="0" Max="10" Step="0.1" Enum="" />
+      <Param Out="" Name="リフレッシュ：支援値" English="Refresh: Support value addition" Value="3" Min="0" Max="10" Step="1" Enum="" />
+      <Param Out="" Name="井戸期待度２必要価値" English="井戸期待度２必要価値" Value="1000" Min="0" Max="100000" Step="100" Enum="" />
+      <Param Out="" Name="井戸期待度３必要価値" English="井戸期待度３必要価値" Value="5000" Min="0" Max="100000" Step="100" Enum="" />
+      <Param Out="" Name="井戸期待度４必要価値" English="井戸期待度４必要価値" Value="10000" Min="0" Max="100000" Step="100" Enum="" />
+      <Param Out="" Name="井戸期待度５必要価値" English="井戸期待度５必要価値" Value="20000" Min="0" Max="100000" Step="100" Enum="" />
+      <Param Out="" Name="&lt;拠点" English="Base" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="&gt;通信" English="Online" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="本格対戦：攻撃側出撃人数" English="CustomBattle:OffenseSortieMax" Value="8" Min="1" Max="30" Step="1" Enum="" />
+      <Param Out="" Name="本格対戦：防衛側出撃人数" English="CustomBattle:DefenseSortieMax" Value="12" Min="1" Max="30" Step="1" Enum="" />
+      <Param Out="" Name="&lt;通信" English="Online" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="&gt;エンディング" English="Ending" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="戦績：デバッグ用外伝クリア数" English="BattleRecord：Record Count 4 Debug" Value="0" Min="0" Max="15" Step="1" Enum="" />
+      <Param Out="" Name="戦績：BGM開始～FI開始" English="BattleRecord：Time Settng" Value="0" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：FI時間" English="BattleRecord：Time Settng" Value="2" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：開始座標" English="BattleRecord：Time Settng" Value="-560" Min="-700" Max="-400" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：BGM時間0" English="BattleRecord：Time Settng" Value="199" Min="150" Max="350" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：BGM時間1" English="BattleRecord：Time Settng" Value="229" Min="150" Max="350" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：BGM時間2" English="BattleRecord：Time Settng" Value="277" Min="150" Max="350" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：BGM時間3" English="BattleRecord：Time Settng" Value="293" Min="150" Max="350" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：BGM時間4" English="BattleRecord：Time Settng" Value="325" Min="150" Max="400" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：BGM時間5" English="BattleRecord：Time Settng" Value="357" Min="150" Max="400" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：BGM時間6" English="BattleRecord：Time Settng" Value="387" Min="150" Max="400" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：終了座標" English="BattleRecord：Time Settng" Value="660" Min="400" Max="700" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：FO時間" English="BattleRecord：Time Settng" Value="5.5" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：FO時間(Skip)" English="BattleRecord：Time Settng" Value="1" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="戦績：FO後待機時間" English="BattleRecord：Time Settng" Value="0" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="後日談：BGM開始～FI開始" English="LaterTalk：Time Setting" Value="10" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="後日談：FI時間" English="LaterTalk：Time Setting" Value="2" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="後日談：1キャラ時間" English="LaterTalk：Time Setting" Value="15" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="後日談：FO時間" English="LaterTalk：Time Setting" Value="2" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="後日談：BGM時間0" English="LaterTalk：Time Setting" Value="60" Min="0" Max="200" Step="0.1" Enum="" />
+      <Param Out="" Name="後日談：BGM時間1" English="LaterTalk：Time Setting" Value="90" Min="0" Max="200" Step="0.1" Enum="" />
+      <Param Out="" Name="後日談：BGM時間2" English="LaterTalk：Time Setting" Value="120" Min="0" Max="200" Step="0.1" Enum="" />
+      <Param Out="" Name="後日談：BGM時間4" English="LaterTalk：Time Setting" Value="193.5" Min="0" Max="250" Step="0.1" Enum="" />
+      <Param Out="" Name="後日談：BGM時間5" English="LaterTalk：Time Setting" Value="223.5" Min="0" Max="250" Step="0.1" Enum="" />
+      <Param Out="" Name="後日談：終了後待機時間" English="LaterTalk：Time Setting" Value="8" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="クレジット：BGM開始～FI開始" English="Credit：Time Setting" Value="1" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="クレジット：FI時間" English="Credit：Time Setting" Value="2" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="クレジット：開始座標" English="Credit：Time Setting" Value="-600" Min="-700" Max="-400" Step="0.1" Enum="" />
+      <Param Out="" Name="クレジット：スクロール時間" English="Credit：Time Setting" Value="300" Min="0" Max="400" Step="0.1" Enum="" />
+      <Param Out="" Name="クレジット：イラスト変化時間" English="Credit：Time Setting" Value="3" Min="0" Max="5" Step="0.1" Enum="" />
+      <Param Out="" Name="クレジット：終了座標" English="Credit：Time Setting" Value="520" Min="-200" Max="510" Step="0.1" Enum="" />
+      <Param Out="" Name="クレジット：FO前待機" English="Credit：Time Setting" Value="1" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="クレジット：FO時間" English="Credit：Time Setting" Value="2" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="クレジット：FO後待機時間" English="Credit：Time Setting" Value="3" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="一枚絵：FI時間" English="Credit：Time Setting" Value="2" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="一枚絵：待機時間" English="Credit：Time Setting" Value="5" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="一枚絵：FO時間" English="Credit：Time Setting" Value="5" Min="0" Max="4" Step="0.1" Enum="" />
+      <Param Out="" Name="一枚絵：FO後時間" English="Credit：Time Setting" Value="0" Min="0" Max="20" Step="0.1" Enum="" />
+      <Param Out="" Name="&lt;エンディング" English="Ending" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="&gt;自動プレイ" English="AutoPlay" Value="0" Min="0" Max="0" Step="1" Enum="" />
+      <Param Out="" Name="自動プレイモニタ" English="AutoPlayMonitor" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="自動プレイ強化" English="AutoPlayDoping" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="自動プレイターン" English="AutoPlayTurn" Value="20" Min="0" Max="99" Step="1" Enum="" />
+      <Param Out="" Name="自動プレイ不死身" English="AutoPlayImmortal" Value="0" Min="0" Max="0" Step="1" Enum="OFF,自軍,全軍" />
+      <Param Out="" Name="自動プレイ性別" English="AutoPlayGender" Value="0" Min="0" Max="0" Step="1" Enum="ランダム,男性,女性" />
+      <Param Out="" Name="自動プレイ難易度" English="AutoPlayDifficulty" Value="2" Min="0" Max="0" Step="1" Enum="ランダム,ノーマル,ハード,ルナティック" />
+      <Param Out="" Name="自動プレイモード" English="AutoPlayMode" Value="1" Min="0" Max="0" Step="1" Enum="ランダム,カジュアル,クラシック" />
+      <Param Out="" Name="自動プレイバトル" English="AutoPlayBattle" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="自動プレイ高速化" English="AutoPlaySpeedUp" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="自動プレイデモスキップ" English="AutoPlayDemoSkip" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="自動プレイバトルスキップ" English="AutoPlayBattleSkip" Value="0" Min="0" Max="0" Step="1" Enum="OFF,ON" />
+      <Param Out="" Name="&lt;自動プレイ" English="AutoPlay" Value="0" Min="0" Max="0" Step="1" Enum="" />
+    </Data>
+  </Sheet>
+</Book>

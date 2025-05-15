@@ -1,0 +1,210 @@
+Include("Common")
+g_pid_lueur = "PID_リュール"
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	WinRuleSetMID( "MID_RULE_M003_WIN" )
+	
+	VariableSet( "禁止_輸送隊", 2 )
+	
+	イベント登録()
+	
+end
+
+function イベント登録()
+
+	-- イベント登録
+	EventEntryTurnAfter(チュートリアル_アイテムドロップ, 1, 1, FORCE_PLAYER)
+	
+	EventEntryTurn(ターン_フィレネ勢加勢, 2, 2, FORCE_PLAYER)
+
+	EventEntryPickup(チュートリアル_チェインアタック,	"PID_ブシュロン", "チェインチュートリアル_済")
+	EventEntryPickup(チュートリアル_特効,				"PID_エーティエ", "特効チュートリアル_済")
+	
+	-- ボス
+	EventEntryBattleTalk(Talk, g_pid_lueur,	FORCE_PLAYER, "PID_M003_イルシオン兵_ボス", FORCE_ENEMY, true, "戦闘前会話_ボス_リュール_済",	"MID_BT2")
+	EventEntryBattleTalk(Talk, "",			FORCE_PLAYER, "PID_M003_イルシオン兵_ボス", FORCE_ENEMY, true, "戦闘前会話_ボス_済",			"MID_BT1")
+	EventEntryDie(Talk, "PID_M003_イルシオン兵_ボス", FORCE_ENEMY, conidtion_true, "MID_BT3")
+	
+	-- リュール行動予約
+	EventEntryTurn(VariableSet, -1, -1, FORCE_PLAYER, condition_true, "行動予約", PersonGetIndex(g_pid_lueur))
+	EventEntryTurn(増援, 4, 4, FORCE_PLAYER)
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 9, 4, "PID_リュール", condition_true)
+	
+end
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	FadeInAndWait(FADE_NORMAL)
+		Movie("S07")
+		SkipEscape()
+		--Talk("MID_MOVIE1")
+	FadeOutAndWait(FADE_NORMAL)
+	
+	PuppetDemo("M003", "MID_OP1")
+	
+end
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+	Dispos("OwnArmy", DISPOS_FLAG_NONE)
+	
+	-- スタート地点にとぶ
+	CursorSetPos(9, 16)
+	CursorSetDistanceMode(CURSOR_DISTANCE_NEAR)
+	MapCameraWait()
+	
+	FadeWait()
+	
+	AroundCameraSetPos(9, 3)
+	
+	FadeOutAndWait(FADE_FAST)
+		SkipEscape()
+		Movie("Scene05")
+	FadeInAndWait(FADE_FAST)
+	SoundPostEvent("Stop_BGM_Slow") --(仮)MID_OP2でBGMを止めていたので代わりにここで止める
+	
+	Dispos("Lueur", DISPOS_FLAG_NONE)
+	Yield()
+	
+	WaitTime( 1.0 )
+	ModeSelect()
+	
+	WinRule()
+end
+
+-- ---------------------------------------------------------
+
+function チュートリアル_アイテムドロップ()
+	CursorAnimeCreate_FromPid("PID_M003_イルシオン兵_ボス")
+	Tutorial( "TUTID_ドロップアイコン" )
+	CursorAnimeDelete()
+	
+	Tutorial( "TUTID_Xヘルプ" )
+end
+
+-- ---------------------------------------------------------
+
+function ターン_フィレネ勢加勢()
+	
+	CursorSetPos_FromPid( g_pid_lueur )
+	
+	Talk("MID_EV1")
+	Movie("S08")
+	SkipEscape()
+	
+	Dispos("Filene", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+	
+	Talk("MID_EV2")
+	
+	UnitJoin( "PID_アルフレッド", "PID_エーティエ", "PID_ブシュロン" )
+	
+end
+
+-- ---------------------------------------------------------
+
+function チュートリアル_チェインアタック(mid, message)
+	CursorSetPos_FromPid(MindGetUnit())
+	MapCameraWait()
+	
+	Talk("MID_EV3")
+
+	Tutorial( "TUTID_連携スタイル" )
+end
+
+-- ---------------------------------------------------------
+
+function チュートリアル_特効()
+	CursorSetPos_FromPid(MindGetUnit())
+	MapCameraWait()
+	
+	Talk("MID_EV4")
+	
+	CursorAnimeCreate_FromPid("PID_M003_イルシオン兵_ランスペガサス_イベント")
+	Talk("MID_EV5")
+	CursorAnimeDelete()
+	
+	Tutorial( "TUTID_特効" )
+end
+
+-- ---------------------------------------------------------
+
+function 増援()
+
+	CursorSetPos( 9, 14 )
+	MapCameraWait()
+
+	Dispos("Reinforcement", DISPOS_FLAG_FORCED)
+	Yield()
+	WaitTime(0.5)
+	
+	Tutorial( "TUTID_増援" )
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+
+-- ---------------------------------------------------------
+
+function MapEnding()
+	Log("MapEnding")
+	
+	CursorSetPos_FromPid(g_pid_lueue)
+	--Talk("MID_ED1")
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+	PuppetDemo("M003", "MID_ED1")
+	
+	Movie("Scene30")
+	SkipEscape()
+	
+	FadeInAndWait(FADE_FAST)
+		Movie("S09")
+		SkipEscape()
+	FadeOutAndWait(FADE_FAST)
+	
+	Movie("Scene06")
+	SkipEscape()	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end

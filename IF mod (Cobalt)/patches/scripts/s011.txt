@@ -1,0 +1,171 @@
+Include("Common")
+g_pid_lueur = "PID_リュール"
+
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	Startup_紋章士外伝_対象紋章士を一時的に無効化( "GID_ミカヤ" )
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	EventEntryBreakdownEnemy(VariableSet, 12,	23, "防衛エリア_済",	"敗北", 1);
+	
+	-- 勝利条件メッセージをセット
+	-- WinRuleSetMID("MID_RULE_CUSTOM_S011");
+	WinRuleSetMID( "MID_RULE_S011_WIN" )
+	LoseRuleSetMID( "MID_RULE_S011_LOSE" )
+	
+--	変数登録()
+	イベント登録()
+end
+
+-- -----------------------------------
+
+function 変数登録()
+	VariableEntry(g_key_atk, 0)
+end
+
+-- -----------------------------------
+
+function イベント登録()
+	EventEntryTurn(開始直後, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
+
+	EventEntryBattleTalk(Talk, "PID_S011_ミカヤ", FORCE_ENEMY, g_pid_lueur,			FORCE_PLAYER, true, "戦闘前会話_ミカヤ_リュール_済", "MID_BT1")
+	EventEntryBattleTalk(Talk, "PID_S011_ミカヤ", FORCE_ENEMY, "PID_ユナカ",		FORCE_PLAYER, true, "戦闘前会話_ミカヤ_ユナカ_済", "MID_BT2")
+
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		-- 増援
+		EventEntryTurn(増援１, 4, 4, FORCE_PLAYER)
+		EventEntryTurn(増援２, 6, 6, FORCE_PLAYER)
+		EventEntryTurn(増援暁, 9, 9, FORCE_PLAYER)
+		EventEntryTurn(増援３,11,11, FORCE_PLAYER)
+		EventEntryTurn(増援３,13,14, FORCE_PLAYER)
+
+	elseif DifficultyGet() == DIFFICULTY_LUNATIC then
+		-- 増援
+		EventEntryTurn(増援１, 3, 4, FORCE_PLAYER)
+		EventEntryTurn(増援２, 6, 6, FORCE_PLAYER)
+		EventEntryTurn(増援暁, 8, 8, FORCE_PLAYER)
+		EventEntryTurn(増援３,10,10, FORCE_PLAYER)
+		EventEntryTurn(増援３,12,20, FORCE_PLAYER)
+
+	else
+		-- 増援
+		EventEntryTurn(増援１, 3, 3, FORCE_PLAYER)
+		EventEntryTurn(増援２, 5, 5, FORCE_PLAYER)
+		EventEntryTurn(増援暁, 8, 8, FORCE_PLAYER)
+		EventEntryTurn(増援３,10,10, FORCE_PLAYER)
+		EventEntryTurn(増援３,12,20, FORCE_PLAYER)
+
+	end
+
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 12, 23, "PID_リュール", condition_true)
+end
+
+-- -----------------------------------
+
+function Cleanup()
+	
+	Log("Cleanup")
+
+	Cleanup_紋章士外伝_対象紋章士の無効化解除( "GID_ミカヤ" )
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	PuppetDemo("S011", "MID_OP1")
+end
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+end
+
+function 開始直後()
+	
+	CursorAnimeCreate_FromPid( "PID_S011_ミカヤ")
+	Talk( "MID_EV1" )
+	CursorAnimeDelete()
+	
+end
+
+-- ---------------------------------------------------------
+
+function 増援１()
+	Dispos("Enemy_Reinforcement1", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+end
+function 増援２()
+	Dispos("Enemy_Reinforcement2", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+end
+function 増援３()
+	Dispos("Enemy_Reinforcement3", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+end
+
+function 増援暁()
+	CursorAnimeCreate_FromPid( "PID_S011_ミカヤ")
+	Talk("MID_EV2")
+	CursorAnimeDelete()
+	
+	Dispos("Enemy_Reinforcement4", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+	FadeInAndWait(FADE_NORMAL)
+	PuppetDemo("S011", "MID_ED1" )
+	FadeOutAndWait(FADE_NORMAL)
+	
+	紋章士外伝_レベルキャップ開放( "ミカヤ", "S011" )
+	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end

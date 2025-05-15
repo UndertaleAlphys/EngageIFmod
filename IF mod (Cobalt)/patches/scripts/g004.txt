@@ -1,0 +1,767 @@
+Include("Common")
+Include("Common_P0")
+
+g_animSetOrg		= "オリジナルの杖アニメ設定"
+g_StartupFirstTime	= "初回スタートアップ"
+g_battleStart		= "進撃開始"
+
+g_pid_lueur			= "PID_リュール"
+
+g_pid_boss				= "PID_G004_セネリオ"
+g_pid_boss_moveDown		= "PID_G004_セネリオ_移動－１"
+g_pid_bossLuna			= "PID_G004_セネリオ_ルナ"
+g_pid_bossLuna_moveDown	= "PID_G004_セネリオ_ルナ_移動－１"
+
+g_key_areaEntry		= "エリア進入_済"
+g_key_senerioActive	= "セネリオ_アクティブ_済"
+g_key_smokeFirst	= "煙イベント初回_済"
+
+g_key_battleTalk_senerio_lueur	= "戦闘会話_セネリオ_リュール_済"
+g_key_battleTalk_senerio_ike	= "戦闘会話_セネリオ_アイク_済"
+
+g_map_height		= 32
+g_map_width			= 25
+
+g_bombDamage		= 10
+g_per				= 10
+g_maxOverlap		= 90
+
+AREA_A = 1
+AREA_B = 2
+AREA_C = 3
+AREA_D = 4
+
+g_smokeDistOffset = {
+	{ 5, 6, 4, 4 },	-- N
+	{ 8, 9, 7, 7 },	-- H
+	{ 8, 9, 7, 7 }	-- L
+	}
+
+g_rockInSpot = {
+	{ 2, 10},
+	{ 3,  4},
+	{23, 24},
+	{23, 16}
+}
+
+g_rockOutSpot = {
+	{
+		{ area = AREA_A, point = { 4, 20}, w = 2, h = 2, prob = 25 },
+		{ area = AREA_A, point = { 5, 14}, w = 2, h = 3, prob = 25 },
+		{ area = AREA_A, point = { 8, 11}, w = 2, h = 3, prob = 25 },
+		{ area = AREA_A, point = {11, 16}, w = 3, h = 2, prob = 25 }
+	},
+	{	
+		{ area = AREA_B, point = {10,  6}, w = 2, h = 2, prob = 50 },
+		{ area = AREA_B, point = {15,  2}, w = 3, h = 2, prob = 50 }
+	},
+	{	
+		{ area = AREA_C, point = {10, 25}, w = 3, h = 2, prob = 33 },
+		{ area = AREA_C, point = {12, 21}, w = 2, h = 3, prob = 33 },
+		{ area = AREA_C, point = {15, 18}, w = 3, h = 2, prob = 33 }
+	},
+	{	
+		{ area = AREA_D, point = {13, 11}, w = 2, h = 3, prob = 50 },
+		{ area = AREA_D, point = {15,  9}, w = 3, h = 3, prob = 50 }
+	}
+}
+
+g_smokeList = {
+	{ x= 3, z=11, w= 8, h=11 },
+	{ x= 8, z= 2, w= 6, h= 9 },
+	{ x= 9, z=20, w=10, h= 8 },
+	{ x=11, z= 9, w=13, h=10 }
+}
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup");
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_G004_WIN" )
+	
+	Startup_神竜の章_対象紋章士を一時的に無効化( "GID_セネリオ" )
+	
+	変数登録()
+	イベント登録()
+	
+	g_bombDamage = VariableGet( "火山弾ダメージ" )
+	
+	
+	-- 敵のアニメ演出に関する設定
+	if VariableGet( g_StartupFirstTime ) == 1 then
+		local config_org = ConfigGetSupportScene()
+		if config_org == CONFIG_ANIM_ON then
+			VariableSet( g_animSetOrg, config_org )
+			ConfigSetSupportScene( CONFIG_ANIM_PLAYER_TURN )
+		end
+		
+		VariableSet( g_StartupFirstTime, 0 )
+	end
+	
+end
+
+function 変数登録()
+	VariableEntry( g_key_areaEntry,					0 )
+	VariableEntry( g_key_senerioActive,				0 )
+	VariableEntry( g_key_smokeFirst,				0 )
+	VariableEntry( g_key_battleTalk_senerio_lueur,	0 )
+	VariableEntry( g_key_battleTalk_senerio_ike,	0 )
+	VariableEntry( "火山弾ダメージ",				g_bombDamage )
+	
+	VariableEntry( g_animSetOrg,					-1 )
+	VariableEntry( g_StartupFirstTime,				1 )
+	VariableEntry( g_battleStart,					0 )
+end
+
+function イベント登録()
+	EventEntryTurn( 戦闘開始直後,	1,  1, FORCE_PLAYER )
+	EventEntryTurn( 勝利条件_紋章士にフォーカス,	1,  1, FORCE_PLAYER )
+	
+	EventEntryTurn( 煙,		2, -1, FORCE_PLAYER )
+	EventEntryTurn( 火山弾,	1, -1, FORCE_ENEMY )
+	
+	EventEntryArea( EmptyFunction, 5, 12, 16, 15, FORCE_PLAYER, g_key_areaEntry )
+	
+	EventEntryTurn( 増援２ターン,		2,	2,	FORCE_PLAYER, condition_増援 )
+	EventEntryTurn( 増援４ターン,		4,	4,	FORCE_PLAYER, condition_増援 )
+	EventEntryTurn( 増援６ターン,		6,	6,	FORCE_PLAYER, condition_増援 )
+	EventEntryTurn( 増援８ターン,		8,	8,	FORCE_PLAYER, condition_増援 )
+	EventEntryTurn( 増援１０ターン,		10,	10,	FORCE_PLAYER, condition_増援 )
+	EventEntryTurn( 増援１２ターン,		12,	12,	FORCE_PLAYER, condition_増援 )
+	EventEntryTurn( 増援１４ターン,		14,	14,	FORCE_PLAYER, condition_増援 )
+	EventEntryTurn( 増援１６ターン,		16,	16,	FORCE_PLAYER, condition_増援 )
+	EventEntryTurn( 増援１８ターン以降,	18,	-1,	FORCE_PLAYER, condition_増援 )
+	
+	EventEntryBattleAfter(EmptyFunction, "", FORCE_ALL, g_pid_boss,					FORCE_ENEMY, true, g_key_senerioActive)
+	EventEntryBattleAfter(EmptyFunction, "", FORCE_ALL, g_pid_boss_moveDown,		FORCE_ENEMY, true, g_key_senerioActive)
+	EventEntryBattleAfter(EmptyFunction, "", FORCE_ALL, g_pid_bossLuna,				FORCE_ENEMY, true, g_key_senerioActive)
+	EventEntryBattleAfter(EmptyFunction, "", FORCE_ALL, g_pid_bossLuna_moveDown,	FORCE_ENEMY, true, g_key_senerioActive)
+	
+	EventEntryBattleTalk( リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, g_pid_boss,				FORCE_ENEMY, true, g_key_battleTalk_senerio_lueur )
+	EventEntryBattleTalk( リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, g_pid_boss_moveDown,		FORCE_ENEMY, true, g_key_battleTalk_senerio_lueur )
+	EventEntryBattleTalk( リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, g_pid_bossLuna,			FORCE_ENEMY, true, g_key_battleTalk_senerio_lueur )
+	EventEntryBattleTalk( リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, g_pid_bossLuna_moveDown,	FORCE_ENEMY, true, g_key_battleTalk_senerio_lueur )
+	
+	EventEntryBattleTalk( アイクと戦闘,		"",				FORCE_PLAYER, g_pid_boss,				FORCE_ENEMY, true, condition_アイクと戦闘 )
+	EventEntryBattleTalk( アイクと戦闘,		"",				FORCE_PLAYER, g_pid_boss_moveDown,		FORCE_ENEMY, true, condition_アイクと戦闘 )
+	EventEntryBattleTalk( アイクと戦闘,		"",				FORCE_PLAYER, g_pid_bossLuna,			FORCE_ENEMY, true, condition_アイクと戦闘 )
+	EventEntryBattleTalk( アイクと戦闘,		"",				FORCE_PLAYER, g_pid_bossLuna_moveDown,	FORCE_ENEMY, true, condition_アイクと戦闘 )
+	
+	-- 宝箱
+	EventEntryTbox(宝箱入手,  3, 18, "IID_レスキュー")
+	EventEntryTbox(宝箱入手, 16, 27, "IID_2000G")
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 2, 30, "PID_リュール", condition_true)
+	
+end
+
+function Cleanup()
+	
+	Log("Cleanup");
+	
+	
+	-- 進撃準備からGMAPへ戻るとき、設定も元に戻す
+	local config_org = VariableGet( g_animSetOrg )
+	if ( VariableGet( g_battleStart ) == 0 ) and ( config_org != -1 ) and ( ConfigGetSupportScene() == CONFIG_ANIM_PLAYER_TURN ) then
+		Dialog( "MID_TUT_NAVI_G004_ADVICE_END" )
+		ConfigSetSupportScene( config_org )
+	end
+	
+	
+	Cleanup_神竜の章_対象紋章士の無効化解除( "GID_セネリオ" )
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening");
+	
+	PuppetDemo("G004", "MID_OP1")
+	FadeInAndWait(FADE_NORMAL)
+	Movie("Kengen16")
+	SkipEscape()
+	FadeOutAndWait(FADE_NORMAL)
+	PuppetDemo("G004", "MID_OP2")
+	
+end
+
+function MapOpening()
+	
+	Log("MapOpening");
+	
+	-- 火山弾ダメージの設定
+	local addDamage = ( UnitGetLevel( ボスのPIDを取得() ) * 0.5 )
+	g_bombDamage = g_bombDamage + addDamage
+	
+	if		モードはノーマル()		then
+		g_bombDamage = g_bombDamage * 0.6
+	elseif	モードはハード()		then
+--		g_bombDamage = g_bombDamage * 1.0
+	elseif	モードはルナティック()	then
+		g_bombDamage = g_bombDamage * 1.2
+	end
+	
+	g_bombDamage = g_bombDamage - ( g_bombDamage % 1 )
+	VariableSet( "火山弾ダメージ", g_bombDamage )
+	
+	
+	-- アニメ設定を変更した場合はここで通知
+	if VariableGet( g_animSetOrg ) != -1 then
+		Dialog( "MID_TUT_NAVI_G004_ADVICE_START" )
+	end
+	
+end
+
+function MapEnding()
+	
+	Log("MapEnding");
+	
+end
+
+function Ending()
+	
+	Log("Ending");
+	
+	
+	PuppetDemo("G004", "MID_ED1")
+	
+	神竜の章_紋章士加入( "GID_セネリオ" )
+	
+	if GodUnitExists("GID_アイク") then
+		PuppetDemo("G004", "MID_ED2")
+	end
+	
+	FadeInAndWait(FADE_FAST)
+	Tutorial("TUTID_紋章士セネリオ")
+	
+	-- 敵のアニメ演出に関する設定
+	local config_org = VariableGet( g_animSetOrg )
+	if ( config_org != -1 ) and ( ConfigGetSupportScene() == CONFIG_ANIM_PLAYER_TURN ) then
+		
+		Dialog( "MID_TUT_NAVI_G004_ADVICE_END" )
+		ConfigSetSupportScene( config_org )
+		VariableSet( g_animSetOrg, -1 )
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function ボスのPIDを取得()
+	
+	if UnitExistOnMap( g_pid_boss ) then
+		return g_pid_boss
+		
+	if UnitExistOnMap( g_pid_boss_moveDown ) then
+		return g_pid_boss_moveDown
+		
+	elseif UnitExistOnMap( g_pid_bossLuna ) then
+		return g_pid_bossLuna
+		
+	elseif UnitExistOnMap( g_pid_bossLuna_moveDown ) then
+		return g_pid_bossLuna_moveDown
+		
+	end
+	
+	return ""
+	
+end
+
+-- -----------------------------------
+
+function EmptyFunction()
+end
+
+-- -----------------------------------
+
+function 戦闘開始直後()
+	
+	VariableSet( g_battleStart, 1 )
+	
+	local distOrg = CursorGetDistanceMode()
+		
+		-- セネリオ
+			CursorSetPos_FromPid( ボスのPIDを取得() )
+			Talk( "MID_EV1" )
+		
+		
+		-- 火山弾デモ
+			
+			CursorAnimeCreate_DistanceModeNear( g_rockInSpot[AREA_A][1], g_rockInSpot[AREA_A][2] )
+			CursorAnimeDelete()
+			
+			火山弾処理( AREA_A, {{ spotID = 2, unitList = {} }} )
+			
+			WaitTime( 1.0 )
+			
+		-- マップギミックの説明
+			Talk( "MID_EV2" )
+			
+			Tutorial( "TUTID_火山弾２" )
+		
+	CursorSetDistanceMode( distOrg )
+	
+end
+
+-- -----------------------------------
+
+function 勝利条件_紋章士にフォーカス()
+	CursorAnimeCreate_FromPid( ボスのPIDを取得() )
+	WinRule()
+	CursorAnimeDelete()
+end
+
+-- -----------------------------------
+
+function condition_増援()
+	
+	if ( VariableGet( g_key_areaEntry ) == 0 ) and ( VariableGet( g_key_senerioActive ) == 0 ) then
+		return true
+	end
+	
+	return false
+	
+end
+
+-- -----------------------------------
+
+function 増援２ターン()
+	増援( "Reinforcement1_1" )
+	増援( "Reinforcement1_2" )
+end
+
+function 増援４ターン()
+	増援( "Reinforcement2_1" )
+	増援( "Reinforcement2_2" )
+end
+
+function 増援６ターン()
+	増援( "Reinforcement3_1" )
+	増援( "Reinforcement3_2" )
+end
+
+function 増援８ターン()
+	増援( "Reinforcement4_1" )
+	増援( "Reinforcement4_2" )
+end
+
+function 増援１０ターン()
+	増援( "Reinforcement5_1" )
+	増援( "Reinforcement5_2" )
+	増援( "Reinforcement5_3" )
+	増援( "Reinforcement5_4" )
+end
+
+function 増援１２ターン()
+	増援( "Reinforcement6_1" )
+	増援( "Reinforcement6_2" )
+end
+
+function 増援１４ターン()
+	増援( "Reinforcement7_1" )
+	増援( "Reinforcement7_2" )
+end
+
+function 増援１６ターン()
+	増援( "Reinforcement8_1" )
+	増援( "Reinforcement8_2" )
+end
+
+function 増援１８ターン以降()
+	増援( "Reinforcement9_1" )
+	増援( "Reinforcement9_2" )
+	増援( "Reinforcement9_3" )
+	増援( "Reinforcement9_4" )
+end
+
+-- -----------------------------------
+
+function 増援( dispos )
+	Dispos( dispos, DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+end
+
+-- -----------------------------------
+
+function 火山弾()
+	
+	local distOrg = CursorGetDistanceMode()
+	
+	for areaID = 1, 4 do
+		local selectedSpotList = 火山弾エリア選出( areaID )
+		if #selectedSpotList > 0 then
+			火山弾処理( areaID, selectedSpotList )
+		end
+	end
+	
+	CursorSetDistanceMode( distOrg )
+	
+end
+
+-- -----------------------------------
+
+function 火山弾エリア選出( areaID )
+	
+	local tempList = {}
+	
+	for spotID, spot in pairs( g_rockOutSpot[areaID] ) do
+		
+		-- エリア内にいるユニットを調べる
+		local unitList = {}
+		for z = spot.point[2], spot.point[2] + spot.h - 1 do
+			for x = spot.point[1], spot.point[1] + spot.w - 1 do
+				
+				local unit = UnitGetByPos( x, z )
+				if unit != nil then
+					unitList[ #unitList + 1 ] = unit
+				end
+				
+			end
+		end
+		
+		
+		if ( #unitList > 0 ) then -- or ( RandomGet( 100 ) < spot.prob ) then
+			tempList[ #tempList + 1 ] = { spotID = spotID, unitList = unitList }
+		end
+		
+	end
+	
+	return tempList
+	
+end
+
+-- -----------------------------------
+
+function 火山弾処理( areaID, selectedSpotList )
+	
+	if #selectedSpotList == 0 then
+		return
+	end
+	
+	
+	火山弾噴出演出( areaID )
+	
+	
+	local x = 0
+	local z = 0
+	for k, v in pairs( selectedSpotList ) do
+		local spot = g_rockOutSpot[ areaID ][ v.spotID ]
+		x = x + ( spot.point[1] + (spot.w-1) * 0.5 )
+		z = z + ( spot.point[2] + (spot.h-1) * 0.5 )
+	end
+	x = x / #selectedSpotList
+	z = z / #selectedSpotList
+	CursorSetPos( x, z )
+	MapCameraWait()
+	
+	
+	for k, v in pairs( selectedSpotList ) do
+		local spot = g_rockOutSpot[ areaID ][ v.spotID ]
+		火山弾落下演出( spot )
+	end
+	EffectWait()
+	
+	
+	MapDamageBegin()
+	for k, v in pairs( selectedSpotList ) do
+		if ( #v.unitList > 0 ) then
+			火山弾ダメージ処理( v.unitList )
+		end
+	end
+	MapDamageEnd()
+	WaitTime( 1.0 )
+	
+end
+
+-- -----------------------------------
+
+function 火山弾噴出演出( areaID )
+	
+	local p = g_rockInSpot[areaID]
+	
+	CursorSetPos( p[1], p[2] )
+	CursorSetDistanceMode( CURSOR_DISTANCE_NEAR )
+	MapCameraWait()
+	
+	EffectPlay( "火山弾_噴出_G004", p[1], p[2] )
+		
+		-- 噴出地点にユニットがいたらダメージを受ける
+		local unit = UnitGetByPos( p[1], p[2] )
+		if unit != nil then
+			MapDamageBegin()
+			
+				MapDamageAdd(unit, g_bombDamage)
+			
+			MapDamageEnd()
+		end
+		
+	EffectWait()
+	
+end
+
+-- -----------------------------------
+
+function 火山弾落下演出( spot )
+	
+	local p = {
+		spot.point[1] + (spot.w-1) * 0.5,
+		spot.point[2] + (spot.h-1) * 0.5
+	}
+	
+	local deg = 0
+	if ( spot.area == AREA_C ) or ( spot.area == AREA_D ) then
+		deg = 180
+	end
+	
+	EffectPlay( "火山弾_G004", p[1], p[2], deg )
+	
+end
+
+-- -----------------------------------
+
+function 火山弾ダメージ処理( unitList )
+	
+	for k, unit in pairs( unitList ) do
+		MapDamageAdd(unit, g_bombDamage)
+	end
+	
+end
+
+-- -----------------------------------
+
+function 煙()
+	
+	local smokeMap = 煙マップの取得()
+	
+	smokeMap = 煙配置場所の選定( smokeMap )
+	smokeMap = 煙を間引く処理( smokeMap )
+	
+	local distOrg = CursorGetDistanceMode()
+	
+	CursorSetPos( 11, 14 )
+	CursorSetDistanceScale( 1.9 )
+	CursorSetDistanceMode( CURSOR_DISTANCE_FAR )
+	MapCameraWait()
+		
+		for areaID = 1, 4 do
+			EffectPlay( "黒煙噴出", g_rockInSpot[areaID][1], g_rockInSpot[areaID][2] )
+		end
+		WaitTime(2.0)
+		
+		
+		local put = { false, false, false, false }
+		for areaID = 1, 4 do
+			put[areaID] = 煙の配置( areaID, smokeMap )
+		end
+		WaitTime(2.0)
+		
+		
+		if ( ( put[1] or put[2] or put[3] or put[4] ) and ( VariableGet( g_key_smokeFirst ) == 0 ) ) then
+			Talk( "MID_EV3" )
+			Tutorial( "TUTID_黒煙" )
+			VariableSet( g_key_smokeFirst, 1 )
+		end
+		
+	CursorSetDistanceScale( 1.0 )
+	CursorSetDistanceMode( distOrg )
+	
+end
+
+-- -----------------------------------
+
+function 煙マップの取得()
+	
+	local map = {}
+	
+	for z = 1, g_map_height - 2 do
+		for x = 1, g_map_width - 2 do
+			
+			map[ #map + 1 ] = ( MapOverlapGet( x, z ) == "TID_煙_G004" )
+			
+		end
+	end
+	
+	return map
+	
+end
+
+-- -----------------------------------
+
+function 煙配置場所の選定( smokeMap )
+	
+	for areaID = 1, 4 do
+		
+		local point = g_smokeList[areaID]
+		
+		for z = point.z, point.z + point.h - 1 do
+			for x = point.x, point.x + point.w - 1 do
+				
+				local dist = 二点間距離( x, z, g_rockInSpot[areaID][1], g_rockInSpot[areaID][2] )
+				if dist < Min( MapGetTurn(), 32 ) + g_smokeDistOffset[DifficultyGet()+1][areaID] then
+					
+					local cost = TerrainGetMoveCost( x, z )
+					if ( ( cost == "COST_平地" ) or ( cost == "COST_林" ) or ( cost == "COST_浅瀬" ) )
+						and ( TerrainGet( x, z ) != "TID_火山弾跡" )
+						and ( RandomGet( 100 ) < g_per ) then
+						
+						local key = ( g_map_width - 2 ) * ( z - 1 ) + ( x - 1 ) + 1
+						smokeMap[ key ] = true
+						
+					end
+					
+				end
+				
+			end
+		end
+		
+	end
+	
+	return smokeMap
+	
+end
+
+-- -----------------------------------
+
+-- 配置属性の最大表示数があるので、それを超えないように間引く
+function 煙を間引く処理( smokeMap )
+	
+	local count = 0
+	
+	for index = 1, #smokeMap do
+		
+		if smokeMap[index] then
+			count = count + 1
+		end
+		
+	end
+	
+	-- 間引き
+	local countN = 0
+	if count > g_maxOverlap then
+		
+		local per = g_maxOverlap / count * 100
+		
+		for index = 1, #smokeMap do
+			
+			if smokeMap[index] then
+				if ( RandomGet( 100 ) < per ) and ( countN < g_maxOverlap ) then
+					smokeMap[index] = true
+					countN = countN + 1
+					
+				else
+					smokeMap[index] = false
+					
+				end
+			end
+			
+		end
+		
+	end
+	
+	return smokeMap
+	
+end
+
+-- -----------------------------------
+
+function 煙の配置( areaID, smokeMap )
+	
+	local none = true
+	
+	
+		MapOverlapSetBegin()
+		
+		local point = g_smokeList[areaID]
+		
+		for z = point.z, point.z + point.h - 1 do
+			for x = point.x, point.x + point.w - 1 do
+				
+				local key = ( g_map_width - 2 ) * ( z - 1 ) + ( x - 1 ) + 1
+				
+				if smokeMap[ key ] then
+					if ( MapOverlapGet( x, z ) != "TID_煙_G004" ) and ( MapOverlapGet( x, z ) != "TID_紋章氣" ) then
+						MapOverlapSet( x, z, "TID_煙_G004" )
+						none = false
+					end
+					
+				else
+					if ( MapOverlapGet( x, z ) != "TID_無し" ) and ( MapOverlapGet( x, z ) != "TID_紋章氣" ) then
+						MapOverlapSet( x, z, "TID_無し" )
+					end
+					
+				end
+				
+			end
+		end
+		
+		MapOverlapSetEnd()
+	
+	
+	return not none
+	
+end
+
+-- -----------------------------------
+
+function リュールと戦闘()
+	
+	Talk( "MID_BT2" )
+	
+	if condition_アイクと戦闘() then
+		アイクと戦闘()
+	end
+	
+end
+
+-- -----------------------------------
+
+function condition_アイクと戦闘()
+	
+	if VariableGet( g_key_battleTalk_senerio_ike ) == 1 then
+		return false
+	end
+	
+	
+	local god = nil
+	if MindGetForce() == FORCE_PLAYER then
+		god = UnitGetGodUnit( MindGetUnit() )
+	else
+		god = UnitGetGodUnit( MindGetTargetUnit() )
+	end
+	
+	return ( god == "GID_アイク" )
+	
+end
+
+function アイクと戦闘()
+	
+	Talk( "MID_BT1" )
+	
+	VariableSet( g_key_battleTalk_senerio_ike, 1 )
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------

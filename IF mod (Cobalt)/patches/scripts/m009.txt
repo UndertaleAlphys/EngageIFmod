@@ -1,0 +1,404 @@
+Include("Common")
+g_pid_lueur = "PID_リュール";
+g_key_ivyband_active			= "アクティブ化_済"
+
+-- -----------------------------------
+
+
+function Startup()
+	
+	Log("Startup")
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_M009_WIN" )
+	
+	-- 変数の登録
+	VariableEntry( "砦到着_カゲツ_済", 0 );
+	VariableEntry( "砦到着_ゼルコバ_済", 0 );
+	VariableEntry( "増援_済", 0 )	;
+	VariableEntry( "IvyNearestBandActive", 0 )	;
+
+
+	イベント登録()
+	
+	フラグ登録()
+	
+end
+
+function フラグ登録()
+	VariableEntry( "アイビー_行動開始_済", 0 )
+	VariableEntry( "アイビーアクティブ_済", 0 )
+	VariableEntry( "アクスナイト_交戦開始_済", 0 )
+	
+end
+
+function イベント登録()
+
+	EventEntryTurn( Interference_Target_Choose, -1, -1, FORCE_ENEMY, judgeIvyNearetBandActive)
+
+	EventEntryTurn(進撃開始直後イベント, 1, 1,  FORCE_PLAYER);
+	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
+
+	EventEntryArea(aiChangeIvyNearestBand, 17, 1, 17, 24, FORCE_PLAYER, g_key_ivyband_active)
+	EventEntryArea(aiChangeIvyNearestBand, 16, 2, 16, 16, FORCE_PLAYER, g_key_ivyband_active)
+	EventEntryArea(aiChangeIvyNearestBand, 15, 3, 15, 14, FORCE_PLAYER, g_key_ivyband_active)
+	EventEntryArea(aiChangeIvyNearestBand, 14, 4, 14, 14, FORCE_PLAYER, g_key_ivyband_active)
+	EventEntryArea(aiChangeIvyNearestBand, 13, 5, 13, 13, FORCE_PLAYER, g_key_ivyband_active)
+	EventEntryArea(aiChangeIvyNearestBand, 12, 12, 12, 12, FORCE_PLAYER, g_key_ivyband_active)
+	EventEntryArea(aiChangeIvyNearestBand, 12, 6, 12, 6, FORCE_PLAYER, g_key_ivyband_active)
+	EventEntryArea(aiChangeIvyNearestBand, 12, 8, 12, 10, FORCE_PLAYER, g_key_ivyband_active)
+	EventEntryArea(aiChangeIvyNearestBand, 11, 9, 11, 9, FORCE_PLAYER, g_key_ivyband_active)
+
+	EventEntryTurnAfter(敵１ターンめイベント, 1, 1, FORCE_ENEMY, "敵１ターンめイベント_済")
+	EventEntryTurn(砦到着_カゲツ, -1, -1, FORCE_PLAYER, 判定_砦到着_カゲツ )	
+	EventEntryTurn(砦到着_ゼルコバ, -1, -1, FORCE_PLAYER, 判定_砦到着_ゼルコバ )
+	EventEntryTurn(増援管理, -1, -1, FORCE_PLAYER )
+	
+	-- アイビー
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, "PID_M009_アイビー", FORCE_ENEMY, true, "戦闘前会話_アイビー_済", "MID_BT1")
+	EventEntryDie(Talk, "PID_M009_アイビー", FORCE_ENEMY, condition_true, "MID_BT2")
+	EventEntryDie(God_Leaf_Create, "PID_M009_アイビー", FORCE_ENEMY, condition_true )
+	
+	-- ゼルコバ
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, "PID_M009_ゼルコバ", FORCE_ENEMY, true, "戦闘前会話_ゼルコバ_済", "MID_BT3")
+	EventEntryDie(Talk, "PID_M009_ゼルコバ", FORCE_ENEMY, condition_true, "MID_BT4")
+	
+	-- カゲツ
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, "PID_M009_カゲツ", FORCE_ENEMY, true, "戦闘前会話_カゲツ_済", "MID_BT5")
+	EventEntryDie(Talk, "PID_M009_カゲツ", FORCE_ENEMY, condition_true, "MID_BT6")
+	
+	
+	EventEntryPickup(アイビー_行動開始, "PID_M009_アイビー", "アイビー_行動開始_済");
+	EventEntryBattleBefore(アクスナイト_交戦開始, "PID_M009_イルシオン兵_アクスナイト",FORCE_ENEMY, "", FORCE_ALL,	true, "アクスナイト_交戦開始_済");	
+	EventEntryTurn( アイビーアクティブ, -1, -1, FORCE_PLAYER, condition_アイビーアクティブ )
+	
+	-- カゲツ戦闘後北アーマー隊アクティブ化
+	EventEntryBattleBefore(カゲツ_戦闘開始, "PID_M009_カゲツ",FORCE_ENEMY, "", FORCE_ALL);
+	-- ゼルコバ戦闘後北アーマー隊アクティブ化
+	EventEntryBattleBefore(ゼルコバ_戦闘開始, "PID_M009_ゼルコバ",FORCE_ENEMY, "", FORCE_ALL);
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 3, 9, "PID_リュール", condition_true)
+	
+end
+
+
+function Cleanup()
+	
+	Log("Cleanup");
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening");
+	
+	-- PuppetDemo("M009", "MID_OP1")
+		
+	-- FadeInAndWait(FADE_NORMAL)
+	--	Movie("S13")
+	--	SkipEscape()
+		
+	--	Movie("Scene14")
+	--	SkipEscape()
+	-- FadeOutAndWait(FADE_NORMAL)
+	
+end
+
+function MapOpening()
+	
+	Log("MapOpening");
+	
+	-- CursorSetPos_FromPid_DistanceModeNear(g_pid_lueur);
+	-- FadeWait();
+	
+	-- Talk("MID_OP3");
+	
+	Set_Leaf_M009()
+
+	MapOverlapSetEnd()
+end
+
+-- -----------------------------------
+
+function Set_Leaf_M009()
+	local check_God_Leaf = 0 
+	if GodUnitExists("GID_リーフ") then
+		check_God_Leaf = 1
+	end
+	
+	if check_God_Leaf == 0 then
+		UnitCreateGodUnit("PID_M009_アイビー", "GID_M008_敵リーフ")
+	end
+end
+
+function アイビー_行動開始()
+	
+	AiSetActive("PID_M009_ゼルコバ", true)
+	AiSetActive("PID_M009_カゲツ", true)
+end
+
+function カゲツ_戦闘開始()
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL
+		or DifficultyGet() == DIFFICULTY_HARD then
+			return false
+	end
+	
+end
+
+function ゼルコバ_戦闘開始()
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL
+		or DifficultyGet() == DIFFICULTY_HARD then
+			return false
+	end
+end
+
+function アクスナイト_交戦開始()
+end
+
+function condition_アイビーアクティブ()
+	
+	if VariableGet( "アイビーアクティブ_済" ) == 1 then
+		return false
+	end
+	
+	if VariableGet( "アクスナイト_交戦開始_済" ) == 1 then
+		return true
+	end
+	
+	return false
+	
+end
+
+function アイビーアクティブ()
+	
+	VariableSet( "アイビーアクティブ_済", 1 )
+	
+end
+
+function 進撃開始直後イベント()
+	
+	MapCameraWait()
+	
+end
+
+function 敵１ターンめイベント()
+	
+	CursorSetPos_FromPid("PID_M009_アイビー")
+	
+	Talk("MID_EV1")
+	
+end
+
+function 増援管理()
+	if UnitExistOnMap("PID_M009_IFMOD_イルシオン兵_マージナイト") then
+		if AiGetActive( "PID_M009_IFMOD_イルシオン兵_マージナイト" ) == true then
+			if VariableGet( "増援_済" ) == 0 then
+				Dispos("Enemy_Reinforcements", DISPOS_FLAG_FOCUS)
+				Yield()
+				WaitTime(0.5)
+				VariableSet( "増援_済" , 1);
+
+			end
+		end
+	end
+end
+
+
+-- -----------------------------------
+
+function 砦到着_カゲツ()
+	CursorSetPos_FromPid( "PID_M009_カゲツ" );
+	Talk( "MID_EV14" );
+	
+	-- 増援
+	Dispos("Enemy_Kagetsu_Fort", DISPOS_FLAG_NONE)
+	Yield()
+	WaitTime(0.5);
+	
+	-- AI変更
+	AiSetSequence("PID_M009_カゲツ", AI_ORDER_ATTACK, "AI_AT_Attack")
+	AiSetSequence("PID_M009_カゲツ", AI_ORDER_CAUSE, "AI_AC_AttackRange")
+	AiSetSequence("PID_M009_カゲツ", AI_ORDER_MOVE, "AI_MV_WeakEnemy")		
+	
+	VariableSet( "砦到着_カゲツ_済", 1 );
+	
+	-- アイビーがアクティブ状態ならアクティブに
+	if VariableGet( "アイビー_行動開始_済" ) == 1 then
+	
+	AiSetActive("PID_M009_カゲツ", true)	
+	end
+end
+
+function 判定_砦到着_カゲツ()
+	pid = "PID_M009_カゲツ"
+	x = 15
+	z = 16
+	
+	-- ------------------
+	
+	if VariableGet( "砦到着_カゲツ_済" ) == 1 then
+		return false
+	end
+	
+	if not UnitExistOnMap( pid ) then
+		return false
+	end
+	
+	-- ------------------
+	
+	return 指定座標にいるか判定(pid, x, z)
+end
+
+-- -----------------------------------
+
+function 砦到着_ゼルコバ()
+	CursorSetPos_FromPid( "PID_M009_ゼルコバ" );
+	Talk( "MID_EV15" );
+	
+	-- 増援
+	Dispos("Enemy_Zelkova_Fort", DISPOS_FLAG_NONE)
+	Yield()
+	WaitTime(0.5);
+	
+	-- AI変更
+	AiSetSequence("PID_M009_ゼルコバ", AI_ORDER_ATTACK, "AI_AT_Attack")
+	AiSetSequence("PID_M009_ゼルコバ", AI_ORDER_CAUSE, "AI_AC_AttackRange")
+	AiSetSequence("PID_M009_ゼルコバ", AI_ORDER_MOVE, "AI_MV_WeakEnemy")
+			
+	VariableSet( "砦到着_ゼルコバ_済", 1 );
+	
+	-- アイビーがアクティブ状態ならアクティブに
+	if VariableGet( "アイビー_行動開始_済" ) == 1 then
+	
+	AiSetActive("PID_M009_ゼルコバ", true)	
+	end
+end
+
+function 判定_砦到着_ゼルコバ()
+	pid = "PID_M009_ゼルコバ"
+	x = 15
+	z = 2
+	
+	-- ------------------
+	
+	if VariableGet( "砦到着_ゼルコバ_済" ) == 1 then
+		return false
+	end
+	
+	if not UnitExistOnMap( pid ) then
+		return false
+	end
+	
+	-- ------------------
+	
+	return 指定座標にいるか判定(pid, x, z)
+end
+
+-- -----------------------------------
+
+function 指定座標にいるか判定(pid, x, z)
+	_x = UnitGetX(pid)
+	_z = UnitGetZ(pid)
+	
+	if ( _x == x ) and ( _z == z ) then
+		return true
+	else
+		return false
+	end
+end
+
+-- -----------------------------------
+
+function Interference_Target_Choose()
+	Log("Interference!!!")
+	local pid = "PID_M009_IFMOD_イルシオン兵_ロッドナイト2"
+    	g_interference_except = Set_Interference_AI_by_Pid(pid)
+end
+
+------------------------------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+function God_Leaf_Create()
+	
+	local check_God_Leaf = 0 
+	if GodUnitExists("GID_リーフ") then
+		check_God_Leaf = 1
+	end
+	
+	if check_God_Leaf == 0 then
+		Talk("MID_BT3")
+
+		Movie("Kengen05")
+		SkipEscape()
+		FadeInAndWait( FADE_FAST )
+	
+		-- PuppetDemo("M008", "MID_ED1")
+		-- リーフを自軍に追加
+	
+		GodUnitCreate( "GID_リーフ" )
+		local mind_pid = UnitGetPID( MindGetUnit() )
+		UnitSetGodUnit(mind_pid, "GID_リーフ")
+		UnitSetEngageCount(mind_pid, 7)
+	end
+end
+
+------------------------------------------------------------
+
+function aiChangeIvyNearestBand()
+	
+	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ロッドナイト", true)
+	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ロッドナイト2", true)
+	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_マージナイト", true)
+	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_マージナイト2", true)
+	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_マージナイト2", true)
+	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ランスナイト4", true)
+	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ランスナイト3", true)
+	VariableSet("IvyNearestBandActive", 1 )
+end
+
+-----------------------------------------------------------
+
+function judgeIvyNearetBandActive()
+	if VariableGet("IvyNearestBandActive") == 1 then
+		Log("active!!!")
+		return true
+	end
+
+	return false
+end
+
+function MapEnding()
+	Log("MapEnding");
+	
+end
+
+function Ending()
+	
+	Log("Ending");
+	
+end
+
+function GameOver()
+	
+	Log("GameOver");
+	
+end

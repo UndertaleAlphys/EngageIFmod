@@ -1,0 +1,197 @@
+Include("Common")
+g_pid_lueur = "PID_リュール"
+
+g_key_area = "橋落とし_済"
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	Startup_紋章士外伝_対象紋章士を一時的に無効化( "GID_リーフ" )
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_S010_WIN" )
+	
+	変数登録()
+	イベント登録()
+	
+end
+
+-- -----------------------------------
+
+function 変数登録()
+	VariableEntry(g_key_area, 0)
+end
+
+-- -----------------------------------
+
+function イベント登録()
+	EventEntryTurn(開始直後, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
+
+	-- 橋を落とす
+	EventEntryArea(橋落とし, 20, 1, 28, 26, FORCE_PLAYER, g_key_area)
+
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		EventEntryTurn(増援１, 5, 6, FORCE_PLAYER);
+		EventEntryTurn(増援１, 8, 9, FORCE_PLAYER);
+		EventEntryTurn(増援１,12,13, FORCE_PLAYER);
+
+	elseif DifficultyGet() == DIFFICULTY_LUNATIC then
+		EventEntryTurn(増援１, 3, 5, FORCE_PLAYER);
+		EventEntryTurn(増援１, 6, 8, FORCE_PLAYER);
+		EventEntryTurn(増援１,10,12, FORCE_PLAYER);
+
+	else
+		EventEntryTurn(増援１, 3, 4, FORCE_PLAYER);
+		EventEntryTurn(増援１, 7, 8, FORCE_PLAYER);
+		EventEntryTurn(増援１,11,12, FORCE_PLAYER);
+	end
+
+	EventEntryBattleTalk(Talk, "PID_S010_リーフ", FORCE_ENEMY, g_pid_lueur,			FORCE_PLAYER, true, "戦闘前会話_リーフ_リュール_済", "MID_BT1")
+	EventEntryBattleTalk(Talk, "PID_S010_リーフ", FORCE_ENEMY, "PID_アイビー",			FORCE_PLAYER, true, "戦闘前会話_リーフ_アイビー_済", "MID_BT2")
+	
+	
+--	EventEntryTurn(増援１, -1, -1, FORCE_PLAYER, condition_増援１)
+--	EventEntryTurn(増援２, -1, -1, FORCE_PLAYER, condition_増援２)
+
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 2, 23, "PID_リュール", condition_true)
+	
+end
+
+-- -----------------------------------
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+	Cleanup_紋章士外伝_対象紋章士の無効化解除( "GID_リーフ" )
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	
+	PuppetDemo("S010", "MID_OP1")
+	
+end
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+end
+function 開始直後()
+	
+	CursorAnimeCreate_FromPid( "PID_S010_リーフ")
+	Talk( "MID_EV1" )
+	CursorAnimeDelete()
+	
+end
+
+
+-- -----------------------------------
+
+function EmptyFunction()
+end
+
+function 橋落とし()
+
+	CursorSetPos(9, 8)
+	MapCameraWait()
+
+	Talk( "MID_EV2" )
+	--Dialog( "橋落とし" )
+	--	ここで何某か会話イベントして、エンゲージ技の設定とかする。
+	--AiSetSequence("PID_オルテンシア", AI_ORDER_ATTACK, "AI_AT_EngageAttack")
+	
+	--橋モデルの破壊
+	EventBrokenObject(10, 7)
+	
+	--	橋を浅瀬に
+	TerrainSetBegin()
+	TerrainSet( 8, 7, "TID_浅瀬" )
+	TerrainSet( 9, 7, "TID_浅瀬" )
+	TerrainSet(10, 7, "TID_浅瀬" )
+	TerrainSet( 8, 8, "TID_浅瀬" )
+	TerrainSet( 9, 8, "TID_浅瀬" )
+	TerrainSet(10, 8, "TID_浅瀬" )
+	TerrainSet( 8, 9, "TID_浅瀬" )
+	TerrainSet( 9, 9, "TID_浅瀬" )
+	TerrainSet(10, 9, "TID_浅瀬" )
+	TerrainSetEnd()
+
+	VariableSet(g_key_area, 1)
+
+
+	--リーフ＆ゲルプリッター突撃
+	index = ForceUnitGetFirst(FORCE_ENEMY)
+	while index != nil do
+		AiSetSequence(index, AI_ORDER_CAUSE, "AI_AC_Everytime")
+		index = ForceUnitGetNext(index)
+	end
+
+--	UnitClearStatus("PID_S010_リーフ", UNIT_STATUS_MOVE_NOT_ALLOW)
+
+--	AiSetSequence("PID_オルテンシア", AI_ORDER_CAUSE, "AI_AC_Everytime")	--	AI_AC_InterferenceRange
+--	AiSetSequence("PID_M014_セピア", AI_ORDER_CAUSE, "AI_AC_Everytime")
+--	AiSetSequence("PID_M014_マロン", AI_ORDER_CAUSE, "AI_AC_Everytime")
+--	AiSetSequence("PID_M014_モーヴ", AI_ORDER_CAUSE, "AI_AC_Everytime")
+
+end
+
+
+-- -----------------------------------
+function 増援１()
+	
+	Dispos( "Enemy_Reinforcement", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime(0.5)
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+	PuppetDemo("S010", "MID_ED1")
+	
+	紋章士外伝_レベルキャップ開放( "リーフ", "S010" )
+	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end

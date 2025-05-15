@@ -1,0 +1,598 @@
+Include("Common")
+g_pid_lueur = "PID_リュール"
+g_pid_boss = "PID_M001_異形兵_蛮族_ボス"
+g_pid_lunge = "PID_M005_シーフ"
+
+g_key_tutorial_recovery	= "チュートリアル_回復_済"
+g_key_hitControl_lueur	= "命中補正設定_リュール_済"
+g_key_hitControl_vandre	= "命中補正設定_ヴァンドレ_済"
+g_key_marthSynchro		= "マルスとシンクロ_済"
+g_key_tutorial_marth1	= "マルスの能力紹介_済"
+g_key_tutorial_marth2	= "チュートリアル_紋章士マルス_済"
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	フラグ登録()
+	イベント登録()
+	
+	
+	if VariableGet( g_key_tutorial_recovery ) == 0 then
+		VariableSet( "禁止_持ち物", 2 )
+		VariableSet( "禁止_交換", 2 )
+	end
+	
+	VariableSet( "禁止_輸送隊", 2 )
+	
+	VariableSet( "禁止_チェインアタック", 1 )
+	VariableSet( "禁止_チェインガード", 1 )
+	VariableSet( "禁止_ブレイク", 1 )
+	
+	
+	-- 勝利条件の設定
+	WinRuleSetEnemyNumberLessThanOrEqualTo( -1 )
+	WinRuleSetMID( "MID_RULE_M001_WIN" )
+	
+end
+
+function フラグ登録()
+	VariableEntry( g_key_tutorial_recovery,	0 )
+	VariableEntry( "戦闘回数_リュール",		0 )
+	VariableEntry( "戦闘回数_ヴァンドレ",	0 )
+	
+	VariableEntry( g_key_hitControl_lueur,	0 )
+	VariableEntry( g_key_hitControl_vandre,	0 )
+	
+	VariableEntry( g_key_marthSynchro,		0 )
+	VariableEntry( g_key_tutorial_marth1,	0 )
+	VariableEntry( g_key_tutorial_marth2,	0 )
+end
+
+function イベント登録()
+	
+	-- AI関連
+	EventEntryTurn(ターン１_敵AI設定,	1, 1, FORCE_ENEMY)
+	EventEntryTurn(ターン１_緑軍AI設定,	1, 1, FORCE_ALLY)
+	EventEntryTurn(ターン２_敵AI設定,	2, 2, FORCE_ENEMY)
+	EventEntryTurn(ターン２_緑軍AI設定,	2, 2, FORCE_ALLY)
+	EventEntryTurn(ターン３_敵AI設定,	3, 3, FORCE_ENEMY)
+	
+	
+	-- 毎ターン実行（この章だけ）
+	EventEntryTurn(リュール行動予約, -1, -1, FORCE_PLAYER)
+	
+	
+	-- リュールとヴァンドレの命中スキル操作
+	EventEntryBattleAfter(命中補正_戦闘カウント, g_pid_lueur,		FORCE_PLAYER, "", FORCE_ENEMY, true, g_key_hitControl_lueur,	g_pid_lueur,		g_key_hitControl_lueur, "戦闘回数_リュール")	-- 戦闘回数をカウント
+	EventEntryBattleAfter(命中補正_戦闘カウント, "PID_ヴァンドレ",	FORCE_PLAYER, "", FORCE_ENEMY, true, g_key_hitControl_vandre,	"PID_ヴァンドレ",	g_key_hitControl_vandre, "戦闘回数_ヴァンドレ")	-- 戦闘回数をカウント
+	EventEntryUnitCommandPrepare(命中補正設定, g_pid_lueur,			g_key_hitControl_lueur,		g_pid_lueur,		g_key_hitControl_lueur)
+	EventEntryUnitCommandPrepare(命中補正設定, "PID_ヴァンドレ",	g_key_hitControl_vandre,	"PID_ヴァンドレ",	g_key_hitControl_vandre)
+	EventEntryTurn(命中補正設定, 1, 1, FORCE_ENEMY,		g_key_hitControl_lueur,		g_pid_lueur,		g_key_hitControl_lueur)
+	EventEntryTurn(命中補正設定, 1, 1, FORCE_ENEMY,		g_key_hitControl_vandre,	"PID_ヴァンドレ",	g_key_hitControl_vandre)
+	EventEntryTurn(命中補正解除, 2, 2, FORCE_PLAYER,	g_key_hitControl_lueur,		g_pid_lueur)	
+	EventEntryTurn(命中補正解除, 2, 2, FORCE_PLAYER,	g_key_hitControl_vandre,	"PID_ヴァンドレ")
+	
+	
+	-- イベント登録
+	EventEntryTurn(		イベント_私も戦います,			1, 1, FORCE_PLAYER)
+	EventEntryTurnAfter(チュートリアル_地形効果,		1, 1, FORCE_PLAYER)
+	
+	EventEntryPickup(チュートリアル_戦闘スタイル, "PID_ヴァンドレ", "チュートリアル_戦闘スタイル_済")
+	
+	EventEntryTurnAfter(チュートリアル_回復,			2, 2, FORCE_PLAYER, g_key_tutorial_recovery)
+	
+	EventEntryTurnAfter(イベント_逃げよう, 1, 1, FORCE_ALLY, "ターン後イベント_逃げよう")
+	EventEntryBattleTalk(Talk, "", FORCE_ENEMY, "PID_フラン", FORCE_ALLY, false, "戦闘前イベント_フラン済", "MID_EV6")
+	EventEntryBattleTalk(Talk, "", FORCE_ENEMY, "PID_クラン", FORCE_ALLY, false, "戦闘前イベント_クラン済", "MID_EV8")
+	
+	EventEntryDie( イベント前に敵を全滅,	"", FORCE_ENEMY, condition_イベント前に敵を全滅 )
+	EventEntryTurnEnd(	イベント_マルスとシンクロ,	-1, -1, FORCE_ENEMY,	condition_イベント_マルスとシンクロ)
+	EventEntryTurnAfter(マルスの能力紹介,			-1, -1, FORCE_PLAYER,	condition_マルスの能力紹介)
+	
+	EventEntryPickup(チュートリアル_紋章士マルス, g_pid_lueur, condition_チュートリアル_紋章士マルス)
+	
+	EventEntryDie(VariableSet,			"", FORCE_ENEMY, condition_勝利判定, "勝利", 1)
+	
+	EventEntryEscape(離脱イベント, 6, 2, "PID_リュール", condition_true)
+end
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+	スキル解除( g_pid_lueur, "SID_必殺０" )
+	スキル解除( "PID_ヴァンドレ", "SID_必殺０" )
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	Log("Opening")
+	
+	Movie("Scene01")
+	SkipEscape()
+		
+	PuppetDemo("M001", "MID_OP2")
+	PuppetDemo("M001", "MID_OP3")
+	
+	Movie("Scene02")
+	SkipEscape()
+end
+
+function MapOpening()
+	
+	if DifficultyGet() == DIFFICULTY_LUNATIC then
+		local index	= ForceUnitGetFirst( FORCE_ENEMY )
+		while ( index != nil ) do
+			AiSetRejectPower0Attack( index, false )
+			index = ForceUnitGetNext( index )
+		end
+	end
+	
+	Log("MapOpening")
+	
+	CursorSetPos( 6, 4 )
+	CursorSetDistanceMode( CURSOR_DISTANCE_NEAR )
+	MapCameraWait()
+	
+	if DifficultyGet() == DIFFICULTY_LUNATIC then
+		local index	= ForceUnitGetFirst( FORCE_ENEMY )
+		while ( index != nil ) do
+			local _pid = UnitGetPID( index )
+			if _pid == g_pid_lunge then
+				AiSetRejectPower0Attack( index, false )
+			end
+			index = ForceUnitGetNext( index )
+		end
+	end
+end
+
+-- -----------------------------------
+
+function リュール行動予約()
+	VariableSet("行動予約", PersonGetIndex(g_pid_lueur))
+end
+
+-- -----------------------------------
+
+function EmptyFunction()
+end
+
+-- -----------------------------------
+
+function 命中補正_戦闘カウント(pid, flag, count)
+	VariableSet(flag, 0)
+	
+	if VariableIsExist(count) then
+		local num = VariableGet(count)
+		num = num + 1
+		
+		-- ２回目ならスキル解除
+		if ( num >= 2 ) then
+			命中補正解除(pid)
+			VariableSet(flag, 1)
+		end
+		
+		VariableSet(count, num)
+	end
+end
+
+function 命中補正設定(pid, flag)
+	VariableSet(flag, 0)
+	
+	local sid_on = nil
+	local sid_off = nil
+	
+	-- 地形属性取得
+	local x = UnitGetX(pid)
+	local z = UnitGetZ(pid)
+	local terrain = TerrainGet(x, z)
+	
+	if ( terrain == "TID_茂み" ) or ( terrain == "TID_林" ) then
+		sid_on = "SID_相手の命中０"
+		sid_off = "SID_相手の命中１００"
+	else
+		sid_on = "SID_相手の命中１００"
+		sid_off = "SID_相手の命中０"
+	end
+	
+	スキル解除(pid, sid_off)
+	スキル装備(pid, sid_on)
+end
+
+function 命中補正解除(pid)
+	スキル解除(pid, "SID_相手の命中０")
+	スキル解除(pid, "SID_相手の命中１００")
+end
+
+-- -----------------------------------
+
+function イベント_私も戦います()	
+	Dispos("Hero", DISPOS_FLAG_NONE)
+	Yield()
+	
+	Talk("MID_EV1")
+	
+	-- スキル設定
+	local sid = "SID_相手の命中１００"
+	スキル装備(g_pid_lueur, sid)
+	スキル装備("PID_ヴァンドレ", sid)
+	スキル装備("PID_クラン", sid)
+	スキル装備("PID_フラン", sid)
+	
+	スキル装備( g_pid_lueur, "SID_必殺０" )
+	スキル装備( "PID_ヴァンドレ", "SID_必殺０" )
+	
+	WinRule()
+end
+
+function チュートリアル_地形効果()
+	
+	Talk("MID_EV2")
+	
+	CursorSetPos( 7, 3 )
+	MapCameraWait()
+	
+	CursorAnimeCreate( 6, 3, "W2H1" )
+	Talk("MID_EV3")
+	CursorAnimeDelete()
+	
+	Tutorial("TUTID_地形効果")
+	
+end
+
+-- -----------------------------------
+
+function チュートリアル_戦闘スタイル()
+	CursorSetPos_FromPid(MindGetUnit())
+	MapCameraWait()
+	
+	Tutorial( "TUTID_戦闘スタイル" )
+	Tutorial( "TUTID_騎馬スタイル" )
+end
+
+-- -----------------------------------
+
+function ターン１_敵AI設定()
+	if UnitExistOnMap(g_pid_boss) then
+		AiSetSequence(g_pid_boss, AI_ORDER_ATTACK, "AI_AT_Person", "PID_フラン")
+		AiSetSequence(g_pid_boss, AI_ORDER_MOVE, "AI_MV_Person", "PID_フラン")
+	end
+end
+
+function ターン１_緑軍AI設定()
+	local pid = "PID_フラン"
+	if UnitExistOnMap(pid) then
+		AiSetSequence(pid, AI_ORDER_MOVE, "AI_MV_Position", "pos(6, 10)")
+	end
+	
+	pid = "PID_クラン"
+	if UnitExistOnMap(pid) then
+		AiSetSequence(pid, AI_ORDER_MOVE, "AI_MV_Position", "pos(6, 9)")
+	end
+end
+
+function ターン２_敵AI設定()
+	if UnitExistOnMap(g_pid_boss) then
+		AiSetSequence(g_pid_boss, AI_ORDER_ATTACK, "AI_AT_Person", "PID_クラン")
+		AiSetSequence(g_pid_boss, AI_ORDER_MOVE, "AI_MV_Person", "PID_クラン")
+	end
+end
+
+function ターン２_緑軍AI設定()
+	local pid = "PID_フラン"
+	if UnitExistOnMap(pid) then
+		AiSetSequence(pid, AI_ORDER_MOVE, "AI_MV_Position", "pos(5, 12)")
+	end
+	
+	pid = "PID_クラン"
+	if UnitExistOnMap(pid) then
+		AiSetSequence(pid, AI_ORDER_MOVE, "AI_MV_Position", "pos(6, 12)")
+	end
+end
+
+function ターン３_敵AI設定()
+	
+	if ( UnitGetByPos(6, 9) == nil ) and ( UnitGetByPos(6, 10) == nil ) and ( UnitGetByPos(6, 11) == nil ) then
+	
+		-- 一緒。クランを狙う
+		
+	elseif ( UnitGetByPos(5, 8) == nil ) and ( UnitGetByPos(5, 9) == nil ) and ( UnitGetByPos(5, 10) == nil ) then
+	
+		-- 5, 10 へのルートが開いているかチェック
+		if UnitExistOnMap(g_pid_boss) then
+			AiSetSequence(g_pid_boss, AI_ORDER_ATTACK, "AI_AT_Null")
+			AiSetSequence(g_pid_boss, AI_ORDER_MOVE, "AI_MV_Position", "pos(5, 10)")
+		end
+		
+	elseif ( UnitGetByPos(7, 8) == nil ) and ( UnitGetByPos(7, 9) == nil ) and ( UnitGetByPos(7, 10) == nil ) then
+	
+		-- 7, 10 へのルートが開いているかチェック
+		if UnitExistOnMap(g_pid_boss) then
+			AiSetSequence(g_pid_boss, AI_ORDER_ATTACK, "AI_AT_Null")
+			AiSetSequence(g_pid_boss, AI_ORDER_MOVE, "AI_MV_Position", "pos(7, 10)")
+		end
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function チュートリアル_回復()
+	CursorSetPos_FromPid(g_pid_lueur)
+	
+	local maxHp = UnitGetCapability(g_pid_lueur, CAPABILITY_HP, false)
+	local hp = UnitGetHp(g_pid_lueur)
+	
+	if ( maxHp - hp ) > 0 then
+		Talk("MID_EV4")
+	else
+		Talk("MID_EV5")
+	end
+	
+	Tutorial("TUTID_回復")
+	
+	VariableSet( "禁止_持ち物", 0 )
+	VariableSet( "禁止_交換", 0 )
+end
+
+-- -----------------------------------
+
+function イベント_逃げよう()
+	CursorSetPos_FromPid("PID_フラン")
+	Talk("MID_EV7")
+end
+
+-- -----------------------------------
+
+function condition_イベント前に敵を全滅()
+	
+	if VariableGet( g_key_marthSynchro ) == 1 then
+		return false
+	end
+	
+	-- 最後の一人だったかチェック
+	if ForceUnitGetCount( FORCE_ENEMY ) == 1 then
+		return true
+	end
+	
+	return false
+end
+
+function イベント前に敵を全滅()
+	
+	-- 今が敵ターンか味方ターンか
+	if		MapGetPhase() == FORCE_PLAYER then
+		
+		-- 味方ターンの場合はターンを強制終了
+		VariableSet( "行動後フェイズ終了", 1 )
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function condition_イベント_マルスとシンクロ()
+	if VariableGet( g_key_marthSynchro ) == 1 then
+		return false
+	end
+	
+	-- 敵を全滅させた
+	if ForceUnitGetCount( FORCE_ENEMY ) == 0 then
+		return true
+	end
+	
+	if MapGetTurn() == 3 then
+		return true
+	end
+	
+	return false
+	
+end
+
+function イベント_マルスとシンクロ()
+	
+	VariableSet( "行動後フェイズ終了", 0 )
+	
+	敵の増援()
+	
+	CursorSetPos_FromPid(g_pid_lueur)
+	
+	Talk("MID_EV9")
+	
+	FadeOutAndWait(FADE_FAST)
+			
+			Movie("Scene03")
+			SkipEscape()
+			
+			マルスの顕現とシンクロ()
+			
+			Movie("Scene04")
+			SkipEscape()
+			
+			-- カメラ移動
+			CursorSetPos(6, 11)
+			MapCameraWait()
+			
+			-- 敵将削除
+			if UnitExistOnMap( g_pid_boss ) then
+				UnitDelete( g_pid_boss )
+			end
+			
+			--[[
+			-- 敵将の設定
+			UnitSetHp( g_pid_boss, math.min( 18, UnitGetHp( g_pid_boss ) ) )
+			UnitRotation( g_pid_boss, ROTATE_DOWN )
+			]]
+			
+			双子離脱()
+			
+			-- ヴァンドレの位置調整
+			if	UnitExistOnMap( "PID_ヴァンドレ" )		and
+				( UnitGetX( "PID_ヴァンドレ" ) == 6 )	and 
+				( UnitGetZ( "PID_ヴァンドレ" ) == 10 )	then
+					UnitSetPos( "PID_ヴァンドレ", 5, 9 )
+			end
+			
+			-- リュール移動
+			UnitSetPos(g_pid_lueur, 6, 10)
+			UnitMoveWait()
+			CursorSetPos_FromPid( g_pid_lueur )
+			
+			
+	FadeInAndWait(FADE_FAST)
+	
+	-- 捏造バトル()
+	
+	スキル解除( g_pid_lueur, "SID_必殺０" )
+	スキル解除( "PID_ヴァンドレ", "SID_必殺０" )
+	
+	VariableSet( g_key_marthSynchro, 1 )
+	
+end
+
+function 敵の増援()
+	CursorSetPos( 6, 11 )
+	MapCameraWait()
+	WaitTime(0.5)
+	Dispos("Reinforcement", DISPOS_FLAG_NONE)
+	Yield()
+	WaitTime(0.5)
+end
+
+function マルスの顕現とシンクロ()
+	
+	Movie("S04")
+	SkipEscape()
+	
+	-- 神将作成・バディ化
+	GodUnitCreate("GID_マルス")
+	UnitSetGodUnit(g_pid_lueur, "GID_マルス")
+	UnitSetEngageCount(g_pid_lueur, 7)
+	
+	local maxHp = UnitGetCapability(g_pid_lueur, CAPABILITY_HP, true)
+	UnitSetHp(g_pid_lueur, maxHp)
+	
+end
+
+function 双子離脱()
+	if UnitExistOnMap("PID_フラン") then
+		UnitDelete("PID_フラン")
+	end
+	if UnitExistOnMap("PID_クラン") then
+		UnitDelete("PID_クラン")
+	end
+end
+
+function 捏造バトル()
+	
+	スキル解除( g_pid_boss, "SID_死亡回避" )
+	スキル装備( g_pid_lueur, "SID_命中１００", "SID_神将スキル確率補正１００" )
+	VariableSet( "禁止_経験値", 1 )
+	
+	Battle(g_pid_boss, g_pid_lueur)
+	
+	VariableSet( "禁止_経験値", 0 )
+	スキル解除( g_pid_lueur, "SID_命中１００", "SID_神将スキル確率補正１００" )
+	
+end
+
+-- -----------------------------------
+
+function condition_マルスの能力紹介()
+	
+	if VariableGet( g_key_tutorial_marth1 ) == 1 then
+		return false
+	end
+	
+	if VariableGet( g_key_marthSynchro ) == 1 then
+		return true
+	end
+	
+	return false
+	
+end
+
+function マルスの能力紹介()
+	Talk("MID_EV12")
+	Tutorial( "TUTID_シンクロ" )
+	
+	VariableSet( g_key_tutorial_marth1, 1 )
+end
+
+-- -----------------------------------
+
+function condition_チュートリアル_紋章士マルス()
+	if VariableGet( g_key_tutorial_marth2 ) == 1 then
+		return false
+	end
+	
+	if UnitGetGodUnit( g_pid_lueur ) != nil then
+		return true
+	end
+	
+	return false
+	
+end
+
+function チュートリアル_紋章士マルス()
+	Tutorial("TUTID_紋章士マルス")
+	VariableSet( g_key_tutorial_marth2, 1 )
+end
+
+-- -----------------------------------
+
+function condition_勝利判定()
+	
+	if VariableGet( g_key_marthSynchro ) == 0 then
+		return false
+	end
+	
+	-- 最後の一人だったかチェック
+	if ForceUnitGetCount( FORCE_ENEMY ) == 1 then
+		return true
+	end
+	
+	return false
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end

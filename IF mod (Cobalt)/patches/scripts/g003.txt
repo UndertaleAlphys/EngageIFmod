@@ -1,0 +1,919 @@
+Include("Common")
+Include("Common_P0")
+Include("G003_Gimmick")
+
+g_pid_boss		= "PID_G003_ヴェロニカ"
+g_pid_bossN		= "PID_G003_ヴェロニカ_ノーマル"
+
+g_Width			= 31
+g_Height		= 28
+
+g_FadeTime		= 0.25
+
+-- ユニットの跳躍時間
+g_JumpTime = 0.5
+
+-- カメラの移動時間
+g_CameraSpeed = 1.5
+
+g_Key_SkyCastle_Moved	= "飛空城の移動_済"
+
+g_Key_Switch_Talk		= "起動盤_初回限定_会話イベント_済"
+
+-- 左側の飛空城と移動するユニットのリスト
+g_LeftUnitList = {}
+
+-- 右側の飛空城と移動するユニットのリスト
+g_RightUnitList = {}
+
+-- 跳躍するユニットのリスト
+g_JumpUnitList = {}
+
+-- 飛空城と移動する配置地形のリスト
+g_OverlapList = {}
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup");
+	
+	Startup_神竜の章_対象紋章士を一時的に無効化( "GID_ヴェロニカ" )
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_G003_WIN" )
+	
+	変数登録()
+	イベント登録()
+	
+	
+end
+
+-- -----------------------------------
+
+function Cleanup()
+	
+	Log("Cleanup");
+	
+	Cleanup_神竜の章_対象紋章士の無効化解除( "GID_ヴェロニカ" )
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening");
+	
+	PuppetDemo("G003", "MID_OP1")
+	FadeInAndWait(FADE_NORMAL)
+		Movie("Kengen19")
+		SkipEscape()
+	FadeOutAndWait(FADE_NORMAL)
+	PuppetDemo("G003", "MID_OP2")
+	
+end
+
+-- -----------------------------------
+
+function MapOpening()
+	
+	Log("MapOpening");
+	
+end
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding");
+	
+end
+
+-- -----------------------------------
+
+function Ending()
+	
+	Log("Ending");
+	
+	PuppetDemo("G003", "MID_ED1")
+	
+	神竜の章_紋章士加入( "GID_ヴェロニカ" )
+	
+	FadeInAndWait(FADE_FAST)
+	Tutorial("TUTID_紋章士ヴェロニカ")
+	
+end
+
+-- -----------------------------------
+
+function GameOver()
+	
+	Log("GameOver");
+	
+end
+
+-- -----------------------------------
+
+function 変数登録()
+
+	VariableEntry( g_Key_SkyCastle_Moved, 0 )
+
+	VariableEntry( "起動盤_初回限定_会話イベント_済", 0 )
+	
+	VariableEntry( "ヴェロニカ召喚1_済", 0 )
+	VariableEntry( "エリア1進入_済", 0 )
+
+	VariableEntry( "ヴェロニカ召喚2_済", 0 )
+	VariableEntry( "エリア2進入_済", 0 )
+	
+	VariableEntry( "島移動後増援_済", 0 )
+end
+
+-- -----------------------------------
+
+function イベント登録()
+
+	EventEntryTurn( 戦闘開始直後,	1,  1, FORCE_PLAYER )
+
+	EventEntryTurn( 勝利条件_紋章士にフォーカス, 1, 1, FORCE_PLAYER )
+
+	EventEntryTurn( 味方開始直後, 1, 1,  FORCE_PLAYER)
+
+	EventEntryArea( 起動盤_左_作動, 11, 18, 11, 18, FORCE_PLAYER, "起動盤_初回限定_会話イベント_済" )
+	EventEntryArea( 起動盤_右_作動, 24, 21, 24, 21, FORCE_PLAYER, "起動盤_初回限定_会話イベント_済" )
+
+	EventEntryArea( 左右の飛空城_移動, 11, 18, 11, 18, FORCE_PLAYER, condition_全てのスイッチを押下 )
+	EventEntryArea( 左右の飛空城_移動, 24, 21, 24, 21, FORCE_PLAYER, condition_全てのスイッチを押下 )
+
+	EventEntryArea( EmptyFunction, 5, 16, 13, 26, FORCE_PLAYER, "エリア1進入_済" )
+	EventEntryTurn( ヴェロニカ召喚1, -1, -1, FORCE_PLAYER, condition_ヴェロニカ召喚1 )
+
+	EventEntryArea( EmptyFunction, 19, 14, 29, 26, FORCE_PLAYER, "エリア2進入_済" )
+	EventEntryTurn( ヴェロニカ召喚2, -1, -1, FORCE_PLAYER, condition_ヴェロニカ召喚2 )
+	
+	EventEntryTurn( 島移動後増援, -1, -1, FORCE_PLAYER, condition_島移動後増援 )
+	
+	EventEntryBattleTalk( リュールと戦闘,	"PID_リュール",	FORCE_PLAYER, g_pid_boss,	FORCE_ENEMY, true, "戦闘前会話_ヴェロニカ_リュール_済" )
+	EventEntryBattleTalk( リュールと戦闘,	"PID_リュール",	FORCE_PLAYER, g_pid_bossN,	FORCE_ENEMY, true, "戦闘前会話_ヴェロニカ_リュール_済" )
+	EventEntryBattleTalk( アンナと戦闘,		"PID_アンナ",	FORCE_PLAYER, g_pid_boss,	FORCE_ENEMY, true, "戦闘前会話_ヴェロニカ_アンナ_済" )
+	EventEntryBattleTalk( アンナと戦闘,		"PID_アンナ",	FORCE_PLAYER, g_pid_bossN,	FORCE_ENEMY, true, "戦闘前会話_ヴェロニカ_アンナ_済" )
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 3, 2, "PID_リュール", condition_true)
+
+end
+
+-- -----------------------------------
+
+function 勝利条件_紋章士にフォーカス()
+	CursorAnimeCreate_FromPid( ボスのPIDを取得() )
+	WinRule()
+	CursorAnimeDelete()
+end
+
+-- -----------------------------------
+
+function ボスのPIDを取得()
+	
+	if UnitExistOnMap( g_pid_boss ) then
+		return g_pid_boss
+		
+	elseif UnitExistOnMap( g_pid_bossN ) then
+		return g_pid_bossN
+		
+	end
+	
+	return ""
+	
+end
+
+-- -----------------------------------
+
+function 起動盤_左_作動()
+
+	if condition_全てのスイッチを押下() then
+		
+		-- 起動盤を初めて作動した時点で全ての起動盤にユニットが乗っていた場合、
+		-- フラグを下げ、初回限定の会話イベントは実行しない
+		VariableSet( "起動盤_初回限定_会話イベント_済", 1 )
+
+	else
+
+		-- 起動盤を片方しか作動していなかった場合、起動盤の初回限定イベントを実行する
+		起動盤_初回限定_会話イベント_実行( 24, 21 )
+
+	end
+end
+
+-- -----------------------------------
+
+function 起動盤_右_作動()
+
+	if condition_全てのスイッチを押下() then
+
+		-- 起動盤を初めて作動した時点で全ての起動盤にユニットが乗っていた場合、
+		-- フラグを下げ、初回限定の会話イベントは実行しない
+		VariableSet( "起動盤_初回限定_会話イベント_済", 1 )
+
+	else
+
+		-- 起動盤を片方しか作動していなかった場合、起動盤の初回限定イベントを実行する
+		起動盤_初回限定_会話イベント_実行( 11, 18 )
+
+	end
+end
+
+-- -----------------------------------
+
+function 起動盤_初回限定_会話イベント_実行( x, z )
+
+	WaitTime( 0.5 )
+
+	-- 片方の起動盤に乗っただけでは何も起こらないことを伝える会話イベントを起こす
+	Talk("MID_EV5")
+
+	-- 初回限定の起動盤に関する会話イベントの実行済みフラグを立てる
+	VariableSet( "起動盤_初回限定_会話イベント_済", 1 )
+
+	-- 未起動の起動盤にカメラを寄せる
+	CursorSetPos( x, z )
+	MapCameraWait()
+
+	-- 起動盤の存在を強調するためのエフェクトを表示する
+	CursorAnimeCreate( x, z )
+
+	-- まだ起動していない起動盤があることを伝える会話イベントを起こす
+	Talk("MID_EV6")
+
+	-- 表示していた強調エフェクトを削除する
+	CursorAnimeDelete()
+
+	WaitTime( 0.5 )
+
+	-- 演出を見届けたら、操作していたユニットにカメラを戻す
+	local unitX = UnitGetX( MindGetUnit() )
+	local unitZ = UnitGetZ( MindGetUnit() )
+
+	CursorSetPos( unitX, unitZ )
+	MapCameraWait()
+
+end
+
+-- -----------------------------------
+
+function condition_全てのスイッチを押下()
+	
+	if VariableGet( g_Key_SkyCastle_Moved ) == 0 then
+
+		local isLeftSwitch = false
+		local isRightSwitch = false
+
+		local leftUnit = UnitGetByPos( 11, 18 )
+		
+		if leftUnit != nil then
+			if UnitGetForce( leftUnit ) == FORCE_PLAYER then
+				isLeftSwitch = true
+
+			end
+		end
+
+		local rightUnit = UnitGetByPos( 24, 21 )
+
+		if rightUnit != nil then
+			if UnitGetForce( rightUnit ) == FORCE_PLAYER then
+				isRightSwitch = true
+
+			end
+		end
+
+		if isLeftSwitch and isRightSwitch then
+			return true
+
+		end
+	end
+
+	return false
+end
+
+-- -----------------------------------
+
+function 左右の飛空城_移動()
+
+	-- 浮島が動く様子を見えるようにするため、カメラ距離を中距離に設定する
+	CursorSetDistanceMode( CURSOR_DISTANCE_MIDDLE )
+
+	CursorSetPos( 16, 17 )
+	MapCameraWait()
+
+	InitList( g_OverlapList )
+
+	配置地形_列挙( g_LeftSkyCastle, g_OverlapList, g_VecX )
+	配置地形_列挙( g_RightSkyCastle, g_OverlapList, -g_VecX )
+
+	-- 配置地形の消去が悪目立ちするため、画面を暗転することで緩和する
+	フェードアウト( FADE_FAST, g_FadeTime )
+
+	-- 配置地形は飛空城の移動と同期できないため、
+	-- 一旦消去してイベント後に再配置することで移動したことを表現する
+	配置地形_消去( g_OverlapList )
+	
+	フェードイン( FADE_FAST )
+
+	-- 起動盤が全て同時に押され、飛空城が動き出すことを伝える会話イベントを再生する
+	Talk("MID_EV7")
+
+	飛空城_移動イベント()
+
+	-- 配置地形の再配置が悪目立ちするため、画面を暗転することで緩和する
+	フェードアウト( FADE_FAST, g_FadeTime )
+
+	-- イベント前に配置していた地形を再配置する
+	配置地形_再配置( g_OverlapList )
+
+	フェードイン( FADE_FAST )
+
+	local x = UnitGetX( MindGetUnit() )
+	local z = UnitGetZ( MindGetUnit() )
+
+	CursorSetPos( x, z )
+	MapCameraWait()
+
+	VariableSet( g_Key_SkyCastle_Moved, 1 )
+
+	Talk("MID_EV8")
+
+	WaitTime( 1.0 )
+
+end
+
+-- -----------------------------------
+
+function 配置地形_列挙( skyCastle, overlapList, vecX )
+
+	for pointer = 1, #skyCastle do
+		
+		local x = skyCastle[pointer].x
+		local z = skyCastle[pointer].z
+
+		local overlap = MapOverlapGet( x, z )
+
+		if ( overlap != "TID_無し" ) then
+
+			-- 配置地形が存在する場合、何もない状態に戻す
+			local overlapInfo = {}
+
+			overlapInfo.prevX = x			-- 移動前のX座標
+			overlapInfo.prevZ = z			-- 移動前のZ座標
+			overlapInfo.nextX = x + vecX	-- 移動後のX座標
+			overlapInfo.nextZ = z			-- 移動後のZ座標
+			overlapInfo.overlap = overlap	-- 移動する配置地形
+
+			overlapList[#overlapList + 1] = overlapInfo
+
+		end
+	end
+end
+
+-- -----------------------------------
+
+function 配置地形_消去( overlapList )
+
+	MapOverlapSetBegin()
+
+	for pointer = 1, #overlapList do
+
+		local x = overlapList[pointer].prevX
+		local z = overlapList[pointer].prevZ
+		local overlap = overlapList[pointer].overlap
+	
+		if ( overlap == "TID_紋章氣" ) then
+			
+			-- 「紋章氣」は MapOverlapSet で配置地形を上書きすることができないため、
+			-- MapOverlapRemove で消去する
+			MapOverlapRemove(x, z)
+
+		else
+
+			-- 「紋章氣」以外の地形は MapOverlapSet で「無し」の地形に上書きする
+			MapOverlapSet(x, z, "TID_無し")
+
+		end
+	end
+
+	MapOverlapSetEnd()
+
+end
+
+-- -----------------------------------
+
+function 配置地形_再配置( overlapList )
+
+	MapOverlapSetBegin()
+
+	for pointer = 1, #overlapList do
+		
+		local x = overlapList[pointer].nextX
+		local z = overlapList[pointer].nextZ
+		local overlap = overlapList[pointer].overlap
+
+		MapOverlapSet(x, z, overlap)
+
+	end
+
+	MapOverlapSetEnd()
+
+end
+
+-- -----------------------------------
+
+function フェードアウト( speed, time )
+
+	if #g_OverlapList > 0 then
+
+		-- 飛空城と移動する配置地形があるときだけ、フェードアウトを有効にする
+		FadeOutAndWait( speed )
+		WaitTime( time )
+
+	end
+end
+
+-- -----------------------------------
+
+function フェードイン( speed )
+
+	if #g_OverlapList > 0 then
+		
+		-- 飛空城と移動する配置地形があるときだけ、フェードインを有効にする
+		FadeInAndWait( speed )
+
+	end
+end
+
+-- -----------------------------------
+
+function 飛空城_移動イベント()
+
+	WaitTime( 0.25 )
+
+	local leftSkyCastle = Copy( g_LeftSkyCastle )
+	SortInAsc( leftSkyCastle )
+
+	local rightSkyCastle = Copy( g_RightSkyCastle )
+	SortInDesc( rightSkyCastle )
+
+	-- 跳躍するユニットの列挙に備えるため、記憶先の配列を初期化する
+	InitList( g_JumpUnitList )
+
+	浮島と移動するユニット_列挙( leftSkyCastle, g_LeftUnitList )
+	跳躍するユニット_列挙( leftSkyCastle, g_LeftUnitList, g_VecX )
+
+	浮島と移動するユニット_列挙( rightSkyCastle, g_RightUnitList )
+	跳躍するユニット_列挙( rightSkyCastle, g_RightUnitList, -g_VecX )
+
+	ユニットが移動する前の位置を保存( g_LeftUnitList )
+	ユニットが移動する前の位置を保存( g_RightUnitList )
+	ユニットが移動する前の位置を保存( g_JumpUnitList )
+
+	-- 左側の飛空城にいるユニットを移動
+	浮島と移動するユニット_移動( g_LeftUnitList, g_VecX )
+
+	-- 右側の飛空城にいるユニットを移動
+	浮島と移動するユニット_移動( g_RightUnitList, -g_VecX )
+
+	飛空城_移動前エフェクト_再生()
+
+	-- 左側の飛空城を移動
+	飛空城_移動アニメ_再生( 11, 17, 11 + g_VecX )
+
+	-- 右側の飛空城を移動
+	飛空城_移動アニメ_再生( 24, 20, 24 - g_VecX )
+
+	飛空城_移動後エフェクト_再生()
+	
+	飛空城_移動アニメ_待機()
+
+	-- ユニットの移動が完了するまで待機
+	UnitMoveWait()
+
+	-- 左側の飛空城の地形を更新
+	浮島の地形_更新( leftSkyCastle, g_VecX )
+
+	-- 右側の飛空城の地形を更新
+	浮島の地形_更新( rightSkyCastle, -g_VecX )
+
+	WaitTime( 0.5 )
+
+	跳躍するユニット_跳躍()
+
+	-- ユニットの跳躍が完了するまで待機
+	UnitMoveWait()
+
+	WaitTime( 0.5 )
+
+end
+
+-- -----------------------------------
+
+function 浮島と移動するユニット_列挙( skyCastle, unitList )
+
+	InitList( unitList )
+
+	-- 浮島と一緒に移動するユニットを列挙する
+	for pointer = 1, #skyCastle do
+
+		-- 浮島にいるユニットを取得する
+		local x = skyCastle[pointer].x
+		local z = skyCastle[pointer].z
+		local unit = UnitGetByPos( x, z )
+
+		if unit != nil then
+			if ( UnitGetMoveCost( unit ) != "COST_飛行" ) then
+				if Contains( unitList, unit ) == false then
+					unitList[#unitList + 1] = unit
+				end
+			end
+		end
+	end
+end
+
+-- -----------------------------------
+
+function 跳躍するユニット_列挙( skyCastle, moveUnitList, vecX )
+	
+	-- 移動してきた地形によって跳躍するユニットを列挙する
+	for pointer = 1, #skyCastle do
+		
+		local x = skyCastle[pointer].x + vecX
+		local z = skyCastle[pointer].z
+		local terrain = skyCastle[pointer].terrain
+
+		if terrain == "TID_廃墟" then
+
+			local jumpUnit = UnitGetByPos( x, z )
+
+			if jumpUnit != nil then
+
+				if Contains( moveUnitList, jumpUnit ) == false then
+				-- 飛空城と移動するユニットの場合、
+				-- 跳躍させる側になるのでリストからは除外する
+
+					if Contains( g_JumpUnitList, jumpUnit ) == false then
+						-- リストに未登録のユニットだった場合、追加する
+						g_JumpUnitList[#g_JumpUnitList + 1] = jumpUnit
+					end
+				end
+			end
+		end
+	end
+
+	-- 移動してきたユニットによって跳躍するユニットを列挙する
+	for pointer = 1, #moveUnitList do
+		
+		local moveUnit = moveUnitList[pointer]
+
+		local x = UnitGetX( moveUnit ) + vecX
+		local z = UnitGetZ( moveUnit )
+
+		local jumpUnit = UnitGetByPos( x, z )
+
+		if jumpUnit != nil then
+
+			if Contains( moveUnitList, jumpUnit ) == false then
+				-- 飛空城と移動するユニットの場合、
+				-- 跳躍させる側になるのでリストからは除外する
+
+				if Contains( g_JumpUnitList, jumpUnit ) == false then
+					-- リストに未登録のユニットだった場合、追加する
+					g_JumpUnitList[#g_JumpUnitList + 1] = jumpUnit
+
+				end
+			end
+		end
+	end
+end
+
+-- -----------------------------------
+
+function ユニットが移動する前の位置を保存( unitList )
+	
+	MapHistoryPositionListBegin()
+
+	for pointer = 1, #unitList do
+
+		local unit = unitList[pointer]
+
+		if unit != nil then
+			MapHistoryPositionList( unit )
+		end
+	end
+
+	MapHistoryPositionListEnd()
+end
+
+-- -----------------------------------
+
+function 浮島と移動するユニット_移動( unitList, vecX )
+	
+	for pointer = 1, #unitList do
+
+		local unit = unitList[pointer]
+
+		local x = UnitGetX( unitList[pointer] ) + vecX
+		local z = UnitGetZ( unitList[pointer] )
+
+		UnitSyncSkyCastle( unit, x, z )
+	end
+end
+
+-- -----------------------------------
+
+function 跳躍するユニット_跳躍()
+
+	for pointer = 1, #g_JumpUnitList do
+		
+		local unit = g_JumpUnitList[pointer]
+
+		UnitJumpPos( unit, -1, -1, g_JumpTime )
+
+	end
+end
+
+-- -----------------------------------
+
+function 飛空城_移動前エフェクト_再生()
+
+	-- 飛空城が動き出す演出の土煙エフェクトを再生する
+	EffectPlay( "起動盤_移動前", 0, 0 )
+	EffectWait()
+
+end
+
+-- -----------------------------------
+
+function 飛空城_移動後エフェクト_再生()
+
+	-- 飛空城が合体する演出の土煙エフェクトを再生する
+	WaitTime( 3.5 )
+	EffectPlay( "起動盤_移動後", 0 ,0 )
+	EffectWait()
+
+end
+
+-- -----------------------------------
+
+function 飛空城_移動アニメ_再生( x, z, movedX )
+
+	-- オブジェクト起動
+	MapObjectActionMoveNoWait( x, z, movedX, z, MAP_ACTION_DONE )
+
+end
+
+-- -----------------------------------
+
+-- 飛空城の移動アニメが終了するまで待機する
+function 飛空城_移動アニメ_待機()
+	
+	while EventIsPlayingSkyCastle() do
+		coroutine.yield(true)
+	end
+end
+
+-- -----------------------------------
+
+function InitList( list )
+
+	-- 指定されたリストを初期化する
+	for i in pairs (list) do
+		list[i] = nil
+
+	end
+end
+
+-- -----------------------------------
+
+function Contains( list, element )
+
+	for pointer = 1, #list do
+		if list[pointer] == element then
+			return true
+
+		end
+	end
+
+	return false
+end
+
+-- -----------------------------------
+
+function 戦闘開始直後()
+	
+	-- マージカノン
+	if UnitExistOnMap( "PID_G000_幻影兵_マージカノン" ) then
+		local x = UnitGetX( "PID_G000_幻影兵_マージカノン" )
+		local z = UnitGetZ( "PID_G000_幻影兵_マージカノン" )
+		
+		CursorSetPos( x, z )
+		MapCameraWait()
+		
+		CursorAnimeCreate( x, z )
+			Tutorial( "TUTID_敵マージカノン_G003" )
+		CursorAnimeDelete()
+	end
+	
+	
+	-- ヴェロニカ
+	CursorSetPos( 15, 22 )
+	MapCameraWait()
+	
+	Talk( "MID_EV2" )
+
+	CursorAnimeCreate( 24, 21 )
+	CursorAnimeCreate( 11, 18 )	
+	Talk("MID_EV3")
+	CursorAnimeDelete()
+
+	CursorSetPos_FromPid( "PID_リュール" )
+	Talk("MID_EV4")
+
+end
+
+-- -----------------------------------
+
+function 味方開始直後()
+
+	-- ヴェロニカ会話
+	CursorSetPos_FromPid( ボスのPIDを取得() )
+	Talk( "MID_EV1" )
+
+	-- ヴェロニカ召喚
+	local orgConfig = ConfigGetBattleScene()
+	ConfigSetBattleScene(CONFIG_ANIM_ON)
+	EventEngageSummon( ボスのPIDを取得() )
+	ConfigSetBattleScene(orgConfig)
+
+	Dispos( "Reinforcement1", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED + DISPOS_FLAG_WARP )
+	Yield()
+	WaitTime( 1.0 )
+
+end
+
+-- -----------------------------------
+
+function リュールと戦闘()
+	
+	Talk( "MID_BT1" )
+	
+end
+
+-- -----------------------------------
+
+--function condition_アンナと戦闘()
+	
+--	if VariableGet( "戦闘前会話_ヴェロニカ_アンナ_済" ) == 1 then
+--		return false
+--	end
+	
+	
+--	local god = nil
+--	if MindGetForce() == FORCE_PLAYER then
+--		god = UnitGetGodUnit( MindGetUnit() )
+--	else
+--		god = UnitGetGodUnit( MindGetTargetUnit() )
+--	end
+	
+--	return ( god == "GID_アンナ" )
+	
+--end
+
+-- -----------------------------------
+
+function アンナと戦闘()
+	
+	Talk( "MID_BT2" )
+	
+end
+
+-- -----------------------------------
+
+function EmptyFunction()
+end
+
+-- -----------------------------------
+function condition_ヴェロニカ召喚1()
+	
+	-- 再生済みのイベントなら二度と再生しない
+	if VariableGet( "ヴェロニカ召喚1_済" ) == 1 then
+		return false
+	end
+	
+	-- 島移動後は増援を出さない
+	if VariableGet( g_Key_SkyCastle_Moved ) == 1 then
+		return false
+	end
+	
+	-- エリアに入ったら再生
+	if VariableGet( "エリア1進入_済" ) == 1 then
+		return true
+	else
+		return false
+	end
+	
+end
+
+function ヴェロニカ召喚1()
+	
+	local orgConfig = ConfigGetBattleScene()
+	ConfigSetBattleScene(CONFIG_ANIM_ON)
+	EventEngageSummon( ボスのPIDを取得() )
+	ConfigSetBattleScene(orgConfig)
+
+	Dispos( "Reinforcement1_1", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED + DISPOS_FLAG_WARP )
+	Yield()
+	WaitTime( 1.0 )
+	VariableSet( "ヴェロニカ召喚1_済", 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_ヴェロニカ召喚2()
+	
+	-- 再生済みのイベントなら二度と再生しない
+	if VariableGet( "ヴェロニカ召喚2_済" ) == 1 then
+		return false
+	end
+	
+	-- 島移動後は増援を出さない
+	if VariableGet( g_Key_SkyCastle_Moved ) == 1 then
+		return false
+	end
+	
+	-- エリアに入ったら再生
+	if VariableGet( "エリア2進入_済" ) == 1 then
+		return true
+	else
+		return false
+	end
+	
+end
+
+function ヴェロニカ召喚2()
+	
+	local orgConfig = ConfigGetBattleScene()
+	ConfigSetBattleScene(CONFIG_ANIM_ON)
+	EventEngageSummon( ボスのPIDを取得() )
+	ConfigSetBattleScene(orgConfig)
+
+	Dispos( "Reinforcement1_2", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED + DISPOS_FLAG_WARP )
+	Yield()
+	WaitTime( 1.0 )
+	VariableSet( "ヴェロニカ召喚2_済", 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_島移動後増援()
+	
+	if VariableGet( "島移動後増援_済" ) == 1 then
+		return false
+	end
+	
+	return VariableGet( g_Key_SkyCastle_Moved )
+	
+end
+
+function 島移動後増援()
+	
+	-- ヴェロニカ召喚1_3
+
+	-- 敵のアニメ演出に関する設定
+	local orgConfig = ConfigGetBattleScene()
+	ConfigSetBattleScene(CONFIG_ANIM_ON)
+		EventEngageSummon( ボスのPIDを取得() )
+	ConfigSetBattleScene(orgConfig)
+
+	Dispos( "Reinforcement1_3", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED + DISPOS_FLAG_WARP )
+	Yield()
+	WaitTime( 1.0 )
+	
+	VariableSet( "島移動後増援_済", 1 ) 
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------

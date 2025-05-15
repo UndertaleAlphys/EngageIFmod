@@ -1,0 +1,1250 @@
+Include("Common")
+
+g_pid_lueur = "PID_リュール"
+g_key_tutorial_talk_synchro	= "チュートリアル_会話シンクロ_済"
+g_key_emblem1				= "紋章士顕現_ベレト_ルキナ_リン_済"
+g_key_emblem2				= "紋章士顕現_ミカヤ_セリカ_済"
+g_key_emblem3				= "紋章士顕現_アイク_シグルド_エイリーク_済"
+g_key_emblem4				= "紋章士顕現_ロイ_リーフ_カムイ_済"
+g_key_emblem_count			= "紋章士カウント"
+g_key_ring_complete			= "指輪全部集めた_済"
+
+g_key_reinforcement1		= "増援１_済"
+g_key_reinforcement2		= "増援２_済"
+g_key_reinforcement3		= "増援３_済"
+
+g_key_pickup_pre			= "指輪拾う会話_"
+
+map_width = 23
+map_height = 29
+
+-- -----------------------------------
+
+EMBLEM_シグルド		= 1
+EMBLEM_セリカ		= 2
+EMBLEM_ミカヤ		= 3
+EMBLEM_ロイ			= 4
+EMBLEM_リーフ		= 5
+EMBLEM_ルキナ		= 6
+EMBLEM_リン			= 7
+EMBLEM_アイク		= 8
+EMBLEM_ベレト		= 9
+EMBLEM_カムイ		= 10
+EMBLEM_エイリーク	= 11
+
+g_emblem_list = {
+	"シグルド",
+	"セリカ",
+	"ミカヤ",
+	"ロイ",
+	"リーフ",
+	"ルキナ",
+	"リン",
+	"アイク",
+	"ベレト",
+	"カムイ",
+	"エイリーク"
+	}
+	
+	
+g_emblem_position = {
+	{X=4,	Z=9},		-- シグルド
+	{X=9,	Z=15},		-- セリカ
+	{X=7,	Z=14},		-- ミカヤ
+	{X=15,	Z=7},		-- ロイ
+	{X=17,	Z=7},		-- リーフ
+	{X=19,	Z=17},		-- ルキナ
+	{X=18,	Z=19},		-- リン
+	{X=5,	Z=7},		-- アイク
+	{X=17,	Z=18},		-- ベレト
+	{X=16,	Z=8},		-- カムイ
+	{X=3,	Z=8}		-- エイリーク
+	}
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	フラグ登録()
+	
+	イベント登録()
+	
+	-- 勝利条件の設定
+	if ( VariableGet( g_key_ring_complete ) == 0 ) then
+		WinRuleSetEnemyNumberLessThanOrEqualTo(-1)		-- 敵全滅判定を無効化
+		WinRuleSetMID( "MID_RULE_M022_WIN" )
+	end
+	
+	VariableSet( "他軍フェイズスキップ", 1 )
+	
+end
+
+function フラグ登録()
+	
+	VariableEntry( g_key_tutorial_talk_synchro, 0 )
+	VariableEntry( g_key_emblem_count, 0 )
+	VariableEntry( g_key_ring_complete, 0 )
+	
+	VariableEntry( g_key_reinforcement1, 0 )
+	VariableEntry( g_key_reinforcement2, 0 )
+	VariableEntry( g_key_reinforcement3, 0 )
+	
+	-- --------------------------------
+	
+	VariableEntry( g_key_emblem1,	0 )
+	VariableEntry( g_key_emblem2,	0 )
+	VariableEntry( g_key_emblem3,	0 )
+	VariableEntry( g_key_emblem4,	0 )
+	
+	-- --------------------------------
+	
+	if ( #g_emblem_list > 0 ) then
+		for index = 1, #g_emblem_list do
+			key = "紋章士顕現_" .. g_emblem_list[index] .. "_済"
+			VariableEntry( key, 0 )
+		end
+	end
+	
+end
+
+function イベント登録()
+	
+	EventEntryTurnAfter(青１ターン開始直後,	1, 1, FORCE_PLAYER)
+	EventEntryTurn(		勝利条件,			1, 1, FORCE_PLAYER )
+	
+	-- 増援
+	EventEntryTurn(青ターン開始直前_増援１_ノーマル,	 5,  5, FORCE_PLAYER,	condition_増援１_ノーマル)
+	EventEntryTurn(青ターン開始直前_増援１,				 5,  5, FORCE_PLAYER,	condition_増援１)
+	EventEntryTurn(青ターン開始直前_増援２,				 8,  8, FORCE_PLAYER,	condition_増援２_ノーマル)
+	EventEntryTurn(青ターン開始直前_増援２,				 8,  8, FORCE_PLAYER,	condition_増援２)
+	EventEntryTurn(青ターン開始直前_増援３,				11, 11, FORCE_PLAYER,	condition_増援３_ノーマル)
+	EventEntryTurn(青ターン開始直前_増援３,				11, 11, FORCE_PLAYER,	condition_増援３)
+	
+	EventEntryTurn(青ターン開始直前_無限増援,			13, -1, FORCE_PLAYER,	condition_無限増援)
+	
+	EventEntryFixed( 紋章士顕現_ベレト_ルキナ_リン,			g_pid_lueur, FORCE_PLAYER, condition_紋章士顕現_ベレト_ルキナ_リン )
+	EventEntryFixed( 紋章士顕現_ミカヤ_セリカ,				g_pid_lueur, FORCE_PLAYER, condition_紋章士顕現_ミカヤ_セリカ )
+	EventEntryFixed( 紋章士顕現_アイク_シグルド_エイリーク,	g_pid_lueur, FORCE_PLAYER, condition_紋章士顕現_アイク_シグルド_エイリーク )
+	EventEntryFixed( 紋章士顕現_ロイ_リーフ_カムイ,			g_pid_lueur, FORCE_PLAYER, condition_紋章士顕現_ロイ_リーフ_カムイ )
+	
+	EventEntryTalk(ユニットと紋章士の会話,	"", FORCE_PLAYER, "PID_M022_紋章士_シグルド",	FORCE_ALLY, true, "シグルド会話_済"	)
+	EventEntryTalk(ユニットと紋章士の会話,	"", FORCE_PLAYER, "PID_M022_紋章士_セリカ",		FORCE_ALLY, true, "セリカ会話_済"		)
+	EventEntryTalk(ユニットと紋章士の会話,	"", FORCE_PLAYER, "PID_M022_紋章士_ミカヤ",		FORCE_ALLY, true, "ミカヤ会話_済"		)
+	EventEntryTalk(ユニットと紋章士の会話,	"", FORCE_PLAYER, "PID_M022_紋章士_ロイ",		FORCE_ALLY, true, "ロイ会話_済"		)
+	EventEntryTalk(ユニットと紋章士の会話,	"", FORCE_PLAYER, "PID_M022_紋章士_リーフ",		FORCE_ALLY, true, "リーフ会話_済"		)
+	EventEntryTalk(ユニットと紋章士の会話,	"", FORCE_PLAYER, "PID_M022_紋章士_ルキナ",		FORCE_ALLY, true, "ルキナ会話_済"		)
+	EventEntryTalk(ユニットと紋章士の会話,	"", FORCE_PLAYER, "PID_M022_紋章士_リン",		FORCE_ALLY, true, "リン会話_済"		)
+	EventEntryTalk(ユニットと紋章士の会話,	"", FORCE_PLAYER, "PID_M022_紋章士_アイク",		FORCE_ALLY, true, "アイク会話_済"		)
+	EventEntryTalk(ユニットと紋章士の会話,	"", FORCE_PLAYER, "PID_M022_紋章士_ベレト",		FORCE_ALLY, true, "ベレト会話_済"		)
+	EventEntryTalk(ユニットと紋章士の会話,	"", FORCE_PLAYER, "PID_M022_紋章士_カムイ",		FORCE_ALLY, true, "カムイ会話_済"		)
+	EventEntryTalk(ユニットと紋章士の会話,	"", FORCE_PLAYER, "PID_M022_紋章士_エイリーク",	FORCE_ALLY, true, "エイリーク会話_済"	)
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 11, 25, "PID_リュール", condition_true)
+	EventEntryEscape(離脱イベント, 11, 25, "PID_ヴァンドレ", condition_true)
+end
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+	紋章士闇化( false )
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	FadeInAndWait(FADE_NORMAL)
+		Movie("S19")
+		SkipEscape()
+	FadeOutAndWait(FADE_NORMAL)
+	
+	PuppetDemo("M022", "MID_OP1")
+		
+	PuppetDemo("M022", "MID_OP2")
+	
+	スキル装備( g_pid_lueur, "SID_異形兵" )
+	GodUnitSetDarkness("GID_マルス", true)
+	
+	-- リュールのヘルプ内容を変更
+	VariableSet( "G_置換_MPID_H_Lueur", 1 )
+	
+	Movie("Scene24")
+	SkipEscape()
+
+	PuppetDemo("M022", "MID_OP4")
+
+end
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+	FadeOutAndWait(FADE_FAST)
+	
+	UnitSetGodUnit( g_pid_lueur, "GID_マルス" )
+	
+	-- 指輪エフェクトを配置する
+	if ( #g_emblem_list > 0 ) then
+		for index = 1, #g_emblem_list do
+			EffectCreate( "指輪集め_" .. g_emblem_list[index], g_emblem_position[index].X, g_emblem_position[index].Z )
+		end
+	end
+	
+	FadeInAndWait(FADE_FAST)
+	
+end
+
+-- -----------------------------------
+
+function 青１ターン開始直後()
+	
+	
+	local x, z = 中間点を返す( 3, EMBLEM_ベレト, EMBLEM_ルキナ, EMBLEM_リン )
+	CursorSetPos(x,z)
+	MapCameraWait()
+	MapObjectCreate("Eff_Cursor01", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", g_emblem_position[EMBLEM_ベレト].X, g_emblem_position[EMBLEM_ベレト].Z)
+	MapObjectCreate("Eff_Cursor02", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", g_emblem_position[EMBLEM_ルキナ].X, g_emblem_position[EMBLEM_ルキナ].Z)
+	MapObjectCreate("Eff_Cursor03", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", g_emblem_position[EMBLEM_リン].X, g_emblem_position[EMBLEM_リン].Z)
+	WaitTime( 2.0 )
+	MapObjectDelete("Eff_Cursor01")
+	MapObjectDelete("Eff_Cursor02")
+	MapObjectDelete("Eff_Cursor03")
+	
+	-- --------------------------------
+	
+	x, z = 中間点を返す( 2, EMBLEM_ミカヤ, EMBLEM_セリカ )
+	CursorSetPos(x,z)
+	MapCameraWait()
+	MapObjectCreate("Eff_Cursor01", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", g_emblem_position[EMBLEM_ミカヤ].X, g_emblem_position[EMBLEM_ミカヤ].Z)
+	MapObjectCreate("Eff_Cursor02", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", g_emblem_position[EMBLEM_セリカ].X, g_emblem_position[EMBLEM_セリカ].Z)
+	WaitTime( 2.0 )
+	MapObjectDelete("Eff_Cursor01")
+	MapObjectDelete("Eff_Cursor02")
+	
+	-- --------------------------------
+	
+	x, z = 中間点を返す( 3, EMBLEM_アイク, EMBLEM_シグルド, EMBLEM_エイリーク )
+	CursorSetPos(x,z)
+	MapCameraWait()
+	MapObjectCreate("Eff_Cursor01", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", g_emblem_position[EMBLEM_アイク].X, g_emblem_position[EMBLEM_アイク].Z)
+	MapObjectCreate("Eff_Cursor02", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", g_emblem_position[EMBLEM_シグルド].X, g_emblem_position[EMBLEM_シグルド].Z)
+	MapObjectCreate("Eff_Cursor03", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", g_emblem_position[EMBLEM_エイリーク].X, g_emblem_position[EMBLEM_エイリーク].Z)
+	WaitTime( 2.0 )
+	MapObjectDelete("Eff_Cursor01")
+	MapObjectDelete("Eff_Cursor02")
+	MapObjectDelete("Eff_Cursor03")
+	
+	-- --------------------------------
+	
+	x, z = 中間点を返す( 3, EMBLEM_ロイ, EMBLEM_リーフ, EMBLEM_カムイ )
+	CursorSetPos(x,z)
+	MapCameraWait()
+	MapObjectCreate("Eff_Cursor01", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", g_emblem_position[EMBLEM_ロイ].X, g_emblem_position[EMBLEM_ロイ].Z)
+	MapObjectCreate("Eff_Cursor02", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", g_emblem_position[EMBLEM_リーフ].X, g_emblem_position[EMBLEM_リーフ].Z)
+	MapObjectCreate("Eff_Cursor03", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_W1H1", g_emblem_position[EMBLEM_カムイ].X, g_emblem_position[EMBLEM_カムイ].Z)
+	WaitTime( 2.0 )
+	MapObjectDelete("Eff_Cursor01")
+	MapObjectDelete("Eff_Cursor02")
+	MapObjectDelete("Eff_Cursor03")
+	
+	-- --------------------------------
+	
+	CursorSetPos_FromPid( "PID_ヴェイル" )
+	Talk("MID_EV1")
+	
+	Tutorial( "TUTID_指輪収集" )
+	
+	-- 緑軍→青軍
+	pid = "PID_ヴェイル"
+	if UnitExistOnMap( pid ) and ( UnitGetForce(pid) == FORCE_ALLY ) then
+		UnitJoin( pid )
+	end
+	
+	指輪拾うフラグ登録()
+	
+end
+
+-- -----------------------------------
+
+function 指輪拾うフラグ登録()
+	
+	-- 拾っておこう、という会話を初回のみ再生するためのフラグ。味方の数分作る
+	
+	local index = ForceUnitGetFirst(FORCE_PLAYER)
+	while index != nil do
+		local key = 指輪拾うフラグ生成( index )
+		VariableEntry( key, 0 )
+		
+		index = ForceUnitGetNext(index)
+	end
+	
+end
+
+function 指輪拾うフラグ生成( unit )
+	local key = g_key_pickup_pre .. UnitGetMPID( unit )
+	return key
+end
+
+-- -----------------------------------
+
+function condition_増援１_ノーマル()
+	
+	if VariableGet( g_key_reinforcement1 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		return condition_増援登場()
+	end
+	
+	return false
+	
+end
+
+function 青ターン開始直前_増援１_ノーマル()
+	
+	Dispos( "Reinforcement1_Normal", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime(0.5)
+	
+	VariableSet( g_key_reinforcement1, 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_増援登場()
+	
+	return ( VariableGet( g_key_ring_complete ) == 0 )
+	
+end
+
+function condition_増援１()
+	
+	if VariableGet( g_key_reinforcement1 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		return condition_増援登場()
+	end
+	
+	return false
+end
+
+function 青ターン開始直前_増援１()
+	
+	Dispos( "Reinforcement1_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime(0.5)
+	
+	Dispos( "Reinforcement1_2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime(0.5)
+	
+	Dispos( "Reinforcement1_3", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime(0.5)
+	
+	VariableSet( g_key_reinforcement1, 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_増援２_ノーマル()
+	
+	if VariableGet( g_key_reinforcement2 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		return condition_増援登場()
+	end
+	
+	return false
+	
+end
+
+function condition_増援２()
+	
+	if VariableGet( g_key_reinforcement2 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		return condition_増援登場()
+	end
+	
+	return false
+end
+
+function 青ターン開始直前_増援２()
+	
+	Dispos( "Reinforcement2_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime(0.5)
+	
+	Dispos( "Reinforcement2_2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime(0.5)
+	
+	Dispos( "Reinforcement2_3", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime(0.5)
+	
+	Dispos( "Reinforcement2_4", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime(0.5)
+	
+	VariableSet( g_key_reinforcement2, 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_増援３_ノーマル()
+	
+	if VariableGet( g_key_reinforcement3 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		return condition_増援登場()
+	end
+	
+	return false
+	
+end
+
+function condition_増援３()
+	
+	if VariableGet( g_key_reinforcement3 ) != 0 then
+		return false
+	end
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		return condition_増援登場()
+	end
+	
+	return false
+end
+
+function 青ターン開始直前_増援３()
+	
+	Dispos( "Reinforcement3_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime(0.5)
+	
+	Dispos( "Reinforcement3_2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime(0.5)
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		
+		Dispos( "Reinforcement3_3", DISPOS_FLAG_FOCUS )
+		Yield()
+		WaitTime(0.5)
+		
+		Dispos( "Reinforcement3_4", DISPOS_FLAG_FOCUS )
+		Yield()
+		WaitTime(0.5)
+		
+	end
+	
+	VariableSet( g_key_reinforcement3, 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_無限増援()
+	
+	if VariableGet( g_key_ring_complete ) == 1 then
+		return false
+	end
+	
+	-- ３ターンに１回
+	local turn = MapGetTurn()
+	if ( ( ( turn - 13 ) % 3 ) == 0 ) then
+		return true
+	end
+	
+	return false
+	
+end
+
+function 青ターン開始直前_無限増援()
+	
+	Dispos("Reinforcement_Endless", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime( 0.5 )
+	
+end
+
+-- -----------------------------------
+
+function チュートリアル_会話シンクロ()
+	if VariableGet( g_key_tutorial_talk_synchro ) == 0 then
+		
+		Tutorial( "TUTID_再シンクロ" )
+		
+		VariableSet( g_key_tutorial_talk_synchro, 1 )
+		
+	end
+end
+
+-- -----------------------------------
+
+function condition_紋章士顕現_ベレト_ルキナ_リン()
+	
+	if ( VariableGet( g_key_emblem1 ) == 1 ) then
+		return false
+	end
+	
+	-- リュールが近くにいるかチェック
+	local lueur_x = UnitGetX( g_pid_lueur )
+	local lueur_z = UnitGetZ( g_pid_lueur )
+	
+	local distance1	= 二点間距離( lueur_x, lueur_z, g_emblem_position[EMBLEM_ベレト].X, g_emblem_position[EMBLEM_ベレト].Z )
+	local distance2	= 二点間距離( lueur_x, lueur_z, g_emblem_position[EMBLEM_ルキナ].X, g_emblem_position[EMBLEM_ルキナ].Z )
+	local distance3	= 二点間距離( lueur_x, lueur_z, g_emblem_position[EMBLEM_リン].X, g_emblem_position[EMBLEM_リン].Z )
+	
+	if ( distance1 <= 3 ) or ( distance2 <= 3 ) or ( distance3 <= 3 ) then
+		return true
+	end
+	
+	return false
+	
+end
+
+function 紋章士顕現_ベレト_ルキナ_リン()
+	
+	local x, z = 中間点を返す( 3, EMBLEM_ベレト, EMBLEM_ルキナ, EMBLEM_リン )
+	CursorSetPos(x,z)
+	MapCameraWait()
+	
+	Talk( "MID_EV2" )	-- 呪文
+	
+	
+	-- エフェクト削除
+	EffectDelete( "指輪集め_" .. g_emblem_list[EMBLEM_ベレト], g_emblem_position[EMBLEM_ベレト].X, g_emblem_position[EMBLEM_ベレト].Z )
+	EffectDelete( "指輪集め_" .. g_emblem_list[EMBLEM_ルキナ], g_emblem_position[EMBLEM_ルキナ].X, g_emblem_position[EMBLEM_ルキナ].Z )
+	EffectDelete( "指輪集め_" .. g_emblem_list[EMBLEM_リン], g_emblem_position[EMBLEM_リン].X, g_emblem_position[EMBLEM_リン].Z )
+	
+	
+	TerrainSetBegin()
+	TerrainSet(g_emblem_position[EMBLEM_ベレト].X, g_emblem_position[EMBLEM_ベレト].Z, "TID_床")
+	TerrainSet(g_emblem_position[EMBLEM_ルキナ].X, g_emblem_position[EMBLEM_ルキナ].Z, "TID_床")
+	TerrainSet(g_emblem_position[EMBLEM_リン].X, g_emblem_position[EMBLEM_リン].Z, "TID_床")
+	TerrainSetEnd()
+	
+	
+	Dispos( "Emblem1", DISPOS_FLAG_NONE )
+	Yield()
+	WaitTime( 0.5 )
+	
+	チュートリアル_会話シンクロ()
+	
+	VariableSet( g_key_emblem1, 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_紋章士顕現_ミカヤ_セリカ()
+	
+	if ( VariableGet( g_key_emblem2 ) == 1 ) then
+		return false
+	end
+	
+	-- リュールが近くにいるかチェック
+	local lueur_x = UnitGetX( g_pid_lueur )
+	local lueur_z = UnitGetZ( g_pid_lueur )
+	
+	local distance1	= 二点間距離( lueur_x, lueur_z, g_emblem_position[EMBLEM_ミカヤ].X, g_emblem_position[EMBLEM_ミカヤ].Z )
+	local distance2	= 二点間距離( lueur_x, lueur_z, g_emblem_position[EMBLEM_セリカ].X, g_emblem_position[EMBLEM_セリカ].Z )
+	
+	if ( distance1 <= 3 ) or ( distance2 <= 3 ) then
+		return true
+	end
+	
+	return false
+	
+end
+
+function 紋章士顕現_ミカヤ_セリカ()
+	
+	local x, z = 中間点を返す( 2, EMBLEM_ミカヤ, EMBLEM_セリカ )
+	CursorSetPos(x, z)
+	MapCameraWait()
+	
+	Talk( "MID_EV3" )	-- 呪文
+	
+	
+	-- エフェクト削除
+	EffectDelete( "指輪集め_" .. g_emblem_list[EMBLEM_ミカヤ], g_emblem_position[EMBLEM_ミカヤ].X, g_emblem_position[EMBLEM_ミカヤ].Z )
+	EffectDelete( "指輪集め_" .. g_emblem_list[EMBLEM_セリカ], g_emblem_position[EMBLEM_セリカ].X, g_emblem_position[EMBLEM_セリカ].Z )
+	
+	
+	TerrainSetBegin()
+	TerrainSet(g_emblem_position[EMBLEM_ミカヤ].X, g_emblem_position[EMBLEM_ミカヤ].Z, "TID_床")
+	TerrainSet(g_emblem_position[EMBLEM_セリカ].X, g_emblem_position[EMBLEM_セリカ].Z, "TID_床")
+	TerrainSetEnd()
+	
+	
+	Dispos( "Emblem2", DISPOS_FLAG_NONE )
+	Yield()
+	WaitTime( 0.5 )
+	
+	チュートリアル_会話シンクロ()
+	
+	VariableSet( g_key_emblem2, 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_紋章士顕現_アイク_シグルド_エイリーク()
+	
+	if ( VariableGet( g_key_emblem3 ) == 1 ) then
+		return false
+	end
+	
+	-- リュールが近くにいるかチェック
+	local lueur_x = UnitGetX( g_pid_lueur )
+	local lueur_z = UnitGetZ( g_pid_lueur )
+	
+	local distance1	= 二点間距離( lueur_x, lueur_z, g_emblem_position[EMBLEM_アイク].X, g_emblem_position[EMBLEM_アイク].Z )
+	local distance2	= 二点間距離( lueur_x, lueur_z, g_emblem_position[EMBLEM_シグルド].X, g_emblem_position[EMBLEM_シグルド].Z )
+	local distance3	= 二点間距離( lueur_x, lueur_z, g_emblem_position[EMBLEM_エイリーク].X, g_emblem_position[EMBLEM_エイリーク].Z )
+	
+	if ( distance1 <= 3 ) or ( distance2 <= 3 ) or ( distance3 <= 3 ) then
+		return true
+	end
+	
+	return false
+	
+end
+
+function 紋章士顕現_アイク_シグルド_エイリーク()
+	
+	local x, z = 中間点を返す( 3, EMBLEM_アイク, EMBLEM_シグルド, EMBLEM_エイリーク )
+	CursorSetPos(x, z)
+	MapCameraWait()
+	
+	Talk( "MID_EV4" )	-- 呪文
+	
+	
+	-- エフェクト削除
+	EffectDelete( "指輪集め_" .. g_emblem_list[EMBLEM_アイク], g_emblem_position[EMBLEM_アイク].X, g_emblem_position[EMBLEM_アイク].Z )
+	EffectDelete( "指輪集め_" .. g_emblem_list[EMBLEM_シグルド], g_emblem_position[EMBLEM_シグルド].X, g_emblem_position[EMBLEM_シグルド].Z )
+	EffectDelete( "指輪集め_" .. g_emblem_list[EMBLEM_エイリーク], g_emblem_position[EMBLEM_エイリーク].X, g_emblem_position[EMBLEM_エイリーク].Z )
+	
+	
+	TerrainSetBegin()
+	TerrainSet(g_emblem_position[EMBLEM_アイク].X, g_emblem_position[EMBLEM_アイク].Z, "TID_床")
+	TerrainSet(g_emblem_position[EMBLEM_シグルド].X, g_emblem_position[EMBLEM_シグルド].Z, "TID_床")
+	TerrainSet(g_emblem_position[EMBLEM_エイリーク].X, g_emblem_position[EMBLEM_エイリーク].Z, "TID_床")
+	TerrainSetEnd()
+	
+	
+	Dispos( "Emblem3", DISPOS_FLAG_NONE )
+	Yield()
+	WaitTime( 0.5 )
+	
+	チュートリアル_会話シンクロ()
+	
+	VariableSet( g_key_emblem3, 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_紋章士顕現_ロイ_リーフ_カムイ()
+	
+	if ( VariableGet( g_key_emblem4 ) == 1 ) then
+		return false
+	end
+	
+	-- リュールが近くにいるかチェック
+	local lueur_x = UnitGetX( g_pid_lueur )
+	local lueur_z = UnitGetZ( g_pid_lueur )
+	
+	local distance1	= 二点間距離( lueur_x, lueur_z, g_emblem_position[EMBLEM_ロイ].X, g_emblem_position[EMBLEM_ロイ].Z )
+	local distance2	= 二点間距離( lueur_x, lueur_z, g_emblem_position[EMBLEM_リーフ].X, g_emblem_position[EMBLEM_リーフ].Z )
+	local distance3	= 二点間距離( lueur_x, lueur_z, g_emblem_position[EMBLEM_カムイ].X, g_emblem_position[EMBLEM_カムイ].Z )
+	
+	if ( distance1 <= 3 ) or ( distance2 <= 3 ) or ( distance3 <= 3 ) then
+		return true
+	end
+	
+	return false
+	
+end
+
+function 紋章士顕現_ロイ_リーフ_カムイ()
+	
+	local x, z = 中間点を返す( 3, EMBLEM_ロイ, EMBLEM_リーフ, EMBLEM_カムイ )
+	CursorSetPos(x, z)
+	MapCameraWait()
+	
+	Talk( "MID_EV5" )	-- 呪文
+	
+	
+	-- エフェクト削除
+	EffectDelete( "指輪集め_" .. g_emblem_list[EMBLEM_ロイ], g_emblem_position[EMBLEM_ロイ].X, g_emblem_position[EMBLEM_ロイ].Z )
+	EffectDelete( "指輪集め_" .. g_emblem_list[EMBLEM_リーフ], g_emblem_position[EMBLEM_リーフ].X, g_emblem_position[EMBLEM_リーフ].Z )
+	EffectDelete( "指輪集め_" .. g_emblem_list[EMBLEM_カムイ], g_emblem_position[EMBLEM_カムイ].X, g_emblem_position[EMBLEM_カムイ].Z )
+	
+	
+	TerrainSetBegin()
+	TerrainSet(g_emblem_position[EMBLEM_ロイ].X, g_emblem_position[EMBLEM_ロイ].Z, "TID_床")
+	TerrainSet(g_emblem_position[EMBLEM_リーフ].X, g_emblem_position[EMBLEM_リーフ].Z, "TID_床")
+	TerrainSet(g_emblem_position[EMBLEM_カムイ].X, g_emblem_position[EMBLEM_カムイ].Z, "TID_床")
+	TerrainSetEnd()
+	
+	
+	Dispos( "Emblem4", DISPOS_FLAG_NONE )
+	Yield()
+	WaitTime( 0.5 )
+	
+	チュートリアル_会話シンクロ()
+	
+	VariableSet( g_key_emblem4, 1 )
+	
+end
+
+-- -----------------------------------
+
+function ユニットと紋章士の会話()
+	
+	local mind_pid		= UnitGetPID( MindGetUnit() )
+	local target_pid	= UnitGetPID( MindGetTargetUnit() )
+	local gid			= UnitGetGodUnit( mind_pid )
+	local target_gid	= 紋章士ID取得( target_pid )
+	local target_mgid	= GodDataGetMGID( target_gid )
+	
+	
+	-- 会話
+	if gid == nil then
+		
+		TalkBeginContinue()
+			MessSetArgument( 0, target_mgid )
+			ユニット会話_ソロ時( mind_pid )
+			紋章士会話( target_pid )
+		TalkEndContinue()
+		
+	else
+		
+		local key = 指輪拾うフラグ生成( mind_pid )
+		if ( VariableGet( key ) == 0 ) then
+		
+			MessSetArgument( 0, target_mgid )
+			ユニット会話_シンクロ中( mind_pid )
+			VariableSet( key, 1 )
+			
+		end
+		
+		Dialog( "MID_TUT_NAVI_M022_GET_" .. SubPrefix( target_mgid ) )
+		
+	end
+	
+	
+	-- 単体ユニット削除
+	if UnitExistOnMap( target_pid ) then
+		UnitDelete( target_pid )
+	end
+	
+	
+	-- 離脱フラグ解除
+	GodUnitSetEscape(target_gid, false)
+	
+	-- 闇化フラグ設定
+	GodUnitSetDarkness( target_gid, true )
+	
+	
+	-- シンクロ
+	if gid == nil then
+		
+		UnitSetGodUnit( mind_pid, target_gid )
+		-- UnitSetEngageCount( mind_pid, 7 )
+		
+	end
+	
+	
+	-- カウント
+	local count = VariableGet( g_key_emblem_count )
+	count = count + 1
+	VariableSet( g_key_emblem_count, count )
+	
+	
+	if condition_指輪全部集めた() then
+		指輪全部集めた()
+	end
+	
+end
+
+-- -----------------------------------
+
+function condition_指輪全部集めた()
+	
+	if VariableGet( g_key_ring_complete ) == 1 then
+		return false
+	end
+	
+	if VariableGet( g_key_emblem_count ) >= 11 then
+		return true
+	end
+	
+	return false
+	
+end
+
+function 指輪全部集めた()
+	
+	CursorSetPos_FromPid( g_pid_lueur )
+	Talk( "MID_EV6" )
+	
+	
+	local index = ForceUnitGetFirst(FORCE_ENEMY)
+	if index == nil then
+		VariableSet( "勝利", 1 )
+		UnitSetStatus( MindGetUnit(), UNIT_STATUS_FIXED )
+		
+	else
+		-- 勝利条件の変更
+		WinRuleSetEnemyNumberLessThanOrEqualTo(0)
+		WinRuleSetMID( "MID_RULE_ANNIHILATE" )
+		WinRule()
+		
+	end
+	
+	VariableSet( g_key_ring_complete, 1 )
+	
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+	PuppetDemo("M022", "MID_ED1")
+
+	FadeInAndWait(FADE_SLOW)
+		Movie("S20")
+		SkipEscape()
+	FadeOutAndWait(FADE_NORMAL)
+	
+	スキル解除( g_pid_lueur, "SID_異形兵" )
+	GodUnitCreate("GID_リュール")
+	
+	-- リュールのヘルプ内容を変更
+	VariableSet( "G_置換_MPID_H_Lueur", 2 )
+	
+	PuppetDemo("M022", "MID_ED2")
+	PuppetDemo("M022", "MID_ED3")
+	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end
+
+-- -----------------------------------
+
+function 紋章士闇化( enable )
+	
+	GodUnitSetDarkness("GID_マルス",		enable)
+	GodUnitSetDarkness("GID_シグルド",		enable)
+	GodUnitSetDarkness("GID_セリカ",		enable)
+	GodUnitSetDarkness("GID_ミカヤ",		enable)
+	GodUnitSetDarkness("GID_ロイ",			enable)
+	GodUnitSetDarkness("GID_リーフ",		enable)
+	GodUnitSetDarkness("GID_ルキナ",		enable)
+	GodUnitSetDarkness("GID_リン",			enable)
+	GodUnitSetDarkness("GID_アイク",		enable)
+	GodUnitSetDarkness("GID_ベレト",		enable)
+	GodUnitSetDarkness("GID_カムイ",		enable)
+	GodUnitSetDarkness("GID_エイリーク",	enable)
+	
+end
+
+function 中間点を返す( emblem_num, ... )
+	
+	local emblem_list = {...}
+	local x = 0
+	local z = 0
+	
+	for index in pairs(emblem_list) do
+		
+		local emblem = emblem_list[index]
+		x = x + g_emblem_position[emblem].X
+		z = z + g_emblem_position[emblem].Z
+		
+	end
+	
+	
+	return math.floor( x / emblem_num ), math.floor( z / emblem_num )
+	
+end
+
+function ユニット会話_ソロ時(pid)
+	
+	if		pid == "PID_ヴァンドレ"	then
+		Talk( "MID_TK_Vandre1" )
+		
+	elseif	pid == "PID_クラン"	then
+		Talk( "MID_TK_Clan1" )
+		
+	elseif	pid == "PID_フラン"	then
+		Talk( "MID_TK_Fram1" )
+		
+	elseif	pid == "PID_アルフレッド"	then
+		Talk( "MID_TK_Alfred1" )
+		
+	elseif	pid == "PID_エーティエ"	then
+		Talk( "MID_TK_Etie1" )
+		
+	elseif	pid == "PID_ブシュロン"	then
+		Talk( "MID_TK_Boucheron1" )
+		
+	elseif	pid == "PID_セリーヌ"	then
+		Talk( "MID_TK_Celine1" )
+		
+	elseif	pid == "PID_ルイ"	then
+		Talk( "MID_TK_Louis1" )
+		
+	elseif	pid == "PID_クロエ"	then
+		Talk( "MID_TK_Chloe1" )
+		
+	elseif	pid == "PID_ユナカ"	then
+		Talk( "MID_TK_Yunaka1" )
+		
+	elseif	pid == "PID_スタルーク"	then
+		Talk( "MID_TK_Staluke1" )
+		
+	elseif	pid == "PID_シトリニカ"	then
+		Talk( "MID_TK_Citrinica1" )
+		
+	elseif	pid == "PID_ラピス"	then
+		Talk( "MID_TK_Lapis1" )
+		
+	elseif	pid == "PID_ディアマンド"	then
+		Talk( "MID_TK_Diamand1" )
+		
+	elseif	pid == "PID_アンバー"	then
+		Talk( "MID_TK_Umber1" )
+		
+	elseif	pid == "PID_ジェーデ"	then
+		Talk( "MID_TK_Jade1" )
+		
+	elseif	pid == "PID_アイビー"	then
+		Talk( "MID_TK_Ivy1" )
+		
+	elseif	pid == "PID_カゲツ"	then
+		Talk( "MID_TK_Kagetsu1" )
+		
+	elseif	pid == "PID_ゼルコバ"	then
+		Talk( "MID_TK_Zelkova1" )
+		
+	elseif	pid == "PID_フォガート"	then
+		Talk( "MID_TK_Fogato1" )
+		
+	elseif	pid == "PID_パンドロ"	then
+		Talk( "MID_TK_Pandoro1" )
+		
+	elseif	pid == "PID_ボネ"	then
+		Talk( "MID_TK_Bonet1" )
+		
+	elseif	pid == "PID_ミスティラ"	then
+		Talk( "MID_TK_Misutira1" )
+		
+	elseif	pid == "PID_パネトネ"	then
+		Talk( "MID_TK_Panetone1" )
+		
+	elseif	pid == "PID_メリン"	then
+		Talk( "MID_TK_Merin1" )
+		
+	elseif	pid == "PID_オルテンシア"	then
+		Talk( "MID_TK_Hortensia1" )
+		
+	elseif	pid == "PID_セアダス"	then
+		Talk( "MID_TK_Seadas1" )
+		
+	elseif	pid == "PID_ロサード"	then
+		Talk( "MID_TK_Rosado1" )
+		
+	elseif	pid == "PID_ゴルドマリー"	then
+		Talk( "MID_TK_Goldmary1" )
+		
+	elseif	pid == "PID_リンデン"	then
+		Talk( "MID_TK_Linden1" )
+		
+	elseif	pid == "PID_ザフィーア"	then
+		Talk( "MID_TK_Sapir1" )
+		
+	elseif	pid == "PID_ヴェイル"	then
+		Talk( "MID_TK_Veyre1" )
+		
+	elseif	pid == "PID_モーヴ"	then
+		Talk( "MID_TK_Mauve1" )
+		
+	elseif	pid == "PID_アンナ"	then
+		Talk( "MID_TK_Anna1" )
+		
+	elseif	pid == "PID_ジャン"	then
+		Talk( "MID_TK_Jean1" )
+		
+	elseif	( pid == "PID_エル" )			or
+			( pid == "PID_ラファール" )		or
+			( pid == "PID_セレスティア" )	or
+			( pid == "PID_グレゴリー" )		or
+			( pid == "PID_マデリーン" )		then
+		local unit = UnitGetByPID( pid )
+		local name = SubPrefix( UnitGetMPID( unit ) )
+		local mid = "MID_TK_" .. name .. "1"
+		Talk( mid )
+		
+	end
+	
+end
+
+function ユニット会話_シンクロ中(pid)
+	
+	if		pid == g_pid_lueur then
+		Talk( "MID_TK_Lueur2" )
+		
+	elseif	pid == "PID_ヴァンドレ"	then
+		Talk( "MID_TK_Vandre2" )
+		
+	elseif	pid == "PID_クラン"	then
+		Talk( "MID_TK_Clan2" )
+		
+	elseif	pid == "PID_フラン"	then
+		Talk( "MID_TK_Fram2" )
+		
+	elseif	pid == "PID_アルフレッド"	then
+		Talk( "MID_TK_Alfred2" )
+		
+	elseif	pid == "PID_エーティエ"	then
+		Talk( "MID_TK_Etie2" )
+		
+	elseif	pid == "PID_ブシュロン"	then
+		Talk( "MID_TK_Boucheron2" )
+		
+	elseif	pid == "PID_セリーヌ"	then
+		Talk( "MID_TK_Celine2" )
+		
+	elseif	pid == "PID_ルイ"	then
+		Talk( "MID_TK_Louis2" )
+		
+	elseif	pid == "PID_クロエ"	then
+		Talk( "MID_TK_Chloe2" )
+		
+	elseif	pid == "PID_ユナカ"	then
+		Talk( "MID_TK_Yunaka2" )
+		
+	elseif	pid == "PID_スタルーク"	then
+		Talk( "MID_TK_Staluke2" )
+		
+	elseif	pid == "PID_シトリニカ"	then
+		Talk( "MID_TK_Citrinica2" )
+		
+	elseif	pid == "PID_ラピス"	then
+		Talk( "MID_TK_Lapis2" )
+		
+	elseif	pid == "PID_ディアマンド"	then
+		Talk( "MID_TK_Diamand2" )
+		
+	elseif	pid == "PID_アンバー"	then
+		Talk( "MID_TK_Umber2" )
+		
+	elseif	pid == "PID_ジェーデ"	then
+		Talk( "MID_TK_Jade2" )
+		
+	elseif	pid == "PID_アイビー"	then
+		Talk( "MID_TK_Ivy2" )
+		
+	elseif	pid == "PID_カゲツ"	then
+		Talk( "MID_TK_Kagetsu2" )
+		
+	elseif	pid == "PID_ゼルコバ"	then
+		Talk( "MID_TK_Zelkova2" )
+		
+	elseif	pid == "PID_フォガート"	then
+		Talk( "MID_TK_Fogato2" )
+		
+	elseif	pid == "PID_パンドロ"	then
+		Talk( "MID_TK_Pandoro2" )
+		
+	elseif	pid == "PID_ボネ"	then
+		Talk( "MID_TK_Bonet2" )
+		
+	elseif	pid == "PID_ミスティラ"	then
+		Talk( "MID_TK_Misutira2" )
+		
+	elseif	pid == "PID_パネトネ"	then
+		Talk( "MID_TK_Panetone2" )
+		
+	elseif	pid == "PID_メリン"	then
+		Talk( "MID_TK_Merin2" )
+		
+	elseif	pid == "PID_オルテンシア"	then
+		Talk( "MID_TK_Hortensia2" )
+		
+	elseif	pid == "PID_セアダス"	then
+		Talk( "MID_TK_Seadas2" )
+		
+	elseif	pid == "PID_ロサード"	then
+		Talk( "MID_TK_Rosado2" )
+		
+	elseif	pid == "PID_ゴルドマリー"	then
+		Talk( "MID_TK_Goldmary2" )
+		
+	elseif	pid == "PID_リンデン"	then
+		Talk( "MID_TK_Linden2" )
+		
+	elseif	pid == "PID_ザフィーア"	then
+		Talk( "MID_TK_Sapir2" )
+		
+	elseif	pid == "PID_ヴェイル"	then
+		Talk( "MID_TK_Veyre2" )
+		
+	elseif	pid == "PID_モーヴ"	then
+		Talk( "MID_TK_Mauve2" )
+		
+	elseif	pid == "PID_アンナ"	then
+		Talk( "MID_TK_Anna2" )
+		
+	elseif	pid == "PID_ジャン"	then
+		Talk( "MID_TK_Jean2" )
+		
+	elseif	( pid == "PID_エル" )			or
+			( pid == "PID_ラファール" )		or
+			( pid == "PID_セレスティア" )	or
+			( pid == "PID_グレゴリー" )		or
+			( pid == "PID_マデリーン" )		then
+		local unit = UnitGetByPID( pid )
+		local name = SubPrefix( UnitGetMPID( unit ) )
+		local mid = "MID_TK_" .. name .. "2"
+		Talk( mid )
+		
+	end
+	
+end
+
+function 紋章士会話(pid)
+	
+	if		pid == "PID_M022_紋章士_シグルド"	then
+		Talk( "MID_TK_Siglud" )
+		
+	elseif	pid == "PID_M022_紋章士_セリカ"	then
+		Talk( "MID_TK_Celica" )
+		
+	elseif	pid == "PID_M022_紋章士_ミカヤ"	then
+		Talk( "MID_TK_Micaiah" )
+		
+	elseif	pid == "PID_M022_紋章士_ロイ"	then
+		Talk( "MID_TK_Roy" )
+		
+	elseif	pid == "PID_M022_紋章士_リーフ"	then
+		Talk( "MID_TK_Leaf" )
+		
+	elseif	pid == "PID_M022_紋章士_ルキナ"	then
+		Talk( "MID_TK_Lucina" )
+		
+	elseif	pid == "PID_M022_紋章士_リン"	then
+		Talk( "MID_TK_Lin" )
+		
+	elseif	pid == "PID_M022_紋章士_アイク"	then
+		Talk( "MID_TK_Ike" )
+		
+	elseif	pid == "PID_M022_紋章士_ベレト"	then
+		Talk( "MID_TK_Byleth" )
+		
+	elseif	pid == "PID_M022_紋章士_カムイ"	then
+		Talk( "MID_TK_Kamui" )
+		
+	elseif	pid == "PID_M022_紋章士_エイリーク"	then
+		Talk( "MID_TK_Eirik" )
+		
+	end
+	
+end
+
+function 紋章士ID取得(pid)
+	
+	local gid = nil
+	
+	if		pid == "PID_M022_紋章士_シグルド"	then
+		gid = "GID_シグルド"
+		
+	elseif	pid == "PID_M022_紋章士_セリカ"	then
+		gid = "GID_セリカ"
+		
+	elseif	pid == "PID_M022_紋章士_ミカヤ"	then
+		gid = "GID_ミカヤ"
+		
+	elseif	pid == "PID_M022_紋章士_ロイ"	then
+		gid = "GID_ロイ"
+		
+	elseif	pid == "PID_M022_紋章士_リーフ"	then
+		gid = "GID_リーフ"
+		
+	elseif	pid == "PID_M022_紋章士_ルキナ"	then
+		gid = "GID_ルキナ"
+		
+	elseif	pid == "PID_M022_紋章士_リン"	then
+		gid = "GID_リン"
+		
+	elseif	pid == "PID_M022_紋章士_アイク"	then
+		gid = "GID_アイク"
+		
+	elseif	pid == "PID_M022_紋章士_ベレト"	then
+		gid = "GID_ベレト"
+		
+	elseif	pid == "PID_M022_紋章士_カムイ"	then
+		gid = "GID_カムイ"
+		
+	elseif	pid == "PID_M022_紋章士_エイリーク"	then
+		gid = "GID_エイリーク"
+		
+	end
+	
+	return gid
+	
+end
+
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------

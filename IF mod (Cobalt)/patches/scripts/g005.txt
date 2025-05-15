@@ -1,0 +1,497 @@
+Include("Common")
+Include("Common_P0")
+Include("G005_Gimmick")
+
+g_noEXP_turn					= 25
+
+g_key_enter_upward_area			= "マップ上進入_済"
+g_key_reinforcement_upwardArea	= "増援_上方進入直後_済"
+
+g_key_battleTalk_camilla_lueur	= "戦闘会話_カミラ_リュール_済"
+g_key_battleTalk_camilla_kamui	= "戦闘会話_カミラ_カムイ_済"
+
+g_key_camillaAttackedFar		= "カミラ被遠距離攻撃"
+g_key_camillaActiveRun			= "カミラ隊起動"
+g_key_reinforcementCamillaAttackedFar	= "増援_カミラ被遠距離攻撃後_済"
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	Startup_神竜の章_対象紋章士を一時的に無効化( "GID_カミラ" )
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_G005_WIN" )
+	
+	変数登録()
+	イベント登録()
+	
+end
+
+function 変数登録()
+	
+	VariableEntry( g_key_enter_center_area, 		0 )
+	VariableEntry( g_key_enter_upward_area, 		0 )
+	VariableEntry( g_key_reinforcement_upwardArea,	0 )
+	
+	VariableEntry( g_key_battleTalk_camilla_lueur,	0 )
+	VariableEntry( g_key_battleTalk_camilla_kamui,	0 )
+	
+	VariableEntry( g_key_camillaAttackedFar,		0 )
+	VariableEntry( g_key_camillaActiveRun,			0 )
+	VariableEntry( g_key_reinforcementCamillaAttackedFar, 0 )
+	
+end
+
+function イベント登録()
+	
+	EventEntryTurn( 進撃開始直後,			 1,  1, FORCE_PLAYER )
+	EventEntryTurn( 勝利条件_紋章士にフォーカス,	1,  1, FORCE_PLAYER )
+	
+	EventEntryTurn( 竜脈_ハード以下,		 2, -1, FORCE_PLAYER, condition_竜脈_ハード以下 )
+	EventEntryTurn( 竜脈_ルナティック,		 2, -1, FORCE_PLAYER, condition_竜脈_ルナティック )
+	
+	EventEntryTurn( 増援,					 3, -1, FORCE_PLAYER, condition_増援 )
+	EventEntryTurn( 増援_４ターンめ,		 4,  4, FORCE_PLAYER )
+	EventEntryTurn( 増援_９ターンめ,		 9,  9, FORCE_PLAYER )
+	EventEntryTurn( 増援_上方進入直後,		-1, -1, FORCE_PLAYER, condition_増援_上方進入直後 )
+	
+	EventEntryArea( マップ中央進入,	 1,  9, 29, 25, FORCE_PLAYER, condition_マップ中央進入 )
+	EventEntryArea( マップ上方進入,	 1, 17, 29, 25, FORCE_PLAYER, condition_マップ上方進入 )
+	
+	EventEntryBattleTalk( リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, g_key_battleTalk_camilla_lueur )
+	EventEntryBattleTalk( カムイと戦闘,		"",				FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_カムイと戦闘 )
+	
+	EventEntryBattleBefore(VariableSet, "", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_カミラが遠距離攻撃された, g_key_camillaAttackedFar, 1 )
+	EventEntryTurn( 増援_カミラ非遠距離攻撃後,	-1, -1, FORCE_PLAYER, condition_増援_カミラ非遠距離攻撃後 )
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 5, 4, "PID_リュール", condition_true)
+	
+end
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+	Cleanup_神竜の章_対象紋章士の無効化解除( "GID_カミラ" )
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	PuppetDemo("G005", "MID_OP1")
+	FadeInAndWait(FADE_NORMAL)
+	Movie("Kengen17")
+	SkipEscape()
+	FadeOutAndWait(FADE_NORMAL)
+	PuppetDemo("G005", "MID_OP2")
+	
+end
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+	-- ボスの０ダメージ攻撃を許可する
+	-- AiSetRejectPower0Attack( g_pid_boss, false )
+	
+end
+
+-- -----------------------------------
+
+function EmptyFunction()
+end
+
+-- -----------------------------------
+
+function 進撃開始直後()
+	
+	CursorSetPos_FromPid( g_pid_boss )
+	
+	Talk( "MID_EV1" )
+	
+	竜脈発動( 8, 8, 7.5, 7.5, false )
+	
+	Talk( "MID_EV2" )
+	
+end
+
+-- -----------------------------------
+
+function 勝利条件_紋章士にフォーカス()
+	CursorAnimeCreate_FromPid( g_pid_boss )
+	WinRule()
+	CursorAnimeDelete()
+end
+
+-- -----------------------------------
+
+function condition_増援()
+	
+	if モードはノーマル() then
+		return ( MapGetTurn() % 4 == 0 )
+		
+	else
+		return ( MapGetTurn() % 3 == 0 )
+		
+	end
+	
+end
+
+function 増援()
+	
+	if		VariableGet( g_key_enter_center_area ) == 0 then
+		if ( MapGetTurn() < g_noEXP_turn ) then
+			増援_1()
+			
+		else
+			増援_1_noEXP()
+			
+		end
+		
+	else
+		if ( MapGetTurn() < g_noEXP_turn ) then
+			増援_2()
+			
+		else
+			増援_2_noEXP()
+			
+		end
+		
+	end
+	
+end
+
+function 増援_1()
+	
+	Dispos( "Reinforcement1_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		Dispos( "Reinforcement1_2", DISPOS_FLAG_FOCUS )
+		Yield()
+		WaitTime( 0.5 )
+	end
+	
+	Dispos( "Reinforcement1_3", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+end
+
+function 増援_1_noEXP()
+	
+	Dispos( "Reinforcement1_1_noEXP", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		Dispos( "Reinforcement1_2_noEXP", DISPOS_FLAG_FOCUS )
+		Yield()
+		WaitTime( 0.5 )
+	end
+	
+	Dispos( "Reinforcement1_3_noEXP", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+end
+
+function 増援_2()
+	
+	Dispos( "Reinforcement4_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		Dispos( "Reinforcement4_2", DISPOS_FLAG_FOCUS )
+		Yield()
+		WaitTime( 0.5 )
+	end
+	
+	Dispos( "Reinforcement4_3", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+end
+
+function 増援_2_noEXP()
+	
+	Dispos( "Reinforcement4_1_noEXP", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	if DifficultyGet() > DIFFICULTY_NORMAL then
+		Dispos( "Reinforcement4_2_noEXP", DISPOS_FLAG_FOCUS )
+		Yield()
+		WaitTime( 0.5 )
+	end
+	
+	Dispos( "Reinforcement4_3_noEXP", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+end
+
+-- -----------------------------------
+
+function 増援_４ターンめ()
+	
+	Dispos( "Reinforcement2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+end
+
+-- -----------------------------------
+
+function 増援_９ターンめ()
+	
+	Dispos( "Reinforcement3", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+end
+
+-- -----------------------------------
+
+
+function condition_増援_上方進入直後()
+	
+	if ( VariableGet( g_key_reinforcement_upwardArea ) == 1 ) then
+		return false
+	end
+	
+	if ( VariableGet( g_key_enter_upward_area ) == 0 ) then
+		return false
+	end
+	
+	if モードはノーマル() or モードはハード() then
+		return ( MapGetTurn() % 2 == 0 )
+	else
+		return true
+	end
+	
+end
+
+function 増援_上方進入直後()
+	
+	Dispos( "Reinforcement5_1", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	Dispos( "Reinforcement5_2", DISPOS_FLAG_FOCUS )
+	Yield()
+	WaitTime( 0.5 )
+	
+	VariableSet( g_key_reinforcement_upwardArea, 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_マップ中央進入()
+	
+	return VariableGet( g_key_enter_center_area ) == 0
+	
+end
+
+function マップ中央進入()
+	
+	if z以上のエリアにn人以上進入( 9, 3 ) then
+		VariableSet( g_key_enter_center_area, 1 )
+	end
+	
+end
+
+function condition_マップ上方進入()
+	
+	return VariableGet( g_key_enter_upward_area ) == 0
+	
+end
+
+function マップ上方進入()
+	
+	if z以上のエリアにn人以上進入( 17, 3 ) then
+		VariableSet( g_key_enter_upward_area, 1 )
+	end
+	
+end
+
+function z以上のエリアにn人以上進入( z, n )
+	
+	local counter = 0
+	local playerNum = 0
+	
+	local index = ForceUnitGetFirst( FORCE_PLAYER )
+	while ( index != nil ) do
+		
+		if ( UnitGetZ( index ) >= z ) then
+			counter = counter + 1
+		end
+		
+		playerNum = playerNum + 1
+		index = ForceUnitGetNext( index )
+	end
+	
+	return ( ( counter >= n ) or ( counter >= playerNum ) )
+	
+end
+
+-- -----------------------------------
+
+function リュールと戦闘()
+	
+	Talk( "MID_BT2" )
+	
+	if condition_カムイと戦闘() then
+		カムイと戦闘()
+	end
+	
+end
+
+-- -----------------------------------
+
+function condition_カムイと戦闘()
+	
+	if VariableGet( g_key_battleTalk_camilla_kamui ) == 1 then
+		return false
+	end
+	
+	
+	local god = nil
+	if MindGetForce() == FORCE_PLAYER then
+		god = UnitGetGodUnit( MindGetUnit() )
+	else
+		god = UnitGetGodUnit( MindGetTargetUnit() )
+	end
+	
+	return ( god == "GID_カムイ" )
+	
+end
+
+function カムイと戦闘()
+	
+	Talk( "MID_BT1" )
+	
+	VariableSet( g_key_battleTalk_camilla_kamui, 1 )
+	
+end
+
+-- -----------------------------------
+
+function condition_カミラが遠距離攻撃された()
+	
+	if VariableGet( g_key_camillaAttackedFar ) == 1 then
+		return false
+	end
+	
+	if モードはルナティック() == false then
+		return false
+	end
+	
+	if AiGetActive( g_pid_boss ) == true then
+		return false
+	end
+	
+	local unit = MindGetUnit()
+	local x = UnitGetX( unit )
+	local z = UnitGetZ( unit )
+	local camillaX = UnitGetX( g_pid_boss )
+	local camillaZ = UnitGetZ( g_pid_boss )
+	
+	return ( 二点間距離( x, z, camillaX, camillaZ ) > 8 )
+	
+end
+
+-- -----------------------------------
+
+function condition_増援_カミラ非遠距離攻撃後()
+	
+	if VariableGet( g_key_reinforcementCamillaAttackedFar ) == 0 then
+		
+		if モードはルナティック() == false then
+			return false
+		end
+		
+		return ( VariableGet( g_key_camillaAttackedFar ) == 1 )
+		
+	elseif VariableGet( g_key_reinforcementCamillaAttackedFar ) == 1 then
+		
+		return ( VariableGet( g_key_camillaActiveRun ) == 0 )
+		
+	end
+end
+
+function 増援_カミラ非遠距離攻撃後()
+	
+	if VariableGet( g_key_reinforcementCamillaAttackedFar ) == 0 then
+		
+		Dispos( "Reinforcement6", DISPOS_FLAG_FOCUS )
+		Yield()
+		WaitTime( 0.5 )
+		
+		VariableSet( g_key_reinforcementCamillaAttackedFar, 1 )
+		
+	elseif VariableGet( g_key_reinforcementCamillaAttackedFar ) == 1 then
+		
+		VariableSet( g_key_camillaActiveRun, 1 )
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+	PuppetDemo("G005", "MID_ED1")
+	
+	神竜の章_紋章士加入( "GID_カミラ" )
+	
+	if GodUnitExists("GID_カムイ") then
+		PuppetDemo("G005", "MID_ED2")
+	end
+	
+	FadeInAndWait(FADE_FAST)
+	Tutorial("TUTID_紋章士カミラ")
+	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end
+

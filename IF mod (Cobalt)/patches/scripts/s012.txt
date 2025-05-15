@@ -1,0 +1,326 @@
+Include("Common")
+g_pid_lueur = "PID_リュール"
+g_pid_roy = "PID_S012_ロイ"
+
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup");
+	
+	Startup_紋章士外伝_対象紋章士を一時的に無効化( "GID_ロイ" )
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_S012_WIN" )
+	
+	変数登録()
+	イベント登録()
+end
+
+-- -----------------------------------
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+	Cleanup_紋章士外伝_対象紋章士の無効化解除( "GID_ロイ" )
+	
+end
+
+-- -----------------------------------
+
+function 変数登録()
+	
+	VariableEntry( "増援_戦闘後増援1_済", 0 )
+	VariableEntry( "増援_戦闘後増援2_済", 0 )
+	
+end
+
+function フラグ登録()
+	VariableEntry( "幻影竜_行動開始_済", 0 )
+	VariableEntry( g_key_notice_reinforcement, 0 )
+	
+end
+
+-- -----------------------------------
+
+function イベント登録()
+	
+	EventEntryTurn(開戦, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
+	
+	EventEntryBattleTalk(Talk, "PID_S012_ロイ", FORCE_ENEMY, g_pid_lueur,
+	FORCE_PLAYER, true, "戦闘前会話_ロイ_リュール_済", "MID_BT1")
+	EventEntryBattleTalk(Talk, "PID_S012_ロイ", FORCE_ENEMY, "PID_ディアマンド",
+	FORCE_PLAYER, true, "戦闘前会話_ロイ_ディアマンド_済", "MID_BT2")
+	EventEntryBattleTalk(Talk, "PID_S012_ロイ", FORCE_ENEMY, "PID_スタルーク",
+	FORCE_PLAYER, true, "戦闘前会話_ロイ_スタルーク_済", "MID_BT3")
+	
+	-- 増援予告
+	EventEntryTurn(増援予告, 2, 2,  FORCE_PLAYER)
+	
+	-- 戦闘後増援
+	EventEntryBattleAfter(EmptyFunction, "", FORCE_PLAYER, "PID_S012_幻影兵_リリーナ",　FORCE_ENEMY, true, "戦闘後イベント1_済")
+	EventEntryBattleAfter(EmptyFunction, "", FORCE_PLAYER, "PID_S012_幻影兵_スナイパー_増援1",　FORCE_ENEMY, true, "戦闘後イベント2_済")
+	
+	-- 指定ターン増援
+	EventEntryTurn(増援３ターン目, 3, 3, FORCE_PLAYER);
+	
+	EventEntryTurn(青軍ターン開始直前1, -1, -1, FORCE_PLAYER, condition_戦闘後増援1)
+	EventEntryTurn(青軍ターン開始直前2, -1, -1, FORCE_PLAYER, condition_戦闘後増援2)
+	
+	EventEntryPickup(幻影竜_行動開始, "PID_S012_幻影竜", "幻影竜_行動開始_済");
+	EventEntryBattleBefore(ロイ_戦闘開始, "PID_S012_ロイ",FORCE_ENEMY, "", FORCE_ALL);
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 2, 24, "PID_リュール", condition_true)
+	
+end
+
+function EmptyFunction()
+	-- なにも処理しない
+	-- 空のイベント関数
+end
+
+function 開戦()
+	
+	CursorSetPos_FromPid( g_pid_roy )
+	Talk( "MID_EV1" )
+	
+end
+
+-- -----------------------------------
+
+function ロイ_戦闘開始()
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL
+		or DifficultyGet() == DIFFICULTY_HARD then
+			return true
+	end
+	
+	-- AI変更
+	AiSetSequence("PID_S012_幻影兵_ジェネラル_ロイ周辺", AI_ORDER_ATTACK, "AI_AT_Attack")
+	AiSetSequence("PID_S012_幻影兵_ジェネラル_ロイ周辺", AI_ORDER_CAUSE, "AI_AC_Everytime")
+	AiSetSequence("PID_S012_幻影兵_ジェネラル_ロイ周辺", AI_ORDER_MOVE, "AI_MV_WeakEnemy")
+	
+	AiSetSequence("PID_S012_幻影兵_ジェネラル_ロイ周辺2", AI_ORDER_ATTACK, "AI_AT_Attack")
+	AiSetSequence("PID_S012_幻影兵_ジェネラル_ロイ周辺2", AI_ORDER_CAUSE, "AI_AC_Everytime")
+	AiSetSequence("PID_S012_幻影兵_ジェネラル_ロイ周辺2", AI_ORDER_MOVE, "AI_MV_WeakEnemy")
+	
+	AiSetSequence("PID_S012_幻影兵_セイジ_ロイ周辺", AI_ORDER_ATTACK, "AI_AT_Attack")
+	AiSetSequence("PID_S012_幻影兵_セイジ_ロイ周辺", AI_ORDER_CAUSE, "AI_AC_Everytime")
+	AiSetSequence("PID_S012_幻影兵_セイジ_ロイ周辺", AI_ORDER_MOVE, "AI_MV_WeakEnemy")
+	
+	AiSetSequence("PID_S012_幻影兵_セイジ_ロイ周辺2", AI_ORDER_ATTACK, "AI_AT_Attack")
+	AiSetSequence("PID_S012_幻影兵_セイジ_ロイ周辺2", AI_ORDER_CAUSE, "AI_AC_Everytime")
+	AiSetSequence("PID_S012_幻影兵_セイジ_ロイ周辺2", AI_ORDER_MOVE, "AI_MV_WeakEnemy")
+	
+end
+
+
+function 増援３ターン目()
+	
+	-- 増援
+	
+	CursorSetPos(4, 7);
+	
+	Dispos("Reinforcement2_0", DISPOS_FLAG_FOCUS)
+	
+	WaitTime(0.5)
+	
+	CursorSetPos(22, 22);
+	
+	Dispos("Reinforcement2_1", DISPOS_FLAG_FOCUS)
+	Yield()
+	
+	WaitTime(0.5)
+end
+
+-- -----------------------------------
+
+function condition_戦闘後増援1()
+	
+	-- 既にこのイベントが処理されていたらfalse
+	if VariableGet( "増援_戦闘後増援1_済" ) == 1 then
+		return false
+	end
+	
+	-- 戦闘したかチェック
+	if VariableGet( "戦闘後イベント1_済" ) == 1 then
+		return true
+	end
+	
+	return false
+	
+end
+
+-- -----------------------------------
+
+function condition_戦闘後増援2()
+	
+	-- 既にこのイベントが処理されていたらfalse
+	if VariableGet( "増援_戦闘後増援2_済" ) == 1 then
+		return false
+	end
+	
+	-- 戦闘したかチェック
+	if VariableGet( "戦闘後イベント2_済" ) == 1 then
+		return true
+	end
+	
+	return false
+	
+end
+
+-- -----------------------------------
+
+function 青軍ターン開始直前1()
+	
+	-- 増援
+	
+	Dispos("Reinforcement0", DISPOS_FLAG_FOCUS)
+	
+	WaitTime(0.5)
+	
+	Dispos("Reinforcement0_1", DISPOS_FLAG_FOCUS)
+	Yield()
+	
+	WaitTime(0.5)
+	
+	-- 再びこのイベントが再生されないように、実行済みフラグを立てておく
+	VariableSet( "増援_戦闘後増援1_済", 1 )
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL
+		or DifficultyGet() == DIFFICULTY_HARD then
+			return false
+	end
+	
+	Dispos("Reinforcement0_Lunatic", DISPOS_FLAG_FOCUS)
+	Yield()
+	
+	-- 再びこのイベントが再生されないように、実行済みフラグを立てておく
+	VariableSet( "増援_戦闘後増援1_済", 1 )
+	
+	WaitTime(0.5)
+	
+end
+
+-- -----------------------------------
+
+function 青軍ターン開始直前2()
+	
+	-- 増援
+	
+	Dispos("Reinforcement1_2", DISPOS_FLAG_FOCUS)
+	
+	WaitTime(0.5)
+	
+	Dispos("Reinforcement1_3", DISPOS_FLAG_FOCUS)
+	
+	WaitTime(0.5)
+	
+	Dispos("Reinforcement1_1", DISPOS_FLAG_FOCUS)
+	
+	WaitTime(0.5)
+	
+	Yield()
+	
+	-- 再びこのイベントが再生されないように、実行済みフラグを立てておく
+	VariableSet( "増援_戦闘後増援2_済", 1 )
+	
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+			return false
+	end
+	
+	Dispos("Reinforcement1_0", DISPOS_FLAG_FOCUS)
+	
+	WaitTime(0.5)
+	
+	Yield()
+	
+	-- 再びこのイベントが再生されないように、実行済みフラグを立てておく
+	VariableSet( "増援_戦闘後増援2_済", 1 )
+	
+	WaitTime(0.5)
+	
+end
+
+-- -----------------------------------
+
+function 幻影竜_行動開始()
+	
+	CursorSetPos_FromPid(g_pid_lueur)
+	
+	WaitTime(0.5)
+	
+	AiSetActive("S012_幻影兵_ドラゴンナイト_増援4", true)
+	
+end
+
+-- -----------------------------------
+
+function 増援予告()
+	
+	CursorSetPos_FromPid(g_pid_lueur)
+	
+	Talk("MID_EV2")
+	
+	WaitTime(0.5)
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	--[[
+	FadeInAndWait( FADE_NORMAL )
+		Dialog( "S012開始" )
+	FadeOutAndWait( FADE_NORMAL )
+	]]
+	
+	PuppetDemo("S012", "MID_OP1")
+end
+
+-- -----------------------------------
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+	FadeInAndWait(FADE_NORMAL)
+	PuppetDemo("S012", "MID_ED1" )
+	FadeOutAndWait(FADE_NORMAL)
+	
+	紋章士外伝_レベルキャップ開放( "ロイ", "S012" )
+	
+end
+
+function GameOver()
+	
+	Log("GameOver");
+	
+end

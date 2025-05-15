@@ -1,0 +1,385 @@
+Include("Common")
+Include("Common_E")
+
+g_pid_boss = "PID_E003_Boss"
+g_pid_hide = "PID_E003_Hide"
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup");
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_E003_WIN" )
+	LoseRuleSetMID( "MID_RULE_DLC_LOSE" )
+
+	イベント登録()
+	フラグ登録()
+
+end
+
+function フラグ登録()
+	VariableEntry( "エリア1侵入カウント", 0 )
+	VariableEntry( "エリア2侵入カウント", 0 )
+	VariableEntry( "エリア3侵入カウント", 0 )
+
+	VariableEntry( "エリア1_済", 0 )
+	VariableEntry( "エリア2_済", 0 )
+	VariableEntry( "エリア3_済", 0 )
+
+	VariableEntry( "特殊召喚カウント", 0 )
+	VariableEntry( "マージカノンアクティブ_済", 0 )
+
+	VariableEntry( "ディアマンドアクティブ_済", 0 )
+	VariableEntry( "スタルークアクティブ_済", 0 )
+end
+
+function イベント登録()
+
+	-- 紋章士装備状態の保存
+	EventEntryTurn( GodSaveEquipE,	1,  1, FORCE_PLAYER )
+
+	EventEntryTurn( 戦闘開始直後,	1,  1, FORCE_PLAYER )
+
+--	
+	EventEntryFixed( マージカノンアクティブ,	"PID_E003_異形兵強_マージカノン", FORCE_ENEMY)
+
+
+	--	特殊召喚
+	EventEntryTurn(召喚管理, -1, -1, FORCE_PLAYER)
+
+	--	このマップの増援は基本的にエリアイベントで管理。
+	--	カノンの範囲が広いので、慎重に進む人とキニシナイ人の差が激しそうなので。
+	-- 増援エリアイベント
+	EventEntryArea(EmptyFunction, 1, 8, 19, 11, FORCE_PLAYER, "エリア1_済")
+	EventEntryArea(EmptyFunction, 1,12, 19, 16, FORCE_PLAYER, "エリア2_済")
+	EventEntryArea(EmptyFunction, 6,17, 14, 24, FORCE_PLAYER, "エリア3_済")
+	EventEntryTurn(エリア1増援管理, -1, -1, FORCE_PLAYER, condition_エリア1侵入)
+	EventEntryTurn(エリア2増援管理, -1, -1, FORCE_PLAYER, condition_エリア2侵入)
+	EventEntryTurn(エリア3増援管理, -1, -1, FORCE_PLAYER, condition_エリア3侵入)
+
+	EventEntryPickup( ディアマンドアクティブ,	g_pid_boss,  "ディアマンドアクティブ_済" )
+	EventEntryPickup( スタルークアクティブ,	g_pid_hide,  "スタルークアクティブ_済" )
+
+	EventEntryBattleTalk(Talk, "PID_ディアマンド", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_ディアマンド_ボス_済", "MID_BT5");
+	EventEntryBattleTalk(Talk, "PID_スタルーク", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_スタルーク_ボス_済", "MID_BT6");
+	EventEntryBattleTalk(Talk, "PID_シトリニカ", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_シトリニカ_ボス_済", "MID_BT7");
+	EventEntryBattleTalk(Talk, "PID_リュール", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_リュール_ボス_済", "MID_BT8");
+	EventEntryBattleTalk(Talk, "PID_アンバー", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_アンバー_ボス_済", "MID_BT9");
+	EventEntryBattleTalk(Talk, "PID_ジェーデ", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_ジェーデ_ボス_済", "MID_BT10");
+	EventEntryBattleTalk(Talk, "PID_ザフィーア", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_ザフィーア_ボス_済", "MID_BT11");
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_ボス_済", "MID_BT1");
+	EventEntryDie(Talk, g_pid_boss, FORCE_ENEMY, condition_true, "MID_BT2");
+
+	EventEntryBattleTalk(Talk, "PID_スタルーク", FORCE_PLAYER, g_pid_hide, FORCE_ENEMY, true, "戦闘前会話_スタルーク_裏_済", "MID_BT12");
+	EventEntryBattleTalk(Talk, "PID_ディアマンド", FORCE_PLAYER, g_pid_hide, FORCE_ENEMY, true, "戦闘前会話_ディアマンド_裏_済", "MID_BT13");
+	EventEntryBattleTalk(Talk, "PID_リュール", FORCE_PLAYER, g_pid_hide, FORCE_ENEMY, true, "戦闘前会話_リュール_裏_済", "MID_BT14");
+	EventEntryBattleTalk(Talk, "PID_ラピス", FORCE_PLAYER, g_pid_hide, FORCE_ENEMY, true, "戦闘前会話_ラピス_裏_済", "MID_BT15");
+	EventEntryBattleTalk(Talk, "PID_シトリニカ", FORCE_PLAYER, g_pid_hide, FORCE_ENEMY, true, "戦闘前会話_シトリニカ_裏_済", "MID_BT16");
+	EventEntryBattleTalk(Talk, "PID_ザフィーア", FORCE_PLAYER, g_pid_hide, FORCE_ENEMY, true, "戦闘前会話_ザフィーア_裏_済", "MID_BT17");
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, g_pid_hide, FORCE_ENEMY, true, "戦闘前会話_裏_済", "MID_BT3");
+	EventEntryDie(Talk, g_pid_hide, FORCE_ENEMY, condition_true, "MID_BT4");
+
+	EventEntryDie(味方死亡, "PID_E003_イル", FORCE_PLAYER, FORCE_ALL )
+	EventEntryDie(味方死亡, "PID_E003_エル", FORCE_PLAYER, FORCE_ALL )
+--	EventEntryDie(味方死亡, "PID_E003_セレスティア", FORCE_PLAYER, FORCE_ALL )
+--	EventEntryDie(味方死亡, "PID_E003_グレゴリー", FORCE_PLAYER, FORCE_ALL )
+
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 10, 1, "PID_リュール", condition_true)
+end
+
+
+function Cleanup()
+	
+	Log("Cleanup");
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening");
+
+	PlayChapterTitle("E003")
+	Yield()
+	FadeOut(0)
+
+	Movie("Narration03")
+	SkipEscape()
+
+	PuppetDemo("E003", "MID_OP2")
+	PuppetDemo("E003", "MID_OP3")
+	
+	邪竜の章_新キャラ紋章士装備状況セーブ()
+	邪竜の章_新キャラ出撃不可設定()
+end
+
+function MapOpening()
+	
+	Log("MapOpening");
+	
+	-- 紋章士装備状態の復帰
+	GodLoadEquipE()
+	邪竜の章_新キャラ紋章士装備状況ロード( "E003" )
+	
+end
+
+function 戦闘開始直後()
+
+	CursorSetPos_FromPid(g_pid_boss)
+	MapCameraWait()
+	Talk( "MID_EV1" )
+
+
+	CursorSetPos(12,9)
+	MapCameraWait()
+
+	CursorAnimeCreate(12,9);
+	WaitTime(1.0)
+
+	Talk( "MID_EV2" )
+	Tutorial( "TUTID_敵マージカノン_E003" )
+
+	CursorAnimeDelete()
+	WaitTime(1.0)
+	
+	勝利条件_二人にフォーカス()
+	
+end
+
+-- ----------------------------------------------------------------------
+function 勝利条件_二人にフォーカス()
+	
+	CursorSetPos( 10, 21 )
+	CursorSetDistanceMode( CURSOR_DISTANCE_MIDDLE )
+	MapCameraWait()
+	
+	local x = UnitGetX( g_pid_boss )
+	local z = UnitGetZ( g_pid_boss )
+	MapObjectCreate("Eff_Cursor01", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_" .. "W1H1", x, z)
+	
+	x = UnitGetX( g_pid_hide )
+	z = UnitGetZ( g_pid_hide )
+	MapObjectCreate("Eff_Cursor02", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_" .. "W1H1", x, z)
+	
+	WaitTime( 2.0 )
+	
+	WinRule()
+	
+	MapObjectDelete( "Eff_Cursor01" )
+	MapObjectDelete( "Eff_Cursor02" )
+	
+end
+
+-- ----------------------------------------------------------------------
+function EmptyFunction()
+end
+
+function マージカノンアクティブ()
+--	Log("マージカノンアクティブ")
+
+	if VariableGet( "マージカノンアクティブ_済" )  == 0 then
+--		if AiGetActive( "PID_E003_異形兵強_マージカノン" ) == true then
+--		end
+
+		local unitA = UnitGetByPos(11, 23)
+		local unitB = MindGetUnit()
+		if unitA == unitB then
+			CursorSetPos_FromPid("PID_E003_異形兵強_マージカノン")
+			MapCameraWait()
+			Talk( "MID_EV3" )	--	マージカノンアクティブ
+			VariableSet( "マージカノンアクティブ_済", 1 )
+		end
+	end
+end
+
+
+function ディアマンドアクティブ()
+	if UnitExistOnMap( g_pid_boss ) then
+		if AiGetActive( g_pid_boss ) == true then
+
+			if VariableGet( "エリア3_済" ) == 0 then
+				VariableSet( "エリア3_済" ,1)
+			--	VariableSet( "エリア2_済" ,1)
+			--	VariableSet( "エリア1_済" ,1)
+				VariableSet( "エリア3侵入カウント" ,0)
+			--	VariableSet( "エリア2侵入カウント" ,0)
+			--	VariableSet( "エリア1侵入カウント" ,0)
+
+				local index = ForceUnitGetFirst(FORCE_ENEMY)
+				while index != nil do
+					local pid = UnitGetPID(index)
+					UnitClearStatus(pid, UNIT_STATUS_MOVE_NOT_ALLOW)
+
+					AiSetSequence(pid, AI_ORDER_CAUSE, "AI_AC_Everytime")
+					AiSetSequence(pid, AI_ORDER_MOVE, "AI_MV_WeakEnemy")
+					index = ForceUnitGetNext(index)
+				end
+			end
+			VariableSet( "ディアマンドアクティブ_済", 1 )
+		end
+	end
+end
+
+function スタルークアクティブ()
+	if UnitExistOnMap( g_pid_hide ) then
+		if AiGetActive( g_pid_hide ) == true then
+
+			if VariableGet( "エリア2_済" ) == 0 then
+				VariableSet( "エリア2_済" ,1)
+			end
+			VariableSet( "スタルークアクティブ_済", 1 )
+		end
+	end
+end
+
+-- -----------------------------------
+
+function 味方死亡()
+	VariableSet( "敗北", 1 )
+end
+
+
+-- ----------------------------------------------------------------------
+function condition_エリア1侵入()
+	-- 増援数管理 難易度で変更する
+	if VariableGet( "エリア1侵入カウント" ) == 2 then
+		return false
+	end
+	
+	if VariableGet( "エリア1_済" ) == 1 then
+		return true
+	end
+
+	return false
+end
+
+function エリア1増援管理()
+	local turn = MapGetTurn() + 1
+
+	if DifficultyGet() == DIFFICULTY_LUNATIC then
+		Dispos("Enemy_Reinforcement1L", DISPOS_FLAG_FOCUS)
+		Dispos("Enemy_Reinforcement1R", DISPOS_FLAG_FOCUS)
+	else
+		if turn  % 2 == 1 then
+			Dispos("Enemy_Reinforcement1L", DISPOS_FLAG_FOCUS)
+		else
+			Dispos("Enemy_Reinforcement1R", DISPOS_FLAG_FOCUS)
+		end
+	end
+	Yield()
+	WaitTime(0.5)
+	VariableInc("エリア1侵入カウント", 0, 10)
+end
+
+-- ----------------------------------------------------------------------
+function condition_エリア2侵入()
+	-- 増援数管理 難易度で変更する
+	if VariableGet( "エリア2侵入カウント" ) == 2 then
+		return false
+	end
+	
+	if VariableGet( "エリア2_済" ) == 1 then
+		return true
+	end
+
+	return false
+end
+
+function エリア2増援管理()
+	local turn = MapGetTurn() + 1
+
+	if DifficultyGet() == DIFFICULTY_LUNATIC then
+		Dispos("Enemy_Reinforcement2R", DISPOS_FLAG_FOCUS)
+		Dispos("Enemy_Reinforcement2L", DISPOS_FLAG_FOCUS)
+	else
+		if turn  % 2 == 1 then
+			Dispos("Enemy_Reinforcement2R", DISPOS_FLAG_FOCUS)
+		else
+			Dispos("Enemy_Reinforcement2L", DISPOS_FLAG_FOCUS)
+		end
+	end
+	Yield()
+	WaitTime(0.5)
+	VariableInc("エリア2侵入カウント", 0, 10)
+end
+
+-- ----------------------------------------------------------------------
+function condition_エリア3侵入()
+	-- 増援数管理 難易度で変更する
+	if VariableGet( "エリア3侵入カウント" ) == 2 then
+		return false
+	end
+	
+	if VariableGet( "エリア3_済" ) == 1 then
+		return true
+	end
+
+	return false
+end
+
+function エリア3増援管理()
+	Dispos("Enemy_Reinforcement3", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+	VariableInc("エリア3侵入カウント", 0, 10)
+end
+
+
+----------------------------------------------
+function 召喚管理()
+	if AiGetActive( "PID_E003_Boss" ) == true then
+		if VariableGet( "特殊召喚カウント" )  == 0 then
+			CursorSetPos_FromPid( "PID_E003_Boss" )
+			MapCameraWait()
+			Talk( "MID_EV4" )
+
+			EventEngageSummon( "PID_E003_Boss" )
+			Dispos( "Enemy_ReinforcementS", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED + DISPOS_FLAG_WARP )
+			Yield()
+			WaitTime( 2.0 )
+			VariableSet( "特殊召喚カウント", 1 )
+		end
+	end
+
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+function MapEnding()
+	
+	Log("MapEnding");
+	
+end
+
+function Ending()
+	
+	Log("Ending");
+	
+	PuppetDemo("E003", "MID_ED1")
+	PuppetDemo("E003", "MID_ED2")
+	PuppetDemo("E003", "MID_ED3")
+	
+end
+
+function GameOver()
+	
+	Log("GameOver");
+	
+end

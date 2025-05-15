@@ -1,0 +1,3656 @@
+Include("Common")
+Include("Common_E")
+
+g_debug_play = 0
+
+g_Rush_Damage	= 30	--突進のダメージ。守備魔防関係なし
+
+g_pid_lueur = "PID_リュール"
+g_pid_boss = "PID_E006_Boss"
+g_pid_hide1 = "PID_E006_Hide1"
+g_pid_hide2 = "PID_E006_Hide2"
+g_pid_hide3 = "PID_E006_Hide3"
+g_pid_hide4 = "PID_E006_Hide4"
+g_pid_hide5 = "PID_E006_Hide5"
+g_pid_hide6 = "PID_E006_Hide6"
+g_pid_hide7 = "PID_E006_Hide7"
+g_pid_hide8 = "PID_E006_Hide8"
+
+
+g_key_Break	= "島崩番号"
+g_key_area1 = "島崩中下_済"
+g_key_area2 = "島崩左下_済"
+g_key_area3 = "島崩中央_済"
+g_key_area4 = "島崩右下_済"
+g_key_area5 = "島崩左上_済"
+g_key_area6 = "島崩右上_済"
+
+g_key_HL_area5 = "ハードルナエリア５侵入"
+
+g_key_Bress_Talk				= "イル攻撃_ブレス時会話"
+g_key_戦闘前エル				= "戦闘前会話イル×エル_済"
+g_key_戦闘前リュール			= "戦闘前会話イル×リュール_済"
+g_key_戦闘前セレスティア		= "戦闘前会話イル×セレスティア_済"
+g_key_戦闘前グレゴリー			= "戦闘前会話イル×グレゴリー_済"
+g_key_戦闘前マデリーン			= "戦闘前会話イル×マデリーン_済"
+g_key_戦闘前汎用				= "戦闘前会話イル×汎用_済"
+
+g_key_Bress						= "イル攻撃_ブレス"
+g_key_Bress_Direction			= "イル攻撃_ブレス_方向"
+g_key_Rush_Number				= "イル攻撃_突進番号"
+g_key_Absorp_Number				= "イル攻撃_吸収番号"
+g_key_Summon_Number				= "イル攻撃_召喚番号"
+
+g_key_turn_Island7	= "最終島ターン元"
+g_key_turn_Summon 	= "最終島召喚"
+g_key_turn_Bress1  	= "最終島ブレス１"
+g_key_turn_Bress2  	= "最終島ブレス２"
+g_key_turn_Absorp 	= "最終島吸収"
+
+--	ルナイル行動予定
+--	初期1	ブレス→召喚　→突進
+--	左下2	召喚　→ブレス→突進
+--	中央3	召喚　→ブレス→突進
+--	右下4	召喚　→突進
+--	左上5	召喚　→突進
+--	右上6	召喚　→突進
+--	最終7	召喚　→ブレス→吸収　→召喚→ブレス→吸収…
+
+g_Luna_Bress1				= 1
+g_Luna_Summon1				= 2
+g_Luna_Rush1				= 3
+
+g_Luna_Summon2				= 5
+g_Luna_Bress2				= 6
+g_Luna_Rush2				= 7
+
+g_Luna_Summon3				= 9
+g_Luna_Bress3				= 10
+g_Luna_Rush3				= 11
+
+g_Luna_Summon4				= 13
+g_Luna_Rush4				= 14
+
+g_Luna_Summon6				= 16
+g_Luna_Rush6				= 17
+
+g_Luna_Summon5				= 19
+g_Luna_Rush5				= 20
+
+g_Luna_Island7				= 22
+
+
+
+--	ハードモードイル行動予定
+--	初期1	ブレス→召喚　→突進
+--	左下2	召喚　→ブレス→突進
+--	中央3	召喚　→ブレス→ブレス→突進
+--	右下4	召喚　→突進
+--	右上6	召喚　→ブレス→突進
+--	最終7	召喚　→ブレス→吸収　→召喚→ブレス→吸収…
+
+g_Hard_Bress1				= 1
+g_Hard_Summon1				= 2
+g_Hard_Rush1				= 3
+
+g_Hard_Summon2				= 5
+g_Hard_Bress2				= 6
+g_Hard_Rush2				= 7
+
+g_Hard_Summon3				= 9
+g_Hard_Bress3a				= 10
+g_Hard_Bress3b				= 11
+g_Hard_Rush3				= 12
+
+g_Hard_Summon4				= 14
+g_Hard_Rush4				= 15
+
+g_Hard_Summon6				= 17
+g_Hard_Bress6				= 18
+g_Hard_Rush6				= 19
+
+g_Hard_Island7				= 21
+
+--	ノーマルイル行動(通常ルート)
+	--	初期1	ブレス→召喚　→ブレス→突進
+	--	中央3	召喚　→ブレス→突進
+	--	最終	召喚　→ブレス→吸収　→召喚→ブレス→吸収…
+
+g_Nor_Bress1a			= 1
+g_Nor_Summon1			= 2
+g_Nor_Bress1b			= 3
+g_Nor_Rush1				= 4
+
+g_Nor_Summon2a			= 6
+g_Nor_Bress2			= 7
+g_Nor_Summon2b			= 8
+g_Nor_Rush2				= 9
+
+g_Nor_Island5			= 11
+
+
+-- -----------------------------------
+--	崩壊する島の定義
+local g_BreakArea1 = {0,  
+	 8, 8,  9, 8, 10, 8, 11, 8, 12, 8, 13, 8, 14, 8, 
+	 9, 7, 10, 7, 11, 7, 12, 7, 13, 7, 14, 7, 15, 7, 
+	 9, 6, 10, 6, 11, 6, 12, 6, 13, 6, 14, 6, 15, 6, 16, 6, 17, 6, 
+	10, 5, 11, 5, 12, 5, 13, 5, 14, 5, 15, 5, 16, 5, 17, 5, 18, 5, 
+	11, 4, 12, 4, 13, 4, 14, 4, 15, 4, 16, 4, 17, 4, 18, 4, 19, 4, 20, 4, 21, 4, 
+	 9, 3, 10, 3, 11, 3, 12, 3, 13, 3, 14, 3, 15, 3, 16, 3, 17, 3, 18, 3, 19, 3, 20, 3, 21, 3, 22, 3, 
+	 8, 2,  9, 2, 10, 2, 11, 2, 12, 2, 13, 2, 14, 2, 15, 2, 16, 2, 17, 2, 18, 2, 19, 2, 20, 2, 21, 2, 22, 2, 23, 2, 
+	 8, 1,  9, 1, 10, 1, 11, 1, 12, 1, 13, 1, 14, 1, 15, 1, 16, 1, 17, 1, 18, 1, 19, 1, 20, 1, 21, 1, 22, 1, 23, 1, 
+	 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0,
+}
+
+
+
+local g_BreakArea2 = {0,  
+	 3,17, 4,17,
+	 2,16, 3,16, 4,16, 5,16,
+	 3,15, 4,15, 5,15,
+	 3,14, 4,14, 5,14,
+	 3,13, 4,13, 5,13,
+	 1,12, 2,12, 3,12, 4,12, 5,12, 6,12,
+	 0,11, 1,11, 2,11, 3,11, 4,11, 5,11, 6,11, 7,11,
+	 0,10, 1,10, 2,10, 3,10, 4,10, 5,10, 6,10, 7,10,
+	 0, 9, 1, 9, 2, 9, 3, 9, 4, 9, 5, 9, 6, 9, 7, 9,
+	 0, 8, 1, 8, 2, 8, 3, 8, 4, 8, 5, 8, 6, 8, 7, 8,
+	 0, 7, 1, 7, 2, 7, 3, 7, 4, 7, 5, 7, 6, 7, 7, 7,
+	 0, 6, 1, 6, 2, 6, 3, 6, 4, 6, 5, 6, 6, 6,
+	 1, 5, 2, 5, 3, 5, 4, 5, 5, 5,
+	 2, 4, 3, 4, 4, 4
+}
+local g_BreakArea3 = {0,  
+	15,17,16,17,19,17,20,17,21,17,22,17,
+	13,16,14,16,15,16,16,16,17,16,18,16,19,16,20,16,21,16,
+	12,15,13,15,14,15,15,15,16,15,17,15,18,15,19,15,20,15,
+	11,14,12,14,13,14,14,14,15,14,16,14,17,14,18,14,19,14,20,14,
+	 9,13,10,13,11,13,12,13,13,13,14,13,15,13,16,13,17,13,18,13,19,13,20,13,21,13,
+	 8,12, 9,12,10,12,11,12,13,12,14,12,15,12,16,12,17,12,18,12,19,12,20,12,21,12,22,12,23,12,
+	 8,11, 9,11,14,11,15,11,16,11,17,11,18,11,19,11,20,11,21,11,22,11,23,11,
+	 8,10, 9,10,16,10,17,10,19,10,20,10,21,10,22,10,23,10,
+	 8, 9, 9, 9,10, 9,21, 9,22, 9,23, 9
+}
+local g_BreakArea4 = {0,  
+	26,17,27,17,28,17,29,17,30,17,31,17,
+	26,16,27,16,28,16,29,16,30,16,
+	27,15,28,15,29,15,
+	27,14,28,14,29,14,
+	27,13,28,13,29,13,
+	27,12,28,12,29,12,
+	24,11,26,11,27,11,28,11,29,11,
+	24,10,25,10,26,10,27,10,28,10,29,10,30,10,
+	24, 9,25, 9,26, 9,27, 9,28, 9,29, 9,30, 9,
+	24, 8,25, 8,26, 8,27, 8,28, 8,29, 8,30, 8,31, 8,
+	24, 7,25, 7,26, 7,27, 7,28, 7,29, 7,30, 7,31, 7,
+	25, 6,26, 6,27, 6,28, 6,29, 6,30, 6,
+	26, 5,27, 5,28, 5,29, 5,30, 5,
+	27, 4,28, 4,29, 4,30, 4,
+	27, 3,28, 3,29, 3,30, 3,31, 3,
+	26, 2,27, 2,28, 2,29, 2,30, 2,31, 2,
+	26, 1,27, 1,28, 1,29, 1,30, 1,
+	28, 0,29, 0
+}
+local g_BreakArea5 = {0,  
+	 2, 30, 3, 30,
+	 2, 29, 3, 29, 4, 29,
+	 1, 28, 2, 28, 3, 28, 4, 28,
+	 0, 27, 1, 27, 2, 27, 3, 27, 6, 27,
+	 0, 26, 1, 26, 2, 26, 3, 26, 5, 26, 6, 26, 7, 26,
+	 0, 25, 1, 25, 2, 25, 3, 25, 4, 25, 5, 25, 6, 25,
+	 0, 24, 1, 24, 2, 24, 3, 24, 4, 24, 5, 24, 6, 24,
+	 0, 23, 1, 23, 2, 23, 3, 23, 4, 23, 5, 23, 6, 23, 7, 23, 8, 23, 9, 23,10, 23,
+	 1, 22, 2, 22, 3, 22, 4, 22, 5, 22, 6, 22, 7, 22, 8, 22, 9, 22,10, 22,
+	 2, 21, 3, 21, 4, 21, 5, 21, 6, 21, 7, 21, 8, 21, 9, 21,10, 21,
+	 2, 20, 3, 20, 4, 20, 5, 20, 6, 20, 7, 20, 8, 20, 9, 20,10, 20,
+	 1, 19, 2, 19, 3, 19, 4, 19, 5, 19, 6, 19, 7, 19, 8, 19, 9, 19,
+	 0, 18, 1, 18, 2, 18, 3, 18, 4, 18, 7, 18, 8, 18
+}
+local g_BreakArea6 = {0,  
+	27,31,
+	26,30,27,30,30,30,
+	25,29,26,29,27,29,28,29,29,29,30,29,31,29,
+	23,28,24,28,25,28,26,28,27,28,28,28,29,28,30,28,31,28,
+	23,27,24,27,25,27,26,27,27,27,28,27,29,27,30,27,
+	24,26,25,26,26,26,27,26,28,26,29,26,30,26,
+	24,25,25,25,26,25,27,25,28,25,29,25,30,25,31,25,
+	23,24,24,24,25,24,26,24,27,24,28,24,29,24,30,24,31,24,
+	23,23,24,23,25,23,26,23,27,23,28,23,29,23,30,23,31,23,
+	22,22,23,22,24,22,25,22,26,22,27,22,28,22,29,22,30,22,
+	19,21,20,21,21,21,22,21,23,21,24,21,25,21,26,21,27,21,28,21,29,21,
+	18,20,19,20,20,20,21,20,22,20,23,20,24,20,25,20,26,20,27,20,28,20,29,20,30,20,
+	19,19,20,19,21,19,22,19,23,19,24,19,25,19,26,19,27,19,28,19,29,19,30,19,31,19,
+	20,18,21,18,22,18,23,18,24,18,25,18,26,18,27,18,28,18,29,18,30,18
+}
+
+-- -----------------------------------
+
+
+local g_BossPos = {0,  
+	--1		2		3		4	5		6		7
+	14, 4,  3,8,  15,14,  27,5,  3,21,  27,23,  14,25
+}
+
+--	ブレス方向	1:右下270	2:左下0	3:左上90	4:右上180	g_key_Bress_Direction
+--local g_BossBressD = {  270,0,90,180	}
+local g_BossBressD = {  ROTATE_DOWN_RIGHT,ROTATE_DOWN_LEFT,ROTATE_UP_LEFT,ROTATE_UP_RIGHT	}
+
+--	吸収方向	1:下0	2:左上120	3:右上90	4:右上180	g_key_Bress_Direction
+local g_BossAbsorpD = {  0,120,240	}
+local g_BossAbsorpD2 = {  ROTATE_DOWN,ROTATE_UP_LEFT,ROTATE_UP_RIGHT	}
+
+
+--	演出以外のデータを極力テーブル化して外に出して共通化する。
+--	崩落範囲、カーソル座標
+local g_Hhani = {0,  
+	--1		2		3		4	5		6		7
+	15,5,  4,9,  16,15,  28,6,  3,20,  28,24,  14,25
+}
+--	EventStateObject用。地面割り、地面沈みは同座標
+local g_HhaO = {0,  
+	--1		2	3		4	5		6	
+	15,3, 4,7, 16,13, 28,4, 4,20, 28,22
+}
+--	EventStateObject(邪竜陣)用。
+local g_HhaR = {0,  
+	--1		2	3		4	5		6		7
+	15,5, 4,9, 16,15, 28,6, 4,22, 28,24, 15,26
+}
+--	突進番号から移動先取得
+local g_Rush2Saki = {  
+	2, 3, 4, 6, 5, 7, 5, 3, 7, 7
+}
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup");
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_E006_WIN" )
+	LoseRuleSetMID( "MID_RULE_DLC_LOSE2" )
+	
+	
+	変数登録()
+	イベント登録()
+
+end
+
+
+function 変数登録()
+	VariableEntry(g_key_Break, 0)
+	VariableEntry(g_key_area1, 0)
+	VariableEntry(g_key_area2, 0)
+	VariableEntry(g_key_area3, 0)
+	VariableEntry(g_key_area4, 0)
+	VariableEntry(g_key_area5, 0)
+	VariableEntry(g_key_area6, 0)
+
+	VariableEntry(g_key_HL_area5, 0)
+
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		VariableEntry(g_key_turn_Island7, g_Nor_Island5)
+		VariableEntry(g_key_turn_Summon , g_Nor_Island5)
+		VariableEntry(g_key_turn_Bress1 , g_Nor_Island5+1 )
+		VariableEntry(g_key_turn_Absorp , g_Nor_Island5+2 )
+		VariableEntry(g_key_turn_Bress2 , g_Nor_Island5+4 )
+	elseif DifficultyGet() == DIFFICULTY_HARD then
+		VariableEntry(g_key_turn_Island7, g_Hard_Island7)
+		VariableEntry(g_key_turn_Summon , g_Hard_Island7)
+		VariableEntry(g_key_turn_Bress1 , g_Hard_Island7 )
+		VariableEntry(g_key_turn_Absorp , g_Hard_Island7 )
+		VariableEntry(g_key_turn_Bress2 , g_Hard_Island7 )
+	else
+		VariableEntry(g_key_turn_Island7, g_Luna_Island7)
+		VariableEntry(g_key_turn_Summon , g_Luna_Island7)
+		VariableEntry(g_key_turn_Bress1 , g_Luna_Island7 )
+		VariableEntry(g_key_turn_Absorp , g_Luna_Island7 )
+		VariableEntry(g_key_turn_Bress2 , 0 )
+
+	end
+
+	VariableEntry( g_key_Bress_Direction,	0 )
+	VariableEntry( g_key_Rush_Number,		0 )
+	VariableEntry( g_key_Summon_Number,		0 )
+	VariableEntry( g_key_Absorp_Number,		0 )
+
+	VariableEntry( "ヴェロニカ召喚カウント", 0 )
+
+	VariableEntry( "紋章氣_済", 0 )
+	VariableEntry( "紋章氣_X", 0 )
+	VariableEntry( "紋章氣_Z", 0 )
+
+
+	VariableEntry(g_key_Bress_Talk, 0)
+	VariableEntry(g_key_戦闘前エル			,0)
+	VariableEntry(g_key_戦闘前リュール		,0)
+	VariableEntry(g_key_戦闘前セレスティア	,0)
+	VariableEntry(g_key_戦闘前グレゴリー	,0)
+	VariableEntry(g_key_戦闘前マデリーン	,0)
+	VariableEntry(g_key_戦闘前汎用			,0)
+end
+
+function イベント登録()
+	-- 紋章士装備状態の保存
+	EventEntryTurn( GodSaveEquipE,	1,  1, FORCE_PLAYER )
+
+	EventEntryTurn( 戦闘開始直後,	1,  1, FORCE_PLAYER )
+
+	--	イル行動管理。毎ターン呼んで、ターン制御は中でやる。
+	EventEntryTurnAfter(イル行動管理青ターン,-1,-1, FORCE_PLAYER);
+	EventEntryTurnAfter(イル行動管理赤ターン,-1,-1, FORCE_ENEMY);
+
+	EventEntryTurnAfter(最終島管理青, -1  , -1  , FORCE_PLAYER);
+	EventEntryTurnAfter(最終島管理赤, -1  , -1  , FORCE_ENEMY);
+
+	EventEntryTurn(ヴェロニカ管理,-1,-1, FORCE_PLAYER);
+
+	--	エリア２→５へ侵入対策
+	EventEntryArea(エリア５侵入対策, 1, 18, 7, 26, FORCE_PLAYER, g_key_area)
+	
+
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		EventEntryTurn(増援左下,  8, 8, FORCE_PLAYER)
+		EventEntryTurn(増援左上,  9, 9, FORCE_PLAYER)
+		EventEntryTurn(増援下,    9, 9, FORCE_PLAYER)
+		EventEntryTurn(増援左 ,  11,11, FORCE_PLAYER)
+
+		EventEntryTurn(島４行動,  7, 7, FORCE_PLAYER)
+		EventEntryTurn(島６行動, 12,12, FORCE_PLAYER)
+
+	elseif DifficultyGet() == DIFFICULTY_HARD then
+		--	増援
+		EventEntryTurn(増援左下,  6, 7, FORCE_PLAYER)
+		EventEntryTurn(増援下,  9,10, FORCE_PLAYER)
+
+		EventEntryTurn(増援右上, 12,13, FORCE_PLAYER)
+
+		EventEntryTurn(増援左上, 14,15, FORCE_PLAYER)
+		EventEntryTurn(増援上１,  22,22, FORCE_PLAYER)
+		EventEntryTurn(増援上２,  25,25, FORCE_PLAYER)
+		EventEntryTurn(増援上１,  28,28, FORCE_PLAYER)
+
+	else
+		--	ルナ増援
+		EventEntryTurn(増援左下,  3,3, FORCE_PLAYER)
+		EventEntryTurn(増援左下,  5,5, FORCE_PLAYER)
+		EventEntryTurn(増援左,    4,4, FORCE_PLAYER)
+		EventEntryTurn(増援左,    6,6, FORCE_PLAYER)
+
+	--	EventEntryTurn(増援下,  6, 6, FORCE_PLAYER)
+		EventEntryTurn(増援下,  8, 8, FORCE_PLAYER)
+		EventEntryTurn(増援下, 13,13, FORCE_PLAYER)
+
+		EventEntryTurn(増援下, 17,17, FORCE_PLAYER)
+	--	EventEntryTurn(増援下, 20,20, FORCE_PLAYER)
+		EventEntryTurn(増援下, 23,23, FORCE_PLAYER)
+	--	EventEntryTurn(増援下, 26,26, FORCE_PLAYER)
+		EventEntryTurn(増援下, 29,29, FORCE_PLAYER)
+
+		EventEntryTurn(増援右上, 9,9, FORCE_PLAYER)
+		EventEntryTurn(増援右上,11,11, FORCE_PLAYER)
+
+		EventEntryTurn(増援左上, 13,13, FORCE_PLAYER)
+	--	EventEntryTurn(増援左,  14,14, FORCE_PLAYER)
+
+		EventEntryTurn(増援上２,  16,16, FORCE_PLAYER)
+		EventEntryTurn(増援上１,  19,19, FORCE_PLAYER)
+		EventEntryTurn(増援上２,  22,22, FORCE_PLAYER)
+		EventEntryTurn(増援上１,  25,25, FORCE_PLAYER)
+		EventEntryTurn(増援上２,  28,28, FORCE_PLAYER)
+		EventEntryTurn(増援上１,  31,31, FORCE_PLAYER)
+	--	EventEntryTurn(増援上２,  28,28, FORCE_PLAYER)
+	--	EventEntryTurn(増援上１,  30,30, FORCE_PLAYER)
+	--	EventEntryTurn(増援上２,  32,32, FORCE_PLAYER)
+	end
+
+
+
+	EventEntryBattleTalk(戦闘前会話エル			, "PID_E006_エル"			, FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_全体攻撃確認_エル			 );
+	EventEntryBattleTalk(戦闘前会話リュール		, "PID_リュール"			, FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_全体攻撃確認_リュール		 );
+	EventEntryBattleTalk(戦闘前会話セレスティア	, "PID_E006_セレスティア"	, FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_全体攻撃確認_セレスティア	 );
+	EventEntryBattleTalk(戦闘前会話グレゴリー	, "PID_E006_グレゴリー"		, FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_全体攻撃確認_グレゴリー	 );
+	EventEntryBattleTalk(戦闘前会話マデリーン	, "PID_E006_マデリーン"		, FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_全体攻撃確認_マデリーン	 );
+	EventEntryBattleTalk(戦闘前会話汎用			, ""						, FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_全体攻撃確認_汎用			 );
+--	EventEntryBattleTalk(Talk, "PID_E006_エル", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_ボス_エル_済", "MID_BT19");
+--	EventEntryBattleTalk(Talk, "PID_リュール", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_ボス_リュール_済", "MID_BT20");
+--	EventEntryBattleTalk(Talk, "PID_E006_セレスティア", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_ボス_セレスティア_済", "MID_BT21");
+--	EventEntryBattleTalk(Talk, "PID_E006_グレゴリー", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_ボス_グレゴリー_済", "MID_BT22");
+--	EventEntryBattleTalk(Talk, "PID_E006_マデリーン", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_ボス_マデリーン_済", "MID_BT23");
+--	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_ボス_済", "MID_BT1");
+
+	EventEntryBattleTalk(Talk, "PID_リュール", FORCE_PLAYER, g_pid_hide6, FORCE_ENEMY, true, "戦闘前会話_裏６_リュール_済", "MID_BT24");
+	EventEntryBattleTalk(Talk, "PID_リュール", FORCE_PLAYER, g_pid_hide8, FORCE_ENEMY, true, "戦闘前会話_裏８_リュール_済", "MID_BT25");
+
+--	EventEntryDie(Talk, g_pid_boss, FORCE_ENEMY, condition_true, "MID_BT2");
+
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, g_pid_hide1, FORCE_ENEMY, true, "戦闘前会話_裏１_済", "MID_BT3");
+	EventEntryDie(Talk, g_pid_hide1, FORCE_ENEMY, condition_true, "MID_BT4");
+
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, g_pid_hide2, FORCE_ENEMY, true, "戦闘前会話_裏２_済", "MID_BT5");
+	EventEntryDie(Talk, g_pid_hide2, FORCE_ENEMY, condition_true, "MID_BT6");
+
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, g_pid_hide3, FORCE_ENEMY, true, "戦闘前会話_裏３_済", "MID_BT7");
+	EventEntryDie(Talk, g_pid_hide3, FORCE_ENEMY, condition_true, "MID_BT8");
+
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, g_pid_hide4, FORCE_ENEMY, true, "戦闘前会話_裏４_済", "MID_BT9");
+	EventEntryDie(Talk, g_pid_hide4, FORCE_ENEMY, condition_true, "MID_BT10");
+
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, g_pid_hide5, FORCE_ENEMY, true, "戦闘前会話_裏５_済", "MID_BT11");
+	EventEntryDie(Talk, g_pid_hide5, FORCE_ENEMY, condition_true, "MID_BT12");
+
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, g_pid_hide6, FORCE_ENEMY, true, "戦闘前会話_裏６_済", "MID_BT13");
+	EventEntryDie(Talk, g_pid_hide6, FORCE_ENEMY, condition_true, "MID_BT14");
+
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, g_pid_hide7, FORCE_ENEMY, true, "戦闘前会話_裏７_済", "MID_BT15");
+	EventEntryDie(Talk, g_pid_hide7, FORCE_ENEMY, condition_true, "MID_BT16");
+
+	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, g_pid_hide8, FORCE_ENEMY, true, "戦闘前会話_裏８_済", "MID_BT17");
+	EventEntryDie(Talk, g_pid_hide8, FORCE_ENEMY, condition_true, "MID_BT18");
+
+	EventEntryDie(味方死亡, "PID_E006_エル", FORCE_PLAYER, FORCE_ALL )
+--	EventEntryDie(味方死亡, "PID_E006_セレスティア", FORCE_PLAYER, FORCE_ALL )
+--	EventEntryDie(味方死亡, "PID_E006_グレゴリー", FORCE_PLAYER, FORCE_ALL )
+--	EventEntryDie(味方死亡, "PID_E006_マデリーン", FORCE_PLAYER, FORCE_ALL )
+
+-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 15, 1, "PID_リュール", condition_true)
+
+	--	２つ１セット。吸収予告の次のターンが範囲吸収。g_key_Absorp_Numberをどこかで設定して、吸収。
+
+
+--	E006沈むエリア内死亡
+--	E006突進
+--	E006吸収
+--	E006召喚
+end
+
+
+-- -----------------------------------
+function Cleanup()
+	
+	Log("Cleanup");
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	Log("Opening");
+	if g_debug_play != 1 then
+		PlayChapterTitle("E006")
+		Yield()
+		FadeOut(0)
+
+		Movie("Narration06")
+		SkipEscape()
+
+		PuppetDemo("E006", "MID_OP2")
+		PuppetDemo("E006", "MID_OP3")
+		PuppetDemo("E006", "MID_OP4")
+	end
+	
+	邪竜の章_新キャラ紋章士装備状況セーブ()
+	邪竜の章_新キャラ出撃不可設定()
+end
+
+function MapOpening()
+	
+	Log("MapOpening");
+	FadeOut(0)
+	UnitSetHpStock(g_pid_boss, 1)
+--	UnitSetPrivateSkill( g_pid_boss, "SID_イルバリア" )
+	UnitSetPrivateSkill( g_pid_boss, "SID_受けるダメージ-50" )
+
+	-- オブジェクト起動
+
+	bP = 2
+	MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_DONE)
+	bP = 3
+	MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_DONE)
+	bP = 4
+	MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_DONE)
+	bP = 5
+	MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_DONE)
+	bP = 6
+	MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_DONE)
+	bP = 7
+	MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_DONE)
+
+	FadeIn(FADE_FAST)
+
+	bP = 1
+	MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_IDLE)
+
+	Talk( "MID_EV1" )
+	UnitPutOffItem("PID_リュール", "IID_リベラシオン")
+
+
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		ItemGain( g_pid_lueur, "IID_リベラシオン改_ノーマル" )
+	else
+		ItemGain( g_pid_lueur, "IID_リベラシオン改" )
+	end
+
+	-- 死亡時デメリット無しを強調
+	Dialog( "MID_TUT_DLG_E006_ADVICE" )
+
+	
+	-- 紋章士装備状態の復帰
+	GodLoadEquipE()
+	邪竜の章_新キャラ紋章士装備状況ロード( "E006" )
+end
+
+function 戦闘開始直後()
+	CursorSetPos_FromPid( "PID_E006_エル" )
+	Talk( "MID_EV2" )
+	--EventStateObject(15,3,1)
+	
+	CursorSetPos_FromPid(g_pid_boss)
+	MapCameraWait()
+	
+	local x = UnitGetX( g_pid_boss )
+	local z = UnitGetZ( g_pid_boss )
+	MapObjectCreate("Eff_Cursor01", "Effects/BMap/UI/Guide/Prefabs/Eff_Cursor_" .. "W3H3", x, z)
+	WaitTime( 2.0 )
+	
+	WinRule()
+	
+	MapObjectDelete( "Eff_Cursor01" )
+	
+end
+
+-- -----------------------------------
+
+function 味方死亡()
+	VariableSet( "敗北", 1 )
+end
+
+-- -----------------------------------
+function 戦闘前会話エル()
+	Talk( "MID_BT19" )
+	VariableSet( g_key_戦闘前エル, 1 )
+end
+function condition_全体攻撃確認_エル()
+	if VariableGet( g_key_Bress_Talk ) == 1 then
+		return false
+
+	elseif VariableGet( g_key_戦闘前エル ) == 1 then
+		return false
+	end
+	return true
+end
+
+function 戦闘前会話リュール()
+	Talk( "MID_BT20" )
+	VariableSet( g_key_戦闘前リュール, 1 )
+end
+function condition_全体攻撃確認_リュール()
+	if VariableGet( g_key_Bress_Talk ) == 1 then
+		return false
+
+	elseif VariableGet( g_key_戦闘前リュール ) == 1 then
+		return false
+	end
+	return true
+end
+
+function 戦闘前会話セレスティア()
+	Talk( "MID_BT21" )
+	VariableSet( g_key_戦闘前セレスティア, 1 )
+end
+function condition_全体攻撃確認_セレスティア()
+	if VariableGet( g_key_Bress_Talk ) == 1 then
+		return false
+
+	elseif VariableGet( g_key_戦闘前セレスティア ) == 1 then
+		return false
+	end
+	return true
+end
+
+function 戦闘前会話グレゴリー()
+	Talk( "MID_BT22" )
+	VariableSet( g_key_戦闘前グレゴリー, 1 )
+end
+function condition_全体攻撃確認_グレゴリー()
+	if VariableGet( g_key_Bress_Talk ) == 1 then
+		return false
+
+	elseif VariableGet( g_key_戦闘前グレゴリー ) == 1 then
+		return false
+	end
+	return true
+end
+
+function 戦闘前会話マデリーン()
+	Talk( "MID_BT23" )
+	VariableSet( g_key_戦闘前マデリーン, 1 )
+end
+function condition_全体攻撃確認_マデリーン()
+	if VariableGet( g_key_Bress_Talk ) == 1 then
+		return false
+
+	elseif VariableGet( g_key_戦闘前マデリーン ) == 1 then
+		return false
+	end
+	return true
+end
+
+function 戦闘前会話汎用()
+	Talk( "MID_BT1" )
+	VariableSet( g_key_戦闘前汎用, 1 )
+end
+function condition_全体攻撃確認_汎用()
+	if VariableGet( g_key_Bress_Talk ) == 1 then
+		return false
+
+	elseif VariableGet( g_key_戦闘前汎用 ) == 1 then
+		return false
+	end
+	return true
+end
+
+-- -----------------------------------
+function 増援左下()
+	Dispos("Enemy_Reinforcement1", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+end
+function 増援下()
+	Dispos("Enemy_Reinforcement2", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+end
+function 増援左()
+	Dispos("Enemy_Reinforcement3", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+end
+function 増援右上()
+	Dispos("Enemy_Reinforcement4", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+end
+function 増援左上()
+	Dispos("Enemy_Reinforcement5", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+end
+function 増援上１()
+	Dispos("Enemy_Reinforcement6", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+end
+function 増援上２()
+	Dispos("Enemy_Reinforcement7", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+end
+
+-- -----------------------------------
+--	待機状態の島を行動状態に。
+function 単体行動開始(unit)
+	if UnitExistOnMap( unit ) then
+		AiSetSequence(unit, AI_ORDER_CAUSE, "AI_AC_Everytime")
+		AiSetSequence(unit, AI_ORDER_MOVE, "AI_MV_WeakEnemy")
+	end
+end
+
+
+function 島４行動()
+	単体行動開始(UnitGetByPos(28,3))
+	単体行動開始(UnitGetByPos(24,9))
+	単体行動開始(UnitGetByPos(25,10))
+	単体行動開始(UnitGetByPos(27,2))
+	単体行動開始(UnitGetByPos(26,6))
+	単体行動開始(UnitGetByPos(29,4))
+	単体行動開始(UnitGetByPos(28,9))
+	単体行動開始(UnitGetByPos(26,11))
+end
+
+function 島６行動()
+	単体行動開始(UnitGetByPos(28,28))
+	単体行動開始(UnitGetByPos(25,21))
+	単体行動開始(UnitGetByPos(23,22))
+	単体行動開始(UnitGetByPos(26,20))
+	単体行動開始(UnitGetByPos(24,25))
+	単体行動開始(UnitGetByPos(25,24))
+	単体行動開始(UnitGetByPos(29,21))
+	単体行動開始(UnitGetByPos(26,27))
+	単体行動開始(UnitGetByPos(29,18))
+	単体行動開始(UnitGetByPos(28,15))
+	単体行動開始(UnitGetByPos(29,13))
+end
+
+--	ルナアルフレッド特殊　アルフレッドは守る場所を変えるAIにする。ターン切り替え。
+function ルナアルフレッド１()
+	if UnitExistOnMap( g_pid_hide1 ) then
+		AiSetSequence(g_pid_hide1, AI_ORDER_CAUSE, "AI_AC_Everytime")
+		AiSetSequence(g_pid_hide1, AI_ORDER_MOVE, "AI_MV_Position", "pos(18, 20)")
+		AiSetSequence(g_pid_hide1, AI_ORDER_ATTACK, "AI_AT_Null")
+	end
+end
+function ルナアルフレッド２()
+	if UnitExistOnMap( g_pid_hide1 ) then
+	--	AiSetSequence(g_pid_hide1, AI_ORDER_MOVE, "AI_MV_WeakEnemy")
+		AiSetSequence(g_pid_hide1, AI_ORDER_ATTACK,"AI_AT_EngageWaitGaze", "2,2,pos(18, 20)")
+	end
+end
+function ルナアルフレッド３()
+	if UnitExistOnMap( g_pid_hide1 ) then
+		AiSetSequence(g_pid_hide1, AI_ORDER_MOVE, "AI_MV_WeakEnemy")
+		AiSetSequence(g_pid_hide1, AI_ORDER_ATTACK,"AI_AT_Attack")
+	end
+end
+
+
+
+-- -----------------------------------
+
+
+
+
+
+
+--	エリア５にエリア３に行かずに侵入した場合フラグが立つ。
+--	ハードルナ共通。g_Luna_Summon3 = g_Hard_Summon3
+function エリア５侵入対策()
+	local turn = MapGetTurn()
+	local pid = UnitGetPID(MindGetUnit())
+	if turn < g_Hard_Summon3 then
+		VariableSet(g_key_HL_area5, 1)
+	end
+end
+
+
+-- -----------------------------------
+--	変数設定などはここで。
+
+function イル行動管理青ターンノーマル()
+
+	local turn = MapGetTurn()
+
+		--	召喚配置は中でターン監視してる
+		召喚配置()
+
+--	ノーマルイル行動(通常ルート)
+	--	初期1	ブレス→召喚　→ブレス→突進
+	--	中央3	召喚　→ブレス→突進
+	--	最終	召喚　→ブレス→吸収　→召喚→ブレス→吸収…
+
+		if turn == g_Nor_Summon1 then
+			VariableSet( g_key_Summon_Number, 1 )
+			召喚予告()
+		elseif turn == g_Nor_Summon2a then
+			VariableSet( g_key_Summon_Number, 3 )
+			召喚予告()
+
+		elseif turn == g_Nor_Summon2b then
+			VariableSet( g_key_Summon_Number, 3 )
+			召喚予告()
+
+		--	ブレス方向	1:右下	2:左下	3:左上	4:右上
+		elseif turn == g_Nor_Bress1a then
+			VariableSet( g_key_Bress_Direction, 1 )
+			ブレス予告()
+		elseif turn == g_Nor_Bress1b then
+			VariableSet( g_key_Bress_Direction, 2 )
+			ブレス予告()
+		elseif turn == g_Nor_Bress2 then
+			VariableSet( g_key_Bress_Direction, 2 )
+			ブレス予告()
+		end
+end
+function イル行動管理青ターンハード()
+--	ハードモードイル行動(通常ルート)
+	--	初期	ブレス→召喚　→突進
+	--	左下	召喚　→ブレス→突進
+	--	中央	召喚　→ブレス→ブレス→突進
+	--	右下	召喚　→突進
+	--	右上	召喚　→ブレス→突進
+	--	最終	召喚　→ブレス→吸収　→召喚→ブレス→吸収…
+
+--	ハードモードイル行動(エリア５ルート)
+	--	初期	ブレス→召喚　→突進
+	--	左下	召喚　→ブレス→突進
+	--	中央	召喚　→突進
+	--	右下	突進
+	--	右上	突進
+	--	最終	召喚　→ブレス→吸収　→召喚→ブレス→吸収…
+
+	local turn = MapGetTurn()
+
+
+	if VariableGet( g_key_HL_area5 ) == 1 and turn >= 9 then
+		--	こっちルートは召喚、ブレスは最後の島までしない。
+		if turn == 9 then
+			増援左上()
+			増援上１()
+		elseif turn == 10 then
+			増援左上()
+			増援上１()
+		elseif turn == 12 then
+			増援左上()
+			増援右上()
+			増援上１()
+		elseif turn == 13 then
+			増援左上()
+			増援右上()
+			増援上２()
+		elseif turn == 14 then
+			増援左上()
+			増援右上()
+			増援上２()
+
+		elseif turn == 16 then
+			増援上１()
+			増援上２()
+
+		elseif turn == 18 then
+			増援上１()
+			増援上２()
+
+		elseif turn == 20 then
+			増援上１()
+			増援上２()
+		end
+	else
+		--	召喚配置は中でターン監視してる
+		召喚配置()
+
+		if turn == g_Hard_Summon1 then
+			VariableSet( g_key_Summon_Number, 1 )
+			召喚予告()
+		elseif turn == g_Hard_Summon2 then
+			VariableSet( g_key_Summon_Number, 2 )
+			召喚予告()
+		elseif turn == g_Hard_Summon3 then
+			VariableSet( g_key_Summon_Number, 3 )
+			召喚予告()
+		elseif turn == g_Hard_Summon4 then
+			VariableSet( g_key_Summon_Number, 4 )
+			召喚予告()
+		elseif turn == g_Hard_Summon6 then
+			VariableSet( g_key_Summon_Number, 6 )
+			召喚予告()
+
+		--	ブレス方向	1:右下	2:左下	3:左上	4:右上
+		elseif turn == g_Hard_Bress1 then
+			VariableSet( g_key_Bress_Direction, 1 )
+			ブレス予告()
+		elseif turn == g_Hard_Bress2 then
+			VariableSet( g_key_Bress_Direction, 1 )
+			ブレス予告()
+		elseif turn == g_Hard_Bress3a then
+			VariableSet( g_key_Bress_Direction, 2 )
+			ブレス予告()
+		elseif turn == g_Hard_Bress3b then
+			VariableSet( g_key_Bress_Direction, 1 )
+			ブレス予告()
+		elseif turn == g_Hard_Bress6 then
+			VariableSet( g_key_Bress_Direction, 2 )
+			ブレス予告()
+		end
+	end
+end
+function イル行動管理青ターンルナ()
+	local turn = MapGetTurn()
+
+	if VariableGet( g_key_HL_area5 ) == 1 and turn >= 9 then
+		--	こっちルートは召喚、ブレスは最後の島までしない。
+		if turn == 9 then
+			増援左上()
+			増援上１()
+			--	アルフレッドはいきなり攻撃開始。
+			ルナアルフレッド３()
+			--	ミスティラ
+			単体行動開始(UnitGetByPos(28,3))
+			--島４行動()
+		elseif turn == 10 then
+			増援左上()
+			増援上２()
+
+			単体行動開始(UnitGetByPos(28,28))
+			--島６行動()
+		elseif turn == 12 then
+			増援左上()
+			増援上１()
+
+		elseif turn == 14 then
+			増援左上()
+			増援上２()
+			増援下()
+		elseif turn == 16 then
+			増援上１()
+
+		elseif turn == 18 then
+			増援上２()
+
+		elseif turn == 20 then
+			増援上１()
+		end
+	else
+		--	召喚配置は中でターン監視してる
+		召喚配置()
+
+		if turn == g_Luna_Summon1 then
+			VariableSet( g_key_Summon_Number, 1 )
+			召喚予告()
+		elseif turn == g_Luna_Summon2 then
+			VariableSet( g_key_Summon_Number, 2 )
+			召喚予告()
+		elseif turn == g_Luna_Summon3 then
+			--	ミスティラ
+			単体行動開始(UnitGetByPos(28,3))
+			VariableSet( g_key_Summon_Number, 3 )
+			召喚予告()
+		elseif turn == g_Luna_Summon4 then
+			VariableSet( g_key_Summon_Number, 4 )
+			召喚予告()
+		elseif turn == g_Luna_Summon6 then
+			VariableSet( g_key_Summon_Number, 6 )
+			召喚予告()
+		elseif turn == g_Luna_Summon5 then
+			ルナアルフレッド３()
+			--	アイビーオルテンシア
+			単体行動開始(UnitGetByPos(3,25))
+			単体行動開始(UnitGetByPos(7,22))
+
+			VariableSet( g_key_Summon_Number, 5 )
+			召喚予告()
+
+		--	ブレス方向	1:右下	2:左下	3:左上	4:右上
+		elseif turn == g_Luna_Bress1 then
+			VariableSet( g_key_Bress_Direction, 2 )
+			ブレス予告()
+		elseif turn == g_Luna_Bress2 then
+			VariableSet( g_key_Bress_Direction, 4 )
+			ブレス予告()
+		elseif turn == g_Luna_Bress3 then
+			VariableSet( g_key_Bress_Direction, 2 )
+			ブレス予告()
+		end
+	end
+
+end
+
+
+
+function イル行動管理青ターン()
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		イル行動管理青ターンノーマル()
+	elseif DifficultyGet() == DIFFICULTY_HARD then
+		イル行動管理青ターンハード()
+	else
+		イル行動管理青ターンルナ()
+	end
+end
+
+function イル行動管理赤ターンノーマル()
+	local turn = MapGetTurn()
+
+--	ノーマルイル行動(通常ルート)
+	--	初期1	ブレス→召喚　→ブレス→突進
+	--	中央3	召喚　→ブレス→突進
+	--	最終	召喚　→ブレス→吸収　→召喚→ブレス→吸収…
+
+	ブレス発射()
+	if  turn < g_Nor_Island5 then
+
+		local rNum1 = g_Nor_Rush1 + 1
+		local rNum2 = g_Nor_Rush2 + 1
+
+		if turn == g_Nor_Rush1 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 8 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 1 )
+			突進予告()
+		elseif turn == g_Nor_Rush2 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 9 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 3 )
+			突進予告()
+
+		elseif turn == rNum1 then
+			Log("ノーマル突進１")
+			咆哮全滅移動()
+		elseif turn == rNum2 then
+			咆哮全滅移動()
+		end
+	end
+end
+
+function イル行動管理赤ターンハード()
+	local turn = MapGetTurn()
+
+	if VariableGet( g_key_HL_area5 ) == 1 and turn >= 9 then
+	--	こっちルートは最終島まで突進のみ。
+		if turn == 9 then
+			VariableSet( g_key_Rush_Number, 3 )
+			VariableSet( g_key_Break, 3 )
+			突進予告()
+		elseif turn == 10 then
+			咆哮全滅移動()
+		elseif turn == 11 then
+			VariableSet( g_key_Rush_Number, 4 )
+			VariableSet( g_key_Break, 4 )
+			突進予告()
+		elseif turn == 12 then
+			咆哮全滅移動()
+		elseif turn == 13 then
+			VariableSet( g_key_Rush_Number, 10 )
+			VariableSet( g_key_Break, 6 )
+			突進予告()
+		elseif turn == 14 then
+			咆哮全滅移動()
+		elseif turn > 14 then
+			ブレス発射()
+		end
+
+	else
+		ブレス発射()
+
+		local rNum1 = g_Hard_Rush1 + 1
+		local rNum2 = g_Hard_Rush2 + 1
+		local rNum3 = g_Hard_Rush3 + 1
+		local rNum4 = g_Hard_Rush4 + 1
+		local rNum6 = g_Hard_Rush6 + 1
+
+		if turn == g_Hard_Rush1 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 1 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 1 )
+			突進予告()
+		elseif turn == g_Hard_Rush2 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 2 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 2 )
+			突進予告()
+		elseif turn == g_Hard_Rush3 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 3 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 3 )
+			突進予告()
+		elseif turn == g_Hard_Rush4 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 4 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 4 )
+			突進予告()
+		elseif turn == g_Hard_Rush6 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 10 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 6 )
+			突進予告()
+
+		elseif turn == rNum1 then
+			咆哮全滅移動()
+		elseif turn == rNum2 then
+			咆哮全滅移動()
+		elseif turn == rNum3 then
+			咆哮全滅移動()
+		elseif turn == rNum4 then
+			咆哮全滅移動()
+		elseif turn == rNum6 then
+			咆哮全滅移動()
+		end
+	end
+
+end
+
+function イル行動管理赤ターンルナ()
+
+	local turn = MapGetTurn()
+
+	if VariableGet( g_key_HL_area5 ) == 1 and turn >= 9 then
+		Log("◆◆◆ルナ移動")
+	--	こっちルートは最終島まで突進のみ。
+		if turn == 9 then
+			VariableSet( g_key_Rush_Number, 3 )
+			VariableSet( g_key_Break, 3 )
+			突進予告()
+		elseif turn == 10 then
+			咆哮全滅移動()
+		elseif turn == 11 then
+			VariableSet( g_key_Rush_Number, 4 )
+			VariableSet( g_key_Break, 4 )
+			突進予告()
+		elseif turn == 12 then
+			咆哮全滅移動()
+		elseif turn == 13 then
+			VariableSet( g_key_Rush_Number, 10 )
+			VariableSet( g_key_Break, 6 )
+			突進予告()
+		elseif turn == 14 then
+			咆哮全滅移動()
+		elseif turn > 14 then
+			ブレス発射()
+		end
+
+	else
+		ブレス発射()
+
+		local rNum1 = g_Luna_Rush1 + 1
+		local rNum2 = g_Luna_Rush2 + 1
+		local rNum3 = g_Luna_Rush3 + 1
+		local rNum4 = g_Luna_Rush4 + 1
+		local rNum6 = g_Luna_Rush6 + 1
+		local rNum5 = g_Luna_Rush5 + 1
+
+		if turn == g_Luna_Rush1 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 1 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 1 )
+			突進予告()
+		elseif turn == g_Luna_Rush2 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 2 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 2 )
+			突進予告()
+		elseif turn == g_Luna_Rush3 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 3 )
+
+			ルナアルフレッド２()
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 3 )
+			突進予告()
+		elseif turn == g_Luna_Rush4 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 4 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 4 )
+			突進予告()
+		elseif turn == g_Luna_Rush6 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 5 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 6 )
+			突進予告()
+		elseif turn == g_Luna_Rush5 then
+			--	突進番号セット。
+			VariableSet( g_key_Rush_Number, 6 )
+
+			--	島崩壊＆全滅場所。
+			VariableSet( g_key_Break, 5 )
+			突進予告()
+
+		elseif turn == rNum1 then
+			--	島崩突進()
+			咆哮全滅移動()
+		elseif turn == rNum2 then
+			ルナアルフレッド１()
+			咆哮全滅移動()
+		elseif turn == rNum3 then
+			咆哮全滅移動()
+		elseif turn == rNum4 then
+			咆哮全滅移動()
+		elseif turn == rNum5 then
+			咆哮全滅移動()
+		elseif turn == rNum6 then
+			咆哮全滅移動()
+		end
+	end
+end
+
+
+function イル行動管理赤ターン()
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		イル行動管理赤ターンノーマル()
+	elseif DifficultyGet() == DIFFICULTY_HARD then
+		イル行動管理赤ターンハード()
+	else
+		イル行動管理赤ターンルナ()
+	end
+
+end
+
+-- -----------------------------------
+--	イル召喚関連
+
+function 召喚渦作成(areaname)
+	CursorSetPos_FromPid(g_pid_boss)
+	MapCameraWait()
+
+	local countD = DisposGetGroupCount(areaname)
+	countD = countD - 1
+	--MapRangeAddBegin()
+
+		-- グループの人数分処理を回し、ユニットの座標を走査、取得する
+		for i = 0, countD do
+			local unitX = DisposGetUnitX(areaname, i,DifficultyGet())
+			local unitZ = DisposGetUnitZ(areaname, i,DifficultyGet())
+			--	MapRangeAdd(unitX,unitZ)
+		--	local debstr = "◆◆◆Area敵" .. tostring( unitX ) .. "," .. tostring( unitZ )  .. "◆◆◆"
+		--	Log(debstr)
+			if unitX != -1 then
+				EffectCreate( "召喚渦", unitX,unitZ )
+			end
+		end
+		WaitTime( 1.0 )
+
+		
+	--MapRangeAddEnd()
+
+end
+
+function 召喚予告()
+
+	local turn = MapGetTurn()
+	local countD
+	local sNum1
+	local sNum2
+	local sNum3
+	local sNum3b
+	local sNum4
+	local sNum5
+	local sNum6
+
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		sNum1 = g_Nor_Summon1
+		sNum3  = g_Nor_Summon2a
+		sNum3b = g_Nor_Summon2b
+	elseif DifficultyGet() == DIFFICULTY_HARD then
+		sNum1 = g_Hard_Summon1
+		sNum2 = g_Hard_Summon2
+		sNum3 = g_Hard_Summon3
+		sNum4 = g_Hard_Summon4
+		sNum6 = g_Hard_Summon6
+	else
+		sNum1 = g_Luna_Summon1
+		sNum2 = g_Luna_Summon2
+		sNum3 = g_Luna_Summon3
+		sNum4 = g_Luna_Summon4
+		sNum6 = g_Luna_Summon6
+		sNum5 = g_Luna_Summon5
+	end
+
+
+	if turn == sNum1 then
+		召喚渦作成("Enemy_Area1")
+		CursorSetPos(11,7)
+		MapCameraWait()
+		CursorAnimeCreate( 11, 7 )
+
+		Talk( "MID_EV3" )
+		Tutorial( "TUTID_イル召喚" )
+		CursorAnimeDelete()
+
+	elseif turn == sNum2 then
+		召喚渦作成("Enemy_Area2")
+
+	elseif turn == sNum3 then
+		召喚渦作成("Enemy_Area3")
+
+	elseif turn == sNum3b then
+		召喚渦作成("Enemy_Area3")
+
+	elseif turn == sNum4 then
+		召喚渦作成("Enemy_Area4")
+
+	elseif turn == sNum6 then
+		召喚渦作成("Enemy_Area6")
+
+	elseif turn == sNum5 then
+		召喚渦作成("Enemy_Area5")
+	end
+
+end
+
+function 召喚渦消去と配置(areaname)
+	--Log("召喚渦消去と配置")
+	--	MapRangeClear()
+	CursorSetPos_FromPid(g_pid_boss)
+	MapCameraWait()
+
+	UnitPlayAnim(g_pid_boss, UNIT_ANIM_EVENT2)	-- 召喚
+	SoundPostEvent("SE_DLC_IL_DragonVoice") -- 咆哮音
+	
+	UnitMoveWait()
+	WaitTime( 3.0 )
+
+
+	Dispos( areaname, DISPOS_FLAG_FOCUS + DISPOS_FLAG_WARP  + DISPOS_FLAG_NOT_FORCED)
+	Yield()
+	WaitTime( 2.0 )
+
+	countD = DisposGetGroupCount(areaname)
+	countD = countD - 1
+	for i = 0, countD do
+		local unitX = DisposGetUnitX(areaname, i,DifficultyGet())
+		local unitZ = DisposGetUnitZ(areaname, i,DifficultyGet())
+		if unitX != -1 then
+			EffectDelete( "召喚渦", unitX,unitZ )
+		end
+	end
+	Yield()
+	WaitTime( 1.0 )
+
+end
+function 召喚配置()
+
+	local turn = MapGetTurn()
+
+	--	配置は予告の次のターン
+	local hai1
+	local hai2
+	local hai3
+	local hai3b
+	local hai4
+	local hai5
+	local hai6
+
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		hai1  = g_Nor_Summon1 + 1
+		hai3  = g_Nor_Summon2a + 1
+		hai3b = g_Nor_Summon2b + 1
+	elseif DifficultyGet() == DIFFICULTY_HARD then
+		hai1 = g_Hard_Summon1 + 1
+		hai2 = g_Hard_Summon2 + 1
+		hai3 = g_Hard_Summon3 + 1
+		hai4 = g_Hard_Summon4 + 1
+		hai6 = g_Hard_Summon6 + 1
+	else
+		hai1 = g_Luna_Summon1 + 1
+		hai2 = g_Luna_Summon2 + 1
+		hai3 = g_Luna_Summon3 + 1
+		hai4 = g_Luna_Summon4 + 1
+		hai6 = g_Luna_Summon6 + 1
+		hai5 = g_Luna_Summon5 + 1
+	end
+
+
+	if turn == hai1 then
+		召喚渦消去と配置("Enemy_Area1")
+
+	elseif turn == hai2 then
+		召喚渦消去と配置("Enemy_Area2")
+
+	elseif turn == hai3 then
+		召喚渦消去と配置("Enemy_Area3")
+
+	elseif turn == hai3b then
+		召喚渦消去と配置("Enemy_Area3")
+
+	elseif turn == hai4 then
+		召喚渦消去と配置("Enemy_Area4")
+
+	elseif turn == hai6 then
+		召喚渦消去と配置("Enemy_Area6")
+
+	elseif turn == hai5 then
+		召喚渦消去と配置("Enemy_Area5")
+	end
+end
+
+-- -----------------------------------
+--	イルブレス関連
+--	右下	左下	左上	右上
+--	17,3	13,3	13,7	17,7	14,4
+local g_BressPos = { 0,
+	 3,-1,	-1,-1,	-1,3,	3,3
+}
+
+
+local g_BressAreaSize = 21
+local g_BressArea = {
+
+	--	右下(14,4)
+	{ 0, 3,2, 3,1, 3,0, 3,-1, 3,-2 , 4,2, 4,1, 4,0, 4,-1  ,0,-1, 1,-1, 2,-1 ,0,-2, 1,-2, 2,-2  ,5,1,5,0  ,1,-3,2,-3  ,3,3,-1,-1  },
+
+	--	左下(14,4)
+	{ 0, -1,2,-1,1,-1,0,-1,-1,-1,-2 ,-2,2,-2,1,-2,0,-2,-1  ,0,-1, 1,-1, 2,-1 ,0,-2, 1,-2, 2,-2  ,-3,1,-3,0  ,0,-3,1,-3  ,3,-1,-1,3  },
+
+	--	左上(14,4)
+	{ 0 ,-2,3, -1,3, 0,3, 1,3, 2,3, 3,3,  -1,4,0,4, 1,4, 2,4, 0,5, 1,5,  -1,-1, -1,0, -1,1, -1,2, -2,0, -2,1, -2,2, -3,1, -3,2       },
+
+	--	右上(14,4)
+	{ 0, -1,3, 0,3, 1,3, 2,3, 3,3, 4,3, 0,4,1,4, 2,4, 3,4, 1,5, 2,5,  3,-1,3,0,3,1,3,2, 4,0,4,1,4,2, 5,1,5,2  },
+
+	{ 0, 0,0, 0,0, 0, 0,0,0, 0,0, 0,0, 0,0, 0,0,  0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0}
+}
+
+
+function ブレス検索予告()
+	local bressNum = 1
+	local debstr
+
+	local unit = UnitGetPID(g_pid_boss)
+	local x = UnitGetX(unit)
+	local z = UnitGetZ(unit)
+	
+	--local debstr = "◆◆◆イルの座標:(" .. tostring( x ) .. "," .. tostring( z ) .. ")◆◆◆"
+	--Log(debstr)
+
+	local unitcount1 = 0
+	local unitcount2 = 0
+	local unitcount3 = 0
+	local unitcount4 = 0
+
+	
+	--Dialog( "ブレス検索予告" )
+
+	--	ブレス方向	1:右下	2:左下	3:左上	4:右上
+
+	--	一番多いところを探す------------------------------
+	local dirC = 1
+	for i = 1,  g_BressAreaSize do
+		local bx = x + g_BressArea[dirC][i*2]
+		local bz = z + g_BressArea[dirC][i*2+1]
+
+		local unit = UnitGetByPos( bx, bz )
+		if ( not ( unit == nil ) )  then
+			if UnitGetForce( unit ) == FORCE_PLAYER then
+				unitcount1 = unitcount1 + 1
+			end
+		end
+	end
+
+	dirC = 2
+	for i = 1,  g_BressAreaSize do
+		local bx = x + g_BressArea[dirC][i*2]
+		local bz = z + g_BressArea[dirC][i*2+1]
+
+		local unit = UnitGetByPos( bx, bz )
+		if ( not ( unit == nil ) )  then
+			if UnitGetForce( unit ) == FORCE_PLAYER then
+				unitcount2 = unitcount2 + 1
+			end
+		end
+	end
+
+	dirC = 3
+	for i = 1,  g_BressAreaSize do
+		local bx = x + g_BressArea[dirC][i*2]
+		local bz = z + g_BressArea[dirC][i*2+1]
+
+		local unit = UnitGetByPos( bx, bz )
+		if ( not ( unit == nil ) )  then
+			if UnitGetForce( unit ) == FORCE_PLAYER then
+				unitcount3 = unitcount3 + 1
+			end
+		end
+	end
+
+	dirC = 4
+	for i = 1,  g_BressAreaSize do
+		local bx = x + g_BressArea[dirC][i*2]
+		local bz = z + g_BressArea[dirC][i*2+1]
+
+		local unit = UnitGetByPos( bx, bz )
+		if ( not ( unit == nil ) )  then
+			if UnitGetForce( unit ) == FORCE_PLAYER then
+				unitcount4 = unitcount4 + 1
+			end
+		end
+	end
+
+	--	debstr = "◆◆◆unitcount:" .. tostring( unitcount1 ) .. "," .. tostring( unitcount2 ) .. "," .. tostring( unitcount3 ) .. "," .. tostring( unitcount4 )
+	--	Log(debstr)
+
+	--	優先順位は左下、右下、左上、右上。
+	if (unitcount4 >= unitcount1) and (unitcount4 >= unitcount2) and (unitcount4 >= unitcount3) then
+		bressNum = 4
+	end
+	if (unitcount3 >= unitcount1) and (unitcount3 >= unitcount2) and (unitcount3 >= unitcount4) then
+		bressNum = 3
+	end
+	if (unitcount2 >= unitcount1) and (unitcount2 >= unitcount3) and (unitcount2 >= unitcount4) then
+		bressNum = 2
+	end
+	if (unitcount1 >= unitcount2) and (unitcount1 >= unitcount3) and (unitcount1 >= unitcount4) then
+		bressNum = 1
+	end
+
+	--	ブレス番号セット
+	VariableSet( g_key_Bress_Direction, bressNum )
+
+	--	----------------------------------------------------
+
+	CursorSetPos_FromPid( g_pid_boss )
+	
+	MapRangeAddBegin()
+		for i = 1,  g_BressAreaSize do
+			local bx = x + g_BressArea[bressNum][i*2]
+			local bz = z + g_BressArea[bressNum][i*2+1]
+
+			Log(debstr)
+			MapRangeAdd( bx, bz )
+		end
+
+	MapRangeAddEnd()
+end
+
+function ブレス予告()
+--	UnitSetPos( g_pid_boss, 14, 25 )
+	local turn = MapGetTurn()
+
+	--	イルからみて４方向にブレス。イルの位置が変わるので、イルからの相対位置にする。
+	--	ここで取ってくる座標はイルの左下。
+	local unit = UnitGetPID(g_pid_boss)
+	local x = UnitGetX(unit)
+	local z = UnitGetZ(unit)
+	
+	--local debstr = "◆◆◆イルの座標:(" .. tostring( x ) .. "," .. tostring( z ) .. ")◆◆◆"
+	--Log(debstr)
+
+	--	ブレスの方向取得
+	local dirC = VariableGet( g_key_Bress_Direction )
+
+	--	ブレス_カメラ制御( dir )
+	--Dialog( "ブレス予告" )
+	CursorSetPos_FromPid( g_pid_boss )
+	
+	MapRangeAddBegin()
+		for i = 1,  g_BressAreaSize do
+			local bx = x + g_BressArea[dirC][i*2]
+			local bz = z + g_BressArea[dirC][i*2+1]
+
+		--	debstr = "▼ブレス座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+			Log(debstr)
+			MapRangeAdd( bx, bz )
+		end
+	MapRangeAddEnd()
+end
+
+function ブレス発射()
+	local turn = MapGetTurn()
+	local checkturn = 0
+
+	Log("◆◆◆ルナブレス発射")
+	VariableSet( g_key_Bress_Talk ,1 )
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		if turn == g_Nor_Bress1a then
+			checkturn = 1
+		elseif turn == g_Nor_Bress1b then
+			checkturn = 1
+		elseif turn == g_Nor_Bress2 then
+			checkturn = 1
+		elseif turn == VariableGet( g_key_turn_Bress1 ) then
+			checkturn = 1
+		elseif turn == VariableGet( g_key_turn_Bress2 ) then
+			checkturn = 1
+		end
+	elseif DifficultyGet() == DIFFICULTY_HARD then
+		if turn == g_Hard_Bress1 then
+			checkturn = 1
+		elseif turn == g_Hard_Bress2 then
+			checkturn = 1
+		elseif turn == g_Hard_Bress3a then
+			checkturn = 1
+		elseif turn == g_Hard_Bress3b then
+			checkturn = 1
+		elseif turn == g_Hard_Bress6 then
+			checkturn = 1
+		elseif turn == VariableGet( g_key_turn_Bress1 ) then
+			checkturn = 1
+		elseif turn == VariableGet( g_key_turn_Bress2 ) then
+			checkturn = 1
+		end
+	else
+		if turn == g_Luna_Bress1 then
+			checkturn = 1
+		elseif turn == g_Luna_Bress2 then
+			checkturn = 1
+		elseif turn == g_Luna_Bress3 then
+			checkturn = 1
+		elseif turn == VariableGet( g_key_turn_Bress1 ) then
+			checkturn = 1
+	--	elseif turn == VariableGet( g_key_turn_Bress2 ) then
+	--		checkturn = 1
+		end
+	end
+
+	if checkturn == 1 then
+		--	ブレスの方向
+		local dirC = VariableGet( g_key_Bress_Direction )
+		local boss = UnitGetPID(g_pid_boss)
+		local x = UnitGetX(boss)
+		local z = UnitGetZ(boss)
+
+		CursorSetPos(x, z)
+		MapCameraWait()
+		WaitTime( 1.0 )
+		
+
+		MapRangeClear()
+		CursorSetDistanceMode( CURSOR_DISTANCE_MIDDLE )
+
+		UnitRotation( g_pid_boss, g_BossBressD[dirC] )
+		UnitMoveWait()
+
+		
+
+		BattleSetAttack( g_pid_boss, "IID_イル_薙払いビーム" )
+			for i = 1,  g_BressAreaSize do
+				local bx = x + g_BressArea[dirC][i*2]
+				local bz = z + g_BressArea[dirC][i*2+1]
+
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					BattleAddTarget( unit )
+				end
+			end
+		local targetX = x + g_BressPos[dirC*2]
+		local targetZ = z + g_BressPos[dirC*2+1]
+		BattleStart( targetX, targetZ )
+
+		local debstr = "◆◆◆ターゲット座標:(" .. tostring( targetX ) .. "," .. tostring( targetZ ) .. ")◆◆◆"
+		Log(debstr)
+
+		--EffectPlay( "薙ぎ払いビーム_発射", x, z, g_BossBressD[dirC] )
+		--local debstr = "◆◆ブレス方向:" .. tostring( dirC ) .. "◆◆角度:" .. tostring( g_BossBressD[dirC] )
+		--Log(debstr)
+		WaitTime( 2.0 )
+	--	UnitPlayAnim(g_pid_boss, UNIT_ANIM_EVENT1)	-- 薙ぎ払いビーム
+		-- 巻き戻しなどのための履歴
+		MapHistoryMindDone()
+	end
+	VariableSet( g_key_Bress_Talk ,0 )
+end
+
+-- -----------------------------------
+
+--	指定PID(ボス召喚系)が３以上残ってる：ストック追加	unitScount
+--	指定PIDがストック１以上：スキル追加
+	--	E006_Hide8	牙毒	
+	--	E006_Hide1	金蓮	アヴニール：技％で、物理ダメージを半減する
+	--	E006_Hide2	華炎	フロラージュ：技％で、魔法には力の半分、その他の攻撃には魔力の半分のダメージを追加する
+	--	E006_Hide3	太陽	スュクセサール：技％で、敵へのダメージの半分HP回復
+	--	E006_Hide4	月光	ティラユール：技％で、敵の守備魔防半減で攻撃
+	--	E006_Hide5	虚空	リンドブルム：魔法攻撃時、技％で、敵の魔力の半分をダメージに上乗せする
+	--	E006_Hide6	大樹	スレイプニル：杖使用時、技％で使用回数を消費しない
+	--	E006_Hide7	砂陣	ピッチフォーク：力依存の攻撃時、技％で、守備×1.5を力として攻撃計算する
+
+
+--		最終エリアで吸収された場合、１マスだけどっかに紋章氣マス配置
+--		MapOverlapSetOne(8, 4, "TID_紋章氣")
+
+--	名前付きユニットを殺す	2022/05/16(月) 18:18	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+function 一括死亡名前付(bx, bz,unitcount,unitScount,breakP)
+	local unit = UnitGetByPos( bx, bz )
+	local pidS = "無"
+
+	if ( not ( unit == nil ) )  then
+		local pid = UnitGetPID( unit )
+		local stock = UnitGetHpStock(unit)
+		local force = UnitGetForce(pid)
+		local named = 0
+
+		if pid != g_pid_boss then
+			if  stock >= 1 then
+				UnitSetHpStock(unit, 0)
+			end
+			local debstr = "◆◆◆スキル追加◆◆◆:"
+			Log(debstr)
+			if pid == "PID_E006_Hide8" then
+				UnitSetPrivateSkill( g_pid_boss, "SID_殺戮者" )
+			elseif pid == "PID_E006_Hide1" then
+				UnitSetPrivateSkill( g_pid_boss, "SID_金蓮" )
+			elseif pid == "PID_E006_Hide2" then
+				UnitSetPrivateSkill( g_pid_boss, "SID_華炎" )
+			elseif pid == "PID_E006_Hide3" then
+				UnitSetPrivateSkill( g_pid_boss, "SID_太陽" )
+			elseif pid == "PID_E006_Hide4" then
+				UnitSetPrivateSkill( g_pid_boss, "SID_月光" )
+			elseif pid == "PID_E006_Hide5" then
+				UnitSetPrivateSkill( g_pid_boss, "SID_虚空" )
+			elseif pid == "PID_E006_Hide6" then
+				UnitSetPrivateSkill( g_pid_boss, "SID_大樹" )
+			elseif pid == "PID_E006_Hide7" then
+				UnitSetPrivateSkill( g_pid_boss, "SID_砂陣" )
+	        end
+
+			if ( force == FORCE_PLAYER ) 	then
+				named = プレイヤー軍一般兵判定(pid)
+			elseif pid == g_pid_boss then
+				named = 1
+			elseif pid == "PID_E006_Hide1" then
+				named = 1
+			elseif pid == "PID_E006_Hide2" then
+				named = 1
+			elseif pid == "PID_E006_Hide3" then
+				named = 1
+			elseif pid == "PID_E006_Hide4" then
+				named = 1
+			elseif pid == "PID_E006_Hide5" then
+				named = 1
+			elseif pid == "PID_E006_Hide6" then
+				named = 1
+			elseif pid == "PID_E006_Hide7" then
+				named = 1
+			elseif pid == "PID_E006_Hide8" then
+				named = 1
+			end
+			if named == 1 then
+				pidS = unit
+			--	UnitDie( unit )
+			--	WaitTime( 0.5 )
+				unitcount = unitcount + 1
+			end
+
+		--	--	最終エリアで吸収された場合、１～２マス紋章氣マス配置
+		--	if breakP == 99 then
+		--		if unitcount == 1 then
+		--			MapOverlapSetOne(bx, bz, "TID_紋章氣")
+		--			if	VariableGet( "紋章氣_済" )  == 0 then
+		--				VariableSet( "紋章氣_済", 1 )
+		--			end
+		--		elseif unitcount == 2 then
+		--			MapOverlapSetOne(bx, bz, "TID_紋章氣")
+		--			if	VariableGet( "紋章氣_済" )  == 0 then
+		--				VariableSet( "紋章氣_済", 1 )
+		--			end
+		--		end
+		--		if	VariableGet( "紋章氣_済" )  == 1 then
+		--			VariableSet( "紋章氣_X", bx )
+		--			VariableSet( "紋章氣_Z", bz )
+		--			VariableSet( "紋章氣_済", 2 )
+		--		end
+		--	end
+		end
+	end
+	return unitcount,unitScount,pidS
+end
+
+function プレイヤー軍一般兵判定(pid)
+	local named = 1
+
+	if StringContains(pid,"PID_残像")  then
+		named = 0
+	elseif StringContains(pid,"PID_召喚_")  then
+		named = 0
+	end
+
+	return named
+end
+
+
+--	雑魚ユニットを殺す		2022/05/16(月) 18:18	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+function 一括死亡名無し(bx, bz,unitcount,unitScount,breakP)
+	local unit = UnitGetByPos( bx, bz )
+	local pid = UnitGetPID( unit )
+	local pidS = "無"
+
+	if ( not ( unit == nil ) )  then
+		local stock = UnitGetHpStock(unit)
+		local force = UnitGetForce(unit)
+		local named = 0
+
+		if pid == g_pid_boss then
+			named = 1
+		elseif pid == "PID_E006_Hide1" then
+			named = 1
+		elseif pid == "PID_E006_Hide2" then
+			named = 1
+		elseif pid == "PID_E006_Hide3" then
+			named = 1
+		elseif pid == "PID_E006_Hide4" then
+			named = 1
+		elseif pid == "PID_E006_Hide5" then
+			named = 1
+		elseif pid == "PID_E006_Hide6" then
+			named = 1
+		elseif pid == "PID_E006_Hide7" then
+			named = 1
+		elseif pid == "PID_E006_Hide8" then
+			named = 1
+		elseif force == FORCE_PLAYER then
+			named = プレイヤー軍一般兵判定(pid)
+	    end
+		if StringContains(pid,"召喚異形兵")  then
+			unitScount = unitScount + 1
+		end
+		if named != 1 then
+			unitcount = unitcount + 1
+			pidS = unit
+		end
+	end
+	return unitcount,unitScount,pidS
+end
+
+function 島崩死亡処理(bx, bz,unitcount,unitScount,breakP)
+	local unit = UnitGetByPos( bx, bz )
+
+	if ( not ( unit == nil ) )  then
+		local pid = UnitGetPID( unit )
+		local stock = UnitGetHpStock(unit)
+
+		if pid != g_pid_boss then
+			if  stock >= 1 then
+				if pid == "PID_E006_Hide8" then
+					UnitSetPrivateSkill( g_pid_boss, "SID_殺戮者" )
+				elseif pid == "PID_E006_Hide1" then
+					UnitSetPrivateSkill( g_pid_boss, "SID_金蓮" )
+				elseif pid == "PID_E006_Hide2" then
+					UnitSetPrivateSkill( g_pid_boss, "SID_華炎" )
+				elseif pid == "PID_E006_Hide3" then
+					UnitSetPrivateSkill( g_pid_boss, "SID_太陽" )
+				elseif pid == "PID_E006_Hide4" then
+					UnitSetPrivateSkill( g_pid_boss, "SID_月光" )
+				elseif pid == "PID_E006_Hide5" then
+					UnitSetPrivateSkill( g_pid_boss, "SID_虚空" )
+				elseif pid == "PID_E006_Hide6" then
+					UnitSetPrivateSkill( g_pid_boss, "SID_大樹" )
+				elseif pid == "PID_E006_Hide7" then
+					UnitSetPrivateSkill( g_pid_boss, "SID_砂陣" )
+	            end
+				UnitSetHpStock(unit, 0)
+			end
+			if StringContains(pid,"召喚異形兵")  then
+			--	local debstr = "◆◆:" .. pid
+			--	Log(debstr)
+				unitScount = unitScount + 1
+			end
+			UnitDie( unit )
+			WaitTime( 0.5 )
+			unitcount = unitcount + 1
+
+			--	最終エリアで吸収された場合、１～２マス紋章氣マス配置
+			if breakP == 99 then
+				if unitcount == 1 then
+					MapOverlapSetOne(bx, bz, "TID_紋章氣")
+					if	VariableGet( "紋章氣_済" )  == 0 then
+						VariableSet( "紋章氣_済", 1 )
+					end
+				elseif unitcount == 2 then
+					MapOverlapSetOne(bx, bz, "TID_紋章氣")
+					if	VariableGet( "紋章氣_済" )  == 0 then
+						VariableSet( "紋章氣_済", 1 )
+					end
+				end
+				if	VariableGet( "紋章氣_済" )  == 1 then
+					VariableSet( "紋章氣_X", bx )
+					VariableSet( "紋章氣_Z", bz )
+					VariableSet( "紋章氣_済", 2 )
+				end
+			end
+		end
+	end
+	return unitcount,unitScount
+end
+
+-- -----------------------------------
+--	2022/01/26(水) 16:04	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+--	指定PID(ボス召喚系)が３以上残ってる：ストック追加	unitScount数
+--	その他HP回復	unitcount数
+
+function 吸収_回復(unitcount,unitScount)
+
+	if unitcount > 0 then
+		local debstr = "◆◆◆死亡数：特定死亡" .. tostring( unitcount ) .. ":" .. tostring( unitScount ) .. "◆◆◆"
+		Log(debstr)
+
+		local maxHp = UnitGetCapability(g_pid_boss, CAPABILITY_HP, false)
+		local hp = UnitGetHp(g_pid_boss)
+		local unit = UnitGetPID(g_pid_boss)
+		local x = UnitGetX(unit)
+		local z = UnitGetZ(unit)
+		CursorSetPos(x, z)
+		MapCameraWait()
+
+		--	HPがMAXじゃなかったら、回復する。
+		if ( maxHp - hp ) > 0 then
+			debstr = "◆HP回復：" .. tostring( unitcount )
+			Log(debstr)
+			hp = hp + unitcount*5
+			if ( maxHp - hp ) > 0 then
+				UnitSetHp(g_pid_boss, hp)
+			else
+				UnitSetHp(g_pid_boss, maxHp)
+			end
+		end
+	end
+
+	--	指定PID(ボス召喚系)が３以上残ってる：ストック追加	unitScount数
+	if unitScount > 2 then
+		--	ストックが３以下ならストック追加
+		local stock = UnitGetHpStock(g_pid_boss)
+		if  stock < 3 then
+			stock = stock + 1
+			UnitSetHpStock(g_pid_boss, stock)
+			debstr = "◆ストック追加：" .. tostring( stock )
+			Log(debstr)
+		end
+	end
+end
+
+
+--	吸収も突進と同じく固定エリア。
+	--	下
+	--	左上
+	--	右上
+local g_AbsorbArea1 = {0,  15,22, 14,23,15,23,16,23, 13,22,14,22,16,22,17,22 ,11,21,12,21,13,21,14,21,15,21,16,21,17,21,18,21, 	12,20,13,20,14,20,15,20,16,20 ,14,19,15,19}
+local g_AbsorbArea2 = {0,  10,28, 8,30,9,30,10,30,11,30,12,30,13,30,14,30,	7,29,8,29,9,29,10,29,11,29,12,29,13,29, 7,28,8,28,9,28,11,28,12,28,  7,27,8,27,9,27,10,27,11,27,12,27, 10,26,11,26, 10,25 }
+local g_AbsorbArea3 = {0,  20,28, 16,30,17,30,18,30,19,30,20,30,21,30,22,30,  17,29,18,29,19,29,20,29,21,29,22,29,  18,28,19,28,21,28,22,28,  18,27,19,27,20,27,21,27,22,27,  19,26,20,26,21,26, 20,25,21,25	}
+
+	--	右上エリア→中上エリア
+local g_RushArea10 = {0,  17,27,18,27,19,27,20,27, 17,26,18,26,19,26,20,26,21,26, 17,25,18,25,19,25,20,25,21,25,	}
+
+
+function 吸収予告()
+	local absorpSize
+	local debstr
+	local x
+	local z
+
+	local unitcount1 = 0
+	local unitcount2 = 0
+	local unitcount3 = 0
+
+	--Dialog( "吸収予告" )
+
+
+	--	一番多いところを狙う。------------------------------
+	absorpSize = math.floor(#g_AbsorbArea1 / 2)
+	for i = 1,  absorpSize do
+		x = g_AbsorbArea1[i*2]
+		z = g_AbsorbArea1[i*2+1]
+
+		local unit = UnitGetByPos( x, z )
+		if ( not ( unit == nil ) )  then
+			unitcount1 = unitcount1 + 1
+		end
+	end
+
+
+	absorpSize = math.floor(#g_AbsorbArea2 / 2)
+	for i = 1,  absorpSize do
+		x = g_AbsorbArea2[i*2]
+		z = g_AbsorbArea2[i*2+1]
+
+		local unit = UnitGetByPos( x, z )
+		if ( not ( unit == nil ) )  then
+			unitcount2 = unitcount2 + 1
+		end
+	end
+
+	absorpSize = math.floor(#g_AbsorbArea3 / 2)
+	for i = 1,  absorpSize do
+		x = g_AbsorbArea3[i*2]
+		z = g_AbsorbArea3[i*2+1]
+
+		local unit = UnitGetByPos( x, z )
+		if ( not ( unit == nil ) )  then
+			unitcount3 = unitcount3 + 1
+		end
+	end
+	--	優先順位は下、左上、右上。
+	if unitcount1 >= unitcount2 then
+		if unitcount1 >= unitcount3 then
+			absorpNum = 1
+		else
+			if unitcount2 >= unitcount3 then
+				absorpNum = 2
+			else
+				absorpNum = 3
+			end
+		end
+	else
+		if unitcount2 >= unitcount3 then
+			absorpNum = 2
+		else
+			absorpNum = 3
+		end
+	end
+
+	--	吸収番号セット
+	VariableSet( g_key_Absorp_Number, absorpNum )
+
+	--	----------------------------------------------------
+	--	下
+	if		absorpNum == 1 then
+		EffectCreate("吸収即死範囲_下" , g_AbsorbArea1[1*2], g_AbsorbArea1[1*2+1] )
+	--	absorpSize = math.floor(#g_AbsorbArea1 / 2)
+	--	MapRangeAddBegin()
+	--		for i = 1,  absorpSize do
+	--			x = g_AbsorbArea1[i*2]
+	--			z = g_AbsorbArea1[i*2+1]
+	--			MapRangeAdd( x, z )
+	--		end
+	--	MapRangeAddEnd()
+
+	--	左上
+	elseif	absorpNum == 2 then
+		EffectCreate("吸収即死範囲_左" , g_AbsorbArea2[1*2], g_AbsorbArea2[1*2+1] )
+	--	absorpSize = math.floor(#g_AbsorbArea2 / 2)
+	--	MapRangeAddBegin()
+	--		for i = 1,  absorpSize do
+	--			x = g_AbsorbArea2[i*2]
+	--			z = g_AbsorbArea2[i*2+1]
+	--			MapRangeAdd( x, z )
+	--		end
+	--	MapRangeAddEnd()
+
+	--	右上
+	elseif	absorpNum == 3 then
+		EffectCreate("吸収即死範囲_右" , g_AbsorbArea3[1*2], g_AbsorbArea3[1*2+1] )
+	--	absorpSize = math.floor(#g_AbsorbArea3 / 2)
+	--	MapRangeAddBegin()
+	--		for i = 1,  absorpSize do
+	--			x = g_AbsorbArea3[i*2]
+	--			z = g_AbsorbArea3[i*2+1]
+	--			MapRangeAdd( x, z )
+	--		end
+	--	MapRangeAddEnd()
+	end
+end
+
+
+function 配置紋章氣(pid,mcount)
+
+	bx = UnitGetX( pid )
+	bz = UnitGetZ( pid )
+	if mcount == 0 then
+		MapOverlapSetOne(bx, bz, "TID_紋章氣")
+		if	VariableGet( "紋章氣_済" )  == 0 then
+			VariableSet( "紋章氣_済", 1 )
+		end
+	elseif mcount == 1 then
+		MapOverlapSetOne(bx, bz, "TID_紋章氣")
+		if	VariableGet( "紋章氣_済" )  == 0 then
+			VariableSet( "紋章氣_済", 1 )
+		end
+	end
+	if	VariableGet( "紋章氣_済" )  == 1 then
+		VariableSet( "紋章氣_X", bx )
+		VariableSet( "紋章氣_Z", bz )
+		VariableSet( "紋章氣_済", 2 )
+	end
+	mcount = mcount + 1
+	return mcount
+end
+
+function 範囲吸収()
+	--	吸収番号
+	local absorpNum = VariableGet( g_key_Absorp_Number )
+	local absorpSize
+	local boss = UnitGetPID(g_pid_boss)
+	local x = UnitGetX(boss)
+	local z = UnitGetZ(boss)
+	local i
+	local n
+	local bossdir
+
+	local unitScount = 0
+	local unitcount = 0
+	local pid = "無"
+	local pidtbl = {}
+	local pidtbl2 = {}
+
+	--MapRangeClear()
+	CursorSetPos_FromPid(g_pid_boss)
+	MapCameraWait()
+	if absorpNum == 1 then
+		x = g_AbsorbArea1[1*2]
+		z = g_AbsorbArea1[1*2+1]
+		EffectDelete("吸収即死範囲_下" , x, z)
+		WaitTime( 1.0 )
+
+	elseif	absorpNum == 2 then
+		x = g_AbsorbArea2[1*2]
+		z = g_AbsorbArea2[1*2+1]
+		EffectDelete("吸収即死範囲_左" , x, z)
+		WaitTime( 1.0 )
+
+	elseif	absorpNum == 3 then
+		x = g_AbsorbArea3[1*2]
+		z = g_AbsorbArea3[1*2+1]
+		EffectDelete("吸収即死範囲_右" , x, z)
+		WaitTime( 1.0 )
+	end
+
+	UnitRotation( g_pid_boss, g_BossAbsorpD2[absorpNum] )
+	UnitMoveWait()
+	WaitTime( 1.0 )
+	UnitPlayAnim(g_pid_boss, UNIT_ANIM_EVENT3)	-- 吸収
+	WaitTime( 1.0 )
+	if absorpNum == 1 then
+		x = UnitGetX(boss)+1
+		z = UnitGetZ(boss)+1
+		EffectPlay( "吸収攻撃_発動", x, z,g_BossAbsorpD[absorpNum] )
+	elseif	absorpNum == 2 then
+		x = UnitGetX(boss)+1
+		z = UnitGetZ(boss)+1
+		EffectPlay( "吸収攻撃_発動", x, z,g_BossAbsorpD[absorpNum] )
+	elseif	absorpNum == 3 then
+		x = UnitGetX(boss)+1
+		z = UnitGetZ(boss)+1
+		EffectPlay( "吸収攻撃_発動", x, z,g_BossAbsorpD[absorpNum] )
+	end
+
+
+	UnitMoveWait()
+	--EffectPlay( "吸収攻撃", UnitGetX(boss)+1, UnitGetZ(boss)+1,g_BossAbsorpD[absorpNum] )
+	--EffectPlay( "崩壊_開始", g_BossPos[bP*2]+1, g_BossPos[bP*2+1]+1 )
+
+	if absorpNum == 1 then
+		x = g_AbsorbArea1[1*2]
+		z = g_AbsorbArea1[1*2+1]
+		CursorSetPos(x, z)
+		MapCameraWait()
+		WaitTime( 1.0 )
+
+		absorpSize = math.floor(#g_AbsorbArea1 / 2)
+		for i = 1,  absorpSize do
+			x = g_AbsorbArea1[i*2]
+			z = g_AbsorbArea1[i*2+1]
+			unitcount,unitScount,pid = 一括死亡名無し(x, z,unitcount,unitScount,99)
+			if pid != "無" then
+				pidtbl[unitcount] = pid
+			end
+		end
+		for i = 1,  absorpSize do
+			unitcount,unitScount,pid = 一括死亡名前付(g_AbsorbArea1[i*2], g_AbsorbArea1[i*2+1],unitcount,unitScount,99)
+			if pid != "無" then
+				table.insert(pidtbl2, pid)  
+			end
+		end
+
+
+	--	左上
+	elseif	absorpNum == 2 then
+		x = g_AbsorbArea2[1*2]
+		z = g_AbsorbArea2[1*2+1]
+		CursorSetPos(x, z)
+		MapCameraWait()
+		WaitTime( 1.0 )
+
+		absorpSize = math.floor(#g_AbsorbArea2 / 2)
+		for i = 1,  absorpSize do
+			x = g_AbsorbArea2[i*2]
+			z = g_AbsorbArea2[i*2+1]
+			unitcount,unitScount,pid = 一括死亡名無し(x, z,unitcount,unitScount,99)
+			if pid != "無" then
+				pidtbl[unitcount] = pid
+			end
+		end
+		for i = 1,  absorpSize do
+			unitcount,unitScount,pid = 一括死亡名前付(g_AbsorbArea2[i*2], g_AbsorbArea2[i*2+1],unitcount,unitScount,99)
+			if pid != "無" then
+				table.insert(pidtbl2, pid)  
+			end
+		end
+
+
+	--	右上
+	elseif	absorpNum == 3 then
+		x = g_AbsorbArea3[1*2]
+		z = g_AbsorbArea3[1*2+1]
+		CursorSetPos(x, z)
+		MapCameraWait()
+		WaitTime( 1.0 )
+
+		absorpSize = math.floor(#g_AbsorbArea3 / 2)
+		for i = 1,  absorpSize do
+			x = g_AbsorbArea3[i*2]
+			z = g_AbsorbArea3[i*2+1]
+			unitcount,unitScount,pid = 一括死亡名無し(x, z,unitcount,unitScount,99)
+			if pid != "無" then
+				pidtbl[unitcount] = pid
+			end
+		end
+		for i = 1,  absorpSize do
+			unitcount,unitScount,pid = 一括死亡名前付(g_AbsorbArea3[i*2], g_AbsorbArea3[i*2+1],unitcount,unitScount,99)
+			if pid != "無" then
+				table.insert(pidtbl2, pid)  
+			end
+		end
+
+	end
+
+	if unitcount > 0 then
+		--	local debstr = "◆◆吸収方向:" .. tostring( absorpNum ) .. "◆◆角度:" .. tostring( g_BossAbsorpD[absorpNum] )
+		--	紋章氣マス配置も、一括死亡も、ここでやるのが正式。大ユニット対策。
+		local mcount = 0
+
+		if #pidtbl > 0 then
+			local debstr = "◆◆一括死亡名無しリスト◆◆"
+			Log(debstr)
+
+			table.sort(pidtbl)
+			local name1 = "無"
+			for i = 1 , #pidtbl do
+				name2 = pidtbl[i]
+				if name1 != name2 then
+					UnitDieWithoutEvent( pidtbl[i] )
+					debstr = "◆◆unitID:" .. tostring( i ) .. "◆◆" .. tostring( pidtbl[i] )
+					Log(debstr)
+					mcount = 配置紋章氣(pidtbl[i],mcount)
+					name1 = pidtbl[i]
+				end
+			end
+		end
+		WaitTime( 0.5 )
+		if #pidtbl2 > 0 then
+			local debstr = "◆◆一括死亡ネームドリスト◆◆"
+			Log(debstr)
+			for i = 1 , #pidtbl2 do
+				debstr = "◆◆unitID:" .. tostring( i ) .. "◆◆" .. tostring( pidtbl2[i] )
+				Log(debstr)
+				mcount = 配置紋章氣(pidtbl2[i],mcount)
+				UnitDie( pidtbl2[i] )
+				WaitTime( 0.5 )
+			end
+		end
+		local gover = VariableGet( "敗北" )
+		if gover != 1 then
+			WaitTime( 0.5 )
+
+			CursorSetPos_FromPid(g_pid_boss)
+			MapCameraWait()
+
+			EffectPlay( "吸収攻撃", UnitGetX(boss)+1, UnitGetZ(boss)+1,g_BossAbsorpD[absorpNum] )
+			WaitTime( 2.5 )
+			吸収_回復(unitcount,unitScount)
+		end
+	end
+
+	if	VariableGet( "紋章氣_済" )  == 2 then
+		local gover = VariableGet( "敗北" )
+		if gover != 1 then
+			local mx = VariableGet( "紋章氣_X" )
+			local mz = VariableGet( "紋章氣_Z" )
+			CursorSetPos(mx, mz)
+			MapCameraWait()
+			WaitTime( 1.0 )
+			CursorAnimeCreate( mx, mz )
+
+			Talk( "MID_EV5" )
+			CursorAnimeDelete()
+		end
+		VariableSet( "紋章氣_済", 3 )
+	end
+
+end
+
+
+-- -----------------------------------
+
+--	突進はブレスと違い、固定ルートなので、テーブルをそれだけ作る。
+	--	初期位置→左下エリア
+	--	左下エリア→中央エリア
+	--	中央エリア→右下エリア
+	--	右下エリア→右上エリア
+	--	右上エリア←→左上エリア（双方向OK）
+	--	左上エリア→中上エリア
+	--	左下エリア→左上エリア
+local g_RushArea1 = {0,  6,6, 6,8, 7,8, 5,7,6,7,7,7, 6,9	}
+local g_RushArea2 = {0,  8,10,9,10, 8,11,9,11, 8,12,9,12,10,12,11,12,13,12, 9,13,10,13,11,13,12,13,13,13,14,13,15,13  ,11,14,12,14,13,14,14,14	 ,14,15}
+local g_RushArea3 = {0,  24,10, 24,9,25,9,26,9, 24,8,25,8,26,8,27,8, 25,7,26,7 ,26,6	}
+local g_RushArea4 = {0,  27,22,28,22,29,22, 27,21,28,21,29,21, 27,20,28,20,29,20, 27,19,28,19,29,19, 27,18,28,18,29,18	}
+local g_RushArea5 = {0,  15,24,16,24,17,24,18,24,19,24, 6,23,7,23,9,23,10,23,11,23,12,23,13,23,14,23,15,23,16,23,17,23,18,23,19,23,	6,22,7,22,8,22,9,22,10,22,11,22,12,22,13,22,14,22,15,22,16,22,17,22,18,22,  6,21,7,21,8,21,9,21,10,21,11,21,12,21,13,21,14,21,15,21 }
+local g_RushArea6 = {0,  13,27,	11,26,12,26,13,26, 10,25,11,25,12,25,13,25,  11,24,12,24 }
+local g_RushArea7 = {0,  3,20,4,20,5,20, 3,19,4,19,5,19, 3,18,4,18 	}
+
+	--	ノーマル用
+	--	初期位置→中央エリア
+	--	中央エリア→中上エリア
+local g_RushArea8 = {0,  15,13,16,13,17,13, 15,12,16,12,17,12, 15,11,16,11,17,11,  16,10,17,10	}
+local g_RushArea9 = {0,  14,24,15,24,16,24, 14,23,15,23,16,23, 14,22,15,22,16,22, 14,21,15,21,16,21, 14,20,15,20,16,20, 14,19,15,19, 	}
+
+
+	--	右上エリア→中上エリア
+local g_RushArea10 = {0,  17,27,18,27,19,27,20,27, 17,26,18,26,19,26,20,26,21,26, 17,25,18,25,19,25,20,25,21,25,	}
+
+
+function 突進予告()
+
+	local rushSize
+	local debstr
+	local x
+	local z
+
+	--Dialog( "突進予告" )
+	UnitPlayAnim(g_pid_boss, UNIT_ANIM_DANCE)	-- チャージ
+
+	--	突進番号取得
+	local rushNum = VariableGet( g_key_Rush_Number )
+
+	--	初期位置→左下エリア
+	if	rushNum == 1 then
+		rushSize = math.floor(#g_RushArea1 / 2)
+		--	debstr = "◆◆◆配列サイズ:" .. tostring( rushSize )  .. "◆◆◆"
+		Log(debstr)
+
+		MapRangeAddBegin()
+			for i = 1,  rushSize do
+				local x = g_RushArea1[i*2]
+				local z = g_RushArea1[i*2+1]
+				--debstr = "▼突進座標:(" .. tostring( x ) .. "," .. tostring( z ) .. ")▼"
+				--Log(debstr)
+				MapRangeAdd( x, z )
+			end
+		MapRangeAddEnd()
+		崩落範囲_表示( 15, 5, 1 )
+		Tutorial( "TUTID_イル突進" )
+		WaitTime( 2.0 )
+
+		bP = 2
+		CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+		MapCameraWait()
+		-- オブジェクト起動
+		MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_IDLE)
+		WaitTime( 1.0 )
+
+
+	--	左下エリア→中央エリア
+	elseif	rushNum == 2 then
+		rushSize = math.floor(#g_RushArea2 / 2)
+		MapRangeAddBegin()
+
+			for i = 1,  rushSize do
+				local x = g_RushArea2[i*2]
+				local z = g_RushArea2[i*2+1]
+				MapRangeAdd( x, z )
+			end
+
+		MapRangeAddEnd()
+
+		崩落範囲_表示( 4, 9, 2 )
+
+		bP = 3
+		CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+		MapCameraWait()
+		-- オブジェクト起動
+		MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_IDLE)
+		WaitTime( 1.0 )
+
+	--	中央エリア→右下エリア
+	elseif	rushNum == 3 then
+		rushSize = math.floor(#g_RushArea3 / 2)
+		MapRangeAddBegin()
+
+			for i = 1,  rushSize do
+				local x = g_RushArea3[i*2]
+				local z = g_RushArea3[i*2+1]
+				MapRangeAdd( x, z )
+			end
+
+		MapRangeAddEnd()
+
+		崩落範囲_表示( 16, 15, 3 )
+		WaitTime( 2.0 )
+		bP = 4
+		CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+		MapCameraWait()
+		-- オブジェクト起動
+		MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_IDLE)
+		WaitTime( 1.0 )
+
+	--	右下エリア→右上エリア
+	elseif	rushNum == 4 then
+		rushSize = math.floor(#g_RushArea4 / 2)
+		MapRangeAddBegin()
+
+			for i = 1,  rushSize do
+				local x = g_RushArea4[i*2]
+				local z = g_RushArea4[i*2+1]
+				MapRangeAdd( x, z )
+			end
+
+		MapRangeAddEnd()
+
+		崩落範囲_表示( 28, 6, 4 )
+		WaitTime( 2.0 )
+		bP = 6
+		CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+		MapCameraWait()
+		-- オブジェクト起動
+		MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_IDLE)
+		WaitTime( 1.0 )
+
+	--	右上エリア←→左上エリア（双方向OK）
+	elseif	rushNum == 5 then
+		rushSize = math.floor(#g_RushArea5 / 2)
+		MapRangeAddBegin()
+
+			for i = 1,  rushSize do
+				local x = g_RushArea5[i*2]
+				local z = g_RushArea5[i*2+1]
+				MapRangeAdd( x, z )
+			end
+
+		MapRangeAddEnd()
+
+		崩落範囲_表示( 28, 24, 6 )
+		bP = 5
+		CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+		MapCameraWait()
+		-- オブジェクト起動
+		MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_IDLE)
+		WaitTime( 1.0 )
+
+	--	左上エリア→中上エリア
+	elseif	rushNum == 6 then
+		rushSize = math.floor(#g_RushArea6 / 2)
+		MapRangeAddBegin()
+
+			for i = 1,  rushSize do
+				local x = g_RushArea6[i*2]
+				local z = g_RushArea6[i*2+1]
+				MapRangeAdd( x, z )
+			end
+
+		MapRangeAddEnd()
+
+		崩落範囲_表示( 3, 20, 5 )
+		bP = 7
+		CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+		MapCameraWait()
+		-- オブジェクト起動
+		MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_IDLE)
+		WaitTime( 1.0 )
+
+	--	左下エリア→左上エリア
+	elseif	rushNum == 7 then
+		rushSize = math.floor(#g_RushArea7 / 2)
+		MapRangeAddBegin()
+
+			for i = 1,  rushSize do
+				local x = g_RushArea7[i*2]
+				local z = g_RushArea7[i*2+1]
+				MapRangeAdd( x, z )
+			end
+
+		MapRangeAddEnd()
+
+		崩落範囲_表示( 4, 9, 2 )
+		bP = 5
+		CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+		MapCameraWait()
+		-- オブジェクト起動
+		MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_IDLE)
+		WaitTime( 1.0 )
+
+	--	初期位置→中央エリア
+	elseif	rushNum == 8 then
+		rushSize = math.floor(#g_RushArea8 / 2)
+		MapRangeAddBegin()
+
+			for i = 1,  rushSize do
+				local x = g_RushArea8[i*2]
+				local z = g_RushArea8[i*2+1]
+				MapRangeAdd( x, z )
+			end
+
+		MapRangeAddEnd()
+
+		崩落範囲_表示( 15, 5, 1 )
+		WaitTime( 1.0 )
+		Tutorial( "TUTID_イル突進" )
+		bP = 3
+		CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+		MapCameraWait()
+		-- オブジェクト起動
+		MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_IDLE)
+		WaitTime( 1.0 )
+
+	--	中央エリア→中上エリア
+	elseif	rushNum == 9 then
+		rushSize = math.floor(#g_RushArea9 / 2)
+		MapRangeAddBegin()
+
+			for i = 1,  rushSize do
+				local x = g_RushArea9[i*2]
+				local z = g_RushArea9[i*2+1]
+				MapRangeAdd( x, z )
+			end
+
+		MapRangeAddEnd()
+
+		崩落範囲_表示( 16, 15, 3 )
+		bP = 7
+		CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+		MapCameraWait()
+		-- オブジェクト起動
+		MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_IDLE)
+		WaitTime( 1.0 )
+
+	--	右上エリア→中上エリア
+	elseif	rushNum == 10 then
+		rushSize = math.floor(#g_RushArea10 / 2)
+		MapRangeAddBegin()
+
+			for i = 1,  rushSize do
+				local x = g_RushArea10[i*2]
+				local z = g_RushArea10[i*2+1]
+				MapRangeAdd( x, z )
+			end
+
+		MapRangeAddEnd()
+
+		崩落範囲_表示( 28, 24, 6 )
+		bP = 7
+		CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+		MapCameraWait()
+		-- オブジェクト起動
+		MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_IDLE)
+		WaitTime( 1.0 )
+	end
+end
+
+-- -----------------------------------
+
+function 崩落範囲_表示( x, z, breakAreaNum )
+	
+	--Dialog("崩落範囲_表示")
+
+	EffectCreate("即死攻撃範囲_エリア" .. breakAreaNum, x, z )
+
+end
+
+-- -----------------------------------
+
+function 崩落範囲_非表示( x, z, breakAreaNum )
+
+	EffectDelete("即死攻撃範囲_エリア" .. breakAreaNum, x, z)
+
+end
+
+-- -----------------------------------
+
+function 島崩突進()
+
+	--咆哮→みんな死亡→島沈む、同時に移動→移動、沈みながら暗転
+	島崩全滅()
+
+	--	突進番号
+	local rushNum = VariableGet( g_key_Rush_Number )
+	local bosX
+	local bosZ
+
+	local boss = UnitGetPID(g_pid_boss)
+	local x = UnitGetX(boss)
+	local z = UnitGetZ(boss)
+	local rushSize
+	local i
+
+	--MapRangeClear()
+	CursorSetDistanceMode( CURSOR_DISTANCE_MIDDLE )
+
+	BattleSetAttack( g_pid_boss, "IID_イル_突進" )
+
+		--	初期位置→左下エリア
+		if	rushNum == 1 then
+			rushSize = math.floor(#g_RushArea1 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea1[i*2]
+				local bz = g_RushArea1[i*2+1]
+
+				debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+			--	Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					BattleAddTarget( unit )
+				end
+			end
+			--	移動先取得
+			i = 2
+			bosX = g_BossPos[i*2]
+			bosZ = g_BossPos[i*2+1]
+
+
+		--	左下エリア→中央エリア
+		elseif	rushNum == 2 then
+			rushSize = math.floor(#g_RushArea2 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea2[i*2]
+				local bz = g_RushArea2[i*2+1]
+
+				debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+			--	Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					BattleAddTarget( unit )
+				end
+			end
+			--	移動先取得
+			i = 3
+			bosX = g_BossPos[i*2]
+			bosZ = g_BossPos[i*2+1]
+
+			崩落範囲_非表示( 4, 9, 2 )
+
+		--	中央エリア→右下エリア
+		elseif	rushNum == 3 then
+			rushSize = math.floor(#g_RushArea3 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea3[i*2]
+				local bz = g_RushArea3[i*2+1]
+
+				debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+			--	Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					BattleAddTarget( unit )
+				end
+			end
+			--	移動先取得
+			i = 4
+			bosX = g_BossPos[i*2]
+			bosZ = g_BossPos[i*2+1]
+
+			崩落範囲_非表示( 16, 15, 3 )
+
+		--	右下エリア→右上エリア
+		elseif	rushNum == 4 then
+			rushSize = math.floor(#g_RushArea4 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea4[i*2]
+				local bz = g_RushArea4[i*2+1]
+
+				debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+			--	Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					BattleAddTarget( unit )
+				end
+			end
+			--	移動先取得
+			i = 6
+			bosX = g_BossPos[i*2]
+			bosZ = g_BossPos[i*2+1]
+
+			崩落範囲_非表示( 28, 6, 4 )
+
+		--	右上エリア←→左上エリア（双方向OK）
+		elseif	rushNum == 5 then
+			rushSize = math.floor(#g_RushArea5 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea5[i*2]
+				local bz = g_RushArea5[i*2+1]
+
+				debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+			--	Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					BattleAddTarget( unit )
+				end
+			end
+			--	移動先取得
+			i = 5
+			bosX = g_BossPos[i*2]
+			bosZ = g_BossPos[i*2+1]
+
+			崩落範囲_非表示( 28, 24, 6 )
+
+		--	左上エリア→中上エリア
+		elseif	rushNum == 6 then
+			rushSize = math.floor(#g_RushArea6 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea6[i*2]
+				local bz = g_RushArea6[i*2+1]
+
+				debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+			--	Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					BattleAddTarget( unit )
+				end
+			end
+			--	移動先取得
+			i = 7
+			bosX = g_BossPos[i*2]
+			bosZ = g_BossPos[i*2+1]
+
+			崩落範囲_非表示( 3, 20, 5 )
+
+
+		--	左下エリア→左上エリア
+		elseif	rushNum == 7 then
+			rushSize = math.floor(#g_RushArea7 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea7[i*2]
+				local bz = g_RushArea7[i*2+1]
+
+				debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+			--	Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					BattleAddTarget( unit )
+				end
+			end
+			--	移動先取得
+			i = 5
+			bosX = g_BossPos[i*2]
+			bosZ = g_BossPos[i*2+1]
+
+			崩落範囲_非表示( 4, 9, 2 )
+
+		--	初期位置→中央エリア
+		elseif	rushNum == 8 then
+			rushSize = math.floor(#g_RushArea8 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea8[i*2]
+				local bz = g_RushArea8[i*2+1]
+
+				debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+				Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					BattleAddTarget( unit )
+				end
+			end
+			--	移動先取得
+			i = 3
+			bosX = g_BossPos[i*2]
+			bosZ = g_BossPos[i*2+1]
+
+			崩落範囲_非表示( 15, 5, 1 )
+
+		--	中央エリア→中上エリア
+		elseif	rushNum == 9 then
+			rushSize = math.floor(#g_RushArea9 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea9[i*2]
+				local bz = g_RushArea9[i*2+1]
+
+				debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+				Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					BattleAddTarget( unit )
+				end
+			end
+			--	移動先取得
+			i = 7
+			bosX = g_BossPos[i*2]
+			bosZ = g_BossPos[i*2+1]
+
+			崩落範囲_非表示( 16, 15, 3 )
+
+		--	右上エリア→中上エリア
+		elseif	rushNum == 10 then
+			rushSize = math.floor(#g_RushArea10 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea10[i*2]
+				local bz = g_RushArea10[i*2+1]
+
+				debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+			--	Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					BattleAddTarget( unit )
+				end
+			end
+			--	移動先取得
+			i = 7
+			bosX = g_BossPos[i*2]
+			bosZ = g_BossPos[i*2+1]
+
+			崩落範囲_非表示( 28, 24, 6 )
+
+		end
+	--	この座標は攻撃の向き。boss座標だと強制左下っぽいので、矯正必要かも？
+	BattleStart( x, z )
+	--UnitPlayAnim(g_pid_boss, UNIT_ANIM_EVENT4)	-- 突進
+
+	--	UnitSetPos(boss, bosX, bosZ)
+	
+
+
+	UnitTranslation(boss, bosX, bosZ)
+	UnitMoveWait()
+	WaitTime( 2.0 )
+
+	-- 巻き戻しなどのための履歴
+	MapHistoryMindDone()
+
+
+end
+
+
+-- -----------------------------------
+function 突進ダメージ全体()
+	local rN = VariableGet( g_key_Rush_Number )
+
+	--	ここはif分岐せざるをえない
+	if	rN == 1 then
+		MapDamageBegin();
+			local rushSize = math.floor(#g_RushArea1 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea1[i*2]
+				local bz = g_RushArea1[i*2+1]
+				--	debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+				--	Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					local damage = math.max(g_Rush_Damage, 0);
+					MapDamageAdd(unit, damage)
+				end
+			end
+		MapDamageEnd();
+	elseif	rN == 2 then
+		MapDamageBegin();
+			local rushSize = math.floor(#g_RushArea2 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea2[i*2]
+				local bz = g_RushArea2[i*2+1]
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					local damage = math.max(g_Rush_Damage, 0);
+					MapDamageAdd(unit, damage)
+				end
+			end
+		MapDamageEnd();
+	elseif	rN == 3 then
+		MapDamageBegin();
+			local rushSize = math.floor(#g_RushArea3 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea3[i*2]
+				local bz = g_RushArea3[i*2+1]
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					local damage = math.max(g_Rush_Damage, 0);
+					MapDamageAdd(unit, damage)
+				end
+			end
+		MapDamageEnd();
+	elseif	rN == 4 then
+		MapDamageBegin();
+			local rushSize = math.floor(#g_RushArea4 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea4[i*2]
+				local bz = g_RushArea4[i*2+1]
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					local damage = math.max(g_Rush_Damage, 0);
+					MapDamageAdd(unit, damage)
+				end
+			end
+		MapDamageEnd();
+	elseif	rN == 5 then
+		MapDamageBegin();
+			local rushSize = math.floor(#g_RushArea5 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea5[i*2]
+				local bz = g_RushArea5[i*2+1]
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					local damage = math.max(g_Rush_Damage, 0);
+					MapDamageAdd(unit, damage)
+				end
+			end
+		MapDamageEnd();
+	elseif	rN == 6 then
+		MapDamageBegin();
+			local rushSize = math.floor(#g_RushArea6 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea6[i*2]
+				local bz = g_RushArea6[i*2+1]
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					local damage = math.max(g_Rush_Damage, 0);
+					MapDamageAdd(unit, damage)
+				end
+			end
+		MapDamageEnd();
+	elseif	rN == 7 then
+		MapDamageBegin();
+			local rushSize = math.floor(#g_RushArea7 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea7[i*2]
+				local bz = g_RushArea7[i*2+1]
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					local damage = math.max(g_Rush_Damage, 0);
+					MapDamageAdd(unit, damage)
+				end
+			end
+		MapDamageEnd();
+	elseif	rN == 8 then
+		MapDamageBegin();
+			local rushSize = math.floor(#g_RushArea8 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea8[i*2]
+				local bz = g_RushArea8[i*2+1]
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					local damage = math.max(g_Rush_Damage, 0);
+					MapDamageAdd(unit, damage)
+				end
+			end
+		MapDamageEnd();
+	elseif	rN == 9 then
+		MapDamageBegin();
+			local rushSize = math.floor(#g_RushArea9 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea9[i*2]
+				local bz = g_RushArea9[i*2+1]
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					local damage = math.max(g_Rush_Damage, 0);
+					MapDamageAdd(unit, damage)
+				end
+			end
+		MapDamageEnd();
+	elseif	rN == 10 then
+		MapDamageBegin();
+			local rushSize = math.floor(#g_RushArea10 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea10[i*2]
+				local bz = g_RushArea10[i*2+1]
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					local damage = math.max(g_Rush_Damage, 0);
+					MapDamageAdd(unit, damage)
+				end
+			end
+		MapDamageEnd();
+	end
+end
+-- -----------------------------------
+function 島崩死亡全体(bx, bz,unitcount,unitScount,bP)
+	local pid = "無"
+	local pidtbl = {}
+	local pidtbl2 = {}
+
+	--	ここはif分岐せざるをえない
+	if	bP == 1 then
+		local breakSize = math.floor(#g_BreakArea1 / 2)
+		VariableSet(g_key_area1, 1)
+		TerrainSetBegin()
+			Log("名無しを一括死亡")
+			for i = 1,  breakSize do
+				local bx = g_BreakArea1[i*2]
+				local bz = g_BreakArea1[i*2+1]
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,bP)
+				if pid != "無" then
+					pidtbl[unitcount] = pid
+				end
+			end
+		TerrainSetEnd()
+		for i = 1,  breakSize do
+			unitcount,unitScount,pid = 一括死亡名前付(g_BreakArea1[i*2], g_BreakArea1[i*2+1],unitcount,unitScount,bP)
+			if pid != "無" then
+				table.insert(pidtbl2, pid)  
+			end
+		end
+
+	elseif	bP == 2 then
+		local breakSize = math.floor(#g_BreakArea2 / 2)
+		VariableSet(g_key_area2, 1)
+		TerrainSetBegin()
+			for i = 1,  breakSize do
+				local bx = g_BreakArea2[i*2]
+				local bz = g_BreakArea2[i*2+1]
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,bP)
+				if pid != "無" then
+					pidtbl[unitcount] = pid
+				end
+			end
+		TerrainSetEnd()
+		for i = 1,  breakSize do
+			unitcount,unitScount,pid = 一括死亡名前付(g_BreakArea2[i*2], g_BreakArea2[i*2+1],unitcount,unitScount,bP)
+			if pid != "無" then
+				table.insert(pidtbl2, pid)  
+			end
+		end
+
+	elseif	bP == 3 then
+		local breakSize = math.floor(#g_BreakArea3 / 2)
+		VariableSet(g_key_area3, 1)
+		TerrainSetBegin()
+			for i = 1,  breakSize do
+				local bx = g_BreakArea3[i*2]
+				local bz = g_BreakArea3[i*2+1]
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,bP)
+				if pid != "無" then
+					pidtbl[unitcount] = pid
+				end
+			end
+		TerrainSetEnd()
+		for i = 1,  breakSize do
+			unitcount,unitScount,pid = 一括死亡名前付(g_BreakArea3[i*2], g_BreakArea3[i*2+1],unitcount,unitScount,bP)
+			if pid != "無" then
+				table.insert(pidtbl2, pid)  
+			end
+		end
+
+	elseif	bP == 4 then
+		local breakSize = math.floor(#g_BreakArea4 / 2)
+		VariableSet(g_key_area4, 1)
+		TerrainSetBegin()
+			for i = 1,  breakSize do
+				local bx = g_BreakArea4[i*2]
+				local bz = g_BreakArea4[i*2+1]
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,bP)
+				if pid != "無" then
+					pidtbl[unitcount] = pid
+				end
+			end
+		TerrainSetEnd()
+		for i = 1,  breakSize do
+			unitcount,unitScount,pid = 一括死亡名前付(g_BreakArea4[i*2], g_BreakArea4[i*2+1],unitcount,unitScount,bP)
+			if pid != "無" then
+				table.insert(pidtbl2, pid)  
+			end
+		end
+
+	elseif	bP == 5 then
+		local breakSize = math.floor(#g_BreakArea5 / 2)
+		VariableSet(g_key_area5, 1)
+		TerrainSetBegin()
+			for i = 1,  breakSize do
+				local bx = g_BreakArea5[i*2]
+				local bz = g_BreakArea5[i*2+1]
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,bP)
+				if pid != "無" then
+					pidtbl[unitcount] = pid
+				end
+			end
+		TerrainSetEnd()
+		for i = 1,  breakSize do
+			unitcount,unitScount,pid = 一括死亡名前付(g_BreakArea5[i*2], g_BreakArea5[i*2+1],unitcount,unitScount,bP)
+			if pid != "無" then
+				table.insert(pidtbl2, pid)  
+			end
+		end
+
+	elseif	bP == 6 then
+		local breakSize = math.floor(#g_BreakArea6 / 2)
+		VariableSet(g_key_area6, 1)
+		TerrainSetBegin()
+			for i = 1,  breakSize do
+				local bx = g_BreakArea6[i*2]
+				local bz = g_BreakArea6[i*2+1]
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,bP)
+				if pid != "無" then
+					pidtbl[unitcount] = pid
+				end
+			end
+		TerrainSetEnd()
+		for i = 1,  breakSize do
+			unitcount,unitScount,pid = 一括死亡名前付(g_BreakArea6[i*2], g_BreakArea6[i*2+1],unitcount,unitScount,bP)
+			if pid != "無" then
+				table.insert(pidtbl2, pid)  
+			end
+		end
+
+	end
+
+
+	if #pidtbl > 0 then
+		table.sort(pidtbl)
+		local name1 = "無"
+		for i = 1 , #pidtbl do
+			name2 = pidtbl[i]
+			if name1 != name2 then
+				UnitDieWithoutEvent( pidtbl[i] )
+				debstr = "◆◆unitID:" .. tostring( i ) .. "◆◆" .. tostring( pidtbl[i] )
+				Log(debstr)
+				name1 = pidtbl[i]
+			end
+		end
+	end
+	WaitTime( 0.5 )
+	if #pidtbl2 > 0 then
+		for i = 1 , #pidtbl2 do
+			debstr = "◆◆unitID:" .. tostring( i ) .. "◆◆" .. tostring( pidtbl2[i] )
+			Log(debstr)
+			UnitDie( pidtbl2[i] )
+			WaitTime( 0.5 )
+		end
+	end
+
+	--debstr = "島崩死亡全体▼bP:".. tostring( bP ) .."(" .. tostring( unitcount ) .. "," .. tostring( unitScount ) .. ")▼"	Log(debstr)
+	return unitcount,unitScount
+end
+-- -----------------------------------
+
+
+--咆哮みんな死亡→移動→沈みながら暗転。演出はここで一括管理！
+function 咆哮全滅移動()
+	local bP = VariableGet( g_key_Break )
+	local rN = VariableGet( g_key_Rush_Number )
+	local unitcount = 0
+	local unitScount = 0
+
+	--咆哮みんな死亡
+	CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+	MapCameraWait()
+	EffectDelete("即死攻撃範囲_エリア" .. bP, g_Hhani[bP*2], g_Hhani[bP*2+1])	--崩落範囲_非表示( g_Hhani[bP*2], g_Hhani[bP*2+1], 1 )
+
+	MapRangeClear()
+	WaitTime( 1.0 )
+
+	UnitPlayAnim(g_pid_boss, UNIT_ANIM_EVENT4)	-- 突進
+	WaitTime( 1.0 )
+	EffectPlay( "崩壊_開始", g_BossPos[bP*2]+1, g_BossPos[bP*2+1]+1 )
+	WaitTime( 0.3 )
+	EventStateObject(g_HhaO[bP*2], g_HhaO[bP*2+1], 1 )		--MapObjectAction(15, 3, MAP_ACTION_IDLE)
+
+
+	WaitTime( 2.0 )
+	unitcount,unitScount = 島崩死亡全体(bx, bz,unitcount,unitScount,bP)
+
+	local gover = VariableGet( "敗北" )
+	if gover != 1 then
+		if unitcount > 0 then
+			CursorSetPos_FromPid(g_pid_boss)
+			MapCameraWait()
+
+			WaitTime( 2.0 )
+
+			EffectPlay( "崩壊_吸収", g_BossPos[bP*2]+1, g_BossPos[bP*2+1]+1 )
+			WaitTime( 3.0 )
+		end
+
+		local saki = g_Rush2Saki[rN]	--	移動先島番号取得
+		--debstr = "▼座標:".. tostring( saki ) .."(" .. tostring( g_BossPos[saki*2] ) .. "," .. tostring( g_BossPos[saki*2+1] ) .. ")▼"
+		--Log(debstr)
+		SoundPostEvent("SE_DLC_IL_MOVE") -- 移動音
+		UnitTranslation(g_pid_boss, g_BossPos[saki*2], g_BossPos[saki*2+1])
+		UnitMoveWait()
+	--	CursorSetPos(g_BossPos[saki*2], g_BossPos[saki*2+1])
+	--	MapCameraWait()
+		突進ダメージ全体()
+
+
+		CursorSetPos(g_Hhani[bP*2], g_Hhani[bP*2+1])
+		MapCameraWait()
+
+		MapObjectAction(g_HhaO[bP*2], g_HhaO[bP*2+1], MAP_ACTION_DONE)
+		WaitTime( 2.0 )
+		FadeOut(FADE_NORMAL)
+
+
+		WaitTime( 1.0 )
+
+
+		FadeWait()
+		EventStateObject(g_HhaO[bP*2], g_HhaO[bP*2+1], 2 )
+
+		FadeInAndWait( FADE_FAST )
+	end
+
+	if	bP == 1 then
+		--	初期位置のみでの演出。
+	--	CursorSetPos(15, 3)
+	--	MapCameraWait()
+		if gover != 1 then
+			WaitTime( 1.0 )
+			Talk( "MID_EV4" )
+		end
+
+	end
+	if gover != 1 then
+		吸収_回復(unitcount,unitScount)
+	end
+end
+
+-- -----------------------------------
+function 島崩全滅()
+	local breakSize
+	local i
+	local unitcount = 0
+	local unitScount = 0
+	local pid
+
+	local boss = UnitGetPID(g_pid_boss)
+	local x = UnitGetX(boss)
+	local z = UnitGetZ(boss)
+	local rushSize
+
+	local breakP = VariableGet( g_key_Break )
+
+	--咆哮→みんな死亡→島沈む、同時に移動→移動、沈みながら暗転
+	if	breakP == 1 then
+		CursorSetPos(15, 3)
+		MapCameraWait()
+		崩落範囲_非表示( 15, 5, 1 )
+		MapRangeClear()
+
+		UnitPlayAnim(g_pid_boss, UNIT_ANIM_EVENT4)	-- 突進
+		EventStateObject(15, 3, 1 )		--MapObjectAction(15, 3, MAP_ACTION_IDLE)
+		WaitTime( 2.0 )
+
+		breakSize = math.floor(#g_BreakArea1 / 2)
+		VariableSet(g_key_area1, 1)
+
+		TerrainSetBegin()
+			for i = 1,  breakSize do
+				local bx = g_BreakArea1[i*2]
+				local bz = g_BreakArea1[i*2+1]
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,breakP)
+			end
+		TerrainSetEnd()
+
+		-- オブジェクト起動
+		EventStateObject(15, 3, 2 )			--MapObjectAction(15, 3, MAP_ACTION_DONE)
+		--MapObjectAction(15, 3, MAP_ACTION_DONE)
+
+		--	移動先取得
+		i = 2
+		bosX = g_BossPos[i*2]
+		bosZ = g_BossPos[i*2+1]
+		UnitTranslation(boss, bosX, bosZ)
+
+		FadeOut(FADE_SLOW)
+		WaitTime( 1.0 )
+
+		FadeWait()
+		MapObjectAction(g_HhaR[bP*2], g_HhaR[bP*2+1], MAP_ACTION_DONE)
+
+		CursorSetPos(4, 9)
+		MapCameraWait()
+		FadeInAndWait( FADE_FAST )
+		UnitMoveWait()
+
+		MapDamageBegin();
+			rushSize = math.floor(#g_RushArea1 / 2)
+			for i = 1,  rushSize do
+				local bx = g_RushArea1[i*2]
+				local bz = g_RushArea1[i*2+1]
+
+			--	debstr = "▼突進座標:(" .. tostring( bx ) .. "," .. tostring( bz ) .. ")▼"
+			--	Log(debstr)
+				local unit = UnitGetByPos( bx, bz )
+				if ( not ( unit == nil ) ) and ( UnitGetForce( unit ) == FORCE_PLAYER ) then
+					local damage = math.max(30, 0);
+					MapDamageAdd(unit, damage)
+				end
+			end
+		MapDamageEnd();
+
+		local gover = VariableGet( "敗北" )
+		if gover != 1 then
+			WaitTime( 2.0 )
+
+			CursorSetPos(15, 3)
+			MapCameraWait()
+			Talk( "MID_EV4" )
+		end
+
+
+
+	elseif	breakP == 2 then
+
+		CursorSetPos(4, 9)
+		MapCameraWait()
+
+		--	モデルの破壊
+		--	EventBrokenObject(10, 7)
+		
+		breakSize = math.floor(#g_BreakArea2 / 2)
+		TerrainSetBegin()
+			for i = 1,  breakSize do
+				local bx = g_BreakArea2[i*2]
+				local bz = g_BreakArea2[i*2+1]
+
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,breakP)
+			end
+		TerrainSetEnd()
+
+		VariableSet(g_key_area2, 1)
+
+	elseif	breakP == 3 then
+		CursorSetPos(16, 15)
+		MapCameraWait()
+
+		--	モデルの破壊
+		--	EventBrokenObject(10, 7)
+		
+		--	平地を海に
+		breakSize = math.floor(#g_BreakArea3 / 2)
+		TerrainSetBegin()
+			for i = 1,  breakSize do
+				local bx = g_BreakArea3[i*2]
+				local bz = g_BreakArea3[i*2+1]
+
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,breakP)
+			end
+
+		TerrainSetEnd()
+
+		VariableSet(g_key_area3, 1)
+
+
+	elseif	breakP == 4 then
+
+		CursorSetPos(28, 6)
+		MapCameraWait()
+
+		--	モデルの破壊
+		--	EventBrokenObject(10, 7)
+		
+		--	平地を海に
+		breakSize = math.floor(#g_BreakArea4 / 2)
+		TerrainSetBegin()
+			for i = 1,  breakSize do
+				local bx = g_BreakArea4[i*2]
+				local bz = g_BreakArea4[i*2+1]
+
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,breakP)
+			end
+
+		TerrainSetEnd()
+
+		VariableSet(g_key_area4, 1)
+
+	elseif	breakP == 5 then
+
+		CursorSetPos(4, 22)
+		MapCameraWait()
+
+		--	モデルの破壊
+		--	EventBrokenObject(10, 7)
+		
+		--	平地を海に
+		breakSize = math.floor(#g_BreakArea5 / 2)
+		TerrainSetBegin()
+			for i = 1,  breakSize do
+				local bx = g_BreakArea5[i*2]
+				local bz = g_BreakArea5[i*2+1]
+
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,breakP)
+			end
+
+
+		TerrainSetEnd()
+
+		VariableSet(g_key_area5, 1)
+
+	elseif	breakP == 6 then
+
+		CursorSetPos(28, 24)
+		MapCameraWait()
+
+		--	モデルの破壊
+		--	EventBrokenObject(10, 7)
+		
+		--	平地を海に
+		breakSize = math.floor(#g_BreakArea6 / 2)
+		TerrainSetBegin()
+			for i = 1,  breakSize do
+				local bx = g_BreakArea6[i*2]
+				local bz = g_BreakArea6[i*2+1]
+
+				TerrainSet( bx, bz, "TID_海" )
+				unitcount,unitScount,pid = 一括死亡名無し(bx, bz,unitcount,unitScount,breakP)
+			end
+
+		TerrainSetEnd()
+
+		VariableSet(g_key_area6, 1)
+	end
+	吸収_回復(unitcount,unitScount)
+end
+
+-- -----------------------------------
+function 最終島管理青()
+	--	最終	召喚　→ブレス→吸収　→召喚→ブレス→吸収…
+		--	青21召喚予告→青22召喚配置ブレス予告→赤22ブレス発射→赤23吸収予告→赤24範囲吸収→青25ブレス予告→赤25ブレス発射→
+		--	青26召喚予告……
+
+	local turn = MapGetTurn()
+	local countD
+	local chkturn = 0
+
+	--	最終島についたタイミングでバリアスキル解除
+	local bossLast = UnitGetByPos(14,25)
+	if bossLast != nil then
+		local pidLast = UnitGetPID( bossLast )
+		if pidLast == g_pid_boss then
+			UnitClearPrivateSkill(g_pid_boss, "SID_受けるダメージ-50")
+		end
+	end
+--	local iTurn = VariableGet( g_key_turn_Island7 )
+--	if turn == iTurn then
+--		UnitClearPrivateSkill(g_pid_boss, "SID_イルバリア")
+--		UnitClearPrivateSkill(g_pid_boss, "SID_受けるダメージ-50")
+--	end
+
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+
+		local sTurn = VariableGet( g_key_turn_Island7 ) + 4
+		if sTurn < turn then
+			VariableSet( g_key_turn_Island7 ,turn)
+
+			VariableSet( g_key_turn_Summon ,turn)
+			VariableSet( g_key_turn_Bress1 ,turn+1)
+			VariableSet( g_key_turn_Absorp ,turn+2)
+			VariableSet( g_key_turn_Bress2 ,turn+4)
+		end
+	elseif DifficultyGet() == DIFFICULTY_HARD then
+		if VariableGet( g_key_HL_area5 ) == 1 then
+			if turn == 15 then
+				chkturn = 1
+			end
+		else
+			if turn == 21 then
+				chkturn = 1
+			end
+		end
+		
+		if chkturn == 1 then
+			VariableSet( g_key_Summon_Number ,0)
+
+			VariableSet( g_key_turn_Island7 ,turn)
+
+			VariableSet( g_key_turn_Summon ,turn)
+			VariableSet( g_key_turn_Bress1 ,turn+1)
+			VariableSet( g_key_turn_Absorp ,turn+2)
+			VariableSet( g_key_turn_Bress2 ,turn+4)
+		end
+		
+
+		local sTurn = VariableGet( g_key_turn_Island7 ) + 4
+		if sTurn < turn then
+			VariableSet( g_key_turn_Island7 ,turn)
+
+			VariableSet( g_key_turn_Summon ,turn)
+			VariableSet( g_key_turn_Bress1 ,turn+1)
+			VariableSet( g_key_turn_Absorp ,turn+2)
+			VariableSet( g_key_turn_Bress2 ,turn+4)
+		end
+
+
+	else
+		if VariableGet( g_key_HL_area5 ) == 1 then
+			if turn == 15 then
+				chkturn = 1
+			end
+		else
+			if turn == 22 then
+				chkturn = 1
+			end
+		end
+		
+		if chkturn == 1 then
+			VariableSet( g_key_Summon_Number ,0)
+
+			VariableSet( g_key_turn_Island7 ,turn)
+
+			VariableSet( g_key_turn_Summon ,turn)
+			VariableSet( g_key_turn_Bress1 ,turn+1)
+			VariableSet( g_key_turn_Absorp ,turn+2)
+		--	VariableSet( g_key_turn_Bress2 ,turn+4)
+		end
+
+		local sTurn = VariableGet( g_key_turn_Island7 ) + 3
+		if sTurn < turn then
+			VariableSet( g_key_turn_Island7 ,turn)
+
+			VariableSet( g_key_turn_Summon ,turn)
+			VariableSet( g_key_turn_Bress1 ,turn+1)
+			VariableSet( g_key_turn_Absorp ,turn+2)
+		--	VariableSet( g_key_turn_Bress2 ,turn+4)
+		end
+	end
+
+	local turnH  = VariableGet( g_key_turn_Summon ) + 1
+	local turnS  = VariableGet( g_key_turn_Summon )
+	local turnB1 = VariableGet( g_key_turn_Bress1 ) 
+	local turnB2 = VariableGet( g_key_turn_Bress2 ) 
+
+	--debstr = "▼元ターン:" .. tostring( VariableGet( g_key_turn_Summon ) ) .. "　召喚：" .. tostring( turnS )
+	--Log(debstr)
+
+	if turn == turnS then
+		local sumnum = VariableGet( g_key_Summon_Number )
+		--	３つの配置から選択。
+		if sumnum  % 3 == 0 then
+			召喚渦作成("Enemy_Area7a")
+
+		elseif sumnum  % 3 == 1 then
+			召喚渦作成("Enemy_Area7b")
+
+		elseif sumnum  % 3 == 2 then
+			召喚渦作成("Enemy_Area7c")
+		end
+	end
+
+	if turn == turnH then
+		MapRangeClear()
+
+		local sumnum = VariableGet( g_key_Summon_Number )
+		--	３つの配置から選択。
+		if sumnum  % 3 == 0 then
+			召喚渦消去と配置("Enemy_Area7a")
+
+		elseif sumnum  % 3 == 1 then
+			召喚渦消去と配置("Enemy_Area7b")
+
+		elseif sumnum  % 3 == 2 then
+			召喚渦消去と配置("Enemy_Area7c")
+
+		end
+		sumnum = sumnum + 1
+		VariableSet( g_key_Summon_Number ,sumnum)
+
+	end
+	
+	if (turn == turnB1) or (turn == turnB2) then
+		--	範囲内に味方が多いところを狙う。いなかったらg_key_Bress_Direction１で。
+		ブレス検索予告()
+--		VariableSet( g_key_Bress_Direction, 2 )
+--		ブレス予告()
+	end
+
+
+end
+
+function 最終島管理赤()
+	local turn = MapGetTurn()
+	local turnB1= VariableGet( g_key_turn_Bress1 ) 
+	local turnB2= VariableGet( g_key_turn_Bress2 ) 
+	local turnA = VariableGet( g_key_turn_Absorp ) 
+	local turnH = VariableGet( g_key_turn_Absorp ) + 1
+
+	if (turn == turnB1) or (turn == turnB2) then
+	--	ブレス発射()
+	end
+	if turn == turnA then
+		吸収予告()
+	end
+	if turn == turnH then
+		範囲吸収()
+	end
+
+end
+
+
+
+-- -----------------------------------
+function ヴェロニカ管理()
+
+	if AiGetActive( "PID_E006_Hide3" ) == true then
+		if VariableGet( "ヴェロニカ召喚カウント" )  == 0 then
+			CursorSetPos_FromPid( "PID_E006_Hide3" )
+			EventEngageSummon( "PID_E006_Hide3" )
+			Dispos( "Enemy_Area6S", DISPOS_FLAG_FOCUS + DISPOS_FLAG_WARP + DISPOS_FLAG_NOT_FORCED )
+			Yield()
+			WaitTime( 2.0 )
+			VariableSet( "ヴェロニカ召喚カウント", 1 )
+			UnitClearStatus( "PID_E006_Hide3", UNIT_STATUS_MOVE_NOT_ALLOW )
+
+		end
+	end
+
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+function MapEnding()
+	
+	Log("MapEnding");
+	
+end
+
+function Ending()
+	
+	Log("Ending");
+	
+	BackgroundColorSet(1, 1, 1)
+		
+		FadeInAndWait(0)
+		Talk( "MID_BT2" )
+		FadeOut(FADE_NORMAL, 1, 1, 1)
+		FadeWait()
+		
+		PuppetDemo("E006", "MID_ED1")
+		
+	BackgroundColorSet(0, 0, 0)
+	
+	
+-- ED2以降はソラネル側でやる（ここでやるとユニット加入が巻き戻される）
+
+end
+
+function GameOver()
+	
+	Log("GameOver");
+	
+end
+
+
+
+

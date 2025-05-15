@@ -1,0 +1,278 @@
+Include("Common")
+g_pid_lueur = "PID_リュール"
+
+g_key_join_jean			= "S_ジャン加入会話_済"
+g_key_villager_all_dead	= "S_村人が全員死んだ"
+g_key_villager_dead		= "S_村人が死んだ"
+g_key_jean_dead			= "S_ジャン_死亡"
+g_key_house_destroy		= "S_手前民家破壊_済"
+
+ -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	WinRuleSetMID( "MID_RULE_S001_WIN" )
+	
+	変数登録()
+	イベント登録()
+	
+end
+
+function Cleanup()
+	
+	Log("Cleanup");
+	
+end
+
+-- -----------------------------------
+
+function 変数登録()
+	VariableEntry( g_key_join_jean, 0 )
+	VariableEntry( g_key_villager_all_dead, 0 )
+	VariableEntry( g_key_villager_dead, 0 )
+	VariableEntry( g_key_jean_dead, 0 )
+	VariableEntry( g_key_house_destroy, 0 )
+end
+
+function イベント登録()
+	
+	EventEntryTurn( 青軍１ターン開始直前, 1, 1, FORCE_PLAYER )
+	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
+	
+	EventEntryTalk( ジャン加入会話, g_pid_lueur, FORCE_PLAYER, "PID_ジャン", FORCE_ALLY, true, g_key_join_jean )
+	
+	EventEntryVisit( 民家訪問１,  3, 5, "民家訪問１_済" )
+	EventEntryDestroy(民家破壊_S001手前, 3, 5, 3, 5, 2, 6, 4, 7)
+	EventEntryVisit( 民家訪問２, 19, 2, "民家訪問２_済" )
+	EventEntryDestroy(民家破壊, 19, 2, 19, 2, 18, 3, 20, 4)
+	
+	EventEntryBattleTalk( Talk, "PID_S001_異形兵_ボス",	FORCE_ENEMY,	"",						FORCE_ALL,		true,	"戦闘前会話_ボス_済",			"MID_BT3" )
+	
+	EventEntryBattleTalk( Talk, "",						FORCE_ENEMY,	"PID_ジャン",			FORCE_ALLY,		false,	"戦闘前会話_敵_ジャン_済",		"MID_BT1" )
+	EventEntryBattleTalk( Talk, "",						FORCE_ENEMY,	"PID_S001_ジャン_父親",	FORCE_ALLY,		false,	"戦闘前会話_敵_ジャン父親_済",	"MID_BT2" )
+	
+	EventEntryDie( Talk,			"PID_S001_異形兵_ボス",	FORCE_ENEMY,	condition_true,		"MID_BT4" )
+	EventEntryDie( ジャン死亡,		"PID_ジャン",			FORCE_ALL,		g_key_jean_dead )
+	EventEntryDie( ジャン父親死亡,	"PID_S001_ジャン_父親",	FORCE_ALLY,		condition_true )
+	EventEntryDie( 村人死亡,		"",						FORCE_ALLY,		condition_村人死亡 )
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	FadeInAndWait(FADE_NORMAL)
+		PuppetDemo( "S001", "MID_OP1" )
+	FadeOutAndWait(FADE_NORMAL)
+	
+end
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+	FadeOutAndWait(FADE_FAST)
+	
+	CursorSetPos(8, 10)
+	CursorSetDistanceMode(CURSOR_DISTANCE_FAR)
+	MapCameraWait()
+	
+	一旦退避()
+	
+	FadeInAndWait(FADE_FAST)
+	
+	Talk( "MID_OP2" )
+	
+	CursorSetPos(4, 3)
+	WaitTime(0.2)
+	入場演出()
+	MapCameraWait()
+	
+	Talk( "MID_OP3" )
+	
+	CursorSetPos_FromPid( "PID_S001_ジャン_父親" )
+	
+	Talk( "MID_EV1" )
+	
+	Dispos( "Jean", DISPOS_FLAG_NONE )
+	Yield()
+	UnitRotation("PID_S001_ジャン_父親", ROTATE_LEFT)
+	
+	Talk( "MID_EV2" )
+	
+	UnitMovePos("PID_S001_ジャン_父親", 11, 13, MOVE_FLAG_NONE)
+	UnitMovePos("PID_ジャン", 9, 12, MOVE_FLAG_NONE)
+	UnitMoveWait()
+	UnitRotation("PID_S001_ジャン_父親", ROTATE_RIGHT)
+	CursorSetPos(4, 3)
+	UnitMovePos("PID_ジャン", 4, 2, MOVE_FLAG_NONE)
+	UnitRotation("PID_ジャン", ROTATE_UP)
+	UnitMoveWait()
+	ジャン加入会話()
+	
+	UnitPutOffItem("PID_ジャン","IID_初心の法")
+	UnitPutOffItem("PID_ジャン","IID_ライブ")
+	
+	Tutorial("TUTID_会話")
+	
+end
+
+function 一旦退避()
+	UnitSetPosFromPos( 3, 2,	3, 1 )
+	UnitSetPosFromPos( 4, 2,	4, 1 )
+	UnitSetPosFromPos( 5, 2,	5, 1 )
+	UnitSetPosFromPos( 6, 2,	6, 1 )
+	UnitSetPosFromPos( 3, 3,	3, 2 )
+	UnitSetPosFromPos( 4, 3,	4, 2 )
+	UnitSetPosFromPos( 5, 3,	5, 2 )
+end
+
+function 入場演出()
+	UnitMovePosFromPos( 3, 2,	3, 3 )
+	UnitMovePosFromPos( 4, 2,	4, 3 )
+	UnitMovePosFromPos( 5, 2,	5, 3 )
+	UnitMovePosFromPos( 3, 1,	3, 2 )
+	UnitMovePosFromPos( 5, 1,	5, 2 )
+	
+	UnitMoveWait()
+end
+
+-- -----------------------------------
+
+function 青軍１ターン開始直前()
+	local pid = "PID_ジャン"
+	if UnitExistOnMap( pid ) then
+		UnitJoin( pid )
+	end
+	
+	AiSetActiveAll(FORCE_ENEMY, "PID_S001_IFMOD_ソードナイト", false)
+	AiSetActiveAll(FORCE_ENEMY, "PID_S001_IFMOD_ランスペガサス", false)
+	AiSetActiveAll(FORCE_ENEMY, "PID_S001_IFMOD_ソードペガサス", false)
+	
+
+	WaitTime( 1.0 )
+end
+
+-- -----------------------------------
+
+function 民家訪問１()
+	Talk( "MID_EV3" )
+	ItemGain( MindGetUnit(), "IID_調合薬" )
+end
+
+-- -----------------------------------
+
+function 民家破壊_S001手前(x1, z1, x2, z2)
+	TerrainSetBegin()
+	for z = z1, z2 do
+		for x = x1, x2 do
+			TerrainSet( x, z, "TID_廃墟" )
+		end
+	end
+	TerrainSetEnd()
+	
+	WaitTime( 1.0 )
+	
+	VariableSet( g_key_house_destroy, 1 )
+end
+
+-- -----------------------------------
+
+function 民家訪問２()
+	local unit = MindGetUnit()
+	local pid = UnitGetPID( unit )
+	
+	if pid == "PID_ジャン" then
+		Talk( "MID_EV4_2" )
+	else
+		Talk( "MID_EV4" )
+	end
+	
+	ItemGain( MindGetUnit(), "IID_秘伝の書" )
+end
+
+-- -----------------------------------
+
+function ジャン加入会話()
+	Talk( "MID_EV5" )
+end
+
+-- -----------------------------------
+
+function ジャン死亡()	
+	if condition_村人死亡() then
+		村人死亡()
+	end
+end
+
+function ジャン父親死亡()
+	Talk( "MID_BT6" )
+	
+	if condition_村人死亡() then
+		村人死亡()
+	end
+end
+
+function condition_村人死亡()
+	if VariableGet( g_key_villager_dead ) == 1 then
+		return false
+	end
+	
+	return true
+end
+
+function 村人死亡()
+	VariableSet( g_key_villager_dead, 1 )
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+	-- 村人の数をカウント
+	local count = 0
+	local index = ForceUnitGetFirst(FORCE_ALLY)
+	while index != nil do
+		count = count + 1
+		index = ForceUnitGetNext(index)
+	end
+	
+	-- 全員死んでいた場合
+	if count == 0 then
+		VariableSet( g_key_villager_all_dead, 1 )
+	end
+	
+	
+	if VariableGet( g_key_villager_dead ) == 0 then
+		Talk( "MID_ED1" )
+		ItemGain(nil, "IID_2000G")
+		ItemGain(nil, "IID_レスキュー")
+		
+	elseif VariableGet( g_key_villager_all_dead ) == 0 then
+		Talk( "MID_ED2" )
+		ItemGain(nil, "IID_2000G")
+		
+	else
+		Talk( "MID_ED3" )
+		
+	end
+	
+end
+
+function Ending()
+	
+	Log("Ending");
+	
+end
+
+function GameOver()
+	
+	Log("GameOver");
+	
+end

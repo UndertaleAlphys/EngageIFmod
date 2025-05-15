@@ -1,0 +1,247 @@
+Include("Common")
+g_pid_lueur = "PID_リュール"
+g_pid_eirik = "PID_S008_エイリーク"
+
+g_key_area1					= "エリア１侵入"
+g_key_area2					= "エリア２侵入"
+g_key_reinforcement1		= "増援１終了"
+g_key_reinforcement2		= "増援２終了"
+g_key_reinforcement3		= "増援３カウンター"
+g_key_reinforcement3Even	= "増援３_偶数ターン"
+g_reinfocement3_max_normal	= 2
+g_reinfocement3_max			= 5
+g_key_reinforcement_first = "増援初回"
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	Startup_紋章士外伝_対象紋章士を一時的に無効化( "GID_エイリーク" )
+	
+	-- 勝利条件の設定
+	WinRuleSetDestroyBoss( true )	-- 敵将撃破
+	WinRuleSetMID( "MID_RULE_S008_WIN" )
+	
+	変数登録()
+	イベント登録()
+	
+end
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+	Cleanup_紋章士外伝_対象紋章士の無効化解除( "GID_エイリーク" )
+	
+end
+
+-- -----------------------------------
+
+function 変数登録()
+	
+	VariableEntry( g_key_area1, 0 )
+	VariableEntry( g_key_area2, 0 )
+	
+	VariableEntry( g_key_reinforcement1, 0 )
+	VariableEntry( g_key_reinforcement2, 0 )
+	VariableEntry( g_key_reinforcement3, 0 )
+	VariableEntry( g_key_reinforcement3Even, 0 )
+	
+	VariableEntry( g_key_reinforcement_first, 0 )
+	
+end
+
+function イベント登録()
+	
+	EventEntryTurn(開戦, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
+	
+	EventEntryArea(EmptyFunction,  1, 9,  6, 14, FORCE_PLAYER, g_key_area1)
+	EventEntryArea(EmptyFunction, 16, 9, 21, 14, FORCE_PLAYER, g_key_area2)
+	
+	EventEntryTurn(増援, -1, -1, FORCE_PLAYER, condition_増援)
+	
+	EventEntryBattleTalk(Talk, g_pid_eirik, FORCE_ENEMY, g_pid_lueur,			FORCE_PLAYER, true, "戦闘前会話_エイリーク_リュール_済",		"MID_BT1")
+	EventEntryBattleTalk(Talk, g_pid_eirik, FORCE_ENEMY, "PID_ロサード",		FORCE_PLAYER, true, "戦闘前会話_エイリーク_ロサード_済",		"MID_BT2")
+	EventEntryBattleTalk(Talk, g_pid_eirik, FORCE_ENEMY, "PID_ゴルドマリー",	FORCE_PLAYER, true, "戦闘前会話_エイリーク_ゴルドマリー_済",	"MID_BT3")
+	
+	EventEntryTbox(宝箱入手,  2, 7, "IID_チェンジプルフ")
+	EventEntryTbox(宝箱入手, 21, 7, "IID_天使の衣")
+	
+	-- --------------------------------------------------
+	EventEntryEscape(離脱イベント, 11, 23, "PID_リュール", condition_true)
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+	FadeInAndWait( FADE_NORMAL )
+		PuppetDemo( "S008", "MID_OP1" )
+	FadeOutAndWait( FADE_NORMAL )
+	
+end
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+end
+
+-- -----------------------------------
+
+function 開戦()
+	
+	CursorSetPos_FromPid( g_pid_eirik )
+	Talk( "MID_EV1" )
+	
+end
+
+-- -----------------------------------
+
+function EmptyFunction()
+end
+
+function condition_増援()
+	
+	local re1 = VariableGet( g_key_reinforcement1 )
+	local re2 = VariableGet( g_key_reinforcement2 )
+	local re3 = VariableGet( g_key_reinforcement3 )
+	
+	if		(re1 == 1) 
+		and	(re2 == 1)
+		and (
+				( DifficultyGet() == DIFFICULTY_NORMAL and re3 == g_reinfocement3_max_normal )
+			or	( DifficultyGet() > DIFFICULTY_NORMAL and re3 == g_reinfocement3_max )
+			) then
+			return false
+	end
+	
+	if re1 == 0 and VariableGet( g_key_area1 ) == 1 then
+		return true
+	end
+	
+	if re2 == 0 and VariableGet( g_key_area2 ) == 1 then
+		return true
+	end
+	
+	if AiGetActive( g_pid_eirik ) then
+		
+		if		( ( DifficultyGet() == DIFFICULTY_NORMAL ) and ( re3 < g_reinfocement3_max_normal ) )
+			or	( ( DifficultyGet() > DIFFICULTY_NORMAL ) and ( re3 < g_reinfocement3_max ) )			then
+				return true
+		end
+		
+	end
+	
+	return false
+	
+end
+
+function 増援()
+	
+	if VariableGet( g_key_reinforcement_first ) == 0 then
+		
+		CursorSetPos_FromPid( g_pid_eirik )
+		Talk( "MID_EV2" )
+		
+		VariableSet( g_key_reinforcement_first, 1 )
+	end
+	
+	
+	if	VariableGet( g_key_reinforcement1 ) == 0	and
+		VariableGet( g_key_area1 ) == 1				then
+		
+		Dispos( "Reinforcement1", DISPOS_FLAG_FOCUS )
+		Yield()
+		WaitTime( 0.5 )
+		
+		VariableSet( g_key_reinforcement1, 1 )
+	end
+	
+	if  VariableGet( g_key_reinforcement2 ) == 0	and
+		VariableGet( g_key_area2 ) == 1				then
+		
+		Dispos( "Reinforcement2", DISPOS_FLAG_FOCUS )
+		Yield()
+		WaitTime( 0.5 )
+		
+		VariableSet( g_key_reinforcement2, 1 )
+	end
+	
+	local re3 = VariableGet( g_key_reinforcement3 )
+	if AiGetActive( g_pid_eirik ) then
+		
+		if		( ( DifficultyGet() == DIFFICULTY_NORMAL ) and ( re3 < g_reinfocement3_max_normal ) )
+			or	( ( DifficultyGet() > DIFFICULTY_NORMAL ) and ( re3 < g_reinfocement3_max ) )			then
+			
+			-- 初回ターンが奇数／偶数かを保持
+			if re3 == 0 then
+				if ( ( MapGetTurn() % 2 ) == 0 ) then
+					VariableSet( g_key_reinforcement3Even, 1 )
+				end
+			end
+			
+			
+			-- ２ターンに１回増援を出す
+			if ( VariableGet( g_key_reinforcement3Even ) == 1 ) == ( ( MapGetTurn() % 2 ) == 0 ) then
+				
+				Dispos( "Reinforcement3", DISPOS_FLAG_FOCUS )
+				Yield()
+				WaitTime( 0.5 )
+				
+				re3 = re3 + 1
+				VariableSet( g_key_reinforcement3, re3 )
+				
+			end
+			
+		end
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+	FadeInAndWait( FADE_NORMAL )
+	PuppetDemo("S008", "MID_ED1")
+	FadeOutAndWait( FADE_NORMAL )
+	
+	紋章士外伝_レベルキャップ開放( "エイリーク", "S008" )
+	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end

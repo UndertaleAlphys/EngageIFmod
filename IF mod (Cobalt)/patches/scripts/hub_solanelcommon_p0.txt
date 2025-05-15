@@ -1,0 +1,66 @@
+-- 参照ファイル
+Include("Common")
+Include("Hub_Common")
+
+
+-- -----------------------------------
+
+function HubSolanelNoticeP0()
+	
+	Log("HubSolanelNoticeP0")
+
+	if (CanStartGod()) then
+		Notice("MID_TUT_HUB_GOD_START_NOTICE")
+	end
+
+end
+
+
+-- 神竜の章開始デモ
+function CanStartGod()
+
+	if ( HasContent("E0") == false ) then
+		return false;
+	end
+
+	if VariableIsExist("G_拠点_神竜の章初回") then
+		if VariableGet("G_拠点_神竜の章初回") != 0 then
+			return false;
+		end
+	end
+
+	if (HubIsCompleteChapter("M011")) then
+		return true;
+	end
+
+	return false;
+
+end
+
+function ScriptStartGod()
+
+	FadeOutAndWait(FADE_FAST)
+	PuppetDemo("HubCommon", "MID_HUB_DLC1")
+	PuppetDemo("G007", "MID_OP1")
+
+	Movie("Kengen13")
+	SkipEscape()
+
+	PuppetDemo("G007", "MID_OP1_2")
+
+	if GodUnitExists("GID_ベレト") then
+		PuppetDemo("G007", "MID_OP2")
+	end
+
+	PuppetDemo("G007", "MID_OP3")
+	FadeInAndWait(FADE_FAST)
+
+	GodUnitCreate( "GID_エーデルガルト" )
+	Tutorial("TUTID_紋章士エーデルガルト")
+
+	Tutorial("TUTID_神竜の章")
+
+	VariableEntry("G_拠点_神竜導入イベント再生済み", 1)
+
+end
+

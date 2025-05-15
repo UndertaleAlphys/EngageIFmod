@@ -1,0 +1,1424 @@
+Include("Common")
+Include("Common_E")
+
+g_pid_lueur					= "PID_リュール"
+
+g_key_area					= "エリア進入_済"
+g_key_escapePointEmpty			= "離脱地点空_済"
+g_key_4docs_Ivy				= "四狗とアイビー登場_済"
+g_key_defeat_engage_enemy_x	= "指輪持ちの敵を初撃破_x"
+g_key_defeat_engage_enemy_z	= "指輪持ちの敵を初撃破_z"
+g_key_defeat_engage_enemy	= "指輪持ちの敵を初撃破_済"
+g_key_replacement_engage	= "増援時_初付け替えエンゲージ_済"
+g_key_attacked_Bel = "リュールえエンゲージ_済"
+
+
+-- 計算用
+
+g_map_width					= 18
+g_map_height				= 32
+
+g_SynchroNumMax				= 2
+
+g_BattleTalk				= "戦闘前会話_"
+g_Waiting4Engage			= "エンゲージ待ち_"
+g_GidPrefix					= "GID_M011_敵"
+
+-- プレイヤー軍中心座標
+g_center_x = "プレイヤー軍中心座標X"
+g_center_z = "プレイヤー軍中心座標Z"
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	-- 勝利条件
+	WinRuleSetEnemyNumberLessThanOrEqualTo(-1)
+	WinRuleSetMID( "MID_RULE_M011_WIN" )
+	
+	フラグ登録()
+	イベント登録()
+	
+end
+
+function フラグ登録()
+	
+	VariableEntry(g_key_defeat_engage_enemy_x,	-1)
+	VariableEntry(g_key_defeat_engage_enemy_z,	-1)
+	VariableEntry(g_key_defeat_engage_enemy,	0)
+	VariableEntry(g_key_replacement_engage,		0)
+	VariableEntry(g_key_4docs_Ivy,				0)
+	VariableEntry(g_key_escapePointEmpty,		0)
+	
+	VariableEntry(g_BattleTalk .. "敵マルス"	.. "_済", 0)
+	VariableEntry(g_BattleTalk .. "敵シグルド"	.. "_済", 0)
+	VariableEntry(g_BattleTalk .. "敵セリカ"	.. "_済", 0)
+	VariableEntry(g_BattleTalk .. "敵ミカヤ"	.. "_済", 0)
+	VariableEntry(g_BattleTalk .. "敵ロイ"		.. "_済", 0)
+	VariableEntry(g_BattleTalk .. "敵リーフ"	.. "_済", 0)
+	
+	VariableEntry(g_Waiting4Engage .. g_GidPrefix .. "マルス",		0)
+	VariableEntry(g_Waiting4Engage .. g_GidPrefix .. "シグルド",	0)
+	VariableEntry(g_Waiting4Engage .. g_GidPrefix .. "セリカ",		0)
+	VariableEntry(g_Waiting4Engage .. g_GidPrefix .. "ミカヤ",		0)
+	VariableEntry(g_Waiting4Engage .. g_GidPrefix .. "ロイ",		0)
+	VariableEntry(g_Waiting4Engage .. g_GidPrefix .. "リーフ",		0)
+	VariableEntry(g_key_attacked_Bel, 0)
+
+	VariableEntry(g_center_x, -1)
+	VariableEntry(g_center_z, -1)
+	
+	E_BattleTalk_VariableEntry()
+	
+end
+
+function イベント登録()
+	
+	EventEntryTurn(進撃開始直後, 1, 1, FORCE_PLAYER)
+	EventEntryTurn( 勝利条件, 1, 1, FORCE_PLAYER )
+	
+	EventEntryDie(指輪の待機状態を更新, "", FORCE_ENEMY, condition_指輪持ち)
+	
+	EventEntryArea(EmptyFunction, 1, 1, 16, 7, FORCE_PLAYER, g_key_area)
+	
+	EventEntryTurn(青軍ターン直前イベント, -1, -1, FORCE_PLAYER, condition_青軍ターン直前イベント)
+	
+	EventEntryBattleAfter(	指輪持ちの敵を初撃破, "", FORCE_ENEMY, "", FORCE_PLAYER, false, condition_指輪持ちの敵を初撃破 )
+	EventEntryFixed(		指輪持ちの敵を初撃破, "", FORCE_PLAYER, condition_指輪持ちの敵を初撃破 )
+
+	
+	EventEntryBattleTalk( 戦闘前会話, "", FORCE_PLAYER, "PID_M011_ヴェイル",	FORCE_ENEMY, true, "戦闘前会話_ヴェイル_済",	"MID_BT7" )
+	EventEntryBattleAfter(ベルを攻撃したかチェック, "", FORCE_PLAYER, "PID_M011_ヴェイル", FORCE_ENEMY, true, nil)
+
+	E_BattleTalkEntry_Sepia( "PID_M011_セピア" )
+	EventEntryBattleTalk( 戦闘前会話, "", FORCE_PLAYER, "PID_M011_セピア",		FORCE_ENEMY, true, "戦闘前会話_セピア_済",		"MID_BT8" )
+	
+	E_BattleTalkEntry_Gris( "PID_M011_グリ" )
+	EventEntryBattleTalk( 戦闘前会話, "", FORCE_PLAYER, "PID_M011_グリ",		FORCE_ENEMY, true, "戦闘前会話_グリ_済",		"MID_BT10" )
+	
+	E_BattleTalkEntry_Marron( "PID_M011_マロン" )
+	EventEntryBattleTalk( 戦闘前会話, "", FORCE_PLAYER, "PID_M011_マロン",		FORCE_ENEMY, true, "戦闘前会話_マロン_済",	 	"MID_BT12" )
+	
+	EventEntryBattleTalk( 戦闘前会話, "", FORCE_PLAYER, "PID_M011_モーヴ",		FORCE_ENEMY, true, "戦闘前会話_モーヴ_済",	 	"MID_BT14" )
+	
+	
+	EventEntryBattleTalk( 戦闘前会話_紋章士, g_pid_lueur, FORCE_PLAYER, "", FORCE_ENEMY, true, conidtion_戦闘前会話_紋章士 )
+	
+	
+	--EventEntryDie( EmptyFunction, "PID_M011_異形兵_ランスナイト_離脱",	FORCE_ENEMY, g_key_escapePointEmpty )
+	--EventEntryDie( EmptyFunction, "PID_M011_異形兵_アーチャー_離脱",	FORCE_ENEMY, g_key_escapePointEmpty )
+	EventEntryFixed( 離脱地点が空いた, "", FORCE_PLAYER, condition_離脱地点が空いた )
+	
+	EventEntryDie( Talk, "PID_M011_セピア",	FORCE_ENEMY, condition_true, "MID_BT9" )
+	EventEntryDie( Talk, "PID_M011_グリ",	FORCE_ENEMY, condition_true, "MID_BT11" )
+	EventEntryDie( Talk, "PID_M011_マロン",	FORCE_ENEMY, condition_true, "MID_BT13" )
+	EventEntryDie( Talk, "PID_M011_モーヴ",	FORCE_ENEMY, condition_true, "MID_BT15" )
+	
+	
+	-- 離脱関係のイベント	
+	EventEntryEscape(離脱イベント, 7, 1, "PID_リュール", condition_true)
+	EventEntryEscape(離脱イベント, 8, 1, "PID_リュール", condition_true)
+	
+end
+
+-- -----------------------------------
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+end
+
+-- -----------------------------------
+
+function Opening()
+	
+	Log("Opening")
+	
+end
+
+function MapOpening()
+	
+	Log("MapOpening")
+	
+	自軍入場演出()
+	
+	-- -----------------------------
+	
+	CursorSetPos( 9, 28 )
+	MapCameraWait()
+	
+	Dispos("Enemy_OP1", DISPOS_FLAG_NONE)
+	Yield()
+	WaitTime(0.5)
+	
+	Dispos("Enemy_OP2", DISPOS_FLAG_NONE)
+	Yield()
+	WaitTime(0.5)
+	
+	-- -----------------------------
+	
+	Talk("MID_OP1")
+	
+	OPイベント_異形兵がエンゲージ()
+	
+	CursorSetPos_FromPid( g_pid_lueur )
+	UnitRotation( g_pid_lueur, ROTATE_UP )
+	UnitMoveWait()
+	
+	Talk("MID_OP2")
+	
+	UnitRotation( g_pid_lueur, ROTATE_DOWN )
+	離脱マス点灯()
+	
+	CursorSetPos_FromPid(g_pid_lueur)
+	
+	Talk("MID_OP3")
+	
+end
+
+-- ----------------------------------------------------------------------
+
+function 進撃開始直後()
+	
+	SetFieldBgmWarSituation("A_BGM_Field_P05")
+	
+end
+
+-- -----------------------------------
+
+function 自軍入場演出()
+	
+	CursorSetPos( 9, 28 )
+	CursorSetDistanceMode(CURSOR_DISTANCE_NEAR)
+	MapCameraWait()
+	
+	FadeInAndWait( SOUND_FADE_VERY_SLOW )
+	
+	
+	-- PLAYER軍の登場演出
+	ユニット登場演出( 10, 20,  8, 30, 0.2  )		-- No.2
+	ユニット登場演出( 13, 20, 11, 30, 0.1  )		-- No.4
+	ユニット登場演出( 12, 20, 10, 30, 0.15 )		-- No.3
+	ユニット登場演出( 10, 21,  8, 30, 0.3  )		-- No.6
+	ユニット登場演出( 13, 21, 10, 30, 0.2  )		-- No.8
+	ユニット登場演出( 11, 21,  9, 30, 0.1  )		-- No.7
+	ユニット登場演出(  9, 21,  7, 30, 0.1  )		-- No.5
+	ユニット登場演出( 12, 22, 10, 30, 0.5  )		-- No.10
+	ユニット登場演出( 10, 22,  8, 30, 0.0  )		-- No.9
+	
+	
+	-- リュール登場～一時停止
+	WaitTime( 0.3 )
+	UnitSetPos	( g_pid_lueur,  9, 30 )
+	UnitMovePos	( g_pid_lueur,  9, 27, MOVE_FLAG_NONE )
+	UnitMoveWait()
+	WaitTime( 0.3 )
+	
+	-- 振り返り
+	UnitRotation( g_pid_lueur, ROTATE_UP )
+	WaitTime( 1.0 )
+	
+	-- 再出発
+	UnitMovePos	( g_pid_lueur, 11, 19, MOVE_FLAG_NONE )
+	WaitTime( 1.0 )
+	
+	-- -----------------------------------
+	
+	-- リュール以外の向き調整（カメラ外）
+	local index = ForceUnitGetFirst(FORCE_PLAYER)
+	while index != nil do
+		UnitRotation( index, ROTATE_DOWN )
+		index = ForceUnitGetNext(index)	
+	end
+	
+end
+
+function ベルを攻撃したかチェック()
+    if VariableGet(g_key_attacked_Bel) == 1 then
+        return
+    end
+
+   VariableSet(g_key_attacked_Bel, 1 )
+    
+
+    四狗とアイビー登場()                
+end
+
+-- -----------------------------------
+
+function ユニット登場演出( x1, z1, x2, z2, wait )
+	if ユニットがいる( x1, z1 ) then
+		UnitSetPosFromPos	( x1, z1, x2, z2 )
+		UnitMovePosFromPos	( x2, z2, x1, z1 )
+		WaitTime( wait )
+	end
+end
+
+-- -----------------------------------
+
+function ユニットがいる( x, z )
+	local unit = UnitGetByPos( x, z )
+	return unit != nil
+end
+
+-- -----------------------------------
+
+function 離脱マス点灯()
+	CursorSetPos( 7, 1 )
+	CursorAnimeCreate_DistanceModeNear( 7, 1, "W2H1" )
+	CursorAnimeDelete()
+	
+	WaitTime(1.0)
+end
+
+-- -----------------------------------
+
+function OPイベント_異形兵がエンゲージ()
+	
+	闇シンクロ_座標( 6, 30, g_GidPrefix .. "シグルド")
+	闇シンクロ_座標( 9, 28, g_GidPrefix .. "ミカヤ")
+	闇シンクロ_座標( 2, 19, g_GidPrefix .. "マルス")
+	闇シンクロ_座標(11, 16, g_GidPrefix .. "ロイ")
+	闇シンクロ_座標( 6, 10, g_GidPrefix .. "リーフ")
+	闇シンクロ_座標( 9,  8, g_GidPrefix .. "セリカ")
+	
+end
+
+-- -----------------------------------
+
+function 闇シンクロ_座標(x, z, gid, cameraAct)
+	local unit = UnitGetByPos(x, z)
+	if unit == nil then
+		return
+	end
+	if not ( UnitGetForce( unit ) == FORCE_ENEMY ) then
+		return
+	end
+	
+	闇シンクロ(unit, gid, cameraAct)
+end
+
+-- -----------------------------------
+
+function 闇シンクロ(unit, gid, cameraAct)
+	
+	if UnitExistOnMap( unit ) then
+		local x = UnitGetX(unit)
+		local z = UnitGetZ(unit)
+		
+		if ( not ( cameraAct == false ) ) then
+			CursorSetPos(x,z)
+			MapCameraWait()
+			
+			EffectPlay( "ワープイン_闇", x, z )
+			UnitShine( unit, 0.3 )
+			WaitTime( 0.3 )
+		end
+		
+		GodUnitCreate( gid )
+		UnitSetGodUnit( unit, gid )
+		
+		if ( not ( cameraAct == false ) ) then
+			EffectWait()
+		end
+		
+		VariableSet( g_Waiting4Engage .. gid, 0 )
+		
+		-- AI設定
+		local god = SubPrefix( gid )
+		god = SubPrefix( god )
+		if god == "敵マルス" then
+			AI設定_マルス( unit )
+			
+		elseif god == "敵シグルド" then
+			AI設定_シグルド( unit )
+			
+		elseif god == "敵セリカ" then
+			AI設定_セリカ( unit )
+			
+		elseif god == "敵ミカヤ" then
+			AI設定_ミカヤ( unit )
+			
+		elseif god == "敵ロイ" then
+			AI設定_ロイ( unit )
+			
+		elseif god == "敵リーフ" then
+			AI設定_リーフ( unit )
+			
+		end
+		
+		if ( cameraAct == nil ) then
+			WaitTime(0.3)
+		end
+	end
+	
+end
+
+-- -----------------------------------
+
+function AI設定_マルス( unit )
+	AiSetActive( unit, true )
+end
+
+function AI設定_シグルド( unit )
+	AiSetActive( unit, true )
+end
+
+function AI設定_セリカ( unit )
+	AiSetSequence( unit, AI_ORDER_ATTACK, "AI_AT_EngageAttack", "1, 1" )
+	AiSetActive( unit, true )
+end
+
+function AI設定_ミカヤ( unit )
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		AiSetSequence( unit, AI_ORDER_ATTACK, "AI_AT_Interference", "" )
+	else
+		AiSetSequence( unit, AI_ORDER_ATTACK, "AI_AT_InterferenceFrequency", "3, 3" )
+	end
+	
+	AiSetActive( unit, true )
+end
+
+function AI設定_ロイ( unit )
+	AiSetActive( unit, true )
+end
+
+function AI設定_リーフ( unit )
+	AiSetActive( unit, true )
+end
+
+-- -----------------------------------
+
+function conidtion_戦闘前会話_紋章士()
+	
+	if		( VariableGet(g_BattleTalk .. "敵マルス"		.. "_済") == 1 )
+		and	( VariableGet(g_BattleTalk .. "敵シグルド"	.. "_済") == 1 )
+		and	( VariableGet(g_BattleTalk .. "敵セリカ"		.. "_済") == 1 )
+		and	( VariableGet(g_BattleTalk .. "敵ミカヤ"		.. "_済") == 1 )
+		and	( VariableGet(g_BattleTalk .. "敵ロイ"		.. "_済") == 1 )
+		and	( VariableGet(g_BattleTalk .. "敵リーフ"		.. "_済") == 1 ) then
+			return false
+	end
+	
+	
+	-- リュールの戦闘可
+	if ( UnitGetPID(MindGetUnit()) != g_pid_lueur ) and ( UnitGetPID(MindGetTargetUnit()) != g_pid_lueur ) then
+		return false
+	end
+	
+	
+	-- 闇シンクロした敵か
+	local unit = nil
+	if MindGetForce() == FORCE_ENEMY then
+		unit = MindGetUnit()
+	else
+		unit = MindGetTargetUnit()
+	end
+	
+	local gid = UnitGetGodUnit( unit )
+	if gid == nil then
+		return false
+	end
+	
+	
+	-- 再生済みか
+	local god = SubPrefix( gid )
+	god = SubPrefix( god )
+	if VariableGet(g_BattleTalk .. god .. "_済") == 0 then
+		return true
+	end
+	
+	
+	return false
+	
+end
+
+function 戦闘前会話_紋章士()
+	local unit = nil
+	if MindGetForce() == FORCE_ENEMY then
+		unit = MindGetUnit()
+	else
+		unit = MindGetTargetUnit()
+	end
+	
+	local gid = UnitGetGodUnit( unit )
+	if gid == nil then
+		return false
+	end
+	
+	local god = SubPrefix( gid )
+	god = SubPrefix( god )
+	if		god == "敵マルス"		then
+		Talk("MID_BT1")
+		
+	elseif	god == "敵シグルド"	then
+		Talk("MID_BT2")
+		
+	elseif	god == "敵セリカ"		then
+		Talk("MID_BT3")
+		
+	elseif	god == "敵ミカヤ"		then
+		Talk("MID_BT4")
+		
+	elseif	god == "敵ロイ"		then
+		Talk("MID_BT6")
+		
+	elseif	god == "敵リーフ"		then
+		Talk("MID_BT5")
+		
+	end
+	
+	VariableSet(g_BattleTalk .. god .. "_済", 1)
+	
+end
+
+
+-- -----------------------------------
+
+function 戦闘前会話( mid )
+	
+	if conidtion_戦闘前会話_紋章士() then
+		戦闘前会話_紋章士()
+	end
+	
+	Talk( mid )
+	
+end
+
+-- -----------------------------------
+
+function condition_指輪持ち()
+	
+	-- 初期化
+	local unit = MindGetEventUnit()
+	if unit == nil then
+		return false
+	end
+	
+	local gid = UnitGetGodUnit( unit )
+	if gid == nil then
+		return false
+	end
+	
+	return true
+	
+end
+
+function 指輪の待機状態を更新()
+	
+	local unit = MindGetEventUnit()
+	local gid = UnitGetGodUnit( unit )
+	
+	-- 指輪持ちの敵が初撃破された座標を保持
+	if VariableGet( g_key_defeat_engage_enemy ) == 0 then
+		VariableSet( g_key_defeat_engage_enemy_x, UnitGetX( unit ) )
+		VariableSet( g_key_defeat_engage_enemy_z, UnitGetZ( unit ) )
+	end
+	
+	指輪待機カウント( g_GidPrefix .. "マルス",		gid )
+	指輪待機カウント( g_GidPrefix .. "シグルド",	gid )
+	指輪待機カウント( g_GidPrefix .. "セリカ",		gid )
+	指輪待機カウント( g_GidPrefix .. "ミカヤ",		gid )
+	指輪待機カウント( g_GidPrefix .. "ロイ",		gid )
+	指輪待機カウント( g_GidPrefix .. "リーフ",		gid )
+	
+end
+
+function 指輪待機カウント( gid, gid_current )
+	
+	if ( gid == gid_current ) then
+		VariableSet( g_Waiting4Engage .. gid, 1 )
+		return
+	end
+	
+	local value = VariableGet( g_Waiting4Engage .. gid )
+	if not ( value == 0 ) then
+		VariableSet( g_Waiting4Engage .. gid, value + 1 )
+	end
+	
+end
+
+-- -----------------------------------
+
+function condition_指輪持ちの敵を初撃破()
+	if condition_紋章士在庫あり() 
+		and ( VariableGet( g_key_defeat_engage_enemy ) == 0 )
+		and not ( VariableGet( g_key_defeat_engage_enemy_x ) == -1 )
+		and not ( VariableGet( g_key_defeat_engage_enemy_z ) == -1 ) then
+		
+			return true
+		
+	end
+	
+	return false
+end
+
+function 指輪持ちの敵を初撃破()
+	local x = VariableGet( g_key_defeat_engage_enemy_x )
+	local z = VariableGet( g_key_defeat_engage_enemy_z )
+	CursorSetPos( x, z )
+	MapCameraWait()
+	
+	Talk("MID_EV12")
+	
+	EffectPlay( "ワープアウト_闇", x, z )
+	EffectWait()
+	
+	Talk("MID_EV13")
+	
+	VariableSet( g_key_defeat_engage_enemy, 1 )
+end
+
+-- -----------------------------------
+
+function EmptyFunction()
+end
+
+--[[
+function condition_離脱防衛撃破後()
+	if VariableGet( g_key_escapePointEmpty ) == 0 then
+		return false
+	end
+	
+	if VariableGet( g_key_4docs_Ivy ) == 1 then
+		return false
+	end
+	
+	return true
+end
+]]
+
+-- -----------------------------------
+
+function condition_離脱地点が空いた()
+	
+	if VariableGet( g_key_4docs_Ivy ) == 1 then
+		return false
+	end
+	
+	return 指定座標上に敵がいない(7, 1) or 指定座標上に敵がいない(8, 1)
+	
+end
+
+function 指定座標上に敵がいない( x, z )
+	
+	local unit = UnitGetByPos(x, z)
+	if ( unit == nil ) then
+		return true
+	end
+	
+	return UnitGetForce( unit ) != FORCE_ENEMY
+	
+end
+
+function 離脱地点が空いた()
+	
+	VariableSet( g_key_escapePointEmpty, 1 )
+	
+	四狗とアイビー登場()
+	
+end
+
+-- -----------------------------------
+
+function condition_青軍ターン直前イベント()
+	
+	-- エリアに味方が入っている
+	if ( VariableGet( g_key_area ) == 1 ) and ( VariableGet( g_key_4docs_Ivy ) == 0 ) then
+		return true
+	end
+	
+	-- 離脱ポイントの敵が倒された
+	if ( VariableGet( g_key_escapePointEmpty ) == 1 ) and ( VariableGet( g_key_4docs_Ivy ) == 0 ) then
+		return true
+	end
+	
+	if condition_紋章士在庫あり() then
+		return true
+	end
+	
+	return false
+	
+end
+
+function 青軍ターン直前イベント()
+	
+	if ( VariableGet( g_key_area ) == 1 ) and ( VariableGet( g_key_4docs_Ivy ) == 0 ) then
+		
+		-- 四狗
+		四狗とアイビー登場()
+		
+	elseif ( VariableGet( g_key_escapePointEmpty ) == 1 ) and ( VariableGet( g_key_4docs_Ivy ) == 0 ) then
+		
+		-- 四狗
+		四狗とアイビー登場()
+		
+	else
+		
+		if condition_紋章士在庫あり() and condition_紋章士装備可能な敵がいる() then
+			
+			local emblemWaitList	= 待機順に紋章士をリスト化()
+			local enemyList			= 距離優先度順のリスト作成( )
+			local synchroCount		= 0
+			local SigludOrCelica	= 0
+			
+			for index, value in pairs( emblemWaitList ) do
+				
+				if ( synchroCount >= g_SynchroNumMax ) then
+						
+						-- １ターンにシンクロできる限界
+						
+				else
+						
+						if ( value.GOD == "シグルド" ) or ( value.GOD == "セリカ" ) then
+								
+								if ( SigludOrCelica == 0 ) then
+									
+									if 指輪付け替え_最北の人に( value.GOD ) then
+										synchroCount	= synchroCount + 1
+										SigludOrCelica	= 1
+									end
+									
+								end
+								
+						elseif ( value.GOD == "ミカヤ" ) then
+								
+								if 指輪付け替え_杖使いにミカヤを() then
+									synchroCount = synchroCount + 1
+								elseif 指輪付け替え( value.GOD, enemyList ) then
+									synchroCount = synchroCount + 1
+								end
+								
+						elseif 指輪付け替え( value.GOD, enemyList ) then
+								
+								synchroCount = synchroCount + 1
+								
+						end
+						
+				end
+				
+			end
+			
+			
+		end
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function 待機順に紋章士をリスト化()
+	
+	local list = {}
+	
+	list = 紋章士を待機リストに追加( list, "マルス" )
+	list = 紋章士を待機リストに追加_シグルドかセリカ( list )
+	list = 紋章士を待機リストに追加( list, "ロイ" )
+	list = 紋章士を待機リストに追加( list, "リーフ" )
+	
+	
+	-- 待機順にソート
+	table.sort( list,
+		function( a, b )
+			return ( a.WAIT > b.WAIT )
+		end
+	)
+	
+	
+	-- ミカヤを優先する
+	local value_micaiah = VariableGet( g_Waiting4Engage .. g_GidPrefix .. "ミカヤ" )
+	if ( value_micaiah > 0 ) then
+		if ( #list >= 3 ) and ( value_micaiah > list[3].WAIT ) then
+			table.insert( list, 1, { GOD="ミカヤ", WAIT=value_michaiah } )
+		end
+	end
+	
+	
+	return list
+	
+end
+
+-- -----------------------------------
+
+function 紋章士を待機リストに追加( list, god )
+	
+	local value = VariableGet( g_Waiting4Engage .. g_GidPrefix .. god )
+	if value > 0 then
+		list[ #list + 1 ] = { GOD=god, WAIT=value }
+	end
+	
+	return list
+	
+end
+
+-- -----------------------------------
+
+function 紋章士を待機リストに追加_シグルドかセリカ( list )
+	
+	local value_siglud = VariableGet( g_Waiting4Engage .. g_GidPrefix .. "シグルド" )
+	local value_celica = VariableGet( g_Waiting4Engage .. g_GidPrefix .. "セリカ" )
+	
+	if ( value_siglud > 0 ) then
+		
+		if ( value_celica > 0 ) then
+			
+			if ( value_siglud >= value_celica ) then
+				
+				list[ #list + 1 ] = { GOD="シグルド", WAIT=value_siglud }
+				
+			else
+				
+				list[ #list + 1 ] = { GOD="セリカ", WAIT=value_celica }
+				
+			end
+			
+		else
+			
+			list[ #list + 1 ] = { GOD="シグルド", WAIT=value_siglud }
+			
+		end
+		
+	elseif ( value_celica > 0 ) then
+		
+		list[ #list + 1 ] = { GOD="セリカ", WAIT=value_celica }
+		
+	end
+	
+	return list
+	
+end
+
+-- -----------------------------------
+
+function condition_紋章士在庫あり()
+	
+	if 		( VariableGet( g_Waiting4Engage .. g_GidPrefix .. "マルス" )	== 1 ) 
+		or	( VariableGet( g_Waiting4Engage .. g_GidPrefix .. "シグルド" )	== 1 )
+		or	( VariableGet( g_Waiting4Engage .. g_GidPrefix .. "セリカ" )	== 1 )
+		or	( VariableGet( g_Waiting4Engage .. g_GidPrefix .. "ミカヤ" )	== 1 )
+		or	( VariableGet( g_Waiting4Engage .. g_GidPrefix .. "ロイ" )		== 1 )
+		or	( VariableGet( g_Waiting4Engage .. g_GidPrefix .. "リーフ" )	== 1 ) then
+		
+		return true
+		
+	end
+	
+	return false
+end
+
+-- -----------------------------------
+
+function 初回シンクロ時イベント()
+	
+	if ( VariableGet( g_key_replacement_engage ) == 0 ) then
+		
+		CursorSetPos_FromPid( "PID_M011_ヴェイル" )
+		Talk( "MID_EV14" )
+		VariableSet( g_key_replacement_engage, 1 )
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function 指輪付け替え_杖使いにミカヤを()
+	
+	local god = "ミカヤ"
+	local gid = g_GidPrefix .. god
+	local key = g_Waiting4Engage .. gid
+	if ( VariableGet( key ) == 0 ) then
+		return false
+	end
+	
+	local unit = シンクロ相手を探す_杖使い()
+	if unit == nil then
+		return false
+	end
+	
+	初回シンクロ時イベント()
+	闇シンクロ( unit, gid )
+	
+	return true
+	
+end
+
+-- -----------------------------------
+
+function 指輪付け替え_最北の人に( god )
+	
+	local gid = g_GidPrefix .. god
+	local key = g_Waiting4Engage .. gid
+	if ( VariableGet( key ) == 0 ) then
+		return false
+	end
+	
+	local unit = シンクロ相手を探す_最北の人( god == "セリカ" )
+	if unit == nil then
+		return false
+	end
+	
+	初回シンクロ時イベント()
+	闇シンクロ( unit, gid )
+	
+	return true
+	
+end
+
+-- -----------------------------------
+
+function 指輪付け替え( god, list )
+	
+	local gid = g_GidPrefix .. god
+	local key = g_Waiting4Engage .. gid
+	if ( VariableGet( key ) == 0 ) then
+		return true
+	end
+	
+	local unit = nil
+	
+	-- ::::::::::::::::::::::::::::::::::::::::::::::
+	
+	for key, value in pairs( list ) do
+		if ( unit == nil ) and ( UnitGetGodUnit( value ) == nil ) then
+			unit = value
+		end
+	end
+	
+	-- ::::::::::::::::::::::::::::::::::::::::::::::
+	
+	if unit == nil then
+		return false
+	end
+	
+	
+	初回シンクロ時イベント()
+	闇シンクロ( unit, gid )
+	
+	return true
+	
+end
+
+-- -----------------------------------
+
+function シンクロ相手を探す_杖使い()
+	
+	if not condition_紋章士装備可能な敵がいる() then
+		return nil
+	end
+	
+	local list_candidate = {}
+	
+	-- ::::::::::::::::::::::::::::::::::::::::::::::
+	
+	local index = ForceUnitGetFirst(FORCE_ENEMY)
+	while index != nil do		
+		if ( not condition_紋章士装備不可の敵か(index) ) and ( UnitGetGodUnit(index) == nil ) then
+			
+			if UnitGetJID( index ) == "JID_モンク" then
+				list_candidate[ #list_candidate + 1 ] = index
+			end
+			
+		end
+		index = ForceUnitGetNext(index)
+	end
+	
+	-- ::::::::::::::::::::::::::::::::::::::::::::::
+	
+	if #list_candidate == 0 then
+		return nil
+	elseif #list_candidate == 1 then
+		return list_candidate[1]
+	else
+		
+		-- todo: 距離を見て決定
+		return list_candidate[1]
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function シンクロ相手を探す_最北の人( isCelica )
+	
+	if not condition_紋章士装備可能な敵がいる() then
+		return nil
+	end
+	
+	local z = g_map_height - 1
+	while ( z > 0 ) do
+			
+		local list_candidate = {}
+		
+		-- ::::::::::::::::::::::::::::::::::::::::::::::
+		
+		for x = 1, g_map_width-1 do
+			
+			local unit = UnitGetByPos( x, z )
+			
+			if not ( unit == nil ) then
+				
+				if 		( UnitGetForce( unit ) == FORCE_ENEMY )
+					and	( not condition_紋章士装備不可の敵か( unit ) )
+					and ( UnitGetGodUnit( unit ) == nil )				then
+					
+					
+					if isCelica then
+						
+						if	( not condition_離脱ポイントの敵か( unit ) ) and
+							( not ( UnitGetJID( unit ) == "JID_アクスアーマー" ) ) then
+							list_candidate[ #list_candidate + 1 ] = unit
+						end
+						
+					else
+						list_candidate[ #list_candidate + 1 ] = unit
+						
+					end
+					
+					
+				end
+				
+			end
+			
+		end
+		
+		z = z - 1
+		
+		-- ::::::::::::::::::::::::::::::::::::::::::::::
+		
+		if #list_candidate == 1 then
+			return list_candidate[1]
+		elseif #list_candidate > 1 then
+			-- todo: 兵種を見て決定
+			return list_candidate[1]
+		end
+		
+	end
+	
+	return nil
+	
+end
+
+-- -----------------------------------
+
+function 距離優先度順のリスト作成()
+	
+	-- -----------------------------------
+	
+	-- 起点を探す（ひとまずプレイヤー軍の重心）
+	-- g_centerに座標は格納される
+	
+	VariableSet( g_center_x, -1 )
+	VariableSet( g_center_z, -1 )
+	
+	local center_x, center_z = プレイヤー軍の中心点を算出()
+	VariableSet( g_center_x, center_x )
+	VariableSet( g_center_z, center_z )
+	
+	-- -----------------------------------
+	
+	local list = 範囲内のキャラを取得( 10, 15 )
+	return list
+	
+end
+
+-- -----------------------------------
+
+function condition_紋章士装備可能な敵がいる()
+	
+	local index = ForceUnitGetFirst(FORCE_ENEMY)
+	while index != nil do		
+		if ( not condition_紋章士装備不可の敵か(index) ) and ( UnitGetGodUnit(index) == nil ) then
+			return true
+		end
+		index = ForceUnitGetNext(index)
+	end
+	
+	return false
+	
+end
+
+-- -----------------------------------
+
+function condition_紋章士装備不可の敵か(index)
+	local pid = UnitGetPID(index)
+	
+	if ( pid == "PID_M011_ヴェイル" ) then
+		return true
+	end
+	
+	if	( pid == "PID_M011_異形兵_アクスファイター_トマホーク" ) or
+		( pid == "PID_M011_IFMOD_異形竜" ) then
+		return true
+	end
+	
+	return false
+end
+
+function condition_離脱ポイントの敵か( index )
+	local pid = UnitGetPID(index)
+	
+	if	( pid == "PID_M011_異形兵_ランスナイト_離脱" ) or
+		( pid == "PID_M011_異形兵_アーチャー_離脱" ) then
+		return true
+	end
+	
+	return false
+end
+
+-- -----------------------------------
+
+function 範囲内のキャラを取得( min, max )
+	
+	local list = {}
+	
+	local center_x = VariableGet( g_center_x )
+	local center_z = VariableGet( g_center_z )
+	
+	if ( center_x == -1 ) or ( center_z == -1 ) then
+		return list
+	end
+	
+	local temp_list1 = {}
+	local temp_list2 = {}
+	local temp_list3 = {}
+	
+	-- ::::::::::::::::::::::::::::::::::::::::::::::
+	
+	local index = ForceUnitGetFirst( FORCE_ENEMY )
+	while index != nil do
+		if ( not condition_紋章士装備不可の敵か(index) ) and ( UnitGetGodUnit(index) == nil ) then
+			
+			local distance = 二人の距離(center_x, center_z, index)
+			
+			if		( distance > 0 )	and	( distance < min )	then
+				temp_list1[ #temp_list1 + 1 ] = { UNIT=index, DISTANCE=distance }
+				
+			elseif	( distance >= min )	and	( distance <= max )	then
+				temp_list2[ #temp_list2 + 1 ] = { UNIT=index, DISTANCE=distance }
+				
+			else
+				temp_list3[ #temp_list3 + 1 ] = { UNIT=index, DISTANCE=distance }
+				
+			end
+			
+		end
+		
+		index = ForceUnitGetNext(index)
+	end
+	
+	-- ::::::::::::::::::::::::::::::::::::::::::::::
+	
+	if ( #temp_list2 > 1 ) then
+		table.sort( temp_list2,
+			function( a, b )
+				return ( a.DISTANCE < b.DISTANCE )
+			end
+		)
+	end
+	
+	for key, value in pairs( temp_list2 ) do
+		list[ #list + 1 ] = value.UNIT
+	end
+	
+	-- ::::::::::::::::::::::::::::::::::::::::::::::
+	
+	if ( #temp_list1 > 1 ) then
+		table.sort( temp_list1,
+			function( a, b )
+				return ( a.DISTANCE > b.DISTANCE )
+			end
+		)
+	end
+	
+	for key, value in pairs( temp_list1 ) do
+		list[ #list + 1 ] = value.UNIT
+	end
+	
+	-- ::::::::::::::::::::::::::::::::::::::::::::::
+	
+	if ( #temp_list3 > 1 ) then
+		table.sort( temp_list3,
+			function( a, b )
+				return ( a.DISTANCE < b.DISTANCE )
+			end
+		)
+	end
+	
+	for key, value in pairs( temp_list3 ) do
+		list[ #list + 1 ] = value.UNIT
+	end
+	
+	-- ::::::::::::::::::::::::::::::::::::::::::::::
+	
+	return list
+	
+end
+
+-- -----------------------------------
+
+function 二人の距離(x1, z1, unit2)
+	
+	local x2 = UnitGetX( unit2 )
+	local z2 = UnitGetZ( unit2 )
+	local _distance = 二点間距離( x1, z1, x2, z2 )
+	return _distance
+	
+end
+
+-- -----------------------------------
+
+function 四狗とアイビー登場()
+
+	UnitClearStatus( "PID_M011_ヴェイル", UNIT_STATUS_MOVE_NOT_ALLOW )
+	
+	CursorSetPos_FromPid("PID_M011_ヴェイル")
+	Talk("MID_EV1")
+	
+	-- 四天王登場
+	Dispos("Enemy_4dogs", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.5)
+	
+	強者に指輪付与()
+	
+	CursorSetPos_FromPid("PID_M011_ヴェイル")
+	
+	Talk("MID_EV2")
+	
+	CursorSetPos_FromPid(g_pid_lueur)
+	Talk("MID_EV3")
+	
+	-- 行く手にたくさんの増援が現れる
+	Dispos("Enemy_EV1", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.8)
+	
+	-- 絶望するリュール
+	CursorSetPos_FromPid(g_pid_lueur)
+	Talk("MID_EV4")
+	
+	-- アイビー・カゲツ登場
+	Dispos("Ally_Add0", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.8)
+	
+	Talk("MID_EV5")
+	
+	-- ゼルコバ登場
+	Dispos("Ally_Add1", DISPOS_FLAG_FOCUS)
+	Yield()
+	WaitTime(0.8)
+	
+	Talk("MID_EV6")
+	
+	アイビー隊_リュールへ移動()
+	
+	Talk("MID_EV7")
+	
+	Movie("Kengen06")
+	SkipEscape()
+	-- 顕現前の会話内でフェードアウトしているので強制的にフェードを戻す
+	FadeInAndWait(FADE_FAST)
+	
+	-- ----------------------------------
+	-- リン
+	
+	Talk("MID_EV8")
+	
+	UnitCreateGodUnit("PID_アイビー", "GID_リン")
+	UnitSetEngageCount("PID_アイビー", 7)
+	
+	Tutorial( "TUTID_紋章士リン" )
+	
+	
+	-- ----------------------------------
+	-- ルキナ
+	
+	Talk("MID_EV9")
+	
+	Movie("Kengen07")
+	SkipEscape()
+	-- 顕現前の会話内でフェードアウトしているので強制的にフェードを戻す
+	FadeInAndWait( FADE_FAST )
+	
+	UnitCreateGodUnit(g_pid_lueur, "GID_ルキナ")
+	UnitSetEngageCount(g_pid_lueur, 7)
+	
+	Talk("MID_EV10")
+	
+	Tutorial( "TUTID_紋章士ルキナ" )
+	
+	
+	-- ----------------------------------
+	-- 竜の時水晶
+	
+	Talk("MID_EV11")
+	
+	アイビー隊仲間入り()
+	
+	SetFieldBgmWarSituation("B_BGM_Field_P05")
+	
+	-- 巻き戻しが使えるようになる
+	MapHistoryRewindEnable()
+	
+	敵の必殺０を解除()
+	
+	
+	-- ----------------------------------
+	VariableSet( g_key_4docs_Ivy, 1 )
+	
+end
+
+-- -----------------------------------
+
+function 強者に指輪付与()
+	
+	local unit = ForceUnitGetFirst( FORCE_ENEMY )
+	while unit != nil do
+		
+		local gid =  UnitGetGodUnit( unit )
+		if not ( gid == nil ) then
+			UnitSetGodUnit( unit, nil )
+			UnitSetItemEquip( unit ) -- 自動装備
+			
+			EffectPlay( "ワープアウト_闇", UnitGetX( unit ), UnitGetZ( unit ) )
+			EffectWait()
+			
+			AiSetSequence( unit, AI_ORDER_ATTACK, "AI_AT_Attack", "")
+			
+			VariableSet( g_Waiting4Engage .. gid, 1 )
+			
+		end
+		
+		unit = ForceUnitGetNext( unit )
+	end
+	
+	
+	闇シンクロ("PID_M011_セピア",	"GID_M011_敵マルス")
+	闇シンクロ("PID_M011_グリ",		"GID_M011_敵セリカ")
+	闇シンクロ("PID_M011_モーヴ",	"GID_M011_敵ミカヤ")
+	闇シンクロ("PID_M011_マロン",	"GID_M011_敵シグルド")
+	
+	闇シンクロ_座標(7, 1, g_GidPrefix .. "ロイ",	false)
+	闇シンクロ_座標(8, 1, g_GidPrefix .. "リーフ",	false)
+	
+end
+
+-- -----------------------------------
+
+function アイビー隊_リュールへ移動()
+	
+	UnitMovePos( "PID_アイビー",	g_pid_lueur, MOVE_FLAG_FOCUS )
+	UnitMovePos( "PID_ゼルコバ",	g_pid_lueur, MOVE_FLAG_NONE )
+	UnitMovePos( "PID_カゲツ",		g_pid_lueur, MOVE_FLAG_NONE )
+	UnitMoveWait()
+	
+	-- スキップ時処理（カメラ制御）
+	CursorSetPos_FromPid( "PID_アイビー" )
+	
+end
+
+-- -----------------------------------
+
+function アイビー隊仲間入り()
+	
+	UnitJoin( "PID_アイビー", "PID_ゼルコバ", "PID_カゲツ" )
+	WaitTime(0.5)
+	
+	local sid = "SID_死亡回避"
+	local pid = nil
+	
+	pid = "PID_アイビー"
+	if UnitExistOnMap( pid ) then
+		スキル解除(pid, sid)
+	end
+	
+	pid = "PID_ゼルコバ"
+	if UnitExistOnMap( pid ) then
+		スキル解除(pid, sid)
+	end
+	
+	pid = "PID_カゲツ"
+	if UnitExistOnMap( pid ) then
+		スキル解除(pid, sid)
+	end
+	
+end
+
+-- -----------------------------------
+
+function 敵の必殺０を解除()
+	
+	local unit = ForceUnitGetFirst( FORCE_ENEMY )
+	while unit != nil do
+		
+		スキル解除( unit, "SID_必殺０_オフェンス時" )
+		
+		unit = ForceUnitGetNext(unit)
+		
+	end
+	
+end
+
+-- -----------------------------------
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	Talk( "MID_EV15" )
+	VariableSet( "勝利", 1 )
+end
+
+-- -----------------------------------
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+	-- 巻き戻しが使えるようになる（マップ中でもEnableにしていますが念のため）
+	MapHistoryRewindEnable()
+	
+	-- 保険として、イベントが再生されずにクリアされた場合アイビー隊を加入させる
+	if VariableGet( g_key_4docs_Ivy ) == 0 then
+		UnitJoin( "PID_アイビー", "PID_カゲツ", "PID_ゼルコバ" )
+		
+		Tutorial( "TUTID_紋章士リン" )
+		Tutorial( "TUTID_紋章士ルキナ" )
+		
+		Dialog("MID_TUT_NAVI_M004_TIMECRYSTAL")
+	end
+	
+	-- デバッグメニューの勝利を選ぶと
+	-- 紋章士加入イベントをスキップされてしまうのでこのタイミングで加入させておく
+	GodUnitCreate( "GID_ルキナ" )
+	GodUnitCreate( "GID_リン" )
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+	PuppetDemo("M011", "MID_ED1")
+	PuppetDemo("M011", "MID_ED2")
+	PuppetDemo("M011", "MID_ED3")
+	
+end
+
+function GameOver()
+	
+	Log("GameOver")
+	
+end
