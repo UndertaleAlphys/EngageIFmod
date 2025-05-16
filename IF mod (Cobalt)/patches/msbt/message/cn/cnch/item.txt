@@ -2148,9 +2148,6 @@ HP吸收/不可追击
 [MIID_Leaf_MasterBow]
 大师之弓
 
-[MIID_Lucina_NobleRapier]
-王室贵族刺剑
-
 [MIID_H_Lucina_NobleRapier_M007]
 纹章士的刺剑。
 克制骑马/克制重装。
@@ -2989,4 +2986,11 @@ S药水
 [MIID_H_HexingRod]
 于此章节内
 使对方的最大HP减半
+
+[MIID_Lucina_NobleSword]
+王室贵族之剑
+
+[MIID_H_Lucina_NobleSword]
+纹章士露琪娜的宝剑。
+王族装备时，伤害+5。
 
