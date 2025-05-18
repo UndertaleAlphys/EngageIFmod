@@ -4443,20 +4443,27 @@ MSID_CrtMoreDmg
 反击+
 
 [MSID_H_AdjacentCounter_2]
-遭受邻接敌人伤害时，
-将所受伤害反击给对方
+将所受邻接敌人伤害
+反击给对方
 
 [MSID_CounterMagic_2]
 魔法反击+
 
 [MSID_H_CounterMagic_2]
-遭受魔法伤害时，
-将所受伤害反击给对方
+将所受魔法伤害反击给对方
 
 [MSID_DragonFang]
 龙穿
 
 [MSID_H_DragonFang]
 一定几率将攻击力的50%加计至伤害
-（几率为“技×0.75”%）
+（几率为“技”×0.75%）
+
+[MSID_DragonWard]
+龙盾
+
+[MSID_H_DragonWard]
+相邻友军受到攻击时
+一定几率使其受伤减半
+（几率为其“幸运”×0.5%）
 
