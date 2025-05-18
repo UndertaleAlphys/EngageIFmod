@@ -2569,11 +2569,12 @@ HP为50%以下时
 一定几率回复造成伤害的50%HP
 （几率为“技巧”%）
 
-[MSID_JobSkill_Tirailleur]
+[MSID_Luna]
 月光
 
-[MSID_H_JobSkill_Tirailleur]
-攻击时，一定几率无视敌人1/2的防守与魔防
+[MSID_H_Luna]
+攻击时，
+一定几率无视敌人一半的守备与魔防
 （几率为“技巧”%）
 
 [MSID_JobSkill_Lindwurm]
