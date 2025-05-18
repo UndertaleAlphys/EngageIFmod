@@ -4106,8 +4106,10 @@ MSID_CrtMoreDmg
 使用其他攻击时，将魔力的50%加计至伤害
 
 [MSID_H_Ignis_2]
+一定几率增加攻击伤害（几率为“技巧”%）
 使用魔法攻击时，将力量的50%加计至伤害
 使用其他攻击时，将魔力的50%加计至伤害
+【华炎+】必定发动华炎
 
 [MSID_AntiKnight_1]
 骑士对策
@@ -4436,4 +4438,32 @@ MSID_CrtMoreDmg
 [MSID_H_PrivateSkill_Mauve_M011]
 贝珥的HP不小于50%时
 伤害+3，受到伤害-3
+
+[MSID_AdjacentCounter_2]
+反击+
+
+[MSID_H_AdjacentCounter_2]
+将所受邻接敌人伤害
+反击给对方
+
+[MSID_CounterMagic_2]
+魔法反击+
+
+[MSID_H_CounterMagic_2]
+将所受魔法伤害反击给对方
+
+[MSID_DragonFang]
+龙穿
+
+[MSID_H_DragonFang]
+一定几率将攻击力的50%加计至伤害
+（几率为“技”×0.75%）
+
+[MSID_DragonWard]
+龙盾
+
+[MSID_H_DragonWard]
+相邻友军受到攻击时
+一定几率使其受伤减半
+（几率为其“幸运”×0.5%）
 
