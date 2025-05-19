@@ -41,6 +41,9 @@ function イベント登録()
 	
 	EventEntryTurn(はじまりイベント, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
+
+	-- EventEntryTurn(SetSkill, 1, 1,  FORCE_PLAYER);
+
 	
 	EventEntryTurn(増援１, -1, -1, FORCE_PLAYER, condition_増援１)
 	EventEntryTurn(増援２, -1, -1, FORCE_PLAYER, condition_増援２)
@@ -73,13 +76,46 @@ end
 function MapOpening()
 	
 	Log("MapOpening")
-	
+
+    CobaltNotice("Set Skill Begin")
+	SetSkill()
+	CobaltNotice("Set Skill End")
 end
 
 -- -----------------------------------
 
+function SetSkill()
+
+    local skillList = {
+            "SID_隣接カウンター＋",
+            "SID_魔法カウンター＋",
+            "SID_大盾＋",
+            "SID_聖盾＋",
+            "SID_月光",
+            "SID_待ち伏せ＋＋",
+            "SID_すり抜け",
+            "SID_必的"
+        }
+
+    local index = ForceUnitGetFirst( FORCE_ENEMY )
+    while index != nil do
+        local skill1 = RandomGet(7)
+
+        スキル装備( index, skillList[skill1] )
+
+        local skill2 = RandomGet(7)
+
+        スキル装備( index, skillList[skill2] )
+        スキル装備( index, skillList[8] )
+    	index = ForceUnitGetNext(index)
+    end
+
+    CobaltNotice("Done")
+end
+
 function EmptyFunction()
 end
+
 
 -- -----------------------------------
 

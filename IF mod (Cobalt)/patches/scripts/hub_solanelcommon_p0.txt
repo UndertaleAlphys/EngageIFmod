@@ -29,7 +29,7 @@ function CanStartGod()
 		end
 	end
 
-	if (HubIsCompleteChapter("M011")) then
+	if (HubIsCompleteChapter("M014")) then
 		return true;
 	end
 
@@ -57,10 +57,6 @@ function ScriptStartGod()
 
 	GodUnitCreate( "GID_エーデルガルト" )
 	Tutorial("TUTID_紋章士エーデルガルト")
-
-	Tutorial("TUTID_神竜の章")
-
-	VariableEntry("G_拠点_神竜導入イベント再生済み", 1)
 
 end
 

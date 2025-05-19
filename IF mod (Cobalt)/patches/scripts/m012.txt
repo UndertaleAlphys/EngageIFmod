@@ -12,13 +12,31 @@ function Startup()
 	Log("Startup")
 	
 	WinRuleSetMID( "MID_RULE_M012_WIN" )
-	
+
+	SaveAndSetPlayerUnitsToLevel1()
+
 	変数登録()
 	イベント登録()
 	
 end
 
 -- -----------------------------------
+
+-- 全局变量用于保存单位等级
+g_savedUnitLevels = {}
+
+-- 保存我方单位等级并设置为 1 级
+function SaveAndSetPlayerUnitsToLevel1()
+    local unit = ForceUnitGetFirst(FORCE_ABSENT)
+    while unit ~= nil do
+        local currentLevel = UnitGetLevel(unit)
+        Log(currentLevel)
+        g_savedUnitLevels[unit] = currentLevel  -- 保存原始等级
+        UnitSetLevel(unit, 40)                   -- 设置为 40 级
+        unit = ForceUnitGetNext(unit)
+    end
+end
+
 
 function 変数登録()
 	

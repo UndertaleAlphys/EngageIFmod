@@ -11,7 +11,7 @@ Include("Hub_SolanelCommon_P3")
 
 function Startup()
 	
-	Log("Startup")
+	Log("Startup MY lua")
 
 end
 
@@ -128,11 +128,18 @@ function MapOpening()
 		Notice("MID_TUT_HUB_PROFILE_OPEN")
 	end
 	
-	if (HubIsCompleteChapter("M011")) then
-		HubSolanelNoticeP0()
-		HubSolanelNoticeP1()
-		HubSolanelNoticeP2()
-		HubSolanelNoticeP3()
+	if HubIsCompleteChapter("M011") then
+		if VariableGet("G_拠点_神竜の章初回") == 0 then
+			Log("Can start G001")
+			Tutorial("TUTID_神竜の章")
+		end
+	end
+	
+	if HubIsCompleteChapter("M014") then
+		if GodUnitExists("GID_エーデルガルト") == false then
+			Log("Can start Three House")
+			HubSolanelNoticeP0()
+		end
 	end
 end
 

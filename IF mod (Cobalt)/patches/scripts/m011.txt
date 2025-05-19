@@ -1414,6 +1414,8 @@ function Ending()
 	PuppetDemo("M011", "MID_ED1")
 	PuppetDemo("M011", "MID_ED2")
 	PuppetDemo("M011", "MID_ED3")
+
+	VariableEntry("G_拠点_神竜導入イベント再生済み", 1)
 	
 end
 

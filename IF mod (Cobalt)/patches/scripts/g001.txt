@@ -61,8 +61,10 @@ g_IceSheetMap = {
 
 function Startup()
 	
-	Log("Startup");
-	
+	Log("Startup12346");
+
+    SaveAndSetPlayerUnitsToLevel1()
+
 	Startup_神竜の章_対象紋章士を一時的に無効化( "GID_チキ" )
 	
 	-- 勝利条件の設定
@@ -74,6 +76,32 @@ function Startup()
 end
 
 -- -----------------------------------
+
+-- 全局变量用于保存单位等级
+g_savedUnitLevels = {}
+
+-- 保存我方单位等级并设置为 1 级
+function SaveAndSetPlayerUnitsToLevel1()
+    local unit = ForceUnitGetFirst(FORCE_ABSENT)
+    while unit ~= nil do
+        local currentLevel = UnitGetLevel(unit)
+        Log(currentLevel)
+        g_savedUnitLevels[unit] = currentLevel  -- 保存原始等级
+        UnitSetLevel(unit, 1)                   -- 设置为 40 级
+        unit = ForceUnitGetNext(unit)
+    end
+end
+
+-- 恢复我方单位原始等级
+function RestorePlayerUnitsOriginalLevels()
+    for unit, level in pairs(g_savedUnitLevels) do
+            UnitSetLevel(unit, level)
+    end
+    g_savedUnitLevels = {}  -- 清空保存数据
+end
+
+-- -----------------------------------------------
+
 
 function Cleanup()
 	
@@ -112,11 +140,22 @@ function MapOpening()
 		TerrainSetOne(9, 25, "TID_謎の平地")
 	end
 
-	チキのスキル設定()
+    RestorePlayerUnitsOriginalLevels()
+	チキのスキル設定();
 
 end
 
 -- -----------------------------------
+
+
+function CheckFunctionExists(funcName)
+    local func = _G[funcName]
+    if type(func) == "function" then
+        Log("✅ " .. funcName .. " exits")
+    else
+        Log("❌ " .. funcName .. " not exists")
+    end
+end
 
 function MapEnding()
 	
@@ -616,7 +655,18 @@ function condition_マルスと戦闘()
 end
 
 -- -----------------------------------
+function SetAllEnemyLevel(level)
+    local unit = ForceUnitGetFirst(FORCE_ENEMY)
+    while unit ~= nil do
+        UnitSetLevel(unit, level)
+        UnitSetCapValue("PID_G001_チキ", CAPABILITY_DEF, 99)
+        UnitSetCapValue(unit, CAPABILITY_DEF, 99)
+        UnitSetStr(g_pid_lueur, 30)
+        unit = ForceUnitGetNext(unit)
+    end
+end
 
+-- ------------------------------------------
 function マルスと戦闘()
 	
 	Talk( "MID_BT1" )
