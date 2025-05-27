@@ -1529,7 +1529,7 @@ HP为50%及以下时
 指导
 
 [MSID_H_TeacherGuidance]
-根据战斗类型获得"呐喊"技能
+根据战斗类型视为拥有对应“呐喊”技能
 
 [MSID_PickUp]
 拾得
@@ -4490,12 +4490,14 @@ MSID_CrtMoreDmg
 [MSID_H_Echo_Dragon]
 可使用“重唱”指令
 能以50%伤害的魔法发动2次攻击
-【龙族】伤害增为60%
+【龙族】
+伤害增为60%
 
 [MSID_H_Echo_Magic]
 可使用“重唱”指令
 能以50%伤害的魔法发动2次攻击
-【魔法】伤害增为60%
+【魔道】
+伤害增为60%
 
 [MSID_H_Echo_Dragon_CMD]
 能以60%伤害的魔法发动2次攻击
@@ -4564,4 +4566,44 @@ MSID_CrtMoreDmg
 
 [MSID_H_BackThrow_1_CMD]
 战斗后将对手移动到身后
+
+[MSID_H_TeacherGuidance_Coop]
+根据战斗类型视为拥有对应“呐喊”技能
+【连携】
+视为拥有“力之呐喊”
+
+[MSID_H_TeacherGuidance_Horse]
+根据战斗类型视为拥有对应“呐喊”技能
+【骑马】
+视为拥有“技之呐喊”
+
+[MSID_H_TeacherGuidance_Covert]
+根据战斗类型视为拥有对应“呐喊”技能
+【隐秘】
+视为拥有“速之呐喊”
+
+[MSID_H_TeacherGuidance_Heavy]
+根据战斗类型视为拥有对应“呐喊”技能
+【重装】
+视为拥有“守备之呐喊”
+
+[MSID_H_TeacherGuidance_Fly]
+根据战斗类型视为拥有对应“呐喊”技能
+【飞行】
+视为拥有“魔防之呐喊”
+
+[MSID_H_TeacherGuidance_Magic]
+根据战斗类型视为拥有对应“呐喊”技能
+【魔道】
+视为拥有“魔力之呐喊”
+
+[MSID_H_TeacherGuidance_Prana]
+根据战斗类型视为拥有对应“呐喊”技能
+【气功】
+视为拥有“幸运之呐喊”
+
+[MSID_H_TeacherGuidance_Dragon]
+根据战斗类型视为拥有对应“呐喊”技能
+【龙族】
+视为拥有“移动之呐喊”
 
