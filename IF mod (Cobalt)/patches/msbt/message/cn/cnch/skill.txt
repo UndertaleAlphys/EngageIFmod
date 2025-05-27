@@ -1450,25 +1450,25 @@ HP回复量+15、杖的命中+30
 使我方单位移动至自身的另一侧
 
 [MSID_Anger]
-愤怒
+怒
 
 [MSID_H_Anger]
-HP为50%以下时，
+HP为50%及以下时，
 必杀+20
 
 [MSID_BraveGeneral_1]
 勇将
 
 [MSID_H_BraveGeneral_1]
-HP为50%以下时
-力、守备+3
+HP为50%及以下时
+技、运+6
 
 [MSID_BraveGeneral_2]
 勇将+
 
 [MSID_H_BraveGeneral_2]
-HP为50%以下时
-力、守备+5
+HP为50%及以下时
+技、运+8
 
 [MSID_IkeEngage]
 不动
@@ -1485,12 +1485,11 @@ HP为50%以下时
 【龙族】所受伤害额外-10%
 
 [MSID_IkeEngageAtk]
-霸克·天空
+霸克 · 天空
 
 [MSID_H_IkeEngageAtk]
-舍弃反击使防守、魔防+5，并于下回合对
-周围2格施展范围攻击，回复伤害30%的HP
-仅限持剑、斧
+连续发动一次太阳和一次月光攻击
+仅限持剑斧
 
 [MSID_H_IkeEngageAtk_Dragon]
 舍弃反击使防守、魔防+5，并于下回合对
@@ -1511,7 +1510,7 @@ HP为50%以下时
 【飞行】发动中魔防额外+5
 
 [MSID_H_IkeEngageAtk_CMD]
-承受敌人攻击，下回合施展范围攻击
+连续发动一次太阳和一次月光攻击
 
 [MSID_HeavenBeat_1]
 天刻之脉动
@@ -1806,7 +1805,7 @@ HP为50%以下时
 防阵
 
 [MSID_H_DefenseStyle]
-使敌人的连锁攻击无效
+使敌人的连锁攻击和攻阵追击无效
 
 [MSID_PhysicalContact_1]
 身体接触
@@ -3441,9 +3440,10 @@ MSID_CrtMoreDmg
 背理之法
 
 [MSID_H_ChaosStyle]
-增加攻击伤害
+增加攻击伤害并回复HP
 使用物理攻击时，将对方魔力的20%加计至伤害
 使用魔法攻击时，将对方力的20%加计至伤害
+然后回复增加伤害量的HP
 
 [MSID_StaffSavant]
 无限之杖
@@ -4028,7 +4028,7 @@ MSID_CrtMoreDmg
 弱点寻觅
 
 [MSID_H_SeekWeakness]
-使用体术时，
+使用体术主动攻击时，
 将交替造成物理与魔法伤害
 
 [MSID_Aether]
@@ -4125,16 +4125,6 @@ MSID_CrtMoreDmg
 对方为骑乘兵种时
 命中+10, 伤害+2
 
-[MSID_Echo_1]
-重唱
-
-[MSID_Echo_2]
-重唱+
-
-[MSID_H_Echo_1]
-可使用“重唱”指令
-能以50%伤害的魔法发动2次攻击
-
 [MSID_CurvedShot]
 曲射
 
@@ -4169,15 +4159,6 @@ MSID_CrtMoreDmg
 
 [MSID_AttackStance]
 攻阵
-
-[MSID_BoldStance]
-攻防一体之阵
-
-[MSID_H_BoldStance]
- 【攻阵】周围1格若存在友方
-攻击时会发动攻击力/命中值减半的追击
-攻击力/命中值随周围友方支援值提高
- 【防阵】免疫敌方的连锁攻击和攻阵追击
 
 [MSID_Camaraderie]
 和之心
@@ -4316,8 +4297,8 @@ MSID_CrtMoreDmg
 回复50%HP和1结合计量条
 
 [MSID_H_Art_Byleth_3]
-可使用"猛烈铁拳""冥想"
-和"魔物崩击"指令
+可使用“猛烈铁拳”“冥想”
+和“魔物崩击”指令
 【猛烈铁拳】
 消耗5结合计量条或2结合回合
 发出强而有力的3拳
@@ -4472,4 +4453,115 @@ MSID_CrtMoreDmg
 
 [MSID_H_DefiniteHit]
 攻击时，必定命中对方
+
+[MSID_Dominance]
+威风
+
+[MSID_H_Dominance]
+令周围3格敌方单位的
+力、技、速各下降2点
+然后自身对应能力提高等量值
+（每种能力至多提高12点）
+
+[MSID_BackThrow_1]
+里投
+
+[MSID_H_BackThrow_2]
+可使用“里投+”指令，
+消耗3结合计量条或1结合回合
+战斗后将对手移动到身后，
+然后对其造成20%最大HP的伤害
+并令其进入break状态
+
+[MSID_H_BackThrow_2_CMD]
+战斗后将对手移动到身后
+对其造成伤害且令其break
+
+[MSID_H_Echo]
+可使用“重唱”指令
+能以50%伤害的魔法发动2次攻击
+
+[MSID_Echo]
+重唱
+
+[MSID_H_Echo_CMD]
+能以50%伤害的魔法发动2次攻击
+
+[MSID_H_Echo_Dragon]
+可使用“重唱”指令
+能以50%伤害的魔法发动2次攻击
+【龙族】伤害增为60%
+
+[MSID_H_Echo_Magic]
+可使用“重唱”指令
+能以50%伤害的魔法发动2次攻击
+【魔法】伤害增为60%
+
+[MSID_H_Echo_Dragon_CMD]
+能以60%伤害的魔法发动2次攻击
+
+[MSID_H_Echo_Magic_CMD]
+能以60%伤害的魔法发动2次攻击
+
+[MSID_H_AttackStance]
+周围1格若存在友方
+攻击时会发动攻击力/命中值减半的追击
+攻击力/命中值随周围友方支援值提高
+
+[MSID_ChainSeal]
+援护封
+
+[MSID_H_ChainSeal]
+被连携攻击命中时
+对方于本章内
+不能再使用连携攻击
+
+[MSID_Debug_NoEngageGainChain]
+连携时不可获取
+
+[MSID_Debug_EngageGainCorrection]
+获取补正
+
+[MSID_Debug_EngageGainCorrectionRemove]
+获取补正结束
+
+[MSID_Debug_NoEngageGainRod]
+用杖时不可获取
+
+[MSID_Debug_NoEngageGain]
+一般时不可获取
+
+[MSID_Debug_EngageGainStartBattle]
+主动攻击时获取
+
+[MSID_Debug_EngageGainKillEnemy]
+杀死敌人时获取
+
+[MSID_Repay]
+恩仇
+
+[MSID_H_Repay]
+受到攻击或成为妨害杖目标的战斗后，
+自身命中、必杀+10。
+被治愈杖指定为目标后，
+杖使用者回避、必杀回避+10。
+（效果持续到下个回合结束）
+
+
+
+[MSID_IkeEngageAtk_Sol]
+天空 · 太阳
+
+[MSID_IkeEngageAtk_Luna]
+天空 · 月光
+
+[MSID_BackThrow_2]
+里投+
+
+[MSID_H_BackThrow_1]
+可使用“里投”指令，
+战斗后将对手移动到身后
+
+[MSID_H_BackThrow_1_CMD]
+战斗后将对手移动到身后
 

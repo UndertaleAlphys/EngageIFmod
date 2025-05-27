@@ -543,10 +543,10 @@
 失败条件
 
 [MID_RULE_ANNIHILATE]
-击败所有敌人
+敌将击破
 
 [MID_RULE_DESTROY_BOSS]
-击败敌方将领
+敌将击破
 
 [MID_RULE_DESTROY_BOSS_TURN]
 于$Arg(0)回合以内击败敌方将领
@@ -561,31 +561,31 @@ $P被击败
 我方单位全部被击败
 
 [MID_RULE_M000_WIN]
-击败敌人
+敌将击破
 
 [MID_RULE_M001_WIN]
-击败所有敌人
+敌全灭
 
 [MID_RULE_M002_WIN]
-击败琉弥艾尔
+敌将击破
 
 [MID_RULE_M003_WIN]
-击败所有敌人
+敌全灭
 
 [MID_RULE_M004_WIN]
-击败罗丹
+敌将击破
 
 [MID_RULE_M005_WIN]
-击败聂尔凯
+敌将击破
 
 [MID_RULE_M006_WIN]
-击败堤蓝达
+敌将击破
 
 [MID_RULE_M006_LOSE]
 $P或尤娜卡被击败
 
 [MID_RULE_M007_WIN]
-击败奥尔坦希亚
+敌将击破
 
 [MID_RULE_M008_WIN]
 防卫指定地点11回合
@@ -594,109 +594,109 @@ $P或尤娜卡被击败
 $P被击败或防卫地点遭到入侵
 
 [MID_RULE_M009_WIN]
-击败艾比
+敌将击破
 
 [MID_RULE_M010_WIN]
-击败海亚信斯、异形莫力翁
+敌将击破
 
 [MID_RULE_M011_WIN]
 $P成功撤离战场
 
 [MID_RULE_M012_WIN]
-击败所有敌人
+敌全灭
 
 [MID_RULE_M013_WIN]
-击败铁兹、拓兹
+敌将击破
 
 [MID_RULE_M014_WIN]
-击败奥尔坦希亚、赛皮雅、玛伦、莫布
+敌将击破
 
 [MID_RULE_M015_WIN]
-赛安达斯成功撤离战场
+赛安达斯成功撤离
 
 [MID_RULE_M015_LOSE]
 $P或赛安达斯被击败
 
 [MID_RULE_M016_WIN]
-击败玛伦、莫布
+敌将击破
 
 [MID_RULE_M017_WIN]
-击败6名敌方将领
+敌将击破
 
 [MID_RULE_M018_WIN]
-击败亚彪姆
+敌将击破
 
 [MID_RULE_M019_WIN]
-击败玛伦、莫布
+敌将击破
 
 [MID_RULE_M020_WIN]
-击败孤栗
+敌将击破
 
 [MID_RULE_M021_WIN]
-击败贝珥
+敌将击破
 
 [MID_RULE_M022_WIN]
 收回所有纹章士戒指
 
 [MID_RULE_M023_WIN]
-击败赛皮雅、孤栗
+敌将击破
 
 [MID_RULE_M024_WIN]
-击败过去的$P
+敌将击破
 
 [MID_RULE_M024_LOSE]
 $P被击败或超过$Arg(0)回合
 
 [MID_RULE_M025_WIN]
-击败异形琉弥艾尔
+敌将击破
 
 [MID_RULE_M026_WIN]
-击败尚卜尔
+敌将击破
 
 [MID_RULE_S001_WIN]
-击败所有敌人
+敌全灭
 
 [MID_RULE_S002_WIN]
-击败米坦
+敌将击破
 
 [MID_RULE_S003_WIN]
-战胜纹章士露琪娜
+敌将击破
 
 [MID_RULE_S004_WIN]
-战胜纹章士琳
+敌将击破
 
 [MID_RULE_S005_WIN]
-战胜纹章士艾克
+敌将击破
 
 [MID_RULE_S006_WIN]
-战胜纹章士贝雷特
+敌将击破
 
 [MID_RULE_S007_WIN]
-战胜纹章士神威
+敌将击破
 
 [MID_RULE_S008_WIN]
-战胜纹章士艾莉可
+敌将击破
 
 [MID_RULE_S009_WIN]
-战胜纹章士西格尔特
+敌将击破
 
 [MID_RULE_S010_WIN]
-战胜纹章士里弗
+敌将击破
 
 [MID_RULE_S011_WIN]
-战胜纹章士米卡雅
+敌将击破
 
 [MID_RULE_S011_LOSE]
 $P被击败或防卫地点遭到入侵
 
 [MID_RULE_S012_WIN]
-战胜纹章士罗伊
+敌将击破
 
 [MID_RULE_S013_WIN]
-战胜纹章士赛莉卡
+敌将击破
 
 [MID_RULE_S014_WIN]
-战胜纹章士马尔斯
+敌将击破
 
 [MID_RULE_S015_WIN]
 夺回戒指
@@ -1044,10 +1044,10 @@ $P被击败或超过$Arg(0)回合
 魔防
 
 [MID_TE_PlayerDamage]
-我方的防守与魔防
+友双防
 
 [MID_TE_EnemyDamage]
-敌方的防守与魔防
+敌双防
 
 [MID_TE_Break]
 打破无效
