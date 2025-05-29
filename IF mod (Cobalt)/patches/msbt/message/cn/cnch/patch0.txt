@@ -604,17 +604,15 @@ LINK!
 
 [MSID_H_TikiEngage]
 结合时化成龙战斗
-HP+10/全基本能力值、体格+5
+力·魔力+3，守备·魔防+4
+技·幸运+8，速-4
 
-[MSID_H_TikiEngage_Heavy]
+[MSID_H_TikiEngage_Dragon]
 结合时化成龙战斗
-HP+10/全基本能力值、体格+5
-【重装】使地形伤害无效
-
-[MSID_H_TikiEngage_Magic]
-结合时化成龙战斗
-HP+10/全基本能力值、体格+5
-【魔道】魔防+5
+力·魔力+3，守备·魔防+4
+技·幸运+8，速-4
+【龙族】技·幸运额外+2
+力·魔力·守备·魔防额外+1
 
 [MSID_TikiEngageAtk]
 神龙的祝福
