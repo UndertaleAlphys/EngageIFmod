@@ -538,7 +538,7 @@
       <Param Ggid="" Level="19" InheritanceSkills="SID_対弓術５;" SynchroSkills="SID_力＋５;" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
       <Param Ggid="" Level="20" InheritanceSkills="" SynchroSkills="" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
       <Param Ggid="GGID_チキ" Level="" InheritanceSkills="" SynchroSkills="" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="" AptitudeCostSword="" AptitudeCostLance="" AptitudeCostAxe="" AptitudeCostBow="" AptitudeCostDagger="" AptitudeCostMagic="" AptitudeCostRod="" AptitudeCostFist="" AptitudeCostSpecial="" Flag="0" />
-      <Param Ggid="" Level="1" InheritanceSkills="SID_星玉の加護;" SynchroSkills="SID_ＨＰ＋５;SID_守備＋１;SID_幸運＋２;SID_星玉の加護;SID_チキ装備中;" EngageSkills="SID_竜化;SID_敵エンゲージ技ダメージ軽減;" EngageItems="IID_チキ_つめ;IID_チキ_しっぽ;" EngageCooperations="IID_チキ_ブレス;" EngageHorses="IID_チキ_ブレス;" EngageCoverts="IID_チキ_ブレス;" EngageHeavys="IID_チキ_ブレス_重装;" EngageFlys="IID_チキ_ブレス_飛行;" EngageMagics="IID_チキ_ブレス_魔法;" EngagePranas="IID_チキ_ブレス;" EngageDragons="IID_チキ_ブレス_竜族;" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
+      <Param Ggid="" Level="1" InheritanceSkills="SID_星玉の加護;SID_バイオリズム;" SynchroSkills="SID_ＨＰ＋５;SID_守備＋１;SID_幸運＋２;SID_バイオリズム;SID_チキ装備中;" EngageSkills="SID_竜化;SID_敵エンゲージ技ダメージ軽減;" EngageItems="IID_チキ_つめ;IID_チキ_しっぽ;" EngageCooperations="IID_チキ_ブレス;" EngageHorses="IID_チキ_ブレス;" EngageCoverts="IID_チキ_ブレス;" EngageHeavys="IID_チキ_ブレス_重装;" EngageFlys="IID_チキ_ブレス_飛行;" EngageMagics="IID_チキ_ブレス_魔法;" EngagePranas="IID_チキ_ブレス;" EngageDragons="IID_チキ_ブレス_竜族;" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
       <Param Ggid="" Level="2" InheritanceSkills="SID_ＨＰ・幸運＋２;" SynchroSkills="SID_幸運＋４;" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
       <Param Ggid="" Level="3" InheritanceSkills="SID_地玉の加護;" SynchroSkills="SID_地玉の加護;" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
       <Param Ggid="" Level="4" InheritanceSkills="SID_対特殊１;" SynchroSkills="SID_守備＋２;" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
@@ -547,7 +547,7 @@
       <Param Ggid="" Level="7" InheritanceSkills="SID_ＨＰ・幸運＋４;" SynchroSkills="SID_ＨＰ＋７;" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
       <Param Ggid="" Level="8" InheritanceSkills="SID_命玉の加護;" SynchroSkills="SID_命玉の加護;" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
       <Param Ggid="" Level="9" InheritanceSkills="SID_対特殊２;" SynchroSkills="SID_幸運＋６;" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
-      <Param Ggid="" Level="10" InheritanceSkills="SID_光玉の加護;" SynchroSkills="SID_光玉の加護_Test;" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
+      <Param Ggid="" Level="10" InheritanceSkills="SID_光玉の加護;" SynchroSkills="SID_光玉の加護;" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
       <Param Ggid="" Level="11" InheritanceSkills="" SynchroSkills="" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="2" />
       <Param Ggid="" Level="12" InheritanceSkills="SID_ＨＰ・幸運＋６;" SynchroSkills="SID_守備＋３;" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
       <Param Ggid="" Level="13" InheritanceSkills="SID_対特殊３;" SynchroSkills="SID_ＨＰ＋１０;" EngageSkills="" EngageItems="" EngageCooperations="" EngageHorses="" EngageCoverts="" EngageHeavys="" EngageFlys="" EngageMagics="" EngagePranas="" EngageDragons="" Aptitude="0" AptitudeCostNone="0" AptitudeCostSword="0" AptitudeCostLance="0" AptitudeCostAxe="0" AptitudeCostBow="0" AptitudeCostDagger="0" AptitudeCostMagic="0" AptitudeCostRod="0" AptitudeCostFist="0" AptitudeCostSpecial="0" Flag="0" />
@@ -706,25 +706,25 @@
     <Data>
       <Param Out="" Level="0" Exp="0" RelianceLevel="" Cost="0" />
       <Param Out="" Level="1" Exp="0" RelianceLevel="" Cost="0" />
-      <Param Out="" Level="2" Exp="20" RelianceLevel="" Cost="2000" />
-      <Param Out="" Level="3" Exp="40" RelianceLevel="" Cost="2000" />
-      <Param Out="" Level="4" Exp="60" RelianceLevel="" Cost="2000" />
-      <Param Out="" Level="5" Exp="80" RelianceLevel="C" Cost="2000" />
-      <Param Out="" Level="6" Exp="100" RelianceLevel="" Cost="4000" />
-      <Param Out="" Level="7" Exp="120" RelianceLevel="" Cost="4000" />
-      <Param Out="" Level="8" Exp="140" RelianceLevel="" Cost="4000" />
-      <Param Out="" Level="9" Exp="160" RelianceLevel="" Cost="4000" />
-      <Param Out="" Level="10" Exp="180" RelianceLevel="B" Cost="4000" />
-      <Param Out="" Level="11" Exp="200" RelianceLevel="" Cost="8000" />
-      <Param Out="" Level="12" Exp="220" RelianceLevel="" Cost="8000" />
-      <Param Out="" Level="13" Exp="240" RelianceLevel="" Cost="8000" />
-      <Param Out="" Level="14" Exp="260" RelianceLevel="" Cost="8000" />
-      <Param Out="" Level="15" Exp="280" RelianceLevel="" Cost="8000" />
-      <Param Out="" Level="16" Exp="300" RelianceLevel="" Cost="8000" />
-      <Param Out="" Level="17" Exp="320" RelianceLevel="" Cost="8000" />
-      <Param Out="" Level="18" Exp="340" RelianceLevel="" Cost="8000" />
-      <Param Out="" Level="19" Exp="360" RelianceLevel="" Cost="8000" />
-      <Param Out="" Level="20" Exp="380" RelianceLevel="A" Cost="8000" />
+      <Param Out="" Level="2" Exp="10" RelianceLevel="" Cost="2000" />
+      <Param Out="" Level="3" Exp="20" RelianceLevel="" Cost="2000" />
+      <Param Out="" Level="4" Exp="30" RelianceLevel="" Cost="2000" />
+      <Param Out="" Level="5" Exp="40" RelianceLevel="C" Cost="2000" />
+      <Param Out="" Level="6" Exp="50" RelianceLevel="" Cost="4000" />
+      <Param Out="" Level="7" Exp="60" RelianceLevel="" Cost="4000" />
+      <Param Out="" Level="8" Exp="70" RelianceLevel="" Cost="4000" />
+      <Param Out="" Level="9" Exp="80" RelianceLevel="" Cost="4000" />
+      <Param Out="" Level="10" Exp="90" RelianceLevel="B" Cost="4000" />
+      <Param Out="" Level="11" Exp="100" RelianceLevel="" Cost="8000" />
+      <Param Out="" Level="12" Exp="110" RelianceLevel="" Cost="8000" />
+      <Param Out="" Level="13" Exp="120" RelianceLevel="" Cost="8000" />
+      <Param Out="" Level="14" Exp="130" RelianceLevel="" Cost="8000" />
+      <Param Out="" Level="15" Exp="140" RelianceLevel="" Cost="8000" />
+      <Param Out="" Level="16" Exp="150" RelianceLevel="" Cost="8000" />
+      <Param Out="" Level="17" Exp="160" RelianceLevel="" Cost="8000" />
+      <Param Out="" Level="18" Exp="170" RelianceLevel="" Cost="8000" />
+      <Param Out="" Level="19" Exp="180" RelianceLevel="" Cost="8000" />
+      <Param Out="" Level="20" Exp="190" RelianceLevel="A" Cost="8000" />
     </Data>
   </Sheet>
 </Book>

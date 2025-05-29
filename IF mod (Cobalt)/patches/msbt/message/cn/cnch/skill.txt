@@ -3441,9 +3441,8 @@ MSID_CrtMoreDmg
 
 [MSID_H_ChaosStyle]
 增加攻击伤害并回复HP
-使用物理攻击时，将对方魔力的20%加计至伤害
-使用魔法攻击时，将对方力的20%加计至伤害
-然后回复增加伤害量的HP
+若为物理攻击，幅度为对方魔力的20%
+若为魔法攻击，幅度为对方力的20%
 
 [MSID_StaffSavant]
 无限之杖
@@ -4263,19 +4262,19 @@ MSID_CrtMoreDmg
 [MSID_H_MonsterCrusher]
 可使用"魔物崩击"指令
 消耗4结合计量条或2结合回合
-挥出克制异形且无视异形防御的2拳
+挥出克制异形且无视异形一半防御的2拳
 
 [MSID_H_MonsterCrusher_CMD]
-消耗4j结合计量条或2结合回合
-挥出克制异形且无视异形防御的2拳
+消耗4结合计量条或2结合回合
+挥出克制异形且无视异形一半防御的2拳
 
 [MSID_H_MonsterCrusher_Not_Engaging_CMD]
 消耗4结合计量条
-挥出克制异形且无视异形防御的2拳
+挥出克制异形且无视异形一半防御的2拳
 
 [MSID_H_MonsterCrusher_Engaging_CMD]
 消耗2结合回合
-挥出克制异形且无视异形防御的2拳
+挥出克制异形且无视异形一半防御的2拳
 
 [MSID_Art]
 战技
@@ -4607,3 +4606,27 @@ MSID_CrtMoreDmg
 【龙族】
 视为拥有“移动之呐喊”
 
+[MSID_Recovery]
+回复
+
+[MSID_H_Recovery]
+回合开始时，回复30%HP。
+
+[MSID_Rhythm]
+生物节律
+
+[MSID_H_Rhythm]
+奇数回合，3格内友方命中、必杀+10。
+偶数回合，3格内友方回避、必杀回避+10。
+
+[MSID_OddRhythm]
+生物节律 · 奇
+
+[MSID_H_OddRhythm]
+奇数回合，3格内友方命中、必杀+10。
+
+[MSID_EvenRhythm]
+生物节律 · 偶
+
+[MSID_H_EvenRhythm]
+偶数回合，3格内友方回避、必杀回避+10。

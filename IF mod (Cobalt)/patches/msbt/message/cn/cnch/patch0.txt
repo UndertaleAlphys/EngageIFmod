@@ -549,15 +549,20 @@ LINK!
 光玉加护
 
 [MSID_H_BallsProtection_Light]
-自身发动攻击时
-受到对方必杀攻击的几率减半
+可使用“支援”指令，
+使周围2格友方获得效果：
+每场战斗中，
+非首次受到伤害减少50%，
+非首次造成伤害增加50%。
 
 [MSID_BallsProtection_Star]
 星玉加护
 
 [MSID_H_BallsProtection_Star]
-等级提升时
-基本能力值较易上升
+若回合数除以3的余数为
+1：力、守备+2
+2：魔力、魔防+2
+0：技、速、幸运+2
 
 [MSID_BallsProtection_Life]
 命玉加护

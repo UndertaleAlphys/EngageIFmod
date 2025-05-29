@@ -59,12 +59,13 @@
 里贝拉锡翁
 
 [MIID_H_Liberation_M000]
-神龙专用的剑。
+神龙专用。
 
 [MIID_H_Liberation]
 神龙专用。
+虽然长得像剑，但其实是把太刀。
 由自身发动攻击并击败敌人时，
-结合计量条+1。
+结合计量条额外+1。
 
 [MIID_KillingEdge]
 必杀剑
@@ -77,7 +78,7 @@
 居合刀
 
 [MIID_H_JapaneseSword]
-锋利的刀。
+锋利的太刀。
 速+5/守备·魔抗-1
 
 [MIID_Armorslayer]
@@ -2464,6 +2465,7 @@ HP吸收/不可追击
 [MIID_H_Kamui_TrueStone]
 纹章士神威的真龙石
 魔法武器/不可追击
+技-5/速-4/守备+9/魔防+7
 
 [MIID_Camilla_DualClub]
 逆棍棒
