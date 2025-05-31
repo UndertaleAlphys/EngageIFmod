@@ -713,20 +713,6 @@ HP未达最大值，无法使用。
 [MSID_H_Detox]
 我军行动阶段开始时解除中毒状态
 
-[MSID_CleanUp]
-乘胜追击
-
-[MSID_H_CleanUp]
-自身发动攻击并触发必杀攻击的情况下
-战斗后给对方造成5伤害
-
-[MSID_CleanUp+]
-乘胜追击+
-
-[MSID_H_CleanUp+]
-自身发动攻击并触发必杀攻击的情况下
-战斗后给对方造成10伤害
-
 [MSID_CamillaEngage]
 天驱
 

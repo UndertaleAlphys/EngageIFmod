@@ -1010,6 +1010,9 @@ $P被击败或超过$Arg(0)回合
 [MTID_Fire]
 火焰
 
+[MTID_RoyFire]
+狮子红莲之焰
+
 [MTID_Miasma]
 瘴气
 

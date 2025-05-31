@@ -1160,14 +1160,14 @@ HP回复量+15、杖的命中+30
 狮子红莲焰舞
 
 [MSID_H_RoyEngageAtk]
-使用炎之剑攻击前方的横向3格
+使用炎之剑攻击前方
 目标格与其后2格会陷入燃烧状态
 仅限持剑且相邻时
 
 [MSID_H_RoyEngageAtk_Dragon]
-使用炎之剑攻击前方的横向3格
+使用炎之剑攻击前方
 目标格与其后2格会陷入燃烧状态
-仅限持剑且相邻时，【龙族】扩大攻击范围
+仅限持剑且相邻时，【龙族】扩大燃烧范围
 
 [MSID_H_RoyEngageAtk_Magic]
 使用炽焰之剑攻击前方的横向3格
@@ -1175,7 +1175,7 @@ HP回复量+15、杖的命中+30
 仅限持剑且相邻时，【魔道】扩大燃烧范围
 
 [MSID_H_RoyEngageAtk_CMD]
-攻击前方的复数格并使四周燃烧
+攻击前方的一格并使四周燃烧
 
 [MSID_M011_RoyEngage_DarkSide]
 超越（暗）
@@ -4625,3 +4625,17 @@ MSID_CrtMoreDmg
 [MSID_H_EvenRhythm_Horse]
 偶数回合，3格内友方回避、必杀回避+10。
 【骑马】必杀回避额外+10
+
+[MSID_CleanUp]
+乘胜追击
+
+[MSID_H_CleanUp]
+对方处于不利地形时，
+造成伤害+5。
+
+[MSID_CleanUp+]
+乘胜追击+
+
+[MSID_H_CleanUp+]
+对方处于不利地形时，
+造成伤害+7。
