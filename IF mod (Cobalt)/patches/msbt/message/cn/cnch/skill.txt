@@ -1036,8 +1036,8 @@ HP回复量+15、杖的命中+30
 治愈之声
 
 [MSID_H_HealingResonance]
-使用杖回复我方单位的HP时，
-自身也能获得回复量50%的HP
+对我方单位使用杖后，
+将自身HP回复至与其相同。
 
 [MSID_MicaiahEngage]
 增幅
@@ -4163,31 +4163,8 @@ MSID_CrtMoreDmg
 和之心
 
 [MSID_H_Camaraderie]
-消耗一定代价
-增加2格内友方单位的HP上限
-下个回合开始时
-其失去以此法获得的HP上限
-并将HP回复至上限
-(增加幅度与使用者魔力有关)
-
-[MSID_H_Camaraderie_CMD]
-增加2格内友方单位的HP上限
-下回合开始时回复其HP
-
-[MSID_H_Camaraderie_Not_Engaging]
-消耗2结合计量条
-增加2格内友方单位的HP上限
-下个回合开始时
-其失去以此法获得的HP上限
-并将HP回复至上限
-(增加幅度与使用者魔力有关)
-
-[MSID_H_Camaraderie_Engaging]
-增加2格内友方单位的HP上限
-下个回合开始时
-其失去以此法获得的HP上限
-并将HP回复至上限
-(增加幅度与使用者魔力有关)
+使用杖指定唯一友方单位后，
+使其最大HP+10直到其主动发起战斗。
 
 [MSID_BattlePreparation]
 战斗准备
