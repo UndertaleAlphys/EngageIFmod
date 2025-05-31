@@ -1460,14 +1460,14 @@ HP为50%及以下时，
 勇将
 
 [MSID_H_BraveGeneral_1]
-HP为50%及以下时
+HP为75%及以下时
 技、运+6
 
 [MSID_BraveGeneral_2]
 勇将+
 
 [MSID_H_BraveGeneral_2]
-HP为50%及以下时
+HP为75%及以下时
 技、运+8
 
 [MSID_IkeEngage]
@@ -4435,7 +4435,7 @@ MSID_CrtMoreDmg
 
 [MSID_H_Dominance]
 令周围3格敌方单位的
-力、技、速各下降2点
+力、守备各下降2点
 然后自身对应能力提高等量值
 （每种能力至多提高12点）
 
