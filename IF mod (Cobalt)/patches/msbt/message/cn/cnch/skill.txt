@@ -4304,12 +4304,19 @@ MSID_CrtMoreDmg
 自身的速度+2（至多叠加10层效果）
 对方的速度-2（至多叠加5层效果）
 
-[MSID_Declaim]
+[MSID_Declaim_1]
 后知后觉
 
-[MSID_H_Declaim]
-防止每场战斗中所受的首次伤害
-然后本场战斗所受伤害翻倍
+[MSID_Declaim_2]
+后知后觉+
+
+[MSID_H_Declaim_1]
+每场战斗中所受首次伤害降低50%
+之后所受伤害增加50%
+
+[MSID_H_Declaim_2]
+防止每场战斗中所受首次伤害
+然后本场战斗后续所受伤害翻倍
 
 [MSID_Senpai_M010]
 先生 · 暗

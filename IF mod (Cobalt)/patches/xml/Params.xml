@@ -138,7 +138,7 @@
       <Param Out="" Name="AIガード死亡率" English="AI guard death rate" Value="0.3" Min="0" Max="1" Step="0.1" Enum="" />
       <Param Out="" Name="AIガード殺害率" English="AI guard kill rate" Value="0.5" Min="0" Max="1" Step="0.1" Enum="" />
       <Param Out="" Name="AIガード与ダメ率" English="AI guard damage dealt rate" Value="0.4" Min="0" Max="1" Step="0.1" Enum="" />
-      <Param Out="" Name="アイテム売却率" English="Item sale rate" Value="0.5" Min="0" Max="1" Step="0.1" Enum="" />
+      <Param Out="" Name="アイテム売却率" English="Item sale rate" Value="0.4" Min="0" Max="1" Step="0.1" Enum="" />
       <Param Out="" Name="錬成売却率" English="Forging sale rate" Value="0.2" Min="0" Max="1" Step="0.1" Enum="" />
       <Param Out="" Name="シルバーカード割引率" English="Silver Card discount rate" Value="0.3" Min="0" Max="1" Step="0.1" Enum="" />
       <Param Out="" Name="巻き戻し最大回数ノーマル" English="Max rewinds Normal" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
@@ -243,7 +243,7 @@
       <Param Out="" Name="マップカメラ傾き初期化" English="Map camera tilt reset" Value="1" Min="0" Max="0" Step="1" Enum="OFF,ON" />
       <Param Out="" Name="マップカメラ傾き近" English="Map camera tilt near " Value="50" Min="0" Max="90" Step="1" Enum="" />
       <Param Out="" Name="マップカメラ傾き遠" English="Map camera tilt far" Value="80" Min="0" Max="90" Step="1" Enum="" />
-      <Param Out="" Name="マップカメラ距離近" English="Map camera distance near" Value="15" Min="10" Max="1000" Step="1" Enum="" />
+      <Param Out="" Name="マップカメラ距離近" English="Map camera distance near" Value="60" Min="10" Max="1000" Step="1" Enum="" />
       <Param Out="" Name="マップカメラ距離遠" English="Map camera distance far" Value="200" Min="10" Max="1000" Step="1" Enum="" />
       <Param Out="" Name="マップカメラ位置補間時間" English="Map camera position interpolation time" Value="0.75" Min="0.01" Max="10" Step="0.01" Enum="" />
       <Param Out="" Name="マップカメラ回転補間時間" English="Map camera rotation interpolation time" Value="0.75" Min="0.01" Max="10" Step="0.01" Enum="" />
