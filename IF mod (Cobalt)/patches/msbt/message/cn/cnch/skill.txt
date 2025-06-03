@@ -4182,10 +4182,10 @@ MSID_CrtMoreDmg
 若不为本场战斗第一次攻击
 攻击力+5
 
-[MSID_Senpai]
+[MSID_Sensei]
 先生
 
-[MSID_H_Senpai]
+[MSID_H_Sensei]
 无需使用支援指令
 结束行动即可发动支援效果
 
@@ -4318,10 +4318,10 @@ MSID_CrtMoreDmg
 防止每场战斗中所受首次伤害
 然后本场战斗后续所受伤害翻倍
 
-[MSID_Senpai_M010]
+[MSID_Sensei_M010]
 先生 · 暗
 
-[MSID_H_Senpai_M010]
+[MSID_H_Sensei_M010]
 无需使用支援指令
 回合开始即可发动支援效果
 
