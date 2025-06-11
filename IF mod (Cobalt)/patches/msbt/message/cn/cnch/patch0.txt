@@ -596,7 +596,14 @@ LINK!
 地玉加护+
 
 [MSID_H_BallsProtection_Earth+]
-我军行动阶段开始时
+我军行动阶段开始时,或行动结束时
+对自身周围3格的地形赋予“神龙领域”效果
+
+[MSID_BallsProtection_Earth_G001]
+地玉加护
+
+[MSID_H_BallsProtection_Earth_G001]
+行动结束时
 对自身周围3格的地形赋予“神龙领域”效果
 
 [MSID_TikiEngage]
