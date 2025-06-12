@@ -2963,7 +2963,7 @@ M屏障
 [MIID_H_Lin_WestWind]
 纹章士琳的远击弓
 不可追击/
-命中后使对方移动-2
+主动攻击命中后使对方移动减半
 持续一回合
 
 [MIID_Leaf_Sdorisoke]

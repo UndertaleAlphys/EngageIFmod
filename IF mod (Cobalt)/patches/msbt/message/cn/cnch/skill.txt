@@ -2469,12 +2469,12 @@ HP为50%以下时
 [MSID_H_JobSkill_Paladin]
 结合状态下，全能力+1
 
-[MSID_JobSkill_WolfKnight]
+[MSID_MoveSeal]
 移动封
 
-[MSID_H_JobSkill_WolfKnight]
-战斗后
-对方的移动-2，效果持续1回合
+[MSID_H_MoveSeal]
+自身发起战斗后
+对方的移动减半，效果持续1回合
 
 [MSID_JobSkill_GriffinKnight]
 移动辅助
