@@ -4646,3 +4646,10 @@ MSID_CrtMoreDmg
 [MSID_H_CleanUp+]
 对方处于不利地形时，
 造成伤害+7。
+
+[MSID_Freeze]
+冻结
+
+[MSID_H_Freeze]
+攻击命中后，
+使对方进入“冰封”状态。
