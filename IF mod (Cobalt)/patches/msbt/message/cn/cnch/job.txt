@@ -538,4 +538,3 @@
 
 [MJID_BasicSage]
 魔法师/暗魔法师
-
