@@ -234,7 +234,7 @@
       <Param Condition="" Iid="IID_龍神・辰" Stock="-1" Attribute="0" />
     </Data>
   </Sheet>
-  <Sheet Name="道具屋" Count="125">
+  <Sheet Name="道具屋" Count="126">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -247,6 +247,7 @@
       <Param Condition="M001,CC_マージカノン" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_マージカノン専用プルフ" Stock="-1" Attribute="0" />
       <Param Condition="M004" Iid="" Stock="" Attribute="" />
+      <Param Condition="" Iid="IID_知識の書" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_ライブ" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_トーチ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_傷薬" Stock="-1" Attribute="0" />

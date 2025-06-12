@@ -2996,3 +2996,8 @@ S药水
 纹章士露琪娜的宝剑。
 王族装备时，伤害+5。
 
+[MIID_KnowledgeBook]
+术书
+
+[MIID_H_KnowledgeBook]
+使用后全成长率+5
