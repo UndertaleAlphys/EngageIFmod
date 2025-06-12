@@ -1,3 +1,9 @@
+[MJID_Unknown]
+无
+
+[MJID_H_Unknown]
+无
+
 [MJID_DragonLord]
 神龙之子
 
