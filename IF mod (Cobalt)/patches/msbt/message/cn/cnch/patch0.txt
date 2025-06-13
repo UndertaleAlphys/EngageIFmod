@@ -112,7 +112,7 @@ LINK!
 发现了神秘的手镯。
 
 [MID_RULE_G001_WIN]
-战胜纹章士琪姬
+敌将击破
 
 [MTID_MagicDoor]
 魔法之门
