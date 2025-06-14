@@ -239,7 +239,7 @@ function 進撃開始直後()
 
 	CursorSetPos_FromPid( "PID_M010_異形兵_モリオン" )
 	WaitTime(0.5)
-	Talk("MID_EV1")
+	-- Talk("MID_EV1")
 
 	CursorSetPos_FromPid( g_pid_lueur )
 
@@ -285,14 +285,14 @@ end
 function オルテンシアとバトル()
 
 	スキル解除( g_pid_holtensia, "SID_命中０_砲撃中無効", "SID_神将スキル確率補正１００" )
-	Talk( "MID_BT6" )
+	-- Talk( "MID_BT6" )
 
 end
 
 function オルテンシアとバトル_リュール()
 
 	スキル解除( g_pid_holtensia, "SID_命中０_砲撃中無効", "SID_神将スキル確率補正１００" )
-	Talk( "MID_BT7" )
+	-- Talk( "MID_BT7" )
 
 end
 
@@ -362,7 +362,7 @@ end
 
 function リンエンゲ技イベント()
 	CursorSetPos_FromPid( "PID_M010_ハイアシンス" )
-	Talk( "MID_EV2" )
+	-- Talk( "MID_EV2" )
 
 	VariableSet( g_flag_EngageAttack, 1 )
 end
