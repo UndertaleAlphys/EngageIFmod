@@ -70,15 +70,15 @@ function イベント登録()
 	EventEntryDestroy(民家破壊_フラグセット, 14, 10, 14, 10,	13, 11, 15, 13,		g_key_house2destroy)
 	
 	-- キャラ同士の会話
-	EventEntryTalk(Talk, "PID_セリーヌ", FORCE_PLAYER, "PID_クロエ",	FORCE_PLAYER, true, g_key_talk_chloe,	"MID_TK1")
-	EventEntryTalk(Talk, "PID_セリーヌ", FORCE_PLAYER, "PID_ルイ",		FORCE_PLAYER, true, g_key_talk_louis,	"MID_TK2")
+	-- EventEntryTalk(Talk, "PID_セリーヌ", FORCE_PLAYER, "PID_クロエ",	FORCE_PLAYER, true, g_key_talk_chloe,	"MID_TK1")
+	-- EventEntryTalk(Talk, "PID_セリーヌ", FORCE_PLAYER, "PID_ルイ",		FORCE_PLAYER, true, g_key_talk_louis,	"MID_TK2")
 	
 	-- 増援
 	EventEntryTurn(増援_A, 3, 3, FORCE_PLAYER)
 	EventEntryTurn(Reinforcement_B, 4, 4, FORCE_PLAYER)
 	EventEntryTurn(Reinforcement_C, 5, 5, FORCE_PLAYER)
 	-- ボス
-	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, "PID_M004_イルシオン兵_ボス", FORCE_ENEMY, true, "戦闘前会話_ボス_済", "MID_BT1")
+	-- EventEntryBattleTalk(Talk, "", FORCE_PLAYER, "PID_M004_イルシオン兵_ボス", FORCE_ENEMY, true, "戦闘前会話_ボス_済", "MID_BT1")
 	EventEntryDie(Talk, "PID_M004_イルシオン兵_ボス", FORCE_ENEMY, condition_true, "MID_BT2")
 	
 	-- --------------------------------------------------
@@ -98,7 +98,7 @@ function Opening()
 	
 	Log("Opening")
 	
-	PuppetDemo("M004", "MID_OP1")
+	-- PuppetDemo("M004", "MID_OP1")
 	
 end
 
@@ -133,26 +133,26 @@ function MapOpening()
 	UnitMovePosFromPos(3,2,3,3)
 	
 	UnitMoveWait()
-	FadeWait()
+	-- FadeWait()
 	
-	SoundPostEvent("BGM_Evt_Danger1")
+	-- SoundPostEvent("BGM_Evt_Danger1")
 	
-	Talk("MID_OP2")
+	-- Talk("MID_OP2")
 	
-	CursorSetPos(6, 12)
-	MapCameraWait()
+	-- CursorSetPos(6, 12)
+	-- MapCameraWait()
 	
-	WaitTime(1.0)
+	-- WaitTime(1.0)
 	
-	Talk("MID_OP3")
+	-- Talk("MID_OP3")
 	
 	-- -----------------------------------
 	
 	CursorSetPos_FromPid_DistanceModeNear("PID_セリーヌ")
 	
 	FadeOutAndWait(FADE_FAST)
-		SkipEscape()
-		Movie("Scene07")
+		-- SkipEscape()
+		-- Movie("Scene07")
 		
 		if UnitExistOnMap("PID_セリーヌ") then
 			UnitDelete("PID_セリーヌ")
@@ -186,14 +186,14 @@ function セリーヌ合流とセリカ顕現()
 	
 	味方がセリーヌの方を向く()
 	
-	Talk("MID_OP5")
+	-- Talk("MID_OP5")
 	
-	Movie("Kengen02")
-	SkipEscape()
+	-- Movie("Kengen02")
+	-- SkipEscape()
 	
 	-- 顕現前の会話内でフェードアウトしているので強制的にフェードを戻す
-	FadeInAndWait(FADE_FAST)
-	Talk("MID_OP6")
+	-- FadeInAndWait(FADE_FAST)
+	-- Talk("MID_OP6")
 	
 	-- 神将作成・バディ化
 	UnitCreateGodUnit("PID_セリーヌ", "GID_セリカ")
@@ -227,12 +227,12 @@ end
 
 function クロエとルイの会話()
 	
-	CursorSetPos(13,9)
-	MapCameraWait()
+	-- CursorSetPos(13,9)
+	-- MapCameraWait()
 	
-	Talk("MID_EV1")
+	-- Talk("MID_EV1")
 	
-	WaitTime(0.5)
+	-- WaitTime(0.5)
 	
 	Tutorial( "TUTID_重装スタイル" ) -- 通知のみ
 	Tutorial( "TUTID_飛行スタイル" ) -- 通知のみ
@@ -271,7 +271,7 @@ function チュートリアル_訪問()
 	
 	MapCameraWait()
 	CursorAnimeCreate(7, 4)
-	Talk("MID_EV4")
+	-- Talk("MID_EV4")
 	CursorAnimeDelete()
 	Tutorial( "TUTID_訪問" )
 	
@@ -300,12 +300,12 @@ end
 function ピックアップ_セリーヌ()
 	
 	if VariableGet( g_key_pickupCeline ) == 0 then
-		MapCameraWait()
-		Talk("MID_EV2")
+		-- MapCameraWait()
+		-- Talk("MID_EV2")
 		
 		Tutorial( "TUTID_紋章士セリカ" )
 		
-		Talk("MID_EV10")
+		-- Talk("MID_EV10")
 		
 		VariableSet( g_key_pickupCeline, 1 )
 	end
@@ -321,7 +321,7 @@ end
 
 function エンゲージ後に再生()
 	
-	Talk( "MID_EV3" )
+	-- Talk( "MID_EV3" )
 	
 end
 
@@ -464,7 +464,7 @@ function チュートリアル_ワープライナ()
 	MapCameraWait()
 	]]
 	
-	Talk( "MID_EV11" )
+	-- Talk( "MID_EV11" )
 	VariableSet( g_key_tutorial_warp, 1 )
 	
 end
@@ -480,7 +480,7 @@ function 青軍２ターン直前()
 	
 	-- 竜の時水晶
 	CursorSetPos_FromPid( g_pid_lueur )
-	Talk("MID_EV9")
+	-- Talk("MID_EV9")
 	SoundPostEvent("ItemGet_Important")
 	Dialog( "MID_TUT_NAVI_M004_TIMECRYSTAL" )
 	Tutorial( "TUTID_竜の時水晶" )
@@ -492,14 +492,14 @@ end
 -- ---------------------------------------------------------
 
 function 民家１訪問イベント()
-	Talk("MID_EV5")
+	-- Talk("MID_EV5")
 	ItemGain(MindGetUnit(), "IID_ドラゴンキラー")
 end
 
 -- ---------------------------------------------------------
 
 function 民家２訪問イベント()
-	Talk("MID_EV6")
+	-- Talk("MID_EV6")
 	ItemGain(MindGetUnit(), "IID_手槍")
 	
 	-- 蛮族のAIを変更
@@ -514,7 +514,7 @@ end
 
 function 増援_A()
 	CursorSetPos_FromPid("PID_M004_IFMOD_イルシオン兵_ボス")
-	Talk("MID_EV7")
+	-- Talk("MID_EV7")
 	
 	Reinforcement_A()
 	

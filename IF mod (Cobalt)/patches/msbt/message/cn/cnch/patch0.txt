@@ -563,7 +563,7 @@ LINK!
 [MSID_H_BallsProtection_Star]
 每回合依次获得下列能力组合的强化：
 力・守备 → 魔力・魔防 → 技・速・幸运
-（增加幅度为等级/10，向上取整且至多增加4）
+（增加幅度为等级÷10，向上取整且至多增加4）
 
 [MSID_BallsProtection_Life]
 命玉加护

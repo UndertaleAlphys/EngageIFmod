@@ -384,13 +384,13 @@ function イベント_マルスとシンクロ()
 	
 	FadeOutAndWait(FADE_FAST)
 			
-			Movie("Scene03")
-			SkipEscape()
+			-- Movie("Scene03")
+			-- SkipEscape()
 			
 			マルスの顕現とシンクロ()
 			
-			Movie("Scene04")
-			SkipEscape()
+			-- Movie("Scene04")
+			-- SkipEscape()
 			
 			-- カメラ移動
 			CursorSetPos(6, 11)
@@ -444,8 +444,7 @@ end
 
 function マルスの顕現とシンクロ()
 	
-	Movie("S04")
-	SkipEscape()
+	-- Movie("S04")
 	
 	-- 神将作成・バディ化
 	GodUnitCreate("GID_マルス")

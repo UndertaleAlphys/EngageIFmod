@@ -138,8 +138,8 @@ function Opening()
 
 	Log("Opening")
 
-	PuppetDemo("M010", "MID_OP1")
-	PuppetDemo("M010", "MID_OP2")
+	-- PuppetDemo("M010", "MID_OP1")
+	-- PuppetDemo("M010", "MID_OP2")
 
 end
 
@@ -152,8 +152,8 @@ function MapOpening()
 
 	FadeOutAndWait(FADE_FAST)
 
-		Movie("Scene15")
-		SkipEscape()
+		-- Movie("Scene15")
+		-- SkipEscape()
 
 		配置調整()
 
