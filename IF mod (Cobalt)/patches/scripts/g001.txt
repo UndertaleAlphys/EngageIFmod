@@ -64,7 +64,7 @@ function Startup()
 	
 	Log("Startup12346");
 
-    SaveAndSetPlayerUnitsToLevel1()
+      
 
 	Startup_神竜の章_対象紋章士を一時的に無効化( "GID_チキ" )
 	
@@ -141,7 +141,6 @@ function MapOpening()
 		TerrainSetOne(9, 25, "TID_謎の平地")
 	end
 
-    RestorePlayerUnitsOriginalLevels()
 	チキのスキル設定();
 
 end

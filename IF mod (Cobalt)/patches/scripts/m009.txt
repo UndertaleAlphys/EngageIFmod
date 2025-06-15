@@ -366,6 +366,7 @@ function aiChangeIvyNearestBand()
 	
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ロッドナイト", true)
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ロッドナイト2", true)
+	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ロッドナイト3", true)
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_マージナイト", true)
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_マージナイト2", true)
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_マージナイト2", true)
