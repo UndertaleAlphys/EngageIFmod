@@ -316,7 +316,6 @@ end
 -- -----------------------------------
 
 function Interference_Target_Choose()
-	Log("Interference!!!")
 	local pid = "PID_M009_IFMOD_イルシオン兵_ロッドナイト2"
     	g_interference_except = Set_Interference_AI_by_Pid(pid)
 end
@@ -372,6 +371,7 @@ function aiChangeIvyNearestBand()
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_マージナイト2", true)
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ランスナイト4", true)
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ランスナイト3", true)
+	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ソードナイト3", true)
 	VariableSet("IvyNearestBandActive", 1 )
 end
 
