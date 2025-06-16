@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Book Count="2">
-  <Sheet Name="共通" Count="74">
+  <Sheet Name="共通" Count="73">
     <Header>
       <Param Name="名前" Ident="Name" Type="PublicString" Min="" Max="" Chg="" />
       <Param Name="条件式" Ident="Condition" Type="string[]" Min="" Max="" Chg="" />
@@ -80,7 +80,6 @@
       <Param Name="エンチャント基本値" Condition="難易度 == ルナティック;難易度 == ハード;" Function="エンチャント基本値ルナティック( レベル );エンチャント基本値ハード( レベル );エンチャント基本値ノーマル( レベル );" />
       <Param Name="エンチャント経験計算" Condition="" Function="clamp( エンチャント基本値, 1, 100 );" />
       <Param Name="内部レベル計算" Condition="" Function="0;" />
-      <Param Name="THP" Condition="" Function="MaxHP;" />
     </Data>
   </Sheet>
   <Sheet Name="経験値テーブル" Count="35">

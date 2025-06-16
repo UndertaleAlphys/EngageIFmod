@@ -6,7 +6,6 @@ g_pid_boss			= "PID_G001_チキ"
 g_pid_boss_doragon		= "PID_G001_チキ_竜化"
 g_pid_bossB			= "PID_G001_チキ_特効無効"
 g_pid_bossB_doragon		= "PID_G001_チキ_竜化_特効無効"
-g_flag_reinforcement				= "增援结束"
 
 g_Width			= 32
 g_Height		= 32
@@ -62,10 +61,8 @@ g_IceSheetMap = {
 
 function Startup()
 	
-	Log("Startup12346");
-
-      
-
+	Log("Startup");
+	
 	Startup_神竜の章_対象紋章士を一時的に無効化( "GID_チキ" )
 	
 	-- 勝利条件の設定
@@ -77,32 +74,6 @@ function Startup()
 end
 
 -- -----------------------------------
-
--- 全局变量用于保存单位等级
-g_savedUnitLevels = {}
-
--- 保存我方单位等级并设置为 1 级
-function SaveAndSetPlayerUnitsToLevel1()
-    local unit = ForceUnitGetFirst(FORCE_ABSENT)
-    while unit ~= nil do
-        local currentLevel = UnitGetLevel(unit)
-        Log(currentLevel)
-        g_savedUnitLevels[unit] = currentLevel  -- 保存原始等级
-        UnitSetLevel(unit, 1)                   -- 设置为 40 级
-        unit = ForceUnitGetNext(unit)
-    end
-end
-
--- 恢复我方单位原始等级
-function RestorePlayerUnitsOriginalLevels()
-    for unit, level in pairs(g_savedUnitLevels) do
-            UnitSetLevel(unit, level)
-    end
-    g_savedUnitLevels = {}  -- 清空保存数据
-end
-
--- -----------------------------------------------
-
 
 function Cleanup()
 	
@@ -141,21 +112,11 @@ function MapOpening()
 		TerrainSetOne(9, 25, "TID_謎の平地")
 	end
 
-	チキのスキル設定();
+	チキのスキル設定()
 
 end
 
 -- -----------------------------------
-
-
-function CheckFunctionExists(funcName)
-    local func = _G[funcName]
-    if type(func) == "function" then
-        Log("✅ " .. funcName .. " exits")
-    else
-        Log("❌ " .. funcName .. " not exists")
-    end
-end
 
 function MapEnding()
 	
@@ -218,7 +179,6 @@ end
 -- -----------------------------------
 
 function 変数登録()
-	VariableEntry(g_flag_reinforcemnt, 0)
 	VariableEntry("左のスイッチ_済", 0)
 	VariableEntry("中央のスイッチ_済", 0)
 	VariableEntry("戦闘前会話_チキ_マルス_済", 0)
@@ -231,8 +191,6 @@ function イベント登録()
 	EventEntryTurn( 戦闘開始直後,	1,  1, FORCE_PLAYER )
 	EventEntryTurn( 勝利条件_紋章士にフォーカス, 1, 1, FORCE_PLAYER )
 
-	EventEntryTurn( Interference_Target_Choose, -1, -1, FORCE_ENEMY, condition_true)
-
 	EventEntryArea(エリア_氷床, 11, 1, 24, 11, FORCE_PLAYER, "氷床イベント_済" )
 
 	EventEntryTurn(増援１, 14, 14, FORCE_PLAYER)
@@ -243,7 +201,6 @@ function イベント登録()
 	EventEntryTurn(増援６, 29, 29, FORCE_PLAYER)
 	EventEntryTurn(増援７, 32, 32, FORCE_PLAYER)
 	EventEntryTurn(増援８, 35, 35, FORCE_PLAYER)	
-	EventEntryBattleAfter(EmptyFunction, g_pid_holtensia, FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_reinforcement )
 	
 	EventEntryArea(左のスイッチ_作動, 3, 27, 3, 27, FORCE_PLAYER, "左のスイッチ_済")
 	EventEntryArea(中央のスイッチ_作動, 17, 27, 17, 27, FORCE_PLAYER, "中央のスイッチ_済")
@@ -251,8 +208,8 @@ function イベント登録()
 	EventEntryArea(アイテム入手, 9, 25, 9, 25, FORCE_PLAYER, condition_アイテム入手)
 
 	EventEntryTbox(宝箱入手,17, 26, "IID_5000G")
-	EventEntryTbox(宝箱入手, 1, 27, "IID_神風招来")
-	EventEntryTbox(宝箱入手, 5, 27, "IID_護身の法")
+	EventEntryTbox(宝箱入手, 1, 27, "IID_マスタープルフ")
+	EventEntryTbox(宝箱入手, 5, 27, "IID_神風招来")
 
 	EventEntryBattleTalk( リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, "PID_G001_チキ_竜化",	FORCE_ENEMY, true, "戦闘前会話_チキ_リュール_済" )
 	EventEntryBattleTalk( リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, "PID_G001_チキ",	FORCE_ENEMY, true, "戦闘前会話_チキ_リュール_済" )
@@ -266,12 +223,6 @@ function イベント登録()
 	
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 3, 6, "PID_リュール", condition_true)
-end
-
-
-function Interference_Target_Choose()
-	local pid = "PID_IFMOD_G001_幻影兵_モンク"
-    	g_interference_except = Set_Interference_AI_by_Pid(pid)
 end
 
 -- -----------------------------------
@@ -470,9 +421,9 @@ function 左のスイッチ_作動()
 	Talk("MID_EV8")
 	
 	-- 竜化演出
-	local unit = UnitGetByPos( 26, 25 )
+	local unit = UnitGetByPos( 26, 26 )
 	if unit != nil then
-		EffectPlay( "竜化_G1" , 26, 25 )
+		EffectPlay( "竜化_G1" , 26, 26 )
 		WaitTime( 0.5 )
 		UnitDelete( unit )
 		Dispos( "TikiDragon", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED )
@@ -624,12 +575,82 @@ end
 
 -- -----------------------------------
 
+function FindNearestValidPosition(startX, startY)
+    local queue = {}
+    local visited = {}
+    local directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}} -- 上、右、下、左
+
+    table.insert(queue, {x = startX, y = startY})
+    visited[startX .. "," .. startY] = true
+
+    while #queue > 0 do
+        local current = table.remove(queue, 1)
+
+        -- 检查当前位置是否为空闲且可通行
+        if IsPositionValid(current.x, current.y) then
+            return current.x, current.y
+        end
+
+        -- 向四个方向扩展
+        for _, dir in ipairs(directions) do
+            local newX = current.x + dir[1]
+            local newY = current.y + dir[2]
+            local key = newX .. "," .. newY
+
+            if not visited[key] and IsWithinBounds(newX, newY) and IsPassable(newX, newY) then
+                table.insert(queue, {x = newX, y = newY})
+                visited[key] = true
+            end
+        end
+    end
+
+    -- 如果找不到可行位置，返回 nil
+    return nil, nil
+end
+
+-- 检查指定位置是否可通行
+function IsPassable(x, y)
+    local terrain = TerrainGet(x, y)
+    return terrain == "TID_床" or terrain == "TID_平地" or terrain == "TID_氷床_永続"
+end
+
+-- 检查指定位置是否在地图范围内
+function IsWithinBounds(x, y)
+    return x >= 0 and x < g_Width and y >= 0 and y < g_Height
+end
+
+-- 检查指定位置是否空闲且可通行
+function IsPositionValid(x, y)
+    -- 检查是否有单位
+    local unit = UnitGetByPos(x, y)
+    if unit ~= nil then
+        return false
+    end
+
+    -- 检查地形是否可通行
+    return IsPassable(x, y)
+end
+
 function アイテム入手()
-	
-	ItemGain( MindGetUnit(), "IID_知識の書" )
-	EffectDelete("ドロップアイテム", 9, 25)
-	TerrainSetOne(9, 25, "TID_平地")
-	
+    ItemGain(MindGetUnit(), "IID_知識の書")
+    EffectDelete("ドロップアイテム", 9, 25)
+    TerrainSetOne(9, 25, "TID_平地")
+
+    local unit = UnitGetByPos(9, 25)
+    if unit ~= nil then
+        EffectPlay("竜化_G1", 9, 25)
+        WaitTime(0.5)
+
+        -- 使用 BFS 寻找最近的可行位置
+        local targetX, targetY = FindNearestValidPosition(9, 17)
+        if targetX ~= nil and targetY ~= nil then
+            UnitSetPos(unit, targetX, targetY)
+            CursorSetPos(targetX, targetY)
+            MapCameraWait()
+        else
+            Log("【Script】找不到可行的传送位置！")
+        end
+    end
 end
 
 -- -----------------------------------
@@ -665,18 +686,7 @@ function condition_マルスと戦闘()
 end
 
 -- -----------------------------------
-function SetAllEnemyLevel(level)
-    local unit = ForceUnitGetFirst(FORCE_ENEMY)
-    while unit ~= nil do
-        UnitSetLevel(unit, level)
-        UnitSetCapValue("PID_G001_チキ", CAPABILITY_DEF, 99)
-        UnitSetCapValue(unit, CAPABILITY_DEF, 99)
-        UnitSetStr(g_pid_lueur, 30)
-        unit = ForceUnitGetNext(unit)
-    end
-end
 
--- ------------------------------------------
 function マルスと戦闘()
 	
 	Talk( "MID_BT1" )
