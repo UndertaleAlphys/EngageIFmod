@@ -1,0 +1,2893 @@
+[MID_TUT_CATEGORY_TITLE_Battle]
+Battle
+
+[MID_TUT_CATEGORY_TITLE_God]
+Emblems
+
+[MID_TUT_CATEGORY_TITLE_Hub]
+The Somniel
+
+[MID_TUT_CATEGORY_TITLE_Kizuna]
+Exploration
+
+[MID_TUT_CATEGORY_TITLE_Challenge]
+Trials
+
+[MID_TUT_CATEGORY_TITLE_Local]
+Current Battle
+
+[MID_TUT_BMAP_MOVE_TITLE]
+Moving Units
+
+[MID_TUT_BMAP_MOVE_0]
+To move, select your unit with $Icon("A").
+Then select where to move with $Icon("StickL").
+
+
+[MID_TUT_BMAP_MOVE_1]
+The blue spaces indicate your unit's range
+of movement.
+
+[MID_TUT_BMAP_MOVE_2]
+Press $Icon("A") again to confirm your unit's destination.
+
+[MID_TUT_BMAP_COMMAND_TITLE]
+Commanding Units
+
+[MID_TUT_BMAP_COMMAND_0]
+After you move a unit, you will see a list
+of commands.
+
+[MID_TUT_BMAP_COMMAND_1]
+If you do not want to take an action,
+select Wait.
+
+[MID_TUT_BMAP_CHANGE_TITLE]
+Switching Phases
+
+[MID_TUT_BMAP_CHANGE_0]
+Once all of your units have taken action, the
+player phase ends and the enemy phase begins.
+
+[MID_TUT_BMAP_CHANGE_1]
+Once both phases are completed, the turn ends.
+The next turn begins with a new player phase.
+
+[MID_TUT_BMAP_ATTACK_TITLE]
+Attacking
+
+[MID_TUT_BMAP_ATTACK_0]
+To attack, move your unit close to an enemy 
+and select Attack.
+
+[MID_TUT_BMAP_ATTACK_1]
+You can also begin an attack with $Icon("A") if you move
+your cursor over an enemy and see $Icon("A") Attack.
+
+[MID_TUT_BMAP_ENGAGE_TITLE]
+Engaging
+
+[MID_TUT_BMAP_ENGAGE_0]
+When the engage meter is full, select Engage.
+
+[MID_TUT_BMAP_ENGAGE_1]
+Your unit will merge with the selected Emblem
+and gain access to special engage weapons.
+
+[MID_TUT_BMAP_ENGAGE_2]
+Engaging also unlocks a set of special skills.
+
+[MID_TUT_BMAP_ENGAGE_3]
+The engaged state lasts for three turns.
+
+[MID_TUT_BMAP_ENGAGE_ATTACK_TITLE]
+Engage Attacks
+
+[MID_TUT_BMAP_ENGAGE_ATTACK_0]
+Engaged units can use powerful engage attacks.
+
+[MID_TUT_BMAP_ENGAGE_ATTACK_1]
+Engage attacks are abilities that your units
+can use once each time they engage.
+
+[MID_TUT_BMAP_ENGAGE_ATTACK_2]
+For example, Lodestar Rush deals heavy
+damage. To use this engage attack, select
+Lodestar Rush and a weapon.
+
+[MID_TUT_BMAP_TERRAIN_TITLE]
+Terrain Effects
+
+[MID_TUT_BMAP_TERRAIN_0]
+Terrain provides various effects in battle.
+For example, it is harder to land a hit on a
+unit positioned in a thicket.
+
+[MID_TUT_BMAP_TERRAIN_1]
+Thickets also cost more movement for ground
+units to pass through.
+
+[MID_TUT_BMAP_TERRAIN_2]
+You can see terrain effects in the information
+section at the top-left corner of the screen.
+Use terrain to your advantage in battle.
+
+[MID_TUT_BMAP_RECOVERY_TITLE]
+Healing
+
+[MID_TUT_BMAP_RECOVERY_0]
+A unit with 0 hit points (HP) can no longer fight.
+Use items like vulneraries to restore HP.
+
+[MID_TUT_BMAP_RECOVERY_1]
+To use a vulnerary, select the Items command.
+
+[MID_TUT_BMAP_SYNCHRO_TITLE]
+Syncing with Emblems
+
+[MID_TUT_BMAP_SYNCHRO_0]
+A unit can fight alongside an Emblem.
+This is called being synced.
+
+[MID_TUT_BMAP_SYNCHRO_1]
+While synced, the unit has increased power
+and access to sync skills.
+
+[MID_TUT_BMAP_KIZUNA_LV_TITLE]
+Bond Level
+
+[MID_TUT_BMAP_KIZUNA_LV_0]
+Allies who fight alongside Emblems gain bond
+EXP, increasing their bond level.
+
+[MID_TUT_BMAP_KIZUNA_LV_1]
+As their bond levels increase, units gain stats
+and access to new effects.
+
+[MID_TUT_BMAP_RANGE_TITLE]
+Attack Range
+
+[MID_TUT_BMAP_RANGE_0]
+Each weapon has a set range. 
+A bow with a range of two can
+attack enemies two spaces away.
+
+[MID_TUT_BMAP_RANGE_1]
+Weapons with a range of one cannot counter
+distant attacks. Weapons with a range of two
+cannot counter adjacent attacks.
+
+[MID_TUT_BMAP_BREAK_TITLE]
+Weapon Triangle and Break
+
+[MID_TUT_BMAP_BREAK_0]
+When fighting with weapon with advantage
+in Weapon Triangle, the unit would get extra
+damage and hit rate, and the foe would lose both.
+When lands a hit with advantage, it
+would inflict break status on the enemy.
+
+[MID_TUT_BMAP_BREAK_1]
+Broken units cannot counterattack until after
+their next combat. This is your chance to attack!
+Make sure to pay careful attention to
+the weapon triangle on the battlefield.
+
+[MID_TUT_BMAP_BREAK_2]
+The weapon triangle:
+·Red weapons have advantage over Green ones
+·Green weapons have advantage over Blue ones
+·Blue weapons have advantage over Red ones
+·Martial art have advantage over ranged weapon
+·Swords, tomes belong to red weapon
+·Lance, dagger belong to blue weapon
+·Axe, bow belong to green weapon
+
+[MID_TUT_BMAP_WAND_TITLE]
+Staves
+
+[MID_TUT_BMAP_WAND_0]
+Staves are items with which your units can help
+allies or hinder enemies. Only certain classes,
+like martial monks, can use them.
+
+[MID_TUT_BMAP_WAND_1]
+A Heal staff, for example, restores an ally's
+hit points (HP).
+
+[MID_TUT_BMAP_WAND_2]
+Staves are useful, but they break
+after a certain number of uses.
+
+[MID_TUT_STYLE_PRANA_TITLE]
+Qi Adept Units
+
+[MID_TUT_STYLE_PRANA_0]
+Qi adept units can use Chain Guard
+to protect adjacent allies from attack.
+
+[MID_TUT_STYLE_PRANA_1]
+With Chain Guard, the ally does not take
+damage. Instead, the qi adept takes damage
+equal to 20% of their own max HP.
+
+[MID_TUT_STYLE_PRANA_2]
+Chain Guard is only available
+if the qi adept unit's HP is full.
+
+[MID_TUT_BMAP_MAGIC_TITLE]
+Magic
+
+[MID_TUT_BMAP_MAGIC_0]
+Magic can attack both distant
+and adjacent enemies.
+
+[MID_TUT_BMAP_MAGIC_1]
+Magic is often effective against enemies
+with high physical defense.
+
+[MID_TUT_STYLE_MAGIC_TITLE]
+Mystical Units
+
+[MID_TUT_STYLE_MAGIC_0]
+Mystical units ignore terrain bonuses to a foe's
+avoid rate (Avo) when attacking with magic.
+
+[MID_TUT_STYLE_MAGIC_1]
+Mystical units can land attacks from a distance
+even when an enemy should be hard to hit.
+
+[MID_TUT_BMAP_GOD_ENERGY_TITLE]
+Emblem Energy
+
+[MID_TUT_BMAP_GOD_ENERGY_0]
+Sometimes an Emblem's energy
+lingers in a space.
+
+[MID_TUT_BMAP_GOD_ENERGY_1]
+If a synced unit finishes their action or waits
+on a space containing Emblem energy, their
+engage meter will fill completely.
+
+[MID_TUT_OVERALLINFORMATION_TITLE]
+Danger Radius
+
+[MID_TUT_OVERALLINFORMATION_0]
+When you place the cursor on an enemy, you
+will see the radius that foe can reach. You can
+press $Icon("A") to keep that radius displayed.
+
+[MID_TUT_OVERALLINFORMATION_1]
+You can press $Icon("ZL") to see the danger radius
+of all your enemies at once.
+
+[MID_TUT_BMAP_SPECIALATTACK_TITLE]
+Effectiveness
+
+[MID_TUT_BMAP_SPECIALATTACK_0]
+Some weapons have icons to indicate that they
+are effective against certain types of foes.
+
+[MID_TUT_BMAP_SPECIALATTACK_1]
+Such weapons inflict bonus damage to foes
+of the indicated types.
+
+[MID_TUT_STYLE_COOP_TITLE]
+Backup Units
+
+[MID_TUT_STYLE_COOP_0]
+Backup units can add a chain attack
+to an ally's assault.
+
+[MID_TUT_STYLE_COOP_1]
+They will join an ally's attack if they are
+in range.
+
+[MID_TUT_STYLE_HORSE_TITLE]
+Cavalry Units
+
+[MID_TUT_STYLE_HORSE_0]
+Cavalry units have the highest movement.
+
+[MID_TUT_STYLE_HORSE_1]
+Their high mobility allows them to cross the
+map quickly to land a first blow or aid an ally.
+
+[MID_TUT_STYLE_COVERT_TITLE]
+Covert Units
+
+[MID_TUT_STYLE_COVERT_0]
+Covert units gain twice the usual bonuses to
+avoid rate (Avo) from terrain effects.
+
+[MID_TUT_STYLE_COVERT_1]
+They thrive in areas with lots of thickets
+or other terrain with beneficial effects.
+
+[MID_TUT_STYLE_HEAVY_TITLE]
+Armored Units
+
+[MID_TUT_STYLE_HEAVY_0]
+Armored units do not break when attacked with
+a weapon that has advantage.
+
+[MID_TUT_STYLE_HEAVY_1]
+Their high HP and defense make them reliable
+frontline units, but low resistance can leave
+them vulnerable to magic.
+
+[MID_TUT_STYLE_FLY_TITLE]
+Flying Units
+
+[MID_TUT_STYLE_FLY_0]
+Flying units ignore terrain effects and can pass
+through squares inaccessible to units on
+the ground.
+
+[MID_TUT_STYLE_FLY_1]
+While these units can navigate the battlefield
+with ease, they are vulnerable to bows.
+
+[MID_TUT_STYLE_DRAGON_TITLE]
+Dragon Units
+
+[MID_TUT_STYLE_DRAGON_0]
+Dragon units often gain additional effects from
+engage skills and engage attacks.
+
+[MID_TUT_STYLE_DRAGON_1]
+Increase their bond levels to take full advantage
+of the Emblems' abilities.
+
+[MID_TUT_STYLE_BATTLE_TITLE]
+Unit Types
+
+[MID_TUT_STYLE_BATTLE_0]
+Units have various types, such as cavalry,
+qi adept, and mystical. Each type has
+different advantages.
+
+[MID_TUT_STYLE_BATTLE_1]
+Check a unit's type on the stats screen.
+
+[MID_TUT_BMAP_ITEMDROP_TITLE]
+Enemy Item Drops
+
+[MID_TUT_BMAP_ITEMDROP_0]
+Item icons on enemies indicate that you can get
+something for defeating them.
+
+[MID_TUT_BMAP_ITEMDROP_1]
+Items you can obtain will be highlighted in
+green in the enemy's inventory.
+
+[MID_TUT_BMAP_XHELP_TITLE]
+Details
+
+[MID_TUT_BMAP_XHELP_0]
+Review information about a unit by
+selecting them with $Icon("X").
+
+[MID_TUT_BMAP_XHELP_1]
+Check the Details screen for information
+about weapons and skills.
+
+[MID_TUT_BMAP_XHELP_2]
+Return to battle by pressing $Icon("B") or $Icon("X").
+
+[MID_TUT_BMAP_BONDSSUPPORTTALK_TITLE]
+Bonds
+
+[MID_TUT_BMAP_BONDSSUPPORTTALK_0]
+As you raise the bond level between Emblems
+and units, you will unlock bond conversations.
+
+[MID_TUT_BMAP_BONDSSUPPORTTALK_1]
+Watch available bond conversations while
+on the Somniel or exploring the world map.
+
+[MID_TUT_BMAP_BONDSSUPPORTTALK_2]
+Once you view a bond conversation, you will be
+able to increase the bond level even further.
+
+[MID_TUT_BMAP_SUPPORT_TITLE]
+Support
+
+[MID_TUT_BMAP_SUPPORT_0]
+As allies fight next to each other or heal each
+other, they gain support points and eventually
+unlock support conversations.
+
+[MID_TUT_BMAP_SUPPORT_1]
+You can view support conversations on the
+Somniel or world map to increase the support
+level between characters.
+
+[MID_TUT_BMAP_SUPPORT_2]
+Units with support levels gain stat bonuses
+when standing adjacent to one another.
+
+[MID_TUT_BMAP_VISIT_TITLE]
+Visiting
+
+[MID_TUT_BMAP_VISIT_0]
+If you visit houses to warn them of danger,
+you may receive items or gold as a reward.
+
+[MID_TUT_BMAP_VISIT_1]
+To visit, move an ally to the lit space in front of
+a house and select Visit.
+
+[MID_TUT_BMAP_VISIT_2]
+Watch out! Foes may try to reach houses before
+you and destroy them.
+
+[MID_TUT_BMAP_TIMECRYSTAL_TITLE]
+Draconic Time Crystal
+
+[MID_TUT_BMAP_TIMECRYSTAL_0]
+You can use the Draconic Time Crystal to
+rewind and retry actions you take in battle.
+
+[MID_TUT_BMAP_TIMECRYSTAL_1]
+Select Time Crystal from the menu.
+Use $Icon("Up") and $Icon("Down") to select how far back you
+would like to go, and confirm with $Icon("A").
+
+[MID_TUT_BMAP_REINFORCEMENT_TITLE]
+Reinforcements
+
+[MID_TUT_BMAP_REINFORCEMENT_0]
+Enemies sometimes call in reinforcements
+during battle.
+
+[MID_TUT_BMAP_REINFORCEMENT_1]
+Reinforcements often arrive from forts or
+the edges of the map, so be on your guard.
+
+[MID_TUT_BMAP_TRANSPORTER_TITLE]
+Convoy
+
+[MID_TUT_BMAP_TRANSPORTER_0]
+Use the convoy to store and retrieve items.
+
+[MID_TUT_BMAP_TRANSPORTER_1]
+Only $P or allies in adjacent spaces
+can use the convoy during battle.
+
+[MID_TUT_BMAP_DEADSOUL_TITLE]
+Spirits of the Fallen
+
+[MID_TUT_BMAP_DEADSOUL_0]
+If you head into battle while connected to the
+network, spirits representing other players' past
+battles may appear on the map.
+
+[MID_TUT_BMAP_DEADSOUL_1]
+Yellow spirits appear where many allied units
+have fallen. Earn EXP and bond EXP by waiting
+in these spaces.
+
+[MID_TUT_BMAP_DEADSOUL_2]
+Purple spirits appear where many foes have
+fallen. Wait in these spaces to pick up the
+items they left behind.
+
+[MID_TUT_BMAP_DOOR_TITLE]
+Doors
+
+[MID_TUT_BMAP_DOOR_0]
+You can destroy doors by attacking them.
+
+[MID_TUT_BMAP_DOOR_1]
+A thief can use the Door command to unlock
+a door instead of destroying it.
+
+[MID_TUT_BMAP_TREASUREBOX_TITLE]
+Treasure Chests
+
+[MID_TUT_BMAP_TREASUREBOX_0]
+Stand next to treasure chests and select Chest
+to collect the items inside.
+
+[MID_TUT_BMAP_TREASUREBOX_1]
+If an enemy takes the treasure first, you can
+recover it by defeating that enemy.
+
+[MID_TUT_BMAP_BREAKINGWALL_TITLE]
+Destroy Terrain
+
+[MID_TUT_BMAP_BREAKINGWALL_0]
+If a terrain's information says Destructible,
+then it can be attacked and destroyed.
+
+[MID_TUT_BMAP_BREAKINGWALL_1]
+Once the terrain is destroyed, you can pass
+through the area freely.
+
+[MID_TUT_BMAP_HPSTOCK_TITLE]
+Revival Stones
+
+[MID_TUT_BMAP_HPSTOCK_0]
+Some powerful enemies have revival stones.
+
+[MID_TUT_BMAP_HPSTOCK_1]
+If their HP falls to 0, they will consume
+the stones to recover.
+
+[MID_TUT_BMAP_HPSTOCK_2]
+Keep attacking these enemies until they
+use up all of their revival stones.
+
+[MID_TUT_BMAP_INTERFERINGCANE_TITLE]
+Status Staves
+
+[MID_TUT_BMAP_INTERFERINGCANE_0]
+Some staves hinder enemies
+by stopping their movement or
+placing obstacles in their path.
+
+[MID_TUT_BMAP_SEARCH_TITLE]
+Darkness
+
+[MID_TUT_BMAP_SEARCH_0]
+In dark places, only the areas around allies,
+beacons, and torches are visible.
+
+[MID_TUT_BMAP_SEARCH_1]
+Proceed with caution! Enemies may
+be lurking in the darkness.
+
+[MID_TUT_BMAP_POISON_TITLE]
+Status Effect: Poison
+
+[MID_TUT_BMAP_POISON_0]
+Some classes, like thieves, use knives that
+inflict poison on foes they hit.
+
+[MID_TUT_BMAP_POISON_1]
+Poisoned enemies take extra damage.
+
+[MID_TUT_BMAP_POISON_2]
+Repeated knife attacks will increase the potency
+of the poison.
+
+[MID_TUT_BMAP_POISON_3]
+Units remain poisoned until the end of a battle
+or until cured with an antitoxin or Restore staff.
+
+[MID_TUT_BMAP_TORCH_TITLE]
+Beacons
+
+[MID_TUT_BMAP_TORCH_0]
+To light a beacon, move next to it
+and select Light.
+
+[MID_TUT_BMAP_TORCH_1]
+Uncover hidden enemies by
+illuminating darkened areas.
+
+[MID_TUT_BMAP_SMASH_TITLE]
+Smash Weapons
+
+[MID_TUT_BMAP_SMASH_0]
+Powerful weapons like blades and greatlances
+smash on hit, driving foes back one space.
+
+[MID_TUT_BMAP_SMASH_1]
+You can break foes by smashing them into units
+or other obstacles like walls.
+
+[MID_TUT_BMAP_SMASH_2]
+These weapons are heavy, however. They can't
+follow up, and your foe will get to attack first
+when you initiate combat with them.
+
+[MID_TUT_BMAP_DARKSYNCHRO_TITLE]
+Dark Sync
+
+[MID_TUT_BMAP_DARKSYNCHRO_0]
+Some foes can also use Emblems in combat.
+
+[MID_TUT_BMAP_DARKSYNCHRO_1]
+These Dark Emblems cannot engage, but they
+can still use engage attacks.
+
+[MID_TUT_BMAP_DARKSYNCHRO_2]
+A light indicates when foes have engage attacks
+ready. Keep an eye out!
+
+[MID_TUT_BMAP_BOWTURRET_TITLE]
+Ballistae
+
+[MID_TUT_BMAP_BOWTURRET_0]
+You can use a ballista by placing a unit
+equipped with a bow on it and selecting Fire.
+
+[MID_TUT_BMAP_BOWTURRET_1]
+Ballistae have great range and power, so you can
+deal serious damage before enemies get close.
+
+[MID_TUT_BMAP_BOWTURRET_2]
+Ballistae have a limited number of
+uses, however, so plan carefully.
+
+[MID_TUT_BMAP_CONVERSATION_TITLE]
+Talking
+
+[MID_TUT_BMAP_CONVERSATION_0]
+If you see a conversation icon on a unit, move
+to an adjacent position and select Talk.
+
+[MID_TUT_BMAP_CONVERSATION_1]
+Proactively speaking with such units is a great
+way to recruit more allies.
+
+[MID_TUT_BMAP_CONVERSATION_2]
+Sometimes these units will only speak to
+specific people.
+
+[MID_TUT_BMAP_MAGICTURRET_TITLE]
+Magic Artillery
+
+[MID_TUT_BMAP_MAGICTURRET_0]
+You can use magic artillery by placing a unit
+equipped with a tome on it and selecting Fire.
+
+[MID_TUT_BMAP_MAGICTURRET_1]
+Magic artillery is powerful and has a long range.
+It is ideal for attacking at a distance.
+
+[MID_TUT_BMAP_MAGICTURRET_2]
+Like ballistae, magic artillery has a limited
+number of uses. Plan carefully.
+
+[MID_TUT_BMAP_QUICKSAND_TITLE]
+Quicksand
+
+[MID_TUT_BMAP_QUICKSAND_0]
+Quicksand is a terrain type that greatly reduces
+movement when a unit leaves the space.
+
+[MID_TUT_BMAP_QUICKSAND_1]
+Avoid quicksand when possible
+to maintain your mobility.
+
+[MID_TUT_BMAP_RECKLESS_TITLE]
+Rampage
+
+[MID_TUT_BMAP_RECKLESS_0]
+Foes synced with Dark Emblems may enter
+a rampage state when they use revival stones.
+
+[MID_TUT_BMAP_RECKLESS_1]
+Be careful! Their additional strength comes from
+forcing the Emblem's powers out of control.
+
+[MID_TUT_BMAP_DANCE_TITLE]
+Dancing
+
+[MID_TUT_BMAP_DANCE_0]
+If a dancer is adjacent to a unit that has already
+acted that turn, you can select Dance.
+
+[MID_TUT_BMAP_DANCE_1]
+The target of your Dance will be able to move
+and act again in the same turn.
+
+[MID_TUT_BMAP_FLAMETURRET_TITLE]
+Flame Cannons
+
+[MID_TUT_BMAP_FLAMETURRET_0]
+You can use a flame cannon by placing a unit
+on it and selecting Fire.
+
+[MID_TUT_BMAP_FLAMETURRET_1]
+Flame cannons blast a wide area around the
+impact point and set the terrain on fire.
+
+[MID_TUT_BMAP_FLAMETURRET_2]
+Be aware that the blast cannot reduce foes' HP
+below 1. It can hit your allies too, so be careful!
+
+[MID_TUT_BMAP_PICKUPARING_TITLE]
+Collecting Rings
+
+[MID_TUT_BMAP_PICKUPARING_0]
+Summon Emblems by placing
+$P near fallen rings.
+
+[MID_TUT_BMAP_LINKINGUP_TITLE]
+Syncing in Battle
+
+[MID_TUT_BMAP_LINKINGUP_0]
+Allies without rings$Arg(11) can move next to
+a summoned Emblem and select Talk to sync.
+
+[MID_TUT_BMAP_DRAGONCREST_TITLE]
+Fell Dragon Shard
+
+[MID_TUT_BMAP_DRAGONCREST_0]
+To destroy the Fell Dragon Shard, you must
+defeat its attendants: Zephia and Griss.
+
+[MID_TUT_BMAP_DRAGONCREST_1]
+Zephia and Griss will use the shard's power
+to unleash devastating volcanic bombs.
+
+[MID_TUT_BMAP_VOLCANICBOMB_TITLE]
+Volcanic Bombs
+
+[MID_TUT_BMAP_VOLCANICBOMB_0]
+Volcanic bombs will strike every few turns.
+
+[MID_TUT_BMAP_VOLCANICBOMB_1]
+The bombs destroy boulders and deal
+heavy damage to allies hit by them.
+
+[MID_TUT_BMAP_VOLCANICBOMB_2]
+A warning will indicate where the bombs will
+fall, so take care to move out of the way.
+
+[MID_TUT_BMAP_AVALANCHE_TITLE]
+Avalanches
+
+[MID_TUT_BMAP_AVALANCHE_0]
+Past $P will use the Fell Dragon
+Shard to cause avalanches that will push your
+allies away.
+
+[MID_TUT_BMAP_AVALANCHE_1]
+A warning will indicate where the avalanches
+will strike. Pay attention and move carefully!
+
+[MID_TUT_BMAP_AVALANCHE_2]
+Boulders and enemies will stop a unit's
+backward slide.
+
+[MID_TUT_BMAP_TURNLIMIT_TITLE]
+Limited Turns
+
+[MID_TUT_BMAP_TURNLIMIT_0]
+Certain battles must be won in a limited
+number of turns.
+
+[MID_TUT_BMAP_TURNLIMIT_1]
+Meet the victory conditions before the turns
+run out, or the battle will end in defeat.
+
+[MID_TUT_BMAP_DRAGONBEAM_TITLE]
+Fell Dragon Shard Beam
+
+[MID_TUT_BMAP_DRAGONBEAM_0]
+Corrupted Lumera will use the power of the
+Fell Dragon Shard to unleash a potent attack.
+
+[MID_TUT_BMAP_DRAGONBEAM_1]
+A warning will indicate the beam's blast zone.
+Move away to avoid significant damage.
+
+[MID_TUT_BMAP_DARKHERALDIC_TITLE]
+Dark Emblems
+
+[MID_TUT_BMAP_DARKHERALDIC_0]
+Dark Emblems are powerful foes, but they are
+susceptible to attacks from units synced or
+engaged with an Emblem from their world.
+
+[MID_TUT_BMAP_BARRIER_TITLE]
+Dark Barrier
+
+[MID_TUT_BMAP_BARRIER_0]
+A barrier made by the Dark Emblems that
+reduces damage to Fell Sombron.
+
+[MID_TUT_BMAP_BARRIER_1]
+Defeat Dark Emblems to weaken the barrier.
+
+[MID_TUT_BMAP_ENGAGERING_TITLE]
+The Pact Ring
+
+[MID_TUT_BMAP_ENGAGERING_0]
+If you've reached support level A with an ally,
+you can give that ally the Pact Ring to
+strengthen your bond even further.
+
+[MID_TUT_BMAP_ENGAGERING_1]
+You can find the ring in the memento drawer
+in your room.
+
+[MID_TUT_BMAP_ENGAGERING_2]
+If you cannot find your chosen ally on
+the Somniel, try resting in bed awhile.
+
+[MID_TUT_GOD_MARTH_TITLE]
+Emblem Marth
+
+[MID_TUT_GOD_MARTH_0]
+Emblem Marth strikes quickly and repeatedly,
+dominating foes with his nimble grace.
+
+[MID_TUT_GOD_MARTH_1]
+The sync skill Perceptive makes it easier
+to avoid enemy counterattacks.
+
+[MID_TUT_GOD_MARTH_2]
+The engage weapon Rapier deals bonus damage
+against cavalry and armored enemies.
+
+[MID_TUT_GOD_MARTH_3]
+The engage skill Divine Speed adds an
+additional, less powerful attack.
+
+[MID_TUT_GOD_MARTH_4]
+The engage attack Lodestar Rush is a powerful
+and blindingly fast flurry of blows.
+
+[MID_TUT_GOD_SIGLUD_TITLE]
+Emblem Sigurd
+
+[MID_TUT_GOD_SIGLUD_0]
+Emblem Sigurd's exceptional mobility allows
+him to move around the battlefield with ease.
+
+[MID_TUT_GOD_SIGLUD_1]
+The sync skill Canter allows the unit to
+move one more time after attacking.
+
+[MID_TUT_GOD_SIGLUD_2]
+The engage weapon Ridersbane can deal bonus
+damage to cavalry.
+
+[MID_TUT_GOD_SIGLUD_3]
+The engage skill Gallop increases
+movement (Mov) by 5.
+
+[MID_TUT_GOD_SIGLUD_4]
+The engage attack Override charges
+through foes in a line, damaging any
+enemies in the way.
+
+[MID_TUT_GOD_CELICA_TITLE]
+Emblem Celica
+
+[MID_TUT_GOD_CELICA_0]
+Emblem Celica wields powerful magic attacks.
+She is a valuable asset against Corrupted foes.
+
+[MID_TUT_GOD_CELICA_1]
+The sync skill Holy Stance reflects some
+of the damage received from Corrupted
+foes against the attacker.
+
+[MID_TUT_GOD_CELICA_2]
+The engage weapon Seraphim deals bonus
+damage to Corrupted foes.
+
+[MID_TUT_GOD_CELICA_3]
+The engage skill Echo allows a unit to initiate
+combat twice using a tome at a cost of
+50% damage.
+
+[MID_TUT_GOD_CELICA_4]
+The engage attack Warp Ragnarok teleports
+the user to a space near a distant enemy and
+attacks with powerful magic.
+
+[MID_TUT_GOD_MICAIAH_TITLE]
+Emblem Micaiah
+
+[MID_TUT_GOD_MICAIAH_0]
+Emblem Micaiah specializes in healing magic.
+
+[MID_TUT_GOD_MICAIAH_1]
+With the sync skill Cleric, a unit can use staves
+regardless of class.
+
+[MID_TUT_GOD_MICAIAH_2]
+The engage weapon Shine attacks and
+illuminates the area when used.
+
+[MID_TUT_GOD_MICAIAH_3]
+The engage skill Augment increases
+staff range and area of effect.
+
+[MID_TUT_GOD_MICAIAH_4]
+The engage attack Great Sacrifice fully
+restores the HP of all allies at a cost of
+reducing the user's HP to 1.
+
+[MID_TUT_GOD_ROY_TITLE]
+Emblem Roy
+
+[MID_TUT_GOD_ROY_0]
+Emblem Roy's excellent offense and defense
+make him well-suited to the front lines.
+
+[MID_TUT_GOD_ROY_1]
+The sync skill Hold Out allows a unit to survive
+most combat with 1 HP.
+
+[MID_TUT_GOD_ROY_2]
+The engage weapon Lancereaver, unlike most
+swords, is strong against lances and weak
+against axes.
+
+[MID_TUT_GOD_ROY_3]
+The engage skill Rise Above temporarily
+raises a unit's level and stats.
+
+[MID_TUT_GOD_ROY_4]
+The engage attack Blazing Lion strikes several
+spaces in front of the user and ignites the
+terrain in flames.
+
+[MID_TUT_GOD_LEAF_TITLE]
+Emblem Leif
+
+[MID_TUT_GOD_LEAF_0]
+Emblem Leif's skill with a variety of weapons
+allows him to adapt to any combat situation.
+
+[MID_TUT_GOD_LEAF_1]
+The sync skill Arms Shield reduces incoming
+damage when the user has weapon advantage.
+
+[MID_TUT_GOD_LEAF_2]
+The engage weapon Killer Axe lands
+critical hits frequently.
+
+[MID_TUT_GOD_LEAF_3]
+The engage skill Adaptable automatically
+equips the most effective weapon when
+the user is attacked.
+
+[MID_TUT_GOD_LEAF_4]
+The engage attack Quadruple Hit strikes with
+a sword, lance, axe, and bow, increasing the
+chance of breaking an enemy.
+
+[MID_TUT_GOD_LIN_TITLE]
+Emblem Lyn
+
+[MID_TUT_GOD_LIN_0]
+Emblem Lyn excels at fighting without giving
+her opponents the chance to counterattack.
+
+[MID_TUT_GOD_LIN_1]
+The sync skill Alacrity enables a unit much
+faster than a foe to follow up before the
+foe's counterattack.
+
+[MID_TUT_GOD_LIN_2]
+The engage weapon Killer Bow lands
+critical hits frequently.
+
+[MID_TUT_GOD_LIN_3]
+The engage skill Call Doubles creates illusory
+decoys of the user that can participate in
+chain attacks.
+
+[MID_TUT_GOD_LIN_4]
+The engage attack Astra Storm unleashes five
+bow attacks on a foe from extreme range.
+
+[MID_TUT_GOD_LUCINA_TITLE]
+Emblem Lucina
+
+[MID_TUT_GOD_LUCINA_0]
+Emblem Lucina's power is collaborative.
+She thrives when fighting near her allies.
+
+[MID_TUT_GOD_LUCINA_1]
+The sync skill Dual Strike empowers the user
+to take part in chain attacks regardless of
+unit type.
+
+[MID_TUT_GOD_LUCINA_2]
+The engage weapon Noble Rapier deals bonus
+damage to cavalry and armored foes.
+
+[MID_TUT_GOD_LUCINA_3]
+The engage skill Bonded Shield creates
+a high chance of nullifying attacks against
+adjacent allies.
+
+[MID_TUT_GOD_LUCINA_4]
+The engage attack All for One inspires
+all allies within 2 spaces to take part in
+a chain attack, regardless of unit type.
+
+[MID_TUT_GOD_IKE_TITLE]
+Emblem Ike
+
+[MID_TUT_GOD_IKE_0]
+Emblem Ike's robust offense and endurance
+increase as he takes damage.
+
+[MID_TUT_GOD_IKE_1]
+The sync skill Resolve increases defense
+and resistance as HP decreases.
+
+[MID_TUT_GOD_IKE_2]
+The engage weapon Hammer can smash foes
+and deal bonus damage to armored ones.
+
+[MID_TUT_GOD_IKE_3]
+The engage skill Laguz Friend halves incoming
+damage but reduces avoid rate (Avo) to 0.
+
+[MID_TUT_GOD_IKE_4]
+The engage attack Great Aether hardens the
+unit's defenses for one turn, then attacks an
+area and recovers HP.
+
+[MID_TUT_GOD_KAMUI_TITLE]
+Emblem Corrin
+
+[MID_TUT_GOD_KAMUI_0]
+Emblem Corrin can restrict foes' movement
+and create terrain to control the flow of battle.
+
+[MID_TUT_GOD_KAMUI_1]
+The sync skill Dragon Vein adds terrain effects
+based on the user's unit type while clearing
+the same area of any flames or miasma.
+
+[MID_TUT_GOD_KAMUI_2]
+The engage weapon Dual Katana, unlike most
+swords, is strong against lances and weak
+against axes.
+
+[MID_TUT_GOD_KAMUI_3]
+The engage skill Dreadful Aura prevents a target
+and foes adjacent to it from moving for 1 turn
+after the user initiates combat.
+
+[MID_TUT_GOD_KAMUI_4]
+The engage attack Torrential Roar blasts foes
+in front of the unit for 3 spaces, flooding the
+terrain and clearing it of flames and miasma.
+
+[MID_TUT_GOD_BYLETH_TITLE]
+Emblem Byleth
+
+[MID_TUT_GOD_BYLETH_0]
+Emblem Byleth's talent for instruction boosts
+allies' stats and guides them to victory.
+
+[MID_TUT_GOD_BYLETH_1]
+The sync skill Divine Pulse will sometimes
+turn missed attacks into hits.
+
+[MID_TUT_GOD_BYLETH_2]
+Emblem Byleth's first engage weapon is a
+Hero's Relic─an item that is different for
+each unit type.
+
+[MID_TUT_GOD_BYLETH_3]
+The engage skill Instruct grants a
+stat bonus to surrounding allies.
+
+[MID_TUT_GOD_BYLETH_4]
+The engage attack Goddess Dance grants a stat
+boost to adjacent allies and empowers those
+who have already acted that turn to act again.
+
+[MID_TUT_GOD_EIRIK_TITLE]
+Emblem Eirika
+
+[MID_TUT_GOD_EIRIK_0]
+Emblem Eirika switches with her twin brother,
+Ephraim, to adapt to different situations.
+
+[MID_TUT_GOD_EIRIK_1]
+The sync skill Lunar Brace increases damage
+dealt in proportion to the foe's defense.
+
+[MID_TUT_GOD_EIRIK_2]
+The engage weapon Rapier deals bonus damage
+against cavalry and armored foes.
+
+[MID_TUT_GOD_EIRIK_3]
+The engage skill Sacred Twins enables
+the unit to invoke Eirika and Ephraim's
+skills simultaneously.
+
+[MID_TUT_GOD_EIRIK_4]
+The engage attack Twin Strike hits with both
+sword and lance, making it easier to break foes,
+and deals bonus damage against the Corrupted.
+
+[MID_TUT_GOD_LUEUR_TITLE]
+Emblem $P
+
+[MID_TUT_GOD_LUEUR_0]
+Emblem $P can use Engage+ on
+any ally, putting both units in an engaged state
+without the need to sync.
+
+[MID_TUT_GOD_LUEUR_1]
+The sync skill Bond Forger increases the
+hit rate (Hit) and avoid rate (Avo) of the
+user and nearby synced or engaged allies.
+
+[MID_TUT_GOD_LUEUR_2]
+The engage weapon Lyrátion increases all
+adjacent allies' engage meters by 1 when the
+wielder initiates combat and defeats a foe.
+
+[MID_TUT_GOD_LUEUR_3]
+The engage skill Attuned greatly increases
+engage partners' stats when they initiate
+combat and defeat a foe.
+
+[MID_TUT_GOD_LUEUR_4]
+The engage attack Dragon Blast launches both
+a sword and magic attack, dealing heavy
+damage even to foes with high Def and Res.
+
+[MID_TUT_GOD_LUEUR_KL_TITLE]
+Emblem $P's Bond
+
+[MID_TUT_GOD_LUEUR_KL_0]
+Unlike other Emblems, Emblem $P's
+bond level is tied to the ally's support
+level instead of bond EXP.
+
+[MID_TUT_GOD_LUEUR_KL_1]
+No support level translates to bond level 1.
+Support level C translates to bond level 5, B
+to bond level 10, and A to bond level 20.
+
+[MID_TUT_ENGAGE_PLUS_TITLE]
+Engage+
+
+[MID_TUT_ENGAGE_PLUS_0]
+When $P is adjacent to an ally and
+has a full engage meter, you can select Engage+
+to engage with them.
+
+[MID_TUT_ENGAGE_PLUS_1]
+Emblem $P engages with
+the ally, and $P also enters
+an engaged state.
+
+[MID_TUT_ENGAGE_PLUS_2]
+While Emblem $P and the engaged
+ally remain adjacent, Dragon Blast becomes the
+even more powerful Bond Blast.
+
+[MID_TUT_BMAP_SORTIE_TITLE]
+Preparing for Battle
+
+[MID_TUT_BMAP_SORTIE_0]
+Before you begin a battle you can manage
+your items, Emblem Rings$Arg(9), and the
+team of allies who will join you.
+
+[MID_TUT_BMAP_SORTIE_1]
+Once your preparations are complete, select
+Fight! to begin battle.
+
+[MID_TUT_BMAP_UNIT_SELECT_TITLE]
+Unit Selection
+
+[MID_TUT_BMAP_UNIT_SELECT_0]
+Use Unit Selection to choose which allies
+will join you in combat. Press $Icon("A") to toggle
+$Icon("IconSortie") on and off.
+
+[MID_TUT_BMAP_UNIT_SELECT_1]
+Allies highlighted in green cannot be excluded.
+
+[MID_TUT_BMAP_UNIT_SELECT_2]
+Each map has a set number of allies
+who can join the fray.
+
+[MID_TUT_BMAP_MAPVERIFICATION_TITLE]
+Swap Spaces
+
+[MID_TUT_BMAP_MAPVERIFICATION_0]
+Use Swap Spaces to switch allies' positions
+before starting the battle.
+
+[MID_TUT_BMAP_MAPVERIFICATION_1]
+Select the ally you want to move with $Icon("A").
+
+[MID_TUT_BMAP_MAPVERIFICATION_2]
+Select another ally with $Icon("A") to swap their
+positions. Some allies cannot be moved.
+
+[MID_TUT_BMAP_MAPVERIFICATION_3]
+Use this time to check terrain information and
+enemy stats with the cursor.
+
+[MID_TUT_BMAP_HERALDICCHOICE_TITLE]
+Emblem Rings$Arg(9)
+
+[MID_TUT_BMAP_HERALDICCHOICE_0]
+Select Emblem Rings$Arg(9) to partner your
+allies with Emblems. Once partnered, an
+ally can sync with an Emblem in battle.
+
+[MID_TUT_BMAP_HERALDICCHOICE_1]
+To pair an ally and an Emblem, select an
+ally followed by an Emblem Ring$Arg(8).
+
+[MID_TUT_BMAP_GETTINGDRESSED_TITLE]
+Inventory
+
+[MID_TUT_BMAP_GETTINGDRESSED_0]
+Select Inventory to choose the weapons
+and items that you will use in battle.
+
+[MID_TUT_BMAP_GETTINGDRESSED_1]
+Organize your allies' equipment using
+Manage Items. Units can trade items
+with the convoy or other allies.
+
+[MID_TUT_BMAP_GETTINGDRESSED_2]
+To automatically outfit your allies from
+the convoy, select Optimize Equipment.
+
+[MID_TUT_BMAP_GETTINGDRESSED_3]
+Quickly return a given ally's held items to the
+convoy with Store All.
+
+[MID_TUT_BMAP_EQUIP_SKILL_TITLE]
+Managing Skills
+
+[MID_TUT_BMAP_EQUIP_SKILL_0]
+Select Manage Skills from the Inventory menu to
+see your allies' skills and equip inherited ones.
+
+[MID_TUT_BMAP_EQUIP_SKILL_1]
+Allies can inherit skills from Emblems in the
+Ring Chamber and the Arena on the Somniel.
+
+[MID_TUT_BMAP_CLASSCHANGE_TITLE]
+Class Change
+
+[MID_TUT_BMAP_CLASSCHANGE_0]
+Units level 10 and up can use a Master Seal
+to change to an advanced class.
+
+[MID_TUT_BMAP_CLASSCHANGE_1]
+Changing to an advanced class makes your
+units more powerful by boosting stats and
+granting access to new weapons and skills.
+
+[MID_TUT_BMAP_CLASSCHANGE_2]
+You can use a Second Seal to change to a
+different type of class in the same tier.
+
+[MID_TUT_BMAP_CLASSCHANGE_3]
+You can change classes in the Inventory menu.
+
+[MID_TUT_BMAP_APTITUDE_TITLE]
+Proficiencies
+
+[MID_TUT_BMAP_APTITUDE_0]
+Proficiency (Prof.) is required to change a
+unit to a different class.
+
+[MID_TUT_BMAP_APTITUDE_1]
+All units start with innate proficiencies. Units
+have the strongest potential in those areas.
+
+[MID_TUT_BMAP_APTITUDE_2]
+Units can acquire new proficiencies from
+Emblems. This allows them to change to
+any class.
+
+[MID_TUT_GMAP_BASIC_TITLE]
+World Map
+
+[MID_TUT_GMAP_BASIC_0]
+Use the world map to select a destination
+or move to the next chapter.
+
+[MID_TUT_GMAP_BASIC_1]
+To continue the story, move $P
+to your next destination and press $Icon("A").
+
+[MID_TUT_GMAP_BASIC_2]
+Manage your inventory or return
+to the Somniel using the menu.
+
+[MID_TUT_GMAP_SIDE_TITLE]
+Paralogues
+
+[MID_TUT_GMAP_SIDE_0]
+As you progress through the story, special
+chapters called paralogues will appear on
+the world map.
+
+[MID_TUT_GMAP_SIDE_1]
+Paralogues are optional, but they unlock unique
+benefits. You might even meet new allies!
+
+[MID_TUT_GMAP_ENCOUNT_TITLE]
+Skirmishes
+
+[MID_TUT_GMAP_ENCOUNT_0]
+Enemy soldiers or Corrupted foes sometimes
+go back to areas that you have already cleared.
+
+[MID_TUT_GMAP_ENCOUNT_1]
+You can return to these locations for
+optional skirmishes.
+
+[MID_TUT_GMAP_ENCOUNT_2]
+Completing skirmishes can earn you experience
+and other rewards like gold and items.
+
+[MID_TUT_GMAP_RANKING_TITLE]
+Rankings
+
+[MID_TUT_GMAP_RANKING_0]
+While connected to the network, you can see
+which units and Emblems players commonly
+deployed on a map.
+
+[MID_TUT_GMAP_RANKING_1]
+This knowledge may be useful as you consider
+which units to deploy.
+
+[MID_TUT_KR_KIZUNARESULT_TITLE]
+Exploration
+
+[MID_TUT_KR_KIZUNARESULT_0]
+After battle, you can explore the map freely
+and converse with your allies.
+
+[MID_TUT_KR_KIZUNARESULT_1]
+Keep an eye out for items on the ground.
+
+[MID_TUT_KR_KIZUNARESULT_2]
+To finish exploring, either move to the exit or
+press $Icon("Plus") to open the menu and select Depart.
+
+[MID_TUT_KR_KIZUNAPIECE_TITLE]
+Bond Fragments
+
+[MID_TUT_KR_KIZUNAPIECE_0]
+Your allies may give you bond fragments
+if you have conversations while exploring.
+
+[MID_TUT_KR_KIZUNAPIECE_1]
+Use bond fragments on the Somniel to create
+Bond Rings or train with Emblems.
+
+[MID_TUT_KR_KIZUNAPIECE_2]
+When you finish exploring, you will receive any
+available bond fragments that you missed.
+
+[MID_TUT_HUB_BASIC_TITLE]
+The Somniel
+
+[MID_TUT_HUB_BASIC_0]
+The Somniel is your base. Use this area
+to prepare for the next battle and interact
+with your allies.
+
+[MID_TUT_HUB_BASIC_1]
+Additional activities and areas of the Somniel
+will unlock as you progress through the story.
+
+[MID_TUT_HUB_BASIC_2]
+Open the world map to continue your
+adventure. Access it from the menu or
+by using the exit in the plaza.
+
+[MID_TUT_HUB_CENTRALLOBBY_OPEN]
+Café Terrace is now open.
+
+[MID_TUT_HUB_CENTRALLOBBY_TITLE]
+Café Terrace
+
+[MID_TUT_HUB_CENTRALLOBBY_0]
+Café Terrace is a relaxing communal space
+with access points to other facilities.
+
+[MID_TUT_HUB_CENTRALLOBBY_1]
+Use the music box to change the
+background music on the Somniel.
+
+[MID_TUT_HUB_CENTRALLOBBY_2]
+The bulletin board is full of useful information.
+You can use it to invest in Elyos or check
+on your achievements.
+
+[MID_TUT_HUB_INVESTMENT_TITLE]
+Donations
+
+[MID_TUT_HUB_INVESTMENT_0]
+If you support countries enough to raise their
+donation levels, they will reward you with gifts.
+
+[MID_TUT_HUB_INVESTMENT_1]
+With a high donation level, a country will have
+more rare monsters that you can earn bonus
+gold or experience for defeating.
+
+[MID_TUT_HUB_INVESTMENT_2]
+A high donation level also means you will find
+more materials while exploring in that country,
+among other things.
+
+[MID_TUT_HUB_INFORMATION_TITLE]
+Somniel Map
+
+[MID_TUT_HUB_INFORMATION_0]
+Consult the Somniel map to view the status of
+its facilities and to see where your allies are.
+
+[MID_TUT_HUB_INFORMATION_1]
+You can select a location to fast travel there.
+
+[MID_TUT_HUB_ACHIEVEMENT_TITLE]
+Achievements
+
+[MID_TUT_HUB_ACHIEVEMENT_0]
+On the Achievements screen, you can claim
+bond fragment rewards for various deeds.
+
+[MID_TUT_HUB_ACHIEVEMENT_1]
+You will be notified when you complete an
+achievement. Remember to collect your
+well-earned bond fragments!
+
+[MID_TUT_HUB_MYROOM_TITLE]
+My Room
+
+[MID_TUT_HUB_MYROOM_0]
+This is your room─the sacred place where
+$P slept for a thousand years.
+
+[MID_TUT_HUB_MYROOM_1]
+Select Rest to take a nap and
+advance time on the Somniel.
+
+[MID_TUT_HUB_MYROOM_2]
+You may hear some interesting things while
+resting. Wear headphones for the best sound.
+
+[MID_TUT_HUB_MYROOM_3]
+Select Reminisce to view past support
+conversations and scenes again.
+
+[MID_TUT_HUB_MYROOM_4]
+You can lower the game's difficulty by selecting
+Difficulty Setting. You cannot raise the difficulty
+this way, however.
+
+[MID_TUT_HUB_WEAPONSHOP_OPEN]
+The armory and item shop are open.
+
+[MID_TUT_HUB_WEAPONSHOP_TITLE]
+Armory
+
+[MID_TUT_HUB_WEAPONSHOP_0]
+Buy or sell weapons here.
+
+[MID_TUT_HUB_WEAPONSHOP_1]
+The armory's inventory will increase as the
+story progresses and new goods arrive.
+
+[MID_TUT_HUB_ITEMSHOP_TITLE]
+Item Shop
+
+[MID_TUT_HUB_ITEMSHOP_0]
+Here you can buy or sell items used in battle
+like vulneraries or staves.
+
+[MID_TUT_HUB_ITEMSHOP_1]
+As the story progresses, the shop will stock
+additional items.
+
+[MID_TUT_HUB_HERALDICSPACE_OPEN]
+You can now enter the Ring Chamber.
+
+[MID_TUT_HUB_HERALDICSPACE_TITLE]
+Ring Chamber
+
+[MID_TUT_HUB_HERALDICSPACE_0]
+The Ring Chamber is a space to interact
+with Emblems and their rings$Arg(11). You
+can inherit skills from Emblems here.
+
+[MID_TUT_HUB_HERALDICSPACE_1]
+Using bond fragments, you can create Bond
+Rings or combine and strengthen existing ones.
+
+[MID_TUT_HUB_HERALDICSPACE_2]
+You can also deepen bonds with Emblems
+by polishing the tarnish of combat off
+their rings$Arg(11).
+
+[MID_TUT_HUB_INHERITSKILL_TITLE]
+Inheriting Skills
+
+[MID_TUT_HUB_INHERITSKILL_0]
+Allies can acquire certain skills from
+Emblems using Inherit Skills.
+
+[MID_TUT_HUB_INHERITSKILL_1]
+Inheriting skills requires a certain bond level, as
+well as skill points (SP). Earn SP by battling
+with synced Emblems and equipping bond rings.
+
+[MID_TUT_HUB_INHERITSKILL_2]
+Equip inherited skills using the Inventory menu.
+
+[MID_TUT_HUB_INHERITSKILL_3]
+You can't benefit from the same skill twice, so
+try to avoid overlapping.
+
+[MID_TUT_HUB_CREATE_RING_TITLE]
+Creating Bond Rings
+
+[MID_TUT_HUB_CREATE_RING_0]
+You can create Bond Rings
+using bond fragments.
+
+[MID_TUT_HUB_CREATE_RING_1]
+Bond Rings increase stats and allow units to
+earn SP, though not to the same extent as
+Emblem Rings$Arg(9) do.
+
+[MID_TUT_HUB_ENGWEAPON_REFINE_OPEN]
+You can now augment your Emblems' engage
+weapons in the Ring Chamber.
+
+[MID_TUT_HUB_ENGWEAPON_REFINE_TITLE]
+Engage Weapons
+
+[MID_TUT_HUB_ENGWEAPON_REFINE_0]
+You can use certain materials to augment your
+engage weapons. Crystals increase stats, while
+banes add effectiveness against unit types.
+
+[MID_TUT_HUB_ENGWEAPON_REFINE_1]
+You can earn the materials to augment engage
+weapons in Tempest Trials or Relay Trials.
+
+[MID_TUT_HUB_ENGWEAPON_REFINE_2]
+Each engage weapon has an augmentation
+capacity. You cannot augment a weapon
+past its capacity.
+
+[MID_TUT_HUB_ENGWEAPON_REFINE_3]
+You can strip away augmentations to try out
+new effects, or increase an engage weapon's
+capacity by raising the Emblem's bond level.
+
+[MID_TUT_HUB_MASCOT_OPEN]
+The air in the grotto is suffused with a
+mysterious aura.
+
+[MID_TUT_HUB_MASCOT_TITLE]
+$M
+
+[MID_TUT_HUB_MASCOT_0]
+The enigmatic $M has watched
+over this land for untold ages.
+
+[MID_TUT_HUB_MASCOT_1]
+If you take good care of $M,
+something wonderful might happen.
+
+[MID_TUT_HUB_MUSCLEEXERCISES_OPEN]
+Strength Training is now available!
+
+[MID_TUT_HUB_MUSCLEEXERCISES_TITLE]
+Strength Training
+
+[MID_TUT_HUB_MUSCLEEXERCISES_0]
+In Strength Training, you can choose from
+three different exercises to get temporary
+boosts to $P's stats.
+
+[MID_TUT_HUB_MUSCLEEXERCISES_1]
+Each exercise plays differently and affects a
+different stat. Try for top scores in all of them!
+
+[MID_TUT_HUB_MUSCLEEXERCISES_2]
+You will unlock more difficulties for each
+exercise as you progress through the story.
+
+[MID_TUT_HUB_ME_PUSHUPS_TITLE]
+Push-Ups
+
+[MID_TUT_HUB_ME_PUSHUPS_0]
+Push-ups are about timing. Stop the bar at the
+perfect position right when it speeds up. It ends
+if you miss three times.
+
+[MID_TUT_HUB_ME_PUSHUPS_1]
+Do the specified number of push-ups to
+complete the activity. The bar will get faster
+over time, so stay focused!
+
+[MID_TUT_HUB_ME_PUSHUPS_2]
+Aim to get fit!
+
+[MID_TUT_HUB_ME_SITUP_TITLE]
+Sit-Ups
+
+[MID_TUT_HUB_ME_SITUP_0]
+Sit-ups are about button-mashing endurance.
+Mash quickly to raise the bar to the top. It ends
+if it hits the bottom.
+
+[MID_TUT_HUB_ME_SITUP_1]
+Raising the bar will gradually get more difficult,
+but doing it quickly will improve your rating.
+
+[MID_TUT_HUB_ME_SITUP_2]
+Aim to get fit!
+
+[MID_TUT_HUB_ME_SQUAT_TITLE]
+Squats
+
+[MID_TUT_HUB_ME_SQUAT_0]
+Squats are about rhythm. Follow the directions
+with $Icon("StickL") and $Icon("StickR"). It ends after three mistakes.
+
+[MID_TUT_HUB_ME_SQUAT_1]
+Learning to tilt and rotate $Icon("StickL") and $Icon("StickR") in the right
+way will be key to success.
+
+[MID_TUT_HUB_ME_SQUAT_2]
+Aim to get fit!
+
+[MID_TUT_HUB_ARENA_OPEN]
+The doors to the Arena have opened.
+
+[MID_TUT_HUB_ARENA_TITLE]
+Arena
+
+[MID_TUT_HUB_ARENA_0]
+In the Arena, you can have allies train to earn
+experience and raise bond levels.
+
+[MID_TUT_HUB_ARENA_1]
+In Standard Training, an ally you choose will
+spar with another ally. It costs nothing, but you
+can only do it a few times between battles.
+
+[MID_TUT_HUB_ARENA_2]
+Emblem Training increases the bond between
+an ally and an Emblem. It costs bond fragments,
+but you can do it as much as you like.
+
+[MID_TUT_HUB_ANIMAL_OPEN]
+You are now able to adopt animals.
+
+[MID_TUT_HUB_ANIMAL_TITLE]
+Animals
+
+[MID_TUT_HUB_ANIMAL_0]
+You can adopt the animals you encounter while
+exploring and bring them back to the Somniel.
+
+[MID_TUT_HUB_ANIMAL_1]
+After you adopt them, you can let your animals
+graze in the farmyard. They may even drop
+goods and ingredients that you can use.
+
+[MID_TUT_HUB_ANIMAL_2]
+If you donate to countries using the bulletin
+board, you will be able to adopt more animals.
+
+[MID_TUT_HUB_AMIIBO_OPEN]
+The amiibo Gazebo is open.
+
+[MID_TUT_HUB_AMIIBO_TITLE]
+amiibo Gazebo
+
+[MID_TUT_HUB_AMIIBO_0]
+You can scan amiibo to earn items and rewards.
+
+[MID_TUT_HUB_AMIIBO_1]
+You will receive special rewards when you
+scan a Fire Emblem amiibo.
+
+[MID_TUT_HUB_DRILLINGSHOP_OPEN]
+The smithy and boutique are open.
+
+[MID_TUT_HUB_DRILLINGSHOP_TITLE]
+Smithy
+
+[MID_TUT_HUB_DRILLINGSHOP_0]
+Trade materials and gold to strengthen
+your weapons at the smithy.
+
+[MID_TUT_HUB_DRILLINGSHOP_1]
+Improve or upgrade your weapons by
+refining and engraving them.
+
+[MID_TUT_HUB_DRILLINGSHOP_2]
+Alter a weapon by engraving it with the power
+of an Emblem. Each Emblem can be applied to
+one weapon at a time.
+
+[MID_TUT_HUB_DRILLINGSHOP_3]
+You can also exchange one type of refining
+material for another.
+
+[MID_TUT_HUB_ACCESSORYSHOP_TITLE]
+Boutique
+
+[MID_TUT_HUB_ACCESSORYSHOP_0]
+Trade materials and gold for clothing and
+accessories to wear around the Somniel.
+
+[MID_TUT_HUB_ACCESSORYSHOP_1]
+Once made, most accessories can be worn
+by anyone.
+
+[MID_TUT_HUB_ACCESSORYSHOP_2]
+As the story progresses, more
+items will become available.
+
+[MID_TUT_HUB_COOK_OPEN]
+Café Terrace is open for dining.
+
+[MID_TUT_HUB_COOK_TITLE]
+Dining
+
+[MID_TUT_HUB_COOK_0]
+Order meals to eat with your allies.
+
+[MID_TUT_HUB_COOK_1]
+If the meal is prepared well, your allies will
+receive a stat boost in the next battle.
+
+[MID_TUT_HUB_COOK_2]
+Dine with your allies to earn support points.
+
+[MID_TUT_HUB_COOK_3]
+The chef may pack some leftovers for you. 
+You can take this meal into battle and use
+it as an item to recover HP.
+
+[MID_TUT_HUB_CAPERIDGE_OPEN]
+The Tower of Trials has been unlocked.
+
+[MID_TUT_HUB_CAPERIDGE_TITLE]
+Tower of Trials
+
+[MID_TUT_HUB_CAPERIDGE_0]
+Earn rewards by taking on special challenges
+at the Tower of Trials.
+
+[MID_TUT_HUB_CAPERIDGE_1]
+In Tempest Trials, the aim is to clear several
+maps in a row. You can set the difficulty before
+you start.
+
+[MID_TUT_HUB_CAPERIDGE_2]
+In Relay Trials, you will team up with players
+online to take turns battling foes.
+
+[MID_TUT_HUB_CAPERIDGE_3]
+In Outrealm Trials, you can battle other players'
+armies online using maps of your own creation.
+
+[MID_TUT_HUB_FISHING_OPEN]
+You are now able to go fishing!
+
+[MID_TUT_HUB_FISHING_TITLE]
+Fishing
+
+[MID_TUT_HUB_FISHING_0]
+You can now fish in the pond. Press $Icon("A")
+to cast your line. Keep an eye out for the
+ripples big fish make.
+
+[MID_TUT_HUB_FISHING_1]
+Press $Icon("A") when the fishing float drops
+to its lowest point to hook the fish.
+
+[MID_TUT_HUB_FISHING_2]
+If the fish struggles, tilt $Icon("StickL") opposite to its
+movement. Reel the fish in, or it will escape!
+
+[MID_TUT_HUB_FISHING_3]
+Once you've reeled the fish in close, press $Icon("A")
+repeatedly to reduce its endurance.
+
+[MID_TUT_HUB_FISHING_4]
+When its endurance falls to 0, you'll catch it.
+New fishing rods can help you catch bigger fish.
+
+[MID_TUT_HUB_DRAGONRIDE_OPEN]
+You are now able to play Wyvern Ride!
+
+[MID_TUT_HUB_DRAGONRIDE_TITLE]
+Wyvern Ride
+
+[MID_TUT_HUB_DRAGONRIDE_0]
+In Wyvern Ride, you fly through a course
+while shooting floating targets.
+
+[MID_TUT_HUB_DRAGONRIDE_1]
+Try to hit the special targets and aim for a high
+score! More courses will unlock as you progress
+in the story.
+
+[MID_TUT_HUB_FLEAMARKET_OPEN]
+The flea market is open.
+
+[MID_TUT_HUB_FLEAMARKET_TITLE]
+Flea Market
+
+[MID_TUT_HUB_FLEAMARKET_0]
+The flea market offers items you might not find
+in regular shops.
+
+[MID_TUT_HUB_FLEAMARKET_1]
+The selection changes, so check in regularly.
+
+[MID_TUT_HUB_FORTUNE_OPEN]
+The fortune-teller is open.
+
+[MID_TUT_HUB_FORTUNE_TITLE]
+Fortune-Teller
+
+[MID_TUT_HUB_FORTUNE_0]
+The fortune-teller, Seadall, uses cards
+to ply his trade.
+
+[MID_TUT_HUB_FORTUNE_1]
+He is only available in the evening,
+so visit once the sun goes down.
+
+[MID_TUT_HUB_PROFILE_OPEN]
+You can now access the Records Hall.
+
+[MID_TUT_HUB_CAPERIDGE_DETAIL_TITLE]
+Trial Battles
+
+[MID_TUT_HUB_CAPERIDGE_DETAIL_0]
+All items you use are restored at the end of a
+trial. Your allies are also restored to their
+pre-trial states.
+
+[MID_TUT_HUB_CAPERIDGE_DETAIL_1]
+You'll get some experience and other rewards
+for battles you've cleared at the end of the trial.
+
+[MID_TUT_HUB_CAPERIDGE_DETAIL_2]
+Since the changes to your army aren't
+permanent, feel free to hold nothing back!
+
+[MID_TUT_CHALLENGE_TITLE]
+Tempest Trials
+
+[MID_TUT_CHALLENGE_0]
+The goal of a Tempest Trial is to clear several
+battle maps in succession.
+
+[MID_TUT_CHALLENGE_1]
+For each battle you clear, you'll get materials
+and experience for the allies who took part.
+
+[MID_TUT_CHALLENGE_2]
+Select the trial's difficulty during map selection.
+Higher difficulties yield greater rewards.
+
+[MID_TUT_RELAY_TITLE]
+Relay Trials
+
+[MID_TUT_RELAY_0]
+The goal of a Relay Trial is to clear a map
+while taking turns with another player, like
+a relay race.
+
+[MID_TUT_RELAY_1]
+Select New Battle to spend a ticket and start
+a new Relay Trial.
+
+[MID_TUT_RELAY_2]
+Select Take Over to pick up where
+another player left off.
+
+[MID_TUT_RELAY_3]
+You will get rewards if any player completes the
+battle. Select View Results to see a replay of
+any trial you took part in.
+
+[MID_TUT_RELAY_ENTRY_PANEL_TITLE]
+Entryways
+
+[MID_TUT_RELAY_ENTRY_PANEL_0]
+Up to five allies can be deployed on an
+entryway and on the four surrounding tiles.
+
+[MID_TUT_RELAY_ENTRY_PANEL_1]
+Activate dormant entryways by commanding
+an ally to wait on them.
+
+[MID_TUT_RELAY_ENTRY_PANEL_2]
+Once an entryway is activated, any player
+taking over the battle can use it to deploy.
+Activate as many as you can!
+
+[MID_TUT_RELAY_DATA_TAKEOVER_TITLE]
+Passing It On
+
+[MID_TUT_RELAY_DATA_TAKEOVER_0]
+After playing a predetermined number of turns,
+you must pass control of a Relay Trial on.
+Who can take over your trial is up to you.
+
+[MID_TUT_RELAY_DATA_TAKEOVER_1]
+There are two ways trials can be taken over.
+Public: Anyone can take over the trial.
+Private: Players must input an ID to take over.
+
+[MID_TUT_RELAY_DATA_TAKEOVER_2]
+Once someone takes over your trial, select
+View Results to see what happened next.
+
+[MID_TUT_RELAY_NEWDATA_TITLE]
+Starting a New Relay Trial
+
+[MID_TUT_RELAY_NEWDATA_0]
+Start a fresh trial to be the first to deploy
+units to the field.
+
+[MID_TUT_RELAY_NEWDATA_1]
+Select a map from the available options.
+
+[MID_TUT_RELAY_NEWDATA_2]
+Preparations will begin once you choose a map.
+Select Fight! to spend your relay ticket and
+begin the trial.
+
+[MID_TUT_RELAY_TAKEOVER_TITLE]
+Taking Over
+
+[MID_TUT_RELAY_TAKEOVER_0]
+You can also resume another player's trial.
+There are two ways to find a trial to take over.
+
+[MID_TUT_RELAY_TAKEOVER_1]
+Random: Take over a trial selected at random.
+
+[MID_TUT_RELAY_TAKEOVER_2]
+Enter ID: Enter a Takeover ID to take over
+the trial of a specific player.
+
+[MID_TUT_RELAY_TAKEOVER_3]
+Once you have chosen a trial, select Fight!
+to begin.
+
+[MID_TUT_RELAY_FINISH_TITLE]
+Viewing Results
+
+[MID_TUT_RELAY_FINISH_0]
+Check the results of your Relay Trials and claim
+rewards if a trial is completed.
+
+[MID_TUT_RELAY_FINISH_1]
+You can see the battles of the other players in
+the trial as well as your own. If a battle is still
+ongoing, you can watch up to the present time.
+
+[MID_TUT_RELAY_FINISH_2]
+You will still receive rewards if you lose, but
+victory brings better prizes.
+
+[MID_TUT_MATCH_TITLE]
+Outrealm Trials
+
+[MID_TUT_MATCH_0]
+In Outrealm Trials, you can challenge other
+players' armies on maps you select or design.
+
+[MID_TUT_MATCH_1]
+Select Quick Battle to pick a map you like and
+begin the battle immediately.
+
+[MID_TUT_MATCH_2]
+Select Custom Battle to create and upload your
+own map. You can then connect this map to
+other players' maps and begin battle.
+
+[MID_TUT_MATCH_3]
+Both modes offer rewards at the end of battle.
+
+[MID_TUT_MATCH_EASY_TITLE]
+Quick Battle
+
+[MID_TUT_MATCH_EASY_0]
+Choose a map, send out a raiding party, and
+battle another player's army. Select your
+opponent with Random, Friend, or Enter ID.
+
+[MID_TUT_MATCH_EASY_1]
+Random: Start a battle with another player's
+army selected at random.
+
+[MID_TUT_MATCH_EASY_2]
+Friend: Attack a map that has been uploaded
+by one of your friends.
+
+[MID_TUT_MATCH_EASY_3]
+Enter ID: Battle a specific map for which you
+have an ID.
+
+[MID_TUT_MATCH_SERIOUS_TITLE]
+Custom Battle
+
+[MID_TUT_MATCH_SERIOUS_0]
+Create and upload your own map, or connect
+your map to another player's and attack.
+
+[MID_TUT_MATCH_SERIOUS_1]
+Select Edit Map to create your battlefield.
+
+[MID_TUT_MATCH_EDIT_ATTACK_TITLE]
+Taking Your Maps to Battle
+
+[MID_TUT_MATCH_EDIT_ATTACK_0]
+Your maps are ready for battle as soon as
+you are finished making them.
+
+[MID_TUT_MATCH_EDIT_ATTACK_1]
+Select Start Battle to connect your map to one
+uploaded by another player. You will deploy
+your raiding party, and the battle will begin.
+
+[MID_TUT_MATCH_EDIT_ATTACK_2]
+If your map comes under attack, you can select
+View Results to see the outcome and replay.
+
+[MID_TUT_MATCH_EDIT_ATTACK_3]
+Test how well you constructed your map
+with the Mock Battle feature.
+
+[MID_TUT_MATCH_ATTACK_TITLE]
+Start Battle
+
+[MID_TUT_MATCH_ATTACK_0]
+Connect your map to one uploaded by another
+player. Send out a raiding party and begin
+the battle.
+
+[MID_TUT_MATCH_ATTACK_1]
+Random: Battle on another player's map that is
+selected at random.
+
+[MID_TUT_MATCH_ATTACK_2]
+Friend: Choose a map from among those
+uploaded by your friends.
+
+[MID_TUT_MATCH_ATTACK_3]
+Enter ID: Battle a specific player's map by
+entering their ID.
+
+[MID_TUT_MATCH_EDIT_TITLE]
+Editing Maps
+
+[MID_TUT_MATCH_EDIT_0]
+As you create your own battle maps, consider
+how the terrain you place will shape the flow
+of battle.
+
+[MID_TUT_MATCH_EDIT_1]
+Press $Icon("X") to open the terrain list. You can place
+terrain with $Icon("A") and cycle through it with $Icon("L")$Icon("R").
+
+[MID_TUT_MATCH_EDIT_2]
+Consider the defensive strength of your map as
+well. Foes will begin to advance on your map
+once you've uploaded it. Good defense is key.
+
+[MID_TUT_MATCH_EDIT_3]
+Finally, to set your defense team, open the
+menu with $Icon("Plus"). You can also save your
+map there.
+
+[MID_TUT_MATCH_EDIT_SAVE_TITLE]
+Setting Defense Teams
+
+[MID_TUT_MATCH_EDIT_SAVE_0]
+You can customize where the members of your
+defense team are placed, as well as their
+settings and equipment.
+
+[MID_TUT_MATCH_EDIT_SAVE_1]
+Change an ally's movement type by placing
+your cursor on them and pressing $Icon("A").
+
+[MID_TUT_MATCH_EDIT_SAVE_2]
+Units committed to your defense team cannot
+be deployed in your raiding party, so consider
+your assignments carefully.
+
+[MID_TUT_MATCH_EDIT_SAVE_3]
+When you have finished placing terrain and
+your defense team, select Save Map.
+
+[MID_TUT_MATCH_EDIT_SAVE_4]
+Select Finish Editing when you are done.
+
+[MID_TUT_MATCH_REPLAY_TITLE]
+View Results
+
+[MID_TUT_MATCH_REPLAY_0]
+If a player launches an attack on a map you
+uploaded, your defense team will take action.
+
+[MID_TUT_MATCH_REPLAY_1]
+If one of these defensive battles occurs,
+you can see how it went.
+
+[MID_TUT_MATCH_REPLAY_2]
+Observe how the battle unfolded by watching
+a replay of combat.
+
+[MID_TUT_MATCH_REPLAY_3]
+You can receive rewards even in defeat,
+but victory yields a greater prize.
+
+[MID_TUT_MATCH_MOCKCOMBAT_TITLE]
+Mock Battle
+
+[MID_TUT_MATCH_MOCKCOMBAT_0]
+Test the maps you have made to see how well
+they hold up in battle.
+
+[MID_TUT_MATCH_MOCKCOMBAT_1]
+Send a raiding party to your own map to
+test the mettle of your defenses.
+
+[MID_TUT_MATCH_MOCKCOMBAT_2]
+If you find something that needs improvement,
+make adjustments with Edit Map.
+
+[MID_TUT_TIPS_Marth]
+Emblem Marth
+
+[MID_TUT_TIPS_Siglud]
+Emblem Sigurd
+
+[MID_TUT_TIPS_Celica]
+Emblem Celica
+
+[MID_TUT_TIPS_Micaiah]
+Emblem Micaiah
+
+[MID_TUT_TIPS_Roy]
+Emblem Roy
+
+[MID_TUT_TIPS_Lin]
+Emblem Lyn
+
+[MID_TUT_TIPS_Ike]
+Emblem Ike
+
+[MID_TUT_TIPS_Lucina]
+Emblem Lucina
+
+[MID_TUT_TIPS_Leaf]
+Emblem Leif
+
+[MID_TUT_TIPS_Kamui]
+Emblem Corrin
+
+[MID_TUT_TIPS_Eirik]
+Emblem Eirika
+
+[MID_TUT_TIPS_Ephraim]
+Emblem Ephraim
+
+[MID_TUT_TIPS_Byleth]
+Emblem Byleth
+
+[MID_TUT_TIPS_TUTORIAL]
+The Basics
+
+[MID_TUT_TIPS_ITEM]
+Items
+
+[MID_TUT_TIPS_WEAPON]
+Weapons
+
+[MID_TUT_TIPS_KIZUNA]
+Exploration
+
+[MID_TUT_TIPS_HUB]
+The Somniel
+
+[MID_TUT_TIPS_GMAP]
+World Map
+
+[MID_TUT_TIPS_ENCOUNTER]
+Skirmishes
+
+[MID_TUT_TIPS_UNIT_SKILL]
+ ($Arg(0) Skill)
+
+[MID_TUT_TIPS_GOD_SKILL]
+ ($Arg(0) Emblem Skill)
+
+[MID_TUT_TIPS_UNIT_ITEM]
+ ($Arg(0) Unique Weapon)
+
+[MID_TUT_TIPS_GOD_ITEM]
+ ($Arg(0) Engage Weapon)
+
+[MID_TIPS_TUTORIAL_1]
+Review tutorials in the System menu.
+
+[MID_TIPS_TUTORIAL_2]
+Turn combat animations on and off in the System menu.
+
+[MID_TIPS_TUTORIAL_3]
+Press $Icon("ZL") on the battle map to see the attack range of all enemies.
+
+[MID_TIPS_TUTORIAL_4]
+Move the cursor to a foe and press $Icon("A")
+to see their danger radius.
+
+[MID_TIPS_TUTORIAL_5]
+End the player phase at any time by selecting End Turn.
+
+[MID_TIPS_TUTORIAL_6]
+Press and hold $Icon("Y") during a conversation to fast forward.
+
+[MID_TIPS_TUTORIAL_7]
+At 100 experience points, an ally will level up
+and receive a stat increase.
+
+[MID_TIPS_TUTORIAL_8]
+Press $Icon("X") to see detailed information about items or skills.
+
+[MID_TIPS_TUTORIAL_9]
+Move the cursor over your units and press $Icon("Minus")
+to see more information about their abilities.
+
+[MID_TIPS_TUTORIAL_10]
+Hold $Icon("ZR") on the battle map to change the minimap display
+or the type of unit information that is shown.
+
+[MID_TIPS_TUTORIAL_50]
+Press $Icon("ZR") on the battle map to display additional unit information.
+
+[MID_TIPS_TUTORIAL_11]
+A unit's speed (Spd) will decrease if their weapon's
+weight (Wt) is higher than their build (Bld).
+
+[MID_TIPS_TUTORIAL_12]
+With high luck (Lck), you will take fewer critical hits.
+
+[MID_TIPS_TUTORIAL_13]
+Stand in thickets or woods to increase your
+chance of avoiding enemy attacks.
+
+[MID_TIPS_ITEM_0]
+Restore HP with a vulnerary or Heal.
+
+[MID_TIPS_ITEM_1]
+Vulneraries and staves have a limited number of uses.
+They will disappear when their use counter reaches 0.
+
+[MID_TIPS_TUTORIAL_14]
+Select Auto-Battle to choose a strategy
+and let units fight on their own.
+
+[MID_TIPS_TUTORIAL_15]
+Weapon advantage breaks enemies: swords against axes,
+axes against lances, and lances against swords.
+
+[MID_TIPS_TUTORIAL_51]
+Attacking with an art will break foes
+using bows, tomes, and knives.
+
+[MID_TIPS_TUTORIAL_16]
+Broken foes cannot counterattack until after their
+next combat, so you can attack them safely.
+
+[MID_TIPS_TUTORIAL_17]
+Chain Guard cannot protect against engage attacks.
+
+[MID_TIPS_SKILL_0]
+Raising bond level increases available skills and
+boosts a unit's stats while synced or engaged.
+
+[MID_TIPS_SKILL_1]
+The engage meter fills as you battle.
+
+[MID_TIPS_SKILL_28]
+Wait in a space with Emblem energy to
+completely fill a unit's engage meter.
+
+[MID_TIPS_SKILL_2]
+Dragon units attack additional times when using
+Emblem Marth's engage attack, Lodestar Rush.
+
+[MID_TIPS_ITEM_2]
+When an art is equipped, physical attack (Ph Atk) is affected by
+two stats: strength (Str) and magic (Mag).
+
+[MID_TIPS_TUTORIAL_18]
+Your allies have unique skills. Press $Icon("X") for details.
+
+[MID_TIPS_TUTORIAL_19]
+The Unit Selection menu displays allies' classes and levels.
+
+[MID_TIPS_TUTORIAL_20]
+Your allies earn support points when they
+fight next to each other.
+
+[MID_TIPS_TUTORIAL_21]
+Press $Icon("L") or $Icon("R") to change a selected unit's equipped weapon.
+
+[MID_TIPS_TUTORIAL_22]
+Enemies with the $Icon("DropItem") icon will drop an item when defeated.
+
+[MID_TIPS_ITEM_3]
+Bows are effective against flying foes.
+
+[MID_TIPS_ITEM_4]
+Armored units have high defense (Def),
+but are easily damaged by magic attacks.
+
+[MID_TIPS_OTHER_33]
+You can lower the game's difficulty by approaching your bed and selecting
+Difficulty Setting.
+
+[MID_TIPS_TUTORIAL_24]
+If you visit a house before a foe reaches it,
+you might receive a gift.
+
+[MID_TIPS_TUTORIAL_25]
+Units on forts or protection tiles recover HP each turn
+and are not broken by weapon advantage.
+
+[MID_TIPS_TUTORIAL_27]
+The convoy is available to $P and adjacent units
+to store and withdraw items during battle.
+
+[MID_TIPS_TUTORIAL_28]
+Earn bond EXP to unlock conversations
+with Emblems that raise your bond level.
+
+[MID_TIPS_TUTORIAL_29]
+Earn support points to unlock conversations
+between allies that raise their support level.
+
+[MID_TIPS_TUTORIAL_30]
+When allies' support levels increase, they receive a stat
+bonus when they stand adjacent to one another.
+
+[MID_TIPS_TUTORIAL_32]
+The $Icon("EquipCancel") symbol appears on a foe's weapon icon
+if you can break them with your attack.
+
+[MID_TIPS_TUTORIAL_33]
+Foes with $Icon("BalloonCritical") easily land critical hits.
+
+[MID_TIPS_TUTORIAL_34]
+Wind back actions and change past decisions
+with the Draconic Time Crystal.
+
+[MID_TIPS_ITEM_5]
+Attack distant opponents with javelins and hand axes
+in addition to bows and magic.
+
+[MID_TIPS_ITEM_6]
+The tome Surge can only attack adjacent foes,
+but it is guaranteed to hit.
+
+[MID_TIPS_OTHER_0]
+Collect bond fragments by talking to allies
+who did well in battle.
+
+[MID_TIPS_OTHER_1]
+You can use the crystals and ingredients you find
+to refine weapons and cook meals.
+
+[MID_TIPS_OTHER_2]
+In the Ring Chamber, you can use bond fragments
+to create Bond Rings.
+
+[MID_TIPS_OTHER_3]
+Press $Icon("X") to fast travel to your destination.
+
+[MID_TIPS_OTHER_4]
+If you give an ally an especially thoughtful gift,
+you will receive additional support points.
+
+[MID_TIPS_OTHER_6]
+Change the background music with the music box.
+
+[MID_TIPS_OTHER_7]
+In your room you can listen to music or recall
+past conversations and memories of big events.
+
+[MID_TIPS_OTHER_8]
+If you go to sleep in your room, an ally
+might come to wake you.
+
+[MID_TIPS_OTHER_9]
+Use SP or bond fragments in the Ring Chamber
+to inherit Emblem skills or create Bond Rings.
+
+[MID_TIPS_OTHER_10]
+Rumor has it that the Somniel's guardian spirit produces bond fragments.
+How the spirit does it... Well, that's another matter entirely.
+
+[MID_TIPS_OTHER_11]
+A high score in Wyvern Ride rewards
+you with bonus bond fragments.
+
+[MID_TIPS_OTHER_12]
+After a round of strength training, $P's
+stats will receive a slight boost in the next battle.
+
+[MID_TIPS_OTHER_32]
+Use $Icon("ZR") to select multiple items to sell at once.
+
+[MID_TIPS_TUTORIAL_35]
+If an enemy gets to a treasure chest before you do,
+you can recover the contents by defeating them.
+
+[MID_TIPS_TUTORIAL_36]
+To pass through a door, destroy it or use a
+thief's Door command.
+
+[MID_TIPS_ITEM_8]
+Boost an ally's stats during battle with a
+strengthening item, such as an HP Tonic.
+
+[MID_TIPS_ITEM_9]
+Ridersbane and weapons like poleaxes
+are effective against cavalry units. 
+
+[MID_TIPS_OTHER_13]
+Animals grazing on the Somniel may leave things for you.
+
+[MID_TIPS_OTHER_15]
+Skirmishes and training battles sometimes appear on the world map.
+Take part to earn gold and experience.
+
+[MID_TIPS_OTHER_16]
+Battle allies and Emblems in the Arena
+to earn experience and deepen bonds.
+
+[MID_TIPS_OTHER_17]
+Allies who fight in training battles earn even more experience after clearing them.
+
+[MID_TIPS_TUTORIAL_39]
+Dragon units often receive added effects while engaged.
+
+[MID_TIPS_TUTORIAL_40]
+Backup units use chain attacks
+to support their allies.
+
+[MID_TIPS_TUTORIAL_41]
+Cavalry units have greater mobility.
+
+[MID_TIPS_TUTORIAL_42]
+Mystical units ignore terrain bonuses to a foe's
+avoid rate (Avo) when attacking with magic.
+
+[MID_TIPS_TUTORIAL_43]
+Qi adept units can cover adjacent allies with Chain Guard.
+
+[MID_TIPS_TUTORIAL_44]
+Covert units gain twice the usual bonuses to
+avoid rate (Avo) from terrain effects.
+
+[MID_TIPS_TUTORIAL_45]
+Flying units can move without being affected by terrain.
+
+[MID_TIPS_TUTORIAL_46]
+Weapon advantage cannot break armored units.
+
+[MID_TIPS_TUTORIAL_47]
+Raise your bond level with Emblems to earn the proficiencies
+needed to change classes.
+
+[MID_TIPS_ITEM_10]
+If a foe wields a close-range weapon, they cannot counterattack
+if you attack them from a distance.
+
+[MID_TIPS_ITEM_11]
+Attacking with knives inflicts poison.
+
+[MID_TIPS_ITEM_12]
+Armorslayers and hammers are
+effective against armored units.
+
+[MID_TIPS_OTHER_14]
+After cooking, a chef will sometimes pack you a meal that you can use to recover HP.
+
+[MID_TIPS_OTHER_19]
+When you order a meal at Café Terrace, you can add
+extra ingredients to improve the experience.
+
+[MID_TIPS_OTHER_20]
+You can harvest cooking ingredients in the orchard.
+
+[MID_TIPS_OTHER_21]
+Earn bond fragments by completing the achievements
+on the bulletin board.
+
+[MID_TIPS_OTHER_22]
+Use the bulletin board to donate to the regions of Elyos. Generous gifts
+increase your donation level and may yield rewards.
+
+[MID_TIPS_OTHER_30]
+Rare foes are more likely to appear in skirmishes
+in regions with a high donation level.
+
+[MID_TIPS_OTHER_31]
+Find more materials while exploring by raising your
+donation level in that region.
+
+[MID_TIPS_OTHER_23]
+In skirmishes on maps with low visibility, enemies often
+yield both high experience and great riches.
+
+[MID_TIPS_SKILL_38]
+Staff mastery skills are the only way to increase a staff's hit rate.
+
+[MID_TIPS_OTHER_34]
+You can use your card to swap profiles with your friends in the Tower of Trials.
+
+[MID_TIPS_TUTORIAL_48]
+Beware of dark synced foes when their engage meters
+flash─it means their engage attack is ready.
+
+[MID_TIPS_TUTORIAL_52]
+Engaged allies receive reduced damage
+from enemy engage attacks.
+
+[MID_TIPS_TUTORIAL_49]
+Continue training a unit that has reached max level by starting
+them at level 1 with a Second Seal.
+
+[MID_TIPS_ITEM_13]
+Poison will persist throughout a battle if not
+cured with an antitoxin or Restore staff.
+
+[MID_TIPS_ITEM_14]
+When allies reach level 10 they can change to an
+advanced class using a Master Seal.
+
+[MID_TIPS_ITEM_15]
+Weapons with the smash effect always attack last.
+
+[MID_TIPS_OTHER_24]
+The fish that you catch in the pond
+make tasty ingredients for cooking.
+
+[MID_TIPS_ITEM_16]
+Allies can change to classes of different types using a Second Seal.
+
+[MID_TIPS_ITEM_17]
+Land critical hits more often with the weapons
+killing edge, killer lance, and killer axe.
+
+[MID_TIPS_OTHER_37]
+If you promote $P to the Divine Dragon class, you will be able to play
+Wyvern Ride at the Training Yard.
+
+[MID_TIPS_OTHER_26]
+The flea market stocks some items that cannot be purchased elsewhere.
+
+[MID_TIPS_OTHER_27]
+It is said that there are trial grounds across Elyos
+where you can deepen bonds with Emblems.
+
+[MID_TIPS_SKILL_29]
+Ike's engage attack, Great Aether, can clear effects like flames and miasma
+where it hits.
+
+[MID_TIPS_SKILL_22]
+Byleth's engage weapon changes according
+to the type of the engaged unit.
+
+[MID_TIPS_SKILL_25]
+Corrin's Dragon Vein skill adds special effects to terrain,
+overwriting existing effects.
+
+[MID_TIPS_OTHER_28]
+The fortune-teller is only open at night.
+
+[MID_TIPS_OTHER_29]
+Fight in the Tower of Trials to earn special materials
+for upgrading engage weapons.
+
+[MID_TIPS_ITEM_18]
+Weapons like the brave sword and brave lance make two
+consecutive attacks if you initiate combat.
+
+[MID_TIPS_ITEM_19]
+When you're ready to gift the Pact Ring to an ally you care about,
+you can find it in a drawer in your room.
+
+[MID_TIPS_GOD_0]
+Prince of Altea, a country on the continent of Archanea in another world.
+Descended from the same line as the hero Anri.
+
+[MID_TIPS_GOD_1]
+After he and his allies defeated the Shadow Dragon,
+he came to be known as the Hero-King.
+
+[MID_TIPS_GOD_2]
+Son of the duke of Chalphy in a kingdom called Grannvale
+on Jugdral, a continent in another world.
+
+[MID_TIPS_GOD_3]
+A noble knight who, as descendant of the crusader Baldr,
+inherited the legendary legacy of a sacred blade.
+
+[MID_TIPS_GOD_4]
+Princess of Zofia, a bountiful country on the continent of Valentia in another world.
+
+[MID_TIPS_GOD_5]
+Alongside the hero Alm, she fought against the Fell God who threatened her world's
+peace─but she was best known for her caring heart.
+
+[MID_TIPS_GOD_6]
+Member of a group of freedom fighters on the continent of Tellius in another world.
+
+[MID_TIPS_GOD_7]
+She used her mysterious powers to fight a goddess
+who sought to judge her entire world.
+
+[MID_TIPS_GOD_8]
+A noble of House Pherae who lived on the continent Elibe in another world.
+Wielder of the Binding Blade.
+
+[MID_TIPS_GOD_9]
+He led an army, in the stead of his ill father, against his country's enemies.
+
+[MID_TIPS_GOD_10]
+A master of the sword from Sacae, a region of grassy plains
+on the continent of Elibe in another world.
+
+[MID_TIPS_GOD_11]
+She was raised as a nomad, ignorant to the truth of her noble lineage.
+
+[MID_TIPS_GOD_12]
+Leader of the Greil Mercenaries on the continent of Tellius in another world.
+
+[MID_TIPS_GOD_13]
+His superior sword skills and honest heart brought him
+from simple mercenary to renowned hero.
+
+[MID_TIPS_GOD_14]
+Princess of the Halidom of Ylisse in another world.
+She has the Brand of the Exalt on her left eye.
+
+[MID_TIPS_GOD_15]
+Her strong sense of justice motivated her to travel back in time
+and fight to avert a grim future.
+
+[MID_TIPS_GOD_16]
+Heir to Leonster, a kingdom in the Thracia region on the continent of Jugdral in
+another world.
+
+[MID_TIPS_GOD_17]
+He bravely fought to liberate Thracia from imperial rule.
+
+[MID_TIPS_GOD_18]
+A royal of two countries in another world─born in Hoshido, raised in Nohr.
+
+[MID_TIPS_GOD_19]
+Though blessed with the power of the First Dragons, she was burdened with a terrible
+choice when her two homelands went to war.
+
+[MID_TIPS_GOD_20]
+Princess of Renais, a country on the continent of Magvel in another world.
+Heir to one of the Sacred Stones.
+
+[MID_TIPS_GOD_21]
+The brave prince of Renais who fought the Demon King alongside his twin sister, Eirika.
+
+[MID_TIPS_GOD_22]
+A young mercenary who became a professor at Garreg Mach Monastery in the land of
+Fódlan, a continent in another world.
+
+[MID_TIPS_GOD_23]
+He taught his students well and guided them through an age of war.
+
+[MID_TUT_NAVI_M004_TIMECRYSTAL]
+The Draconic Time Crystal is now available.
+
+[MID_TUT_NAVI_M005_FUNDS]
+You received $Arg(0)$Arg(1)G in military funds from Firene. 
+
+[MID_TUT_NAVI_VANDRE_FUNDS]
+You received $Arg(0)$Arg(1)G in military funds from Vander. 
+
+[MID_TUT_NAVI_M008_FUNDS]
+You received $Arg(0)$Arg(1)G in military funds from Brodia. 
+
+[MID_TUT_NAVI_M012_RESCUE]
+Save the people threatened by the Corrupted.
+
+[MID_TUT_NAVI_M014_FUNDS]
+You received $Arg(0)$Arg(1)G in military funds from Solm.
+
+[MID_TUT_NAVI_M015_ESCAPE]
+Protect Seadall and help him escape!
+
+[MID_TUT_NAVI_M020_FUNDS]
+You received $Arg(0)$Arg(1)G in military funds from Elusia.
+
+[MID_TUT_NAVI_M022_GET_Siglud]
+You acquired the Ring of the Holy Knight.
+
+[MID_TUT_NAVI_M022_GET_Celica]
+You acquired the Ring of the Caring Princess.
+
+[MID_TUT_NAVI_M022_GET_Micaiah]
+You acquired the Ring of the Dawn Maiden.
+
+[MID_TUT_NAVI_M022_GET_Roy]
+You acquired the Ring of the Young Lion.
+
+[MID_TUT_NAVI_M022_GET_Lin]
+You acquired the Ring of the Lady of the Plains.
+
+[MID_TUT_NAVI_M022_GET_Ike]
+You acquired the Ring of the Radiant Hero.
+
+[MID_TUT_NAVI_M022_GET_Lucina]
+You acquired the Ring of the Princess Exalt.
+
+[MID_TUT_NAVI_M022_GET_Leaf]
+You acquired the Ring of the Sage Lord.
+
+[MID_TUT_NAVI_M022_GET_Kamui]
+You acquired the Ring of the Crux of Fate.
+
+[MID_TUT_NAVI_M022_GET_Eirik]
+You acquired the Ring of the Azure Twins.
+
+[MID_TUT_NAVI_M022_GET_Byleth]
+You acquired the Ring of the Instructor.
+
+[MID_TUT_NAVI_M024_WARNING1]
+In 2 turns an avalanche will strike
+the lower mountain path.
+
+[MID_TUT_NAVI_M024_WARNING2]
+In 2 turns an avalanche will strike
+the middle mountain path.
+
+[MID_TUT_NAVI_M024_WARNING3]
+In 2 turns an avalanche will strike
+the upper mountain path.
+
+[MID_TUT_NAVI_M026_ENGAGEBREAKE]
+Fell Sombron will use Disengage on his next
+turn. This devastating attack forcibly cancels
+the engaged state of all units.
+
+[MID_TUT_NAVI_M026_BEAM_WARNING]
+Fell Sombron will use Howling Beam on his
+next turn. Try to get out of range to avoid
+this powerful attack.
+
+[MID_TUT_NAVI_S006_RULE]
+Stop Byleth from destroying the crystals.
+You will earn rewards depending on how
+many crystals you can protect.
+
+[MID_TUT_NAVI_S006_BREAK]
+A crystal has been destroyed.
+
+[MID_TUT_NAVI_S006_REWARD1]
+Amazing job! You protected an incredible 
+number of crystals. You received a $Arg(0)
+and an $Arg(1) as a reward from Byleth.
+
+[MID_TUT_NAVI_S006_REWARD2]
+Well done! You protected a good number
+of crystals. You received a $Arg(0) as a
+reward from Byleth.
+
+[MID_TUT_NAVI_S006_REWARD3]
+You were not able to protect very many
+crystals. You did not receive a reward.
+
+[MID_TUT_NAVI_S015_GET]
+You retrieved the ring.
+
+[MID_TUT_NAVI_S015_ENGAGERING]
+You can only give the Pact Ring to one of
+your allies. Choose the recipient carefully.
+
+[MID_TUT_M002_RULE]
+After Lumera equipped emblem Sigurd, her move range would
+become very large, Clanne and Framme are vulnerable to her
+attacks, but she would attack Alear and Vander first. Make haste!
+
+[MID_TIPS_WEAPON_TRIANGLE_T]
+Weapon Triangle
+
+[MID_TIPS_WEAPON_TRIANGLE]
+Red weapons have advantage over Green ones
+Green weapons have advantage over Blue ones
+Blue weapons have advantage over Red ones
+Yellow weapons have advantage over ranged weapon
+
+[MID_TIPS_WEAPON_COLOR_T]
+Color of the Weapons
+
+[MID_TIPS_WEAPON_COLOR]
+Red: Sword, Tome
+Green: Axe, Bow
+Blue: Lance, Dagger
+Yellow: Martial Art
+
+[MID_TIPS_ENGAGE_COUNT_T]
+Engage Fill Meter
+
+[MID_TIPS_ENGAGE_COUNT]
+When it is full, can engage with
+the emblems. Some emblems
+have special commands that cost
+the fill meter. When initiate combat
+or defeat an enemy, gain 1 fill meter.
+
+[MID_TIPS_WEAPON_ADVANTAGE_T]
+The bonus of Weapon Triangle
+
+[MID_TIPS_WEAPON_ADVANTAGE]
+When fight with advantage, the unit gets
+damage+2, hit+20, and the opponent suffer
+damage-2, hit-20.
+Also, when the hit lands, break the opponent.
+
+[MID_TIPS_WEAPON_KATANA_T]
+Katana
+
+[MID_TIPS_WEAPON_KATANA]
+The Japanese style sword.
+When equipped, Spd+1, Def/Res-1
+
+[MID_TIPS_WEAPON_SHERIKEN_T]
+Shuriken
+
+[MID_TIPS_WEAPON_SHERIKEN]
+The Japanese style dagger.
+Has lower hit compare to daggers,
+gets Spd+2 when equipped.
+
+[MID_TIPS_WEAPON_NAGINATA_T]
+Naginata
+
+[MID_TIPS_WEAPON_NAGINATA]
+The Japanese style lance.
+Has lower Mt compare to daggers,
+gets Def/Res+1 when equipped.
+
+[MID_TIPS_WEAPON_EFFECTIVENESS_T]
+Weapon Effectiveness
+
+[MID_TIPS_WEAPON_EFFECTIVENESS]
+When the weapon is effective against
+certain type of units, weapon's Mt is
+tripled when fighting against them.
+
+[MID_TIPS_WEAPON_EFFECTIVENESS_FAIL_T]
+Weak against other
+
+[MID_TIPS_WEAPON_EFFECTIVENESS_FAIL]
+When effective weapon has description
+of weak against other, it would lose 4 Mt
+and 10 Hit when it is not effective.

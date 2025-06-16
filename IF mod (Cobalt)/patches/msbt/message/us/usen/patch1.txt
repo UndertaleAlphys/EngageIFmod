@@ -1,0 +1,1345 @@
+[MID_SYS_EnchantEffect]
+Enchant Effect
+
+[MID_DLC_News_Patch1_Title]
+Ver. 1.2.0
+
+[MID_DLC_News_Patch1]
+Expansion Pass
+
+・ Emblems Hector, Soren, and Camilla have been added.
+  They will each join your group when their respective
+  Divine Paralogues have been cleared.
+
+・ Expansion Pass Bonus 2 has been added. If you have
+  purchased the Expansion Pass, you will receive some
+  materials, weapons, and skill books.
+
+・ New accessories have been added to the boutique.
+  These include the spirit set, spirit mask, spirit ears,
+  dog ears, bunny ears, and fox ears.
+
+Free Content
+
+・ Recreation spots have been added to the Somniel.
+  Use them to increase support points among allies.
+
+[MID_MSG_GET_ITEM_DLC_Accessory2]
+Expansion Pass Bonus 2 received.
+
+[MCID_G002_PREFIX]
+Divine Paralogue
+
+[MCID_G002]
+The Brash General
+
+[MCID_G002_PLACE]
+Berserker's Hollow
+
+[MCID_G002_OUTLINE]
+A bracelet has been sighted in a
+dank cave filled with miasma.
+
+[MCID_G004_PREFIX]
+Divine Paralogue
+
+[MCID_G004]
+The Radiant Strategist
+
+[MCID_G004_PLACE]
+Magma Cavern
+
+[MCID_G004_OUTLINE]
+A bracelet has been sighted in
+a cavern of molten lava.
+
+[MCID_G005_PREFIX]
+Divine Paralogue
+
+[MCID_G005]
+The Doting Sister
+
+[MCID_G005_PLACE]
+Underground Passage
+
+[MCID_G005_OUTLINE]
+A bracelet has been sighted in a
+sunken underground ruin.
+
+[MID_RULE_G002_WIN]
+Defeat Emblem Hector.
+
+[MID_RULE_G004_WIN]
+Defeat Emblem Soren.
+
+[MID_RULE_G005_WIN]
+Defeat Emblem Camilla.
+
+[MTID_VolcanicBombTraces]
+Magma Crater
+
+[MTID_Fumarole]
+Vent
+
+[MTID_Crater]
+Crater
+
+[MPID_Hector]
+Hector
+
+[MPID_H_Hector]
+Known as the Emblem of Strength.
+An exuberant, heroic young man,
+brimming with confidence.
+
+[MPID_Senerio]
+Soren
+
+[MPID_H_Senerio]
+Known as the Emblem of Acumen.
+A black-clad strategist of reserved,
+sound judgment.
+
+[MPID_Camilla]
+Camilla
+
+[MPID_H_Camilla]
+Known as the Emblem of Revelation.
+A beautiful wyvern rider with a
+captivating aura.
+
+[MGID_Hector]
+Hector
+
+[MGID_H_Hector]
+Known as the Emblem of Strength.
+Wipes out enemies with his axe and
+risks his life for his friends.
+
+[MGID_H_EnemyHector]
+An Emblem that awakened from the
+Bracelet of the Brash General.
+
+[MGID_Senerio]
+Soren
+
+[MGID_H_Senerio]
+Known as the Emblem of Acumen.
+Excels with magic and the use of
+powerful tomes.
+
+[MGID_H_EnemySenerio]
+An Emblem that awakened from the
+Bracelet of the Strategist.
+
+[MGID_Camilla]
+Camilla
+
+[MGID_H_Camilla]
+Known as the Emblem of Revelation.
+Flies through the air and buries foes
+with her axe and tomes.
+
+[MGID_H_EnemyCamilla]
+An Emblem that awakened from the
+Bracelet of the Doting Sister.
+
+[MGEID_Hector]
+Strength
+
+[MGEID_Senerio]
+Acumen
+
+[MGEID_Camilla]
+Revelation
+
+[MJID_Enchant]
+Enchanter
+
+[MJID_H_Enchant]
+A combat medic who skillfully uses
+items for combat. Can use convoy,
+and excels at ally-support tactics.
+
+[MIID_Hector_WolfBeil]
+Wolf Beil
+
+[MIID_H_Hector_WolfBeil]
+Axe wielded by Emblem Hector.
+Effective: Cavalry, Armored.
+
+[MIID_Hector_Runesword]
+Runesword
+
+[MIID_H_Hector_Runesword]
+Magic sword of Emblem Hector.
+Can strike close or at range. Restore
+HP equal to 50% of damage dealt. 
+
+[MIID_Hector_Armads]
+Armads
+
+[MIID_H_Hector_Armads]
+Lightning-charged axe wielded by
+Emblem Hector. Grants Def+5.
+Effective: Dragon.
+
+[MIID_Senerio_Thunderstorm]
+Bolting
+
+[MIID_H_Senerio_Thunderstorm]
+Long-range thunder magic wielded
+by Emblem Soren. Cannot follow up.
+
+[MIID_Senerio_MagicShield]
+Reflect
+
+[MIID_H_Senerio_MagicShield]
+Staff of Emblem Soren. Allies within
+2 spaces gain "deals 50% of magic
+damage taken back to foe" for 1 turn.
+
+[MIID_Senerio_Rexcalibur]
+Rexcalibur
+
+[MIID_H_Senerio_Rexcalibur]
+Powerful wind magic wielded by
+Emblem Soren.
+Effective: Flying.
+
+[MIID_Senerio_Disaster]
+Cataclysm
+
+[MIID_H_Senerio_Disaster]
+Magic wielded by Emblem Soren.
+Fire, thunder, & wind attacks at 40%
+damage. Wind is effective: Flying.
+
+[MIID_Camilla_BoltAxe]
+Bolt Axe
+
+[MIID_H_Camilla_BoltAxe]
+Magic axe wielded by Emblem
+Camilla. Can strike close or at range.
+
+[MIID_Camilla_Lightning]
+Lightning
+
+[MIID_H_Camilla_Lightning]
+Magic wielded by Emblem Camilla.
+If user initiates combat, attacks
+twice.
+
+[MIID_Camilla_Camilla'sAxe]
+Camilla's Axe
+
+[MIID_H_Camilla_Camilla'sAxe]
+Axe wielded by Emblem Camilla.
+Grants Res+10 and deals extra
+damage = foe's Res-Def.
+
+[MIID_HE_Vulnerary]
+Recovers 15 HP for unit and allies
+within 2 spaces.
+
+[MIID_HE_Antidote]
+Heals status effects for unit and
+adjacent allies.
+
+[MIID_HE_Medicine]
+Fills unit and adjacent allies' engage
+meters by 2.
+
+[MIID_HE_HolyWater]
+Grants Effective: Corrupted to unit
+and adjacent allies for 1 turn.
+
+[MIID_HE_Torch]
+Grants the "Torch" effect to unit and
+adjacent allies. (Illuminate a 7-space
+radius. Shrinks one space per turn.)
+
+[MIID_HE_HpTonic]
+Raises max HP relative to level and
+grants "negate chain-attack damage"
+to unit and adjacent allies for 1 turn.
+
+[MIID_HE_StrTonic]
+Raises Str relative to level and grants
+"reduce weapon weight by 50%" to
+unit and adjacent allies for 1 turn.
+
+[MIID_HE_TecTonic]
+Raises Dex relative to level and
+grants immunity to break on unit
+and adjacent allies for 1 turn.
+
+[MIID_HE_SpdTonic]
+Raises Spd relative to level and
+grants immunity to freeze on unit
+and adjacent allies for 1 turn.
+
+[MIID_HE_LckTonic]
+Grants "30% chance to ignore
+damage" to unit and adjacent
+allies for 1 turn.
+
+[MIID_HE_DefTonic]
+Grants "reflect physical damage
+taken" to unit and adjacent allies
+for 1 turn.
+
+[MIID_HE_MagTonic]
+Raises Mag relative to level and
+grants immunity to silence on unit
+and adjacent allies for 1 turn.
+
+[MIID_HE_MdefTonic]
+Grants "reflect magic damage taken"
+to unit and adjacent allies for 1 turn.
+
+[MIID_HE_Bento]
+Grants "guarantee survival with 1 HP
+if HP is 2 or more at start of combat
+(once)" to an adjacent ally.
+
+[MIID_HE_WeaponAvo]
+Grants Avo+20 to weapons of the
+same name for the duration of
+the battle.
+
+[MIID_HE_WeaponDef]
+Grants Def/Res+5 to weapons of the
+same name for the duration of
+the battle.
+
+[MIID_HE_WeaponCrit]
+Grants Crit+20 to weapons of the
+same name for the duration of
+the battle.
+
+[MIID_HE_WeaponAtk]
+Grants Mt+5 to weapons of the same
+name for the duration of the battle.
+
+[MIID_HE_WeaponHit]
+Grants Hit+20 to weapons of the
+same name for the duration of
+the battle.
+
+[MIID_HE_WeaponAvo_Short]
+Enchant Effect: Grants Avo+20.
+
+[MIID_HE_WeaponDef_Short]
+Enchant Effect: Grants Def/Res+5.
+
+[MIID_HE_WeaponCrit_Short]
+Enchant Effect: Grants Crit+20.
+
+[MIID_HE_WeaponAtk_Short]
+Enchant Effect: Grants Mt+5.
+
+[MIID_HE_WeaponHit_Short]
+Enchant Effect: Grants Hit+20.
+
+[MSID_QuickResponse]
+Quick Riposte
+
+[MSID_H_QuickResponse]
+If unit's HP is 80% or more and foe
+initiates combat, unit will always
+follow up (if weapon allows).
+
+[MSID_QuickResponse+]
+Quick Riposte+
+
+[MSID_H_QuickResponse+]
+If unit's HP is 60% or more and foe
+initiates combat, unit will always
+follow up (if weapon allows).
+
+[MSID_HeavyAttack]
+Heavy Attack
+
+[MSID_H_HeavyAttack]
+When making a physical attack, if an
+equipped weapon's Wt exceeds
+unit's Bld, adds excess as damage.
+(Max +5)
+
+[MSID_GazeDiagonally]
+Piercing Glare
+
+[MSID_H_GazeDiagonally]
+Use when HP is full to consume 20%
+of max HP and prevent foes from
+entering the 4 spaces diagonally
+adjacent to unit for 1 turn.
+
+[MSID_H_GazeDiagonally_CMD]
+Blocks entry to 4 spaces
+diagonally adjacent to unit.
+
+[MSID_WARNING_GazeDiagonally_CMD]
+Can only be used if HP is full.
+
+[MSID_Adaptability]
+Adaptability
+
+[MSID_H_Adaptability]
+When hit by a foe's attack, grants
+Def+2 for a physical attack or Res+2
+for a magical attack after combat.
+Lasts until end of battle, or until
+activated again.
+
+[MSID_Adaptability+]
+Adaptability+
+
+[MSID_H_Adaptability+]
+When hit by a foe's attack, grants
+Def+3 for a physical attack or Res+3
+for a magical attack after combat.
+Lasts until end of battle, or until
+activated again.
+
+[MSID_HectorEngage]
+Impenetrable
+
+[MSID_H_HectorEngage]
+If foe initiates combat, grants
+Def/Res+30% during combat.
+
+[MSID_H_HectorEngage_Dragon]
+If foe initiates combat, grants
+Def/Res+30% during combat.
+[Dragon] Ddg+50%.
+
+[MSID_H_HectorEngage_Horse]
+If foe initiates combat, grants
+Def/Res+30% during combat.
+[Cavalry] Grants immunity to
+freeze.
+
+[MSID_H_HectorEngage_Heavy]
+If foe initiates combat, grants
+Def/Res+30% during combat.
+[Armored] Grants Def+50%
+instead of +30%.
+
+[MSID_H_HectorEngage_Fly]
+If foe initiates combat, grants
+Def/Res+30% during combat.
+[Flying] Grants Res+50%
+instead of +30%.
+
+[MSID_HectorEngageAtk]
+Storm's Eye
+
+[MSID_H_HectorEngageAtk]
+Grants immunity to break. Foe
+cannot follow up. Unit follows up.
+Lasts 1 turn. Sword/axe only.
+
+[MSID_H_HectorEngageAtk_Dragon]
+Grants immunity to break. Foe
+cannot follow up. Unit follows up.
+Lasts 1 turn. Sword/axe only.
+[Dragon] Also prevent critical hits.
+
+[MSID_H_HectorEngageAtk_Coop]
+Grants immunity to break. Foe
+cannot follow up. Unit follows up.
+Lasts 1 turn. Sword/axe only.
+[Backup] Crit+20.
+
+[MSID_H_HectorEngageAtk_Covert]
+Grants immunity to break. Foe
+cannot follow up. Unit follows up.
+Lasts 1 turn. Sword/axe only.
+[Covert] Avo+30.
+
+[MSID_H_HectorEngageAtk_CMD]
+Adopt stance that always follows
+up. Foes cannot follow up.
+
+[MSID_HectorEngageAtk+]
+Storm's Eye+
+
+[MSID_H_HectorEngageAtk+]
+Grants immunity to break. Foe
+cannot follow up. Unit counters
+before foe's first attack and follows
+up. Lasts 1 turn. Sword/axe only.
+
+[MSID_H_HectorEngageAtk+_Dragon]
+Grants immunity to break. Foe
+cannot follow up. Unit counters
+before foe's first attack and follows
+up. Lasts 1 turn. Sword/axe only.
+[Dragon] Also prevent critical hits.
+
+[MSID_H_HectorEngageAtk+_Coop]
+Grants immunity to break. Foe
+cannot follow up. Unit counters
+before foe's first attack and follows
+up. Lasts 1 turn. Sword/axe only.
+[Backup] Crit+20.
+
+[MSID_H_HectorEngageAtk+_Covert]
+Grants immunity to break. Foe
+cannot follow up. Unit counters
+before foe's first attack and follows
+up. Lasts 1 turn. Sword/axe only.
+[Covert] Avo+30.
+
+[MSID_H_HectorEngageAtk+_CMD]
+Unit attacks first and follows
+up. Foe cannot follow up.
+
+[MSID_MagicOfLaw+]
+Anima Focus
+
+[MSID_H_MagicOfLaw+]
+When using tomes, unit inflicts Def-3
+with fire, Hit-20 with thunder, or
+Mov-2 with wind magic for 1 turn.
+
+[MSID_KeenInsight]
+Keen Insight
+
+[MSID_H_KeenInsight]
+When unit deals Effective damage,
+deal +5 damage.
+
+[MSID_KeenInsight+]
+Keen Insight+
+
+[MSID_H_KeenInsight+]
+When unit deals Effective damage,
+deal +7 damage.
+
+[MSID_NominateDecoy]
+Assign Decoy
+
+[MSID_H_NominateDecoy]
+Use to make one chosen ally more
+likely to be targeted by enemies for
+1 turn. Effect is removed after ally is
+targeted by or otherwise damaged
+by foes 3 times.
+
+[MSID_H_NominateDecoy_CMD]
+Makes one ally more likely to
+be targeted by enemies.
+
+[MSID_PreventionReturn]
+Block Recovery
+
+[MSID_H_PreventionReturn]
+When attacking a broken foe with
+a tome, grants a chance the foe will
+remain broken. Chance increases
+with high Spd.
+
+[MSID_SenerioEngage]
+Flare
+
+[MSID_H_SenerioEngage]
+When attacking with tomes, inflicts
+Res-20% on foe, and unit recovers
+50% of damage dealt.
+
+[MSID_H_SenerioEngage_Dragon]
+When attacking with tomes, inflicts
+Res-20% on foe, and unit recovers
+50% of damage dealt.
+[Dragon] Critical rate is doubled.
+
+[MSID_H_SenerioEngage_Magic]
+When attacking with tomes, inflicts
+Res-20% on foe, and unit recovers
+50% of damage dealt.
+[Mystical] Extra -10% to foe's Res.
+
+[MSID_H_SenerioEngage_Prana]
+When attacking with tomes, inflicts
+Res-20% on foe, and unit recovers
+50% of damage dealt.
+[Qi Adept] Unit recovers 100% of
+damage dealt instead.
+
+[MSID_SenerioEngageAtk]
+Cataclysm
+
+[MSID_H_SenerioEngageAtk]
+Use to attack foes in an area with
+fire, thunder and wind magic at 40%
+damage. Wind is effective: Flying.
+
+[MSID_H_SenerioEngageAtk_Dragon]
+Use to attack foes in an area with
+fire, thunder and wind magic at 40%
+damage. Wind is effective: Flying.
+[Dragon] Sets terrain on fire.
+
+[MSID_H_SenerioEngageAtk_Magic]
+Use to attack foes in an area with
+fire, thunder and wind magic at 40%
+damage. Wind is effective: Flying.
+[Mystical] +10% damage.
+
+[MSID_H_SenerioEngageAtk_Prana]
+Use to attack foes in an area with
+fire, thunder and wind magic at 40%
+damage. Wind is effective: Flying.
+[Qi Adept] 20% chance of breaking
+target.
+
+[MSID_H_SenerioEngageAtk_CMD]
+Attacks area with fire, wind,
+and thunder magic.
+
+[MSID_H_SenerioEngageAtk_G004]
+Use to attack foes in an area with
+fire, thunder and wind magic at 30%
+damage. Wind is effective: Flying.
+
+[MSID_SenerioEngageAtk+]
+Cataclysm+
+
+[MSID_H_SenerioEngageAtk+]
+Use to attack foes in an area with
+fire, thunder and wind magic at 40%
+damage. Wind is effective: Flying.
+
+[MSID_H_SenerioEngageAtk+_Dragon]
+Use to attack foes in an area with
+fire, thunder and wind magic at 40%
+damage. Wind is effective: Flying.
+[Dragon] Sets terrain on fire.
+
+[MSID_H_SenerioEngageAtk+_Magic]
+Use to attack foes in an area with
+fire, thunder and wind magic at 40%
+damage. Wind is effective: Flying.
+[Mystical] +10% damage.
+
+[MSID_H_SenerioEngageAtk+_Prana]
+Use to attack foes in an area with
+fire, thunder and wind magic at 40%
+damage. Wind is effective: Flying.
+[Qi Adept] 20% chance of breaking
+target.
+
+[MSID_H_SenerioEngageAtk+_CMD]
+Attacks area with fire, wind,
+and thunder magic.
+
+[MSID_DragonPulse_other]
+Dragon Vein
+
+[MSID_H_DragonPulse_other]
+Use to add a special effect to
+certain spaces.
+
+[MSID_H_DragonPulse_other_CMD]
+Add an effect to an area.
+
+[MSID_H_DragonPulse_other_Dragon]
+Use to add a special effect to
+certain spaces.
+[Dragon] Choose any Vein effect.
+
+[MSID_DragonPulse_other_Coop]
+Vein of Stone
+
+[MSID_H_DragonPulse_other_Coop_CMD]
+Creates stone pillars that
+increase Def/Res.
+
+[MSID_H_DragonPulse_other_Coop]
+Use to add a special effect to
+certain spaces.
+[Backup] Creates stone pillars that
+increase Def/Res.
+
+[MSID_DragonPulse_other_Horse]
+Vein of Water
+
+[MSID_H_DragonPulse_other_Horse_CMD]
+Creates water that
+decreases Avo.
+
+[MSID_H_DragonPulse_other_Horse]
+Use to add a special effect to
+certain spaces.
+[Cavalry] Creates water that
+decreases Avo.
+
+[MSID_DragonPulse_other_Covert]
+Vein of Smoke
+
+[MSID_H_DragonPulse_other_Covert_CMD]
+Creates smoke that decreases
+Def/Avo.
+
+[MSID_H_DragonPulse_other_Covert]
+Use to add a special effect to
+certain spaces.
+[Covert] Creates smoke that
+decreases Def/Avo.
+
+[MSID_DragonPulse_other_Heavy]
+Vein of Vines
+
+[MSID_H_DragonPulse_other_Heavy_CMD]
+Creates vines that grant
+immunity to break.
+
+[MSID_H_DragonPulse_other_Heavy]
+Use to add a special effect to
+certain spaces.
+[Armored] Creates vines that grant
+immunity to break.
+
+[MSID_DragonPulse_other_Fly]
+Vein of Succor
+
+[MSID_H_DragonPulse_other_Fly_CMD]
+Creates healing glow that
+restores HP.
+
+[MSID_H_DragonPulse_other_Fly]
+Use to add a special effect to
+certain spaces.
+[Flying] Creates healing glow that
+restores HP.
+
+[MSID_DragonPulse_other_Magic]
+Vein of Flame
+
+[MSID_H_DragonPulse_other_Magic_CMD]
+Creates flames that
+inflict damage.
+
+[MSID_H_DragonPulse_other_Magic]
+Use to add a special effect to
+certain spaces.
+[Mystical] Creates flames that
+inflict damage.
+
+[MSID_DragonPulse_other_Prana]
+Vein of Frost
+
+[MSID_H_DragonPulse_other_Prana_CMD]
+Creates ice floor that
+increases movement.
+
+[MSID_H_DragonPulse_other_Prana]
+Use to add a special effect to
+certain spaces.
+[Qi Adept] Creates ice floor that
+increases movement.
+
+[MSID_EarthVeinAbsorption]
+Groundswell
+
+[MSID_H_EarthVeinAbsorption]
+After unit acts or waits in flames,
+miasma, or similar terrain effect, unit
+clears effect and recovers 10 HP.
+
+[MSID_Detox]
+Detoxify
+
+[MSID_H_Detox]
+Cures poison at start of turn.
+
+[MSID_CamillaEngage]
+Soar
+
+[MSID_H_CamillaEngage]
+Grants Mov+2. Unit can cross terrain
+as if flying.
+
+[MSID_H_CamillaEngage_Dragon]
+Grants Mov+2. Unit can cross terrain
+as if flying. [Dragon] If unit initiates
+combat, deals damage to foes within
+2 spaces equal to 10% of their max
+HP after combat.
+
+[MSID_H_CamillaEngage_Horse]
+Grants Mov+2. Unit can cross terrain
+as if flying.
+[Cavalry] Grants an extra Mov+2.
+
+[MSID_H_CamillaEngage_Fly]
+Grants Mov+2. Unit can cross terrain
+as if flying.
+[Flying] Grants an extra Mov+1.
+
+[MSID_CamillaEngageAtk]
+Dark Inferno
+
+[MSID_H_CamillaEngageAtk]
+Use to deal damage to foes on
+certain spaces near unit and set
+those spaces on fire.
+
+[MSID_H_CamillaEngageAtk_Dragon]
+Use to deal damage to foes on
+certain spaces near unit and set
+those spaces on fire.
+[Dragon] Increases area of effect.
+
+[MSID_H_CamillaEngageAtk_Magic]
+Use to deal damage to foes on
+certain spaces near unit and set
+those spaces on fire.
+[Mystical] +20% damage.
+
+[MSID_H_CamillaEngageAtk_Prana]
+Use to deal damage to foes on
+certain spaces near unit and set
+those spaces on fire.
+[Qi Adept] Adds Glow to adjacent
+spaces.
+
+[MSID_H_CamillaEngageAtk_CMD]
+Attacks certain spaces then
+sets those spaces on fire.
+
+[MSID_CamillaEngageAtk+]
+Dark Inferno+
+
+[MSID_H_CamillaEngageAtk+]
+Use to deal damage to foes on
+certain spaces near unit and set
+those spaces on fire.
+
+[MSID_H_CamillaEngageAtk+_Dragon]
+Use to deal damage to foes on
+certain spaces near unit and set
+those spaces on fire.
+[Dragon] Increases area of effect.
+
+[MSID_H_CamillaEngageAtk+_Magic]
+Use to deal damage to foes on
+certain spaces near unit and set
+those spaces on fire.
+[Mystical] +20% damage.
+
+[MSID_H_CamillaEngageAtk+_Prana]
+Use to deal damage to foes on
+certain spaces near unit and set
+those spaces on fire.
+[Qi Adept] Adds Glow to adjacent
+spaces.
+
+[MSID_H_CamillaEngageAtk+_CMD]
+Attacks certain spaces then
+sets those spaces on fire.
+
+[MSID_Str_Def_1]
+Str/Def +1
+
+[MSID_H_Str_Def_1]
+Grants Str+1 and Def+1.
+
+[MSID_Str_Def_2]
+Str/Def +2
+
+[MSID_H_Str_Def_2]
+Grants Str+2 and Def+2.
+
+[MSID_Str_Def_3]
+Str/Def +3
+
+[MSID_H_Str_Def_3]
+Grants Str+3 and Def+3.
+
+[MSID_Str_Def_4]
+Str/Def +4
+
+[MSID_H_Str_Def_4]
+Grants Str+4 and Def+4.
+
+[MSID_Str_Def_5]
+Str/Def +5
+
+[MSID_H_Str_Def_5]
+Grants Str+5 and Def+5.
+
+[MSID_Mag_Res_1]
+Mag/Res +1
+
+[MSID_H_Mag_Res_1]
+Grants Mag+1 and Res+1.
+
+[MSID_Mag_Res_2]
+Mag/Res +2
+
+[MSID_H_Mag_Res_2]
+Grants Mag+2 and Res+2.
+
+[MSID_Mag_Res_3]
+Mag/Res +3
+
+[MSID_H_Mag_Res_3]
+Grants Mag+3 and Res+3.
+
+[MSID_Mag_Res_4]
+Mag/Res +4
+
+[MSID_H_Mag_Res_4]
+Grants Mag+4 and Res+4.
+
+[MSID_Mag_Res_5]
+Mag/Res +5
+
+[MSID_H_Mag_Res_5]
+Grants Mag+5 and Res+5.
+
+[MSID_Spd_Res_1]
+Spd/Res +1
+
+[MSID_H_Spd_Res_1]
+Grants Spd+1 and Res+1.
+
+[MSID_Spd_Res_2]
+Spd/Res +2
+
+[MSID_H_Spd_Res_2]
+Grants Spd+2 and Res+2.
+
+[MSID_Spd_Res_3]
+Spd/Res +3
+
+[MSID_H_Spd_Res_3]
+Grants Spd+3 and Res+3.
+
+[MSID_Spd_Res_4]
+Spd/Res +4
+
+[MSID_H_Spd_Res_4]
+Grants Spd+4 and Res+4.
+
+[MSID_Spd_Res_5]
+Spd/Res +5
+
+[MSID_H_Spd_Res_5]
+Grants Spd+5 and Res+5.
+
+[MSID_AntiAxeArts_1]
+Axe Guard 1
+
+[MSID_H_AntiAxeArts_1]
+If foe is equipped with an axe, unit
+takes 1 less damage during combat.
+
+[MSID_AntiAxeArts_2]
+Axe Guard 2
+
+[MSID_H_AntiAxeArts_2]
+If foe is equipped with an axe, unit
+takes 2 less damage during combat.
+
+[MSID_AntiAxeArts_3]
+Axe Guard 3
+
+[MSID_H_AntiAxeArts_3]
+If foe is equipped with an axe, unit
+takes 3 less damage during combat.
+
+[MSID_AntiAxeArts_4]
+Axe Guard 4
+
+[MSID_H_AntiAxeArts_4]
+If foe is equipped with an axe, unit
+takes 4 less damage during combat.
+
+[MSID_AntiAxeArts_5]
+Axe Guard 5
+
+[MSID_H_AntiAxeArts_5]
+If foe is equipped with an axe, unit
+takes 5 less damage during combat.
+
+[MSID_AntiMagicArts_1]
+Magic Guard 1
+
+[MSID_H_AntiMagicArts_1]
+If foe is equipped with a tome, unit
+takes 1 less damage during combat.
+
+[MSID_AntiMagicArts_2]
+Magic Guard 2
+
+[MSID_H_AntiMagicArts_2]
+If foe is equipped with a tome, unit
+takes 2 less damage during combat.
+
+[MSID_AntiMagicArts_3]
+Magic Guard 3
+
+[MSID_H_AntiMagicArts_3]
+If foe is equipped with a tome, unit
+takes 3 less damage during combat.
+
+[MSID_AntiMagicArts_4]
+Magic Guard 4
+
+[MSID_H_AntiMagicArts_4]
+If foe is equipped with a tome, unit
+takes 4 less damage during combat.
+
+[MSID_AntiMagicArts_5]
+Magic Guard 5
+
+[MSID_H_AntiMagicArts_5]
+If foe is equipped with a tome, unit
+takes 5 less damage during combat.
+
+[MSID_AntiLanceArts_1]
+Lance Guard 1
+
+[MSID_H_AntiLanceArts_1]
+If foe is equipped with a lance, unit
+takes 1 less damage during combat.
+
+[MSID_AntiLanceArts_2]
+Lance Guard 2
+
+[MSID_H_AntiLanceArts_2]
+If foe is equipped with a lance, unit
+takes 2 less damage during combat.
+
+[MSID_AntiLanceArts_3]
+Lance Guard 3
+
+[MSID_H_AntiLanceArts_3]
+If foe is equipped with a lance, unit
+takes 3 less damage during combat.
+
+[MSID_AntiLanceArts_4]
+Lance Guard 4
+
+[MSID_H_AntiLanceArts_4]
+If foe is equipped with a lance, unit
+takes 4 less damage during combat.
+
+[MSID_AntiLanceArts_5]
+Lance Guard 5
+
+[MSID_H_AntiLanceArts_5]
+If foe is equipped with a lance, unit
+takes 5 less damage during combat.
+
+[MSID_JobSkill_Enchant1]
+Enchant
+
+[MSID_JobSkill_Enchant1_CMD1]
+Item Surge
+
+[MSID_H_JobSkill_Enchant1_CMD1]
+Consume an item to
+strengthen allies.
+
+[MSID_JobSkill_Enchant1_CMD2]
+Weapon Surge
+
+[MSID_H_JobSkill_Enchant1_CMD2]
+Use a weapon to bolster all
+other identical weapons.
+
+[MSID_JobSkill_Enchant2]
+Convoy
+
+[MSID_H_JobSkill_Enchant2]
+Use to deposit or retrieve weapons
+and items.
+
+[MSID_H_Ent_AntiMorph_Short]
+Effective: Corrupted for 1 turn.
+
+[MSID_H_Ent_ResistChain_Short]
+Max HP+$Arg(0), negate foe chain attacks for 1 turn.
+
+[MSID_H_Ent_WeightZero_Short]
+Weapon weight -50%, Str+$Arg(0) for 1 turn.
+
+[MSID_H_Ent_ResistBreak_Short]
+Immunity to break, Dex+$Arg(0) for 1 turn.
+
+[MSID_H_Ent_ResistFreeze_Short]
+Immunity to freeze, Spd+$Arg(0) for 1 turn.
+
+[MSID_H_Ent_MayNoDamage_Short]
+30% chance to ignore damage for 1 turn.
+
+[MSID_H_Ent_ReflectPhysic_Short]
+Reflect physical damage taken for 1 turn.
+
+[MSID_H_Ent_ResistSilence_Short]
+Immunity to silence, Mag+$Arg(0) for 1 turn.
+
+[MSID_H_Ent_ReflectMagic_Short]
+Reflect magic damage taken for 1 turn.
+
+[MSID_H_Ent_HoldOutOnce_Short]
+Guarantee survival if HP is 2 or more (once).
+
+[MSID_Ent_AntiMorph]
+Eff: Corrupted
+
+[MSID_Ent_ResistChain]
+Ignore Chain
+
+[MSID_Ent_WeightZero]
+Wt -50%
+
+[MSID_Ent_ResistBreak]
+Ignore Break
+
+[MSID_Ent_ResistFreeze]
+Ignore Freeze
+
+[MSID_Ent_MayNoDamage]
+Ignore Damage
+
+[MSID_Ent_ReflectPhysic]
+Reflect Phys.
+
+[MSID_Ent_ResistSilence]
+Ignore Silence
+
+[MSID_Ent_ReflectMagic]
+Reflect Magic
+
+[MSID_Ent_HoldOutOnce]
+Survival
+
+[MAID_Mascot]
+Spirit Set
+
+[MAID_MascotM]
+Spirit Onesie
+
+[MAID_H_MascotM]
+A onesie crafted to look like the spirit of the Somniel. It has all the perfect
+soul-soothing details, from the squishy blue paws to the fluffy tail.
+
+[MAID_MascotF]
+Spirit Onesie
+
+[MAID_H_MascotF]
+A onesie crafted to look like the spirit of the Somniel. It has all the perfect
+soul-soothing details, from the squishy blue paws to the fluffy tail.
+
+[MAID_SolaHead]
+Spirit Mask
+
+[MAID_H_SolaHead]
+This flawless mask recreates the inscrutable expression of the spirit of the
+Somniel. The ideal finishing touch for those wanting to embody the spirit.
+
+[MAID_CatEar]
+Spirit Ears
+
+[MAID_H_CatEar]
+An accessory painstakingly crafted to look like the ears of the spirit of the
+Somniel. No spirit outfit is complete without them.
+
+[MAID_DogEar]
+Dog Ears
+
+[MAID_H_DogEar]
+An accessory meticulously crafted to look like the ears of an Elusian dog.
+There's no better way show fondness for these adorable pups.
+
+[MAID_RabbitEar]
+Bunny Ears
+
+[MAID_H_RabbitEar]
+An accessory crafted to look like the ears of a bouncy bunny. The fluff
+adorning these ears is unbelievably soft.
+
+[MAID_FoxEar]
+Fox Ears
+
+[MAID_H_FoxEar]
+An accessory crafted to look like the ears of a rare species of fox. It is said
+that wearing them can change one fully into such a creature.
+
+[MID_BONDSRING_Hector00]
+A noble from Ostia on the continent
+of Elibe, a land in another world.
+
+[MID_BONDSRING_Hector01]
+With the Thunder Axe Armads, he
+fought alongside his friend Eliwood.
+
+[MID_BONDSRING_Senerio00]
+A member of the Greil Mercenaries,
+from Tellius, a land in another world.
+
+[MID_BONDSRING_Senerio01]
+A skilled strategist who often saved
+the Greil Mercenaries from danger.
+
+[MID_BONDSRING_Camilla00]
+The eldest princess of Nohr, a land
+in another world.
+
+[MID_BONDSRING_Camilla01]
+She can be warm and affectionate,
+but is ruthless against her enemies.
+
+[MGID_Ring_Hector]
+Bracelet of the Brash General
+
+[MGID_H_Ring_Hector]
+The bracelet where Hector sleeps.
+An exuberant, heroic young man,
+brimming with confidence.
+
+[MGID_Ring_Senerio]
+Bracelet of the Strategist
+
+[MGID_H_Ring_Senerio]
+The bracelet where Soren sleeps.
+A black-clad strategist of reserved,
+sound judgment.
+
+[MGID_Ring_Camilla]
+Bracelet of the Doting Sister
+
+[MGID_H_Ring_Camilla]
+The bracelet where Camilla sleeps.
+A beautiful wyvern rider with a
+captivating aura.
+
+[MGID_World_Hector]
+World of the Lady of the Plains
+
+[MGID_World_Senerio]
+World of the Radiant Hero
+
+[MGID_World_Camilla]
+World of the Crux of Fate
+
+[MID_RELAY_Stamp_Hector_0]
+You can lean on me some more.
+
+[MID_RELAY_Stamp_Senerio_0]
+Not bad...
+
+[MID_RELAY_Stamp_Camilla_0]
+Someone deserves to be punished...
+
+[MID_Hub_Horse]
+Stable
+
+[MID_Hub_Fruit]
+Orchard
+
+[MID_Hub_Pool]
+Pool
+
+[MID_Hub_Refresh]
+Recreation
+
+[MID_Hub_Refresh_Help]
+Select two allies.
+
+[MID_Hub_Refresh_Entrust]
+Recommended
+
+[MID_Hub_Refresh_Entrust_Help]
+Selects a recommended character 
+to gain support points.
+
+[MID_Hub_Refresh_RelianceLv]
+Support Status
+
+[MID_Hub_Refresh_Place]
+Location
+
+[MID_Hub_Refresh_Unit]
+Allies to enjoy recreation:
+
+[MID_Hub_Refresh_Used]
+Used
+
+[MID_Hub_Refresh_Attention]
+You cannot use this location again until after
+the next battle.
+
+[MID_Hub_Refresh_Confirmation]
+Start recreation?
+
+[MID_Hub_Refresh_Start]
+Start
+
+[MID_Hub_Refresh_Result]
+Skip to Results
+
+[MID_Hub_Refresh_Stop]
+Cancel
+
+[MID_Hub_Refresh_RelianceLvUP]
+$Arg(0) and $Arg(1)'s
+support increased.
+
+[MID_Hub_Refresh_Reliance_Occurrence]
+$Arg(0) and $Arg(1)'s
+support conversation is unlocked.
+
+[MID_Hub_Refresh_NoReliance_Occurrence]
+$Arg(0) and $Arg(1)
+feel refreshed.
+
+[PCTMID_Hector]
+"You can lean on me."
+
+[PCTMID_Senerio]
+"Facts are facts."
+
+[PCTMID_Camilla]
+"I still love you."
+
+[MID_Movie_K15]
+Emblem Hector
+
+[MID_H_Movie_K15]
+Emblem Hector, summoned from the
+Bracelet of the Brash General.
+
+[MID_Movie_K16]
+Emblem Soren
+
+[MID_H_Movie_K16]
+Emblem Soren, summoned from the
+Bracelet of the Strategist.
+
+[MID_Movie_K17]
+Emblem Camilla
+
+[MID_H_Movie_K17]
+Emblem Camilla, summoned from the
+Bracelet of the Doting Sister.
+
+[MID_MAP_HIS_EngageWait]
+$Arg(0) used Storm's Eye.
+
+[MID_MAP_HIS_EngageWaitPlus]
+$Arg(0) used Storm's Eye+.
+
+[MID_MAP_HIS_Enchant]
+$Arg(0) used Item Surge.
+
+[MID_MAP_HIS_Enchant_Weapon]
+$Arg(0) used Weapon Surge.
+

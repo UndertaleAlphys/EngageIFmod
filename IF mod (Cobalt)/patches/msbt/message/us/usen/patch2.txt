@@ -1,0 +1,1020 @@
+[MID_H_INFO_WLV_Bullet]
+Cannonball
+
+[MID_MSG_LOST_ITEM]
+You lost $Arg(0)$Arg(1).
+
+[MID_DLC_News_Patch2_Title]
+Ver. 1.3.0
+
+[MID_DLC_News_Patch2]
+Expansion Pass
+
+・ Emblem Chrom (with Robin) and Emblem Veronica have
+  been added. They will join your group once you complete
+  their respective Divine Paralogues.
+
+Free Content
+
+・ The ancient well has been added to the Somniel. You can
+  use it to exchange items you don't want for new items.
+
+・ You can now use Inherit Skills in the Arena as well as
+  the Ring Chamber.
+
+[MCID_G003_PREFIX]
+Divine Paralogue
+
+[MCID_G003]
+The Lonely Heir
+
+[MCID_G003_PLACE]
+Heroes' Sanctuary
+
+[MCID_G003_OUTLINE]
+A bracelet has been sighted on an
+island floating in the sky.
+
+[MCID_G006_PREFIX]
+Divine Paralogue
+
+[MCID_G006]
+The Shepherd Exalt
+
+[MCID_G006_PLACE]
+Altar of Destiny
+
+[MCID_G006_OUTLINE]
+A bracelet has been sighted deep
+within a solemn temple.
+
+[MID_RULE_G003_WIN]
+Defeat Emblem Veronica.
+
+[MID_RULE_G006_WIN]
+Defeat Emblems Chrom and Robin.
+
+[MTID_StartupTile]
+Activation Tile
+
+[MTID_MagicWall]
+Barrier
+
+[MTID_Pond]
+Pool
+
+[MPID_PhantomWolf]
+Fabrication
+
+[MPID_H_PhantomWolf]
+A soulless beast created by secret
+techniques. It has no will of its own
+and only follows its master's orders.
+
+[MPID_Veronica]
+Veronica
+
+[MPID_H_Veronica]
+Known as the Emblem of Heroes. A
+princess with the power to control
+heroes from other worlds.
+
+[MPID_Chrom]
+Chrom
+
+[MPID_H_Chrom]
+Known as the Emblem of Bonds. An
+exalted prince with a deep trust of
+his allies and desire to change fate.
+
+[MPID_Reflet]
+Robin
+
+[MPID_H_Reflet]
+Known as the Emblem of Bonds. A
+strategist who lost his memory, but
+not his tactical skills.
+
+[MGID_Veronica]
+Veronica
+
+[MGID_H_Veronica]
+Known as the Emblem of Heroes.
+Possesses great magical power and
+fights with tomes and staves.
+
+[MGID_H_EnemyVeronica]
+An Emblem that awakened from the
+Bracelet of the Lonely Heir.
+
+[MGID_Chrom]
+Chrom
+
+[MGID_H_Chrom]
+Known as the Emblem of Bonds.
+Strikes down foes with the strength
+of his sword and allied bonds.
+
+[MGID_H_EnemyChrom]
+The Emblem that awakened from the
+Bracelet of the Shepherd Exalt.
+
+[MGID_Reflet]
+Robin
+
+[MGEID_Veronica]
+Heroes
+
+[MGEID_Chrom]
+Bonds
+
+[MJID_MageCannon]
+Mage Cannoneer
+
+[MJID_H_MageCannon]
+An armored foot soldier equipped
+with a handheld cannon. Launches
+ranged attacks.
+
+[MJID_PhantomWolf]
+Phantom Wolf
+
+[MJID_H_PhantomWolf]
+Wolves that move swiftly around the
+battlefield. They confound their foes
+as they lash out with cursed fangs.
+
+[MIID_Trahison]
+Représailles
+
+[MIID_H_Trahison]
+Battle lance that exudes an
+otherworldly air.
+
+[MIID_Levanche]
+Revanche
+
+[MIID_H_Levanche]
+Battle axe that exudes an
+otherworldly air.
+
+[MIID_Chocolate]
+Biting Blade
+
+[MIID_H_Chocolate]
+A sword with a sweet scent.
+Disappears when consumed as an
+item, but recovers user's HP.
+
+[MIID_SoftCream]
+Swirlance
+
+[MIID_H_SoftCream]
+A lance with a sweet scent.
+Disappears when consumed as an
+item, but recovers user's HP.
+
+[MIID_Lollipop]
+Lollichop
+
+[MIID_H_Lollipop]
+An axe with a sweet scent.
+Disappears when consumed as an
+item, but recovers user's HP.
+
+[MIID_Croissant]
+Croissbow
+
+[MIID_H_Croissant]
+A bow with a sweet scent.
+Disappears when consumed as an
+item, but recovers user's HP.
+
+[MIID_Tiramisu]
+Tiramistorm
+
+[MIID_H_Tiramisu]
+A tome with a sweet scent.
+Disappears when consumed as an
+item, but recovers user's HP.
+
+[MIID_Dango]
+Confectioknife
+
+[MIID_H_Dango]
+A knife with a sweet scent.
+Disappears when consumed as an
+item, but recovers user's HP.
+
+[MIID_Cupcake]
+Treat
+
+[MIID_H_Cupcake]
+A staff with a sweet scent.
+Recovers an ally's HP.
+
+[MIID_Rollcake]
+Scrollcake
+
+[MIID_H_Rollcake]
+A martial skill scroll with a sweet
+scent. Disappears when consumed
+as an item, but recovers user's HP.
+
+[MIID_Bullet_Power]
+Standard Blast
+
+[MIID_H_Bullet_Power]
+Standard cannonball. Cannot follow
+up. Reduced Hit for distant targets.
+
+[MIID_Bullet_Magic]
+Magic Blast
+
+[MIID_H_Bullet_Magic]
+Cannonball infused with magic.
+Cannot follow up. Reduced Hit for
+distant targets.
+
+[MIID_Bullet_Freeze]
+Freeze Blast
+
+[MIID_H_Bullet_Freeze]
+Magic cannonball with a 50% chance
+to freeze target. Cannot follow up.
+Reduced Hit for distant targets.
+
+[MIID_Bullet_Silence]
+Silence Blast
+
+[MIID_H_Bullet_Silence]
+Magic cannonball with a 50% chance 
+to silence target. Cannot follow up.
+Reduced Hit for distant targets.
+
+[MIID_Bullet_Collapse]
+Break Blast
+
+[MIID_H_Bullet_Collapse]
+Magic cannonball with 50% chance
+of breaking target. Cannot follow up.
+Reduced Hit for distant targets.
+
+[MIID_Bullet_Poison]
+Venom Blast
+
+[MIID_H_Bullet_Poison]
+Magic cannonball that inflicts deadly
+poison on hit. Cannot follow up.
+Reduced Hit for distant targets.
+
+[MIID_Bullet_Slayer_Fly]
+Tornado Blast
+
+[MIID_H_Bullet_Slayer_Fly]
+Wind magic cannonball. Cannot
+follow up. Reduced Hit for distant
+targets. Effective: Flying.
+
+[MIID_Bullet_Slayer_Armor]
+Armor Blast
+
+[MIID_H_Bullet_Slayer_Armor]
+Cannonball for armored foes. Cannot
+follow up. Reduced Hit for distant
+targets. Effective: Armored.
+
+[MIID_Bullet_Slayer_Horse]
+Rider Blast
+
+[MIID_H_Bullet_Slayer_Horse]
+Cannonball for cavalry foes. Cannot
+follow up. Reduced Hit for distant
+targets. Effective: Cavalry.
+
+[MIID_Bullet_Slayer_Dragon]
+Wyrm Blast
+
+[MIID_H_Bullet_Slayer_Dragon]
+Cannonball for dragon foes. Cannot
+follow up. Reduced Hit for distant
+targets. Effective: Dragon.
+
+[MIID_Bullet_Slayer_Morph]
+Holy Blast
+
+[MIID_H_Bullet_Slayer_Morph]
+Cannonball for the Corrupted.
+Cannot follow up. Reduced Hit for
+distant targets. Effective: Corrupted.
+
+[MIID_Bullet_Power+]
+Mighty Blast
+
+[MIID_H_Bullet_Power+]
+High-powered cannonball. Cannot
+follow up. Reduced Hit for distant
+targets.
+
+[MIID_Bullet_Magic+]
+Eldritch Blast
+
+[MIID_H_Bullet_Magic+]
+Cannonball infused with powerful
+magic. Cannot follow up. Reduced
+Hit for distant targets.
+
+[MIID_Bullet_Penetration]
+Piercing Blast
+
+[MIID_H_Bullet_Penetration]
+Cannonball that ignores Def/Res.
+Cannot follow up. Reduced Hit for
+distant targets.
+
+[MIID_Fang]
+Fangs
+
+[MIID_H_Fang]
+Sharp, cursed fangs. If user initiates
+combat and hits, inflicts max HP-5
+on foe after combat. (Stacks to -20.)
+
+[MIID_Veronica_Hlidskjalf]
+Hliðskjálf 
+
+[MIID_H_Veronica_Hlidskjalf]
+A staff wielded by Emblem Veronica.
+If user initiates combat, foe cannot
+counterattack.
+
+[MIID_Veronica_WholeHeal]
+Fortify+
+
+[MIID_H_Veronica_WholeHeal]
+A staff wielded by Emblem Veronica.
+Heals HP and status effects for all
+allies within a 7-space radius.
+
+[MIID_Veronica_Elivagar]
+Élivágar
+
+[MIID_H_Veronica_Elivagar]
+Powerful magic wielded by Emblem
+Veronica. Nullifies basic stat bonuses
+on target for 1 turn after combat.
+
+[MIID_Veronica_EngageAtk_R]
+Red Stone
+
+[MIID_Veronica_EngageAtk_B]
+Blue Stone
+
+[MIID_Veronica_EngageAtk_G]
+Green Stone
+
+[MIID_Veronica_EngageAtk_N]
+Colorless Stone
+
+[MIID_Chrom_ThunderSword]
+Levin Sword
+
+[MIID_H_Chrom_ThunderSword]
+Magic sword wielded by Emblem
+Robin. Can hit foes with magic
+lightning from a distance.
+
+[MIID_Chrom_Thoron]
+Thoron
+
+[MIID_H_Chrom_Thoron]
+Powerful lightning magic wielded
+by Emblem Robin.
+
+[MIID_Chrom_Falchion]
+Falchion
+
+[MIID_H_Chrom_Falchion]
+A legendary sword wielded by
+Emblem Chrom. Effective: Dragon.
+
+[MSID_SPConvert]
+SP Conversion
+
+[MSID_H_SPConvert]
+Grants +20 SP for each defeated
+foe. Triggers even without a ring or
+bracelet equipped.
+
+[MSID_BloodyRevenge]
+Reprisal
+
+[MSID_H_BloodyRevenge]
+If unit's HP is not full, adds 30% of
+lost HP to Atk.
+
+[MSID_BloodyRevenge+]
+Reprisal+
+
+[MSID_H_BloodyRevenge+]
+If unit's HP is not full, adds 50% of
+lost HP to Atk.
+
+[MSID_BreakThroughLimit]
+Level Boost
+
+[MSID_H_BreakThroughLimit]
+When unit defeats a foe of a higher
+level, grants Lvl+1 until the end of
+battle. (Max +3)
+
+[MSID_AnotherWorldsPower]
+Book of Worlds
+
+[MSID_H_AnotherWorldsPower]
+Book of Worlds advances 1 stage (to
+max 5) for each consecutive round
+that unit uses Wait. Reverts to base
+stage if unit triggers the effect.
+
+[MSID_AnotherWorldsPower+1]
+Book I: Seal
+
+[MSID_H_AnotherWorldsPower+1]
+If unit initiates combat, freezes foe
+after combat.
+
+[MSID_AnotherWorldsPower+2]
+Book II: Flame
+
+[MSID_H_AnotherWorldsPower+2]
+If unit initiates combat, freezes foe
+and sets foe's space on fire after
+combat.
+
+[MSID_AnotherWorldsPower+3]
+Book III: Death
+
+[MSID_H_AnotherWorldsPower+3]
+If unit initiates combat, deals 10
+damage, freezes foe, and sets foe's
+space on fire after combat.
+
+[MSID_AnotherWorldsPower+4]
+Book IV: Dream
+
+[MSID_H_AnotherWorldsPower+4]
+If unit initiates combat, restores HP
+equal to damage dealt during
+combat, then deals 10 damage,
+freezes foe, and sets foe's space on
+fire after combat.
+
+[MSID_AnotherWorldsPower+5]
+Book V: Science
+
+[MSID_H_AnotherWorldsPower+5]
+If unit initiates combat, restores HP
+to self and adjacent allies equal to
+damage dealt during combat, then
+deals 10 damage, freezes foe, and
+sets foe's space on fire after combat.
+
+[MSID_VeronicaEngage]
+Contract
+
+[MSID_H_VeronicaEngage]
+Use to grant another action to an
+adjacent ally who has already acted.
+(Ally cannot move.)
+
+[MSID_H_VeronicaEngage_CMD]
+Allows an ally to act again.
+(Cannot move.)
+
+[MSID_H_VeronicaEngage_Dragon]
+Use to grant another action to an
+adjacent ally who has already acted.
+(Ally cannot move.)
+[Dragon] Grants Str/Mag/Def/Res+2
+to ally during action.
+
+[MSID_H_VeronicaEngage_Coop]
+Use to grant another action to an
+adjacent ally who has already acted.
+(Ally cannot move.)
+[Backup] Unit participates in chain
+attack during ally action.
+
+[MSID_H_VeronicaEngage_Covert]
+Use to grant another action to an
+adjacent ally who has already acted.
+(Ally cannot move.)
+[Covert] Grants Hit/Avo+30 to ally
+during action.
+
+[MSID_VeronicaEngageAtk]
+Summon Hero
+
+[MSID_H_VeronicaEngageAtk]
+Use to summon a random unit.
+
+[MSID_H_VeronicaEngageAtk_CMD]
+Summons a random unit.
+
+[MSID_VeronicaEngageAtk_CMD_R]
+$Icon("RedStone") Red
+
+[MSID_H_VeronicaEngageAtk_CMD_R]
+Summon a sword-wielding
+unit.
+
+[MSID_VeronicaEngageAtk_CMD_B]
+$Icon("BlueStone") Blue
+
+[MSID_H_VeronicaEngageAtk_CMD_B]
+Summon a lance-wielding
+unit.
+
+[MSID_VeronicaEngageAtk_CMD_G]
+$Icon("GreenStone") Green
+
+[MSID_H_VeronicaEngageAtk_CMD_G]
+Summon an axe-wielding
+unit.
+
+[MSID_VeronicaEngageAtk_CMD_W]
+$Icon("WhiteStone") Colorless
+
+[MSID_H_VeronicaEngageAtk_CMD_W]
+Summon a unit that does not
+use swords, lances, or axes.
+
+[MSID_H_VeronicaEngageAtk_Dragon]
+Use to summon a random unit.
+[Dragon] Summons a powerful unit.
+
+
+[MSID_H_VeronicaEngageAtk_Coop]
+Use to summon a random unit.
+[Backup] Summoned unit has the
+"Dual Strike" skill.
+
+[MSID_H_VeronicaEngageAtk_Horse]
+Use to summon a random unit.
+[Cavalry] Summoned unit gets
+Mov+1.
+
+[MSID_ByForce]
+Brute Force
+
+[MSID_H_ByForce]
+While making a physical attack,
+critical hits deal increased damage.
+
+[MSID_Charisma]
+Charm
+
+[MSID_H_Charisma]
+If unit's attack triggers a chain
+attack, increases chain attack
+accuracy to 90%.
+
+[MSID_SuckerPunch]
+Surprise Attack
+
+[MSID_H_SuckerPunch]
+If unit initiates combat from terrain
+that provides an Avo bonus, foe
+cannot counterattack.
+
+[MSID_RainbowCry]
+Rally Spectrum
+
+[MSID_H_RainbowCry]
+Use to grant adjacent allies +3 to
+all seven basic stats for 1 turn.
+
+[MSID_Rooting]
+Rally
+
+[MSID_H_Rooting_CMD]
+Grants +3 to all seven basic
+stats for adjacent allies.
+
+[MSID_RainbowCry+]
+Rally Spectrum+
+
+[MSID_H_RainbowCry+]
+Use to grant allies within 2 spaces
++3 to all seven basic stats for 1 turn.
+
+[MSID_Rooting+]
+Rally+
+
+[MSID_H_Rooting+_CMD]
+Grants +3 to all seven basic
+stats for allies within 2 spaces.
+
+[MSID_ChromEngage]
+Other Half
+
+[MSID_H_ChromEngage]
+If unit initiates combat, Robin chain
+attacks. Grants Mag+10 while
+engaged.
+
+[MSID_H_ChromEngage_Dragon]
+When unit initiates combat, Robin
+chain attacks. Grants Mag+10 while
+engaged.
+[Dragon] Robin chain attacks 2
+times.
+
+[MSID_H_ChromEngage_Coop]
+When unit initiates combat, Robin
+chain attacks. Grants Mag+10 while
+engaged.
+[Backup] Guaranteed hit with chain
+attack.
+
+[MSID_H_ChromEngage_Covert]
+When unit initiates combat, Robin
+chain attacks. Grants Mag+10 while
+engaged.
+[Covert] Grants Mov+1 while
+engaged.
+
+[MSID_H_ChromEngage_Single]
+Chain attacks triggered by this unit
+are guaranteed to hit. Grants Str+5
+and Mag+10.
+
+[MSID_ChromEngageAtk]
+Giga Levin Sword
+
+[MSID_H_ChromEngageAtk]
+Use to attack with a magic sword.
+Magic attack that uses physical
+attack power. Swords only.
+
+[MSID_H_ChromEngageAtk_Dragon]
+Use to attack with a magic sword.
+Magic attack that uses physical
+attack power. Swords only.
+[Dragon] Deals extra damage = half
+of Str.
+
+[MSID_H_ChromEngageAtk_Fly]
+Use to attack with a magic sword.
+Magic attack that uses physical
+attack power. Swords only.
+[Flying] Deals extra damage = Bld.
+
+[MSID_H_ChromEngageAtk_Magic]
+Use to attack with a magic sword.
+Magic attack that uses physical
+attack power. Swords only.
+[Mystical] Deals extra damage =
+half of Mag.
+
+[MSID_H_ChromEngageAtk_CMD]
+Attack with a magic sword.
+
+[MSID_ChromEngageAtk+]
+Giga Levin Sword+
+
+[MSID_H_ChromEngageAtk+]
+Use to attack with a magic sword.
+Magic attack that uses physical
+attack power. Swords only. Adjacent
+allies chain attack.
+
+[MSID_H_ChromEngageAtk+_Dragon]
+Use to attack with a magic sword.
+Magic attack that uses physical
+attack power. Swords only. Adjacent
+allies chain attack. [Dragon] Deals
+extra damage = half of Str.
+
+[MSID_H_ChromEngageAtk+_Fly]
+Use to attack with a magic sword.
+Magic attack that uses physical
+attack power. Swords only. Adjacent
+allies chain attack.
+[Flying] Deals extra damage = Bld.
+
+[MSID_H_ChromEngageAtk+_Magic]
+Use to attack with a magic sword.
+Magic attack that uses physical
+attack power. Swords only. Adjacent
+allies chain attack. [Mystical] Deals
+extra damage = half of Mag.
+
+[MSID_H_ChromEngageAtk+_CMD]
+Adjacent allies participate in
+chain attack.
+
+[MSID_Mag_Tec_1]
+Mag/Dex +1
+
+[MSID_H_Mag_Tec_1]
+Grants Mag+1 and Dex+1.
+
+[MSID_Mag_Tec_2]
+Mag/Dex +2
+
+[MSID_H_Mag_Tec_2]
+Grants Mag+2 and Dex+2.
+
+[MSID_Mag_Tec_3]
+Mag/Dex +3
+
+[MSID_H_Mag_Tec_3]
+Grants Mag+3 and Dex+3.
+
+[MSID_Mag_Tec_4]
+Mag/Dex +4
+
+[MSID_H_Mag_Tec_4]
+Grants Mag+4 and Dex+4.
+
+[MSID_Mag_Tec_5]
+Mag/Dex +5
+
+[MSID_H_Mag_Tec_5]
+Grants Mag+5 and Dex+5.
+
+[MSID_Tec_Spd_1]
+Spd/Dex +1
+
+[MSID_H_Tec_Spd_1]
+Grants Spd+1 and Dex+1.
+
+[MSID_Tec_Spd_2]
+Spd/Dex +2
+
+[MSID_H_Tec_Spd_2]
+Grants Spd+2 and Dex+2.
+
+[MSID_Tec_Spd_3]
+Spd/Dex +3
+
+[MSID_H_Tec_Spd_3]
+Grants Spd+3 and Dex+3.
+
+[MSID_Tec_Spd_4]
+Spd/Dex +4
+
+[MSID_H_Tec_Spd_4]
+Grants Spd+4 and Dex+4.
+
+[MSID_Tec_Spd_5]
+Spd/Dex +5
+
+[MSID_H_Tec_Spd_5]
+Grants Spd+5 and Dex+5.
+
+[MSID_AntiKnifeArts_1]
+Knife Guard 1
+
+[MSID_H_AntiKnifeArts_1]
+If foe is equipped with a knife, unit
+takes 1 less damage during combat.
+
+[MSID_AntiKnifeArts_2]
+Knife Guard 2
+
+[MSID_H_AntiKnifeArts_2]
+If foe is equipped with a knife, unit
+takes 2 less damage during combat.
+
+[MSID_AntiKnifeArts_3]
+Knife Guard 3
+
+[MSID_H_AntiKnifeArts_3]
+If foe is equipped with a knife, unit
+takes 3 less damage during combat.
+
+[MSID_AntiKnifeArts_4]
+Knife Guard 4
+
+[MSID_H_AntiKnifeArts_4]
+If foe is equipped with a knife, unit
+takes 4 less damage during combat.
+
+[MSID_AntiKnifeArts_5]
+Knife Guard 5
+
+[MSID_H_AntiKnifeArts_5]
+If foe is equipped with a knife, unit
+takes 5 less damage during combat.
+
+[MSID_AntiSwordArts_1]
+Sword Guard 1
+
+[MSID_H_AntiSwordArts_1]
+If foe is equipped with a sword, unit
+takes 1 less damage during combat.
+
+[MSID_AntiSwordArts_2]
+Sword Guard 2
+
+[MSID_H_AntiSwordArts_2]
+If foe is equipped with a sword, unit
+takes 2 less damage during combat.
+
+[MSID_AntiSwordArts_3]
+Sword Guard 3
+
+[MSID_H_AntiSwordArts_3]
+If foe is equipped with a sword, unit
+takes 3 less damage during combat.
+
+[MSID_AntiSwordArts_4]
+Sword Guard 4
+
+[MSID_H_AntiSwordArts_4]
+If foe is equipped with a sword, unit
+takes 4 less damage during combat.
+
+[MSID_AntiSwordArts_5]
+Sword Guard 5
+
+[MSID_H_AntiSwordArts_5]
+If foe is equipped with a sword, unit
+takes 5 less damage during combat.
+
+[MSID_JobSkill_MageCanon]
+Let Fly
+
+[MSID_H_JobSkill_MageCanon]
+Use to perform a guaranteed-hit,
+area-of-effect attack at the start
+of the next player phase. Unit loses
+equipped weapon.
+
+[MSID_H_JobSkill_MageCanon_CMD]
+Fires blasts for long-range
+attacks guaranteed to hit.
+
+[MSID_JobSkill_Wolf]
+Pack Hunter
+
+[MSID_H_JobSkill_Wolf]
+Allies of the same class as unit
+within 3 spaces participate in 
+chain attacks.
+
+[MID_BONDSRING_Chrom00]
+Prince of the Halidom of Ylisse, a
+land in another world.
+
+[MID_BONDSRING_Chrom01]
+He cut his way to a hopeful future
+with the holy sword Falchion.
+
+[MID_BONDSRING_Reflet00]
+This mysterious stranger was taken
+in and befriended by Chrom.
+
+[MID_BONDSRING_Reflet01]
+Their unbreakable bond was forged
+in the flames of battle.
+
+[MID_BONDSRING_Veronica00]
+Daughter of the Emperor of Embla,
+a land in another world.
+
+[MID_BONDSRING_Veronica01]
+Her quiet demeanor does little to
+mask her unsettling presence.
+
+[MGID_Ring_Chrom]
+Bracelet of the Shepherd Exalt
+
+[MGID_H_Ring_Chrom]
+The bracelet where Chrom sleeps. An
+exalted prince with a deep trust of
+his allies and desire to change fate.
+
+[MGID_Ring_Reflet]
+Bracelet of the Shepherd Exalt
+
+[MGID_H_Ring_Reflet]
+The bracelet where Robin sleeps.
+A strategist who lost his memory,
+but not his tactical skills.
+
+[MGID_Ring_Veronica]
+Bracelet of the Lonely Heir
+
+[MGID_H_Ring_Veronica]
+The bracelet where Veronica sleeps.
+A princess with the power to control
+heroes from other worlds.
+
+[MGID_World_Chrom]
+World of the Princess Exalt
+
+[MGID_World_Reflet]
+World of the Princess Exalt
+
+[MGID_World_Veronica]
+World of the Young Princess
+
+[MID_RELAY_Stamp_Chrom_0]
+You can count on me anytime, friend.
+
+[MID_RELAY_Stamp_Reflet_0]
+I'll have to come up with a new strategy...
+
+[MID_RELAY_Stamp_Veronica_0]
+So many of you...not fair.
+
+[MID_BGM_DLC_Field_S16_Combat_ST_Play]
+Trial of Heroes (Heed Our Summons)
+
+[MID_BGM_DLC_Field_S16_Map_ST_Play]
+Trial of Heroes
+
+[MID_BGM_Evt_Advent_Veronica_ST_Play]
+Heed Our Summons
+
+[MID_Hub_Well]
+Ancient Well
+
+[MID_Hub_Area_Event]
+New Event
+
+[MID_Hub_Area_ItemReturn]
+New Items
+
+[MID_Hub_Well_TitleHelp]
+Select an action.
+
+[MID_Hub_Well_ItemExchange]
+Transform Items
+
+[MID_Hub_Well_ItemExchange_TitleHelp]
+Select unwanted items.
+
+[MID_Hub_Well_ItemExchange_Expected]
+Upgrade Chance
+
+[MID_Hub_Well_ItemExchange_Dialog_Title]
+Transform these items?
+
+[MID_Hub_Well_ItemExchange_Dialog_Before]
+Items to Throw In
+
+[MID_Hub_Well_ItemExchange_Dialog_Yes]
+Transform
+
+[MID_Hub_Well_ItemExchange_Get]
+Acquired
+
+[MID_Hub_Well_ItemExchange_Message]
+You have dropped something in the well. Check
+back after your next battle for something new.
+
+[MID_Hub_Well_Nothing1]
+You feel a mysterious presence...
+
+[MID_Hub_Well_Nothing2]
+There seems to be nothing here right now.
+
+[PCTMID_Chrom]
+"Count on me."
+
+[PCTMID_Reflet]
+"I need a new strategy..."
+
+[PCTMID_Veronica]
+"You will be mine..."
+
+[MID_Movie_K19]
+Emblem Veronica
+
+[MID_H_Movie_K19]
+Emblem Veronica, summoned from the
+Bracelet of the Lonely Heir.
+
+[MID_Movie_K18]
+Emblem Chrom
+
+[MID_H_Movie_K18]
+Emblem Chrom, summoned from the
+Bracelet of the Shepherd Exalt.
+
+[MID_MAP_HIS_EngageSummon]
+$Arg(0) used Summon Hero.
+
+[MID_MAP_HIS_Contract]
+$Arg(0) used Contract.
+
+[MID_MAP_HIS_FullBullet]
+$Arg(0) used Let Fly.
+
+[MIID_H_Fang_M000]
+Sharp fangs of beasts.

@@ -1,0 +1,1075 @@
+[MID_MSG_CC_DLC_JOB_OPEN]
+Your units can now change to the enchanter
+and mage cannoneer classes. (Changing to each
+of these classes requires a special item.)
+
+[MID_MSG_EVIL_COMPLETE_REWARD]
+Fell Xenologue Clear Rewards
+
+[MID_DLC_News_Patch3_Title]
+Ver. 2.0.0
+
+[MID_DLC_News_Patch3]
+Expansion Pass
+
+・ The Fell Xenologue has been added. Once you complete this
+  new story, new allies will join your group, and the enchanter
+  and mage cannoneer classes will become available.
+
+Free Content
+
+・ You will receive a set of engage weapon-refining materials
+  when you enter the Somniel after clearing Chapter 4.
+
+・ You can now obtain bonus content from Nintendo eShop
+  for free.
+
+[MID_MSG_GET_ITEM_Patch3]
+Update Bonus 2 received.
+
+[MID_SYS_EvilMap]
+Fell Xenologue
+
+[MID_SysDialog_Move_EvilMap]
+To Fell Xenologue
+
+[MID_MSG_Encount_EvilMap]
+Skirmish in the Fell Xenologue.
+
+[MID_Hub_Well_GotoEvil]
+To Fell Xenologue
+
+[MID_Hub_Well_GotoEvil_Dialog_Message]
+Begin the Fell Xenologue?
+
+[MID_Hub_Well_GotoEvil_Dialog_Yes]
+Begin
+
+[MID_Hub_Well_GotoEvil_Dialog_Message_After]
+Go to Fell Xenologue?
+
+[MCID_E001_PREFIX]
+Fell Xenologue 1
+
+[MCID_E001]
+Dragons from Afar
+
+[MCID_E001_PLACE]
+Bracelet Altar
+
+[MCID_E002_PREFIX]
+Fell Xenologue 2
+
+[MCID_E002]
+Seeds of Unrest
+
+[MCID_E002_PLACE]
+Verdant Garden
+
+[MCID_E002_OUTLINE]
+After fending off assassins, the
+Divine Dragon heads to Firene with
+Nel and Nil in search of a bracelet.
+
+[MCID_E003_PREFIX]
+Fell Xenologue 3
+
+[MCID_E003]
+Path to War
+
+[MCID_E003_PLACE]
+Royal Road
+
+[MCID_E003_OUTLINE]
+After sending Firene's Emblem into
+slumber, the party heads to Brodia
+to seek out more bracelets.
+
+[MCID_E004_PREFIX]
+Fell Xenologue 4
+
+[MCID_E004]
+Clash of Queens
+
+[MCID_E004_PLACE]
+Frigid Forest
+
+[MCID_E004_OUTLINE]
+The party learns of suspicious
+developments in Elusia. Three
+bracelets remain.
+
+[MCID_E005_PREFIX]
+Fell Xenologue 5
+
+[MCID_E005]
+The Fell Heir
+
+[MCID_E005_PLACE]
+Desert Stronghold
+
+[MCID_E006_PREFIX]
+Fell Xenologue 6
+
+[MCID_E006]
+Seven Bracelets
+
+[MCID_E006_PLACE]
+Fallen Somniel
+
+[MCID_E006_OUTLINE]
+Having lost Nel and the bracelets,
+the Divine Dragon journeys to a
+once-floating island to find Nil.
+
+[MID_RULE_DLC_LOSE]
+Nel, Nil, or $P is defeated.
+
+[MID_RULE_DLC_LOSE2]
+Nel or $P is defeated.
+
+[MID_RULE_E001_WIN]
+Defeat ???
+
+[MID_RULE_E002_WIN]
+Defeat Alfred and Céline.
+
+[MID_RULE_E003_WIN]
+Defeat Diamant and Alcryst.
+
+[MID_RULE_E004_WIN]
+Defeat Ivy and Timerra.
+
+[MID_RULE_E005_WIN]
+Defeat Nil.
+
+[MID_RULE_E006_WIN]
+Defeat Fell Nil.
+
+[MTID_Cemetery]
+Cemetery
+
+[MTID_Dragon]
+Fell Sigil
+
+[MPID_El]
+Nel
+
+[MPID_H_El]
+The elder of twins with Fell Dragon
+blood. She fights courageously
+alongside her brother.
+
+[MPID_Il]
+Nil
+
+[MPID_H_Il]
+The younger of twins with Fell
+Dragon blood. A kindhearted young
+man who supports his sister.
+
+[MPID_H_Il_E005]
+The younger of twins with Fell
+Dragon blood. He betrayed his sister
+and the Divine Dragon.
+
+[MPID_Il_E006]
+Fell Nil
+
+[MPID_H_Il_E006]
+Following the will of Sombron, he
+used the seven bracelets to
+transform into the Great Fell Dragon.
+
+[MPID_Rafale]
+Rafal
+
+[MPID_H_Rafale]
+A man with Fell Dragon blood. He
+accepted the invitation to fight
+alongside the Divine Dragon.
+
+[MPID_Selestia]
+Zelestia
+
+[MPID_H_Selestia]
+Leader of the Four Winds. A scion of
+Mage Dragons, she is rich in love
+and affection for her companions.
+
+[MPID_Gregory]
+Gregory
+
+[MPID_H_Gregory_E]
+One of the Four Winds. An
+amiable, if somewhat cowardly and
+exceedingly cautious, magic user.
+
+[MPID_H_Gregory]
+Second-in-command of the Four
+Winds. An amiable, if somewhat
+excessively cautious, magic user.
+
+[MPID_Madeline]
+Madeline
+
+[MPID_H_Madeline]
+One of the Four Winds. An
+intellectual armored knight who
+holds strong convictions.
+
+[MPID_MorphWolf]
+Corrupted Wolf
+
+[MPID_H_MorphWolf]
+A Corrupted wolf raised by the Fell
+Dragon. It moves swiftly to attack
+with sharp claws and fangs.
+
+[MPID_MorphWolfSilver]
+Silver Wolf
+
+[MPID_H_MorphWolfSilver]
+A Corrupted wolf in metallic form.
+Rare, but gives extra XP.
+
+[MPID_MorphDragonF]
+Corrupted Wyvern
+
+[MPID_H_MorphDragonF]
+An giant wyvern raised by the Fell
+Dragon. Flies through the sky
+spewing powerful breath attacks.
+
+[MPID_MorphDragonFGold]
+Gold Wyvern
+
+[MPID_H_MorphDragonFGold]
+A Corrupted wyvern in metallic form.
+Rare, but gives extra treasure.
+
+[MPID_ShadowSiblings]
+Fell Siblings
+
+[MPID_H_FogatoHide]
+An unidentified assassin who has
+come for the Emblem bracelets.
+
+[MPID_H_AlfredR]
+King of Firene from another world.
+Bitter and belligerent, he scatters his
+foes without mercy.
+
+[MPID_H_CelineR]
+Princess of Firene from another
+world. Cold and cunning, she takes a
+heavy-handed attitude with others.
+
+[MPID_H_DiamandR]
+King of Brodia from another world.
+Timid and pessimistic, he lacks
+the confidence to be decisive.
+
+[MPID_H_StalukeR]
+Prince of Brodia from another world.
+Enormously prideful, he looks down
+upon his weak-willed big brother.
+
+[MPID_H_IvyR]
+Queen of Elusia from another world.
+Drunk on her nobility, she despises
+her common-born little sister.
+
+[MPID_H_HortensiaR]
+Princess of Elusia from another
+world. Her spirit has been shattered
+by the shock of losing her father.
+
+[MPID_H_MisutiraR]
+Queen of Solm from another world.
+An excessively rigid and formal
+individual, lacking in adaptability.
+
+[MPID_H_FogatoR]
+Prince of Solm from another world.
+A sworn hedonist, he throws himself
+into battle with a smile on his lips.
+
+[MPID_alias_El]
+Stoic Dragon
+
+[MPID_alias_Rafale]
+Atoning Dragon
+
+[MPID_alias_Selestia]
+Loving Leader
+
+[MPID_alias_Gregory]
+Fading Scar
+
+[MPID_alias_Madeline]
+Healing Heart
+
+[MJID_ShadowPrincessR]
+Fell Child
+
+[MJID_H_ShadowPrincessR]
+Inheritor of the blood of the Fell
+Dragon. Fights with a lance and uses
+a dragonstone to become a dragon.
+
+[MJID_ShadowLordR]
+Fell Child
+
+[MJID_H_ShadowLordRE]
+Inheritor of the blood of the Fell
+Dragon. Ill-suited for fighting,
+but reluctantly wields an axe.
+
+[MJID_H_ShadowLordRE_E005]
+Inheritor of the blood of the Fell
+Dragon. His true nature revealed,
+he fights viciously with an axe.
+
+[MJID_H_ShadowLordR]
+Inheritor of the blood of the Fell
+Dragon. Fights with an axe and uses
+a dragonstone to become a dragon.
+
+[MJID_ShadowDragonR]
+Great Fell Dragon
+
+[MJID_H_ShadowDragonR]
+A Fell Dragon with the power of the
+Emblem bracelets. Wreaks havoc on
+the battlefield with powerful attacks.
+
+[MJID_MorphWolf]
+Corrupted Wolf
+
+[MJID_H_MorphWolf]
+Minions of the Fell Dragon who aim
+to bring the world to ruin. They
+attack foes with cursed fangs.
+
+[MJID_MorphFlyingDragon]
+Corrupted Wyvern
+
+[MJID_H_MorphFlyingDragon]
+Minions of the Fell Dragon who aim
+to bring the world to ruin. They mow
+down foes with vile breath attacks.
+
+[MJID_AvenirR]
+Royal
+
+[MJID_H_AvenirR]
+A belligerent individual who desires
+war. Proficient mounted lancer.
+
+[MJID_FleurageR]
+Royal
+
+[MJID_H_FleurageR]
+A belligerent individual who desires
+war. A skilled magic user who can
+also wield a sword.
+
+[MJID_SuccesseurR]
+Warden
+
+[MJID_H_SuccesseurR]
+Sword wielder who has lost pride
+and abandoned knightly virtue.
+
+[MJID_TirailleurR]
+Warden
+
+[MJID_H_TirailleurR]
+Bow wielder who has lost pride and
+abandoned knightly virtue.
+
+[MJID_LindwurmR]
+Trainer
+
+[MJID_H_LindwurmR]
+Worshipper of the Fell Dragon who 
+can bend beasts to their will. Rides a
+wyvern and uses tomes and staves.
+
+[MJID_SleipnirR]
+Trainer
+
+[MJID_H_SleipnirR]
+Worshipper of the Fell Dragon who 
+can bend beasts to their will. Rides a
+pegasus and uses tomes and staves.
+
+[MJID_PitchforkR]
+Watcher
+
+[MJID_H_PitchforkR]
+Solemnly purges the land of their
+enemies under the guise of justice.
+A skilled lance user.
+
+[MJID_CupidoR]
+Watcher
+
+[MJID_H_CupidoR]
+Solemnly purges the land of their
+enemies under the guise of justice.
+A proficient rider and archer.
+
+[MIID_ElAttack]
+Fell Spark
+
+[MIID_H_ElAttack]
+An attack using the power of a Fell
+dragonstone. Halves foe Def/Res.
+
+[MIID_ElAttack2]
+Fell Arcana
+
+[MIID_H_ElAttack2]
+An attack using the power of a Fell
+dragonstone. Magic attack using
+physical power. Halves foe Def/Res.
+
+[MIID_Evilstone]
+Fell Stone
+
+[MIID_H_Evilstone]
+A dragonstone that holds the Fell
+Dragon's power. Halves foe Def/Res.
+
+[MIID_TrueEvilstone]
+Fell Ruinstone
+
+[MIID_H_TrueEvilstone]
+A dragonstone that holds a Fell
+Dragon's power. Halves foe Def/Res.
+Can strike close or at range.
+
+[MIID_Evilstone_Magic]
+Fell Magicstone
+
+[MIID_H_Evilstone_Magic]
+A dragonstone that holds a Fell
+Dragon's power. Magic attack using
+physical power. Halves foe Def/Res.
+
+[MIID_Evilstone_Slayer_Horse]
+Fell Slaystone
+
+[MIID_H_Evilstone_Slayer_Horse]
+A dragonstone that holds a Fell
+Dragon's special power. Halves foe
+Def/Res. Effective: Cavalry.
+
+[MIID_Evilstone_Slayer_Fly]
+Fell Weightstone
+
+[MIID_H_Evilstone_Slayer_Fly]
+A dragonstone that holds a Fell
+Dragon's special power. Halves foe
+Def/Res. Effective: Flying.
+
+[MIID_H_Liberation_E006]
+Divine Dragon only. Grants Atk+15
+against Fell Nil.
+
+[MIID_H_Liberation_E006_Normal]
+Divine Dragon only. Grants Atk+30
+against Fell Nil.
+
+[MIID_IlAttack]
+Fell Assault
+
+[MIID_H_IlAttack]
+A series of colossal ranged attacks.
+
+[MIID_IlBeam]
+Fell Beam
+
+[MIID_H_IlBeam]
+A beam of darkness that mows down
+foes over wide area. Guaranteed hit.
+Ignores Def/Res.
+
+[MIID_IlRush]
+Devastation
+
+[MIID_H_IlRush]
+Destroys terrain around the unit,
+killing friend and foe alike. Channels
+life force of the slain into power.
+
+[MIID_IlAbsorp]
+Drain Essence
+
+[MIID_H_IlAbsorp]
+Instantly kills all units in the area,
+friend and foe alike. Channels life
+force of the slain into power.
+
+[MIID_IlSummon]
+Summon Vortex
+
+[MIID_H_IlSummon]
+Creates vortexes that summon
+Corrupted.
+
+[MIID_MiasmaBreath]
+Miasma Breath
+
+[MIID_H_MiasmaBreath]
+Miasma breath attack. Ignores foe
+Def/Res. Applies miasma to foe's
+space.
+
+[MIID_MiasmaBall]
+Miasma Ball
+
+[MIID_H_MiasmaBall]
+Ranged miasma attack. Ignores foe
+Def/Res. Inflicts freeze and silence.
+Applies miasma to foe's space.
+
+[MIID_ElBento]
+Nel's Meal
+
+[MIID_H_ElBento]
+Leftovers efficiently packed by Nel.
+Eat to recover 20 HP.
+
+[MIID_RafaleBento]
+Rafal's Meal
+
+[MIID_H_RafaleBento]
+Leftovers confidently packed by
+Rafal. Eat to recover 20 HP.
+
+[MIID_SelestiaBento]
+Zelestia's Meal
+
+[MIID_H_SelestiaBento]
+Leftovers fondly packed by Zelestia.
+Eat to recover 20 HP.
+
+[MIID_GregoryBento]
+Gregory's Meal
+
+[MIID_H_GregoryBento]
+Leftovers cautiously packed by
+Gregory. Eat to recover 20 HP.
+
+[MIID_MadelineBento]
+Madeline's Meal
+
+[MIID_H_MadelineBento]
+Leftovers proudly packed by
+Madeline. Eat to recover 20 HP.
+
+[MIID_EnchantSeal]
+Mystic Satchel
+
+[MIID_H_EnchantSeal]
+Expend to change user to the
+enchanter class.
+
+[MIID_MageCannonSeal]
+Mage Cannon
+
+[MIID_H_MageCannonSeal]
+Expend to change user to the
+mage cannoneer class.
+
+[MSID_PrivateSkill_El]
+Protective
+
+[MSID_H_PrivateSkill_El]
+If foe initiates combat against Rafal,
+grants Crit+10 to unit for 1 turn.
+
+[MSID_H_PrivateSkill_El_E]
+If foe initiates combat against Nil,
+grants Crit+10 to unit for 1 turn.
+
+[MSID_PrivateSkill_Rafale]
+Rivalry
+
+[MSID_H_PrivateSkill_Rafale]
+When an ally within 2 spaces
+defeats a foe, grants Crit+10
+to unit for 1 turn.
+
+[MSID_PrivateSkill_Il]
+Wounded Pride
+
+[MSID_H_PrivateSkill_Il]
+When an ally within 2 spaces
+defeats a foe, grants Crit+10
+to unit for 1 turn.
+
+[MSID_PrivateSkill_Selestia]
+Friendly Boost
+
+[MSID_H_PrivateSkill_Selestia]
+When unit defeats a foe, grants
+Hit+20 to allies within 2 spaces for
+1 turn.
+
+[MSID_PrivateSkill_Gregory]
+Survival Plan
+
+[MSID_H_PrivateSkill_Gregory]
+When there are more foes than allies
+within 3 spaces, grants Avo+20.
+
+[MSID_PrivateSkill_Madeline]
+Knightly Code
+
+[MSID_H_PrivateSkill_Madeline]
+If foe initiates combat and unit is
+adjacent to an ally, unit takes 2
+less damage.
+
+[MSID_PrivateSkill_Alfred_E]
+Self-Defense
+
+[MSID_PrivateSkill_Celine_E]
+Fierce Bloom
+
+[MSID_PrivateSkill_Diamand_E]
+This Ends Here
+
+[MSID_PrivateSkill_Staluke_E]
+Show-Off
+
+[MSID_PrivateSkill_Ivy_E]
+Final Say
+
+[MSID_PrivateSkill_Hortensia_E]
+Stealth Assist
+
+[MSID_PrivateSkill_Misutira_E]
+Dignity of Solm
+
+[MSID_PrivateSkill_Fogato_E]
+Wear Down
+
+[MSID_JobSkill_MorphFlyingDragon]
+Miasma Domain
+
+[MSID_H_JobSkill_MorphFlyingDragon]
+At start of turn, applies miasma to
+terrain within 2 spaces of unit.
+
+[MSID_JobSkill_ShadowPrincessR]
+Resist Emblems
+
+[MSID_H_JobSkill_ShadowPrincessR]
+When attacked with an engage
+attack, prevents 20% of damage.
+
+[MSID_JobSkill_ShadowLordR]
+Spur Emblems
+
+[MSID_H_JobSkill_ShadowLordR]
+At start of player phase, fills
+adjacent allies' engage meters
+by 1.
+
+[MSID_DisplaySkill_DamageCut]
+Sigil Protection
+
+[MSID_H_DisplaySkill_DamageCut]
+Reduces damage taken and foe's
+critical hit chance by 50.
+
+[MSID_ChainAttackDamageWeaken+]
+Bond Breaker+
+
+[MSID_H_ChainAttackDamageWeaken+]
+Makes enemy chain attack accuracy
+always 10%. Reduces damage taken.
+
+[MSID_H_SenerioEngage_DarkSide]
+When attacking with tomes, unit
+recovers 50% of damage dealt.
+
+[MSID_H_SenerioEngageAtk_DarkSide]
+Use to attack with fire, thunder and
+wind magic to foes in an area.
+Wind is effective: Flying.
+
+[MAID_ElWear]
+Artistic Attire
+
+[MAID_H_ElWear]
+Everyday outfit of Nel, descendant of the Fell Dragon. The ensemble has
+developed an artistic design through years of constant maintenance.
+
+[MAID_RafaleWear]
+Classic Attire
+
+[MAID_H_RafaleWear]
+Everyday outfit of Rafal, descendant of the Fell Dragon. His pendant
+matches Nel's, and his clothes are simple so as not to diminish its luster.
+
+[MAID_SelestiaWear]
+Elegant Dress
+
+[MAID_H_SelestiaWear]
+Everyday outfit of Zelestia, leader of the Four Winds. A refined dress for
+quiet days on the Somniel. She often needs help tying back her long hair.
+
+[MAID_GregoryWear]
+Fell Capelet
+
+[MAID_H_GregoryWear]
+Everyday outfit of Gregory, second-in-command of the Four Winds. The
+Fell Dragon symbols represent his devotion to Nel, Rafal, and their allies.
+
+[MAID_MadelineWear]
+Perfect Pleats
+
+[MAID_H_MadelineWear]
+Everyday outfit of Madeline, one of the Four Winds. These garments
+incorporate her fondness for ribbons while maintaining an air of maturity.
+
+[MID_LVUP_1_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Die")
+$Window(2, "エル")
+This did not go my way.$Wait(0)
+
+[MID_LVUP_2_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Normal")
+$Window(2, "エル")
+Let us not dwell on trivial matters.$Wait(0)
+
+[MID_LVUP_3_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Normal")
+$Window(2, "エル")
+Others can evaluate my performance. I will
+focus on what comes next.$Wait(0)
+
+[MID_LVUP_4_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Smile")
+$Window(2, "エル")
+If it pleases the Divine Dragon, then I suppose
+I am satisfied.$Wait(0)
+
+[MID_LVUP_LIMIT_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Smile")
+$Window(2, "エル")
+This will suffice.$Wait(0)
+
+[MID_LVUP_CC_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Smile")
+$Window(2, "エル")
+I am honored to receive such a gift from the
+Divine Dragon.$Wait(0)
+
+[MID_LVUP_1_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Sad")
+$Window(2, "ラファール")
+No... I will not be a failure...$Wait(0)
+
+[MID_LVUP_2_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Angry")
+$Window(2, "ラファール")
+This is not the end of it.$Wait(0)
+
+[MID_LVUP_3_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Serious")
+$Window(2, "ラファール")
+The expected result. But I can do more.$Wait(0)
+
+[MID_LVUP_4_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Strike")
+$Window(2, "ラファール")
+Witness my power, Divine One!$Wait(0)
+
+[MID_LVUP_LIMIT_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Smile")
+$Window(2, "ラファール")
+Now I have truly attained power.$Wait(0)
+
+[MID_LVUP_CC_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "StandBy")
+$Window(2, "ラファール")
+I will continue to butcher our enemies, in this
+form or any other.$Wait(0)
+
+[MID_LVUP_1_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Sad")
+$Window(2, "セレスティア")
+Odd. I'm still young for a Mage Dragon. I should
+be improving faster.$Wait(0)
+
+[MID_LVUP_2_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Smile")
+$Window(2, "セレスティア")
+Even the smallest changes fill my heart with joy!$Wait(0)
+
+[MID_LVUP_3_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Angry")
+$Window(2, "セレスティア")
+I want to achieve strength befitting my role as
+leader of the Four Winds.$Wait(0)
+
+[MID_LVUP_4_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Relax")
+$Window(2, "セレスティア")
+My skills are improving. Right now, I feel as if I
+could do anything!$Wait(0)
+
+[MID_LVUP_LIMIT_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Smile")
+$Window(2, "セレスティア")
+I've become far stronger here than I was in my
+old world. It's beyond compare!$Wait(0)
+
+[MID_LVUP_CC_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Smile")
+$Window(2, "セレスティア")
+How fun! I never got to try out different outfits
+much. Does this suit me, Divine Dragon?$Wait(0)
+
+[MID_LVUP_1_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Sad")
+$Window(2, "グレゴリー")
+Change is frightening, but so is not changing
+at all...$Wait(0)
+
+[MID_LVUP_2_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Shy")
+$Window(2, "グレゴリー")
+Umm, this should help me avoid at least a little
+more pain...right?$Wait(0)
+
+[MID_LVUP_3_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Angry")
+$Window(2, "グレゴリー")
+I'll use this power to help make a world free
+from pain and fear!$Wait(0)
+
+[MID_LVUP_4_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Surprise")
+$Window(2, "グレゴリー")
+Wait! What's happened to me? I should be
+happy about this, right?$Wait(0)
+
+[MID_LVUP_LIMIT_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Status")
+$Window(2, "グレゴリー")
+I'm not sure I would trust myself with more
+power than this.$Wait(0)
+
+[MID_LVUP_CC_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Smile")
+$Window(2, "グレゴリー")
+What do you think? Does it suit me? I hope this
+look will make enemies think twice.$Wait(0)
+
+[MID_LVUP_1_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Sad")
+$Window(2, "マデリーン")
+Shameful. But I'll do better next time.$Wait(0)
+
+[MID_LVUP_2_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Serious")
+$Window(2, "マデリーン")
+A barely adequate performance. I'll have to
+train harder!$Wait(0)
+
+[MID_LVUP_3_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Smile")
+$Window(2, "マデリーン")
+See? Age isn't everything.$Wait(0)
+
+[MID_LVUP_4_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Relax")
+$Window(2, "マデリーン")
+Just this once, perhaps I have earned a
+little praise.$Wait(0)
+
+[MID_LVUP_LIMIT_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Relax")
+$Window(2, "マデリーン")
+I couldn't have done it without all my friends
+and allies by my side.$Wait(0)
+
+[MID_LVUP_CC_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Shy")
+$Window(2, "マデリーン")
+Not to be difficult, but this outfit is a little
+different than what I'm used to...$Wait(0)
+
+[MID_RELAY_Stamp_El_0]
+Please forgive me.
+
+[MID_RELAY_Stamp_Rafale_0]
+Do not disappoint me.
+
+[MID_RELAY_Stamp_Selestia_0]
+This is going to be fun!
+
+[MID_RELAY_Stamp_Gregory_0]
+I hope this doesn't hurt.
+
+[MID_RELAY_Stamp_Madeline_0]
+I am not a child!
+
+[MID_BGM_DLC_Evt_Twin_ST_Play]
+Twin Dragons' Hope
+
+[MID_BGM_DLC_Evt_Twin_Exposed_ST_Play]
+Unfulfilled Dreams
+
+[MID_BGM_DLC_Sys_Gmap_ST_Play]
+Dragon's Journey
+
+[MID_BGM_DLC_Field_P14_Map_ST_Play]
+Salvation and Loss
+
+[MID_BGM_DLC_Field_P14_Combat_ST_Play]
+Salvation and Loss (Rebellion)
+
+[MID_BGM_DLC_Field_P15_ST_Play]
+Mirrored Engage
+
+[MID_BGM_DLC_Boss_07_Pre_ST_Play]
+Inconstant One
+
+[MID_BGM_DLC_Boss_07_Start_ST_Play]
+Inconstant One (Frenzy)
+
+[MID_BGM_DLC_Sys_ED2_ST_Play]
+The Journey Is Finally Done
+
+[MID_BGM_DLC_Mov_GOP_Full_ST_Play]
+Emblem Engage! (Full Version)
+
+[MID_BGM_DLC_Field_P15_Pre_ST_Play]
+Awakening from a Brief Slumber
+
+[MID_BGM_DLC_Evt_Twin_Past_ST_Play]
+Recollections
+
+[MID_Hub_Well_Difficulty_Change]
+Difficulty
+
+[MID_Hub_Well_Difficulty_Change_Confirm]
+Change the Fell Xenologue difficulty?
+(The main story's difficulty will not be affected.
+You can change this setting again at any time.)
+
+[MID_Hub_Well_Difficulty_Change_Before]
+Current Difficulty
+
+[MID_Hub_Well_Difficulty_Change_Normal]
+Change to Normal
+
+[MID_Hub_Well_Difficulty_Change_Hard]
+Change to Hard
+
+[MID_Hub_Well_Difficulty_Change_Lunatic]
+Change to Maddening
+
+[MID_Hub_Well_Difficulty_Change_Cancel]
+Cancel
+
+[MID_Hub_Well_Difficulty_Change_Dialog]
+Fell Xenologue difficulty changed to $Arg(0).
+
+[MID_FORTUNE_TROUBLE_El]
+The way they eat lemons
+whole worries everyone.
+
+[MID_FORTUNE_TROUBLE_Rafale]
+Sweet snacks put a dopey
+grin on their face.
+
+[MID_FORTUNE_TROUBLE_Selestia]
+Birds often perch on the
+horns they wear.
+
+[MID_FORTUNE_TROUBLE_Gregory]
+A favorite stuffed toy
+looks rather worn out.
+
+[MID_FORTUNE_TROUBLE_Madeline]
+They like ribbons but are
+terrible at tying bows.
+
+[MID_Movie_E07]
+Memories of Another World
+
+[MID_H_Movie_E07]
+The Divine Dragon was summoned to
+another Elyos by the Fell Dragon twins
+to fight for the seven bracelets.
+

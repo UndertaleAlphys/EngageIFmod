@@ -1,0 +1,617 @@
+[MJID_Unknown]
+None
+
+[MJID_H_Unknown]
+None
+
+[MJID_DragonLord]
+Dragon Child
+
+[MJID_H_DragonLord]
+A descendant of a line of dragons
+going back to ancient days. Can use
+swords unique to the Divine Dragon.
+
+[MJID_DragonKing]
+Divine Dragon
+
+[MJID_H_DragonKing]
+Keeper of the power of the great
+reigning dragon. Uses Divine Dragon
+swords, magic and martial arts.
+
+[MJID_ShadowLord]
+Fell Child
+
+[MJID_H_ShadowLord]
+Mindless minion of the Fell Dragon.
+Uses powerful sword techniques.
+
+[MJID_ShadowPrincess]
+Fell Child
+
+[MJID_H_ShadowPrincess]
+Inheritor of the blood of the Fell
+Dragon. Excels in Fell skills and
+powerful dark magic.
+
+[MJID_ShadowKing]
+Fell Monarch
+
+[MJID_H_ShadowKing]
+One who seeks to rule the world
+as a tyrant. Wields the dark arts to
+cause maximum destruction.
+
+[MJID_ShadowDragon]
+Great Fell Dragon
+
+[MJID_H_ShadowDragon]
+The Fell Dragon wielding the power
+of the Emblem Rings. Capable now
+of opening a gate to another world.
+
+[MJID_AvenirLC]
+Noble
+
+[MJID_H_AvenirLC]
+One born into a noble royal family.
+A proficient horseman and skilled
+lancer.
+
+[MJID_Avenir]
+Avenir
+
+[MJID_H_Avenir]
+A dashing prince who rides a white
+horse into battle. Excels with a lance
+and serviceable with a blade.
+
+[MJID_FleurageLC]
+Noble
+
+[MJID_H_FleurageLC]
+One born into a noble royal family.
+A proficient magic user who is also
+serviceable with a sword.
+
+[MJID_Fleurage]
+Vidame
+
+[MJID_H_Fleurage]
+Magic-wielding swordswoman who
+can cut through enemy mages. She
+is also capable of wielding staves.
+
+[MJID_SuccesseurLC]
+Lord
+
+[MJID_H_SuccesseurLC]
+One born into a family that leads
+a nation. Proficient with a sword.
+
+[MJID_Successeur]
+Successeur
+
+[MJID_H_Successeur]
+One with the will and strength to
+lead a nation. Skilled with both the
+blade and the axe.
+
+[MJID_TirailleurLC]
+Lord
+
+[MJID_H_TirailleurLC]
+One born into a family that leads
+a nation. Proficient with a bow.
+
+[MJID_Tirailleur]
+Tireur d'élite
+
+[MJID_H_Tirailleur]
+An archer gifted with incredible
+aim. Each shot can eliminate a foe.
+
+[MJID_LindwurmLC]
+Wing Tamer
+
+[MJID_H_LindwurmLC]
+A knight who has a rapport with
+beasts. Rides a wyvern into battle
+and uses magic and staves.
+
+[MJID_Lindwurm]
+Malig Knight
+
+[MJID_H_Lindwurm]
+A magic-using wyvern rider who
+destroys enemies from above. Can
+use powerful magic and staves.
+
+[MJID_SleipnirLC]
+Wing Tamer
+
+[MJID_H_SleipnirLC]
+A knight who has a rapport with
+beasts. Rides a pegasus into battle
+and is skilled with tome and staff.
+
+[MJID_Sleipnir]
+Seraph Knight
+
+[MJID_H_Sleipnir]
+A knight who rides the charming
+pegasus Sleipnir. Uses powerful
+staves and is skilled with tomes.
+
+[MJID_PitchforkLC]
+Sentinel
+
+[MJID_H_PitchforkLC]
+A Sentinel who takes up arms to
+defend her nation. Proficient with
+the lance.
+
+[MJID_Pitchfork]
+Picket
+
+[MJID_H_Pitchfork]
+A lancer who pierces the enemy lines
+with flawless skill. Her bouncy steps
+presage deadly attacks.
+
+[MJID_CupidoLC]
+Sentinel
+
+[MJID_H_CupidoLC]
+A Sentinel who takes up arms to
+defend his nation. A proficient
+rider and archer.
+
+[MJID_Cupido]
+Cupido
+
+[MJID_H_Cupido]
+A charming bow knight who fights
+with casual flair. Skilled with both
+bow and sword, he toys with his foe.
+
+[MJID_SwordFighter]
+Samurai
+
+[MJID_H_SwordFighter]
+Footsoldiers who take pride in their
+skill with a blade. They avoid enemy
+attacks with nimble footwork.
+
+[MJID_SwordMaster]
+Swordmaster
+
+[MJID_H_SwordMaster]
+Master sword fighters who avoid
+attacks by a hair's breadth and
+retaliate with mighty skills.
+
+[MJID_BraveHero]
+Hero
+
+[MJID_H_BraveHero]
+Accomplished veterans proficient
+in several weapons and can easily
+cut through the front lines.
+
+[MJID_LanceFighter]
+Lance Fighter
+
+[MJID_H_LanceFighter]
+Soldiers who fight with a lance. They
+strike just the right balance between
+offense and defense.
+
+[MJID_Halberdier]
+Spear Master
+
+[MJID_H_Halberdier]
+Lance-wielders with a great deal of
+battlefield experience. Several cuts
+above common lance fighters.
+
+[MJID_RoyalKnight]
+Royal Knight
+
+[MJID_H_RoyalKnight]
+Noble knights who tear across the
+battlefield on horseback, rallying
+their allies. They can also use staves.
+
+[MJID_AxFighter]
+Axe Fighter
+
+[MJID_H_AxFighter]
+Proven warriors with an axe. Their
+swings are fierce, but leave them
+open to retaliation.
+
+[MJID_Berserker]
+Berserker
+
+[MJID_H_Berserker]
+Mighty warriors of unparalleled
+strength. They cleave foes in twain
+with huge axes.
+
+[MJID_Warrior]
+Warrior
+
+[MJID_H_Warrior]
+Skilled experts in annihilating their
+enemies. They are capable with
+bows as well as axes.
+
+[MJID_Archer]
+Archer
+
+[MJID_H_Archer]
+Light infantry who fight with a bow.
+They can attack from a distance.
+
+[MJID_Sniper]
+Sniper
+
+[MJID_H_Sniper]
+Masters of the bow who target their
+foes' weak points with precision
+strikes.
+
+[MJID_BowKnight]
+Bow Knight
+
+[MJID_H_BowKnight]
+Bow users that fire from the saddle
+and outflank foes with high mobility.
+
+[MJID_SwordArmor]
+Sword Armor
+
+[MJID_H_SwordArmor]
+Heavily armored sword fighters clad
+in tough armor. They have high
+defense, but magic is their bane.
+
+[MJID_LanceArmor]
+Lance Armor
+
+[MJID_H_LanceArmor]
+Heavily armored lancers clad in
+tough armor. They have high
+defense, but magic is their bane.
+
+[MJID_AxArmor]
+Axe Armor
+
+[MJID_H_AxArmor]
+Heavily armored axe-wielders clad
+in tough armor. They have high
+defense, but magic is their bane.
+
+[MJID_General]
+General
+
+[MJID_H_General]
+Heavily armored fighters boasting
+both an impenetrable defense and
+a fearsome offense.
+
+[MJID_GreatKnight]
+Great Knight
+
+[MJID_H_GreatKnight]
+Heavily armored knights clad in thick
+armor. They defend their allies with
+a variety of weapons.
+
+[MJID_SwordKnight]
+Sword Cavalier
+
+[MJID_H_SwordKnight]
+Sword-wielding knights who ride
+freely about the battlefield. They
+strike a good balance of skills.
+
+[MJID_LanceKnight]
+Lance Cavalier
+
+[MJID_H_LanceKnight]
+Lance-wielding knights who ride
+freely about the battlefield. They
+strike a good balance of skills.
+
+[MJID_AxKnight]
+Axe Cavalier
+
+[MJID_H_AxKnight]
+Axe-wielding knights who ride
+freely about the battlefield. They
+strike a good balance of skills.
+
+[MJID_Paladin]
+Paladin
+
+[MJID_H_Paladin]
+High-ranking knights with a wealth
+of experience. Highly mobile and
+strong against magic.
+
+[MJID_WolfKnight]
+Wolf Knight
+
+[MJID_H_WolfKnight]
+Knights who dart over the battlefield
+mounted on wolves. Their knife
+strikes are the ruin of enemy camps.
+
+[MJID_SwordPegasus]
+Sword Flier
+
+[MJID_H_SwordPegasus]
+Sword fighters who soar through the
+sky on their pegasus mounts. Strong
+against magic, but weak to bows.
+
+[MJID_LancePegasus]
+Lance Flier
+
+[MJID_H_LancePegasus]
+Lance users who soar through the
+sky on their pegasus mounts. Strong
+against magic, but weak to bows.
+
+[MJID_AxPegasus]
+Axe Flier
+
+[MJID_H_AxPegasus]
+Axe-wielders who soar through the
+sky on their pegasus mounts. Strong
+against magic, but weak to bows.
+
+[MJID_GriffonKnight]
+Griffin Knight
+
+[MJID_H_GriffonKnight]
+Experienced knights who fly through
+the skies on a griffin. They are well-
+balanced and can use staves.
+
+[MJID_DragonKnight]
+Wyvern Knight
+
+[MJID_H_DragonKnight]
+Knights who fly through
+the skies on wyverns. Though
+powerful, they fear bows and magic.
+
+[MJID_Mage]
+Mage
+
+[MJID_H_Mage]
+Magic users who cast spells from
+tomes. Strong against enemies with
+high defense.
+
+[MJID_Sage]
+Sage
+
+[MJID_H_Sage]
+Experienced mages who can call
+upon great power. Capable of using
+both tomes and staves.
+
+[MJID_MageKnight]
+Dark Knight
+
+[MJID_H_MageKnight]
+Magic knights who cast spells from
+horseback, but can also take part in
+melee combat.
+
+[MJID_Monk]
+Martial Monk
+
+[MJID_H_Monk]
+Combat monks who use staves to
+heal wounded allies. They are versed
+in the martial arts of self-defense.
+
+[MJID_MasterMonk]
+Martial Master
+
+[MJID_H_MasterMonk]
+Experienced monks trained in the
+martial arts. They excel at hand-to-
+hand combat as well as healing.
+
+[MJID_HighPriest]
+High Priest
+
+[MJID_H_HighPriest]
+Masters of staves with wisdom
+from experience. Their healing
+powers are lifesaving in battle.
+
+[MJID_MasterNinja]
+Master Ninja
+
+[MJID_H_MasterNinja]
+Ninja leaders. They execute targets 
+with their shurikens and katanas.
+
+[MJID_Dancer]
+Dancer
+
+[MJID_H_Dancer]
+Charming performers who can raise
+an ally's spirits, allowing the ally to
+act once more in battle.
+
+[MJID_Villager]
+Villager
+
+[MJID_H_Villager]
+An ordinary person with no combat
+training.
+
+[MJID_Melusine]
+Melusine
+
+[MJID_H_Melusine]
+An alluring magic knight who rides
+an evil dragon. Overpowers with
+highly honed magic and sword skills.
+
+[MJID_Barbarian]
+Barbarian
+
+[MJID_H_Barbarian]
+Fierce fighters with an insatiable
+rage. They possess great strength
+and speed, but little defense.
+
+[MJID_MorphDragon]
+Corrupted Wyrm
+
+[MJID_H_MorphDragon]
+Minions of the Fell Dragon who aim
+to bring the world to ruin. Their dark
+breath destroys all.
+
+[MJID_PhantomDragon]
+Phantom Wyrm
+
+[MJID_H_PhantomDragon]
+Enormous draconic minions. Though
+they are slow, their breath can affect
+faraway enemies.
+
+[MJID_Emblem]
+Emblem
+
+[MJID_H_Emblem]
+Heroes from worlds beyond Elyos,
+who are contained in rings. They
+possess unimaginable power.
+
+[MJID_Ninja]
+Ninja
+
+[MJID_H_Ninja]
+Ninjas who specialized
+in assassination.
+Use Shurikens to lower
+enemy's stats.
+
+[MJID_H_DarkMage]
+Sorcerers who have learned dark magic.
+They attack enemies with magic.
+
+[MJID_DarkMage]
+Dark Mage
+
+[MJID_Maid]
+Maid
+
+[MJID_H_Maid]
+Female vassals who serve a master. 
+They heal their master with staves 
+and protect them with daggers.
+
+[MJID_Adventurer]
+Adventurer
+
+[MJID_H_Adventurer]
+Glory-seekers who investigate
+ruins for treasure. 
+With their bows and staves,
+they're capable of many things.
+
+[MJID_H_WyvernLord]
+High-ranking wyvern riders. 
+With their axes and lances, 
+they demolish enemy forces.
+
+[MJID_WyvernLord]
+Wyvern Lord
+
+[MJID_Troubadour]
+Troubadour
+
+[MJID_H_Troubadour]
+Staff-wielding knights who are 
+incapable of fighting. Instead, 
+they heal allies with staves.
+
+[MJID_Strategist]
+Strategist
+
+[MJID_H_Strategist]
+Tacticians who command the 
+battlefield from horseback. 
+With their magic and staves,
+they turn the tide of battle.
+
+[MJID_Thief]
+Outlaw
+
+[MJID_H_Thief]
+Crooks who are skilled at picking locks. 
+Wields bows and boasts high speed 
+and resistance.
+
+[MJID_Trickster]
+Trickster
+
+[MJID_H_Trickster]
+A sword user who can staves, 
+the Trickster toys with their foes
+by employing quick movement.
+
+[MJID_MaligKnight]
+MaligKnight
+
+[MJID_H_MaligKnight]
+Knights who command a mage dragon. 
+With their axes and magic, they 
+trample over enemy forces.
+
+[MJID_BasicWolfknight]
+Samurai/Ninja
+
+[MJID_Mercenary]
+Mercenary
+
+[MJID_H_Mercenary]
+Sell-swords who can handle 
+any mission. They have well-balanced 
+abilities and superior skill.
+
+[MJID_BasicBowknight]
+Mercenary/Thief
+
+[MJID_BasicAdventurer]
+Thief/Archer
+
+[MJID_BasicGreatKnight]
+Knight/Cavalier
+
+[MJID_BasicMaligKnight]
+Sky Knight/Wyvern Rider
+
+[MJID_Butler]
+Butler
+
+[MJID_H_Butler]
+Male vassals who serve a master. 
+They heal their master with staves 
+and protect them with daggers.
+
+[MJID_BasicSage]
+Diviner/Dark Mage

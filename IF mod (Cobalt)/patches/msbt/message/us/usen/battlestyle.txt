@@ -1,0 +1,67 @@
+[MBSID_None]
+Civilian
+
+[MBSID_H_None]
+Civilian units do not have any
+special advantages in battle.
+
+[MBSID_Cooperation]
+Backup
+
+[MBSID_H_Cooperation]
+Backup units make a chain attack in
+the combat of an ally fighting a foe
+in range.
+
+[MBSID_Horse]
+Cavalry
+
+[MBSID_H_Horse]
+Cavalry units have higher movement
+than other units.
+
+[MBSID_Covert]
+Covert
+
+[MBSID_H_Covert]
+Covert units double their Avo/Def/Res
+bonus from terrain effects.
+
+[MBSID_Heavy]
+Armored
+
+[MBSID_H_Heavy]
+Armored units ignore break effects
+from weapon advantage.
+
+[MBSID_Fly]
+Flying
+
+[MBSID_H_Fly]
+Flying units ignore all terrain effects,
+even passing through squares of
+empty sky.
+
+[MBSID_Magic]
+Mystical
+
+[MBSID_H_Magic]
+Mystical units ignore opponents'
+Avo/Def/Res bonuses from terrain when
+attacking with magic.
+
+[MBSID_Prana]
+Qi Adept
+
+[MBSID_H_Prana]
+Qi adept units can use the Chain
+Guard command to redirect attacks
+on adjacent allies to themselves.
+
+[MBSID_Dragon]
+Dragon
+
+[MBSID_H_Dragon]
+Dragon units gain additional effects
+when engaged with Emblems.
+

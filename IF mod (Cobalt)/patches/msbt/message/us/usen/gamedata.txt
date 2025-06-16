@@ -1,0 +1,1122 @@
+[MID_PLACE_Filene]
+Firene
+
+[MID_PLACE_Brodia]
+Brodia
+
+[MID_PLACE_Ircion]
+Elusia
+
+[MID_PLACE_Solum]
+Solm
+
+[MID_PLACE_Lithos]
+Lythos
+
+[MID_PLACE_Gradron]
+Gradlon
+
+[MCID_M000_PREFIX]
+Prologue
+
+[MCID_M000]
+The Emblems
+
+[MCID_M000_PLACE]
+Lythos Castle
+
+[MCID_M001_PREFIX]
+Chapter 1
+
+[MCID_M001]
+Awake at Last
+
+[MCID_M001_PLACE]
+Lythos Grasslands
+
+[MCID_M002_PREFIX]
+Chapter 2
+
+[MCID_M002]
+Queen Lumera
+
+[MCID_M002_PLACE]
+Lythos Castle Gardens
+
+[MCID_M003_PREFIX]
+Chapter 3
+
+[MCID_M003]
+Hostilities
+
+[MCID_M003_PLACE]
+Ring Vault
+
+[MCID_M004_PREFIX]
+Chapter 4
+
+[MCID_M004]
+A Land in Bloom
+
+[MCID_M004_PLACE]
+Florra Mill Town
+
+[MCID_M005_PREFIX]
+Chapter 5
+
+[MCID_M005]
+Retaking the Castle
+
+[MCID_M005_PLACE]
+Firene Castle
+
+[MCID_M005_OUTLINE]
+Upon learning that Elusia invaded
+Firene Castle, the Divine Dragon's
+army hastens to Queen Ève.
+
+[MCID_M006_PREFIX]
+Chapter 6
+
+[MCID_M006]
+The Stolen Ring
+
+[MCID_M006_PLACE]
+Mountain Settlement
+
+[MCID_M006_OUTLINE]
+Having regained Firene Castle, the
+party heads to a shrine housing
+the Ring of the Dawn Maiden.
+
+[MCID_M007_PREFIX]
+Chapter 7
+
+[MCID_M007]
+Dark Emblem
+
+[MCID_M007_PLACE]
+The Grand Crossing
+
+[MCID_M007_OUTLINE]
+The party attempts to cross the
+border to obtain the ring entrusted
+to the Kingdom of Brodia.
+
+[MCID_M008_PREFIX]
+Chapter 8
+
+[MCID_M008]
+The Kingdom of Might
+
+[MCID_M008_PLACE]
+Brodia Castle
+
+[MCID_M008_OUTLINE]
+After rebuffing an Elusian attack,
+the Divine Dragon's army reaches
+their destination: Brodia Castle.
+
+[MCID_M009_PREFIX]
+Chapter 9
+
+[MCID_M009]
+A Clash of Forces
+
+[MCID_M009_PLACE]
+Fort on the Border
+
+[MCID_M009_OUTLINE]
+The Divine Dragon's army and King
+Morion head to Elusia's border to
+answer King Hyacinth's challenge.
+
+[MCID_M010_PREFIX]
+Chapter 10
+
+[MCID_M010]
+The Fell Dragon Sombron
+
+[MCID_M010_PLACE]
+Destinea Cathedral
+
+[MCID_M010_OUTLINE]
+The Divine Dragon's army rushes
+to Destinea Cathedral to rescue
+King Morion.
+
+[MCID_M011_PREFIX]
+Chapter 11
+
+[MCID_M011]
+Retreat
+
+[MCID_M011_PLACE]
+Shadowy Moor
+
+[MCID_M012_PREFIX]
+Chapter 12
+
+[MCID_M012]
+The Sentinels
+
+[MCID_M012_PLACE]
+Tullah Desert
+
+[MCID_M012_OUTLINE]
+Their rings lost to Veyle, the party
+heads to the Queendom of Solm to
+regain their footing.
+
+[MCID_M013_PREFIX]
+Chapter 13
+
+[MCID_M013]
+Heroes of the Oasis
+
+[MCID_M013_PLACE]
+Oasis Village
+
+[MCID_M013_OUTLINE]
+The Divine Dragon's army travels
+to an oasis in search of Timerra
+and the Ring of the Radiant Hero.
+
+[MCID_M014_PREFIX]
+Chapter 14
+
+[MCID_M014]
+The Battle for Solm
+
+[MCID_M014_PLACE]
+Solm Palace
+
+[MCID_M014_OUTLINE]
+Receiving word of Hortensia's
+attack, the Divine Dragon's army
+hastens back to Solm Palace.
+
+[MCID_M015_PREFIX]
+Chapter 15
+
+[MCID_M015]
+Dancer in the Ruins
+
+[MCID_M015_PLACE]
+Northern Fortress
+
+[MCID_M015_OUTLINE]
+Victorious at Solm Palace, the
+party seeks the Ring of the Crux
+of Fate at the Northern Fortress.
+
+[MCID_M016_PREFIX]
+Chapter 16
+
+[MCID_M016]
+Seashore Travels
+
+[MCID_M016_PLACE]
+Azure Coast
+
+[MCID_M016_OUTLINE]
+While planning their next move
+after getting a new ring, the Divine
+Dragon's army receives a report.
+
+[MCID_M017_PREFIX]
+Chapter 17
+
+[MCID_M017]
+Serenity in Ruin
+
+[MCID_M017_PLACE]
+Florra Port
+
+[MCID_M017_OUTLINE]
+Chasing Elusian warships heading
+to Firene, the Divine Dragon's army
+arrives at Florra Port.
+
+[MCID_M018_PREFIX]
+Chapter 18
+
+[MCID_M018]
+The Cold Voyage
+
+[MCID_M018_PLACE]
+Route to Elusia
+
+[MCID_M018_OUTLINE]
+Having learned the truth about
+Veyle, the party heads to Elusia,
+where the Fell Dragon waits.
+
+[MCID_M019_PREFIX]
+Chapter 19
+
+[MCID_M019]
+The Dead Town
+
+[MCID_M019_PLACE]
+Givre Port
+
+[MCID_M019_OUTLINE]
+The Divine Dragon's army arrives
+at a lively Elusian port after
+fending off attackers at sea.
+
+[MCID_M020_PREFIX]
+Chapter 20
+
+[MCID_M020]
+The Kingless Castle
+
+[MCID_M020_PLACE]
+Elusia Castle
+
+[MCID_M020_OUTLINE]
+After recovering two rings from 
+Marni and Mauvier, the party
+reaches Elusia Castle at last.
+
+[MCID_M021_PREFIX]
+Chapter 21
+
+[MCID_M021]
+The Return
+
+[MCID_M021_PLACE]
+Lythos Castle
+
+[MCID_M021_OUTLINE]
+Having learned a harsh truth from
+Griss, the party pursues the Fell
+Dragon to Lythos Castle.
+
+[MCID_M022_PREFIX]
+Chapter 22
+
+[MCID_M022]
+The Fell & the Divine
+
+[MCID_M022_PLACE]
+Lythos Castle
+
+[MCID_M023_PREFIX]
+Chapter 23
+
+[MCID_M023]
+The Four Hounds
+
+[MCID_M023_PLACE]
+Lava Fields
+
+[MCID_M023_OUTLINE]
+Seeking to break the barrier in the
+sky above Elyos, the party hunts
+down a Fell Dragon Shard.
+
+[MCID_M024_PREFIX]
+Chapter 24
+
+[MCID_M024]
+Recollections
+
+[MCID_M024_PLACE]
+Mountainous Region
+
+[MCID_M024_OUTLINE]
+Armed with a powerful artifact
+from Zephia, the party heads to a
+lake in pursuit of a sunken shard.
+
+[MCID_M025_PREFIX]
+Chapter 25
+
+[MCID_M025]
+The Final Guardian
+
+[MCID_M025_PLACE]
+Gradlon Temple
+
+[MCID_M025_OUTLINE]
+After meeting the Divine Dragon's
+past self, only one shard remains.
+But a dark surprise lies in wait...
+
+[MCID_M026_PREFIX]
+Chapter 26
+
+[MCID_M026]
+The Last Engage
+
+[MCID_M026_PLACE]
+Portal to Other Worlds
+
+[MCID_S001_PREFIX]
+Paralogue
+
+[MCID_S001]
+Budding Talent
+
+[MCID_S001_PLACE]
+Tea-Field Village
+
+[MCID_S001_OUTLINE]
+Can the Divine Dragon's army save
+the residents of a peaceful village
+when the Corrupted attack?
+
+[MCID_S002_PREFIX]
+Paralogue
+
+[MCID_S002]
+Mysterious Merchant
+
+[MCID_S002_PLACE]
+Bandits' Hideout
+
+[MCID_S002_OUTLINE]
+In a bandit stronghold, a little thief
+is looking for treasure.
+
+[MCID_S003_PREFIX]
+Paralogue
+
+[MCID_S003]
+The Exalt
+
+[MCID_S003_PLACE]
+Arena of the Gods
+
+[MCID_S003_OUTLINE]
+A place of significance to Emblem
+Lucina. Here, the Divine Dragon
+will face an important trial. 
+
+[MCID_S004_PREFIX]
+Paralogue
+
+[MCID_S004]
+The Lady of the Plains
+
+[MCID_S004_PLACE]
+Plains of Swift Winds
+
+[MCID_S004_OUTLINE]
+A place of significance to Emblem
+Lyn. Here, the Divine Dragon will
+face an important trial. 
+
+[MCID_S005_PREFIX]
+Paralogue
+
+[MCID_S005]
+The Radiant Hero
+
+[MCID_S005_PLACE]
+Fort of Hope
+
+[MCID_S005_OUTLINE]
+A place of significance to Emblem
+Ike. Here, the Divine Dragon will
+face an important trial. 
+
+[MCID_S006_PREFIX]
+Paralogue
+
+[MCID_S006]
+The Instructor
+
+[MCID_S006_PLACE]
+Sacred Tomb
+
+[MCID_S006_OUTLINE]
+A place of significance to Emblem
+Byleth. Here, the Divine Dragon
+will face an important trial. 
+
+[MCID_S007_PREFIX]
+Paralogue
+
+[MCID_S007]
+The Crux of Fate
+
+[MCID_S007_PLACE]
+Crossroads of Fate
+
+[MCID_S007_OUTLINE]
+A place of significance to Emblem
+Corrin. Here, the Divine Dragon
+will face an important trial. 
+
+[MCID_S008_PREFIX]
+Paralogue
+
+[MCID_S008]
+The Azure Twin
+
+[MCID_S008_PLACE]
+Dark Ruins
+
+[MCID_S008_OUTLINE]
+A place of significance to Emblem
+Eirika. Here, the Divine Dragon
+will face an important trial. 
+
+[MCID_S009_PREFIX]
+Paralogue
+
+[MCID_S009]
+The Holy Knight
+
+[MCID_S009_PLACE]
+River of Light and Dark
+
+[MCID_S009_OUTLINE]
+A place of significance to Emblem
+Sigurd. Here, the Divine Dragon
+will face an important trial. 
+
+[MCID_S010_PREFIX]
+Paralogue
+
+[MCID_S010]
+The Sage Lord
+
+[MCID_S010_PLACE]
+Bridges in a Row
+
+[MCID_S010_OUTLINE]
+A place of significance to Emblem
+Leif. Here, the Divine Dragon will
+face an important trial. 
+
+[MCID_S011_PREFIX]
+Paralogue
+
+[MCID_S011]
+The Dawn Maiden
+
+[MCID_S011_PLACE]
+Frozen Fortress
+
+[MCID_S011_OUTLINE]
+A place of significance to Emblem
+Micaiah. Here, the Divine Dragon
+will face an important trial. 
+
+[MCID_S012_PREFIX]
+Paralogue
+
+[MCID_S012]
+The Young Lion
+
+[MCID_S012_PLACE]
+The Binding Grounds
+
+[MCID_S012_OUTLINE]
+A place of significance to Emblem
+Roy. Here, the Divine Dragon will
+face an important trial. 
+
+[MCID_S013_PREFIX]
+Paralogue
+
+[MCID_S013]
+The Caring Princess
+
+[MCID_S013_PLACE]
+Forgotten Shrine
+
+[MCID_S013_OUTLINE]
+A place of significance to Emblem
+Celica. Here, the Divine Dragon
+will face an important trial. 
+
+[MCID_S014_PREFIX]
+Paralogue
+
+[MCID_S014]
+The Hero-King
+
+[MCID_S014_PLACE]
+The Broken Castle
+
+[MCID_S014_OUTLINE]
+A place of significance to Emblem
+Marth. Here, the Divine Dragon will
+face an important trial. 
+
+[MCID_S015_PREFIX]
+Paralogue
+
+[MCID_S015]
+The Connector
+
+[MCID_S015_PLACE]
+Garden of Memories
+
+[MCID_S015_OUTLINE]
+A mysterious ring is enshrined in
+a place that feels similar to the
+Lythos Castle gardens.
+
+[MID_ENCOUNT]
+Skirmish
+
+[MID_ENCOUNT_TRAINING]
+Training
+
+[MID_RULE_Title]
+Victory:
+
+[MID_RULE_Title_LOSE]
+Defeat: 
+
+[MID_RULE_ANNIHILATE]
+Rout the enemy.
+
+[MID_RULE_DESTROY_BOSS]
+Defeat enemy commander.
+
+[MID_RULE_DESTROY_BOSS_TURN]
+Defeat enemy commander in $Arg(0) turns.
+
+[MID_RULE_SURVIVE_TURN]
+Survive for $Arg(0) turns.
+
+[MID_RULE_COMMON_LOSE]
+$P is defeated.
+
+[MID_RULE_WANNIHILATION_LOSE]
+All allies are defeated.
+
+[MID_RULE_M000_WIN]
+Rout the enemy.
+
+[MID_RULE_M001_WIN]
+Rout the enemy.
+
+[MID_RULE_M002_WIN]
+Defeat Boss.
+
+[MID_RULE_M003_WIN]
+Rout the enemy.
+
+[MID_RULE_M004_WIN]
+Defeat Boss.
+
+[MID_RULE_M005_WIN]
+Defeat Boss.
+
+[MID_RULE_M006_WIN]
+Defeat Boss.
+
+[MID_RULE_M006_LOSE]
+$P or Yunaka is defeated. 
+
+[MID_RULE_M007_WIN]
+Defeat Boss.
+
+[MID_RULE_M008_WIN]
+Defeat Boss.
+
+[MID_RULE_M008_LOSE]
+$P is defeated or foes reach area.
+
+[MID_RULE_M009_WIN]
+Defeat Boss. 
+
+[MID_RULE_M010_WIN]
+Defeat ALL Bosses.
+
+[MID_RULE_M011_WIN]
+$P escapes.
+
+[MID_RULE_M012_WIN]
+Rout the enemy.
+
+[MID_RULE_M013_WIN]
+Defeat ALL Bosses.
+
+[MID_RULE_M014_WIN]
+Defeat ALL Bosses.
+
+[MID_RULE_M015_WIN]
+Seadall escapes. 
+
+[MID_RULE_M015_LOSE]
+$P or Seadall is defeated.
+
+[MID_RULE_M016_WIN]
+Defeat ALL Bosses.
+
+[MID_RULE_M017_WIN]
+Defeat ALL Bosses.
+
+[MID_RULE_M018_WIN]
+Defeat Boss.
+
+[MID_RULE_M019_WIN]
+Defeat ALL Bosses.
+
+[MID_RULE_M020_WIN]
+Defeat Boss.
+
+[MID_RULE_M021_WIN]
+Defeat Boss.
+
+[MID_RULE_M022_WIN]
+Recover all of the Emblem Rings.
+
+[MID_RULE_M023_WIN]
+Defeat ALL Bosses.
+
+[MID_RULE_M024_WIN]
+Defeat Boss.
+
+[MID_RULE_M024_LOSE]
+$P is defeated or $Arg(0) turns pass.
+
+[MID_RULE_M025_WIN]
+Defeat Boss.
+
+[MID_RULE_M026_WIN]
+Defeat Boss.
+
+[MID_RULE_S001_WIN]
+Rout the enemy.
+
+[MID_RULE_S002_WIN]
+Defeat Boss.
+
+[MID_RULE_S003_WIN]
+Defeat Boss.
+
+[MID_RULE_S004_WIN]
+Defeat Boss.
+
+[MID_RULE_S005_WIN]
+Defeat Boss.
+
+[MID_RULE_S006_WIN]
+Defeat Boss.
+
+[MID_RULE_S007_WIN]
+Defeat Boss.
+
+[MID_RULE_S008_WIN]
+Defeat Boss.
+
+[MID_RULE_S009_WIN]
+Defeat Boss.
+
+[MID_RULE_S010_WIN]
+Defeat Boss.
+
+[MID_RULE_S011_WIN]
+Defeat Boss.
+
+[MID_RULE_S011_LOSE]
+$P is defeated or foes reach area.
+
+[MID_RULE_S012_WIN]
+Defeat Boss.
+
+[MID_RULE_S013_WIN]
+Defeat Boss.
+
+[MID_RULE_S014_WIN]
+Defeat Boss.
+
+[MID_RULE_S015_WIN]
+Recover the ring. 
+
+[MID_RULE_S015_LOSE]
+$P is defeated or foe escapes.
+
+[MID_RULE_TURN_LOSE]
+$P is defeated or $Arg(0) turns pass.
+
+[MID_RULE_VERSUS_LOSE]
+All allies are defeated, or $Arg(0) turns pass.
+
+[MTID_Nothing]
+No Effect
+
+[MTID_Engage]
+Emblem Energy
+
+[MTID_SoulOfDead]
+Spirit
+
+[MTID_GuardFence]
+Fence
+
+[MTID_BreakableWall]
+Rickety Wall
+
+[MTID_Cargo]
+Junk
+
+[MTID_Crystal]
+Crystal
+
+[MTID_Pedestal]
+Central Pedestal
+
+[MTID_Rock]
+Rock
+
+[MTID_RockLarge]
+Boulder
+
+[MTID_Sandbag]
+Sandbags
+
+[MTID_Chair]
+Bench
+
+[MTID_Paling]
+Palisade
+
+[MTID_Barrier]
+Bulwark
+
+[MTID_ObstacleLow]
+Obstacles
+
+[MTID_Altar]
+Altar
+
+[MTID_Rubble]
+Rubble
+
+[MTID_Pier]
+Pier
+
+[MTID_Ground]
+Ground
+
+[MTID_Forest]
+Forest
+
+[MTID_Grove]
+Woods
+
+[MTID_Desert]
+Sand
+
+[MTID_Quicksand]
+Quicksand
+
+[MTID_Shallow]
+Shoal
+
+[MTID_River]
+River
+
+[MTID_Waterway]
+Moat
+
+[MTID_Mountain]
+Mountain
+
+[MTID_Sky]
+Sky
+
+[MTID_Bridge]
+Bridge
+
+[MTID_BridgeBroken]
+Collapsed Bridge
+
+[MTID_BridgeRise]
+Raised Bridge
+
+[MTID_Ruin]
+Ruins
+
+[MTID_Windmill]
+Windmill
+
+[MTID_PrivateHouse]
+House
+
+[MTID_House]
+Edifice
+
+[MTID_StoneStatue]
+Statue
+
+[MTID_Building]
+Building
+
+[MTID_Hull]
+Ship
+
+[MTID_Sarcophagus]
+Coffin
+
+[MTID_Object]
+Obstacle
+
+[MTID_Bush]
+Thicket
+
+[MTID_Sea]
+Open Water
+
+[MTID_Tile]
+Floor
+
+[MTID_Lava]
+Lava
+
+[MTID_Wall]
+Wall
+
+[MTID_Stairs]
+Stairs
+
+[MTID_SummonCircle]
+Sigil
+
+[MTID_WallLow]
+Low Wall
+
+[MTID_Door]
+Door
+
+[MTID_Chest]
+Chest
+
+[MTID_Chest_Empty]
+Empty Chest
+
+[MTID_Roof]
+Rooftop
+
+[MTID_TileCollapsed]
+Collapsed Floor
+
+[MTID_TileRecovery]
+Heal Tile
+
+[MTID_TileDefense]
+Protection Tile
+
+[MTID_Fort]
+Fort
+
+[MTID_Pillar]
+Pillars
+
+[MTID_PillarLarge]
+Large Pillar
+
+[MTID_Cliff]
+Cliff
+
+[MTID_Bonfire]
+Beacon
+
+[MTID_Candlestick]
+Candelabra
+
+[MTID_Beach]
+Beach
+
+[MTID_Shrubbery]
+Shrubbery
+
+[MTID_Deck]
+Deck
+
+[MTID_Mast]
+Mast
+
+[MTID_EvilDragonVein]
+Fell Dragon Shard
+
+[MTID_BowCannon]
+Ballista
+
+[MTID_MagicCannon]
+Magic Artillery
+
+[MTID_FireCannon]
+Flame Cannon
+
+[MTID_Ring_Siglud]
+Ring of the Holy Knight
+
+[MTID_Ring_Celica]
+Ring of the Caring Princess
+
+[MTID_Ring_Micaiah]
+Ring of the Dawn Maiden
+
+[MTID_Ring_Roy]
+Ring of the Young Lion
+
+[MTID_Ring_Leaf]
+Ring of the Sage Lord
+
+[MTID_Ring_Lucina]
+Ring of the Princess Exalt
+
+[MTID_Ring_Lin]
+Ring of the Lady of the Plains
+
+[MTID_Ring_Ike]
+Ring of the Radiant Hero
+
+[MTID_Ring_Byleth]
+Ring of the Instructor
+
+[MTID_Ring_Kamui]
+Ring of the Crux of Fate
+
+[MTID_Ring_Eirik]
+Ring of the Azure Twins
+
+[MTID_NoEntry]
+Off-Limits
+
+[MTID_HelpSpot]
+Entryway
+
+[MTID_Sandbox]
+Sand
+
+[MTID_GoldMountain]
+Pile of Gold
+
+[MTID_Spring]
+Pool
+
+[MTID_IceFloor]
+Ice
+
+[MTID_Snowman]
+Snowman
+
+[MTID_Hay]
+Hay
+
+[MTID_Cactus]
+Cacti
+
+[MTID_RoseArch]
+Arches
+
+[MTID_Remains]
+Ruins
+
+[MTID_Cart]
+Wagon
+
+[MTID_Well]
+Well
+
+[MTID_Loading]
+Crates
+
+[MTID_Fence]
+Barricade
+
+[MTID_AnimalStatue]
+Alpaca Statue
+
+[MTID_SoraStatue]
+Spirit Statue
+
+[MTID_EarthPillar]
+Stone Pillars
+
+[MTID_Fog]
+Fog
+
+[MTID_Fire]
+Flames
+
+[MTID_RoyFire]
+The Lion's Flames
+
+[MTID_Miasma]
+Miasma
+
+[MTID_Aroma]
+Glow
+
+[MTID_Block]
+Ice Pillar
+
+[MTID_Water]
+Water
+
+[MTID_Ivy]
+Vines
+
+[MTID_Light]
+Shine
+
+[MID_TE_Avoid]
+Avo
+
+[MID_TE_Heal]
+Heal/Turn
+
+[MID_TE_Damage]
+Damage/Turn
+
+[MID_TE_Def]
+Def
+
+[MID_TE_MDef]
+Res
+
+[MID_TE_PlayerDamage]
+Ally Def/Res
+
+[MID_TE_EnemyDamage]
+Foe Def/Res
+
+[MID_TE_Break]
+Unbreakable
+
+[MID_TE_FlightOnly]
+Fliers Only
+
+[MID_TE_NoEntry]
+Impassable
+
+[MID_TE_Destroy]
+Destructible
+
+[MID_TE_Shine]
+Lights up surrounding spaces.
+
+[MID_TE_HelpSpot]
+Deploy units
+
+[MID_TE_Cannon_Attack]
+Atk
+
+[MID_TE_Cannon_Hit]
+Hit
+
+[MID_TE_Cannon_Stock]
+$Arg(0)/$Arg(1)
+
+[MID_TE_Skill_Effect]
+Skill Effects
+
+[MID_TE_Move]
+Mov
+
+[MID_RULE_M005_LOSE]
+$P is defeated or spend over $Arg(0) turns.

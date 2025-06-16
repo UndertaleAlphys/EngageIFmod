@@ -4065,29 +4065,13 @@ MSID_CrtMoreDmg
 [MSID_Pioneer]
 先驱
 
-[MSID_H_Pioneer_Not_Engaging]
-可使用"先驱"指令
-消耗3结合计量条
-于本场战斗中视为拥有
-"守备封"和"魔防封"
-若目标死亡，上述技能
-改为对其2格内敌人发动
-
 [MSID_H_Pioneer_CMD]
 视为拥有"守备封"和"魔防封"
 对方死亡改为对其周围2格发动
 
-[MSID_H_Pioneer_Engaging]
-可使用"先驱"指令
-消耗1结合回合
-于本场战斗中视为拥有
-"守备封"和"魔防封"
-若目标死亡，上述技能
-改为对其2格内敌人发动
-
 [MSID_H_Pioneer]
 可使用"先驱"指令
-以一定代价
+消耗3结合计量条或1结合回合
 于本场战斗中视为拥有
 "守备封"和"魔防封"
 若目标死亡，上述技能
@@ -4129,24 +4113,12 @@ MSID_CrtMoreDmg
 
 [MSID_H_CurvedShot]
 可使用【曲射】指令
-消耗一定代价
+消耗4结合计量条或2结合回合
 使弓或手里剑的射程+1
 但命中减少20×(战斗距离-2)
 
 [MSID_H_CurvedShot_CMD]
 使弓或手里剑射程+1
-
-[MSID_H_CurvedShot_Not_Engaging]
-可使用【曲射】指令
-消耗4结合计量条
-使弓或手里剑的射程+1
-但命中减少20×(战斗距离-2)
-
-[MSID_H_CurvedShot_Engaging]
-可使用【曲射】指令
-消耗2结合回合
-使弓或手里剑的射程+1
-但命中减少20×(战斗距离-2)
 
 [MSID_Blade]
 巧刃
@@ -4225,14 +4197,6 @@ MSID_CrtMoreDmg
 消耗5结合计量条或2结合回合
 发出强而有力的3拳
 
-[MSID_H_FierceIronFist_Not_Engaging_CMD]
-消耗5结合计量条
-发出强而有力的3拳
-
-[MSID_H_FierceIronFist_Engaging_CMD]
-消耗2结合回合
-发出强而有力的3拳
-
 [MSID_MonsterCrusher]
 魔物崩击
 
@@ -4243,14 +4207,6 @@ MSID_CrtMoreDmg
 
 [MSID_H_MonsterCrusher_CMD]
 消耗4结合计量条或2结合回合
-挥出克制异形且无视异形一半防御的2拳
-
-[MSID_H_MonsterCrusher_Not_Engaging_CMD]
-消耗4结合计量条
-挥出克制异形且无视异形一半防御的2拳
-
-[MSID_H_MonsterCrusher_Engaging_CMD]
-消耗2结合回合
 挥出克制异形且无视异形一半防御的2拳
 
 [MSID_Art]

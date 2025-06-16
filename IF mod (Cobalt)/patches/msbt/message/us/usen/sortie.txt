@@ -1,0 +1,389 @@
+[MID_SORTIE_START]
+Fight!
+
+[MID_SORTIE_START_HELP]
+End preparations and start battle.
+
+[MID_SORTIE_START_CONFIRM]
+Ready?
+
+[MID_SORTIE_START_CONFIRM_YES]
+Start
+
+[MID_SORTIE_BACK]
+Back
+
+[MID_SORTIE_SELECT_UNIT]
+Unit Selection
+
+[MID_SORTIE_SELECT_UNIT_SELECT]
+Select a unit.
+
+[MID_SORTIE_SELECT_UNIT_HELP]
+Choose which allies will fight.
+
+[MID_SORTIE_EQUIP_GOD]
+Emblem Rings
+
+[MID_SORTIE_EQUIP_GOD_HELP]
+Assign Emblem Rings$Arg(9) to units.
+
+[MID_SORTIE_INVENTORY]
+Inventory
+
+[MID_SORTIE_INVENTORY_HELP]
+Manage equipment and skills.
+
+[MID_SORTIE_CHANGE_POSITION]
+Swap Spaces
+
+[MID_SORTIE_CHANGE_POSITION_HELP]
+Position units on the map.
+
+[MID_SORTIE_SHOP]
+Marketplace
+
+[MID_SORTIE_SHOP_HELP]
+Buy weapons and items.
+
+[MID_SORTIE_WEAPON_SHOP]
+Armory
+
+[MID_SORTIE_H_WEAPON_SHOP]
+Buy weapons.
+
+[MID_SORTIE_ITEM_SHOP]
+Item Shop
+
+[MID_SORTIE_H_ITEM_SHOP]
+Buy items.
+
+[MID_SORTIE_RELIANCE]
+Support
+
+[MID_SORTIE_RELIANCE_UNIT_SELECT]
+Select an ally.
+
+[MID_SORTIE_RELIANCE_NONE]
+No supports.
+
+[MID_SORTIE_BONDS_RELIANCE]
+Bonds
+
+[MID_SORTIE_BONDS_RELIANCE_NONE]
+No Emblems.
+
+[MID_SORTIE_RELIANCE_ATTENTION]
+You can have bond and support conversations
+at the Somniel and on the world map.
+
+[MID_SORTIE_SAVE]
+Save
+
+[MID_SORTIE_SAVE_HELP]
+Save current progress.
+
+[MID_SORTIE_BACK_CONFIRM_HELP]
+Return to the world map.
+
+[MID_SORTIE_BACK_CONFIRM]
+Return to the world map?
+
+[MID_SORTIE_BACK_CONFIRM_HELP_M026]
+Return to the Somniel
+
+[MID_SORTIE_BACK_CONFIRM_M026]
+Return to the Somniel?
+
+[MID_SORTIE_CONTINUEBATTLE_NOSELECT]
+Cannot select during an
+ongoing series of battles.
+
+[MID_SORTIE_COMMON_TRADE]
+Swap
+
+[MID_SORTIE_UNIT_ITEM]
+Manage Items
+
+[MID_SORTIE_UNIT_ITEM_LIST]
+Items
+
+[MID_SORTIE_UNIT_TRADE]
+Trade
+
+[MID_SORTIE_UNIT_ENTRUST]
+Optimize Equipment
+
+[MID_SORTIE_UNIT_ENTRUST_WARNING1]
+There were not enough items in the
+convoy to properly equip this unit.
+
+[MID_SORTIE_UNIT_ENTRUST_WARNING2]
+Equipment could not be optimized
+because there is not enough room
+in the convoy.
+
+[MID_SORTIE_UNIT_STORE]
+Store
+
+[MID_SORTIE_UNIT_STORE_ALL]
+Store All
+
+[MID_SORTIE_UNIT_STORE_ALL_WARNING]
+Either the convoy is full or there
+were items that couldn't be stored.
+
+[MID_SORTIE_UNIT_SKILL_OPEN]
+You can now manage your skills.
+
+[MID_SORTIE_UNIT_SKILL]
+Manage Skills
+
+[MID_SORTIE_UNIT_CLASSCHANGE]
+Change Class
+
+[MID_SORTIE_ALL_UNITS_ENTRUST]
+Optimize All
+
+[MID_SORTIE_ALL_UNITS_ENTRUST_CONFIRM]
+Optimize your fighting units'
+equipment? (Items held by other
+units will be sent to the convoy.)
+
+[MID_SORTIE_ALL_UNITS_ENTRUST_ERROR]
+You can use Optimize All after you've selected
+your fighting units during battle preparations.
+
+[MID_SORTIE_ALL_UNITS_ENTRUST_Yes]
+Optimize
+
+[MID_SORTIE_ALL_UNITS_ENTRUST_WARNING1]
+There were not enough items in
+the convoy to properly equip all
+fighting units.
+
+[MID_SORTIE_ALL_UNITS_ENTRUST_WARNING2]
+Equipment could not be optimized
+because the convoy is full.
+
+[MID_SORTIE_ALL_UNITS_STORE_ALL]
+Store All
+
+[MID_SORTIE_ALL_UNITS_STORE_ALL_CONFIRM]
+Store all items with the convoy?
+
+[MID_SORTIE_ALL_UNITS_STORE_ALL_WARNING]
+Not all of this unit's items could be
+stored because the convoy is full.
+
+[MID_SORTIE_ALL_UNITS_ENTRUST_GOD]
+Optimize All
+
+[MID_SORTIE_ALL_UNITS_ENTRUST_GOD_CONFIRM]
+Optimize your fighting units' rings$Arg(11)?
+
+[MID_SORTIE_ALL_UNITS_ENTRUST_GOD_Yes]
+Optimize
+
+[MID_SORTIE_ALL_UNITS_ENTRUST_GOD_No]
+Cancel
+
+[MID_SORTIE_ALL_UNITS_STORE_ALL_GOD]
+Remove All
+
+[MID_SORTIE_ALL_UNITS_STORE_ALL_GOD_CONFIRM]
+Remove all units' rings$Arg(11)?
+
+[MID_SORTIE_ALL_UNITS_STORE_ALL_GOD_Yes]
+Remove
+
+[MID_SORTIE_ALL_UNITS_STORE_ALL_GOD_No]
+Cancel
+
+[MID_SORTIE_UNIT_NONE]
+No units available.
+
+[MID_TROOPLIST_PAGETITLE_BASIC]
+Status
+
+[MID_TROOPLIST_PAGETITLE_STATUS]
+Basic Stats
+
+[MID_TROOPLIST_PAGETITLE_BATTLE]
+Combat Stats
+
+[MID_SORTIE_INVENTORY_STORE]
+Store
+
+[MID_SORTIE_INVENTORY_RECEIVE]
+Take
+
+[MID_SORTIE_INVENTORY_EQUIP]
+Equip
+
+[MID_SORTIE_INVENTORY_REMOVE]
+Unequip
+
+[MID_SORTIE_INVENTORY_ARRANGE]
+Arrange
+
+[MID_SORTIE_INVENTORY_USE]
+Use
+
+[MID_SORTIE_INVENTORY_DISCARD]
+Discard
+
+[MID_SORTIE_INVENTORY_EMPTY]
+(No items)
+
+[MID_SORTIE_SKILL_CATEGORY_PERSON]
+Personal
+
+[MID_SORTIE_SKILL_CATEGORY_JOB]
+Class
+
+[MID_SORTIE_SKILL_CATEGORY_INHERITANCE]
+Inherited
+
+[MID_SORTIE_SKILL_CATEGORY_GOD]
+Sync
+
+[MID_SORTIE_SKILL_CATEGORY_ENGAGE]
+Engage
+
+[MID_SORTIE_SKILL_CATEGORY_BONDS]
+Bond
+
+[MID_SORTIE_SKILL_CATEGORY_EQUIPED]
+Equipped
+
+[MID_SORTIE_SKILL_OVERLAPPING]
+Overlap
+
+[MID_SORTIE_SKILL_SUPPLEMENT_HELP]
+Overlaps with current skills.
+
+[MID_SORTIE_SKILL_POOL_NONE]
+(None)
+
+[MID_SORTIE_SKILL_POOL_TITLE]
+Inherited Skills
+
+[MID_SORTIE_CLASSCHANGE_NEED_LV]
+Req. Lvl
+
+[MID_SORTIE_CLASSCHANGE_NEED_APTITUDE]
+Req. Prof.
+
+[MID_SORTIE_CLASSCHANGE_HAVE_APTITUDE]
+Proficiencies
+
+[MID_SORTIE_CLASSCHANGE_NEED_ITEM]
+Item Cost
+
+[MID_SORTIE_CLASSCHANGE_SKILL_LEVEL]
+Learned at Lvl $Arg(0)
+
+[MID_SORTIE_CLASSCHANGE_NONE]
+Cannot currently change class.
+
+[MID_SORTIE_CLASSCHANGE_CONFIRM_DIALOG]
+Change to the $Arg(0) class?
+
+[MID_SORTIE_CLASSCHANGE_CONFIRM_DIALOG_YES]
+Change Class
+
+[MID_SORTIE_CLASSCHANGE_NEED_JOB]
+$Arg(0) Lvl $Arg(1)
+
+[MID_SORTIE_CLASSCHANGE_BASIC_ARMOR]
+Sword/Lance/Axe Armor
+
+[MID_SORTIE_CLASSCHANGE_BASIC_KNIGHT]
+Sword/Lance/Axe Cavalier
+
+[MID_SORTIE_CLASSCHANGE_BASIC_PEGASUS]
+Sword/Lance/Axe Flier
+
+[MID_SELECTRING_TITLE_GOD]
+Emblem Rings$Arg(9)
+
+[MID_SELECTRING_REMOVE]
+Remove $Arg(0)?
+
+[MID_SELECTRING_CHANGE]
+Remove $Arg(0)
+and equip $Arg(1)?
+
+[MID_SELECTRING_CHANGE_REMOVE]
+Remove $Arg(0) and equip $Arg(1)? $Arg(2) is currently using it.
+
+[MID_SELECTRING_SET]
+Equip $Arg(0)?
+
+[MID_SELECTRING_SET_REMOVE]
+Equip $Arg(0)? 
+$Arg(1) is currently using it.
+
+[MID_SELECTRING_REMOVE_CONFIRM]
+Remove
+
+[MID_SELECTRING_SET_CONFIRM]
+Equip
+
+[MID_SELECTRING_GOD_CHANGE_YES]
+Change
+
+[MID_SELECTRING_GOD_EMPTY]
+No Emblem Rings$Arg(9).
+
+[MID_SELECTRING_COMMON_EMPTY]
+No Bond Rings.
+
+[MID_SELECTRING_LUEUR_NOTES]
+Emblem $P
+can engage by using
+Engage+ during battle.
+
+[MID_SORTIE_TITLE_UNIT_SELECT]
+Unit Selection
+
+[MID_SORTIE_TITLE_UNIT_SELECT_ITEM]
+Inventory
+
+[MID_SORTIE_TITLE_RING_SELECT]
+Emblem Rings
+
+[MID_SORTIE_TITLE_INVENTORY]
+Manage Items
+
+[MID_SORTIE_TITLE_TRADE]
+Trade
+
+[MID_SORTIE_TITLE_SKILL]
+Manage Skills
+
+[MID_SORTIE_TITLE_CLASSCHANGE]
+Change Class
+
+[MID_SORTIE_TITLEHELP_UNIT_SELECT]
+Select which allies will fight.
+
+[MID_SORTIE_TITLEHELP_UNIT_SELECT_ITEM]
+Select units.
+
+[MID_SORTIE_TITLEHELP_RING_SELECT]
+Select Emblem Rings$Arg(9).
+
+[MID_SORTIE_TITLEHELP_INVENTORY]
+Select items.
+
+[MID_SORTIE_TITLEHELP_TRADE]
+Select items to trade.
+
+[MID_SORTIE_TITLEHELP_SKILL]
+Select skills to equip.
+
+[MID_SORTIE_TITLEHELP_CLASSCHANGE]
+Select a class.
+

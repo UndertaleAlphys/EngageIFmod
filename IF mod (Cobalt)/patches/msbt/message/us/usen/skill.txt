@@ -1,0 +1,5018 @@
+[MSID_Hp_5]
+HP +5
+
+[MSID_H_Hp_5]
+Grants max HP+5.
+
+[MSID_Hp_7]
+HP +7
+
+[MSID_H_Hp_7]
+Grants max HP+7.
+
+[MSID_Hp_10]
+HP +10
+
+[MSID_H_Hp_10]
+Grants max HP+10.
+
+[MSID_Hp_12]
+HP +12
+
+[MSID_H_Hp_12]
+Grants max HP+12.
+
+[MSID_Hp_15]
+HP +15
+
+[MSID_H_Hp_15]
+Grants max HP+15.
+
+[MSID_Str_1]
+Strength +1
+
+[MSID_H_Str_1]
+Grants Str+1.
+
+[MSID_Str_2]
+Strength +2
+
+[MSID_H_Str_2]
+Grants Str+2.
+
+[MSID_Str_3]
+Strength +3
+
+[MSID_H_Str_3]
+Grants Str+3.
+
+[MSID_Str_4]
+Strength +4
+
+[MSID_H_Str_4]
+Grants Str+4.
+
+[MSID_Str_5]
+Strength +5
+
+[MSID_H_Str_5]
+Grants Str+5.
+
+[MSID_Str_6]
+Strength +6
+
+[MSID_H_Str_6]
+Grants Str+6.
+
+[MSID_Tec_1]
+Dexterity +1
+
+[MSID_H_Tec_1]
+Grants Dex+1.
+
+[MSID_Tec_2]
+Dexterity +2
+
+[MSID_H_Tec_2]
+Grants Dex+2.
+
+[MSID_Tec_3]
+Dexterity +3
+
+[MSID_H_Tec_3]
+Grants Dex+3.
+
+[MSID_Tec_4]
+Dexterity +4
+
+[MSID_H_Tec_4]
+Grants Dex+4.
+
+[MSID_Tec_5]
+Dexterity +5
+
+[MSID_H_Tec_5]
+Grants Dex+5.
+
+[MSID_Spd_1]
+Speed +1
+
+[MSID_H_Spd_1]
+Grants Spd+1.
+
+[MSID_Spd_2]
+Speed +2
+
+[MSID_H_Spd_2]
+Grants Spd+2.
+
+[MSID_Spd_3]
+Speed +3
+
+[MSID_H_Spd_3]
+Grants Spd+3.
+
+[MSID_Spd_4]
+Speed +4
+
+[MSID_H_Spd_4]
+Grants Spd+4.
+
+[MSID_Spd_5]
+Speed +5
+
+[MSID_H_Spd_5]
+Grants Spd+5.
+
+[MSID_Lck_2]
+Luck +2
+
+[MSID_H_Lck_2]
+Grants Lck+2.
+
+[MSID_Lck_4]
+Luck +4
+
+[MSID_H_Lck_4]
+Grants Lck+4.
+
+[MSID_Lck_6]
+Luck +6
+
+[MSID_H_Lck_6]
+Grants Lck+6.
+
+[MSID_Lck_8]
+Luck +8
+
+[MSID_H_Lck_8]
+Grants Lck+8.
+
+[MSID_Lck_10]
+Luck +10
+
+[MSID_H_Lck_10]
+Grants Lck+10.
+
+[MSID_Lck_12]
+Luck +12
+
+[MSID_H_Lck_12]
+Grants Lck+12.
+
+[MSID_Def_1]
+Defense +1
+
+[MSID_H_Def_1]
+Grants Def+1.
+
+[MSID_Def_2]
+Defense +2
+
+[MSID_H_Def_2]
+Grants Def+2.
+
+[MSID_Def_3]
+Defense +3
+
+[MSID_H_Def_3]
+Grants Def+3.
+
+[MSID_Def_4]
+Defense +4
+
+[MSID_H_Def_4]
+Grants Def+4.
+
+[MSID_Def_5]
+Defense +5
+
+[MSID_H_Def_5]
+Grants Def+5.
+
+[MSID_Mag_2]
+Magic +2
+
+[MSID_H_Mag_2]
+Grants Mag+2.
+
+[MSID_Mag_3]
+Magic +3
+
+[MSID_H_Mag_3]
+Grants Mag+3.
+
+[MSID_Mag_4]
+Magic +4
+
+[MSID_H_Mag_4]
+Grants Mag+4.
+
+[MSID_Mag_5]
+Magic +5
+
+[MSID_H_Mag_5]
+Grants Mag+5.
+
+[MSID_Res_2]
+Resistance +2
+
+[MSID_H_Res_2]
+Grants Res+2.
+
+[MSID_Res_3]
+Resistance +3
+
+[MSID_H_Res_3]
+Grants Res+3.
+
+[MSID_Res_4]
+Resistance +4
+
+[MSID_H_Res_4]
+Grants Res+4.
+
+[MSID_Res_5]
+Resistance +5
+
+[MSID_H_Res_5]
+Grants Res+5.
+
+[MSID_Phy_3]
+Build +3
+
+[MSID_H_Phy_3]
+Grants Bld+3.
+
+[MSID_Phy_4]
+Build +4
+
+[MSID_H_Phy_4]
+Grants Bld+4.
+
+[MSID_Phy_5]
+Build +5
+
+[MSID_H_Phy_5]
+Grants Bld+5.
+
+[MSID_Mov_1]
+Movement +1
+
+[MSID_H_Mov_1]
+Grants Mov+1.
+
+[MSID_Avo_10]
+Avoid +10
+
+[MSID_H_Avo_10]
+Grants Avo+10.
+
+[MSID_Avo_15]
+Avoid +15
+
+[MSID_H_Avo_15]
+Grants Avo+15.
+
+[MSID_Avo_20]
+Avoid +20
+
+[MSID_H_Avo_20]
+Grants Avo+20.
+
+[MSID_Avo_25]
+Avoid +25
+
+[MSID_H_Avo_25]
+Grants Avo+25.
+
+[MSID_Avo_30]
+Avoid +30
+
+[MSID_H_Avo_30]
+Grants Avo+30.
+
+[MSID_Hit_10]
+Hit +10
+
+[MSID_H_Hit_10]
+Grants Hit+10.
+
+[MSID_Hit_15]
+Hit +15
+
+[MSID_H_Hit_15]
+Grants Hit+15.
+
+[MSID_Hit_20]
+Hit +20
+
+[MSID_H_Hit_20]
+Grants Hit+20.
+
+[MSID_Hit_25]
+Hit +25
+
+[MSID_H_Hit_25]
+Grants Hit+25.
+
+[MSID_Hit_30]
+Hit +30
+
+[MSID_H_Hit_30]
+Grants Hit+30.
+
+[MSID_CriAvo_10]
+Dodge +10
+
+[MSID_H_CriAvo_10]
+Grants Ddg+10.
+
+[MSID_CriAvo_15]
+Dodge +15
+
+[MSID_H_CriAvo_15]
+Grants Ddg+15.
+
+[MSID_CriAvo_20]
+Dodge +20
+
+[MSID_H_CriAvo_20]
+Grants Ddg+20.
+
+[MSID_CriAvo_25]
+Dodge +25
+
+[MSID_H_CriAvo_25]
+Grants Ddg+25.
+
+[MSID_CriAvo_30]
+Dodge +30
+
+[MSID_H_CriAvo_30]
+Grants Ddg+30.
+
+[MSID_SwordArts_Soft_1]
+Sword Agility 1
+
+[MSID_H_SwordArts_Soft_1]
+Grants Avo+10 at a cost of Crit-10
+when using a sword.
+
+[MSID_SwordArts_Soft_2]
+Sword Agility 2
+
+[MSID_H_SwordArts_Soft_2]
+Grants Avo+15 at a cost of Crit-10
+when using a sword.
+
+[MSID_SwordArts_Soft_3]
+Sword Agility 3
+
+[MSID_H_SwordArts_Soft_3]
+Grants Avo+20 at a cost of Crit-10
+when using a sword.
+
+[MSID_SwordArts_Soft_4]
+Sword Agility 4
+
+[MSID_H_SwordArts_Soft_4]
+Grants Avo+25 at a cost of Crit-10
+when using a sword.
+
+[MSID_SwordArts_Soft_5]
+Sword Agility 5
+
+[MSID_H_SwordArts_Soft_5]
+Grants Avo+30 at a cost of Crit-10
+when using a sword.
+
+[MSID_SwordArts_Hard_1]
+Sword Power 1
+
+[MSID_H_SwordArts_Hard_1]
+Grants Atk+2 at a cost of Avo-10
+when using a sword.
+
+[MSID_SwordArts_Hard_2]
+Sword Power 2
+
+[MSID_H_SwordArts_Hard_2]
+Grants Atk+4 at a cost of Avo-10
+when using a sword.
+
+[MSID_SwordArts_Hard_3]
+Sword Power 3
+
+[MSID_H_SwordArts_Hard_3]
+Grants Atk+6 at a cost of Avo-10
+when using a sword.
+
+[MSID_SwordArts_Hard_4]
+Sword Power 4
+
+[MSID_H_SwordArts_Hard_4]
+Grants Atk+8 at a cost of Avo-10
+when using a sword.
+
+[MSID_SwordArts_Hard_5]
+Sword Power 5
+
+[MSID_H_SwordArts_Hard_5]
+Grants Atk+10 at a cost of Avo-10
+when using a sword.
+
+[MSID_SwordArts_Mind_1]
+Sword Focus 1
+
+[MSID_H_SwordArts_Mind_1]
+Grants Hit+10 at a cost of Ddg-10
+when using a sword.
+
+[MSID_SwordArts_Mind_2]
+Sword Focus 2
+
+[MSID_H_SwordArts_Mind_2]
+Grants Hit+15 at a cost of Ddg-10
+when using a sword.
+
+[MSID_SwordArts_Mind_3]
+Sword Focus 3
+
+[MSID_H_SwordArts_Mind_3]
+Grants Hit+20 at a cost of Ddg-10
+when using a sword.
+
+[MSID_SwordArts_Mind_4]
+Sword Focus 4
+
+[MSID_H_SwordArts_Mind_4]
+Grants Hit+25 at a cost of Ddg-10
+when using a sword.
+
+[MSID_SwordArts_Mind_5]
+Sword Focus 5
+
+[MSID_H_SwordArts_Mind_5]
+Grants Hit+30 at a cost of Ddg-10
+when using a sword.
+
+[MSID_LanceArts_Soft_1]
+Lance Agility 1
+
+[MSID_H_LanceArts_Soft_1]
+Grants Avo+10 at a cost of Crit-10
+when using a lance.
+
+[MSID_LanceArts_Soft_2]
+Lance Agility 2
+
+[MSID_H_LanceArts_Soft_2]
+Grants Avo+15 at a cost of Crit-10
+when using a lance.
+
+[MSID_LanceArts_Soft_3]
+Lance Agility 3
+
+[MSID_H_LanceArts_Soft_3]
+Grants Avo+20 at a cost of Crit-10
+when using a lance.
+
+[MSID_LanceArts_Soft_4]
+Lance Agility 4
+
+[MSID_H_LanceArts_Soft_4]
+Grants Avo+25 at a cost of Crit-10
+when using a lance.
+
+[MSID_LanceArts_Soft_5]
+Lance Agility 5
+
+[MSID_H_LanceArts_Soft_5]
+Grants Avo+30 at a cost of Crit-10
+when using a lance.
+
+[MSID_LanceArts_Hard_1]
+Lance Power 1
+
+[MSID_H_LanceArts_Hard_1]
+Grants Atk+2 at a cost of Avo-10
+when using a lance.
+
+[MSID_LanceArts_Hard_2]
+Lance Power 2
+
+[MSID_H_LanceArts_Hard_2]
+Grants Atk+4 at a cost of Avo-10
+when using a lance.
+
+[MSID_LanceArts_Hard_3]
+Lance Power 3
+
+[MSID_H_LanceArts_Hard_3]
+Grants Atk+6 at a cost of Avo-10
+when using a lance.
+
+[MSID_LanceArts_Hard_4]
+Lance Power 4
+
+[MSID_H_LanceArts_Hard_4]
+Grants Atk+8 at a cost of Avo-10
+when using a lance.
+
+[MSID_LanceArts_Hard_5]
+Lance Power 5
+
+[MSID_H_LanceArts_Hard_5]
+Grants Atk+10 at a cost of Avo-10
+when using a lance.
+
+[MSID_AxeArts_Hard_1]
+Axe Power 1
+
+[MSID_H_AxeArts_Hard_1]
+Grants Atk+2 at a cost of Avo-10
+when using an axe.
+
+[MSID_AxeArts_Hard_2]
+Axe Power 2
+
+[MSID_H_AxeArts_Hard_2]
+Grants Atk+4 at a cost of Avo-10
+when using an axe.
+
+[MSID_AxeArts_Hard_3]
+Axe Power 3
+
+[MSID_H_AxeArts_Hard_3]
+Grants Atk+6 at a cost of Avo-10
+when using an axe.
+
+[MSID_AxeArts_Hard_4]
+Axe Power 4
+
+[MSID_H_AxeArts_Hard_4]
+Grants Atk+8 at a cost of Avo-10
+when using an axe.
+
+[MSID_AxeArts_Hard_5]
+Axe Power 5
+
+[MSID_H_AxeArts_Hard_5]
+Grants Atk+10 at a cost of Avo-10
+when using an axe.
+
+[MSID_BowArts_Soft_1]
+Bow Agility 1
+
+[MSID_H_BowArts_Soft_1]
+Grants Avo+10 at a cost of Crit-10
+when using a bow.
+
+[MSID_BowArts_Soft_2]
+Bow Agility 2
+
+[MSID_H_BowArts_Soft_2]
+Grants Avo+15 at a cost of Crit-10
+when using a bow.
+
+[MSID_BowArts_Soft_3]
+Bow Agility 3
+
+[MSID_H_BowArts_Soft_3]
+Grants Avo+20 at a cost of Crit-10
+when using a bow.
+
+[MSID_BowArts_Soft_4]
+Bow Agility 4
+
+[MSID_H_BowArts_Soft_4]
+Grants Avo+25 at a cost of Crit-10
+when using a bow.
+
+[MSID_BowArts_Soft_5]
+Bow Agility 5
+
+[MSID_H_BowArts_Soft_5]
+Grants Avo+30 at a cost of Crit-10
+when using a bow.
+
+[MSID_BowArts_Mind_1]
+Bow Focus 1
+
+[MSID_H_BowArts_Mind_1]
+Grants Hit+10 at a cost of Ddg-10
+when using a bow.
+
+[MSID_BowArts_Mind_2]
+Bow Focus 2
+
+[MSID_H_BowArts_Mind_2]
+Grants Hit+15 at a cost of Ddg-10
+when using a bow.
+
+[MSID_BowArts_Mind_3]
+Bow Focus 3
+
+[MSID_H_BowArts_Mind_3]
+Grants Hit+20 at a cost of Ddg-10
+when using a bow.
+
+[MSID_BowArts_Mind_4]
+Bow Focus 4
+
+[MSID_H_BowArts_Mind_4]
+Grants Hit+25 at a cost of Ddg-10
+when using a bow.
+
+[MSID_BowArts_Mind_5]
+Bow Focus 5
+
+[MSID_H_BowArts_Mind_5]
+Grants Hit+30 at a cost of Ddg-10
+when using a bow.
+
+[MSID_MartialArts_Mind_1]
+Art Focus 1
+
+[MSID_H_MartialArts_Mind_1]
+Grants Hit+10 at a cost of Ddg-10
+when using an art.
+
+[MSID_MartialArts_Mind_2]
+Art Focus 2
+
+[MSID_H_MartialArts_Mind_2]
+Grants Hit+15 at a cost of Ddg-10
+when using an art.
+
+[MSID_MartialArts_Mind_3]
+Art Focus 3
+
+[MSID_H_MartialArts_Mind_3]
+Grants Hit+20 at a cost of Ddg-10
+when using an art.
+
+[MSID_MartialArts_Mind_4]
+Art Focus 4
+
+[MSID_H_MartialArts_Mind_4]
+Grants Hit+25 at a cost of Ddg-10
+when using an art.
+
+[MSID_MartialArts_Mind_5]
+Art Focus 5
+
+[MSID_H_MartialArts_Mind_5]
+Grants Hit+30 at a cost of Ddg-10
+when using an art.
+
+[MSID_KnifeArts_1]
+Knife Precision 1
+
+[MSID_H_KnifeArts_1]
+Grants Hit/Avo+3 when using
+a knife.
+
+[MSID_KnifeArts_2]
+Knife Precision 2
+
+[MSID_H_KnifeArts_2]
+Grants Hit/Avo+5 when using
+a knife.
+
+[MSID_KnifeArts_3]
+Knife Precision 3
+
+[MSID_H_KnifeArts_3]
+Grants Hit/Avo+7 when using
+a knife.
+
+[MSID_KnifeArts_4]
+Knife Precision 4
+
+[MSID_H_KnifeArts_4]
+Grants Hit/Avo+10 when using
+a knife.
+
+[MSID_KnifeArts_5]
+Knife Precision 5
+
+[MSID_H_KnifeArts_5]
+Grants Hit/Avo+15 when using
+a knife.
+
+[MSID_MagicArts_1]
+Tome Precision 1
+
+[MSID_H_MagicArts_1]
+Grants Hit/Avo+5 when using
+a tome.
+
+[MSID_MagicArts_2]
+Tome Precision 2
+
+[MSID_H_MagicArts_2]
+Grants Dmg+1, Hit/Avo+5
+when using a tome.
+
+[MSID_MagicArts_3]
+Tome Precision 3
+
+[MSID_H_MagicArts_3]
+Grants Dmg+1, Hit+10, Avo+5 
+when using a tome.
+
+[MSID_MagicArts_4]
+Tome Precision 4
+
+[MSID_H_MagicArts_4]
+Grants Dmg+2, Hit+10, Avo+5
+when using a tome.
+
+[MSID_MagicArts_5]
+Tome Precision 5
+
+[MSID_H_MagicArts_5]
+Grants Dmg+3, Hit/Avo+10
+when using a tome.
+
+[MSID_RodArts_1]
+Staff Mastery 1
+
+[MSID_H_RodArts_1]
+Grants Hit+10 when using a staff.
+Staves also heal an additional 3 HP.
+
+[MSID_RodArts_2]
+Staff Mastery 2
+
+[MSID_H_RodArts_2]
+Grants Hit+15 when using a staff.
+Staves also heal an additional 5 HP.
+
+[MSID_RodArts_3]
+Staff Mastery 3
+
+[MSID_H_RodArts_3]
+Grants Hit+20 when using a staff.
+Staves also heal an additional 7 HP.
+
+[MSID_RodArts_4]
+Staff Mastery 4
+
+[MSID_H_RodArts_4]
+Grants Hit+25 when using a staff.
+Staves also heal an additional 10 HP.
+
+[MSID_RodArts_5]
+Staff Mastery 5
+
+[MSID_H_RodArts_5]
+Grants Hit+30 when using a staff.
+Staves also heal an additional 15 HP.
+
+[MSID_Outclass_1]
+Perceptive
+
+[MSID_H_Outclass_1]
+If unit has triangle advantage,
+unit's Spd+2.
+
+[MSID_Outclass_2]
+Perceptive+
+
+[MSID_H_Outclass_2]
+If unit has triangle advantage,
+unit's Spd+3.
+
+[MSID_Fortitude_1]
+Unyielding
+
+[MSID_H_Fortitude_1]
+If the unit is attacked, and his/her
+HP is lower than 50% after battle,
+grant +1 Mov, and when initiate
+combat, Dmg+5. At the end of each
+player's phase, if the unit has not
+initiate any combat, lose the effect.
+
+[MSID_Fortitude_2]
+Unyielding+
+
+[MSID_H_Fortitude_2]
+If the unit is attacked, and his/her
+HP is lower than 70% after battle,
+grant +1 Mov, and when initiate
+combat, Dmg+7. At the end of each
+player's phase, if the unit has not
+initiate any combat, lose the effect.
+
+[MSID_Fortitude_3]
+Unyielding++
+
+[MSID_MarthEngage]
+Divine Speed
+
+[MSID_H_MarthEngage]
+Unit performs an extra attack
+at 50% damage in combat.
+
+[MSID_H_MarthEngage_Covert]
+Unit performs an extra attack
+at 50% damage in combat.
+[Covert] If extra attack hits,
+poisons foe.
+
+[MSID_H_MarthEngage_Dragon]
+Unit performs an extra attack
+at 50% damage in combat.
+[Dragon] Unit recovers HP equal to
+damage dealt by extra attack.
+
+[MSID_BreakPursuit]
+Break Defenses
+
+[MSID_H_BreakPursuit]
+If unit's attack breaks foe, unit
+makes an extra attack at 50%
+damage.
+
+[MSID_MarthEngageAtk]
+Lodestar Rush
+
+[MSID_H_MarthEngageAtk]
+Use to launch 7 consecutive sword
+attacks at 30% damage. Adjacent
+foe only.
+
+[MSID_H_MarthEngageAtk_Dragon]
+Use to launch 7 consecutive sword
+attacks at 30% damage. Adjacent foe
+only.
+[Dragon] +2 attacks.
+
+[MSID_H_MarthEngageAtk_Coop]
+Use to launch 7 consecutive sword
+attacks at 30% damage. Adjacent foe
+only.
+[Backup] +1 attack.
+
+[MSID_H_MarthEngageAtk_Magic]
+Use to launch 7 consecutive sword
+attacks at 30% damage. Adjacent foe
+only.
+[Mystical] Damage based on Mag.
+
+[MSID_H_MarthEngageAtk_CMD]
+Attack in a flurry of blows.
+
+[MSID_Remove_1]
+Canter
+
+[MSID_H_Remove_1]
+Unit can move 2 spaces after acting.
+
+[MSID_Remove_2]
+Canter+
+
+[MSID_H_Remove_2]
+Unit can move 3 spaces after acting.
+
+[MSID_Approach_1]
+Momentum
+
+[MSID_H_Approach_1]
+Grants Atk+1 to first attack during
+combat for each space unit moved
+before attacking.
+
+[MSID_Approach_2]
+Momentum+
+
+[MSID_H_Approach_2]
+Grants Atk+1 to first attack during
+combat for each space unit moved
+before attacking. If the move
+distance>=9, the first attack would 
+break the enemy.
+
+[MSID_Rush]
+Headlong Rush
+
+[MSID_H_Rush]
+Grants the unit "Rush" command,
+can pass through the foe after battle.
+
+[MSID_SigludEngage]
+Gallop
+
+[MSID_H_SigludEngage]
+Grants Mov+5.
+
+[MSID_H_SigludEngage_Dragon]
+Grants Mov+5.
+[Dragon] Grants another Mov+1.
+
+[MSID_H_SigludEngage_Horse]
+Grants Mov+5.
+[Cavalry] Grants another Mov+2.
+
+[MSID_H_SigludEngage_Covert]
+Grants Mov+5.
+[Covert] Unit does not pay extra
+movement cost on any terrain.
+
+[MSID_SigludEngageAtk]
+Override
+
+[MSID_H_SigludEngageAtk]
+Use to attack and move through a
+line of adjacent foes. Sword/lance
+only.
+
+[MSID_H_SigludEngageAtk_Dragon]
+Use to attack and move through a
+line of adjacent foes. Sword/lance
+only.
+[Dragon] +20% damage.
+
+[MSID_H_SigludEngageAtk_Heavy]
+Use to attack and move through a
+line of adjacent foes. Sword/lance
+only.
+[Armored] 10% chance of
+breaking target.
+
+[MSID_H_SigludEngageAtk_Magic]
+Use to attack and move through a
+line of adjacent foes. Sword/lance
+only.
+[Mystical] Deals extra
+damage=25% of Mag.
+
+[MSID_H_SigludEngageAtk_Prana]
+Use to attack and move through a
+line of adjacent foes. Sword/lance
+only.
+[Qi Adept] 20% chance of
+breaking target.
+
+[MSID_H_SigludEngageAtk_CMD]
+Attack and move through foes.
+
+[MSID_M011_SigludEngage_DarkSide]
+Dark Gallop
+
+[MSID_H_M011_SigludEngage_DarkSide]
+Grants Mov+3.
+
+[MSID_EvilCounter_1]
+Holy Stance
+
+[MSID_H_EvilCounter_1]
+If a Corrupted attacks unit, deals
+10% of damage taken back to foe.
+
+[MSID_EvilCounter_2]
+Holy Stance+
+
+[MSID_H_EvilCounter_2]
+If a Corrupted attacks unit, deals
+30% of damage taken back to foe.
+
+[MSID_EvilCounter_3]
+Holy Stance++
+
+[MSID_H_EvilCounter_3]
+If a Corrupted attacks unit, deals
+50% of damage taken back to foe.
+
+[MSID_BlackMagic_1]
+Resonance
+
+[MSID_H_BlackMagic_1]
+When fighting with a tome, grants
+Dmg+3. If the foe survives after battle,
+the unit suffers Def/Res-1.
+(The debuff lasts for 1 turn.)
+
+[MSID_BlackMagic_2]
+Resonance+
+
+[MSID_H_BlackMagic_2]
+When fighting with a tome, grants
+Dmg+5. If the foe survives after battle,
+the unit suffers Def/Res-1.
+(The debuff lasts for 1 turn.)
+
+[MSID_FavoriteFood]
+Favorite Food
+
+[MSID_H_FavoriteFood]
+When unit eats a packed meal, its
+engage meter is maxed out.
+
+[MSID_CelicaEngage]
+Echo
+
+[MSID_H_CelicaEngage]
+Use to attack with magic at 50%
+damage. Use a second time to
+launch another 50% attack.
+
+[MSID_H_CelicaEngage_Dragon]
+Use to attack with magic at 50%
+damage. Use a second time to
+launch another 50% attack.
+[Dragon] +10% damage.
+
+[MSID_H_CelicaEngage_Magic]
+Use to attack with magic at 50%
+damage. Use a second time to
+launch another 50% attack.
+[Mystical] +10% damage.
+
+[MSID_H_CelicaEngage_CMD]
+Attack two separate times.
+
+[MSID_CelicaEngageAtk]
+Warp Ragnarok
+
+[MSID_H_CelicaEngageAtk]
+Use to warp up to 10 spaces and
+make a powerful magic attack.
+
+[MSID_H_CelicaEngageAtk_Dragon]
+Use to warp up to 10 spaces and 
+make a powerful magic attack.
+
+[MSID_H_CelicaEngageAtk_Horse]
+Use to warp up to 10 spaces and 
+make a powerful magic attack.
+[Cavalry] Warp distance +2.
+
+[MSID_H_CelicaEngageAtk_Fly]
+Use to warp up to 10 spaces and 
+make a powerful magic attack.
+[Flying] Warp distance +5.
+
+[MSID_H_CelicaEngageAtk_Magic]
+Use to warp up to 10 spaces and
+make a powerful magic attack.
+[Mystical] +20% damage.
+
+[MSID_H_CelicaEngageAtk_CMD]
+Warp far away and attack.
+
+[MSID_M011_CelicaEngageAtk_DarkSide]
+Dark Warp
+
+[MSID_CelicaEngageAtk_DarkSide]
+Ragnarok Warp
+
+[MSID_H_CelicaEngageAtk_DarkSide]
+Use to make a powerful magic
+attack, then warp somewhere else
+on the map.
+
+[MSID_H_CelicaEngageAtk_DarkSide_CMD]
+Attack, then warp away.
+
+[MSID_H_M011_CelicaEngageAtk_DarkSide]
+Use to warp up to 5 spaces and
+make a powerful magic attack.
+
+[MSID_EvilCounter_3_DarkSide]
+Unholy Stance
+
+[MSID_H_EvilCounter_3_DarkSide]
+If a non-Corrupted foe attacks unit,
+deals 50% of damage taken back
+to foe.
+
+[MSID_EquipRod_1]
+Cleric
+
+[MSID_H_EquipRod_1]
+Unit can equip staves up to level C.
+
+[MSID_EquipRod_2]
+Cleric+
+
+[MSID_H_EquipRod_2]
+Unit can equip staves up to level B.
+
+[MSID_EquipRod_3]
+Cleric++
+
+[MSID_H_EquipRod_3]
+Unit can equip staves up to level A.
+
+[MSID_Silenceproof]
+Silence Ward
+
+[MSID_H_Silenceproof]
+Grants immunity to silence.
+
+[MSID_HealingResonance]
+Healing Light
+
+[MSID_H_HealingResonance]
+After unit heals an ally with a staff,
+if the unit's HP is lower than the ally,
+unit's HP restore to the same value. 
+
+[MSID_MicaiahEngage]
+Augment
+
+[MSID_H_MicaiahEngage]
+The range of all the staves are set
+to 10. At the start of player's phase,
+heal all allies within in 10 radius 10HP.
+Each 3 Mag of the healer increase the
+value by 1, and each space between
+decrease the value by 1.
+
+[MSID_H_MicaiahEngage_Dragon]
+The range of all the staves are set
+to 10. At the start of player's phase,
+heal all allies within in 10 radius 10HP.
+Each 3 Mag of the healer increase the
+value by 1, and each space between
+decrease the value by 1.
+[Dragon] The range of both effects
+are increased to 11.
+
+[MSID_H_MicaiahEngage_Prana]
+The range of all the staves are set
+to 10. At the start of player's phase,
+heal all allies within in 10 radius 10HP.
+Each 3 Mag of the healer increase the
+value by 1, and each space between
+decrease the value by 1.
+[Qi Adept] +20% to HP healed
+by staves.
+
+[MSID_MicaiahEngageAtk]
+Great Sacrifice
+
+[MSID_H_MicaiahEngageAtk]
+Use to restore full HP to all allies
+within 10 radius, even those not
+under the player's control.
+After use, unit's HP=1.
+
+[MSID_H_MicaiahEngageAtk_Dragon]
+Use to restore full HP to all allies
+within 10 radius, even those not 
+under the player'scontrol.
+After use, unit's HP=1.
+[Dragon] Unit's HP=30% current.
+
+[MSID_H_MicaiahEngageAtk_Heavy]
+Use to restore full HP to all allies
+within 10 radius, even those not 
+under the player'scontrol.
+After use, unit's HP=1.
+[Armored] Grants Def+1 to all
+healed during their next combat.
+
+[MSID_H_MicaiahEngageAtk_Prana]
+Use to restore full HP to all allies
+within 10 radius, even those not 
+under the player'scontrol.
+After use, unit's HP=1.
+
+[MSID_H_MicaiahEngageAtk_CMD]
+Expend HP to heal all allies
+within 10 radius.
+
+[MSID_M011_MicaiahEngage_DarkSide]
+Dark Augment
+
+[MSID_H_M011_MicaiahEngage_DarkSide]
+Grants staff range +3 and
+area of effect +1.
+
+[MSID_HoldOut_1]
+HoldOut
+
+[MSID_H_HoldOut_1]
+If unit had 30% HP or more at start
+of combat, unit would not take
+damage from the lethal attack.
+After that, lose HoldOut in this turn.
+
+[MSID_HoldOut_2]
+HoldOut+
+
+[MSID_H_HoldOut_2]
+If unit had 20% HP or more at start
+of combat, unit would not take
+damage from the lethal attack.
+After that, lose HoldOut in this turn.
+
+[MSID_HoldOut_3]
+HoldOut++
+
+[MSID_H_HoldOut_3]
+If unit had 10% HP or more at start
+of combat, unit would not take
+damage from the lethal attack.
+After that, lose HoldOut in this turn.
+
+[MSID_HoldOut_4]
+HoldOut+++
+
+[MSID_H_HoldOut_4]
+If unit had 2HP or more at start
+of combat, unit would not take
+damage from the lethal attack.
+After that, lose HoldOut in this turn.
+
+[MSID_ClosingAttack]
+Advance
+
+[MSID_H_ClosingAttack]
+Use to move 1 space toward a foe
+that is 2 spaces away and attack.
+
+[MSID_H_ClosingAttack_CMD]
+Move 1 space and attack.
+
+[MSID_RoyEngage]
+Rise Above
+
+[MSID_H_RoyEngage]
+Grants Lvl+5.
+
+[MSID_H_RoyEngage_Dragon]
+Grants Lvl+5.
+[Dragon] Additional Lvl+1.
+
+[MSID_H_RoyEngage_Horse]
+Grants Lvl+5.
+[Cavalry] Mov+1.
+
+[MSID_H_RoyEngage_Heavy]
+Grants Lvl+5.
+[Armored] Max HP+5.
+
+[MSID_RoyEngageAtk]
+Blazing Lion
+
+[MSID_H_RoyEngageAtk]
+Use to attack foe. The 3 spaces wide
+area of the foe and the 2 rows beyond
+it are set on fire.
+Sword only, 1 range only.
+
+[MSID_H_RoyEngageAtk_Dragon]
+Use to attack foe. The 3 spaces wide
+area of the foe and the 2 rows beyond
+it are set on fire.
+Sword only, 1 range only.
+[Dragon] Expands burning area.
+
+[MSID_H_RoyEngageAtk_Magic]
+Use to attack adjacent foe and an
+area 3 spaces wide. Target area and
+the 2 rows beyond it are set on fire.
+Sword only.
+[Mystical] Expands flame area.
+
+[MSID_H_RoyEngageAtk_CMD]
+Attack the target space and set it ablaze.
+
+[MSID_M011_RoyEngage_DarkSide]
+Sink Below
+
+[MSID_H_M011_RoyEngage_DarkSide]
+Grants Lvl+3.
+
+[MSID_AugmentDamage_1]
+Arms Shield
+
+[MSID_H_AugmentDamage_1]
+When unit has weapon advantage,
+unit takes 3 less damage.
+
+[MSID_AugmentDamage_2]
+Arms Shield+
+
+[MSID_H_AugmentDamage_2]
+When unit has weapon advantage,
+unit takes 4 less damage.
+
+[MSID_AugmentDamage_3]
+Arms Shield++
+
+[MSID_H_AugmentDamage_3]
+When unit has weapon advantage,
+unit takes 5 less damage.
+
+[MSID_Ambush_1]
+Vantage
+
+[MSID_H_Ambush_1]
+If unit's HP is 25% or less and foe
+initiates combat, unit can counter
+before foe's first attack.
+
+[MSID_Ambush_2]
+Vantage+
+
+[MSID_H_Ambush_2]
+If unit's HP is 50% or less and foe
+initiates combat, unit can counter
+before foe's first attack.
+
+[MSID_Ambush_3]
+Vantage++
+
+[MSID_H_Ambush_3]
+If the foe initiates combat,
+unit always counter before
+foe's first attack.
+
+[MSID_LeafEngage]
+Adaptable
+
+[MSID_H_LeafEngage]
+If foe initiates combat, unit counters
+with the best weapon available (in
+terms of range, weapon advantage,
+effective bonus, etc.).
+
+[MSID_H_LeafEngage_Dragon]
+If foe initiates combat, unit counters
+with the best weapon available (in
+terms of range, weapon advantage,
+effective bonus, etc.).
+[Dragon] Hit+30 during combat.
+
+[MSID_H_LeafEngage_Coop]
+If foe initiates combat, unit counters
+with the best weapon available (in
+terms of range, weapon advantage,
+effective bonus, etc.).
+[Backup] Crit+10 during combat.
+
+[MSID_H_LeafEngage_Covert]
+If foe initiates combat, unit counters
+with the best weapon available (in
+terms of range, weapon advantage,
+effective bonus, etc.).
+[Covert] Avo+20 during combat.
+
+[MSID_H_LeafEngage_Heavy]
+If foe initiates combat, unit counters
+with the best weapon available (in
+terms of range, weapon advantage,
+effective bonus, etc.).
+[Armored] Def+5 during combat.
+
+[MSID_H_LeafEngage_Fly]
+If foe initiates combat, unit counters
+with the best weapon available (in
+terms of range, weapon advantage,
+effective bonus, etc.).
+[Flying] Res+5 during combat.
+
+[MSID_LeafEngageAtk]
+Quadruple Hit
+
+[MSID_H_LeafEngageAtk]
+Use to attack once each with sword,
+lance, axe, and bow.
+
+[MSID_H_LeafEngageAtk_Dragon]
+Use to attack once each with sword,
+lance, axe, and bow.
+[Dragon] +20% damage.
+
+[MSID_H_LeafEngageAtk_Covert]
+Use to attack once each with sword,
+lance, axe, and bow.
+[Covert] Foes may drop 1,000G.
+Trigger %=Lck.
+
+[MSID_H_LeafEngageAtk_Prana]
+Use to attack once each with sword,
+lance, axe, and bow.
+[Qi Adept] Breaks foe.
+
+[MSID_H_LeafEngageAtk_CMD]
+Attack with four weapons.
+
+[MSID_BondPower]
+Dual Strike
+
+[MSID_H_BondPower]
+Unit participates in chain attacks as
+if it were a backup unit.
+
+[MSID_DualAssist_1]
+Dual Assist
+
+[MSID_H_DualAssist_1]
+When an ally attacks an enemy
+within this unit's weapon range,
+and if the unit is able to chain 
+attack, join the chain attack.
+
+[MSID_DualAssist_2]
+Dual Assist+
+
+[MSID_H_DualAssist_2]
+When an ally attacks an enemy
+within this unit's weapon range,
+and if the unit is able to chain 
+attack, join the chain attack.
+If this unit is at max HP,
+chain attack twice.
+
+[MSID_DualSupport]
+Dual Support
+
+[MSID_H_DualSupport]
+When taken damage, and the unit
+has allies nearby, this unit take
+less damage.
+Each support level increase this value by 1.
+
+[MSID_LucinaEngage]
+Bonded Shield
+
+[MSID_H_LucinaEngage]
+All allies within 2 radius gets the
+skill "Dual Strike". For all units,
+if he/she has skill "Dual Support",
+the unit's also gets 1 support level
+for each ally at distance 2.
+
+[MSID_LucinaEngageAtk]
+All for One
+
+[MSID_H_LucinaEngageAtk]
+Use to make a sword attack against
+an adjacent foe. All allies within 2
+spaces chain attack.
+
+[MSID_H_LucinaEngageAtk_Dragon]
+Use to make a sword attack against
+an adjacent foe. All allies within 2
+spaces chain attack.
+[Dragon] Ally chain attacks are
+guaranteed to hit.
+
+[MSID_H_LucinaEngageAtk_Coop]
+Use to make a sword attack against
+an adjacent foe. All allies within 2
+spaces chain attack.
+[Backup] Range +1.
+
+[MSID_H_LucinaEngageAtk_CMD]
+All nearby allies chain attack.
+
+[MSID_Pursuit_1]
+Alacrity
+
+[MSID_H_Pursuit_1]
+If unit initiates combat with a Spd
+advantage of 9 or more, unit's
+follow-up (if possible) occurs before
+foe can counterattack.
+
+[MSID_Pursuit_2]
+Alacrity+
+
+[MSID_H_Pursuit_2]
+If unit initiates combat with a Spd
+advantage of 7 or more, unit's
+follow-up (if possible) occurs before
+foe can counterattack.
+
+[MSID_Pursuit_3]
+Alacrity++
+
+[MSID_H_Pursuit_3]
+If unit initiates combat with a Spd
+advantage of 5 or more, unit's
+follow-up (if possible) occurs before
+foe can counterattack.
+
+[MSID_SpeedAbsorption]
+Speedtaker
+
+[MSID_H_SpeedAbsorption]
+Grants a stacking Spd+2 each time
+unit initiates combat and defeats a
+foe. (Max +10)
+At the start of each player's phase,
+if this unit hasn't initiated and defeat
+any enemy last turn, lose 1 Spd.
+
+[MSID_LinEngage]
+Call Doubles
+
+[MSID_H_LinEngage]
+Creates four illusory doubles that
+can make chain attacks with unit.
+
+[MSID_H_LinEngage_Dragon]
+Creates four illusory doubles that
+can make chain attacks with unit.
+[Dragon] +1 double created.
+
+[MSID_H_LinEngage_Fly]
+Creates four illusory doubles that
+can make chain attacks with unit.
+[Flying] Doubles have +10 Avo
+
+[MSID_H_LinEngage_CMD]
+Call chain-attacking doubles.
+
+[MSID_LinEngage_Delete_CMD]
+Dispel Doubles
+
+[MSID_H_LinEngage_Delete_CMD]
+Dispels created doubles.
+
+[MSID_LinEngageAtk]
+Astra Storm
+
+[MSID_H_LinEngageAtk]
+Use to launch 5 bow attacks at 50%
+damage, bow only.
+
+[MSID_H_LinEngageAtk_Dragon]
+Use to launch 5 bow attacks at 50%
+damage, bow only.
+[Dragon] Range +1.
+
+[MSID_H_LinEngageAtk_Covert]
+Use to launch 5 bow attacks at 50%
+damage, bow only.
+[Covert] Range +1.
+
+[MSID_H_LinEngageAtk_Prana]
+Use to launch 5 bow attacks at 50%
+damage, bow only.
+[Qi Adept] Breaks the target.
+
+[MSID_H_LinEngageAtk_CMD]
+Fire five arrows in rapid succession.
+
+[MSID_H_LinEngageAtk_Weak]
+Use to launch 5 bow attacks at 20%
+damage, up to range 10.
+
+[MSID_H_LinEngageAtk_DarkSide_Prana]
+Use to launch 5 bow attacks at 50%
+damage, bow only.
+[Qi Adept] Breaks the target.
+
+[MSID_Ravage]
+Demolish
+
+[MSID_H_Ravage]
+Break destructible terrain in a single
+blow when using Destroy.
+
+[MSID_PullBack]
+Reposition
+
+[MSID_H_PullBack]
+Use to move an adjacent ally to the
+opposite side of unit.
+
+[MSID_H_PullBack_CMD]
+Move ally to opposite side.
+
+[MSID_Anger]
+Wrath
+
+[MSID_H_Anger]
+The unit's HP <= 50%,
+Grants +20 Crit.
+
+[MSID_BraveGeneral_1]
+Resolve
+
+[MSID_H_BraveGeneral_1]
+The unit's HP <= 75%,
+Grants +6 Skl/Luck.
+
+[MSID_BraveGeneral_2]
+Resolve+
+
+[MSID_H_BraveGeneral_2]
+The unit's HP <= 75%,
+Grants +8 Skl/Luck.
+
+[MSID_IkeEngage]
+Laguz Friend
+
+[MSID_H_IkeEngage]
+When being attacked, if cannot
+counter. Unit takes 50% less damage,
+but sets unit's Avo to 0.
+
+[MSID_H_IkeEngage_Dragon]
+When being attacked, if cannot
+counter. Unit takes 50% less damage,
+but sets unit's Avo to 0.
+[Dragon] Extra -10% to damage.
+
+[MSID_IkeEngageAtk]
+Great Aether
+
+[MSID_H_IkeEngageAtk]
+Perform a consecutive attack, first
+hit with Sol and second hit with
+Luna. Sword/Axe only.
+
+[MSID_H_IkeEngageAtk_Dragon]
+Use to grant Def/Res+5, but unit
+can't counter for 1 turn. Next turn,
+attack a 2-space area, heal HP=30%
+of damage dealt. Sword/axe only.
+[Dragon] +1 damage per hit taken.
+
+[MSID_H_IkeEngageAtk_Heavy]
+Use to grant Def/Res+5, but unit
+can't counter for 1 turn. Next turn,
+attack a 2-space area, heal HP=30%
+of damage dealt. Sword/axe only.
+[Armored] Grants an extra Def+5.
+
+[MSID_H_IkeEngageAtk_Fly]
+Use to grant Def/Res+5, but unit
+can't counter for 1 turn. Next turn,
+attack a 2-space area, heal HP=30%
+of damage dealt. Sword/axe only.
+[Flying] Grants an extra Res+5.
+
+[MSID_H_IkeEngageAtk_CMD]
+Perform a consecutive attack, first
+hit with Sol and second hit with Luna.
+
+[MSID_HeavenBeat_1]
+Divine Pulse
+
+[MSID_H_HeavenBeat_1]
+When miss an attack, use another
+random number to decide the outcome.
+
+[MSID_HeavenBeat_2]
+Divine Pulse+
+
+[MSID_H_HeavenBeat_2]
+When miss an attack, use another
+random number to decide the outcome.
+When an enemy's hit lands, use another
+random number to decide the outcome.
+
+[MSID_TeacherGuidance]
+Mentorship
+
+[MSID_H_TeacherGuidance]
+Grants the unit "Rally" command,
+the effect is decided by battlestyle.
+
+[MSID_PickUp]
+Lost & Found
+
+[MSID_H_PickUp]
+If unit finishes an action or waits
+next to an ally, may find an item and
+increase support with that ally.
+Trigger %=Lck.
+
+[MSID_PickUp_Message]
+Found $Arg(0)'s lost item and
+returned it.
+
+[MSID_BylethEngage]
+Instruct
+
+[MSID_H_BylethEngage]
+Can use all weapons lower than
+level A.
+
+[MSID_H_BylethEngage_Dragon]
+Use to grant allies within 2 spaces
+a stat bonus based on user's type.
+Bonus lasts for 1 turn.
+[Dragon] All seven basic stats +3.
+
+[MSID_BylethEngage_Dragon_CMD]
+Instruct (All)
+
+[MSID_H_BylethEngage_Dragon_CMD]
++3 to all stats of nearby allies.
+
+[MSID_H_BylethEngage_Coop]
+Use to grant allies within 2 spaces
+a stat bonus based on user's type.
+Bonus lasts for 1 turn.
+[Backup] Str+4.
+
+[MSID_BylethEngage_Coop_CMD]
+Instruct (Str)
+
+[MSID_H_BylethEngage_Coop_CMD]
+Grant Str+4 to nearby allies.
+
+[MSID_H_BylethEngage_Horse]
+Use to grant allies within 2 spaces
+a stat bonus based on user's type.
+Bonus lasts for 1 turn.
+[Cavalry] Dex+10.
+
+[MSID_BylethEngage_Horse_CMD]
+Instruct (Dex)
+
+[MSID_H_BylethEngage_Horse_CMD]
+Grant Dex+10 to nearby allies.
+
+[MSID_H_BylethEngage_Covert]
+Use to grant allies within 2 spaces
+a stat bonus based on user's type.
+Bonus lasts for 1 turn.
+[Covert] Spd+5.
+
+[MSID_BylethEngage_Covert_CMD]
+Instruct (Spd)
+
+[MSID_H_BylethEngage_Covert_CMD]
+Grant Spd+5 to nearby allies.
+
+[MSID_H_BylethEngage_Heavy]
+Use to grant allies within 2 spaces
+a stat bonus based on user's type.
+Bonus lasts for 1 turn.
+[Armored] Def+5.
+
+[MSID_BylethEngage_Heavy_CMD]
+Instruct (Def)
+
+[MSID_H_BylethEngage_Heavy_CMD]
+Grant Def+5 to nearby allies.
+
+[MSID_H_BylethEngage_Fly]
+Use to grant allies within 2 spaces
+a stat bonus based on user's type.
+Bonus lasts for 1 turn.
+[Flying] Res+5.
+
+[MSID_BylethEngage_Fly_CMD]
+Instruct (Res)
+
+[MSID_H_BylethEngage_Fly_CMD]
+Grant Res+5 to nearby allies.
+
+[MSID_H_BylethEngage_Magic]
+Use to grant allies within 2 spaces
+a stat bonus based on user's type.
+Bonus lasts for 1 turn.
+[Mystical] Mag+4.
+
+[MSID_BylethEngage_Magic_CMD]
+Instruct (Mag)
+
+[MSID_H_BylethEngage_Magic_CMD]
+Grant Mag+4 to nearby allies.
+
+[MSID_H_BylethEngage_Prana]
+Use to grant allies within 2 spaces
+a stat bonus based on user's type.
+Bonus lasts for 1 turn.
+[Qi Adept] Lck+10.
+
+[MSID_BylethEngage_Prana_CMD]
+Instruct (Lck)
+
+[MSID_H_BylethEngage_Prana_CMD]
+Grant Lck+10 to nearby allies.
+
+[MSID_BylethEngageAtk]
+Goddess Dance
+
+[MSID_H_BylethEngageAtk]
+Use to grant another action to
+all adjacent allies.
+Once per chapter.
+
+[MSID_H_BylethEngageAtk_Dragon]
+Use to grant another action to
+all adjacent allies.
+[Dragon] Grants +3 to all targets'
+basic stats for 1 turn.
+
+[MSID_H_BylethEngageAtk_Coop]
+Use to grant another action to
+all adjacent allies.
+[Backup] Grants Str+4 to targets
+for 1 turn.
+
+[MSID_H_BylethEngageAtk_Horse]
+Use to grant another action to
+all adjacent allies.
+[Cavalry] Grants Dex+10 to targets
+for 1 turn.
+
+[MSID_H_BylethEngageAtk_Covert]
+Use to grant another action to
+all adjacent allies.
+[Covert] Grants Spd+5 to targets
+for 1 turn.
+
+[MSID_H_BylethEngageAtk_Heavy]
+Use to grant another action to
+all adjacent allies.
+[Armored] Grants Def+5 to targets
+for 1 turn.
+
+[MSID_H_BylethEngageAtk_Fly]
+Use to grant another action to
+all adjacent allies.
+[Flying] Grants Res+5 to targets
+for 1 turn.
+
+[MSID_H_BylethEngageAtk_Magic]
+Use to grant another action to
+all adjacent allies.
+[Mystical] Grants Mag+4 to targets
+for 1 turn.
+
+[MSID_H_BylethEngageAtk_Prana]
+Use to grant another action to
+all adjacent allies.
+[Qi Adept] Grants Lck+10 to
+targets for 1 turn.
+
+[MSID_H_BylethEngageAtk_CMD]
+Let adjacent allies act again.
+
+[MSID_M014_BylethEngageAtk_DarkSide]
+Diabolical Dance
+
+[MSID_H_M014_BylethEngageAtk_DarkSide]
+Use to grant another action to allies
+within 2 spaces.
+
+[MSID_DragonPulse]
+Dragon Vein
+
+[MSID_H_DragonPulse]
+Use to add a special effect to
+certain spaces.
+
+[MSID_H_DragonPulse_CMD]
+Add an effect to an area.
+
+[MSID_H_DragonPulse_Dragon]
+Use to add a special effect to
+certain spaces.
+[Dragon] Choose any Vein effect.
+
+[MSID_DragonPulse_DefUp]
+Vein of Stone
+
+[MSID_H_DragonPulse_DefUp]
+Creates stone pillars that
+increase Def/Res.
+
+[MSID_H_DragonPulse_Coop]
+Use to add a special effect to
+certain spaces.
+[Backup] Creates stone pillars that
+increase Def/Res.
+
+[MSID_DragonPulse_AvoDown]
+Vein of Water
+
+[MSID_H_DragonPulse_AvoDown]
+Creates water that
+decreases Avo.
+
+[MSID_H_DragonPulse_Horse]
+Use to add a special effect to
+certain spaces.
+[Cavalry] Creates water that
+decreases Avo.
+
+[MSID_DragonPulse_AvoUp]
+Vein of Fog
+
+[MSID_H_DragonPulse_AvoUp]
+Creates fog that increases Avo.
+
+[MSID_H_DragonPulse_Covert]
+Use to add a special effect to
+certain spaces.
+[Covert] Creates fog that
+increases Avo.
+
+[MSID_DragonPulse_NotBreak]
+Vein of Vines
+
+[MSID_H_DragonPulse_NotBreak]
+Creates vines that grant
+immunity to break.
+
+[MSID_H_DragonPulse_Heavy]
+Use to add a special effect to
+certain spaces.
+[Armored] Creates vines that grant
+immunity to break.
+
+[MSID_DragonPulse_Heal]
+Vein of Succor
+
+[MSID_H_DragonPulse_Heal]
+Creates healing glow that
+restores HP.
+
+[MSID_H_DragonPulse_Fly]
+Use to add a special effect to
+certain spaces.
+[Flying] Creates healing glow that
+restores HP.
+
+[MSID_DragonPulse_Damage]
+Vein of Flame
+
+[MSID_H_DragonPulse_Damage]
+Creates flames that
+inflict damage.
+
+[MSID_H_DragonPulse_Magic]
+Use to add a special effect to
+certain spaces.
+[Mystical] Creates flames that
+inflict damage.
+
+[MSID_DragonPulse_Block]
+Vein of Ice
+
+[MSID_H_DragonPulse_Block]
+Creates ice pillars that hinder
+movement.
+
+[MSID_H_DragonPulse_Prana]
+Use to add a special effect to
+certain spaces.
+[Qi Adept] Creates ice pillars that
+hinder movement.
+
+[MSID_DragonCurse]
+Draconic Hex
+
+[MSID_H_DragonCurse]
+After battle, inflicts -4 to all
+of foe's basic stats after combat.
+(Penalties shrink by 1 each turn.)
+
+[MSID_DefenseStyle]
+Pair Up
+
+[MSID_H_DefenseStyle]
+Prevents damage from foes' chain
+attacks and "Pair Up Attack" against unit.
+
+[MSID_PhysicalContact_1]
+Quality Time
+
+[MSID_H_PhysicalContact_1]
+After unit acts or waits, restores
+5 HP to adjacent allies and slightly
+increases support with them.
+
+[MSID_PhysicalContact_2]
+Quality Time+
+
+[MSID_H_PhysicalContact_2]
+After unit acts or waits, restores
+10 HP to adjacent allies and slightly
+increases support with them.
+
+[MSID_KamuiEngage]
+Dreadful Aura
+
+[MSID_H_KamuiEngage]
+Adjacent enemies lose 20 Avo.
+
+[MSID_KamuiEngageAtk]
+Torrential Roar
+
+[MSID_H_KamuiEngageAtk]
+Use to attack 3 spaces in a line,
+turning those spaces into water
+terrain.
+
+[MSID_H_KamuiEngageAtk_Dragon]
+Use to attack 3 spaces in a line,
+turning those spaces into water
+terrain.
+[Dragon] Range +1.
+
+[MSID_H_KamuiEngageAtk_CMD]
+Attack and flood an area.
+
+[MSID_God_Change_CMD]
+Night and Day
+
+[MSID_H_God_Change]
+Use to switch Emblems and swap
+between Lunar Brace/Gentility and
+Solar Brace/Bravery for all allies.
+
+[MSID_H_God_Change_CMD]
+Switch between Emblems.
+
+[MSID_MoonBracelet_1]
+Lunar Brace
+
+[MSID_H_MoonBracelet_1]
+If unit initiates combat, deals
+extra damage=20% of foe's Def
+for the first hit.
+
+[MSID_MoonBracelet_2]
+Lunar Brace+
+
+[MSID_H_MoonBracelet_2]
+If unit initiates combat, deals
+extra damage=20% of foe's Def
+for the first hit.
+
+[MSID_SunBracelet_1]
+Solar Brace
+
+[MSID_H_SunBracelet_1]
+If unit initiates combat, unit recovers
+HP=30% of damage dealt.
+
+[MSID_SunBracelet_2]
+Solar Brace+
+
+[MSID_H_SunBracelet_2]
+If unit initiates combat, unit recovers
+HP=50% of damage dealt.
+
+[MSID_SunMoonBracelet_1]
+Eclipse Brace
+
+[MSID_H_SunMoonBracelet_1]
+If unit initiates combat, unit deals
+extra damage=20% of foe's Def
+for the first hit, and recovers
+HP=30% of damage dealt.
+
+[MSID_SunMoonBracelet_2]
+Eclipse Brace+
+
+[MSID_H_SunMoonBracelet_2]
+If unit initiates combat, unit deals
+extra damage=30% of foe's Def
+with physical attacks and recovers
+HP=50% of damage dealt.
+
+[MSID_GentleWind_1]
+Gentility
+
+[MSID_H_GentleWind_1]
+Unit takes 3 less damage.
+
+[MSID_GentleWind_2]
+Gentility+
+
+[MSID_H_GentleWind_2]
+Unit takes 5 less damage.
+
+[MSID_BraveSky_1]
+Bravery
+
+[MSID_H_BraveSky_1]
+Unit deals +3 damage.
+
+[MSID_BraveSky_2]
+Bravery+
+
+[MSID_H_BraveSky_2]
+Unit deals +5 damage.
+
+[MSID_Azure_1]
+Blue Skies
+
+[MSID_H_Azure_1]
+Unit takes 3 less damage and deals
++3 damage.
+
+[MSID_Azure_2]
+Blue Skies+
+
+[MSID_H_Azure_2]
+Unit takes 5 less damage and deals
++5 damage.
+
+[MSID_EirikEngage]
+Sacred Twins
+
+[MSID_H_EirikEngage]
+While engaged with Eirika, changes
+Lunar Brace to Eclipse Brace and
+Gentility to Blue Skies for all allies.
+
+[MSID_EirikEngageAtk]
+Twin Strike
+
+[MSID_H_EirikEngageAtk]
+Use to make a sword attack followed
+by a lance attack from Ephraim on
+adjacent foe. Effective: Corrupted.
+
+[MSID_H_EirikEngageAtk_Dragon]
+Use to make a sword attack followed
+by a lance attack from Ephraim on
+adjacent foe. Effective: Corrupted.
+[Dragon] +20% damage.
+
+[MSID_H_EirikEngageAtk_Horse]
+Use to make a sword attack followed
+by a lance attack from Ephraim on
+adjacent foe. Effective: Corrupted.
+[Cavalry] Ephraim deals +50%
+damage.
+
+[MSID_H_EirikEngageAtk_CMD]
+Make an attack with Ephraim.
+
+[MSID_EvilDragonSpecialEffect]
+Holy Aura
+
+[MSID_H_EvilDragonSpecialEffect]
+Unit is Effective: Fell Dragon. Allies
+within 2 spaces with Effective:
+Dragon gain Effective: Fell Dragon.
+
+[MSID_GodDragonProtection]
+Holy Shield
+
+[MSID_H_GodDragonProtection]
+Neutralizes Effective against
+this unit.
+
+[MSID_ConnectPerson_1]
+Bond Forger
+
+[MSID_H_ConnectPerson_1]
+Grants Hit/Avo+20 to unit and allies
+within 2 spaces that are synced or
+engaged with an Emblem.
+
+[MSID_ConnectPerson_2]
+Bond Forger+
+
+[MSID_H_ConnectPerson_2]
+Grants Hit/Avo+30 to unit and allies
+within 2 spaces that are synced or
+engaged with an Emblem.
+
+[MSID_BlessingOfEleos]
+Boon of Elyos
+
+[MSID_H_BlessingOfEleos]
+If unit initiates combat, grants bonus
+to Crit and Ddg equal to 2× the
+number of allies who have acted
+this turn.
+
+[MSID_LueurEngage]
+Attuned
+
+[MSID_H_LueurEngage]
+If unit initiates combat and defeats
+foe, grants engage partner +4 to all
+seven basic stats while engaged.
+
+[MSID_H_LueurEngage_Dragon]
+If unit initiates combat and defeats
+foe, grants engage partner +4 to all
+seven basic stats while engaged.
+[Dragon] Extra +1 to all stats.
+
+[MSID_H_LueurEngage_Coop]
+If unit initiates combat and defeats
+foe, grants engage partner +4 to all
+seven basic stats while engaged.
+[Backup] Extra +2 to Str.
+
+[MSID_H_LueurEngage_Horse]
+If unit initiates combat and defeats
+foe, grants engage partner +4 to all
+seven basic stats while engaged.
+[Cavalry] Extra +2 to Dex.
+
+[MSID_H_LueurEngage_Covert]
+If unit initiates combat and defeats
+foe, grants engage partner +4 to all
+seven basic stats while engaged.
+[Covert] Extra +2 to Spd.
+
+[MSID_H_LueurEngage_Heavy]
+If unit initiates combat and defeats
+foe, grants engage partner +4 to all
+seven basic stats while engaged.
+[Armored] Extra +2 to Def.
+
+[MSID_H_LueurEngage_Fly]
+If unit initiates combat and defeats
+foe, grants engage partner +4 to all
+seven basic stats while engaged.
+[Flying] Extra +2 to Res.
+
+[MSID_H_LueurEngage_Magic]
+If unit initiates combat and defeats
+foe, grants engage partner +4 to all
+seven basic stats while engaged.
+[Mystical] Extra +2 to Mag.
+
+[MSID_H_LueurEngage_Prana]
+If unit initiates combat and defeats
+foe, grants engage partner +4 to all
+seven basic stats while engaged.
+[Qi Adept] Extra +2 to Lck.
+
+[MSID_LueurEngageAtk]
+Dragon Blast
+
+[MSID_H_LueurEngageAtk]
+Use to make two attacks against an
+adjacent foe with a sword and
+powerful magic beam.
+
+[MSID_H_LueurEngageAtk_Dragon]
+Use to make two attacks against an
+adjacent foe with a sword and
+powerful magic beam.
+[Dragon] +20% damage.
+
+[MSID_H_LueurEngageAtk_Coop]
+Use to make two attacks against an
+adjacent foe with a sword and
+powerful magic beam.
+[Backup] Adds 20% of Str to
+sword attack.
+
+[MSID_H_LueurEngageAtk_Magic]
+Use to make two attacks against an
+adjacent foe with a sword and
+powerful magic beam.
+[Mystical] Adds 20% of Mag to
+beam attack.
+
+[MSID_H_LueurEngageAtk_Prana]
+Use to make two attacks against an
+adjacent foe with a sword and
+powerful magic beam.
+[Qi Adept] Breaks foe.
+
+[MSID_H_LueurEngageAtk_CMD]
+Sword/magic combo attack.
+
+[MSID_LueurEngageAtk_p]
+Bond Blast
+
+[MSID_H_LueurEngageAtk_p]
+Use to make a sword attack from
+the unit and engage partner followed
+by a magic beam attack against an
+adjacent foe.
+
+[MSID_H_LueurEngageAtk_p_Dragon]
+Use to make a sword attack from
+the unit and engage partner followed
+by a magic beam attack against an
+adjacent foe.
+[Dragon] +20% damage.
+
+[MSID_H_LueurEngageAtk_p_Coop]
+Use to make a sword attack from
+the unit and engage partner followed
+by a magic beam attack against an
+adjacent foe.
+[Backup] +20% of Str to sword.
+
+[MSID_H_LueurEngageAtk_p_Magic]
+Use to make a sword attack from
+the unit and engage partner followed
+by a magic beam attack against an
+adjacent foe.
+[Mystical] +20% of Mag to beam.
+
+[MSID_H_LueurEngageAtk_p_Prana]
+Use to make a sword attack from
+the unit and engage partner followed
+by a magic beam attack against an
+adjacent foe.
+[Qi Adept] Breaks foe.
+
+[MSID_H_LueurEngageAtk_p_CMD]
+Attack with engage partner.
+
+[MSID_PrivateSkill_Lueur]
+Divinely Bonds
+
+[MSID_H_PrivateSkill_Lueur]
+Adjacent allies deal +3 damage,
+get +10 Hit and take 1 less damage.
+
+[MSID_PrivateSkill_Vandre]
+Alabaster Duty
+
+[MSID_H_PrivateSkill_Vandre]
+If unit is adjacent to the Divine
+Dragon, grants Divine
+Dragon Dmg+3, Hit+15.
+
+[MSID_PrivateSkill_Clan]
+Verdant Faith
+
+[MSID_H_PrivateSkill_Clan]
+If unit is adjacent to the Divine
+Dragon, grants Divine Dragon
+Avo+15 and suffers -3 damage.
+
+[MSID_PrivateSkill_Fran]
+Crimson Cheer
+
+[MSID_H_PrivateSkill_Fran]
+If unit is adjacent to the Divine
+Dragon, grants Divine Dragon
+Dmg+2 and suffers -2 damage.
+
+[MSID_PrivateSkill_Alfred]
+Ride-by Attack
+
+[MSID_H_PrivateSkill_Alfred]
+When initiate an attack, foe
+suffers Spd -1 for every 2 spaces
+Alfred traveled before attack.
+
+[MSID_PrivateSkill_Boucheron]
+Lucky Dog
+
+[MSID_H_PrivateSkill_Boucheron]
+Grants Ddg+5, all allies in
+2 radius get Ddg+15.
+
+[MSID_PrivateSkill_Atie]
+Puissance
+
+[MSID_H_PrivateSkill_Atie]
+When user's Str is 5 or more points
+higher than the enemy's Str, 
+damage +3 during battle.
+
+[MSID_PrivateSkill_Celine]
+Gentle Flower
+
+[MSID_H_PrivateSkill_Celine]
+Grants all allies (except Celine)
+Hit+5.
+
+[MSID_PrivateSkill_Chloe]
+Fairy-Tale Folk
+
+[MSID_H_PrivateSkill_Chloe]
+If a male and a female ally are
+adjacent within 3 spaces, unit
+deals +3 damage during combat.
+
+[MSID_PrivateSkill_Louis]
+Admiration
+
+[MSID_H_PrivateSkill_Louis]
+If two female allies/two male allies
+are adjacent within 3 spaces,
+this unit takes 3 less damage during combat.
+
+[MSID_PrivateSkill_Diamand]
+Fair Fight
+
+[MSID_H_PrivateSkill_Diamand]
+If unit initiates combat, grants
+Hit+15 to unit and foe if foe is able
+to counterattack.
+
+[MSID_PrivateSkill_Umber]
+Animal Friend
+
+[MSID_H_PrivateSkill_Umber]
+When adjacent to a mounted
+ally, Dmg+2, Dmg taken -2.
+
+[MSID_PrivateSkill_Jade]
+Erudite
+
+[MSID_H_PrivateSkill_Jade]
+During battle, increase damage
+dealt, and reduce damage taken.
+(The value equals the number of 
+weapon types within 2 radius)
+
+[MSID_PrivateSkill_Staluke]
+Competitive
+
+[MSID_H_PrivateSkill_Staluke]
+If unit's level is not higher than
+the enemy's, Crit+10, Dmg+2,
+Dmg taken -2.
+
+[MSID_PrivateSkill_Lapis]
+Tomboy
+
+[MSID_H_PrivateSkill_Lapis]
+If this unit initiate combat and
+defeat an enemy, all enemies
+adjacent to Lapis lose 20%
+of max HP.
+
+[MSID_PrivateSkill_Citrinica]
+Financial Bully
+
+[MSID_H_PrivateSkill_Citrinica]
+If this unit's weapon level is
+higher than the enemy, Dmg+3.
+
+[MSID_PrivateSkill_Ivy]
+Single-Minded
+
+[MSID_H_PrivateSkill_Ivy]
+If the only unit adjacent to $P
+is Ivy, and the only unit adjacent
+to Ivy is $P, grants both Dmg+3,
+Dmg taken -1, Hit+10.
+
+[MSID_PrivateSkill_Zelkova]
+Pyrotechnics
+
+[MSID_H_PrivateSkill_Zelkova]
+When user triggers the battle at under 
+half HP, the user and enemies within a 
+2 tile radius have their HP reduced by 20%.
+
+[MSID_PrivateSkill_Kagetsu]
+Escape Route
+
+[MSID_H_PrivateSkill_Kagetsu]
+If hit by a smash weapon, the
+smash distance+1, and deals
+the same damage to the enemy.
+
+[MSID_PrivateSkill_Hortensia]
+Big Personality
+
+[MSID_H_PrivateSkill_Hortensia]
+When this unit initiate combat
+and defeat an enemy, Str/Mag/
+Skl/Spd+4, last for 1 turn.
+
+[MSID_PrivateSkill_Rosado]
+Stunning Smile
+
+[MSID_H_PrivateSkill_Rosado]
+If foe is male, grants Dmg+4,
+Crit+20.
+
+[MSID_PrivateSkill_Goldmary]
+Disarming Sigh
+
+[MSID_H_PrivateSkill_Goldmary]
+After initiate a combat, enemies
+in 2 radius suffer Def/Res -2,
+last for 1 turn.
+
+[MSID_PrivateSkill_Misutira]
+Racket of Solm
+
+[MSID_H_PrivateSkill_Misutira]
+Inflicts Crit-5 on foes within
+3 spaces.
+
+[MSID_PrivateSkill_Merin]
+Knightly Escort
+
+[MSID_H_PrivateSkill_Merin]
+When 2 or more female allies are
+within 2 spaces, grants Hit/Avo+5
+to unit and those allies.
+
+[MSID_PrivateSkill_Panetone]
+Blood Fury
+
+[MSID_H_PrivateSkill_Panetone]
+If unit's HP is not at max after
+combat, grants Crit+10 as long
+as unit's HP stays below max.
+
+[MSID_PrivateSkill_Fogato]
+Charmer
+
+[MSID_H_PrivateSkill_Fogato]
+During combat with a foe who was
+also unit's most recent opponent,
+inflicts Crit-10 on that foe.
+
+[MSID_PrivateSkill_Pandoro]
+Party Animal
+
+[MSID_H_PrivateSkill_Pandoro]
+Grants a bonus to Hit and Avo equal
+to 3× the number of allies and foes
+within 2 spaces.
+
+[MSID_PrivateSkill_Bonet]
+Seconds?
+
+[MSID_H_PrivateSkill_Bonet]
+On eating a packed meal, unit may
+obtain another of the same item.
+Trigger %=Lck.
+
+[MSID_PrivateSkill_Anna]
+Make a Killing
+
+[MSID_H_PrivateSkill_Anna]
+For the first 7 turns, after
+combat, get 500G.
+(This skill is banned during test)
+
+[MSID_PrivateSkill_Jean]
+Expertise
+
+[MSID_H_PrivateSkill_Jean]
+Grants unit enhanced stat growth
+when leveling up.
+
+[MSID_PrivateSkill_Yunaka]
+Trained to Kill
+
+[MSID_H_PrivateSkill_Yunaka]
+For every 5 Spd Yunaka faster
+than the enemy, +1 follow up
+attack.
+
+[MSID_PrivateSkill_Seadas]
+Curious Dance
+
+[MSID_H_PrivateSkill_Seadas]
+At start of turn, allies within 2
+spaces of unit recover 10% of
+their max HP.
+
+[MSID_PrivateSkill_Linden]
+Weapon Insight
+
+[MSID_H_PrivateSkill_Linden]
+If unit is equipped with a weapon of
+lower level than foe's, grants
+Crit+20 during combat.
+
+[MSID_PrivateSkill_Saphir]
+Will to Win
+
+[MSID_H_PrivateSkill_Saphir]
+If unit's HP is 50% or less at start of
+combat, grants Hit/Avo+20 during
+combat.
+
+[MSID_PrivateSkill_Veyre]
+Fell Protection
+
+[MSID_H_PrivateSkill_Veyre]
+Grant adjacent allies Dmg+1,
+taken Dmg -3, Avo+15
+
+[MSID_PrivateSkill_Mauve]
+Vow of Friendship
+
+[MSID_H_PrivateSkill_Mauve]
+When Veyre is under half HP, 
+this unit get Dmg+3 and
+taken Dmg -3
+
+[MSID_Lunge]
+Lunge
+
+[MSID_H_Lunge]
+Grants the unit "Lunge" command,
+use to swap places with an enemy after battle.
+
+[MSID_H_Lunge_CMD]
+Attack and swap places with the enemy.
+
+[MSID_JobSkill_BraveHero]
+Brave Assist
+
+[MSID_H_JobSkill_BraveHero]
+If unit's HP is at max while unit
+makes a chain attack, unit attacks
+twice.
+
+[MSID_JobSkill_Halberdier]
+Pincer Attack
+
+[MSID_H_JobSkill_Halberdier]
+If unit initiates combat while an ally
+is on the opposite side of the foe,
+always follow up (if weapon allows).
+
+[MSID_JobSkill_RoyalKnight]
+Reforge
+
+[MSID_H_JobSkill_RoyalKnight]
+If unit's HP is 11 or more and an
+adjacent ally is broken after combat,
+sacrifices 10 HP and removes the
+break status from that ally.
+
+[MSID_JobSkill_Berserker]
+Smash+
+
+[MSID_H_JobSkill_Berserker]
+When making a smash attack, push
+the target 2 spaces instead of 1.
+
+[MSID_JobSkill_Warrior]
+Merciless
+
+[MSID_H_JobSkill_Warrior]
+Unit deals +50% damage against
+broken foes.
+
+[MSID_JobSkill_Sniper]
+CertainDeath Blow
+
+[MSID_H_JobSkill_Sniper]
+When initiate battle, grants
+Hit+40, Crit+20.
+
+[MSID_JobSkill_BowKnight]
+Careful Aim
+
+[MSID_H_JobSkill_BowKnight]
+If unit initiates combat without
+moving first, grants Hit+40 during
+combat.
+
+[MSID_JobSkill_General]
+Swap
+
+[MSID_H_JobSkill_General]
+Use to switch places with an
+adjacent ally.
+
+[MSID_H_JobSkill_General_CMD]
+Switch places with an ally.
+
+[MSID_JobSkill_GrateKnight]
+Allied Defense
+
+[MSID_H_JobSkill_GrateKnight]
+If unit is between an ally and a foe,
+reduces damage to unit by 3 during
+combat with that foe.
+
+[MSID_JobSkill_Paladin]
+Defender
+
+[MSID_H_JobSkill_Paladin]
+When engage with an emblem,
+all stats+1.
+
+[MSID_MoveSeal]
+Seal Movement
+
+[MSID_H_MoveSeal]
+If unit initiates combat,
+reduce foe's movement by half,
+last for 1 turn.
+
+[MSID_JobSkill_GriffinKnight]
+Clear the Way
+
+[MSID_H_JobSkill_GriffinKnight]
+Unit's space and adjacent spaces
+have a movement cost of 1 for allies.
+
+[MSID_JobSkill_DragonKnight]
+Air Raid
+
+[MSID_H_JobSkill_DragonKnight]
+If unit initiates combat from a space
+a foe cannot enter, grants Spd+5
+during combat.
+
+[MSID_JobSkill_Thief]
+Pass
+
+[MSID_H_JobSkill_Thief]
+Foes do not block this unit's
+movement.
+
+[MSID_JobSkill_Sage]
+Spell Harmony
+
+[MSID_H_JobSkill_Sage]
+If unit initiates combat with a tome,
+grants Atk equal to the number of
+adjacent allies with tomes.
+
+[MSID_JobSkill_MageKnight]
+Chaos Style
+
+[MSID_H_JobSkill_MageKnight]
+If unit initiates combat with a
+physical attack against a foe
+armed with magic or vice versa,
+grants Spd+3 during combat.
+
+[MSID_JobSkill_MasterMonk]
+Diffuse Healer
+
+[MSID_H_JobSkill_MasterMonk]
+When unit is healed by a staff, all
+adjacent allies also recover 50%
+of the HP that the unit recovered.
+
+[MSID_JobSkill_HighPriest]
+Self-Healing
+
+[MSID_H_JobSkill_HighPriest]
+Unit can target itself with healing
+staves.
+
+[MSID_JobSkill_DragonKing]
+Divine Spirit
+
+[MSID_H_JobSkill_DragonKing]
+Unit's engage meter is shortened
+one step.
+
+[MSID_JobSkill_ShadowPrincess]
+Fell Spirit
+
+[MSID_H_JobSkill_ShadowPrincess]
+At the start of each turn, unit's
+engage meter is filled by 1.
+
+[MSID_JobSkill_ShadowDragon]
+Dark Spirit
+
+[MSID_H_JobSkill_ShadowDragon]
+Inflicts -1 to the engage meters of
+foes within 2 spaces at the start of
+the turn.
+
+[MSID_JobSkill_Avenir]
+Stalwart
+
+[MSID_H_JobSkill_Avenir]
+At the start of player's phase,
+has Skl% chance to restore
+40% of max HP.
+
+[MSID_JobSkill_Fleurage]
+Ignis
+
+[MSID_H_JobSkill_Fleurage]
+During combat, may add half of Str
+to magic damage or half of Mag to
+all other damage. Trigger %=Dex.
+
+[MSID_JobSkill_Successeur]
+Sol
+
+[MSID_H_JobSkill_Successeur]
+Unit may recover HP=50% damage
+dealt. Trigger %=Dex.
+
+[MSID_Luna]
+Luna
+
+[MSID_H_Luna]
+While making an attack, may
+ignore half of foe's Def/Res.
+Trigger %=Dex.
+
+[MSID_JobSkill_Lindwurm]
+Grasping Void
+
+[MSID_H_JobSkill_Lindwurm]
+When attacking with a tome, unit
+may ignore foe's Res.
+Trigger %=Dex.
+
+[MSID_JobSkill_Sleipnir]
+World Tree
+
+[MSID_H_JobSkill_Sleipnir]
+When unit uses a staff, may not
+consume a use. Trigger %=Dex*2.
+
+[MSID_JobSkill_Pitchfork]
+Rend Heaven
+
+[MSID_H_JobSkill_Pitchfork]
+Skl x 1.5% chance of adding half 
+the enemy's Strength (when using
+a physical weapon) or Magic 
+(when using a magical weapon) as damage
+
+[MSID_JobSkill_Cupido]
+Back at You
+
+[MSID_H_JobSkill_Cupido]
+When countering, unit may deal
+extra damage = half of damage
+taken. Trigger %=Dex.
+
+[MSID_JobSkill_Melusine]
+Soulblade
+
+[MSID_H_JobSkill_Melusine]
+When attacking with a sword,
+damage is calculated using the lower
+one of foe's Def and Res.
+
+[MSID_JobSkill_Dancer]
+Special Dance
+
+[MSID_H_JobSkill_Dancer]
+If unit uses Dance, grants
+Dex/Spd/Lck+3 to target
+for 1 turn.
+
+[MSID_MarthRing_Sheeda]
+Sympathetic
+
+[MSID_H_MarthRing_Sheeda]
+If foe initiates combat and if
+unit's HP is 50% or less, unit
+takes 5 less damage.
+
+[MSID_MarthRing_Nabarl]
+Deadly Blade
+
+[MSID_H_MarthRing_Nabarl]
+If unit initiates combat with a sword,
+grants Crit+10 during combat.
+
+[MSID_SigludRing_Celice]
+Battlewise
+
+[MSID_H_SigludRing_Celice]
+Grants a stacking Crit+1 each time
+unit initiates combat and defeats a
+foe. Bonus lasts for the rest of the
+battle. (Max +10)
+
+[MSID_SigludRing_Diadora]
+Renewal
+
+[MSID_H_SigludRing_Diadora]
+Unit recovers 5 HP each turn.
+
+[MSID_CelicaRing_Alm]
+Windsweep
+
+[MSID_H_CelicaRing_Alm]
+If unit initiates combat with a sword,
+foe may not counterattack. 
+Trigger %=Lck.
+
+[MSID_CelicaRing_Mae]
+Great Thunder
+
+[MSID_H_CelicaRing_Mae]
+If unit uses Thunder, Elthunder, or
+Thoron, deals +20% damage.
+
+[MSID_MicaiahRing_Sothe]
+Bane
+
+[MSID_H_MicaiahRing_Sothe]
+May reduce foe's HP to 1.
+Trigger %=half of Dex. (Certain
+foes are immune to this effect.)
+
+[MSID_MicaiahRing_Erincia]
+Mercy
+
+[MSID_H_MicaiahRing_Erincia]
+If dealing enough damage to defeat
+foe, instead leaves foe with 1 HP.
+
+[MSID_RoyRing_Lilina]
+Raging Fire
+
+[MSID_H_RoyRing_Lilina]
+If unit uses Fire, Elfire, or Bolganone,
+deals +20% damage.
+
+[MSID_RoyRing_Dieck]
+Strong Arm
+
+[MSID_H_RoyRing_Dieck]
+Grants Hit+20 while unit is equipped
+with a smash weapon.
+
+[MSID_LeafRing_Fin]
+Miracle
+
+[MSID_H_LeafRing_Fin]
+Avoids foe's attack when unit would
+be defeated. Trigger %=Lck.
+(Max 50%)
+
+[MSID_LeafRing_Olwen]
+Dire Thunder
+
+[MSID_H_LeafRing_Olwen]
+When unit initiates combat with
+Thunder equipped, unit attacks
+twice. (Excludes Elthunder and
+Thoron.)
+
+[MSID_LucinaRing_Chrom]
+Rightful Ruler
+
+[MSID_H_LucinaRing_Chrom]
+Adds +5% to trigger rate for all skills
+with trigger rates.
+
+[MSID_LucinaRing_Lissa]
+Healtouch
+
+[MSID_H_LucinaRing_Lissa]
+When unit heals an ally with a staff,
+restores +5 HP to target.
+
+[MSID_LinRing_Eliwod]
+Draw Back
+
+[MSID_H_LinRing_Eliwod]
+Use to move 1 space away from
+adjacent ally and pull the ally along.
+
+[MSID_H_LinRing_Eliwod_CMD]
+Pulls unit and 1 ally back.
+
+[MSID_LinRing_Nino]
+Giga Excalibur
+
+[MSID_H_LinRing_Nino]
+If unit initiates combat with
+Excalibur, deals +20% damage.
+
+[MSID_IkeRing_Senerio]
+Wind Adept
+
+[MSID_H_IkeRing_Senerio]
+If unit initiates combat with Wind
+equipped, unit may attack twice.
+Trigger %=Dex. (Excludes Elwind
+and Excalibur.)
+
+[MSID_IkeRing_Wayu]
+Shove
+
+[MSID_H_IkeRing_Wayu]
+Use to push an adjacent ally with
+less Bld 1 space away.
+
+[MSID_H_IkeRing_Wayu_CMD]
+Push a smaller ally 1 space.
+
+[MSID_BylethRing_Edelgard]
+Flickering Flower
+
+[MSID_H_BylethRing_Edelgard]
+If unit initiates combat, freezes foe.
+Trigger % = total damage dealt.
+
+[MSID_BylethRing_Dimitri]
+Paraselene
+
+[MSID_H_BylethRing_Dimitri]
+Use to make an attack against an
+adjacent foe, then move 1 space
+away from that foe after combat.
+
+[MSID_H_BylethRing_Dimitri_CMD]
+Attack, then move back.
+
+[MSID_BylethRing_Claude]
+Wind God
+
+[MSID_H_BylethRing_Claude]
+If unit's HP=100%, grants range +1
+with bows.
+
+[MSID_KamuiRing_Marks]
+Chivalry
+
+[MSID_H_KamuiRing_Marks]
+If unit initiates combat while foe's
+HP=100%, unit deals +2 damage
+and takes 2 less damage.
+
+[MSID_KamuiRing_Ryoma]
+Bushido
+
+[MSID_H_KamuiRing_Ryoma]
+If unit's level is higher than foe's,
+grants Crit+10 during combat, and
+unit deals +2 damage and takes 2
+less damage.
+
+[MSID_EirikRing_Marica]
+Lethality
+
+[MSID_H_EirikRing_Marica]
+When landing a critical hit, instantly
+kills foe. Trigger %=30. (Excludes
+certain powerful foes.)
+
+[MSID_EirikRing_Heanius]
+Sure Strike
+
+[MSID_H_EirikRing_Heanius]
+If unit initiates combat, attacks are
+guaranteed to hit. Trigger %=Dex
+
+[MSID_SpecialRing_Alfonse]
+Spur Attack
+
+[MSID_H_SpecialRing_Alfonse]
+Grants Atk+2 to adjacent allies.
+
+[MSID_SpecialRing_Sharena]
+Fortify Def
+
+[MSID_H_SpecialRing_Sharena]
+Grants Def+2 to adjacent allies for
+1 turn at start of player phase.
+
+[MSID_SpecialRing_Anna]
+Spur Res
+
+[MSID_H_SpecialRing_Anna]
+Grants Res+2 to adjacent allies.
+
+[MSID_SombreBarrier1]
+Fell Barrier
+
+[MSID_H_SombreBarrier1]
+A barrier created by Dark Emblems.
+Nullifies Effective: Fell Dragon and
+prevents 50% of damage to unit.
+
+[MSID_SombreBarrier2]
+Fell Barrier+
+
+[MSID_H_SombreBarrier2]
+A barrier created by Dark Emblems.
+Nullifies Effective: Fell Dragon and
+prevents 70% of damage to unit.
+
+[MSID_SombreBarrier3]
+Fell Barrier++
+
+[MSID_H_SombreBarrier3]
+A barrier created by Dark Emblems.
+Nullifies Effective: Fell Dragon and
+prevents 85% of damage to unit.
+
+[MSID_SombreBarrier4]
+Fell Barrier+++
+
+[MSID_H_SombreBarrier4]
+A barrier created by Dark Emblems.
+Nullifies Effective: Fell Dragon and
+prevents all damage to unit.
+
+[MSID_SombreBarrier1_Normal]
+Dark Barrier
+
+[MSID_H_SombreBarrier1_Normal]
+A barrier created by Dark Emblems.
+Prevents 20% of damage to unit.
+
+[MSID_SombreBarrier2_Normal]
+Dark Barrier+
+
+[MSID_H_SombreBarrier2_Normal]
+A barrier created by Dark Emblems.
+Prevents 40% of damage to unit.
+
+[MSID_SombreBarrier3_Normal]
+Dark Barrier++
+
+[MSID_H_SombreBarrier3_Normal]
+A barrier created by Dark Emblems.
+Prevents 60% of damage to unit.
+
+[MSID_SombreBarrier4_Normal]
+Dark Barrier+++
+
+[MSID_H_SombreBarrier4_Normal]
+A barrier created by Dark Emblems.
+Prevents 80% of damage to unit.
+
+[MSID_ChainAttackDamageWeaken]
+Bond Breaker
+
+[MSID_H_ChainAttackDamageWeaken]
+Makes enemy chain attack accuracy
+always 30%. Reduces damage taken.
+
+[MSID_SnakeVenom]
+Poison Strike
+
+[MSID_H_SnakeVenom]
+If unit initiates combat, deals damage
+to foe equal to 20% of their max HP
+after combat.
+
+[MSID_SighOfDeath]
+Savage Blow
+
+[MSID_H_SighOfDeath]
+If unit initiates combat, deals damage
+to foes within 2 spaces equal to 20%
+of their max HP after combat.
+
+[MSID_SwordKilling]
+Swordbreaker
+
+[MSID_LanceKilling]
+Lancebreaker
+
+[MSID_H_LanceKilling]
+Hit/Avo+50 if the enemy
+is equipped with a lance.
+
+[MSID_AxeKilling]
+Axebreaker
+
+[MSID_H_AxeKilling]
+Hit/Avo+50 if the enemy
+is equipped with a axe.
+
+[MSID_MagicKilling]
+Tomebreaker
+
+[MSID_H_MagicKilling]
+Hit/Avo+50 if the enemy
+is equipped with a tome.
+
+[MSID_BowKilling]
+Bowbreaker
+
+[MSID_H_BowKilling]
+Hit/Avo+50 if the enemy
+is equipped with a bow.
+
+[MSID_KnifeKilling]
+Knifebreaker
+
+[MSID_H_KnifeKilling]
+Hit/Avo+50 if the enemy
+is equipped with a dagger.
+
+[MSID_PranaKilling]
+Artbreaker
+
+[MSID_H_PranaKilling]
+Hit/Avo+50 if the enemy
+is equipped with martial art.
+
+[MSID_PowerSeal]
+Seal Strength
+
+[MSID_H_PowerSeal]
+Inflicts Str-6 on foe 
+after combat. (Penalty
+shrinks by 1 each turn.)
+
+[MSID_MagicSeal]
+Seal Magic
+
+[MSID_H_MagicSeal]
+Inflicts Mag-6 on foe 
+after combat. (Penalty
+shrinks by 1 each turn.)
+
+[MSID_DefenseSeal]
+Seal Defense
+
+[MSID_H_DefenseSeal]
+Inflicts Def-6 on foe 
+after combat. (Penalty
+shrinks by 1 each turn.)
+
+[MSID_SpeedSeal]
+Seal Speed
+
+[MSID_H_SpeedSeal]
+Inflicts Spd-6 on foe 
+after combat. (Penalty
+shrinks by 1 each turn.)
+
+[MSID_MagicDefenseSeal]
+Seal Resistance
+
+[MSID_H_MagicDefenseSeal]
+Inflicts Res-6 on foe 
+after combat. (Penalty
+shrinks by 1 each turn.)
+
+[MSID_DemonStance]
+Fierce Stance
+
+[MSID_H_DemonStance]
+If foe initiates combat, grants
+Crit+10 during combat.
+
+[MSID_VajraStance]
+Steady Stance
+
+[MSID_H_VajraStance]
+If foe initiates combat, grants
+Def+5 during combat.
+
+[MSID_SwallowStance]
+Darting Stance
+
+[MSID_H_SwallowStance]
+If foe initiates combat, grants
+Spd+2 during combat.
+
+[MSID_MingMirrorStance]
+Warding Stance
+
+[MSID_H_MingMirrorStance]
+If foe initiates combat, grants
+Res+10 during combat.
+
+[MSID_Deadline]
+Life and Death
+
+[MSID_H_Deadline]
+Unit deals +10 damage and takes
++10 damage during combat.
+
+[MSID_EnhancedCompatibility]
+Triangle Adept
+
+[MSID_H_EnhancedCompatibility]
+When unit has weapon advantage,
+always follows up. When unit has
+disadvantage, foe always follows up.
+
+[MSID_CatBites]
+Cornered Beast
+
+[MSID_H_CatBites]
+If unit's HP is 50% or less at start of
+combat, grants Crit+30 during
+combat.
+
+[MSID_SelfDestruction]
+Self-Destruct
+
+[MSID_H_SelfDestruction]
+If unit's HP is 50% or less at the
+start of player phase, unit dies and
+deals 50% of its max HP to foes
+within 2 spaces.
+
+[MSID_BreakInvalid]
+Unbreakable
+
+[MSID_H_BreakInvalid]
+Prevents unit from being broken.
+
+[MSID_Immovable]
+Anchor
+
+[MSID_H_Immovable]
+Unit cannot be moved by skills,
+smash weapons, etc.
+
+[MSID_CurseOfNihility]
+Void Curse
+
+[MSID_H_CurseOfNihility]
+Foes do not earn EXP fighting
+this unit.
+
+[MSID_ClearStreamHit]
+Duelist's Blow
+
+[MSID_H_ClearStreamHit]
+When unit initiates combat, grants
+Avo+30 during combat.
+
+[MSID_SwallowHit]
+Darting Blow
+
+[MSID_H_SwallowHit]
+When unit initiates combat,
+easier to follow up (+5)
+
+[MSID_DemonHit]
+Death Blow
+
+[MSID_H_DemonHit]
+When unit initiates combat, grants
+Crit+20 during combat.
+
+[MSID_BadBirdHit]
+Certain Blow
+
+[MSID_H_BadBirdHit]
+When unit initiates combat, grants
+Hit+40 during combat.
+
+[MSID_VajraHit]
+Armored Blow
+
+[MSID_H_VajraHit]
+When unit initiates combat, unit
+takes 10 less physical damage
+during combat.
+
+[MSID_MingMirrorHit]
+Warding Blow
+
+[MSID_H_MingMirrorHit]
+When unit initiates combat, unit
+takes 20 less magical damage
+during combat.
+
+[MSID_FrenzyHit]
+Spirit Strike
+
+[MSID_H_FrenzyHit]
+When unit hits with an attack, inflicts
+-5 to foe's engage meter.
+
+[MSID_EffectResistance]
+Stalwart
+
+[MSID_H_EffectResistance]
+Reduces damage from effectiveness.
+
+[MSID_EffectInvalid]
+Unwavering
+
+[MSID_H_EffectInvalid]
+Negates damage from effectiveness.
+
+[MSID_Expert_1]
+Veteran
+
+[MSID_H_Expert_1]
+Prevents unit from being broken.
+Reduces damage from effectiveness.
+
+[MSID_Expert_2]
+Veteran+
+
+[MSID_H_Expert_2]
+Prevents unit from being broken.
+Negates damage from effectiveness.
+
+[MSID_SkillSuccession]
+Skill Inheritance
+
+[MSID_H_SkillSuccession]
+Unit can inherit this Emblem's skills.
+
+[MSID_EngageContinueTurn]
+Strong Bond
+
+[MSID_H_EngageContinueTurn]
+Unit stays engaged 1 additional turn.
+
+[MSID_EngageCount]
+Deep Synergy
+
+[MSID_H_EngageCount]
+Unit's engage meter is shortened
+one step.
+
+[MSID_RefineGodWeapon_Effect_Fly]
+Effective: Flying
+
+[MSID_RefineGodWeapon_Effect_Horse]
+Effective: Cavalry
+
+[MSID_RefineGodWeapon_Effect_Armor]
+Effective: Armored
+
+[MSID_RefineGodWeapon_Effect_Dragon]
+Effective: Dragon
+
+[MSID_RefineGodWeapon_Effect_Morph]
+Effective: Corrupted
+
+[MSID_H_Effect_Fly]
+Vulnerable to weapons with
+Effective: Flying.
+
+[MSID_H_Effect_Horse]
+Vulnerable to weapons with
+Effective: Cavalry.
+
+[MSID_H_Effect_Armor]
+Vulnerable to weapons with
+Effective: Armored.
+
+[MSID_H_Effect_Dragon]
+Vulnerable to weapons with
+Effective: Dragon.
+
+[MSID_H_Effect_Morph]
+Vulnerable to weapons with
+Effective: Corrupted.
+
+[MSID_H_Effect_EvilDragon]
+Vulnerable to weapons with
+Effective: Fell Dragon.
+
+[MSID_H_Effect_Mediuth]
+Attacks from Marth count as
+Effective against this unit.
+
+[MSID_H_Effect_Duma]
+Attacks from Celica count as
+Effective against this unit.
+
+[MSID_H_Effect_Loptous]
+Attacks from Sigurd count as
+Effective against this unit.
+
+[MSID_H_Effect_Veld]
+Attacks from Leif count as
+Effective against this unit.
+
+[MSID_H_Effect_Idenn]
+Attacks from Roy count as
+Effective against this unit.
+
+[MSID_H_Effect_Nergal]
+Attacks from Lyn count as
+Effective against this unit.
+
+[MSID_H_Effect_Fodeth]
+Attacks from Eirika or Ephraim count
+as Effective against this unit.
+
+[MSID_H_Effect_Ashnard]
+Attacks from Ike count as
+Effective against this unit.
+
+[MSID_H_Effect_Astarte]
+Attacks from Micaiah count as
+Effective against this unit.
+
+[MSID_H_Effect_Gimle]
+Attacks from Lucina count as
+Effective against this unit.
+
+[MSID_H_Effect_Hydra]
+Attacks from Corrin count as
+Effective against this unit.
+
+[MSID_H_Effect_Nemesis]
+Attacks from Byleth count as
+Effective against this unit.
+
+[MSID_Trample]
+Trample
+
+[MSID_H_Trample]
+Unless enemy is on a mount,
+damage+5.
+
+[MSID_Galeforce]
+Galeforce
+
+[MSID_H_Galeforce]
+When user triggers the battle, allows a 
+full action if the user defeats the enemy
+(once per Engage)
+
+[MSID_WaryFighter]
+WaryFighter
+
+[MSID_H_WaryFighter]
+During battles, neither the user 
+or enemy can perform follow up attacks.
+
+[MSID_Astra]
+Astra
+
+[MSID_H_Astra]
+Skill x 0.5% chance of triggering 5 
+consecutive hits with half damage.
+
+[MSID_GrislyWound]
+GrislyWound
+
+[MSID_H_GrislyWound]
+The enemy's HP is reduced 
+by 20% after the battle.
+
+[MSID_MagicKilling]
+MagicKilling
+
+[MSID_KnifeKilling]
+KnifeKilling
+
+[MSID_H_SwordKilling]
+Hit/Avo+50 if the enemy
+is equipped with a sword.
+
+[MSID_HPAbsorption]
+Lifetaker
+
+[MSID_H_HPAbsorption]
+When user triggers the battle, 
+recover 100% HP after defeating the enemy.
+
+[MSID_PositionMaster]
+Space Shifter
+
+[MSID_H_PositionMaster]
+Can use all positioning commands.
+
+[MSID_BetterOdds]
+奇妙的鸣声
+
+[MSID_H_BetterOdds]
+Better Odds
+
+[MSID_EvenBetter]
+Even Better
+
+[MSID_H_EvenBetter]
+Recover 40% HP at the start 
+of even-numbered player' phase.
+
+[MSID_Brynhild]
+Brynhildr
+
+[MSID_MagicExpert]
+Tomefaire
+
+[MSID_H_MagicExpert]
+When user is equipped with 
+a Tome, damage +5 during battle.
+
+[MSID_Strike]
+Shove
+
+[MSID_H_Strike]
+Grants the unit "Shove" command
+to push an adjacent ally 1 tile away.
+
+[MSID_EvenHanded]
+Evenhanded
+
+[MSID_H_EvenHanded]
+During even-numbered 
+Turns, damage+4.
+
+[MSID_OddShaped]
+OddShaped
+
+[MSID_H_OddShaped]
+During odd-numbered 
+Turns, damage+4.
+
+[MSID_H_RoundAbout]
+Grants the unit "Cross" command,
+use to move to the other side of
+an ally.
+
+[MSID_RoundAbout]
+Cross
+
+[MSID_H_RoundAbout_CMD]
+Move to the other side of an ally.
+
+[MSID_AlertStance]
+Alert Stance
+
+[MSID_H_AlertStance]
+When using "wait" command,
+grants Avo+15, last for 1 turn.
+
+[MSID_CrtMoreDmg]
+Deals more damage when Crit.
+
+[MSID_H_CrtMoreDmg]
+MSID_CrtMoreDmg
+
+[MSID_H_Effect_Sword]
+Affected by Sword advantage.
+
+[MSID_Inevitable]
+Inevitable End
+
+[MSID_H_Inevitable]
+If the user inflicts a stat debuff on 
+the target, stacks the stat debuffs 
+with those already applied on the target. 
+
+[MSID_AdjacentCounter]
+Counter
+
+[MSID_H_AdjacentCounter]
+When an adjacent enemy initiate and
+hit this unit, deals the same damage
+taken by this unit to the foe.
+
+[MSID_H_CounterMagic]
+When hit by a magical attack,
+deals the same damage taken by
+the user to the foe.
+
+[MSID_CounterMagic]
+Countermagic
+
+[MSID_Lucky7]
+Lucky 7
+
+[MSID_H_Lucky7]
+For the first 7 turns,
++20 Hit/Avoid.
+
+[MSID_H_Lunge_CMD]
+Swap places with the enemy
+after battle.
+
+[MSID_AirSuperiority]
+Air Superiority
+
+[MSID_H_AirSuperiority]
+When fighting against a
+flying unit, grants Hit/Avo+30.
+
+[MSID_StrengthCry]
+Rally Strength
+
+[MSID_H_StrengthCry]
+Grants the unit "Rally" command,
+use to +4 Str to all allies in 2 radius,
+last for 1 turn.
+
+[MSID_Cry]
+Rally
+
+[MSID_H_Cry_CMD]
+Buff nearby allies.
+
+[MSID_SkillCry]
+Rally Skill
+
+[MSID_H_SkillCry]
+Grants the unit "Rally" command,
+use to +4 Skl to all allies in 2 radius,
+last for 1 turn.
+
+[MSID_SpeedCry]
+Rally Speed
+
+[MSID_LuckCry]
+Rally Luck
+
+[MSID_DefCry]
+Rally Defense
+
+[MSID_MDefCry]
+Rally Resistance
+
+[MSID_MagicCry]
+Rally Magic
+
+[MSID_H_MagicCry]
+Grants the unit "Rally" command,
+use to +4 Mag to all allies in 2 radius,
+last for 1 turn.
+
+[MSID_H_SpeedCry]
+Grants the unit "Rally" command,
+use to +4 Spd to all allies in 2 radius,
+last for 1 turn.
+
+[MSID_H_LuckCry]
+Grants the unit "Rally" command,
+use to +8 Luck to all allies in 2 radius,
+last for 1 turn.
+
+[MSID_H_DefCry]
+Grants the unit "Rally" command,
+use to +4 Def to all allies in 2 radius,
+last for 1 turn.
+
+[MSID_H_MDefCry]
+Grants the unit "Rally" command,
+use to +4 Res to all allies in 2 radius,
+last for 1 turn.
+
+[MSID_ChaosStyle]
+Chaos Style
+
+[MSID_H_ChaosStyle]
+Increase damage dealt and restore
+HP equals to the increased damage.
+For physical attack, increase 20% of 
+enemy's Mag. For magical attack,
+increase 20% of enemy's Str.
+
+[MSID_StaffSavant]
+Staff Savant
+
+[MSID_H_StaffSavant]
+The durability of the user's 
+staves/rods will not decrease.
+Sets the max range of the
+user's staves/rods to 10.
+
+[MSID_PointBlank]
+Point Blank
+
+[MSID_H_PointBlank]
+When using a bow, allow
+the user to attack at 1 range.
+
+[MSID_QuickDraw]
+Quick Draw
+
+[MSID_H_QuickDraw]
+When user triggers the battle,
+Dmg+4.
+
+[MSID_H_MovCry]
+Grants the unit "Rally" command,
+use to +1 Mov to all allies in 2 radius,
+last for 1 turn.
+
+[MSID_MovCry]
+Rally Movement
+
+[MSID_StrongRiposte]
+Strong Riposte
+
+[MSID_H_StrongRiposte]
+When enemy triggers the battle, 
+Dmg+3
+
+[MSID_WingedShield]
+Winged Shield
+
+[MSID_H_WingedShield]
+Nullifies the flying weakness on the unit.
+
+[MSID_H_BeastShield]
+Nullifies the beast weakness on the unit.
+
+[MSID_BeastShield]
+Beast Shield
+
+[MSID_ArmorShield]
+Armor Shield
+
+[MSID_H_ArmorShield]
+Nullifies the armor weakness on the unit.
+
+[MSID_M005_MicaiahEngage_DarkSide]
+Augment · Dark
+
+[MSID_H_M005_MicaiahEngage_DarkSide]
+The max range of staves
+is increased by 5.
+
+[MSID_MaleficAura]
+Malefic Aura
+
+[MSID_H_MaleficAura]
+The enemies in 2 radius would
+take 2 extra magical damage.
+
+[MSID_Inspiration]
+Inspiration
+
+[MSID_H_Inspiration]
+Allies within a 2 tile radius deal 2 extra 
+damage and receive 2 less damage during battles.
+
+[MSID_SwordArts_1]
+剑术Lv.1
+
+[MSID_SwordArts_2]
+剑术Lv.2
+
+[MSID_SwordArts_3]
+剑术Lv.3
+
+[MSID_SwordArts_4]
+剑术Lv.4
+
+[MSID_SwordArts_5]
+剑术Lv.5
+
+[MSID_LanceArts_5]
+枪术Lv.5
+
+[MSID_LanceArts_1]
+枪术Lv.1
+
+[MSID_LanceArts_2]
+枪术Lv.2
+
+[MSID_LanceArts_3]
+枪术Lv.3
+
+[MSID_LanceArts_4]
+枪术Lv.4
+
+[MSID_AxeArts_4]
+斧术Lv.4
+
+[MSID_AxeArts_1]
+斧术Lv.1
+
+[MSID_AxeArts_2]
+斧术Lv.2
+
+[MSID_AxeArts_3]
+斧术Lv.3
+
+[MSID_AxeArts_5]
+斧术Lv.5
+
+[MSID_H_SwordArts_1]
+装备剑时，
+攻击力+1，回避+5
+三相克制不利时失效
+
+[MSID_H_SwordArts_2]
+装备剑时，
+攻击力+1，回避+10
+三相克制不利时失效
+
+[MSID_H_SwordArts_3]
+装备剑时，
+攻击力+2，回避+10
+三相克制不利时失效
+
+[MSID_H_SwordArts_4]
+装备剑时，
+攻击力+2，回避+15
+三相克制不利时失效
+
+[MSID_H_SwordArts_5]
+装备剑时，
+攻击力+3，回避+20
+三相克制不利时失效
+
+[MSID_H_LanceArts_1]
+装备枪时，
+命中+5，回避+5
+三相克制不利时失效
+
+[MSID_H_LanceArts_2]
+装备枪时，
+攻击力+1，命中+5，回避+5
+三相克制不利时失效
+
+[MSID_H_LanceArts_3]
+装备枪时，
+攻击力+1，命中+10，回避+5
+三相克制不利时失效
+
+[MSID_H_LanceArts_4]
+装备枪时，
+攻击力+2，命中+10，回避+5
+三相克制不利时失效
+
+[MSID_H_LanceArts_5]
+装备枪时，
+攻击力+3，命中+10，回避+10
+三相克制不利时失效
+
+[MSID_H_AxeArts_1]
+装备斧时，
+攻击力+1，命中+5
+三相克制不利时失效
+
+[MSID_H_AxeArts_2]
+装备斧时，
+攻击力+1，命中+10
+三相克制不利时失效
+
+[MSID_H_AxeArts_3]
+装备斧时，
+攻击力+2，命中+10
+三相克制不利时失效
+
+[MSID_H_AxeArts_4]
+装备斧时，
+攻击力+2，命中+15
+三相克制不利时失效
+
+[MSID_H_AxeArts_5]
+装备斧时，
+攻击力+3，命中+20
+三相克制不利时失效
+
+[MSID_H_Shuttle]
+Grants the unit "Swap" command,
+use to swap places with an ally
+within 5 tiles.
+
+[MSID_H_Shuttle_CMD]
+Swap places with an ally.
+
+[MSID_H_DualAssist_1_M007]
+When an ally attacks an enemy
+within this unit's weapon range,
+and if the unit is able to chain 
+attack, join the chain attack.
+If equipped by Hortensia...
+
+[MSID_DualAssist_2_M007]
+Dual Assist · Dark+
+
+[MSID_DualAssist_1_M007]
+Dual Assist · Dark
+
+[MSID_H_DualAssist_2_M007]
+When an ally attacks an enemy
+within this unit's weapon range,
+and if the unit is able to chain 
+attack, join the chain attack.
+If this unit is at max HP,
+chain attack twice.
+When equipped by Hortensia, all
+allies in 3 radius get "Dual Assist",
+"Dual Strike", "Dual Support · Dark" 
+but the damage of chain attack
+is reduced by half.
+
+[MSID_PrivateSkill_Hortensia_E]
+Big Personality · Dark
+
+[MSID_H_PrivateSkill_Hortensia_E]
+When this unit initiate combat
+and defeat an enemy, Str/Mag/
+Skl/Spd+4, reduced by 1 each turn.
+
+[MSID_PrivateSkill_Goldmary_E]
+Disarming Sigh · Dark
+
+[MSID_H_PrivateSkill_Goldmary_E]
+After initiate a combat, enemies
+in 3 radius suffer Str/Mag -3,
+last for 1 turn.
+
+[MSID_DualSupport_M007]
+DualSupport · Dark
+
+[MSID_H_DualSupport_M007]
+Reduce damage taken during battle.
+(Equals the number of adjacent allies×3)
+
+[MSID_JobSkill_MaligKnight]
+Mercurial
+
+[MSID_JobSkill_MaligKnight_Str]
+Mercurial <Physical>
+
+[MSID_JobSkill_MaligKnight_Mag]
+Mercurial <Magical>
+
+[MSID_H_JobSkill_MaligKnight_Mag]
+If this unit use magical attack in the
+last battle, increase the physical damage
+dealt in the next battle.
+
+[MSID_H_JobSkill_MaligKnight_Str]
+If this unit use physical attack in the
+last battle, increase the magical damage
+dealt in the next battle.
+
+[MSID_H_JobSkill_MaligKnight]
+If use a different type of attack
+(Physical, Magical) from the last 
+battle, Dmg+3.
+
+[MSID_WeaponColorAdept]
+Triangle Adept
+
+[MSID_H_WeaponColorAdept]
+If use a different type of weapon
+(Red, Blue, Green, Other) from 
+the last battle, Dmg+3.
+
+[MSID_WeaponColorAdept_Red]
+Triangle Adept <Red>
+
+[MSID_WeaponColorAdept_Green]
+Triangle Adept <Green>
+
+[MSID_WeaponColorAdept_Blue]
+Triangle Adept <Blue>
+
+[MSID_WeaponColorAdept_Yellow]
+Triangle Adept <Other>
+
+[MSID_H_WeaponColorAdept_Yellow]
+If this unit use Red/Green/Blue
+weapon in the next battle, Dmg+3.
+
+[MSID_H_WeaponColorAdept_Red]
+If this unit use non-Red
+weapon in the next battle, Dmg+3.
+
+[MSID_H_WeaponColorAdept_Green]
+If this unit use non-Green
+weapon in the next battle, Dmg+3.
+
+[MSID_H_WeaponColorAdept_Blue]
+If this unit use non-Blue
+weapon in the next battle, Dmg+3.
+
+[MSID_HoldOut_Cooldown]
+HoldOut <Cooling>
+
+[MSID_H_HoldOut_Cooldown]
+Lose its effect in this turn,
+cool down at the start of the
+next player's pahse.
+
+[MSID_TerrainResistance]
+Terrain Resistance
+
+[MSID_H_TerrainResistance]
+Nullifies damage from terrain.
+Will not be affected by the negative
+effect of terrain, will not be slowed
+by terrain.
+
+[MSID_WeaponColorAdept_2]
+Triangle Adept+
+
+[MSID_WeaponColorAdept_Blue_2]
+Triangle Adept+ <Blue>
+
+[MSID_WeaponColorAdept_Green_2]
+Triangle Adept+ <Green>
+
+[MSID_WeaponColorAdept_Red_2]
+Triangle Adept+ <Red>
+
+[MSID_WeaponColorAdept_Yellow_2]
+Triangle Adept+ <Other>
+
+[MSID_H_WeaponColorAdept_2]
+If use a different type of weapon
+(Red, Blue, Green, Other) from 
+the last battle, Dmg+5.
+
+[MSID_H_WeaponColorAdept_Blue_2]
+If this unit use non-Blue
+weapon in the next battle, Dmg+5.
+
+[MSID_H_WeaponColorAdept_Green_2]
+If this unit use non-Green
+weapon in the next battle, Dmg+5.
+
+[MSID_H_WeaponColorAdept_Red_2]
+If this unit use non-Red
+weapon in the next battle, Dmg+5.
+
+[MSID_H_WeaponColorAdept_Yellow_2]
+If this unit use Red/Green/Blue
+weapon in the next battle, Dmg+3.
+
+[MSID_PrivateSkill_Ivy_E]
+Single-Minded · Dark
+
+[MSID_H_PrivateSkill_Ivy]
+If the only unit adjacent to $P
+is Ivy, and the only unit adjacent
+to Ivy is $P, grants both Dmg+3,
+Dmg taken -1, Hit+10.
+
+[MSID_H_PrivateSkill_Ivy_E]
+If Ivy is not the only adjacent unit to
+$P, and $P is not the only adjacent
+unit to Ivy, grants Dmg+1,
+Dmg taken -3, Avo+10.
+
+[MSID_WeaponColorAdept_M008]
+Triangle Adept · Dark
+
+[MSID_WeaponColorAdept_Red_M008]
+Triangle Adept · Dark <Red>
+
+[MSID_WeaponColorAdept_Yellow_M008]
+Triangle Adept · Dark <Other>
+
+[MSID_WeaponColorAdept_Green_M008]
+Triangle Adept · Dark <Green>
+
+[MSID_WeaponColorAdept_Blue_M008]
+Triangle Adept · Dark <Blue>
+
+[MSID_H_WeaponColorAdept_M008]
+If use a different type of weapon
+(Red, Blue, Green, Other) from 
+the last battle, Dmg+3.
+If equipped by enemy...
+
+[MSID_H_WeaponColorAdept_Red_M008]
+If this unit use non-Red
+weapon in the next battle, Dmg+3.
+If the enemy uses a non-Red
+weapon, he/she will be Break.
+
+[MSID_H_WeaponColorAdept_Yellow_M008]
+If this unit use Red/Green/Blue
+weapon in the next battle, Dmg+3.
+If the enemy uses a Red/Green/Blue
+weapon, he/she will be Break.
+
+[MSID_H_WeaponColorAdept_Green_M008]
+If this unit use non-Green
+weapon in the next battle, Dmg+3.
+If the enemy uses a non-Green
+weapon, he/she will be Break.
+
+[MSID_H_WeaponColorAdept_Blue_M008]
+If this unit use non-Blue
+weapon in the next battle, Dmg+3.
+If the enemy uses a non-Blue
+weapon, he/she will be Break.
+
+[MSID_DefenseStyle_Mov2]
+Pair Up · Dark
+
+[MSID_H_DefenseStyle_Mov2]
+When having a revive stone,
+Mov+2.
+
+[MSID_CounterAttack]
+Counterattack
+
+[MSID_H_CounterAttack]
+Allows unit to counterattack
+regardless of distance to attacker.
+
+[MSID_ImmuneStatus]
+Immune Status
+
+[MSID_H_ImmuneStatus]
+Immune to Poison, Silence,
+Freeze, Enfeeble, Break.
+
+[MSID_Commander]
+General
+
+[MSID_H_Commander]
+Immune to negative effect,
+The damage of engage attack
+to this unit is reduced to 25%.
+
+[MSID_DragonSkin]
+Dragonskin
+
+[MSID_H_DragonSkin]
+Negates Counter, Countermagic, 
+Poison, Lethality. 
+Will not be Break, 
+will not be affected by weapon triangle, 
+taken damage is reduced by half.
+Engage attack and critical damage 
+is reduced to 25%.
+Nullify enemy's chain attack.
+
+[MSID_Pavise]
+Pavise
+
+[MSID_Pavise_2]
+Pavise+
+
+[MSID_H_Pavise]
+When attacked by sword/lance/
+axe/martial art, has a chance
+to reduce the damage by half.
+(=Skl%)
+
+[MSID_H_Pavise_2]
+When attacked by sword/lance/
+axe/martial art, reduce the 
+damage by half.
+
+[MSID_Aegis]
+Aegis
+
+[MSID_Aegis_2]
+Aegis+
+
+[MSID_H_Aegis]
+When attacked by tome/bow/
+dagger/other weapon, has a chance
+to reduce the damage by half.
+(=Skl%)
+
+[MSID_H_Aegis_2]
+When attacked by tome/bow/
+dagger/other weapon, reduce 
+the damage by half.
+
+[MSID_Vengeance]
+Vengeance
+
+[MSID_Vengeance_2]
+Vengeance+
+
+[MSID_H_Vengeance]
+Skill x 1.5% chance of adding 
+half the user's (Max HP – Current HP) 
+as damage.
+
+[MSID_H_Vengeance_2]
+Adding half the user's
+(Max HP – Current HP) 
+as damage.
+
+[MSID_H_Rush_CMD]
+Cross the enemy after battle.
+
+[MSID_ClearStreamStance]
+Duelist's Stance
+
+[MSID_H_ClearStreamStance]
+When attacked by enemy,
+Avo+15.
+
+[MSID_BadBirdStance]
+Certain Stance
+
+[MSID_H_BadBirdStance]
+When attacked by enemy,
+Hit+15.
+
+[MSID_ClearStream]
+Duelist
+
+[MSID_H_ClearStream]
+When this unit initiate battle,
+Avo+30.
+If use "Wait" command,
+Avo+15 last for 1 turn.
+
+[MSID_Swallow]
+Darting
+
+[MSID_H_Swallow]
+When this unit initiate battle,
+easier to follow up (+5).
+If use "Wait" command, 
+Spd+2 last for 1 turn.
+
+[MSID_Demon]
+Death
+
+[MSID_H_Demon]
+When this unit initiate battle,
+Crit+20.
+If use "Wait" command, 
+Crit+10, last for 1 turn.
+
+[MSID_BadBird]
+Certain
+
+[MSID_H_BadBird]
+When this unit initiate battle,
+Hit+40.
+If use "Wait" command, 
+Hit+20, last for 1 turn.
+
+[MSID_MingMirror]
+Warding
+
+[MSID_H_MingMirror]
+When this unit initiate battle,
+Res+20.
+If use "Wait" command, 
+Res+10, last for 1 turn.
+
+[MSID_H_Vajra]
+When this unit initiate battle,
+Def+10.
+If use "Wait" command, 
+Def+5, last for 1 turn.
+
+[MSID_Vajra]
+Armored
+
+[MSID_PaviseStance]
+Pavise Stance
+
+[MSID_H_PaviseStance]
+Grants this unit "Pasive" command,
+use to negate the first sword/lance/
+axe/martial art damage in the
+next enemy's phase.
+
+[MSID_H_PaviseStance_CMD]
+Negate the first sword/lance/
+axe/martial art damage in the
+next enemy's phase.
+
+[MSID_AegisStance]
+Aegis Stance
+
+[MSID_H_AegisStance]
+Grants this unit "Pasive" command,
+use to negate the first tome/bow/
+dagger/other damage in the
+next enemy's phase.
+
+[MSID_H_AegisStance_CMD]
+Negate the first tome/bow/
+dagger/other damage in the
+next enemy's phase.
+
+[MSID_Pray]
+Pray
+
+[MSID_H_Pray]
+At the start of player' phase,
+restore allies within 2 radius
+20% of max HP.
+
+[MSID_SeekWeakness]
+Break Weakness
+
+[MSID_H_SeekWeakness]
+When initiate attack using
+martial art, deals a consecutive
+physical and magical damage.
+
+[MSID_Aether]
+Aether
+
+[MSID_H_Aether]
+Has a chance to perform a 
+consecutive Sol and Luna attack.
+(=Skl%)
+
+[MSID_Lethality]
+Lethality
+
+[MSID_H_Lethality]
+Has a chance to instantly
+defeats the foe.
+(=Skl/2%)
+
+[MSID_EquipWeapon_1]
+Arm Master
+
+[MSID_EquipWeapon_2]
+Arm Master+
+
+[MSID_EquipWeapon_3]
+Arm Master++
+
+[MSID_H_EquipWeapon_1]
+Can use sword/lance/axe
+not higher than level C.
+
+[MSID_H_EquipWeapon_2]
+Can use sword/lance/axe
+not higher than level B.
+
+[MSID_H_EquipWeapon_3]
+Can use sword/lance/axe
+not higher than level A.
+
+[MSID_Pioneer]
+Shieldbreaker
+
+[MSID_H_Pioneer_CMD]
+Get Seal Defense and Seal Resistance.
+
+[MSID_H_Pioneer]
+Grants the unit "Shieldbreaker" command,
+use 3 engage meter or 1 engage turn
+to get Seal Defense and Seal Resistance 
+for the next battle.
+If the foe is defeated, apply the effect
+to the enemies in 2 radius of the foe.
+
+[MSID_Ignis]
+Ignis
+
+[MSID_Ignis_2]
+Ignis+
+
+[MSID_H_Ignis]
+Has a chance to increase the damage
+of attack. (=Skl%)
+When dealing magic damage, add
+50% of this unit Str to damage.
+When dealing physical damage, add
+50% of this unit Mag to damage.
+
+[MSID_H_Ignis_2]
+Increase the damage of attacks.
+When dealing magic damage, add
+50% of this unit Str to damage.
+When dealing physical damage, add
+50% of this unit Mag to damage.
+
+[MSID_AntiKnight_1]
+Anti-Mounted
+
+[MSID_AntiKnight_2]
+Anti-Mounted+
+
+[MSID_H_AntiKnight_2]
+When fighting against a mounted unit,
+Hit+15, Dmg+3.
+
+[MSID_H_AntiKnight_1]
+When fighting against a mounted unit,
+Hit+10, Dmg+2.
+
+[MSID_CurvedShot]
+Curved Shot
+
+[MSID_H_CurvedShot]
+Grant this unit "Curved Shot",
+cost 4 engage meter or 2 engage turns
+to increase the attack range
+of bow or shuriken by 1,
+but Hit is reduced by 
+20×(Distance of attack -2).
+
+[MSID_H_CurvedShot_CMD]
+Increase the attack range
+of bow or shuriken by 1.
+
+[MSID_Blade]
+Swift Strike
+
+[MSID_H_Blade]
+When weapon's Mt<10,
+grants Spd+5.
+When this unit initiate battle,
+and if this unit's Spd is faster,
+add 30% of the Spd difference
+to the damage dealt.
+
+[MSID_AttackStance]
+Pair Up Attack
+
+[MSID_Camaraderie]
+Camaraderie
+
+[MSID_H_Camaraderie]
+When use a single target staff
+to an ally, grant he/she +10 max
+HP, until he/she initiates a battle.
+
+[MSID_BattlePreparation]
+Zeroing Weapons
+
+[MSID_H_BattlePreparation]
+Grants the unit "Rally" command,
+use to grant allies in 2 radius
+Hit+20/Weapon's Mt+20%
+
+[MSID_Reclaim]
+Latter Hit Faster
+
+[MSID_H_Reclaim]
+The non-first attacks
+during battle get Dmg+5.
+
+[MSID_Sensei]
+Sensei
+
+[MSID_H_Sensei]
+This unit will "Rally"
+automatically after
+ending his/her turn.
+
+[MSID_H_RainbowCry]
+Grants the unit "Rally" command,
+use to +2 to all stats to all allies 
+in 2 radius, last for 1 turn.
+
+[MSID_H_RainbowCry_2]
+Grants the unit "Rally" command,
+use to +3 to all stats to all allies 
+in 2 radius, last for 1 turn.
+
+[MSID_RainbowCry]
+Rally Spectrum
+
+[MSID_RainbowCry_2]
+Rally Spectrum+
+
+[MSID_Meditation]
+Meditation
+
+[MSID_H_Meditation]
+Grants the unit "Meditaion"
+command, use to restore 50%
+max HP and 1 engage meter.
+
+[MSID_H_Meditation_CMD]
+Restore 50% max HP and 1 engage meter.
+
+[MSID_FierceIronFist]
+Fierce Iron Fist
+
+[MSID_H_FierceIronFist]
+Grant the unit "Fierce Iron Fist".
+Cost 5 engage meter or 2 engage
+turns to strike 3 consecutive hits.
+
+[MSID_H_FierceIronFist_CMD]
+Cost 5 engage meter or 2 engage
+turns to strike 3 consecutive hits.
+
+[MSID_MonsterCrusher]
+Monster Crusher
+
+[MSID_H_MonsterCrusher]
+Grant the unit "Monster Crusher".
+Cost 4 engage meter or 2 engage
+turns to strike 2 consecutive hits,
+effective against corrupted, and 
+ignore half of their Def.
+
+[MSID_H_MonsterCrusher_CMD]
+Cost 4 engage meter or 2 engage
+turns to strike 2 consecutive hits.
+
+[MSID_Art]
+Combat Arts
+
+[MSID_H_Art_CMD]
+Cost some engage resource
+to initiate special attacks.
+
+[MSID_H_Art_Byleth_1]
+Grant the unit "Fierce Iron Fist".
+"Fierce Iron Fist"
+Cost 5 engage meter or 2 engage
+turns to strike 3 consecutive hits.
+
+[MSID_H_Art_Byleth_2]
+Grant the unit "Fierce Iron Fist"
+and "Meditation"
+"Fierce Iron Fist"
+Cost 5 engage meter or 2 engage
+turns to strike 3 consecutive hits.
+"Meditation"
+Restore 50% max HP 
+and 1 engage meter.
+
+[MSID_H_Art_Byleth_3]
+Grant the unit "Fierce Iron Fist",
+"Meditation" and "Monster Crusher"
+"Fierce Iron Fist"
+Cost 5 engage meter or 2 engage
+turns to strike 3 consecutive hits.
+"Meditation"
+Restore 50% max HP 
+and 1 engage meter.
+"Monster Crusher"
+Cost 4 engage meter or 2 engage
+turns to strike 2 consecutive hits,
+effective against corrupted, and 
+ignore half of their Def.
+
+[MSID_SublimeHeaven]
+Ruptured Heaven
+
+[MSID_H_SublimeHeaven_CMD]
+Initiate a Dragon effective strike.
+
+[MSID_SpeedAbsorption_M010]
+SpeedTaker · Dark
+
+[MSID_H_SpeedAbsorption_M010]
+Grants a stacking Spd+2 each time
+unit initiates combat and defeats a
+foe. (Max +10)
+If equipped by Hyacinth...
+
+[MSID_H_SpeedAbsorption_M010A]
+For every hit this unit lands,
+this unit gets Spd+2 (Max+20)
+the foe suffers Spd-2 (Max-10)
+
+[MSID_Declaim_1]
+Hindsight Awareness
+
+[MSID_Declaim_2]
+Hindsight Awareness+
+
+[MSID_H_Declaim_1]
+The first damage taken during
+battle is reduced by 50%, but
+the latter are increase by 50%.
+
+[MSID_H_Declaim_2]
+The first damage taken during
+battle is negated, but the latter 
+are increase by 100%.
+
+[MSID_Sensei_M010]
+Sensei · Dark
+
+[MSID_H_Sensei_M010]
+This unit will "Rally"
+automatically at the
+start of his/her turn.
+
+[MSID_MicaiahEngage_M011]
+Augment · Dark
+
+[MSID_H_MicaiahEngage_M011]
+The range of all the staves are set
+to 10. At the start of a phase,
+all enemies within in 10 radius lose 10HP.
+Each 3 (unit's Mag - foe's Res) of the healer 
+increase the value by 1, and each space 
+between decrease the value by 1.
+This damage is not lethal.
+
+[MSID_BreakPursuit_M011]
+Break Defenses · Dark
+
+[MSID_H_BreakPursuit_M011]
+Unless this unit has disadvantage in weapon
+triangle, break the enemy and makes an 
+extra attack at 50% damage.
+
+[MSID_BlackMagic_M011]
+Resonance · Dark
+
+[MSID_H_BlackMagic_M011]
+When attacking with a tome, if
+this unit's HP > 6, cost 5 HP to
+decrease the foe's Max HP by 5
+when hit. (Max -20)
+
+[MSID_Approach_M011]
+Momentum · Dark
+
+[MSID_H_Approach_M011]
+Grants Dmg+1 to first attack during
+combat for each space unit moved
+before attacking (Max+10). If the
+move distance>=5, the enemy
+cannot counter.
+
+[MSID_HoldOut_M011]
+HoldOut · Dark
+
+[MSID_HoldOut_Cooldown_M011]
+HoldOut · Dark <Cooling>
+
+[MSID_H_HoldOut_M011]
+If this unit's HP>30% at the start 
+of battle, negate the lethal damage
+and restore HP to 30% after battle.
+After that, lose HoldOut in this turn.
+
+[MSID_Shuttle]
+Swap
+
+[MSID_PhysiquePress]
+Daunting Physique
+
+[MSID_H_PhysiquePress]
+If the adjacent enemies' HP
+is lower than this unit, they
+suffer Avo-15, Ddg-5.
+
+[MSID_Galeforce_Ready]
+Galeforce <Available>
+
+[MSID_Galeforce_Cooldown]
+Galeforce <Cooling>
+
+[MSID_H_Galeforce_Cooldown]
+This skill is unavailable until next turn.
+
+[MSID_H_Galeforce_Ready]
+This unit can act again.
+
+[MSID_PrivateSkill_Mauve_M011]
+Vow of Friendship · Dark
+
+[MSID_H_PrivateSkill_Mauve_M011]
+When Veyre is above half HP, 
+this unit get Dmg+3 and
+taken Dmg-3.
+
+[MSID_AdjacentCounter_2]
+Counter+
+
+[MSID_H_AdjacentCounter_2]
+When an adjacent enemy hit 
+this unit, deals the same damage
+taken by this unit to the foe.
+
+[MSID_CounterMagic_2]
+CounterMagic+
+
+[MSID_H_CounterMagic_2]
+When hit by magical attacks,
+deals the same damage to the foe.
+
+[MSID_DragonFang]
+Dragon Fang
+
+[MSID_H_DragonFang]
+Skill x.0.75% chance of adding 50% 
+of the user's Attack Power as damage.
+
+[MSID_DragonWard]
+Dragon Ward
+
+[MSID_H_DragonWard]
+Allies adjacent to the user have a 
+Luck x 0.5% chance of receiving 
+half damage from enemy attacks.
+
+[MSID_DefiniteHit]
+Assured Hit
+
+[MSID_H_DefiniteHit]
+This unit will not miss.
+
+[MSID_Dominance]
+Brooding Menace
+
+[MSID_H_Dominance]
+All enemies within 3 radius
+lose 2 Str/Def, and this unit's
+Str/Def increase the same value.
+(Maximum of 12 Str/Def)
+
+[MSID_BackThrow_1]
+Backdrop
+
+[MSID_H_BackThrow_2]
+Grant this unit "Backdrop+",
+cost 3 engage meter or 1 engage
+turn to throw the enemy backward.
+Deals 20% of max HP's damage
+and break the enemy.
+
+[MSID_H_BackThrow_2_CMD]
+Throw the enemy backward
+and break him/her.
+
+[MSID_H_Echo]
+Grant this unit "Echo" command,
+use to perform magical attack with
+50% damage, but can attack twice.
+
+[MSID_Echo]
+Echo
+
+[MSID_H_Echo_CMD]
+Deal 50% damage, but
+can attack twice.
+
+[MSID_H_Echo_Dragon]
+Grant this unit "Echo" command,
+use to perform magical attack with
+50% damage, but can attack twice.
+[Dragon] Damage increase to 60%
+
+[MSID_H_Echo_Magic]
+Grant this unit "Echo" command,
+use to perform magical attack with
+50% damage, but can attack twice.
+[Mystical] Damage increase to 60%
+
+[MSID_H_Echo_Dragon_CMD]
+Deal 60% damage, but
+can attack twice.
+
+[MSID_H_Echo_Magic_CMD]
+Deal 60% damage, but
+can attack twice.
+
+[MSID_H_AttackStance]
+Pair Up Attack
+If exist adjacent ally, when this
+unit initiate attack, perform a
+follow up attack with half Hit/Dmg.
+Hit and Dmg will increase based
+on the support level of adjacent allies.
+
+[MSID_ChainSeal]
+Seal Chain
+
+[MSID_H_ChainSeal]
+When hit by a chain attack,
+the enemy who perform this
+chain attack cannot chain attack
+again in this chapter.
+
+[MSID_Debug_NoEngageGainChain]
+Cannot get when chain attack.
+
+[MSID_Debug_EngageGainCorrection]
+获取补正
+
+[MSID_Debug_EngageGainCorrectionRemove]
+获取补正结束
+
+[MSID_Debug_NoEngageGainRod]
+用杖时不可获取
+
+[MSID_Debug_NoEngageGain]
+一般时不可获取
+
+[MSID_Debug_EngageGainStartBattle]
+主动攻击时获取
+
+[MSID_Debug_EngageGainKillEnemy]
+杀死敌人时获取
+
+[MSID_Repay]
+PayBack
+
+[MSID_H_Repay]
+When being attacked, or suffer
+from a harm staff, grant this
+unit Hit/Crit+10.
+After being healed by a healing
+staff, the user of the staff get
+Avo/Ddg+10.
+(Both effect last for 2 turns.)
+
+[MSID_IkeEngageAtk_Sol]
+Aether · Sol
+
+[MSID_IkeEngageAtk_Luna]
+Aether · Luna
+
+[MSID_BackThrow_2]
+Backdrop+
+
+[MSID_H_BackThrow_1]
+Grant this unit "Backdrop+",
+use to throw the enemy backward
+after battle.
+
+[MSID_H_BackThrow_1_CMD]
+Throw the enemy
+backward after battle.
+
+[MSID_H_TeacherGuidance_Coop]
+Grant this unit "Rally" command,
+the type of Rally depends on battlestyle.
+[Backup] Get Rally Strength
+
+[MSID_H_TeacherGuidance_Horse]
+Grant this unit "Rally" command,
+the type of Rally depends on battlestyle.
+[Cavalry] Get Rally Skill
+
+[MSID_H_TeacherGuidance_Covert]
+Grant this unit "Rally" command,
+the type of Rally depends on battlestyle.
+[Covert] Get Rally Speed
+
+[MSID_H_TeacherGuidance_Heavy]
+Grant this unit "Rally" command,
+the type of Rally depends on battlestyle.
+[Armored] Get Rally Defense
+
+[MSID_H_TeacherGuidance_Fly]
+Grant this unit "Rally" command,
+the type of Rally depends on battlestyle.
+[Flying] Get Rally Resistance
+
+[MSID_H_TeacherGuidance_Magic]
+Grant this unit "Rally" command,
+the type of Rally depends on battlestyle.
+[Mystical] Get Rally Magic
+
+[MSID_H_TeacherGuidance_Prana]
+Grant this unit "Rally" command,
+the type of Rally depends on battlestyle.
+[Qi Adept] Get Rally Luck
+
+[MSID_H_TeacherGuidance_Dragon]
+Grant this unit "Rally" command,
+the type of Rally depends on battlestyle.
+[Dragon] Get Rally Movement
+
+[MSID_Recovery]
+Renewal
+
+[MSID_H_Recovery]
+Recover 30% HP at the 
+start of the user's Turn.
+
+[MSID_Rhythm]
+Rhythm
+
+[MSID_H_Rhythm]
+In odd-number turns, allies within
+3 radius get Hit/Crit+10.
+In even-number turns, allies within
+3 radius get Avo/Ddg+10.
+
+[MSID_H_Rhythm_Dragon]
+In odd-number turns, allies within
+3 radius get Hit/Crit+10.
+In even-number turns, allies within
+3 radius get Avo/Ddg+10.
+[Dragon] Provide extra 10 Hit in odd turns.
+
+[MSID_H_Rhythm_Horse]
+In odd-number turns, allies within
+3 radius get Hit/Crit+10.
+In even-number turns, allies within
+3 radius get Avo/Ddg+10.
+[Calvary] Provide extra 10 Ddg in even turns.
+
+[MSID_OddRhythm]
+Rhythm · Odd
+
+[MSID_H_OddRhythm]
+In odd-number turns, allies within
+3 radius get Hit/Crit+10.
+
+[MSID_H_OddRhythm_Dragon]
+In odd-number turns, allies within
+3 radius get Hit/Crit+10.
+[Dragon] Provide extra 10 Hit.
+
+[MSID_EvenRhythm]
+Rhythm · Even
+
+[MSID_H_EvenRhythm]
+In even-number turns, allies within
+3 radius get Avo/Ddg+10.
+
+[MSID_H_EvenRhythm_Horse]
+In even-number turns, allies within
+3 radius get Avo/Ddg+10.
+[Calvary] Provide extra 10 Ddg in even turns.
+
+[MSID_CleanUp]
+Press Advantage
+
+[MSID_H_CleanUp]
+When the enemy is in
+a negative effect terrain,
+Dmg+5.
+
+[MSID_CleanUp+]
+Press Advantage+
+
+[MSID_H_CleanUp+]
+When the enemy is in
+a negative effect terrain,
+Dmg+7.

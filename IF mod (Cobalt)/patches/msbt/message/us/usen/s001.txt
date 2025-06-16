@@ -1,0 +1,503 @@
+[MID_OP1_#001]
+$Type(2)
+$Window(0, "ジャン", "1")
+$Window(0, "S001_ジャン_父親", "2")
+$Window(2, "S001_ジャン_父親")
+These pills ought to clear up the problem.
+Let me know if the pain persists, OK?$Wait(0)
+
+[MID_OP1_#002]
+$Window(2, "S001_ジャン_父親")
+And you're looking chipper today! I told you
+that cold would be gone before you know it.$Wait(0)
+
+[MID_OP1_#003]
+$Window(2, "ジャン")
+Father, isn't it time you took a break? Look,
+I made you some tea.$Wait(0)
+
+[MID_OP1_#004]
+$Window(2, "S001_ジャン_父親")
+Thank you, Jean. You didn't burn yourself or
+anything preparing it, I hope.$Wait(0)
+
+[MID_OP1_#005]
+$Window(2, "ジャン")
+You worry too much. I'm old enough to manage
+a simple pot of tea, I assure you.$Wait(0)
+
+[MID_OP1_#006]
+$Window(2, "S001_ジャン_父親")
+Hm-hm, it makes me happy to see you growing
+up so fine.$Wait(0)
+
+[MID_OP1_#007]
+$Window(2, "S001_ジャン_父親")
+Hm? What's going on out there?$Wait(0)
+
+[MID_OP1_#008]
+$Window(0, "S001_村人_青年男", "3")
+$Window(2, "S001_村人_青年男")
+Doctor! You have to help us! Monsters are on
+the attack and people are getting hurt!$Wait(0)
+
+[MID_OP1_#009]
+$Window(0, "S001_異形兵_ボス", "3")
+$Window(2, "S001_異形兵_ボス")
+Raaargh! RAAARGH!$Wait(0)
+
+[MID_OP1_#010]
+$Window(2, "ジャン")
+What the devil are those beasts?!$Wait(0)
+
+[MID_OP1_#011]
+$Window(2, "S001_ジャン_父親")
+This will get ugly. Jean, go and hide! I'll take
+care of bringing people to the clinic.$Wait(0)
+
+[MID_OP1_#012]
+$Window(2, "S001_ジャン_父親")
+This way, everyone! If you're unhurt, then assist
+someone who's injured! We must pull together!$Wait(0)
+
+[MID_OP1_#013]
+$Window(2, "ジャン")
+I know Father told me to hide, but how can I?
+I have to do my part too!$Wait(0)
+
+[MID_OP2_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Surprise")
+$Window(2, "リュール")
+Oh no...$Wait(0)
+
+[MID_OP2_#002]
+$Window(0, "S001_異形兵_ボス", "b")
+$Window(2, "S001_異形兵_ボス")
+Rrraaaagh!$Wait(0)
+
+[MID_OP2_#003]
+$Window(1, "リュール")
+$Window(0, "S001_村人_青年男", "t")
+$Anim(1, "S001_村人_青年男", "Pain")
+$Window(2, "S001_村人_青年男")
+Get moving! There's shelter at the clinic!$Wait(0)
+
+[MID_OP2_#004]
+$Window(1, "S001_異形兵_ボス")
+$Window(0, "S001_ジャン_父親", "b")
+$Anim(1, "S001_ジャン_父親", "Angry")
+$Window(2, "S001_ジャン_父親")
+Keep your wits about you, everyone! I'll patch
+you up once the crisis has passed.$Wait(0)
+
+[MID_OP2_#005]
+$Window(1, "S001_ジャン_父親")
+$Window(1, "S001_村人_青年男")
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+We can't stand idle with the Corrupted on the
+loose. Let's save those villagers!$Wait(0)
+
+[MID_OP3_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+Are you all right?! Get to safety and leave the
+Corrupted to us!$Wait(0)
+
+[MID_OP3_#002]
+$Window(0, "S001_村人_青年女", "b")
+$Anim(1, "S001_村人_青年女", "Sad")
+$Window(2, "S001_村人_青年女")
+You don't have to tell me twice! But there's still
+a few left who didn't make it out in time.$Wait(0)
+
+[MID_OP3_#003]
+$Window(2, "リュール")
+We'll do everything in our power to save as
+many of them as we can.$Wait(0)
+
+[MID_OP3_#004]
+$Window(2, "S001_村人_青年女")
+They'll love you for it if you do. You're their
+last hope at this point!$Wait(0)
+
+[MID_EV1_#001]
+$Type(1)
+$Window(0, "S001_ジャン_父親", "b")
+$Anim(1, "S001_ジャン_父親", "Pain")
+$Window(2, "S001_ジャン_父親")
+There are so many wounded we couldn't get to
+the clinic... Is it up to me to treat them all?!$Wait(0)
+
+[MID_EV2_#001]
+$Type(1)
+$Window(0, "ジャン", "t")
+$Window(0, "S001_ジャン_父親", "b")
+$Anim(1, "ジャン", "StandBy")
+$Window(2, "ジャン")
+Father, I'm here to help!
+I'm able to fight too!$Wait(0)
+
+[MID_EV2_#002]
+$Anim(1, "S001_ジャン_父親", "Surprise")
+$Window(2, "S001_ジャン_父親")
+Jean?! I thought I told you to run and hide!$Wait(0)
+
+[MID_EV2_#003]
+$Anim(1, "ジャン", "Strike")
+$Window(2, "ジャン")
+I can't stay hidden away when there are so
+many who need my help!$Wait(0)
+
+[MID_EV2_#004]
+$Window(2, "ジャン")
+I think I see some people trying to help us!
+Father, please let me go out and fight alongside
+them, we can't hold long on our own!$Wait(0)
+
+[MID_EV2_#005]
+$Anim(1, "S001_ジャン_父親", "Relax")
+$Window(2, "S001_ジャン_父親")
+My lessons have sunk in, I see. Very well, then!
+Come and give me a hand!$Wait(0)
+
+[MID_EV3_#001]
+$Type(1)
+$Window(0, "S001_村人_訪問", "t")
+$Anim(1, "S001_村人_訪問", "Sad")
+$Window(2, "S001_村人_訪問")
+Don't know how much use you'll get out of
+this, but every little bit helps, right?$Wait(0)
+
+[MID_EV4_#001]
+$Type(1)
+$Window(0, "S001_ジャン_母親", "t")
+$Anim(1, "S001_ジャン_母親", "Sad")
+$Window(2, "S001_ジャン_母親")
+Thank you for checking in on me. Do you think
+you could use this?$Wait(0)
+
+[MID_EV4_#002]
+$Window(2, "S001_ジャン_母親")
+There's not much I can do with it, at any rate.
+Better it should go to a soldier like yourself.$Wait(0)
+
+[MID_EV4_2_#001]
+$Type(1)
+$Window(0, "S001_ジャン_母親", "t")
+$Anim(1, "S001_ジャン_母親", "Surprise")
+$Window(2, "S001_ジャン_母親")
+Jean, get inside this instant! It's too dangerous
+to─ What? You're helping out the village?$Wait(0)
+
+[MID_EV4_2_#002]
+$Anim(1, "S001_ジャン_母親", "Shy")
+$Window(2, "S001_ジャン_母親")
+Well, if I can't change your mind, then you
+should have this. And Jean...come home safe.$Wait(0)
+
+[MID_EV5_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+It's not safe here! You should be running!$Wait(0)
+
+[MID_EV5_#002]
+$Window(0, "ジャン", "b")
+$Anim(1, "ジャン", "Strike")
+$Window(2, "ジャン")
+I can't. I'm the local doctor's son. I won't leave
+until I've helped the injured!$Wait(0)
+
+[MID_EV5_#003]
+$Anim(1, "リュール", "Surprise")
+$Window(2, "リュール")
+Huh... You've got a lot of heart for a kid
+your age.$Wait(0)
+
+[MID_EV5_#004]
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+All right. Let's join forces and save
+those villagers!$Wait(0)
+
+[MID_EV5_#005]
+$Anim(1, "ジャン", "Smile")
+$Window(2, "ジャン")
+I really appreciate the help. My name's Jean.
+Now come on─there's work to do!$Wait(0)
+
+[MID_BT1_#001]
+$Type(1)
+$Window(0, "ジャン", "t")
+$Anim(1, "ジャン", "Strike")
+$Window(2, "ジャン")
+You're going to have to do more than that to
+scare me off!$Wait(0)
+
+[MID_BT2_#001]
+$Type(1)
+$Window(0, "S001_ジャン_父親", "t")
+$Anim(1, "S001_ジャン_父親", "Angry")
+$Window(2, "S001_ジャン_父親")
+You monster! I'll show you that the people of
+this village won't be pushed around!$Wait(0)
+
+[MID_BT3_#001]
+$Type(1)
+$Window(0, "S001_異形兵_ボス", "b")
+$Window(2, "S001_異形兵_ボス")
+Raaargh...$Wait(0)
+
+[MID_BT4_#001]
+$Type(1)
+$Window(0, "S001_異形兵_ボス", "b")
+$Window(2, "S001_異形兵_ボス")
+AAAGH!$Wait(0)
+
+[MID_BT6_#001]
+$Type(1)
+$Window(0, "S001_ジャン_父親", "b")
+$Anim(1, "S001_ジャン_父親", "Pain")
+$Window(2, "S001_ジャン_父親")
+I know when I'm too injured to fight anymore.
+Time to go and treat my own wounds...$Wait(0)
+
+[MID_DIE_LOCAL_Jean_#001]
+$Type(1)
+$Window(0, "ジャン", "b")
+$Anim(1, "ジャン", "Pain")
+$Window(2, "ジャン")
+Father... I'm sorry... I couldn't live up to
+your example...$Wait(0)
+
+[MID_DIE_CASUAL_LOCAL_Jean_#001]
+$Type(1)
+$Window(0, "ジャン", "b")
+$Anim(1, "ジャン", "Pain")
+$Window(2, "ジャン")
+This is a deep wound... I'd better retreat while
+I still can.$Wait(0)
+
+[MID_ED1_#001]
+$Type(1)
+$Window(0, "S001_村人_青年女", "t")
+$Anim(1, "S001_村人_青年女", "Surprise")
+$Window(2, "S001_村人_青年女")
+Unbelievable! All the monsters are gone!$Wait(0)
+
+[MID_ED1_#002]
+$Window(0, "S001_村人_青年男", "b")
+$Anim(1, "S001_村人_青年男", "Smile")
+$Window(2, "S001_村人_青年男")
+We're saved! And it's thanks to the lot of you.$Wait(0)
+
+[MID_ED1_#003]
+$Window(1, "S001_村人_青年女")
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Smile")
+$Window(2, "リュール")
+I'm glad no one got hurt. I was a little
+worried there.$Wait(0)
+
+[MID_ED1_#004]
+$Window(1, "S001_村人_青年男")
+$Window(0, "S001_村人_青年女", "b")
+$Anim(1, "S001_村人_青年女", "Smile")
+$Window(2, "S001_村人_青年女")
+You can't know what this means to us. We
+decided to give you this to show our thanks.$Wait(0)
+
+[MID_ED2_#001]
+$Type(1)
+$Window(0, "S001_村人_青年女", "t")
+$Anim(1, "S001_村人_青年女", "Surprise")
+$Window(2, "S001_村人_青年女")
+Are all the monsters really gone?$Wait(0)
+
+[MID_ED2_#002]
+$Window(0, "S001_村人_青年男", "b")
+$Anim(1, "S001_村人_青年男", "Smile")
+$Window(2, "S001_村人_青年男")
+There were a few casualties, but at least we're
+safe now. We owe you for that.$Wait(0)
+
+[MID_ED2_#003]
+$Window(1, "S001_村人_青年女")
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Sad")
+$Window(2, "リュール")
+I don't know if you should be thanking me. If I'd
+acted faster, I could have saved more lives.$Wait(0)
+
+[MID_ED2_#004]
+$Window(1, "S001_村人_青年男")
+$Window(0, "S001_村人_青年女", "b")
+$Anim(1, "S001_村人_青年女", "Smile")
+$Window(2, "S001_村人_青年女")
+We're grateful for your help! This isn't much,
+but we hope you'll accept it.$Wait(0)
+
+[MID_ED3_#001]
+$Type(1)
+$Window(0, "S001_村人_青年女", "t")
+$Anim(1, "S001_村人_青年女", "Pain")
+$Window(2, "S001_村人_青年女")
+Aah... My husband! Where is my husband?!$Wait(0)
+
+[MID_ED3_#002]
+$Window(0, "S001_村人女の子", "b")
+$Anim(1, "S001_村人女の子", "Sad")
+$Window(2, "S001_村人女の子")
+Aww, Daddy!$Wait(0)
+
+[MID_ED3_#003]
+$Window(1, "S001_村人_青年女")
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Sad")
+$Window(2, "リュール")
+I let this village down today. I wasn't fast
+enough, and now so many are gone...$Wait(0)
+
+[MID_ED3_#004]
+$Window(1, "S001_村人女の子")
+$Window(0, "S001_ジャン_父親", "b")
+$Anim(1, "S001_ジャン_父親", "Sad")
+$Window(2, "S001_ジャン_父親")
+You still tried, even though you're a stranger
+here. That's...something, I suppose.$Wait(0)
+
+[MID_ED4_#001]
+$Type(2)
+$Window(0, "ジャン", "1")
+$Window(0, "S001_ジャン_父親", "3")
+$Window(0, "S001_ジャン_母親", "4")
+$Window(2, "ジャン")
+Hmm...$Wait(0)
+
+[MID_ED4_#002]
+$Window(2, "S001_ジャン_父親")
+Come now, Jean. Give the nice people a proper
+thank-you.$Wait(0)
+
+[MID_ED4_#003]
+$Window(2, "ジャン")
+Oh, right. Thank you for saving our village.$Wait(0)
+
+[MID_ED4_#004]
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+We saved it together. You did well today, Jean.$Wait(0)
+
+[MID_ED4_#005]
+$Window(2, "ジャン")
+Oh! I introduced myself to you, but I never
+asked your name, did I?$Wait(0)
+
+[MID_ED4_#006]
+$Window(2, "リュール")
+Well, there was a lot going on. I'm the
+Divine Dragon $P.$Wait(0)
+
+[MID_ED4_#007]
+$Window(2, "ジャン")
+The Divine Dragon?! From the land of Lythos?!
+Oh, please forgive my rudeness!$Wait(0)
+
+[MID_ED4_#008]
+$Window(2, "リュール")
+Don't mention it. Like I said, there was a lot
+going on at the time.$Wait(0)
+
+[MID_ED4_#009]
+$Window(2, "S001_ジャン_父親")
+What brings such a splendid personage to
+our humble village?$Wait(0)
+
+[MID_ED4_#010]
+$Window(2, "リュール")
+I've been on a journey to defeat the Fell Dragon
+and bring peace to the world.$Wait(0)
+
+[MID_ED4_#011]
+$Window(2, "ジャン")
+The whole world? Wow. If it's all right with
+you, Divine One, can I come along and help?!$Wait(0)
+
+[MID_ED4_#012]
+$Window(2, "S001_ジャン_父親")
+Jean! What's gotten into you?!$Wait(0)
+
+[MID_ED4_#013]
+$Window(2, "ジャン")
+My dream has always been to become a doctor
+so I can save people. And that hasn't changed.$Wait(0)
+
+[MID_ED4_#014]
+$Window(2, "ジャン")
+But with monsters running rampant, I might die
+before I can do that. Look what just happened!$Wait(0)
+
+[MID_ED4_#015]
+$Window(2, "ジャン")
+At the Divine Dragon's side, I think I can learn
+to fight and to heal people at the same time.$Wait(0)
+
+[MID_ED4_#016]
+$Window(2, "S001_ジャン_父親")
+That's all very well for you, but what about
+the Divine Dragon? You'd just be a burden.$Wait(0)
+
+[MID_ED4_#017]
+$Window(2, "リュール")
+Oh, I wouldn't say that. Not if what he did
+during that battle is anything to go by.$Wait(0)
+
+[MID_ED4_#018]
+$Window(2, "リュール")
+If Jean wants to come, I don't mind. Though I
+understand why you'd be worried.$Wait(0)
+
+[MID_ED4_#019]
+$Window(2, "S001_ジャン_母親")
+Well, if he has your permission, then... I can only
+ask that you take good care of my boy.$Wait(0)
+
+[MID_ED4_#020]
+$Window(2, "S001_ジャン_父親")
+What? You're actually allowing him to go?$Wait(0)
+
+[MID_ED4_#021]
+$Window(2, "ジャン")
+Father, I told you, you don't need to worry
+about me. It's not like I'm never coming home.$Wait(2)
+
+[MID_ED4_#022]
+In fact, when I do return, I'll be a first-rate
+doctor. You'll see!$Wait(0)
+
+[MID_ED4_#023]
+$Window(2, "S001_ジャン_父親")
+How quickly they grow up...$Wait(0)
+
+[MID_ED4_#024]
+$Window(2, "S001_ジャン_父親")
+Of course, Jean. Be a good boy, a hard worker,
+and an attentive student. And come home safe.$Wait(0)
+
+[MID_ED4_#025]
+$Window(2, "ジャン")
+I will! Thank you, both of you. I can't wait to
+start working alongside the Divine Dragon!$Wait(0)
+
+[MID_ED4_#026]
+$Window(2, "リュール")
+The feeling is mutual, Jean. I have a hunch that
+I'll be leaning on you a lot in the days to come.$Wait(0)
+
