@@ -4609,3 +4609,10 @@ MSID_CrtMoreDmg
 [MSID_H_Freeze]
 攻击命中后，
 使对方进入“冰封”状态。
+
+[MSID_Amaterasu]
+天照
+
+[MSID_H_Amaterasu]
+回合开始时
+回复2格内友方20%HP

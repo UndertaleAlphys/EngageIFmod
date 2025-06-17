@@ -5016,3 +5016,10 @@ Press Advantage+
 When the enemy is in
 a negative effect terrain,
 Dmg+7.
+
+[MSID_Amaterasu]
+Amaterasu
+
+[MSID_H_Amaterasu]
+Allies within a two-square radius of user
+restore 20% maximum HP at the start of the turn.
