@@ -514,9 +514,6 @@
 驱使魔龙的魔龙骑士，
 用斧与魔道蹂躏敌军。
 
-[MJID_BasicWolfknight]
-武士/忍
-
 [MJID_Mercenary]
 佣兵
 
@@ -544,3 +541,16 @@
 
 [MJID_BasicSage]
 魔法师/暗魔法师
+
+[MJID_KinshiKnight]
+金鸱武者
+
+[MJID_H_KinshiKnight]
+传说之鸟、金鸱之驱使者。
+凭借薙刀和和弓，在空战中表现优秀。
+
+[MJID_BasicKinshiKnight]
+弓使/飞马骑士
+
+[MJID_BasicMasterNinja]
+忍者/武士

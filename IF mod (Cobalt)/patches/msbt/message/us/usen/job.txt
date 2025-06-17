@@ -575,7 +575,7 @@ the Trickster toys with their foes
 by employing quick movement.
 
 [MJID_MaligKnight]
-MaligKnight
+Malig Knight
 
 [MJID_H_MaligKnight]
 Knights who command a mage dragon. 
@@ -615,3 +615,16 @@ and protect them with daggers.
 
 [MJID_BasicSage]
 Diviner/Dark Mage
+
+[MJID_KinshiKnight]
+Kinshi Knight
+
+[MJID_H_KinshiKnight]
+A naginata and yumi wielder
+riding a great bird called a Kinshi.
+
+[MJID_BasicKinshiKnight]
+Archer/Sky Knight
+
+[MJID_BasicMasterNinja]
+Ninja/Sword Fighter
