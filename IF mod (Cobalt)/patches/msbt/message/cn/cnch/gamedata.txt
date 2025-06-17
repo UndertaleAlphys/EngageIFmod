@@ -779,6 +779,18 @@ $P被击败或超过$Arg(0)回合
 [MTID_Quicksand]
 流沙
 
+[MTID_Quicksand_L]
+流沙 · 左
+
+[MTID_Quicksand_R]
+流沙 · 右
+
+[MTID_Quicksand_U]
+流沙 · 上
+
+[MTID_Quicksand_D]
+流沙 · 下
+
 [MTID_Shallow]
 浅滩
 

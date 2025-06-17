@@ -812,6 +812,18 @@ Sand
 [MTID_Quicksand]
 Quicksand
 
+[MTID_Quicksand_L]
+Quicksand:Left
+
+[MTID_Quicksand_R]
+Quicksand:Right
+
+[MTID_Quicksand_U]
+Quicksand:Up
+
+[MTID_Quicksand_D]
+Quicksand:Down
+
 [MTID_Shallow]
 Shoal
 
