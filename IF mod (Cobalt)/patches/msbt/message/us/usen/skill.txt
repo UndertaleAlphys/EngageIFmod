@@ -2689,13 +2689,6 @@ If unit is between an ally and a foe,
 reduces damage to unit by 3 during
 combat with that foe.
 
-[MSID_JobSkill_Paladin]
-Defender
-
-[MSID_H_JobSkill_Paladin]
-When engage with an emblem,
-all stats+1.
-
 [MSID_MoveSeal]
 Seal Movement
 
@@ -5023,3 +5016,19 @@ Amaterasu
 [MSID_H_Amaterasu]
 Allies within a two-square radius of user
 restore 20% maximum HP at the start of the turn.
+
+[MSID_Anathema]
+Anathema
+
+[MSID_H_Anathema]
+-10 avoid to all enemies within 2 spaces.
+They take 3 more damage when hit by a magic attack.
+
+[MSID_Defender]
+Defender
+
+[MSID_H_Defender]
+When engage with an emblem,
+all stats+1.
+When adjacent to an ally,
+all stats+1.

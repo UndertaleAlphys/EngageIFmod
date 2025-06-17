@@ -554,3 +554,13 @@
 
 [MJID_BasicMasterNinja]
 忍者/武士
+
+[MJID_OniChieftain]
+修罗
+
+[MJID_H_OniChieftain]
+超乎鬼神的战士，
+能使用棍棒、魔法和铁拳粉碎敌人
+
+[MJID_BasicBraveHero]
+斧战士/佣兵

@@ -2463,12 +2463,6 @@ HP为50%以下时
 自己位于我方单位与敌人之间时
 所受伤害-3
 
-[MSID_JobSkill_Paladin]
-守护者
-
-[MSID_H_JobSkill_Paladin]
-结合状态下，全能力+1
-
 [MSID_MoveSeal]
 移动封
 
@@ -4616,3 +4610,17 @@ MSID_CrtMoreDmg
 [MSID_H_Amaterasu]
 回合开始时
 回复2格内友方20%HP
+
+[MSID_Anathema]
+赤色诅咒
+
+[MSID_H_Anathema]
+2格内敌方回避-10
+受到魔法伤害+3
+
+[MSID_Defender]
+守护者
+
+[MSID_H_Defender]
+与友方相邻时全能力+1
+结合时全能力+1

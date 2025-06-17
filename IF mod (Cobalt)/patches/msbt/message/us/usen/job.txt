@@ -628,3 +628,13 @@ Archer/Sky Knight
 
 [MJID_BasicMasterNinja]
 Ninja/Sword Fighter
+
+[MJID_OniChieftain]
+Oni Chieftain
+
+[MJID_H_OniChieftain]
+A savage warrior who fights
+ferociously with clubs, scrolls and fists.
+
+[MJID_BasicBraveHero]
+Axe Fighter/Mercenary
