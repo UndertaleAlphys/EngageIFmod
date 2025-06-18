@@ -5,38 +5,216 @@ g_key_reinforcement1 = "増援１_済"
 g_key_reinforcement2 = "増援２_済"
 g_key_reinforcement3 = "増援３_済"
 
+g_Width = 20
+g_Height = 16
+
 -- -----------------------------------
 
 function Startup()
 	
-	Log("Startup")
+	Log("Startup123456")
 	
 	WinRuleSetMID( "MID_RULE_M012_WIN" )
-
-	SaveAndSetPlayerUnitsToLevel1()
 
 	変数登録()
 	イベント登録()
 	
 end
 
--- -----------------------------------
+-- ------------------------------------
 
--- 全局变量用于保存单位等级
-g_savedUnitLevels = {}
+function UnitMove()
+    local direction = getMoveDirection()
+    Log("Direction: " .. direction)
 
--- 保存我方单位等级并设置为 1 级
-function SaveAndSetPlayerUnitsToLevel1()
-    local unit = ForceUnitGetFirst(FORCE_ABSENT)
-    while unit ~= nil do
-        local currentLevel = UnitGetLevel(unit)
-        Log(currentLevel)
-        g_savedUnitLevels[unit] = currentLevel  -- 保存原始等级
-        UnitSetLevel(unit, 40)                   -- 设置为 40 级
-        unit = ForceUnitGetNext(unit)
+    local table_unit = moveListGet()
+    if #table_unit == 0 then
+        return
     end
+
+    -- カメラを中央に設定
+    local center_x, center_z = 中心点を算出(table_unit)
+    CursorSetPos(center_x, center_z)
+    MapCameraWait()
+
+    -- 方向によって移動ベクトルを設定
+    local dx, dz = 0, 0
+    if direction == "L" or direction == "左" then
+        dx = -1
+    elseif direction == "R" or direction == "右" then
+        dx = 1
+    elseif direction == "U" or direction == "上" then
+        dz = 1
+    elseif direction == "D" or direction == "下" then
+        dz = -1
+    else
+        Log("Invalid direction")
+        return
+    end
+
+    -- 各ユニットを処理
+    for i = 1, #table_unit do
+        local t = table_unit[i]
+        local x, z = t.X, t.Z
+        local moved = false
+	
+        for step = 1, 5 do
+            local nextX = x + dx 
+            local nextZ = z + dz 
+
+
+            -- マップ外チェック
+            if nextX < 1 or nextX >= g_Width or nextZ < 1 or nextZ >= g_Height then
+                break
+            end
+
+            -- 地形コストのチェック
+            local cost = TerrainGetMoveCost(nextX, nextZ)
+	    if isFlyCombatType(table_unit[i].UNIT) == false then
+            	if cost == "COST_空" or cost == "COST_不可" then
+                	break
+            	end
+	   end
+
+	   if isFlyCombatType(table_unit[i].UNIT) == true then
+		Log("Fly!!!")
+            	if cost == "COST_不可" then
+                	break
+            	end
+	   end
+
+            -- 単位がすでにいるか？
+            local unit = UnitGetByPos(nextX, nextZ)
+            if unit ~= nil then
+                break
+            end
+
+            -- 移動先がブロックかどうか
+            local overlap = MapOverlapGet(nextX, nextZ)
+            if overlap == "TID_ブロック" then
+                break
+            end
+
+            moved = true
+            x, z = nextX, nextZ
+        end
+
+        -- 実際に移動
+        if moved then
+            UnitMovePos(t.UNIT, x, z, MOVE_FLAG_NONE)
+        end
+    end
+
+    -- 全員の移動完了まで待つ
+    UnitMoveWait()
+
+    -- 方向を移動方向に合わせる
+    local rotation = ROTATE_RIGHT
+    if direction == "L" or direction == "左" then
+        rotation = ROTATE_LEFT
+    elseif direction == "U" or direction == "上" then
+        rotation = ROTATE_UP
+    elseif direction == "D" or direction == "下" then
+        rotation = ROTATE_DOWN
+    end
+
+    for i = 1, #table_unit do
+        UnitRotation(table_unit[i].UNIT, rotation)
+    end
+
+    UnitMoveWait()
+    MapCameraWait()
 end
 
+-- ------------------------------------
+function getMoveDirection()
+    local turn = MapGetTurn()
+    local remainder = turn % 4
+
+    local direction = ""
+
+    if remainder == 1 then
+        direction = "L"
+    elseif remainder == 2 then
+        direction = "D"
+    elseif remainder == 3 then
+        direction = "R"
+    else -- remainder == 0
+        direction = "U"
+    end
+
+    return direction
+end
+
+-- ------------------------------------
+function moveListGet()
+	local table_unit = {}
+	local direction = getMoveDirection()
+
+	local index = ForceUnitGetFirst(FORCE_PLAYER)
+	while index != nil do
+		
+		local _x = UnitGetX(index)
+		local _z = UnitGetZ(index)	
+
+		local terrain = TerrainGet(_x, _z)
+		if terrain == "TID_流砂" then
+			table_unit[ #table_unit + 1 ] = { UNIT=index, X=_x, Z=_z }
+		end
+
+		index = ForceUnitGetNext(index)
+	
+	end
+
+	 if direction == "左" or direction == "L" then
+        	table.sort(table_unit, function(a, b) return a.X < b.X end)
+   	 elseif direction == "右" or direction == "R" then
+        	table.sort(table_unit, function(a, b) return a.X > b.X end)
+    	elseif direction == "上" or direction == "U" then
+        	table.sort(table_unit, function(a, b) return a.Z > b.Z end)
+    	elseif direction == "下" or direction == "D" then
+        	table.sort(table_unit, function(a, b) return a.Z < b.Z end)
+    	end
+	
+	return table_unit
+end
+
+-- ---------------------------------------------------------------
+function 中心点を算出( table_unit )
+	
+	local x = 0
+	local z = 0
+	local count = 0
+	local center_x = nil
+	local center_z = nil
+	
+	if ( #table_unit > 0 ) then
+			for i=1, #table_unit do
+					local t = table_unit[i]
+					x = ( x + t.X )
+					z = ( z + t.Z )
+					count = count + 1
+			end
+			
+			center_x = math.floor(x/count + 0.5)
+			center_z = math.floor(z/count + 0.5)
+	end
+	
+	return center_x, center_z
+	
+end
+
+
+-- ------------------------------------
+function isFlyCombatType(pid)
+	if ( UnitGetMoveCost( pid ) == "COST_飛行" ) then
+		return true
+	else
+		return false
+	end
+end
+
+-- -----------------------------------
 
 function 変数登録()
 	
@@ -60,7 +238,9 @@ function イベント登録()
 	EventEntryTurn(増援１, 4, 4, FORCE_ALLY, condition_増援１_ノーマル)
 	EventEntryTurn(増援２, 5, 5, FORCE_ALLY, condition_増援２_ノーマル)
 	EventEntryTurn(増援３, 7, 7, FORCE_ALLY, condition_増援３_ノーマル)
-	
+	EventEntryTurn(UnitMove,  -1,  -1, FORCE_PLAYER)
+
+
 	-- ハード以上の増援
 	EventEntryTurn(増援１, 3, 3, FORCE_ALLY, condition_増援１)
 	EventEntryTurn(増援２, 4, 4, FORCE_ALLY, condition_増援２)
@@ -141,8 +321,6 @@ function 自軍ターン前_自警団仲間入り()
 	CursorSetPos_FromPid("PID_フォガート")
 	
 	Talk("MID_EV2")
-	
-	Tutorial( "TUTID_流砂" )
 	
 	-- 緑軍→青軍
 	UnitJoin( "PID_フォガート", "PID_パンドロ", "PID_ボネ" )
