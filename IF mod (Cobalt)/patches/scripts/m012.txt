@@ -12,7 +12,7 @@ g_Height = 16
 
 function Startup()
 	
-	Log("Startup123456")
+	Log("Startup")
 	
 	WinRuleSetMID( "MID_RULE_M012_WIN" )
 
@@ -22,7 +22,26 @@ function Startup()
 end
 
 -- ------------------------------------
-
+function quickSandTerrainSet()
+	TerrainSetBegin()
+	for x = 1, g_Width do
+		for z = 1, g_Height do
+			local direction = getMoveDirection()
+			if TerrainGet(x, z) == "TID_流砂" or TerrainGet(x, z) ==  "TID_流砂_L" or TerrainGet(x, z) ==  "TID_流砂_R" or TerrainGet(x, z) ==  "TID_流砂_U" or TerrainGet(x, z) ==  "TID_流砂_D" then 
+				if direction == "L" or direction == "左" then
+					TerrainSet( x, z, "TID_流砂_D")
+				elseif direction == "R" or direction == "右" then
+					TerrainSet( x, z, "TID_流砂_U")
+				elseif direction == "U" or direction == "上" then
+					TerrainSet( x, z, "TID_流砂_L")
+				elseif direction == "D" or direction == "下" then
+					TerrainSet( x, z, "TID_流砂_R")
+				end
+			end
+		end
+	end
+	TerrainSetEnd()
+end
 function UnitMove()
     local direction = getMoveDirection()
     Log("Direction: " .. direction)
@@ -158,7 +177,7 @@ function moveListGet()
 		local _z = UnitGetZ(index)	
 
 		local terrain = TerrainGet(_x, _z)
-		if terrain == "TID_流砂" then
+		if (terrain == "TID_流砂_L") or (terrain == "TID_流砂_R") or (terrain == "TID_流砂_U") or (terrain == "TID_流砂_D") then
 			table_unit[ #table_unit + 1 ] = { UNIT=index, X=_x, Z=_z }
 		end
 
@@ -239,7 +258,7 @@ function イベント登録()
 	EventEntryTurn(増援２, 5, 5, FORCE_ALLY, condition_増援２_ノーマル)
 	EventEntryTurn(増援３, 7, 7, FORCE_ALLY, condition_増援３_ノーマル)
 	EventEntryTurn(UnitMove,  -1,  -1, FORCE_PLAYER)
-
+	EventEntryTurn(quickSandTerrainSet,  -1,  -1, FORCE_PLAYER)
 
 	-- ハード以上の増援
 	EventEntryTurn(増援１, 3, 3, FORCE_ALLY, condition_増援１)
@@ -286,6 +305,7 @@ end
 function MapOpening()
 	
 	Log("MapOpening")
+	quickSandTerrainSet()
 	
 end
 
