@@ -5032,3 +5032,44 @@ When engage with an emblem,
 all stats+1.
 When adjacent to an ally,
 all stats+1.
+
+[MSID_HotBlood]
+Hot Blood
+
+[MSID_H_HotBlood]
+When unit's HP=100% and foe's HP=100%,
+unit gets Str/Mag/Spd+3
+
+[MSID_RallyingCry]
+Rallying Cry
+
+[MSID_H_RallyingCry]
+Allies within 2 spaces deal
++2 Dmg
+
+[MSID_QuietStrength]
+Quiet Strength
+
+[MSID_H_QuietStrength]
+Allies within 2 spaces take
+-2 Dmg
+
+[MSID_HandsomeCheif]
+Lupper Bringer
+
+[MSID_H_HandsomeCheif]
+Enemies within 2 spaces -2 Spd
+
+[MSID_FieryBlood]
+Fiery Blood
+
+[MSID_H_FieryBlood]
+If HP isn't full, unit deals
++4 Dmg
+
+[MSID_Sisterhood]
+Sisterhood
+
+[MSID_H_Sisterhood]
+Unit takes -2 Dmg and deals +2 Dmg
+when adjacent to female allies.
