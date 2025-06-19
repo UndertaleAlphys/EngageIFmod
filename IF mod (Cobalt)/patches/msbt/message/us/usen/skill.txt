@@ -1603,14 +1603,14 @@ Resolve
 
 [MSID_H_BraveGeneral_1]
 The unit's HP <= 75%,
-Grants +6 Skl/Luck.
+Grants +6 Dex/Luck.
 
 [MSID_BraveGeneral_2]
 Resolve+
 
 [MSID_H_BraveGeneral_2]
 The unit's HP <= 75%,
-Grants +8 Skl/Luck.
+Grants +8 Dex/Luck.
 
 [MSID_IkeEngage]
 Laguz Friend
@@ -2481,7 +2481,7 @@ Big Personality
 [MSID_H_PrivateSkill_Hortensia]
 When this unit initiate combat
 and defeat an enemy, Str/Mag/
-Skl/Spd+4, last for 1 turn.
+Dex/Spd+4, last for 1 turn.
 
 [MSID_PrivateSkill_Rosado]
 Stunning Smile
@@ -2778,7 +2778,7 @@ Stalwart
 
 [MSID_H_JobSkill_Avenir]
 At the start of player's phase,
-has Skl% chance to restore
+has Dex% chance to restore
 40% of max HP.
 
 [MSID_JobSkill_Fleurage]
@@ -2823,7 +2823,7 @@ consume a use. Trigger %=Dex*2.
 Rend Heaven
 
 [MSID_H_JobSkill_Pitchfork]
-Skl x 1.5% chance of adding half 
+Dex x 1.5% chance of adding half 
 the enemy's Strength (when using
 a physical weapon) or Magic 
 (when using a magical weapon) as damage
@@ -3691,7 +3691,7 @@ Rally Skill
 
 [MSID_H_SkillCry]
 Grants the unit "Rally" command,
-use to +4 Skl to all allies in 2 radius,
+use to +4 Dex to all allies in 2 radius,
 last for 1 turn.
 
 [MSID_SpeedCry]
@@ -3981,7 +3981,7 @@ Big Personality · Dark
 [MSID_H_PrivateSkill_Hortensia_E]
 When this unit initiate combat
 and defeat an enemy, Str/Mag/
-Skl/Spd+4, reduced by 1 each turn.
+Dex/Spd+4, reduced by 1 each turn.
 
 [MSID_PrivateSkill_Goldmary_E]
 Disarming Sigh · Dark
@@ -4223,7 +4223,7 @@ Pavise+
 When attacked by sword/lance/
 axe/martial art, has a chance
 to reduce the damage by half.
-(=Skl%)
+(=Dex%)
 
 [MSID_H_Pavise_2]
 When attacked by sword/lance/
@@ -4240,7 +4240,7 @@ Aegis+
 When attacked by tome/bow/
 dagger/other weapon, has a chance
 to reduce the damage by half.
-(=Skl%)
+(=Dex%)
 
 [MSID_H_Aegis_2]
 When attacked by tome/bow/
@@ -4384,7 +4384,7 @@ Aether
 [MSID_H_Aether]
 Has a chance to perform a 
 consecutive Sol and Luna attack.
-(=Skl%)
+(=Dex%)
 
 [MSID_Lethality]
 Lethality
@@ -4392,7 +4392,7 @@ Lethality
 [MSID_H_Lethality]
 Has a chance to instantly
 defeats the foe.
-(=Skl/2%)
+(=Dex/2%)
 
 [MSID_EquipWeapon_1]
 Arm Master
@@ -4437,7 +4437,7 @@ Ignis+
 
 [MSID_H_Ignis]
 Has a chance to increase the damage
-of attack. (=Skl%)
+of attack. (=Dex%)
 When dealing magic damage, add
 50% of this unit Str to damage.
 When dealing physical damage, add

@@ -1036,7 +1036,7 @@ HP回复量+15、杖的命中+30
 治愈之声
 
 [MSID_H_HealingResonance]
-对我方单位使用杖后，
+对友方单位使用杖后，
 将自身HP回复至与其相同。
 
 [MSID_MicaiahEngage]
