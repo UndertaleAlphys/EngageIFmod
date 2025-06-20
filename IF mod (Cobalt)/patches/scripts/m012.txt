@@ -5,6 +5,10 @@ g_key_reinforcement1 = "増援１_済"
 g_key_reinforcement2 = "増援２_済"
 g_key_reinforcement3 = "増援３_済"
 
+g_flag_battle_1				= "戦闘開始_1"
+g_flag_battle_2				= "戦闘開始_2"
+g_flag_battle_boss				= "戦闘開始_boss"
+
 g_Width = 20
 g_Height = 16
 
@@ -24,6 +28,7 @@ end
 -- ------------------------------------
 function quickSandTerrainSet()
 	TerrainSetBegin()
+	TerrainSet( 1, 8, "TID_王座")
 	for x = 1, g_Width do
 		for z = 1, g_Height do
 			local direction = getMoveDirection()
@@ -42,6 +47,23 @@ function quickSandTerrainSet()
 	end
 	TerrainSetEnd()
 end
+
+function 飛行ユニットの０ダメージ攻撃を許可()
+	if DifficultyGet() == DIFFICULTY_LUNATIC then
+		
+		local index	= ForceUnitGetFirst( FORCE_ENEMY )
+		
+		while ( index != nil ) do
+			
+			if (UnitGetPID( index ) == "PID_M012_IFMOD_ランスファイター" ) then
+				AiSetRejectPower0Attack( index, false )
+			end
+			
+			index = ForceUnitGetNext( index )
+		end
+	end
+end
+
 function UnitMove()
     local direction = getMoveDirection()
     Log("Direction: " .. direction)
@@ -240,6 +262,10 @@ function 変数登録()
 	VariableEntry( g_key_reinforcement1, 0 )
 	VariableEntry( g_key_reinforcement2, 0 )
 	VariableEntry( g_key_reinforcement3, 0 )
+
+	VariableEntry(g_flag_battle_1, 0)
+	VariableEntry(g_flag_battle_2, 0)
+	VariableEntry(g_flag_battle_boss, 0)
 	
 end
 
@@ -252,23 +278,25 @@ function イベント登録()
 	
 	EventEntryPickup(ピックアップ_パンドロ, "PID_パンドロ", "ピックアップ_パンドロ_済")
 	
-	
+	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_ロイヤルナイト1", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_1 )
+	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_ロイヤルナイト2", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_2 )
+	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_ロイヤルナイト3", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_boss )
+
 	-- ノーマル増援
-	EventEntryTurn(増援１, 4, 4, FORCE_ALLY, condition_増援１_ノーマル)
-	EventEntryTurn(増援２, 5, 5, FORCE_ALLY, condition_増援２_ノーマル)
-	EventEntryTurn(増援３, 7, 7, FORCE_ALLY, condition_増援３_ノーマル)
+	-- EventEntryTurn(増援１, 4, 4, FORCE_ALLY, condition_増援１_ノーマル)
+	-- EventEntryTurn(増援２, 5, 5, FORCE_ALLY, condition_増援２_ノーマル)
+	-- EventEntryTurn(増援３, 7, 7, FORCE_ALLY, condition_増援３_ノーマル)
 	EventEntryTurn(UnitMove,  -1,  -1, FORCE_PLAYER)
 	EventEntryTurn(quickSandTerrainSet,  -1,  -1, FORCE_PLAYER)
 
-	-- ハード以上の増援
-	EventEntryTurn(増援１, 3, 3, FORCE_ALLY, condition_増援１)
-	EventEntryTurn(増援２, 4, 4, FORCE_ALLY, condition_増援２)
-	EventEntryTurn(増援３, 6, 6, FORCE_ALLY, condition_増援３)
+	EventEntryTurn(増援１, -1, -1, FORCE_ALLY, condition_増援１)
+	EventEntryTurn(増援２, -1, -1,  FORCE_ALLY, condition_増援２)
+	EventEntryTurn(増援３, -1, -1, FORCE_ALLY, condition_増援３)
 	
 	
-	EventEntryDie(EmptyFunction, "PID_M012_村人Ａ", FORCE_ALLY, "S_M012_村人Ａ_死亡")
-	EventEntryDie(EmptyFunction, "PID_M012_村人Ｂ", FORCE_ALLY, "S_M012_村人Ｂ_死亡")
-	EventEntryDie(EmptyFunction, "PID_M012_村人Ｃ", FORCE_ALLY, "S_M012_村人Ｃ_死亡")
+	-- EventEntryDie(EmptyFunction, "PID_M012_村人Ａ", FORCE_ALLY, "S_M012_村人Ａ_死亡")
+	-- EventEntryDie(EmptyFunction, "PID_M012_村人Ｂ", FORCE_ALLY, "S_M012_村人Ｂ_死亡")
+	-- EventEntryDie(EmptyFunction, "PID_M012_村人Ｃ", FORCE_ALLY, "S_M012_村人Ｃ_死亡")
 	
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 16, 9, "PID_リュール", condition_true)
@@ -289,14 +317,14 @@ function Opening()
 	
 	Log("Opening")
 	
-	PuppetDemo("M012", "MID_OP1")
-	PuppetDemo("M012", "MID_OP2")
+	-- PuppetDemo("M012", "MID_OP1")
+	-- PuppetDemo("M012", "MID_OP2")
 
-	Movie("Scene17")
-	SkipEscape()
+	-- Movie("Scene17")
+	-- SkipEscape()
 
-	PuppetDemo("M012", "MID_OP2_2")
-	PuppetDemo("M012", "MID_OP3")
+	-- PuppetDemo("M012", "MID_OP2_2")
+	-- PuppetDemo("M012", "MID_OP3")
 	
 end
 
@@ -306,7 +334,7 @@ function MapOpening()
 	
 	Log("MapOpening")
 	quickSandTerrainSet()
-	
+	飛行ユニットの０ダメージ攻撃を許可()
 end
 
 -- -----------------------------------
@@ -360,28 +388,19 @@ end
 
 -- -----------------------------------
 
-function condition_増援１_ノーマル()
-	if VariableGet( g_key_reinforcement1 ) != 0 then
-		return false
-	end
-	
-	if DifficultyGet() == DIFFICULTY_NORMAL then
-		return true
-	end
-	
-	return false
-end
 
 function condition_増援１()
 	if VariableGet( g_key_reinforcement1 ) != 0 then
 		return false
 	end
 	
-	if DifficultyGet() > DIFFICULTY_NORMAL then
-		return true
+	if VariableGet( g_flag_battle_1 ) == 0 then
+		return false
 	end
 	
-	return false
+
+
+	return true
 end
 
 function 増援１()
@@ -408,28 +427,16 @@ end
 
 -- -----------------------------------
 
-function condition_増援２_ノーマル()
-	if VariableGet( g_key_reinforcement2 ) != 0 then
-		return false
-	end
-	
-	if DifficultyGet() == DIFFICULTY_NORMAL then
-		return true
-	end
-	
-	return false
-end
 
 function condition_増援２()
 	if VariableGet( g_key_reinforcement2 ) != 0 then
 		return false
 	end
 	
-	if DifficultyGet() > DIFFICULTY_NORMAL then
-		return true
+	if VariableGet( g_flag_battle_2 ) == 0 then
+		return false
 	end
-	
-	return false
+	return true
 end
 
 function 増援２()
@@ -446,28 +453,22 @@ end
 
 -- -----------------------------------
 
-function condition_増援３_ノーマル()
-	if VariableGet( g_key_reinforcement3 ) != 0 then
-		return false
-	end
-	
-	if DifficultyGet() == DIFFICULTY_NORMAL then
-		return true
-	end
-	
-	return false
-end
-
 function condition_増援３()
 	if VariableGet( g_key_reinforcement3 ) != 0 then
 		return false
 	end
 	
-	if DifficultyGet() > DIFFICULTY_NORMAL then
-		return true
+	if VariableGet( g_flag_battle_boss ) == 0 then
+		return false
 	end
-	
-	return false
+
+	Log("123")
+	if MapGetTurn() <3 then
+		Log("456")
+		return false
+	end
+
+	return true
 end
 
 function 増援３()
