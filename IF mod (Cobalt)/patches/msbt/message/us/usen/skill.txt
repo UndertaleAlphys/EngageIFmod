@@ -1512,7 +1512,18 @@ unit initiates combat and defeats a
 foe. (Max +10)
 At the start of each player's phase,
 if this unit hasn't initiated and defeat
-any enemy last turn, lose 1 Spd.
+any enemy last turn, lose 2 Spd.
+
+[MSID_H_SpeedAbsorption]
+Strengthtaker
+
+[MSID_StrengthAbsorption]
+Grants a stacking Str+2 each time
+unit initiates combat and defeats a
+foe. (Max +10)
+At the start of each player's phase,
+if this unit hasn't initiated and defeat
+any enemy last turn, lose 2 Str.
 
 [MSID_LinEngage]
 Call Doubles
@@ -4622,7 +4633,7 @@ Ruptured Heaven
 Initiate a Dragon effective strike.
 
 [MSID_SpeedAbsorption_M010]
-SpeedTaker · Dark
+Dark SpeedTaker
 
 [MSID_H_SpeedAbsorption_M010]
 Grants a stacking Spd+2 each time
@@ -4634,6 +4645,20 @@ If equipped by Hyacinth...
 For every hit this unit lands,
 this unit gets Spd+2 (Max+20)
 the foe suffers Spd-2 (Max-10)
+
+[MSID_StrengthAbsorption_G002]
+Light Strengthtaker 
+
+[MSID_H_StrengthAbsorption_G002]
+Grants a stacking Str+2 each time
+unit initiates combat and defeats a
+foe. (Max +10)
+If equipped by Hector...
+
+[MSID_H_StrengthAbsorption_G002A]
+For every hit this unit or foe lands,
+this unit gets Str+2 (Max+20)
+the foe suffers Str-2 (Max-10)
 
 [MSID_Declaim_1]
 Hindsight Awareness

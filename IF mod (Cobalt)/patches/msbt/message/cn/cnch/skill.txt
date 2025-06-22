@@ -1364,9 +1364,18 @@ HP回复量+15、杖的命中+30
 会抢先在敌人反击前施展追击
 
 [MSID_SpeedAbsorption]
-速度吸收
+速之吸收
 
 [MSID_H_SpeedAbsorption]
+自身发动攻击时，每打倒1个敌人，速度+2
+（至多叠加5层效果）
+每回合开始时，若上回合没有主动打倒敌人
+此效果减少1层
+
+[MSID_StrengthAbsorption]
+力之吸收
+
+[MSID_H_StrengthAbsorption]
 自身发动攻击时，每打倒1个敌人，速度+2
 （至多叠加5层效果）
 每回合开始时，若上回合没有主动打倒敌人
@@ -4241,7 +4250,7 @@ MSID_CrtMoreDmg
 发起对龙有效的攻击
 
 [MSID_SpeedAbsorption_M010]
-速度吸收 · 暗
+速之吸收 · 暗
 
 [MSID_H_SpeedAbsorption_M010]
 自身发动攻击时，每打倒1个敌人，速度+2
@@ -4250,6 +4259,20 @@ MSID_CrtMoreDmg
 
 [MSID_H_SpeedAbsorption_M010A]
 自身的攻击命中后，每命中一次
+本场战斗后，
+自身的速度+2（至多叠加10层效果）
+对方的速度-2（至多叠加5层效果）
+
+[MSID_StrengthAbsorption_G002]
+力之吸收 · 光
+
+[MSID_H_StrengthAbsorption_G002]
+自身发动攻击时，每打倒1个敌人，力量+2
+（至多叠加5层效果）
+海克托尔发动的话...
+
+[MSID_H_StrengthAbsorption_G002A]
+双方的攻击命中后，每命中一次
 本场战斗后，
 自身的速度+2（至多叠加10层效果）
 对方的速度-2（至多叠加5层效果）
