@@ -3486,7 +3486,8 @@ MSID_CrtMoreDmg
 翼盾
 
 [MSID_H_WingedShield]
-飞行特效无效
+使飞行特效无效，
+受到地形效果的影响。
 
 [MSID_H_BeastShield]
 兽马特效无效

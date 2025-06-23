@@ -3798,6 +3798,7 @@ Winged Shield
 
 [MSID_H_WingedShield]
 Nullifies the flying weakness on the unit.
+Also enables unit to affected by terrain.
 
 [MSID_H_BeastShield]
 Nullifies the beast weakness on the unit.
