@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Book Count="4">
-  <Sheet Name="武器屋" Count="35">
+  <Sheet Name="武器屋" Count="37">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -43,6 +43,8 @@
       <Param Condition="" Iid="IID_護身の法" Stock="1" Attribute="0" />
       <Param Condition="M011" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_鋼のナイフ" Stock="1" Attribute="0" />
+      <Param Condition="M023" Iid="" Stock="" Attribute="" />
+      <Param Condition="" Iid="IID_ブリュンヒルデ" Stock="-1" Attribute="0" />
     </Data>
   </Sheet>
   <Sheet Name="道具屋" Count="100">
