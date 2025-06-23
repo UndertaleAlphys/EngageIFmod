@@ -172,9 +172,9 @@ Effective: Cavalry, Armored.
 Runesword
 
 [MIID_H_Hector_Runesword]
-Magic sword of Emblem Hector.
-Can strike close or at range. Restore
-HP equal to 50% of damage dealt. 
+An exceptional sword of Emblem Hector.
+Hard to follow up(-3)/
+The type of damage varies by distance.
 
 [MIID_Hector_Armads]
 Armads
