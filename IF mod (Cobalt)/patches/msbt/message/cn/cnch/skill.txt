@@ -4263,6 +4263,9 @@ MSID_CrtMoreDmg
 自身的速度+2（至多叠加10层效果）
 对方的速度-2（至多叠加5层效果）
 
+[MSID_SpeedAbsorption_S004]
+速之吸收 · 光
+
 [MSID_StrengthAbsorption_G002]
 力之吸收 · 光
 
@@ -4696,3 +4699,6 @@ HP不满时伤害+4
 
 [MSID_H_Impenetrable_CMD]
 使自身于本回合免疫break
+
+[MSID_H_Impenetrable_G002]
+待机后，本回合免疫break。
