@@ -279,9 +279,19 @@ function イベント登録()
 	EventEntryPickup(ピックアップ_パンドロ, "PID_パンドロ", "ピックアップ_パンドロ_済")
 	
 	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_ロイヤルナイト1", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_1 )
+<<<<<<< HEAD
+	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_アーチャー", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_1 )
+	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_アーチャー2", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_1 )
+	
+	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_ロイヤルナイト2", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_2 )
+	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_忍", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_boss )
+	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_忍2", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_boss )
+	
+=======
 	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_ロイヤルナイト2", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_2 )
 	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_ロイヤルナイト3", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_boss )
 
+>>>>>>> origin/alphys
 	-- ノーマル増援
 	-- EventEntryTurn(増援１, 4, 4, FORCE_ALLY, condition_増援１_ノーマル)
 	-- EventEntryTurn(増援２, 5, 5, FORCE_ALLY, condition_増援２_ノーマル)
