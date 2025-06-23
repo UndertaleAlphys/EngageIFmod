@@ -346,7 +346,7 @@ Enchant Effect: Grants Hit+20.
 Quick Riposte
 
 [MSID_H_QuickResponse]
-If unit's HP is 80% or more and foe
+If unit's HP is 75% or more and foe
 initiates combat, unit will always
 follow up (if weapon allows).
 
@@ -354,7 +354,7 @@ follow up (if weapon allows).
 Quick Riposte+
 
 [MSID_H_QuickResponse+]
-If unit's HP is 60% or more and foe
+If unit's HP is 50% or more and foe
 initiates combat, unit will always
 follow up (if weapon allows).
 
@@ -362,10 +362,12 @@ follow up (if weapon allows).
 Heavy Attack
 
 [MSID_H_HeavyAttack]
-When making a physical attack, if an
-equipped weapon's Wt exceeds
-unit's Bld, adds excess as damage.
-(Max +5)
+When weapon's Mt>=10,
+grants Str+5.
+When foe initiates battle,
+and if the unit's Str is greater,
+add 30% of the Str difference
+to the damage dealt.
 
 [MSID_GazeDiagonally]
 Piercing Glare
@@ -434,68 +436,24 @@ Def/Res+30% during combat.
 instead of +30%.
 
 [MSID_HectorEngageAtk]
-Storm's Eye
+Thunder Storm
 
 [MSID_H_HectorEngageAtk]
-Grants immunity to break. Foe
-cannot follow up. Unit follows up.
-Lasts 1 turn. Sword/axe only.
-
-[MSID_H_HectorEngageAtk_Dragon]
-Grants immunity to break. Foe
-cannot follow up. Unit follows up.
-Lasts 1 turn. Sword/axe only.
-[Dragon] Also prevent critical hits.
-
-[MSID_H_HectorEngageAtk_Coop]
-Grants immunity to break. Foe
-cannot follow up. Unit follows up.
-Lasts 1 turn. Sword/axe only.
-[Backup] Crit+20.
-
-[MSID_H_HectorEngageAtk_Covert]
-Grants immunity to break. Foe
-cannot follow up. Unit follows up.
-Lasts 1 turn. Sword/axe only.
-[Covert] Avo+30.
+Use to attack at double weapon's Mt.
+Sword/axe only.
 
 [MSID_H_HectorEngageAtk_CMD]
-Adopt stance that always follows
-up. Foes cannot follow up.
+Attak at double weapon's Mt.
 
 [MSID_HectorEngageAtk+]
-Storm's Eye+
+Thunder Storm+
 
 [MSID_H_HectorEngageAtk+]
-Grants immunity to break. Foe
-cannot follow up. Unit counters
-before foe's first attack and follows
-up. Lasts 1 turn. Sword/axe only.
-
-[MSID_H_HectorEngageAtk+_Dragon]
-Grants immunity to break. Foe
-cannot follow up. Unit counters
-before foe's first attack and follows
-up. Lasts 1 turn. Sword/axe only.
-[Dragon] Also prevent critical hits.
-
-[MSID_H_HectorEngageAtk+_Coop]
-Grants immunity to break. Foe
-cannot follow up. Unit counters
-before foe's first attack and follows
-up. Lasts 1 turn. Sword/axe only.
-[Backup] Crit+20.
-
-[MSID_H_HectorEngageAtk+_Covert]
-Grants immunity to break. Foe
-cannot follow up. Unit counters
-before foe's first attack and follows
-up. Lasts 1 turn. Sword/axe only.
-[Covert] Avo+30.
+Use to attack at triple weapon's Mt.
+Sword/axe only.
 
 [MSID_H_HectorEngageAtk+_CMD]
-Unit attacks first and follows
-up. Foe cannot follow up.
+Attack at triple weapon's Mt.
 
 [MSID_MagicOfLaw+]
 Anima Focus

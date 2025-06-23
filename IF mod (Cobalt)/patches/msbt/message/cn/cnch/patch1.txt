@@ -156,7 +156,7 @@ Ver.1.2.0 更新内容
 除了能使用运输队，还擅长以战术支援伙伴。
 
 [MIID_Hector_WolfBeil]
-沃夫拜尔
+群狼之灾
 
 [MIID_H_Hector_WolfBeil]
 纹章士海克托尔的斧。
@@ -172,7 +172,7 @@ Ver.1.2.0 更新内容
 并能以魔法攻击远处敌人。
 
 [MIID_Hector_Armads]
-阿尔玛兹
+天雷之斧
 
 [MIID_H_Hector_Armads]
 纹章士海克托尔的天雷之斧。
@@ -341,23 +341,22 @@ Ver.1.2.0 更新内容
 
 [MSID_H_QuickResponse]
 受到敌人攻击时
-若自身的HP为80%以上将发动追击
+若自身的HP为75%以上将发动追击
 
 [MSID_QuickResponse+]
 回击+
 
 [MSID_H_QuickResponse+]
 受到敌人攻击时
-若自身的HP为60%以上将发动追击
+若自身的HP为50%以上将发动追击
 
 [MSID_HeavyAttack]
 重击
 
 [MSID_H_HeavyAttack]
-发动物理攻击时
-若装备的武器重量大于体格
-则将超过的数值加计至伤害
-（上限为+5）
+武器威力>=10时，力+5
+受到攻击时伤害增加
+自身与对方力差的30%
 
 [MSID_GazeDiagonally]
 角之瞪视
@@ -413,67 +412,24 @@ HP未达最大值，无法使用。
 【飞行】魔防的提升率增为150%
 
 [MSID_HectorEngageAtk]
-止水雷轰架势
+轰雷
 
 [MSID_H_HectorEngageAtk]
-不会受到敌人追击或陷入打破状态
-且自身反击时将发动追击，效果持续1回合
+发动武器威力翻倍的攻击
 仅限持剑、斧
-
-[MSID_H_HectorEngageAtk_Dragon]
-不会受到敌人追击或陷入打破状态
-且自身反击时将发动追击，效果持续1回合
-仅限持剑、斧
-【龙族】敌人无法使出必杀攻击
-
-[MSID_H_HectorEngageAtk_Coop]
-不会受到敌人追击或陷入打破状态
-且自身反击时将发动追击，效果持续1回合
-仅限持剑、斧
-【连携】必杀+20
-
-[MSID_H_HectorEngageAtk_Covert]
-不会受到敌人追击或陷入打破状态
-且自身反击时将发动追击，效果持续1回合
-仅限持剑、斧
-【隐密】回避+30
 
 [MSID_H_HectorEngageAtk_CMD]
-自身可发动追击，但敌人无法追击
+发动武器威力翻倍的攻击
 
 [MSID_HectorEngageAtk+]
-止水雷轰架势+
+轰雷+
 
 [MSID_H_HectorEngageAtk+]
-战斗时必定可抢先攻击对方
-不会受到敌人追击或陷入打破状态
-且自身反击时将发动追击，效果持续1回合
+发动武器威力3倍的攻击
 仅限持剑、斧
-
-[MSID_H_HectorEngageAtk+_Dragon]
-战斗时必定可抢先攻击对方
-不会受到敌人追击或陷入打破状态
-且自身反击时将发动追击，效果持续1回合
-仅限持剑、斧
-【龙族】敌人无法使出必杀攻击
-
-[MSID_H_HectorEngageAtk+_Coop]
-战斗时必定可抢先攻击对方
-不会受到敌人追击或陷入打破状态
-且自身反击时将发动追击，效果持续1回合
-仅限持剑、斧
-【连携】必杀+20
-
-[MSID_H_HectorEngageAtk+_Covert]
-战斗时必定可抢先攻击对方
-不会受到敌人追击或陷入打破状态
-且自身反击时将发动追击，效果持续1回合
-仅限持剑、斧
-【隐密】回避+30
 
 [MSID_H_HectorEngageAtk+_CMD]
-自身可抢先攻击并发动追击，
-但敌人无法追击
+发动武器威力3倍的攻击
 
 [MSID_MagicOfLaw+]
 理之精髓
