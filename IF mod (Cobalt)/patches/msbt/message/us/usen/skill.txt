@@ -1511,7 +1511,7 @@ Grants a stacking Spd+2 each time
 unit initiates combat and defeats a
 foe. (Max +10)
 At the start of each player's phase,
-if this unit hasn't initiated and defeat
+if this unit didn't defeat
 any enemy last turn, lose 2 Spd.
 
 [MSID_H_SpeedAbsorption]
@@ -1522,7 +1522,7 @@ Grants a stacking Str+2 each time
 unit initiates combat and defeats a
 foe. (Max +10)
 At the start of each player's phase,
-if this unit hasn't initiated and defeat
+if this unit didn't defeat
 any enemy last turn, lose 2 Str.
 
 [MSID_LinEngage]
@@ -4656,7 +4656,7 @@ foe. (Max +10)
 If equipped by Hector...
 
 [MSID_H_StrengthAbsorption_G002A]
-For every hit this unit or foe lands,
+For every hit this unit or foe land,
 this unit gets Str+2 (Max+20)
 the foe suffers Str-2 (Max-10)
 
@@ -5098,3 +5098,14 @@ Sisterhood
 [MSID_H_Sisterhood]
 Unit takes -2 Dmg and deals +2 Dmg
 when adjacent to female allies.
+
+[MSID_Impenetrable]
+Impenetrable Stance
+
+[MSID_H_Impenetrable]
+Grant the unit "Impenetrable",
+cost 2 engage meter
+to grant immunity to break.
+
+[MSID_H_Impenetrable_CMD]
+Grant immunity to break

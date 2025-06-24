@@ -1369,7 +1369,7 @@ HP回复量+15、杖的命中+30
 [MSID_H_SpeedAbsorption]
 自身发动攻击时，每打倒1个敌人，速度+2
 （至多叠加5层效果）
-每回合开始时，若上回合没有主动打倒敌人
+每回合开始时，若上回合没有打倒敌人
 此效果减少1层
 
 [MSID_StrengthAbsorption]
@@ -1378,7 +1378,7 @@ HP回复量+15、杖的命中+30
 [MSID_H_StrengthAbsorption]
 自身发动攻击时，每打倒1个敌人，速度+2
 （至多叠加5层效果）
-每回合开始时，若上回合没有主动打倒敌人
+每回合开始时，若上回合没有打倒敌人
 此效果减少1层
 
 [MSID_LinEngage]
@@ -4129,7 +4129,7 @@ MSID_CrtMoreDmg
 [MSID_H_Blade]
 武器威力<10时, 速度+5
 主动攻击时伤害增加
-自己与对方速度差的30%
+自身与对方速度差的30%
 
 [MSID_AttackStance]
 攻阵
@@ -4685,3 +4685,14 @@ HP不满时伤害+4
 [MSID_H_Sisterhood]
 与女性相邻时，
 伤害+2，受到伤害-2
+
+[MSID_Impenetrable]
+铁壁态势
+
+[MSID_H_Impenetrable]
+可使用“铁壁态势”指令，
+消耗2结合计量条，
+使自身于本回合免疫break。
+
+[MSID_H_Impenetrable_CMD]
+使自身于本回合免疫break
