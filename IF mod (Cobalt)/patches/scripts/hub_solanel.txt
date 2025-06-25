@@ -27,6 +27,7 @@ function Opening()
 	
 	Log("Solanel Opening")
 
+	
 	HubSolanelEvilEnd()
 
 end
