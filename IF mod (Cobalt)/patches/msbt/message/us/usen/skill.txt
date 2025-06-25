@@ -884,7 +884,7 @@ Canto
 
 [MSID_H_Remove_3]
 After performing an action,
-user can use their leftover movement.
+unit can use their leftover movement.
 
 [MSID_Approach_1]
 Momentum
