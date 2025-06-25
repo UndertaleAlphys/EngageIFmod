@@ -47,8 +47,7 @@ Mystical
 
 [MBSID_H_Magic]
 Mystical units ignore opponents'
-Avo/Def/Res bonuses from terrain when
-attacking with magic.
+Avo/Def/Res bonuses from terrain.
 
 [MBSID_Prana]
 Qi Adept
