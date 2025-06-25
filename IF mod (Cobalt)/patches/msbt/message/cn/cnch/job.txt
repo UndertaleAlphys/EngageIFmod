@@ -334,10 +334,10 @@
 擅长抵御魔法，但不善抵御弓术。
 
 [MJID_GriffonKnight]
-狮鹫骑士
+圣天马武者
 
 [MJID_H_GriffonKnight]
-骑着格里芬翱翔天际的高等骑士。
+骑着圣天马翱翔天际的高等骑士。
 整体能力优异，亦能操杖。
 
 [MJID_DragonKnight]

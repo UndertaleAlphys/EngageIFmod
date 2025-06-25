@@ -375,11 +375,11 @@ sky on their pegasus mounts. Strong
 against magic, but weak to bows.
 
 [MJID_GriffonKnight]
-Griffin Knight
+Falcon Knight
 
 [MJID_H_GriffonKnight]
 Experienced knights who fly through
-the skies on a griffin. They are well-
+the skies on a falcon. They are well-
 balanced and can use staves.
 
 [MJID_DragonKnight]
