@@ -81,7 +81,7 @@ pub fn unit_move_xz(
     let real_move_power = if unit.status.value & 0x40000 != 0 {
         if unit.has_sid(Il2CppString::new("SID_再移動＋＋")) {
             let unit_mov = unit.get_capability(0xA, true);
-            unit_mov - unit.move_distance
+            (unit_mov - unit.move_distance).max(0)
         } else {
             move_power
         }
