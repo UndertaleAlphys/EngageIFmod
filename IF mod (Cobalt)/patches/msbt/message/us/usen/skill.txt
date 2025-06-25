@@ -3798,6 +3798,7 @@ Winged Shield
 
 [MSID_H_WingedShield]
 Nullifies the flying weakness on the unit.
+Also enables unit to affected by terrain.
 
 [MSID_H_BeastShield]
 Nullifies the beast weakness on the unit.
@@ -4646,6 +4647,9 @@ For every hit this unit lands,
 this unit gets Spd+2 (Max+20)
 the foe suffers Spd-2 (Max-10)
 
+[MSID_SpeedAbsorption_S004]
+Light SpeedTaker
+
 [MSID_StrengthAbsorption_G002]
 Light Strengthtaker 
 
@@ -5109,3 +5113,7 @@ to grant immunity to break.
 
 [MSID_H_Impenetrable_CMD]
 Grant immunity to break
+
+[MSID_H_Impenetrable_G002]
+When unit uses "Wait" command,
+grants immunity to break for 1 turn.

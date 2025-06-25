@@ -278,7 +278,13 @@ pub fn map_skill_prediction(
     results: &mut MapSkillResults,
     method: OptionalMethod,
 ) -> bool {
-    call_original!(current, reverse, skill, results, method)
+    if current.get_person().get_bmap_size() + reverse.get_person().get_bmap_size() > 2
+        && skill.get_move_self().pow(2) + skill.get_move_target().pow(2) > 0
+    {
+        false
+    } else {
+        call_original!(current, reverse, skill, results, method)
+    }
 }
 
 /// The internal name of your plugin. This will show up in crash logs. Make it 8 characters long at max.
