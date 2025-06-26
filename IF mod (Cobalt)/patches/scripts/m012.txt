@@ -279,7 +279,6 @@ function イベント登録()
 	EventEntryPickup(ピックアップ_パンドロ, "PID_パンドロ", "ピックアップ_パンドロ_済")
 	
 	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_ロイヤルナイト1", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_1 )
-<<<<<<< HEAD
 	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_アーチャー", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_1 )
 	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_アーチャー2", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_1 )
 	
@@ -287,11 +286,6 @@ function イベント登録()
 	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_忍", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_boss )
 	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_忍2", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_boss )
 	
-=======
-	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_ロイヤルナイト2", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_2 )
-	EventEntryBattleAfter(EmptyFunction, "PID_M012_IFMOD_ロイヤルナイト3", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle_boss )
-
->>>>>>> origin/alphys
 	-- ノーマル増援
 	-- EventEntryTurn(増援１, 4, 4, FORCE_ALLY, condition_増援１_ノーマル)
 	-- EventEntryTurn(増援２, 5, 5, FORCE_ALLY, condition_増援２_ノーマル)
@@ -304,9 +298,9 @@ function イベント登録()
 	EventEntryTurn(増援３, -1, -1, FORCE_ALLY, condition_増援３)
 	
 	
-	-- EventEntryDie(EmptyFunction, "PID_M012_村人Ａ", FORCE_ALLY, "S_M012_村人Ａ_死亡")
-	-- EventEntryDie(EmptyFunction, "PID_M012_村人Ｂ", FORCE_ALLY, "S_M012_村人Ｂ_死亡")
-	-- EventEntryDie(EmptyFunction, "PID_M012_村人Ｃ", FORCE_ALLY, "S_M012_村人Ｃ_死亡")
+	EventEntryDie(EmptyFunction, "PID_M012_IFMOD_アーチャー", FORCE_ENEMY, "S_M012_村人Ａ_死亡")
+	EventEntryDie(EmptyFunction, "PID_M012_IFMOD_忍", FORCE_ENEMY, "S_M012_村人Ｂ_死亡")
+	EventEntryDie(EmptyFunction, "PID_M012_IFMOD_忍2", FORCE_ENEMY, "S_M012_村人Ｃ_死亡")
 	
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 16, 9, "PID_リュール", condition_true)

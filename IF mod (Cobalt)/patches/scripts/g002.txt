@@ -53,6 +53,9 @@ end
 function MapOpening()
 	
 	Log("MapOpening");
+	EffectCreate( "魔法障壁_展開_E005", 13, 15 )
+	EffectCreate( "召喚渦", 14, 15 )
+	EffectCreate( "魔法障壁_展開_E005", 15, 15 )
 
 end
 
