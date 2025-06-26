@@ -2453,13 +2453,12 @@ the enemy's, Crit+10, Dmg+2,
 Dmg taken -2.
 
 [MSID_PrivateSkill_Lapis]
-Tomboy
+Fearsome Blow
 
 [MSID_H_PrivateSkill_Lapis]
 If this unit initiate combat and
-defeat an enemy, all enemies
-adjacent to Lapis lose 20%
-of max HP.
+defeat an enemy, all adjacent enemies
+lose 20% of max HP.
 
 [MSID_PrivateSkill_Citrinica]
 Financial Bully
