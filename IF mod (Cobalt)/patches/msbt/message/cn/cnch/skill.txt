@@ -815,6 +815,12 @@ HP回复量+15、杖的命中+30
 [MSID_H_Remove_2]
 行动后可额外移动3格
 
+[MSID_Remove_3]
+再移动Canto
+
+[MSID_H_Remove_3]
+行动后可在剩余移动力范围内移动
+
 [MSID_Approach_1]
 助跑
 
