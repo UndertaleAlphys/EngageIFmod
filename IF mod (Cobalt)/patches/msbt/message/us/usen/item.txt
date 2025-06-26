@@ -3114,7 +3114,9 @@ Knight Sword
 
 [MIID_H_Siglud_KnightSword]
 Emblem Sigurd's knight sword.
-When equipped by a mounted
+When equipped, unit can
+use their leftover movement.
+If equipped by a mounted
 unit, Def +5
 
 [MIID_Lin_FalconBow]

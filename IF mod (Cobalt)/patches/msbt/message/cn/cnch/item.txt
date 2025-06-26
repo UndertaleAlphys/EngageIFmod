@@ -2947,6 +2947,8 @@ M屏障
 
 [MIID_H_Siglud_KnightSword]
 纹章士西格尔特的骑士剑
+装备时【再移动】改为
+在剩余移动力内移动
 骑乘兵种装备时守备+5
 
 [MIID_Lin_FalconBow]
