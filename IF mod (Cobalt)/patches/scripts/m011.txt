@@ -305,11 +305,11 @@ end
 
 function 闇シンクロ(unit, gid, cameraAct)
 	
-	if UnitGetPID == "PID_M011_IFMOD_異形兵_上忍_離脱" and gid == "GID_M011_敵セリカ" then
+	if UnitGetPID(unit) == "PID_M011_IFMOD_異形兵_上忍_離脱" and gid == "GID_M011_敵セリカ" then
 		return
 	end	
 
-	if UnitGetPID == "PID_M010_IFMOD_異形兵_セイジ_離脱" and gid == "GID_M011_敵セリカ" then
+	if UnitGetPID(unit) == "PID_M010_IFMOD_異形兵_セイジ_離脱" and gid == "GID_M011_敵セリカ" then
 		return
 	end
 
