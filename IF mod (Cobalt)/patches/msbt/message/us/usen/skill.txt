@@ -891,7 +891,7 @@ Momentum
 
 [MSID_H_Approach_1]
 Grants Atk+1 to first attack during
-combat for each space unit moved
+combat for each mov point unit cost
 before attacking.
 
 [MSID_Approach_2]
@@ -899,10 +899,10 @@ Momentum+
 
 [MSID_H_Approach_2]
 Grants Atk+1 to first attack during
-combat for each space unit moved
-before attacking. If the move
-distance>=9, the first attack would 
-break the enemy.
+combat for each mov point unit cost
+before attacking. If unit cost move
+points>=9, the first attack would
+break foe.
 
 [MSID_Rush]
 Headlong Rush
@@ -3819,7 +3819,7 @@ Armor Shield
 Nullifies the armor weakness on the unit.
 
 [MSID_M005_MicaiahEngage_DarkSide]
-Augment · Dark
+Dark Augment
 
 [MSID_H_M005_MicaiahEngage_DarkSide]
 The max range of staves
@@ -3975,10 +3975,10 @@ attack, join the chain attack.
 If equipped by Hortensia...
 
 [MSID_DualAssist_2_M007]
-Dual Assist · Dark+
+Dark Dual Assist+
 
 [MSID_DualAssist_1_M007]
-Dual Assist · Dark
+Dark Dual Assist
 
 [MSID_H_DualAssist_2_M007]
 When an ally attacks an enemy
@@ -3989,12 +3989,12 @@ If this unit is at max HP,
 chain attack twice.
 When equipped by Hortensia, all
 allies in 3 radius get "Dual Assist",
-"Dual Strike", "Dual Support · Dark" 
+"Dual Strike", "Dark Dual Support" 
 but the damage of chain attack
 is reduced by half.
 
 [MSID_PrivateSkill_Hortensia_E]
-Big Personality · Dark
+Dark Big Personality
 
 [MSID_H_PrivateSkill_Hortensia_E]
 When this unit initiate combat
@@ -4002,7 +4002,7 @@ and defeat an enemy, Str/Mag/
 Dex/Spd+4, reduced by 1 each turn.
 
 [MSID_PrivateSkill_Goldmary_E]
-Disarming Sigh · Dark
+Dark Disarming Sigh
 
 [MSID_H_PrivateSkill_Goldmary_E]
 After initiate a combat, enemies
@@ -4010,7 +4010,7 @@ in 3 radius suffer Str/Mag -3,
 last for 1 turn.
 
 [MSID_DualSupport_M007]
-DualSupport · Dark
+Dark DualSupport
 
 [MSID_H_DualSupport_M007]
 Reduce damage taken during battle.
@@ -4130,7 +4130,7 @@ If this unit use Red/Green/Blue
 weapon in the next battle, Dmg+3.
 
 [MSID_PrivateSkill_Ivy_E]
-Single-Minded · Dark
+Dark Single-Minded
 
 [MSID_H_PrivateSkill_Ivy]
 If the only unit adjacent to $P
@@ -4140,24 +4140,24 @@ Dmg taken -1, Hit+10.
 
 [MSID_H_PrivateSkill_Ivy_E]
 If Ivy is not the only adjacent unit to
-$P, and $P is not the only adjacent
+$P, or $P is not the only adjacent
 unit to Ivy, grants Dmg+1,
 Dmg taken -3, Avo+10.
 
 [MSID_WeaponColorAdept_M008]
-Triangle Adept · Dark
+Dark Triangle Adept
 
 [MSID_WeaponColorAdept_Red_M008]
-Triangle Adept · Dark <Red>
+Dark Triangle Adept <Red>
 
 [MSID_WeaponColorAdept_Yellow_M008]
-Triangle Adept · Dark <Other>
+Dark Triangle Adept <Other>
 
 [MSID_WeaponColorAdept_Green_M008]
-Triangle Adept · Dark <Green>
+Dark Triangle Adept <Green>
 
 [MSID_WeaponColorAdept_Blue_M008]
-Triangle Adept · Dark <Blue>
+Dark Triangle Adept <Blue>
 
 [MSID_H_WeaponColorAdept_M008]
 If use a different type of weapon
@@ -4190,7 +4190,7 @@ If the enemy uses a non-Blue
 weapon, he/she will be Break.
 
 [MSID_DefenseStyle_Mov2]
-Pair Up · Dark
+Dark Pair Up
 
 [MSID_H_DefenseStyle_Mov2]
 When having a revive stone,
@@ -4687,7 +4687,7 @@ battle is negated, but the latter
 are increase by 100%.
 
 [MSID_Sensei_M010]
-Sensei · Dark
+Dark ensei
 
 [MSID_H_Sensei_M010]
 This unit will "Rally"
@@ -4695,7 +4695,7 @@ automatically at the
 start of his/her turn.
 
 [MSID_MicaiahEngage_M011]
-Augment · Dark
+Dark Augment
 
 [MSID_H_MicaiahEngage_M011]
 The range of all the staves are set
@@ -4707,7 +4707,7 @@ between decrease the value by 1.
 This damage is not lethal.
 
 [MSID_BreakPursuit_M011]
-Break Defenses · Dark
+Dark Break Defenses
 
 [MSID_H_BreakPursuit_M011]
 Unless this unit has disadvantage in weapon
@@ -4715,7 +4715,7 @@ triangle, break the enemy and makes an
 extra attack at 50% damage.
 
 [MSID_BlackMagic_M011]
-Resonance · Dark
+Dark Resonance
 
 [MSID_H_BlackMagic_M011]
 When attacking with a tome, if
@@ -4724,26 +4724,24 @@ decrease the foe's Max HP by 5
 when hit. (Max -20)
 
 [MSID_Approach_M011]
-Momentum · Dark
+Dark Momentum
 
 [MSID_H_Approach_M011]
-Grants Dmg+1 to first attack during
-combat for each space unit moved
-before attacking (Max+10). If the
-move distance>=5, the enemy
-cannot counter.
+If unit cost mov points>=5,
+grants Atk+5 to first attack,
+foe cannot counter.
 
 [MSID_HoldOut_M011]
-HoldOut · Dark
+Dark HoldOut
 
 [MSID_HoldOut_Cooldown_M011]
-HoldOut · Dark <Cooling>
+Dark HoldOut <Cooling>
 
 [MSID_H_HoldOut_M011]
-If this unit's HP>30% at the start 
+If this unit's HP>=30% at the start 
 of battle, negate the lethal damage
 and restore HP to 30% after battle.
-After that, lose HoldOut in this turn.
+After that, lose HoldOut for a turn.
 
 [MSID_Shuttle]
 Swap
@@ -4769,7 +4767,7 @@ This skill is unavailable until next turn.
 This unit can act again.
 
 [MSID_PrivateSkill_Mauve_M011]
-Vow of Friendship · Dark
+Dark Vow of Friendship
 
 [MSID_H_PrivateSkill_Mauve_M011]
 When Veyre is above half HP, 
@@ -5006,7 +5004,7 @@ In even-number turns, allies within
 [Calvary] Provide extra 10 Ddg in even turns.
 
 [MSID_OddRhythm]
-Rhythm · Odd
+Odd Rhythm
 
 [MSID_H_OddRhythm]
 In odd-number turns, allies within
@@ -5018,7 +5016,7 @@ In odd-number turns, allies within
 [Dragon] Provide extra 10 Hit.
 
 [MSID_EvenRhythm]
-Rhythm · Even
+Even Rhythm
 
 [MSID_H_EvenRhythm]
 In even-number turns, allies within

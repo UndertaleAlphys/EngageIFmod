@@ -825,16 +825,16 @@ HP回复量+15、杖的命中+30
 助跑
 
 [MSID_H_Approach_1]
-移动后发起战斗时，每移动1格
+移动后发起战斗时，每消耗1移动力
 首次攻击攻击力提升1
 
 [MSID_Approach_2]
 助跑+
 
 [MSID_H_Approach_2]
-移动后发起战斗时，每移动1格
+移动后发起战斗时，每消耗1移动力
 首次攻击攻击力提升1
-若移动距离不少于9格
+若消耗的移动力不少于9
 首次攻击命中时将打破对方
 
 [MSID_Rush]
@@ -893,7 +893,7 @@ HP回复量+15、杖的命中+30
 攻击敌人并移动
 
 [MSID_M011_SigludEngage_DarkSide]
-快跑（暗）
+快跑 · 暗
 
 [MSID_H_M011_SigludEngage_DarkSide]
 移动提升3
@@ -992,7 +992,7 @@ HP回复量+15、杖的命中+30
 传送至可攻击位置并发动魔法攻击
 
 [MSID_M011_CelicaEngageAtk_DarkSide]
-传送末世烈焰（暗）
+传送末世烈焰 · 暗
 
 [MSID_CelicaEngageAtk_DarkSide]
 末世烈焰传送
@@ -1092,7 +1092,7 @@ HP回复量+15、杖的命中+30
 消耗HP使10格内我方的HP完全回复
 
 [MSID_M011_MicaiahEngage_DarkSide]
-增幅（暗）
+增幅 · 暗
 
 [MSID_H_M011_MicaiahEngage_DarkSide]
 杖的射程及传送等距离+3
@@ -1184,7 +1184,7 @@ HP回复量+15、杖的命中+30
 攻击前方的一格并使四周燃烧
 
 [MSID_M011_RoyEngage_DarkSide]
-超越（暗）
+超越 · 暗
 
 [MSID_H_M011_RoyEngage_DarkSide]
 单位等级+3
@@ -4337,10 +4337,9 @@ MSID_CrtMoreDmg
 
 [MSID_H_Approach_M011]
 移动后发动攻击时
-每移动1格攻击力提升1
-（上限为+10）
-若移动距离不小于5
-则额外取消对手的反击
+若消耗的移动力不小于5
+则首次攻击伤害+5
+并取消对手的反击
 
 [MSID_HoldOut_M011]
 坚持 · 暗
