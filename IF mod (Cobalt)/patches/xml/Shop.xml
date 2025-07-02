@@ -44,7 +44,7 @@
       <Param Condition="" Iid="IID_鋼のナイフ" Stock="1" Attribute="0" />
       <Param Condition="M023" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_ブリュンヒルデ" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_聖なる槍" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_ハンマー" Stock="-1" Attribute="0" />
     </Data>
   </Sheet>
   <Sheet Name="道具屋" Count="100">
