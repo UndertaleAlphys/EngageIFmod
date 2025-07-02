@@ -2885,9 +2885,7 @@ certain type of units, weapon's Mt is
 tripled when fighting against them.
 
 [MID_TIPS_WEAPON_EFFECTIVENESS_FAIL_T]
-Weak against other
+Ineffective Otherwise
 
 [MID_TIPS_WEAPON_EFFECTIVENESS_FAIL]
-When effective weapon has description
-of weak against other, it would lose 4 Mt
-and 10 Hit when it is not effective.
+Weapon's Mt is halved when it's not effective.

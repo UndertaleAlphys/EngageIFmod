@@ -89,7 +89,7 @@ Armorslayer
 [MIID_H_Armorslayer]
 A sword made to penetrate heavy
 armor. Effective: Armored.
-Weak against other units
+Ineffective otherwise
 
 [MIID_GodSword]
 Caladbolg
@@ -97,8 +97,8 @@ Caladbolg
 [MIID_H_GodSword]
 A legendary sword, famous for its
 great power.
-Reduce user's Str by half,
-until user fights again
+After the battle,
+Strength is halved for the next attack
 
 [MIID_IronSwordL]
 Iron Blade
@@ -140,8 +140,8 @@ Georgios
 A legendary blade that smashes foes.
 Cannot follow up, or strike first if
 initiating combat.
-Reduce user's str by half,
-until user fights again
+After the battle,
+Strength is halved for the next attack
 
 [MIID_Dragonslayer]
 Wyrmslayer
@@ -149,7 +149,7 @@ Wyrmslayer
 [MIID_H_Dragonslayer]
 A sword crafted specifically to fight
 dragons. Effective: Dragon.
-Weak against other units
+Ineffective otherwise
 
 [MIID_IronLance]
 Iron Lance
@@ -202,7 +202,7 @@ Ridersbane
 [MIID_H_RiderKiller]
 A lance designed for foes on
 horseback. Effective: Cavalry/Flier
-Weak against other units
+Ineffective otherwise
 
 [MIID_KillerLance]
 Killer Lance
@@ -233,9 +233,10 @@ Cannot Crit/Trigger skill
 Brionac
 
 [MIID_H_GodLance]
-A powerful lance of legend.
-Reduce user's Str by half,
-until user fights again
+A powerful naginata of legend.
+When equipped, +4 Def/Res
+After the battle,
+Strength is halved for the next attack
 
 [MIID_IronLanceL]
 Iron Greatlance
@@ -266,11 +267,12 @@ After battle, Str, Skl -2, Recover 1/turn
 Venomous
 
 [MIID_H_GodLanceL]
-A lance of legend that smashes and
-poisons hit foes. Cannot follow up,
+A naginata of legend that smashes.
+When equipped, +4 Def/Res
+Cannot follow up,
 or strike first if initiating combat.
-Reduce user's Str by half,
-until user fights again
+After the battle,
+Strength is halved for the next attack
 
 [MIID_IronAxe]
 Iron Axe
@@ -333,8 +335,7 @@ Hammer
 [MIID_H_Hammer]
 A war hammer made to crack
 through heavy armor. Effective:
-Armored.
-Weak against other units
+Armored. Ineffective otherwise.
 
 [MIID_KillerAxe]
 Killer Axe
@@ -351,15 +352,14 @@ Poleaxe
 An axe whose long handle helps
 reach mounted foes.
 Effective: Cavalry/Flier
-Weak against other units
+Ineffective otherwise
 
 [MIID_GodAxe]
 Fragarach
 
 [MIID_H_GodAxe]
 A legendary axe.
-Reduce user's Str by half,
-until user fights again
+After the battle,Strength is halved for the next attack
 
 [MIID_IronAxeL]
 Iron Greataxe
@@ -393,7 +393,7 @@ Hurricane Axe
 A magical axe that smashes foes.
 Cannot follow up, or strike first if
 initiating combat. Effective: Flying.
-Weak against other units
+Ineffective otherwise
 
 [MIID_GodAxeL]
 Ukonvasara
@@ -402,8 +402,8 @@ Ukonvasara
 A huge, legendary axe that smashes
 foes. Cannot follow up, or strike first
 if initiating combat.
-Reduce user's Str by half,
-until user fights again
+After the battle,
+Strength is halved for the next attack
 
 [MIID_ShortBow]
 Mini Bow
@@ -606,7 +606,7 @@ Elwind
 [MIID_H_LWind]
 An advanced wind tome.
 Effective: Flying.
-Weak against other units
+Ineffective otherwise
 
 [MIID_Bolganone]
 Bolganone
@@ -2641,8 +2641,8 @@ Soldier's Knife
 [MIID_H_SoldierKnife]
 A Knife built for expert wielders.
 If user initiates combat, attacks twice.
-Reduce user's Str by half,
-until user fights again
+After the battle,
+Strength is halved for the next attack
 Lower foe's stats when hit.
 (Str/Mag/Skl/Spd/Luck -2 Def/Res -5)
 
@@ -3072,7 +3072,7 @@ Dragon Spirit
 [MIID_H_DragonSpirit]
 A anti-dragon scroll.
 Deffective: Dragon
-Weak against other units
+Ineffective otherwise
 Reduce user's Mag by half,
 until user fights again
 
@@ -3174,3 +3174,12 @@ Growth Scroll
 
 [MIID_H_KnowledgeBook]
 Permanently raises all growth rates by 10
+
+[MIID_BlessedLance]
+Blessed Lance
+
+[MIID_H_BlessedLance]
+A corrupted slayer.
+Effective: Corrupted/Ineffective otherwise
+/When equipped, -3 Def & Res/
+Restore 10 HP at the start of the phase.

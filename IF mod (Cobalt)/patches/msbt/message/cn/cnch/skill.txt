@@ -1051,12 +1051,12 @@ HP回复量+15、杖的命中+30
 [MSID_H_MicaiahEngage]
 杖的射程及传送等距离改为10。
 回合开始时, 回复10格以内友方10HP。
-回复效果随魔力/3提高，随距离衰减。
+回复效果随魔力÷3提高，随距离衰减。
 
 [MSID_H_MicaiahEngage_Dragon]
 杖的射程及传送等距离改为10。
 回合开始时, 回复10格以内友方10HP。
-回复效果随魔力/3提高，随距离衰减。
+回复效果随魔力÷3提高，随距离衰减。
 【龙族】治愈杖的射程（距离）改为11
 回合开始时回复量及范围改为11
 
@@ -4314,7 +4314,7 @@ MSID_CrtMoreDmg
 [MSID_H_MicaiahEngage_M011]
 杖的射程及传送等距离改为10。
 回合开始时, 减少10格以内敌方10HP。
-减少量随（魔力-对手魔防）/3提高，
+减少量随（魔力-对手魔防）÷3提高，
 随距离衰减，且至少保留1HP。
 
 [MSID_BreakPursuit_M011]
@@ -4708,3 +4708,25 @@ HP不满时伤害+4
 
 [MSID_H_Impenetrable_G002]
 待机后，本回合免疫break。
+
+[MSID_ElbowRoom]
+广所突击
+
+[MSID_H_ElbowRoom]
+地形回避和防御均为0时，
+伤害+3。
+
+[MSID_NaturalCover]
+闭所防御
+
+[MSID_H_NaturalCover]
+地形回避或防御不为0时，
+所受伤害-3。
+
+[MSID_AdaptiveTactics]
+临地应变
+
+[MSID_H_AdaptiveTactics]
+视为拥有“广所突击”和“闭锁防御”
+广所突击：地形效果为0时，伤害+3
+闭所防御：地形效果不为0时，所受伤害-3

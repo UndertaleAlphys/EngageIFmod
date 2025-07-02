@@ -39,12 +39,12 @@
       <Param Condition="" Iid="IID_鉄の大斧" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_鋼の斧" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_鋼の弓" Stock="1" Attribute="0" />
-      <Param Condition="" Iid="IID_ウィンド" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_護身の法" Stock="1" Attribute="0" />
       <Param Condition="M011" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_鋼のナイフ" Stock="1" Attribute="0" />
       <Param Condition="M023" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_ブリュンヒルデ" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_聖なる槍" Stock="-1" Attribute="0" />
     </Data>
   </Sheet>
   <Sheet Name="道具屋" Count="100">

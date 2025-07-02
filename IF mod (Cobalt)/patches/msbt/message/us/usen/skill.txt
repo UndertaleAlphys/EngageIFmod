@@ -3533,7 +3533,7 @@ full action if the user defeats the enemy
 (once per Engage)
 
 [MSID_WaryFighter]
-WaryFighter
+Wary Fighter
 
 [MSID_H_WaryFighter]
 During battles, neither the user 
@@ -5121,3 +5121,28 @@ Grant immunity to break
 [MSID_H_Impenetrable_G002]
 When unit uses "Wait" command,
 grants immunity to break for 1 turn.
+
+[MSID_ElbowRoom]
+Elbow Room
+
+[MSID_H_ElbowRoom]
+Grant +3 Dmg when fighting in
+a space with a terrain effect
+
+[MSID_NaturalCover]
+Natrual Cover
+
+[MSID_H_NaturalCover]
+Take -3 Dmg when fighting in
+a space with no terrain effects
+
+[MSID_AdaptiveTactics]
+Adaptive Tactics
+
+[MSID_H_AdaptiveTactics]
+Grants the unit "Elbow Room"
+and "Natrual Cover".
+Grant +3 Dmg when fighting in
+a space with a terrain effect,
+Take -3 Dmg when fighting in
+a space with no terrain effects.
