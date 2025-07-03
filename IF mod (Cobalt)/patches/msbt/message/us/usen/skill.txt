@@ -2821,6 +2821,13 @@ While making an attack, may
 ignore half of foe's Def/Res.
 Trigger %=Dex.
 
+[MSID_Luna_2]
+Luna+
+
+[MSID_H_Luna_2]
+While making an attack,
+ignore half of foe's Def/Res.
+
 [MSID_JobSkill_Lindwurm]
 Grasping Void
 

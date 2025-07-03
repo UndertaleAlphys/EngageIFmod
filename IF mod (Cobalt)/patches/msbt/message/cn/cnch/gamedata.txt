@@ -549,7 +549,7 @@
 敌将击破
 
 [MID_RULE_DESTROY_BOSS_TURN]
-于$Arg(0)回合以内击败敌方将领
+$Arg(0)回合内敌将击破
 
 [MID_RULE_SURVIVE_TURN]
 于$Arg(0)回合内存活
@@ -576,7 +576,7 @@ $P被击败
 敌将击破
 
 [MID_RULE_M005_WIN]
-敌将击破
+$Arg(0)内敌将击破
 
 [MID_RULE_M006_WIN]
 敌将击破
@@ -790,6 +790,48 @@ $P被击败或超过$Arg(0)回合
 
 [MTID_Quicksand_D]
 流沙 · 下
+
+[MTID_Fumarole_Sleep_0]
+喷气口 · 力封
+
+[MTID_Fumarole_Actice_0]
+喷气口 · 力封 · 激活
+
+[MTID_Fumarole_Sleep_1]
+喷气口 · 守备封
+
+[MTID_Fumarole_Actice_1]
+喷气口 · 守备封 · 激活
+
+[MTID_Fumarole_Sleep_2]
+喷气口 · 速封
+
+[MTID_Fumarole_Actice_2]
+喷气口 · 速封 · 激活
+
+[MTID_Fumarole_Sleep_3]
+喷气口 · 冰封
+
+[MTID_Fumarole_Actice_3]
+喷气口 · 冰封 · 激活
+
+[MTID_Fumarole_Sleep_4]
+喷气口 · 祸事罪秽
+
+[MTID_Fumarole_Actice_4]
+喷气口 · 祸事罪秽 · 激活
+
+[MTID_Fumarole_Sleep_5]
+喷气口 · 神风招来
+
+[MTID_Fumarole_Actice_5]
+喷气口 · 神风招来 · 激活
+
+[MTID_Fumarole_Sleep_6]
+喷气口 · 崩塌
+
+[MTID_Fumarole_Actice_6]
+喷气口 · 崩塌 · 激活
 
 [MTID_Shallow]
 浅滩

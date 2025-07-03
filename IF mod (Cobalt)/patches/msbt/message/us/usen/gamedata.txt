@@ -824,6 +824,48 @@ Quicksand:Up
 [MTID_Quicksand_D]
 Quicksand:Down
 
+[MTID_Fumarole_Sleep_0]
+Vent:Str Seal
+
+[MTID_Fumarole_Actice_0]
+Vent:Str Seal(Active)
+
+[MTID_Fumarole_Sleep_1]
+Vent:Def Seal
+
+[MTID_Fumarole_Actice_1]
+Vent:Def Seal(Active)
+
+[MTID_Fumarole_Sleep_2]
+Vent:Spd Seal
+
+[MTID_Fumarole_Actice_2]
+Vent:Spd Seal(Active)
+
+[MTID_Fumarole_Sleep_3]
+Vent:Freeze
+
+[MTID_Fumarole_Actice_3]
+Vent:Freeze(Active)
+
+[MTID_Fumarole_Sleep_4]
+Vent:Hexing
+
+[MTID_Fumarole_Actice_4]
+Vent:Hexing(Active)
+
+[MTID_Fumarole_Sleep_5]
+Vent:Silence
+
+[MTID_Fumarole_Actice_5]
+Vent:Silence(Active)
+
+[MTID_Fumarole_Sleep_6]
+Vent:Fracture
+
+[MTID_Fumarole_Actice_6]
+Vent:Fracture(Active)
+
 [MTID_Shallow]
 Shoal
 

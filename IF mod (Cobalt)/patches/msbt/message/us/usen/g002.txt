@@ -1,0 +1,369 @@
+[MID_OP1_#001]
+$Type(2)
+$Window(0, "リュール", "1")
+$Window(0, "チキ", "2")
+$Window(0, "ヘクトル", "3")
+$Window(2, "チキ")
+Look! There's another bracelet friend right over
+here, $P!$Wait(0)
+
+[MID_OP1_#002]
+$Window(2, "リュール")
+You're right. Is this the Bracelet of the
+Brash General?$Wait(0)
+
+[MID_OP1_#003]
+$Window(2, "チキ")
+Yes! I think the Emblem is asleep, just as I was.
+Will you wake him up?$Wait(0)
+
+[MID_OP1_#004]
+$Window(2, "リュール")
+The words came to me as soon as I laid eyes
+on it. Let's give them a try.$Wait(2)
+
+[MID_OP1_#005]
+Embolden us, Emblem of Strength!$Wait(0)
+
+[MID_OP2_#001]
+$Type(2)
+$Window(0, "リュール", "1")
+$Window(0, "ヘクトル", "2")
+$Window(2, "ヘクトル")
+Ahh, what a refreshing rest. Hey there, I'm
+Hector. Was it you who woke me up?$Wait(0)
+
+[MID_OP2_#002]
+$Window(2, "リュール")
+Yes, it was. Greetings, Hector. I'm the Divine
+Dragon $P.$Wait(0)
+
+[MID_OP2_#003]
+$Window(2, "ヘクトル")
+Good to meet you. Phew, it sure is nice to move
+around again!$Wait(2)
+
+[MID_OP2_#004]
+You must have had a reason to come looking
+for me, though.$Wait(0)
+
+[MID_OP2_#005]
+$Window(2, "リュール")
+This world is engulfed in a terrible war.
+We're trying to put a stop to it.$Wait(2)
+
+[MID_OP2_#006]
+To that end, we were hoping you might lend
+us your strength.$Wait(0)
+
+[MID_OP2_#007]
+$Window(2, "ヘクトル")
+Hmm. Well, I've got a good feeling about you.
+Looks like you've got grit, just like he did.$Wait(0)
+
+[MID_OP2_#008]
+$Window(2, "リュール")
+May I ask who you're talking about?$Wait(0)
+
+[MID_OP2_#009]
+$Window(2, "ヘクトル")
+My good friend Eliwood.$Wait(2)
+
+[MID_OP2_#010]
+In my world, he fought to bring us back from
+the brink of disaster. Like you're doing.$Wait(2)
+
+[MID_OP2_#011]
+Our fight was against a rotten bunch called the
+Black Fang. They were a real handful.$Wait(2)
+
+[MID_OP2_#012]
+For Eliwood, Lyn, and me, and all our other
+friends, it was the fight of our lives.$Wait(0)
+
+[MID_OP2_#013]
+$Window(2, "リュール")
+They must have been glad to have someone like
+you on their side.$Wait(0)
+
+[MID_OP2_#014]
+$Window(2, "ヘクトル")
+Ahem... Well, no need to butter me up. You need
+help, and that's enough for me.$Wait(2)
+
+[MID_OP2_#015]
+But first, let's have ourselves a friendly little
+competition, $P.$Wait(0)
+
+[MID_OP2_#016]
+$Window(2, "リュール")
+What do you mean?$Wait(0)
+
+[MID_OP2_#017]
+$Window(2, "ヘクトル")
+It's been a while since I've seen any action.
+I want to get the measure of you in battle.$Wait(0)
+
+[MID_OP2_#018]
+$Window(2, "リュール")
+I understand. If that's what you want, then
+I'm ready to show you what I can do.$Wait(0)
+
+[MID_OP2_#019]
+$Window(2, "ヘクトル")
+It's settled, then. Brace yourself!$Wait(0)
+
+[MID_EV1_#001]
+$Type(1)
+$Window(0, "ヘクトル", "b")
+$Anim(1, "ヘクトル", "Smile")
+$Window(2, "ヘクトル")
+Let's get started. Come at me, and don't
+hold back!$Wait(0)
+
+[MID_EV2_#001]
+$Type(1)
+$Window(0, "ヴァンドレ", "t")
+$Anim(1, "ヴァンドレ", "Angry")
+$Window(2, "ヴァンドレ")
+There appears to be a fog-like substance
+emanating from over there... Be on your guard.$Wait(0)
+
+[MID_EV3_#001]
+$Type(1)
+$Window(0, "ヴァンドレ", "t")
+$Anim(1, "ヴァンドレ", "Angry")
+$Window(2, "ヴァンドレ")
+The fog! It seems to be poisonous! Be careful.$Wait(0)
+
+[MID_EV4_#001]
+$Type(1)
+$Window(0, "ヘクトル", "b")
+$Anim(1, "ヘクトル", "Relax")
+$Window(2, "ヘクトル")
+It's about time I got moving.$Wait(0)
+
+[MID_BT1_#001]
+$Type(1)
+$Window(0, "ヘクトル", "b")
+$Anim(1, "ヘクトル", "Surprise")
+$Window(2, "ヘクトル")
+Hey, look who's here! It's great to see you, Lyn.$Wait(0)
+
+[MID_BT1_#002]
+$Window(0, "リン", "t")
+$Anim(1, "リン", "Relax")
+$Window(2, "リン")
+Likewise, Hector. Ready to put my skills to
+the test, for old times' sake?$Wait(0)
+
+[MID_BT1_#003]
+$Anim(1, "ヘクトル", "Smile")
+$Window(2, "ヘクトル")
+You bet. But since we're friends, I think I'll have
+to go extra hard on you. Hope that's all right.$Wait(0)
+
+[MID_BT1_#004]
+$Window(2, "リン")
+Wouldn't have it any other way.$Wait(0)
+
+[MID_BT2_#001]
+$Type(1)
+$Window(0, "ヘクトル", "b")
+$Anim(1, "ヘクトル", "Smile")
+$Window(2, "ヘクトル")
+OK, $P, give me all you've got!$Wait(0)
+
+[MID_BT2_#002]
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Pain")
+$Window(2, "リュール")
+It's definitely going to take everything I have to
+stand up to that axe of yours.$Wait(2)
+
+[MID_BT2_#003]
+$Anim(1, "リュール", "Angry")
+But I'm not giving up. I set out to prove my
+worth to you, and that's what I'm going to do!$Wait(0)
+
+[MID_BT2_#004]
+$Anim(1, "ヘクトル", "Normal")
+$Window(2, "ヘクトル")
+Good to hear. Have at it, then!$Wait(0)
+
+[MID_BT4_#001]
+$Type(1)
+$Window(0, "ヘクトル", "t")
+$Anim(1, "ヘクトル", "Pain")
+$Window(2, "ヘクトル")
+Ha! I got careless—looks like you’ve bested me today.
+Lyn, you’ve gotten even stronger!$Wait(0)
+
+[MID_BT4_#002]
+$Window(0, "リン", "b")
+$Anim(1, "リン", "Relax")
+$Window(2, "リン")
+Thanks to the Divine, I’ve been able to travel this world,
+and I’ve learned so many new sword and bow techniques here.$Wait(0)
+
+[MID_BT4_#003]
+$Anim(1, "ヘクトル", "Relax")
+$Window(2, "ヘクトル")
+Haha, now that’s exciting!
+Divine, you’ve certainly piqued my interest!$Wait(0)
+
+[MID_BT5_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Relax")
+$Window(2, "リュール")
+Watching both of you fight up close today
+was an invaluable lesson for me.$Wait(0)
+
+[MID_BT5_#002]
+$Window(0, "リン", "b")
+$Anim(1, "リン", "Relax")
+$Window(2, "リン")
+Not at all—I should be thanking you.
+Thanks to you, I was able to reunite with an old friend and enjoy a spirited duel.
+Please accept this treasure as a token of my gratitude.$Wait(0)
+
+[MID_ED1_#001]
+$Type(2)
+$Window(0, "リュール", "1")
+$Window(0, "ヘクトル", "2")
+$Window(2, "ヘクトル")
+You actually managed to beat me! I'm
+impressed, $P.$Wait(0)
+
+[MID_ED1_#002]
+$Window(2, "リュール")
+I take that to mean you're happy with what
+you saw?$Wait(0)
+
+[MID_ED1_#003]
+$Window(2, "ヘクトル")
+No doubt about it! One glimpse of your fighting
+spirit was more than enough.$Wait(2)
+
+[MID_ED1_#004]
+It took all I had to hold my own against you.
+You'd be fine even without my help, I'm sure.$Wait(0)
+
+[MID_ED1_#005]
+$Window(2, "リュール")
+No, we need all the strength we can get, and
+you've got plenty of it.$Wait(2)
+
+[MID_ED1_#006]
+I couldn't have gotten through your defenses
+without my allies at my side.$Wait(0)
+
+[MID_ED1_#007]
+$Window(2, "ヘクトル")
+Treasure that feeling.$Wait(2)
+
+[MID_ED1_#008]
+I used to think I could protect everyone I cared
+about with nothing but my own strength.$Wait(2)
+
+[MID_ED1_#009]
+I couldn't have been more wrong.$Wait(2)
+
+[MID_ED1_#010]
+It was only with the help of trusted friends and
+allies that I survived the Black Fang.$Wait(0)
+
+[MID_ED1_#011]
+$Window(2, "リュール")
+Your friends must have been really good people.$Wait(0)
+
+[MID_ED1_#012]
+$Window(2, "ヘクトル")
+The best! Talking about them fills me with
+pride, even now.$Wait(2)
+
+[MID_ED1_#013]
+I appreciate your determination and desire to
+forge ahead, $P.$Wait(0)
+
+[MID_ED1_#014]
+$Window(2, "リュール")
+Does that mean you'll join us?$Wait(0)
+
+[MID_ED1_#015]
+$Window(2, "ヘクトル")
+For as long as you need it, my axe is yours.$Wait(0)
+
+[MID_ED1_#016]
+$Window(2, "リュール")
+Thank you, Emblem Hector. I'm looking forward
+to letting you loose on the battlefield.$Wait(0)
+
+[MID_ED1_#017]
+$Window(2, "ヘクトル")
+That's what I like to hear!$Wait(0)
+
+[MID_ED2_#001]
+$Type(2)
+$Window(0, "リン", "1")
+$Window(0, "ヘクトル", "2")
+$Window(2, "ヘクトル")
+Good match, Lyn. Can we talk for a second?$Wait(0)
+
+[MID_ED2_#002]
+$Window(2, "リン")
+I was half expecting you to ask for a rematch.
+What's on your mind?$Wait(0)
+
+[MID_ED2_#003]
+$Window(2, "ヘクトル")
+Just wanted to make sure you were all right.
+I got a little carried away in that last round.$Wait(0)
+
+[MID_ED2_#004]
+$Window(2, "リン")
+Thanks for your concern. It was a heavy blow,
+but I'm fine.$Wait(2)
+
+[MID_ED2_#005]
+Actually, I'm really happy.$Wait(0)
+
+[MID_ED2_#006]
+$Window(2, "ヘクトル")
+You're happy to get hit with an axe?$Wait(0)
+
+[MID_ED2_#007]
+$Window(2, "リン")
+Not exactly. I'm reminded of all the time we
+spent together─you, me, and Eliwood.$Wait(2)
+
+[MID_ED2_#008]
+We trained hard and fought harder, but those
+days are full of happy memories for me.$Wait(2)
+
+[MID_ED2_#009]
+Seeing you fight with everything you had just
+now gives me that same feeling.$Wait(0)
+
+[MID_ED2_#010]
+$Window(2, "ヘクトル")
+I understand completely.$Wait(2)
+
+[MID_ED2_#011]
+I'm more relaxed going into battle with you,
+because I know you'll always have my back.$Wait(2)
+
+[MID_ED2_#012]
+And because you're a cherished friend. I trust
+you with my life.$Wait(0)
+
+[MID_ED2_#013]
+$Window(2, "リン")
+Good. I hope you'll let me protect that life now
+instead of charging ahead by yourself.$Wait(0)
+
+[MID_ED2_#014]
+$Window(2, "ヘクトル")
+Ha, don't worry. I won't ever leave you behind.$Wait(0)
+

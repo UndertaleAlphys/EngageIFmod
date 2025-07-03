@@ -1,0 +1,499 @@
+Include("Common")
+
+g_Key_Event_Gas_Warning = "イベント会話_毒ガス_警告_済"
+
+-- 毒ガスの噴出に関する情報をまとめたリスト
+-- x		：噴出口のあるX座標
+-- z		：噴出口のあるZ座標
+-- dir		：毒ガスの噴出方向
+-- length	：毒ガスの噴出距離
+g_GasPortInfoList = {
+	{ x = 9		, z = 2		, dir = "上", length = 2, type = 0 , turn = 0},
+	{ x = 10	, z = 2		, dir = "上", length = 3, type = 1 , turn = 1},
+	{ x = 22	, z = 2		, dir = "上", length = 4, type = 2 , turn = 0},
+	{ x = 14	, z = 3		, dir = "上", length = 3, type = 3 , turn = 1},
+	{ x = 3		, z = 5		, dir = "右", length = 3, type = 4 , turn = 0},
+	{ x = 8		, z = 7		, dir = "左", length = 4, type = 5 , turn = 1},
+	{ x = 10	, z = 7		, dir = "右", length = 3, type = 0 , turn = 0},
+	{ x = 21	, z = 7		, dir = "下", length = 3, type = 1 , turn = 1},
+	{ x = 26	, z = 8		, dir = "左", length = 2, type = 2 , turn = 0},
+	{ x = 14	, z = 9		, dir = "左", length = 3, type = 3 , turn = 1},
+	{ x = 3		, z = 10	, dir = "右", length = 3, type = 4 , turn = 0},
+	{ x = 10	, z = 10	, dir = "右", length = 3, type = 5 , turn = 1},
+	{ x = 17	, z = 10	, dir = "下", length = 4, type = 0 , turn = 0},
+	{ x = 2		, z = 12	, dir = "右", length = 4, type = 1 , turn = 1},
+	{ x = 10	, z = 12	, dir = "右", length = 4, type = 2 , turn = 0},
+	{ x = 15	, z = 12	, dir = "上", length = 5, type = 3 , turn = 1},
+	{ x = 8		, z = 13	, dir = "左", length = 5, type = 4 , turn = 0},
+	{ x = 21	, z = 13	, dir = "右", length = 4, type = 5 , turn = 1},
+	{ x = 26	, z = 13	, dir = "下", length = 2, type = 0 , turn = 0},
+	{ x = 28	, z = 13	, dir = "下", length = 3, type = 1 , turn = 1},
+	{ x = 9		, z = 14	, dir = "左", length = 5, type = 2 , turn = 0},
+	{ x = 18	, z = 14	, dir = "上", length = 5, type = 3 , turn = 1},
+	{ x = 21	, z = 16	, dir = "右", length = 4, type = 4 , turn = 0},
+	{ x = 27	, z = 17	, dir = "下", length = 1, type = 5 , turn = 1},
+	{ x = 16	, z = 19	, dir = "下", length = 5, type = 0 , turn = 0},
+	{ x = 15	, z = 20	, dir = "左", length = 3, type = 1 , turn = 1},
+}
+
+-- 毒ガスが噴き出る噴出口のリスト
+g_BelchList = {}
+
+-- 毒ガスを浴びたユニットのリスト
+g_UnitList = {}
+
+-- G002の右下隅の座標
+g_BottomRightX = 30
+g_BottomRightZ = 1
+
+-- 噴出口の探索を開始する座標
+g_SearchX = 1
+g_SearchZ = 1
+
+-- -----------------------------------
+
+function Map_G002_SetTerrain()
+    Log("Map_G002_SetTerrain")
+	
+    TerrainSetBegin()
+
+	local turn = MapGetTurn()
+
+    for i = 1, #g_GasPortInfoList do
+        local info = g_GasPortInfoList[i]
+        local x = info.x
+        local z = info.z
+        local terrainType
+
+        -- 根据 turn 和 type 设置不同地形
+        if (info.turn - turn)%2 == 1 then
+            if info.type == 0 then
+                terrainType = "TID_噴気孔_休眠_0"
+            elseif info.type == 1 then
+                terrainType = "TID_噴気孔_休眠_1"
+            elseif info.type == 2 then
+                terrainType = "TID_噴気孔_休眠_2"
+            elseif info.type == 3 then
+                terrainType = "TID_噴気孔_休眠_3"
+            elseif info.type == 4 then
+                terrainType = "TID_噴気孔_休眠_4"
+            elseif info.type == 5 then
+                terrainType = "TID_噴気孔_休眠_5"
+            elseif info.type == 6 then
+                terrainType = "TID_噴気孔_休眠_6"
+            end
+		else
+            if info.type == 0 then
+                terrainType = "TID_噴気孔_活跃_0"
+            elseif info.type == 1 then
+                terrainType = "TID_噴気孔_活跃_1"
+            elseif info.type == 2 then
+                terrainType = "TID_噴気孔_活跃_2"
+            elseif info.type == 3 then
+                terrainType = "TID_噴気孔_活跃_3"
+            elseif info.type == 4 then
+                terrainType = "TID_噴気孔_活跃_4"
+            elseif info.type == 5 then
+                terrainType = "TID_噴気孔_活跃_5"
+            elseif info.type == 6 then
+                terrainType = "TID_噴気孔_活跃_6"
+            end
+        end
+
+        -- 设置地形
+        TerrainSet(x, z, terrainType)
+        -- Log("TerrainSet("..x..", "..z..") with terrain: "..terrainType)
+    end
+
+    TerrainSetEnd()
+end
+
+function 毒ガスイベント登録( ... )
+
+	-- 毒ガスの噴出判定を初期化する
+	VariableEntry( "毒ガス_噴出_済", 0 )
+
+	-- 初期状態では、毒ガスの警告イベントを再生するように設定する
+	VariableEntry( g_Key_Event_Gas_Warning, 0 )
+
+	-- 毒ガスの警告イベントを再生するフラグを受け取る
+	local warns = ...
+
+	if warns == nil then
+		
+		-- 再生フラグが指定されていない場合、警告イベントが実行されないように設定する
+		warns = false
+		VariableSet( g_Key_Event_Gas_Warning, 1 )
+
+	end
+
+	-- 毒ガス噴出
+	if DifficultyGet() == DIFFICULTY_NORMAL then
+		-- 難易度がノーマルの場合、プレイヤーフェイズの開始直前に噴出する
+		EventEntryTurn(毒ガス発射イベント, 2, -1, FORCE_PLAYER)
+
+	elseif DifficultyGet() == DIFFICULTY_HARD then
+		-- 難易度がハードの場合、エネミーフェイズの開始直前に噴出する
+		EventEntryTurn(毒ガス発射イベント, 1, -1, FORCE_ENEMY)
+
+	else
+		-- 難易度がルナティックの場合、エネミーフェイズの開始直前に噴出する
+		-- EventEntryTurn(毒ガス発射イベント, 2, -1, FORCE_PLAYER)
+		EventEntryTurn(毒ガス発射イベント, 1, -1, FORCE_ENEMY)
+
+	end
+end
+
+-- -----------------------------------
+
+function 毒ガス発射イベント()
+
+	毒ガスの噴出で使用するパラメーターをリセットする()
+	毒ガスが噴き出る噴出口を列挙する()
+	毒ガスを発射する()
+	毒ガスの警告イベントを実行する()
+
+end
+
+-- -----------------------------------
+
+
+-- -----------------------------------
+function 毒ガスの噴出で使用するパラメーターをリセットする()
+
+	g_SearchX = g_BottomRightX
+	g_SearchZ = g_BottomRightZ
+
+end
+
+-- -----------------------------------
+
+function 毒ガスが噴き出る噴出口を列挙する()
+	
+	-- 噴出口のリストを初期化する
+	InitList( g_BelchList )
+
+	-- 毒ガスの噴出口をすべて走査し、噴出範囲にユニットがいる噴出口を列挙する
+	for pointer = 1, #g_GasPortInfoList do
+		
+		local result = 指定の噴出口から噴き出る毒ガスの範囲内にユニットがいるか調査する( pointer, false )
+
+		if result == true then
+			g_BelchList[#g_BelchList + 1] = pointer
+
+		end
+	end
+end
+
+-- -----------------------------------
+
+function 毒ガスを発射する()
+	
+	-- 毒ガスの噴射に伴うカメラワークで酔うのを防ぐため、
+	-- カメラ距離を中距離に設定する
+	CursorSetDistanceMode( CURSOR_DISTANCE_MIDDLE )
+
+	local pointer = 噴出口を取得する()
+	local turn = MapGetTurn()
+	
+	while pointer > 0 do
+		local gasTurn = g_GasPortInfoList[pointer].turn
+		if (turn % 2 == 0 and gasTurn == 0) or (turn % 2 == 1 and gasTurn == 1) then
+        	
+			-- 毒ガスの範囲内にいるユニットのリストを初期化する
+			InitList( g_UnitList )
+
+			local result = 指定の噴出口から噴き出る毒ガスの範囲内にユニットがいるか調査する( pointer, true )
+
+			if result == true then
+
+				-- 噴出範囲内にユニットがいた場合、
+				-- エフェクトの再生とダメージの付与を行う
+
+				local x			= g_GasPortInfoList[pointer].x
+				local z			= g_GasPortInfoList[pointer].z
+				local dir		= g_GasPortInfoList[pointer].dir
+				local length	= g_GasPortInfoList[pointer].length
+
+				-- 噴出場所にカメラを向ける
+				CursorSetPos( x, z )
+				MapCameraWait()
+
+				local deg = 毒ガスの噴出方向を取得する( dir )
+		
+				毒ガスの噴出エフェクトを再生する( x, z, length, deg )
+
+				WaitTime( 0.5 )
+
+				毒ガスの効果をユニットに与える(pointer)
+
+				WaitTime( 0.5 ) 
+
+				if VariableGet( "毒ガス_噴出_済" ) == 0 then
+
+					-- 毒ガスが噴出したことを記憶しておく
+					VariableSet( "毒ガス_噴出_済", 1 )
+
+				end
+			end
+		end
+
+		pointer = 噴出口を取得する()
+	end
+end
+
+-- -----------------------------------
+
+function 毒ガスの警告イベントを実行する()
+
+	if VariableGet( g_Key_Event_Gas_Warning ) == 0 then
+
+		-- 毒ガスの警告イベントを実行する場合、噴出に応じてイベントを再生する
+
+		if VariableGet( "毒ガス_噴出_済" ) == 1 then
+			
+			SkipEscape()
+			
+			WaitTime( 1.0 )
+
+			-- 毒ガスが噴出していた場合、警告のメッセージを流す
+			Talk("MID_EV3")
+
+			-- 以降は警告が流れないようにフラグを下げておく
+			VariableSet( g_Key_Event_Gas_Warning, 1 )
+		end
+	end
+end
+
+-- -----------------------------------
+
+function InitList( list )
+
+	-- 指定されたリストを初期化する
+	for i in pairs (list) do
+		list[i] = nil
+
+	end
+end
+
+-- -----------------------------------
+
+function 毒ガスの効果をユニットに与える(gasPointer)
+    local gasType = g_GasPortInfoList[gasPointer].type
+    local gasTurn = g_GasPortInfoList[gasPointer].turn
+
+    local turn = MapGetTurn()  -- 获取当前回合数
+
+    for pointer = 1, #g_UnitList do
+        local unit = g_UnitList[pointer]
+            毒ガスによる状態異常を付与する(unit, gasType)
+    end
+end
+
+-- -----------------------------------
+
+function 噴出口を取得する()
+	
+	-- 暫定最短距離
+	local preDistance = -1
+
+	-- 最寄りの噴出口を示すPointer
+	local nearestPointer = -1
+
+	-- 「g_BelchList」のリストから削除する噴出口のPointer
+	local deletePointer = -1
+
+	-- 最寄りの噴出口の座標
+	local nearestX = g_SearchX
+	local nearestZ = g_SearchZ
+
+	for belchPointer = 1, #g_BelchList do
+
+		local infoPointer = g_BelchList[belchPointer]
+		
+		local x = g_GasPortInfoList[infoPointer].x
+		local z = g_GasPortInfoList[infoPointer].z
+
+		calcDistance = 二点間距離(g_SearchX, g_SearchZ, x, z)
+
+		if preDistance < 0 or calcDistance < preDistance then
+			nearestPointer	= infoPointer
+			deletePointer	= belchPointer
+			preDistance		= calcDistance
+			nearestX		= x
+			nearestZ		= z
+		end
+	end
+
+	if deletePointer > 0 then
+		-- 毒ガスが噴き出る噴出口が見つかった場合、
+		-- その噴出口は「g_BelchList」のリストから削除する
+		table.remove(g_BelchList, deletePointer)
+
+	end
+
+	-- 次回に噴出口を探索するときは、
+	-- 今回取得した噴出口の座標から開始する
+	g_SearchX = nearestX
+	g_SearchZ = nearestZ
+
+	return nearestPointer
+end
+
+-- -----------------------------------
+
+function 毒ガスの噴出エフェクトを再生する( x, z, length, deg )
+
+	if length == 1 then
+		EffectPlay( "毒ガス_発射W1", x, z, deg )
+
+	elseif length == 2 then
+		EffectPlay( "毒ガス_発射W2", x, z, deg )
+
+	elseif length == 3 then
+		EffectPlay( "毒ガス_発射W3", x, z, deg )
+
+	elseif length == 4 then
+		EffectPlay( "毒ガス_発射W4", x, z, deg )
+
+	elseif length == 5 then
+		EffectPlay( "毒ガス_発射W5", x, z, deg )
+	end
+end
+
+-- -----------------------------------
+
+function 毒ガスの噴出方向を取得する( dir )
+	
+	if dir == "右" then 
+		return 0
+	end
+
+	if dir == "下" then
+		return 90
+	end
+
+	if dir == "左" then
+		return 180
+	end
+
+	if dir == "上" then
+		return 270
+	end
+
+	return 0
+end
+
+-- -----------------------------------
+
+function 指定の噴出口から噴き出る毒ガスの範囲内にユニットがいるか調査する( pointer, isList )
+
+	local vec_x = 0
+	local vec_z = 0
+
+	local dir = g_GasPortInfoList[pointer].dir
+
+	-- 毒ガスが伸びていく方向を取得する
+	if dir == "右" then
+		vec_x = 1
+	end
+
+	if dir == "下" then
+		vec_z = -1
+	end
+
+	if dir == "左" then
+		vec_x = -1
+	end
+
+	if dir == "上" then
+		vec_z = 1
+	end
+
+	local x			= g_GasPortInfoList[pointer].x
+	local z			= g_GasPortInfoList[pointer].z
+	local length	= g_GasPortInfoList[pointer].length
+
+	-- ユニットの発見フラグ
+	local isFind	= false
+
+	-- 噴出範囲にユニットがいるか走査する
+	for i = 1, length do
+
+		-- 毒ガスが伸びた先の座標を取得する
+		x = x + vec_x
+		z = z + vec_z
+
+		local unit = UnitGetByPos( x, z )
+
+		if unit != nil then
+			-- 噴出範囲内にユニットがいる場合、
+			-- ユニットの列挙や発見フラグの設定を行う
+
+			if isList == true then
+				-- リストアップのフラグが立っていた場合、
+				-- 毒ガスの範囲内にいるユニットをリストに登録する
+				g_UnitList[#g_UnitList + 1] = unit
+
+			end
+
+			isFind = true
+		end
+	end
+
+	return isFind
+end
+
+-- -----------------------------------
+
+function 毒ガスによる状態異常を付与する( unit,gasType )
+	
+	Log("Unit:")
+	Log(unit)
+	Log("gasType:")
+	Log(gasType)
+	local skillMap = {
+		[0] = "SID_力封じ_効果-6",
+		[1] = "SID_守備封じ_効果-6",
+		[2] = "SID_速さ封じ_効果-6",
+		[3] = "SID_移動不可",
+		[4] = "SID_禍事罪穢効果",
+		[5] = "SID_神風招来効果",
+		[6] = "SID_気絶"
+	}
+	
+	-- 毒状態を付与する
+	-- 既に毒状態の場合は1つ上の状態にする
+
+	local newSkill = skillMap[gasType]
+
+	if UnitGetPID(unit) != "PID_G002_IFMOD_リン" then
+		スキル装備(unit, newSkill)
+	end
+
+	local x = UnitGetX( unit )
+	local z = UnitGetZ( unit )
+
+	EffectPlay( "毒スキルヒット", x, z )
+
+	-- WaitTime( 1.0 )
+
+end
+
+-- -----------------------------------
+
+function 毒ガスによるダメージを与える( unit )
+	
+	MapDamageBegin();
+
+	-- リストに登録されたユニットを対象に毒ガスのダメージを与える
+	local hp		= UnitGetCapability(unit, CAPABILITY_HP, true)
+
+	-- 最大体力の20%をダメージとして与える
+	local damage	= hp * 0.2
+
+	MapDamageAdd(unit, damage)
+
+	MapDamageEnd();
+
+end

@@ -5,6 +5,7 @@ Include("G002_Gimmick")
 g_pid_boss		= "PID_G002_ヘクトル"
 g_key_hectorAttacked = "非アクティブヘクトルを攻撃_済み"
 g_key_StrongEnemy = "強力な増援_済み"
+g_flag_Lin_Die 	= "リンが倒された_済"
 
 -- -----------------------------------
 
@@ -13,6 +14,7 @@ function Startup()
 	Log("Startup");
 	
 	Startup_神竜の章_対象紋章士を一時的に無効化( "GID_ヘクトル" )
+	Startup_紋章士外伝_対象紋章士を一時的に無効化( "GID_リン" )
 	
 	-- 勝利条件の設定
 	WinRuleSetDestroyBoss( true )	-- 敵将撃破
@@ -30,6 +32,8 @@ function Cleanup()
 	Log("Cleanup");
 	
 	Cleanup_神竜の章_対象紋章士の無効化解除( "GID_ヘクトル" )
+
+	Cleanup_紋章士外伝_対象紋章士の無効化解除( "GID_リン" )
 	
 end
 
@@ -39,12 +43,12 @@ function Opening()
 	
 	Log("Opening");
 	
-	PuppetDemo("G002", "MID_OP1")
-	FadeInAndWait(FADE_NORMAL)
-	Movie("Kengen15")
-	SkipEscape()
-	FadeOutAndWait(FADE_NORMAL)
-	PuppetDemo("G002", "MID_OP2")
+	-- PuppetDemo("G002", "MID_OP1")
+	-- FadeInAndWait(FADE_NORMAL)
+	-- Movie("Kengen15")
+	-- SkipEscape()
+	-- FadeOutAndWait(FADE_NORMAL)
+	-- PuppetDemo("G002", "MID_OP2")
 
 end
 
@@ -53,10 +57,15 @@ end
 function MapOpening()
 	
 	Log("MapOpening");
-	EffectCreate( "魔法障壁_展開_E005", 13, 15 )
-	EffectCreate( "召喚渦", 14, 15 )
-	EffectCreate( "魔法障壁_展開_E005", 15, 15 )
 
+
+	UnitCreateGodUnit("PID_G002_IFMOD_リン", "GID_G002_リン")
+
+	UnitLearnJobSkill("PID_G002_IFMOD_リン")
+
+	Map_G002_SetTerrain();
+
+	
 end
 
 -- -----------------------------------
@@ -64,7 +73,10 @@ end
 function MapEnding()
 	
 	Log("MapEnding");
-	
+	Talk( "MID_BT5" )
+	if VariableGet( g_flag_Lin_Die ) == 0 then
+		ItemGain(nil, "IID_はやての羽")
+	end
 end
 
 -- -----------------------------------
@@ -102,6 +114,7 @@ function 変数登録()
 	
 	VariableEntry( g_key_hectorAttacked, 0 )
 	VariableEntry( g_key_StrongEnemy, 0 )
+	VariableEntry( g_flag_Lin_Die, 0 )
 end
 
 -- -----------------------------------
@@ -116,28 +129,43 @@ function イベント登録()
 
 	EventEntryArea(エリア_ヘクトル, 1, 8, 8, 21, FORCE_PLAYER, "エリア進入_済" )
 
-	EventEntryTurn(増援１,  5,  5, FORCE_PLAYER)
-	EventEntryTurn(増援２,  8,  8, FORCE_PLAYER)	
-	EventEntryTurn(増援３, 11, 11, FORCE_PLAYER)	
-	EventEntryTurn(増援４, 14, 14, FORCE_PLAYER)	
+	EventEntryTurn(増援１,  1,  1, FORCE_PLAYER)
+	EventEntryTurn(増援２,  1,  1, FORCE_PLAYER)	
+	EventEntryTurn(増援３, 1, 1, FORCE_PLAYER)	
+	EventEntryTurn(増援４, 1, 1, FORCE_PLAYER)	
 	
-	EventEntryTbox(宝箱入手,28, 21, "IID_2000G")
-	EventEntryTbox(宝箱入手,13, 21, "IID_竜の盾")
-	EventEntryTbox(宝箱入手,17,  2, "IID_聖水")
-	EventEntryTbox(宝箱入手, 2, 13, "IID_特効薬")
+	EventEntryTbox(宝箱入手,28, 21, "IID_マスタープルフ")
+	EventEntryTbox(宝箱入手,13, 21, "IID_チェンジプルフ")
+	EventEntryTbox(宝箱入手,17,  2, "IID_鋼身の法")
+	EventEntryTbox(宝箱入手, 2, 13, "IID_鉄の大斧")
 
 
 	EventEntryBattleBefore(VariableSet, "", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, false, condition_非アクティブヘクトルが攻撃された, g_key_hectorAttacked, 1)
-	EventEntryTurn(強力な増援, -1 , -1, FORCE_PLAYER, condition_強力な増援)
-	
+	EventEntryTurn(強力な増援, -1 , -1, FORCE_PLAYER, condition_true)
+	EventEntryTurn(Map_G002_SetTerrain,  -1,  -1, FORCE_PLAYER)
+
 	EventEntryBattleTalk( リュールと戦闘,	"PID_リュール",	FORCE_PLAYER, g_pid_boss,			FORCE_ENEMY, true, "戦闘開始前会話_ヘクトル_リュール_済" )
---	EventEntryBattleTalk( リュールと戦闘,	"PID_リュール",	FORCE_PLAYER, g_pid_boss_moveDown,	FORCE_ENEMY, true, "戦闘開始前会話_ヘクトル_リュール_済" )
 	EventEntryBattleTalk( リンと戦闘,	"",	FORCE_PLAYER, g_pid_boss,			FORCE_ENEMY, true, condition_リンと戦闘 )
---	EventEntryBattleTalk( リンと戦闘,	"",	FORCE_PLAYER, g_pid_boss_moveDown,	FORCE_ENEMY, "戦闘前会話_ヘクトル_リン_済" )
+	EventEntryDie( Lin_Defeated, "PID_G002_IFMOD_リン", FORCE_ALLY, condition_true)
+	EventEntryDie( Boss_Defeated, g_pid_boss, FORCE_ENEMY, condition_true)
 
 -- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 25, 3, "PID_リュール", condition_true)
 end
+
+function Lin_Defeated()
+
+	VariableSet( g_flag_Lin_Die, 1 )
+	Talk( "MID_BT3" )
+end
+
+function Boss_Defeated()
+	Log( "Boss_Defeated" )	
+	if VariableGet( g_flag_Lin_Die ) == 0 then
+		Talk( "MID_BT4" )
+	end
+end
+
 
 -- -----------------------------------
 
@@ -222,8 +250,10 @@ end
 function 会話イベント_ヘクトル_戦闘開始宣言()
 
 	CursorSetPos_FromPid( "PID_G002_ヘクトル" )
-	Talk( "MID_EV1" )
 
+	リンと戦闘()
+
+	Dialog( "MID_TUT_G002_RULE" )
 end
 
 -- -----------------------------------

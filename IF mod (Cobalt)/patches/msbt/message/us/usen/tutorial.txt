@@ -2816,6 +2816,9 @@ After Lumera equipped emblem Sigurd, her move range would
 become very large, Clanne and Framme are vulnerable to her
 attacks, but she would attack Alear and Vander first. Make haste!
 
+[MID_TUT_G002_RULE]
+Lyn will fight at your side. Team up with her to bring Hector down!
+
 [MID_TIPS_WEAPON_TRIANGLE_T]
 Weapon Triangle
 
