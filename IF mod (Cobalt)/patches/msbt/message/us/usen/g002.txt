@@ -191,6 +191,14 @@ $Anim(1, "ヘクトル", "Normal")
 $Window(2, "ヘクトル")
 Good to hear. Have at it, then!$Wait(0)
 
+[MID_BT3_#001]
+$Type(1)
+$Window(0, "リン", "b")
+$Anim(1, "リン", "Pain")
+$Window(2, "リン")
+I was too careless…
+I’ve lost this duel. I’ll fall back for now.$Wait(0)
+
 [MID_BT4_#001]
 $Type(1)
 $Window(0, "ヘクトル", "t")
