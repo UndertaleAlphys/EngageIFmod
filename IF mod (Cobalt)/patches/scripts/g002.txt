@@ -7,6 +7,36 @@ g_key_hectorAttacked = "非アクティブヘクトルを攻撃_済み"
 g_key_StrongEnemy = "強力な増援_済み"
 g_flag_Lin_Die 	= "リンが倒された_済"
 
+g_Width = 30
+g_Height = 22
+
+g_TerraSheetMap = {
+	" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ","3","3"," "," "," "," "," "," ",
+	" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ","3","3"," "," "," "," "," "," ",
+	" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ","3","3","3"," "," "," "," "," ",
+	" "," "," "," "," "," "," "," "," "," "," ","2","2","2"," "," "," ","2"," "," "," ","1"," "," ","3"," "," "," "," "," ",
+	" "," "," "," "," "," "," "," "," "," "," ","2","2","2"," "," ","3","2"," "," ","1","1","1"," "," "," "," "," "," "," ",
+	" "," "," "," "," "," "," "," "," "," "," "," "," "," "," ","1","3","2"," "," "," ","1","1","1"," "," "," "," "," "," ",
+	" "," "," "," "," "," "," "," "," "," "," "," "," "," "," ","1","3","2"," "," "," "," "," "," "," "," "," "," "," "," ",
+	" "," "," "," "," "," "," "," "," "," "," "," "," "," "," ","1","3","2"," "," "," "," "," "," "," ","2","2","2"," "," ",
+	" "," "," "," "," "," "," "," "," "," "," "," "," "," "," ","1","3","2"," "," "," "," "," "," "," "," "," ","2","2"," ",
+	" "," "," ","1","1","1","1","1"," "," "," "," "," "," "," ","1"," "," "," "," "," "," "," "," "," "," "," "," "," "," ",
+	" "," ","1","1","1","1","1"," "," "," "," ","2","2","2","2"," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ",
+	" "," ","2","2","2","2"," "," "," "," ","2","2","2","2"," "," "," "," "," "," "," "," "," "," "," ","1","1","1"," "," ",
+	" "," "," ","2","2","2"," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ","1","1","1"," "," ",
+	" "," "," ","2","2","2","2"," "," "," ","3","3","3"," "," "," "," "," "," "," "," "," "," "," "," "," "," ","1"," "," ",
+	" "," "," "," "," "," "," "," "," "," ","3","3","3"," "," "," ","1"," "," "," "," "," "," ","3","3"," "," "," ","3","3",
+	" "," "," "," "," "," "," "," "," "," ","1","1","1"," ","3"," ","1"," "," "," "," "," "," ","3","3"," "," "," ","3","3",
+	" "," ","3","3","3","3","3"," "," "," ","1","1","1","3","3"," ","1"," "," "," "," "," "," "," ","3","3"," "," ","3","3",
+	" "," "," ","1","1","1"," "," "," "," "," "," "," ","3","3"," ","1"," "," "," ","2","2"," "," "," "," "," "," "," "," ",
+	" "," "," ","1","1","1"," "," "," ","2"," "," "," ","3","3"," ","1"," "," "," ","2","2"," "," "," "," "," "," "," "," ",
+	" "," "," "," "," "," ","2","2","2","2"," "," "," ","3"," "," ","2","2"," "," ","2","2"," "," "," "," "," "," "," "," ",
+	" "," "," "," "," "," ","2","2","2","2"," "," "," "," "," ","2","2","2"," "," "," ","2"," "," "," "," "," "," "," "," ",
+	" "," "," "," "," "," ","2"," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ",
+	" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ",
+	" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ",
+	" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," ",
+}
 -- -----------------------------------
 
 function Startup()
@@ -43,12 +73,12 @@ function Opening()
 	
 	Log("Opening");
 	
-	PuppetDemo("G002", "MID_OP1")
-	FadeInAndWait(FADE_NORMAL)
-	Movie("Kengen15")
-	SkipEscape()
-	FadeOutAndWait(FADE_NORMAL)
-	PuppetDemo("G002", "MID_OP2")
+	-- PuppetDemo("G002", "MID_OP1")
+	-- FadeInAndWait(FADE_NORMAL)
+	-- Movie("Kengen15")
+	-- SkipEscape()
+	-- FadeOutAndWait(FADE_NORMAL)
+	-- PuppetDemo("G002", "MID_OP2")
 
 end
 
@@ -65,6 +95,7 @@ function MapOpening()
 
 	Map_G002_SetTerrain();
 
+	InitIvy();
 end
 
 -- -----------------------------------
@@ -72,8 +103,9 @@ end
 function MapEnding()
 	
 	Log("MapEnding");
-	Talk( "MID_BT5" )
+	
 	if VariableGet( g_flag_Lin_Die ) == 0 then
+		Talk( "MID_BT5" )
 		ItemGain(nil, "IID_はやての羽")
 	end
 end
@@ -123,21 +155,16 @@ function イベント登録()
 	毒ガスイベント登録( true )
 
 	EventEntryTurn( 戦闘開始直後,	1,  1, FORCE_PLAYER )
-
+	EventEntryTurn( SetIvyByTurn, -1, -1, FORCE_PLAYER)
 	EventEntryTurn( 勝利条件_紋章士にフォーカス, 1, 1, FORCE_PLAYER )
-
-	EventEntryArea(エリア_ヘクトル, 1, 8, 8, 21, FORCE_PLAYER, "エリア進入_済" )
 
 	EventEntryTbox(宝箱入手,28, 21, "IID_マスタープルフ")
 	EventEntryTbox(宝箱入手,13, 21, "IID_チェンジプルフ")
 	EventEntryTbox(宝箱入手,17,  2, "IID_鋼身の法")
 	EventEntryTbox(宝箱入手, 2, 13, "IID_鉄の大斧")
 
-
-	EventEntryBattleBefore(VariableSet, "", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, false, condition_非アクティブヘクトルが攻撃された, g_key_hectorAttacked, 1)
 	EventEntryTurn(Map_G002_SetTerrain,  -1,  -1, FORCE_PLAYER)
 
-	EventEntryBattleTalk( リュールと戦闘,	"PID_リュール",	FORCE_PLAYER, g_pid_boss,			FORCE_ENEMY, true, "戦闘開始前会話_ヘクトル_リュール_済" )
 	EventEntryDie( Lin_Defeated, "PID_G002_IFMOD_リン", FORCE_ALLY, condition_true)
 	EventEntryDie( Boss_Defeated, g_pid_boss, FORCE_ENEMY, condition_true)
 
@@ -158,8 +185,105 @@ function Boss_Defeated()
 	end
 end
 
-function Reset_AI_Lin()
-	AiSetSequence("PID_G002_IFMOD_リン", AI_ORDER_MOVE, "AI_MV_Person", "PID_G002_ヘクトル")
+function InitIvy()
+    MapOverlapSetBegin()
+    for z = 1, g_Height do
+        for x = 1, g_Width do
+            local key = x + (z) * g_Width
+            if g_TerraSheetMap[key] != " " then
+                local reverseZ = g_Height + 1 - z
+                MapOverlapSet(x, reverseZ, "TID_ツタ_G002")
+            end
+        end
+    end
+    MapOverlapSetEnd()
+end
+
+function SetIvyByTurn()
+	local turn = MapGetTurn()
+    MapOverlapSetBegin()
+	Log("SetIvyByTurn")
+    for z = 1, g_Height do
+        for x = 1, g_Width do
+            local key = x + (z) * g_Width
+			if(turn % 3 == 1) then
+
+            	if g_TerraSheetMap[key] == "1" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_無し")
+            	end
+				if g_TerraSheetMap[key] == "2" or g_TerraSheetMap[key] == "3" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_ツタ_G002")
+            	end
+			end
+			if(turn % 3 == 2) then
+            	if g_TerraSheetMap[key] == "2" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_無し")
+            	end
+				if g_TerraSheetMap[key] == "1" or g_TerraSheetMap[key] == "3" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_ツタ_G002")
+            	end
+			end
+			if(turn % 3 == 0) then
+            	if g_TerraSheetMap[key] == "3" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_無し")
+            	end
+				if g_TerraSheetMap[key] == "1" or g_TerraSheetMap[key] == "2" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_ツタ_G002")
+            	end
+			end
+        end
+    end
+	Log("InitIvyTrun End")
+    MapOverlapSetEnd()
+end
+
+function SetIvy(turn)
+    MapOverlapSetBegin()
+	Log("SetIvyByTurn")
+    for z = 1, g_Height do
+        for x = 1, g_Width do
+            local key = x + (z) * g_Width
+			if(turn % 3 == 1) then
+
+            	if g_TerraSheetMap[key] == "1" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_無し")
+            	end
+				if g_TerraSheetMap[key] == "2" or g_TerraSheetMap[key] == "3" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_ツタ_G002")
+            	end
+			end
+			if(turn % 3 == 2) then
+            	if g_TerraSheetMap[key] == "2" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_無し")
+            	end
+				if g_TerraSheetMap[key] == "1" or g_TerraSheetMap[key] == "3" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_ツタ_G002")
+            	end
+			end
+			if(turn % 3 == 0) then
+            	if g_TerraSheetMap[key] == "3" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_無し")
+            	end
+				if g_TerraSheetMap[key] == "1" or g_TerraSheetMap[key] == "2" then
+                	local reverseZ = g_Height + 1 - z
+                	MapOverlapSet(x, reverseZ, "TID_ツタ_G002")
+            	end
+			end
+        end
+    end
+	Log("InitIvyTrun End")
+    MapOverlapSetEnd()
 end
 
 -- -----------------------------------
@@ -231,6 +355,28 @@ function 警告イベント_ヴァンドレ_毒ガスへの警戒()
 	-- ヴァンドレによる毒ガスへの警戒会話を流す
 	Talk("MID_EV2")
 
+	CursorAnimeCreate( 21, 4, "W2H3" )
+	CursorAnimeDelete()
+
+	WaitTime( 0.5 )
+
+	Talk("MID_EV5")
+	
+	WaitTime( 0.5 )
+	
+	SetIvy( 1 )
+
+	WaitTime( 1.5 )
+
+	SetIvy( 2 )
+
+	WaitTime( 1.5 )
+
+	SetIvy( 3 )
+
+	WaitTime( 1.5 )
+
+	Talk("MID_EV6")
 end
 
 -- -----------------------------------

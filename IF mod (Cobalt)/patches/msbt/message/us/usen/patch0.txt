@@ -618,22 +618,14 @@ heals status effects.
 Geosphere
 
 [MSID_H_BallsProtection_Earth]
-At start of player phase, 
-terrain within 3 radius get
+After unit ends their turn, 
+terrain within 2 radius get
 effect "Divine Domain"
 
-[MSID_BallsProtection_Earth+]
-Geosphere+
-
-[MSID_H_BallsProtection_Earth+]
-When unit ends ,
-terrain within 3 radius get
-effect "Divine Domain"
-
-[MSID_BallsProtection_Earth_G001]
+[MSID_BallsProtection_Earth_2]
 Geosphere
 
-[MSID_H_BallsProtection_Earth_G001]
+[MSID_H_BallsProtection_Earth_2]
 After unit ends their turn, 
 terrain within 3 radius get
 effect "Divine Domain"
@@ -1035,11 +1027,3 @@ Bracelet of the Three Houses.
 
 [MTID_DivineDomain]
 Divine Domain
-
-[MSID_BallsProtection_Earth_2]
-Geosphere+
-
-[MSID_H_BallsProtection_Earth_2]
-At start and end of player phase,
-terrain within 3 radius get
-effect "Divine Domain"

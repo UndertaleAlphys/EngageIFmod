@@ -143,6 +143,22 @@ $Anim(1, "ヘクトル", "Relax")
 $Window(2, "ヘクトル")
 It's about time I got moving.$Wait(0)
 
+[MID_EV5_#001]
+$Type(1)
+$Window(0, "チキ", "b")
+$Anim(1, "チキ", "Relax")
+$Window(2, "チキ")
+These vines are no match for the power of Tiki,
+Use the Geosphere to clear these obstacles!$Wait(0)
+
+[MID_EV6_#001]
+$Type(1)
+$Window(0, "リュール", "b")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+It seems these vines follow a certain repeating pattern
+—maybe we can turn that to our advantage.$Wait(0)
+
 [MID_BT1_#001]
 $Type(1)
 $Window(0, "ヘクトル", "b")
@@ -232,7 +248,6 @@ was an invaluable lesson for me.$Wait(0)
 $Window(0, "リン", "b")
 $Anim(1, "リン", "Relax")
 $Window(2, "リン")
-Not at all—I should be thanking you.
 Thanks to you, I was able to reunite with an old friend and enjoy a spirited duel.
 Please accept this treasure as a token of my gratitude.$Wait(0)
 

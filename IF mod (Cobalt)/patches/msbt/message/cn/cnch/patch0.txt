@@ -590,20 +590,13 @@ LINK!
 地玉加护
 
 [MSID_H_BallsProtection_Earth]
-我军行动阶段开始时
-对自身周围3格的地形赋予“神龙领域”效果
+行动结束时
+对自身周围2格的地形赋予“神龙领域”效果
 
-[MSID_BallsProtection_Earth+]
+[MSID_BallsProtection_Earth_2]
 地玉加护+
 
-[MSID_H_BallsProtection_Earth+]
-我军行动阶段开始时,或行动结束时
-对自身周围3格的地形赋予“神龙领域”效果
-
-[MSID_BallsProtection_Earth_G001]
-地玉加护
-
-[MSID_H_BallsProtection_Earth_G001]
+[MSID_H_BallsProtection_Earth_2]
 行动结束时
 对自身周围3格的地形赋予“神龙领域”效果
 
@@ -991,11 +984,4 @@ $Arg(0)的手镯
 
 [MTID_DivineDomain]
 神龙领域
-
-[MSID_BallsProtection_Earth_2]
-地玉加护+
-
-[MSID_H_BallsProtection_Earth_2]
-我军行动阶段开始时和行动结束时
-对自身周围3格的地形赋予“神龙领域”效果
 
