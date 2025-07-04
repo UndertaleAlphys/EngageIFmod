@@ -1,7 +1,7 @@
 // Currently needed because we use these functionality, they'll be removable when the Rust language stabilizes them
 #![feature(lazy_cell, ptr_sub_ptr)]
 
-use engage::gamedata::{unit::Unit, terrain::TerrainData};
+use engage::gamedata::{terrain::TerrainData, unit::Unit, JobData};
 use skyline::hooks::InlineCtx;
 use unity::prelude::*;
 /// This is called a proc(edural) macro. You use this to indicate that a function will be used as a hook.
@@ -24,17 +24,17 @@ impl HasWingedShield for Unit {
 #[skyline::hook(offset = 0x01A34C90)]
 pub fn is_terrain_invalid(unit: &Unit, terrain: &TerrainData, method: OptionalMethod) -> bool {
     if unit.has_winged_shield() {
-        true
+        false
     } else {
         call_original!(unit, terrain, method)
     }
 }
 
-#[skyline::hook(offset = 0x01E3BA04, inline)]
+#[skyline::hook(offset = 0x01E3B9E8, inline)]
 pub fn phase_start_damage(ctx: &mut InlineCtx) {
     let unit = unsafe { &*(*ctx.registers[20].x.as_ref() as *const Unit) };
     if unit.has_winged_shield() {
-        unsafe { *ctx.registers[0].w.as_mut() = 1 }
+        unsafe { *ctx.registers[0].w.as_mut() = 0 };
     }
 }
 
@@ -42,7 +42,7 @@ pub fn phase_start_damage(ctx: &mut InlineCtx) {
 pub fn phase_start_heal(ctx: &mut InlineCtx) {
     let unit = unsafe { &*(*ctx.registers[20].x.as_ref() as *const Unit) };
     if unit.has_winged_shield() {
-        unsafe { *ctx.registers[0].w.as_mut() = 1 }
+        unsafe { *ctx.registers[0].w.as_mut() = 1 };
     }
 }
 
@@ -50,7 +50,7 @@ pub fn phase_start_heal(ctx: &mut InlineCtx) {
 pub fn map_terrain_single(ctx: &mut InlineCtx) {
     let unit = unsafe { &*(*ctx.registers[20].x.as_ref() as *const Unit) };
     if unit.has_winged_shield() {
-        unsafe { *ctx.registers[0].w.as_mut() = 1 }
+        unsafe { *ctx.registers[0].w.as_mut() = 1 };
     }
 }
 
@@ -58,7 +58,7 @@ pub fn map_terrain_single(ctx: &mut InlineCtx) {
 pub fn battle_set_terrain_1(ctx: &mut InlineCtx) {
     let unit = unsafe { &*(*ctx.registers[23].x.as_ref() as *const Unit) };
     if unit.has_winged_shield() {
-        unsafe { *ctx.registers[0].w.as_mut() = 1 }
+        unsafe { *ctx.registers[0].w.as_mut() = 1 };
     }
 }
 
@@ -66,7 +66,7 @@ pub fn battle_set_terrain_1(ctx: &mut InlineCtx) {
 pub fn battle_set_terrain_2(ctx: &mut InlineCtx) {
     let unit = unsafe { &*(*ctx.registers[19].x.as_ref() as *const Unit) };
     if unit.has_winged_shield() {
-        unsafe { *ctx.registers[0].w.as_mut() = 1 }
+        unsafe { *ctx.registers[0].w.as_mut() = 1 };
     }
 }
 
@@ -74,7 +74,7 @@ pub fn battle_set_terrain_2(ctx: &mut InlineCtx) {
 pub fn battle_cal_interrupt(ctx: &mut InlineCtx) {
     let unit = unsafe { &*(*ctx.registers[21].x.as_ref() as *const Unit) };
     if unit.has_winged_shield() {
-        unsafe { *ctx.registers[0].w.as_mut() = 1 }
+        unsafe { *ctx.registers[0].w.as_mut() = 1 };
     }
 }
 
