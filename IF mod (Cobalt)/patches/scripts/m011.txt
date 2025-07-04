@@ -120,7 +120,7 @@ function イベント登録()
 	-- 離脱関係のイベント	
 	EventEntryEscape(離脱イベント, 7, 1, "PID_リュール", condition_true)
 	EventEntryEscape(離脱イベント, 8, 1, "PID_リュール", condition_true)
-	
+	EventEntryEscape(離脱イベント, 9, 30, "", condition_true)
 end
 
 -- -----------------------------------
@@ -142,6 +142,8 @@ end
 function MapOpening()
 	
 	Log("MapOpening")
+
+	MapHistoryRewindEnable()
 	
 	自軍入場演出()
 	
@@ -1270,8 +1272,6 @@ function 四狗とアイビー登場()
 	
 	SetFieldBgmWarSituation("B_BGM_Field_P05")
 	
-	-- 巻き戻しが使えるようになる
-	MapHistoryRewindEnable()
 	
 	敵の必殺０を解除()
 	
@@ -1392,9 +1392,6 @@ end
 function MapEnding()
 	
 	Log("MapEnding")
-	
-	-- 巻き戻しが使えるようになる（マップ中でもEnableにしていますが念のため）
-	MapHistoryRewindEnable()
 	
 	-- 保険として、イベントが再生されずにクリアされた場合アイビー隊を加入させる
 	if VariableGet( g_key_4docs_Ivy ) == 0 then

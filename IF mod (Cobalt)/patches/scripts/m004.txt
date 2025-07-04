@@ -485,8 +485,6 @@ function 青軍２ターン直前()
 	Dialog( "MID_TUT_NAVI_M004_TIMECRYSTAL" )
 	Tutorial( "TUTID_竜の時水晶" )
 
-	-- 巻き戻し使える
-	MapHistoryRewindEnable()
 end
 
 -- ---------------------------------------------------------

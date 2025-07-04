@@ -32,6 +32,9 @@ function Startup()
 	VariableSet( "禁止_ブレイク", 1 )
 	
 	
+	-- 巻き戻し使える
+	MapHistoryRewindEnable()
+	
 	-- 勝利条件の設定
 	WinRuleSetEnemyNumberLessThanOrEqualTo( -1 )
 	WinRuleSetMID( "MID_RULE_M001_WIN" )
@@ -123,6 +126,8 @@ function MapOpening()
 	
 	Log("MapOpening")
 	
+	UnitLearnJobSkill("PID_リュール")
+
 	CursorSetPos( 6, 4 )
 	CursorSetDistanceMode( CURSOR_DISTANCE_NEAR )
 	MapCameraWait()

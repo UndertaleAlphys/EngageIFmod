@@ -68,13 +68,13 @@ Ver.1.2.0 更新内容
 且被人遗忘的废都里，发现了新的手镯。
 
 [MID_RULE_G002_WIN]
-战胜纹章士海克托尔
+敌将击破
 
 [MID_RULE_G004_WIN]
-战胜纹章士塞涅里欧
+敌将击破
 
 [MID_RULE_G005_WIN]
-战胜纹章士卡美拉
+敌将击破
 
 [MTID_VolcanicBombTraces]
 焦痕

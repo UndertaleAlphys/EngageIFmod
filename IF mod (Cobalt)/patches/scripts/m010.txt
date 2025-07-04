@@ -120,7 +120,7 @@ function イベント登録()
 	-- 増援
 	EventEntryTurn( 増援, -1, -1, FORCE_PLAYER, condition_増援 )
 	EventEntryTurn( ハイアシンス周辺アクティブ, -1, -1, FORCE_PLAYER, condition_ハイアシンス周辺アクティブ )
-
+	EventEntryEscape(離脱イベント, 9, 4, "PID_リュール", condition_true)
 end
 
 -- -----------------------------------
@@ -493,8 +493,6 @@ function Ending()
 	GodUnitSetEscape("GID_ロイ",		true)
 	GodUnitSetEscape("GID_リーフ",		true)
 
-	-- 巻き戻し使えない
-	MapHistoryRewindDisable()
 
 end
 
@@ -502,4 +500,16 @@ function GameOver()
 
 	Log("GameOver")
 
+end
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
 end

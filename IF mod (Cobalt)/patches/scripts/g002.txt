@@ -43,12 +43,12 @@ function Opening()
 	
 	Log("Opening");
 	
-	-- PuppetDemo("G002", "MID_OP1")
-	-- FadeInAndWait(FADE_NORMAL)
-	-- Movie("Kengen15")
-	-- SkipEscape()
-	-- FadeOutAndWait(FADE_NORMAL)
-	-- PuppetDemo("G002", "MID_OP2")
+	PuppetDemo("G002", "MID_OP1")
+	FadeInAndWait(FADE_NORMAL)
+	Movie("Kengen15")
+	SkipEscape()
+	FadeOutAndWait(FADE_NORMAL)
+	PuppetDemo("G002", "MID_OP2")
 
 end
 
@@ -65,7 +65,6 @@ function MapOpening()
 
 	Map_G002_SetTerrain();
 
-	
 end
 
 -- -----------------------------------
@@ -129,11 +128,6 @@ function イベント登録()
 
 	EventEntryArea(エリア_ヘクトル, 1, 8, 8, 21, FORCE_PLAYER, "エリア進入_済" )
 
-	EventEntryTurn(増援１,  1,  1, FORCE_PLAYER)
-	EventEntryTurn(増援２,  1,  1, FORCE_PLAYER)	
-	EventEntryTurn(増援３, 1, 1, FORCE_PLAYER)	
-	EventEntryTurn(増援４, 1, 1, FORCE_PLAYER)	
-	
 	EventEntryTbox(宝箱入手,28, 21, "IID_マスタープルフ")
 	EventEntryTbox(宝箱入手,13, 21, "IID_チェンジプルフ")
 	EventEntryTbox(宝箱入手,17,  2, "IID_鋼身の法")
@@ -141,11 +135,9 @@ function イベント登録()
 
 
 	EventEntryBattleBefore(VariableSet, "", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, false, condition_非アクティブヘクトルが攻撃された, g_key_hectorAttacked, 1)
-	EventEntryTurn(強力な増援, -1 , -1, FORCE_PLAYER, condition_true)
 	EventEntryTurn(Map_G002_SetTerrain,  -1,  -1, FORCE_PLAYER)
 
 	EventEntryBattleTalk( リュールと戦闘,	"PID_リュール",	FORCE_PLAYER, g_pid_boss,			FORCE_ENEMY, true, "戦闘開始前会話_ヘクトル_リュール_済" )
-	EventEntryBattleTalk( リンと戦闘,	"",	FORCE_PLAYER, g_pid_boss,			FORCE_ENEMY, true, condition_リンと戦闘 )
 	EventEntryDie( Lin_Defeated, "PID_G002_IFMOD_リン", FORCE_ALLY, condition_true)
 	EventEntryDie( Boss_Defeated, g_pid_boss, FORCE_ENEMY, condition_true)
 
@@ -166,6 +158,9 @@ function Boss_Defeated()
 	end
 end
 
+function Reset_AI_Lin()
+	AiSetSequence("PID_G002_IFMOD_リン", AI_ORDER_MOVE, "AI_MV_Person", "PID_G002_ヘクトル")
+end
 
 -- -----------------------------------
 
@@ -185,49 +180,6 @@ function condition_非アクティブヘクトルが攻撃された()
 	
 end
 
--- -----------------------------------
-
-function condition_強力な増援()
-	
-	if VariableGet( g_key_StrongEnemy ) == 1 then
-		return false
-	end
-	
-	if VariableGet( g_key_hectorAttacked ) == 0 then
-		return false
-	end
-	
-	-- (1, 1)～(9, 22)の範囲に自軍が居なければ増援登場
-	local unit = ForceUnitGetFirst( FORCE_PLAYER )
-	while unit != nil do
-		
-		if UnitGetX( unit ) <= 9 then
-			return false
-		end
-		
-		unit = ForceUnitGetNext( unit )
-	end
-	
-	return true
-	
-end
-
--- -----------------------------------
-
-function 強力な増援()
-	
-	Dispos( "ReinforcementD1", DISPOS_FLAG_WARP + DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	
-	Dispos( "ReinforcementD2", DISPOS_FLAG_WARP + DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	VariableSet( g_key_StrongEnemy, 1 )
-	
-end
 
 -- -----------------------------------
 function 戦闘開始直後()
@@ -295,94 +247,6 @@ function エリア_ヘクトル()
 		
 	end
 
--- -----------------------------------
-
-function 増援１()
-	
-	Dispos( "Reinforcement1_1", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	増援AI設定の変更()
-	
-end
-
--- -----------------------------------
-
-function 増援２()
-	
-	Dispos( "Reinforcement1_2", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	増援AI設定の変更()
-	
-end
-
--- -----------------------------------
-
-function 増援３()
-	
-	Dispos( "Reinforcement1_3", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	増援AI設定の変更()
-	
-end
-
--- -----------------------------------
-
-function 増援４()
-	
-	Dispos( "Reinforcement1_4", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	増援AI設定の変更()
-	
-end
-
--- -----------------------------------
-
-function 増援AI設定の変更()
-	
-	local unit = ForceUnitGetFirst( FORCE_ENEMY )
-	while unit != nil do
-		
-		local pid = UnitGetPID( unit )
-		
-		if	( pid == "PID_G002_幻影兵_ソードナイト_増援" ) or
-			( pid == "PID_G002_幻影兵_ランスナイト_増援" ) or
-			( pid == "PID_G002_幻影兵_アクスペガサス_増援" ) or
-			( pid == "PID_G002_幻影兵_ソードペガサス_増援" ) or
-			( pid == "PID_G002_幻影兵_アクスアーマー_増援" ) or
-			( pid == "PID_G002_幻影兵_ランスファイター_増援" ) or
-			( pid == "PID_G002_幻影兵_ランスペガサス_増援" ) then
-			
-			AiSetRejectPower0Attack( unit, false )
-			
-		end
-		
-		unit = ForceUnitGetNext( unit )
-		
-	end
-	
-end
-
--- -----------------------------------
-
-function リュールと戦闘()
-	
-	Talk( "MID_BT2" )
-	
- 	if condition_リンと戦闘() then
-		リンと戦闘()
-	end
-	
-end
-
--- -----------------------------------
 
 function condition_リンと戦闘()
 
