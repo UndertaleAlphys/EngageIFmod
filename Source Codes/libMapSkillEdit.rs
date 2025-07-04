@@ -1,7 +1,7 @@
 // Currently needed because we use these functionality, they'll be removable when the Rust language stabilizes them
 #![feature(lazy_cell, ptr_sub_ptr)]
 
-use std::{f32::consts::PI, num::NonZero};
+use std::{cmp::Reverse, f32::consts::PI, num::NonZero};
 
 use engage::{
     gamedata::{skill::SkillData, unit::Unit},
@@ -272,18 +272,26 @@ pub fn map_skill_set_reverse_z(ctx: &mut InlineCtx) {
 
 #[skyline::hook(offset = 0x1F4E160)]
 pub fn map_skill_prediction(
-    current: &Unit,
-    reverse: &Unit,
+    current: Option<&Unit>,
+    reverse: Option<&Unit>,
     skill: &SkillData,
     results: &mut MapSkillResults,
     method: OptionalMethod,
 ) -> bool {
-    if current.get_person().get_bmap_size() + reverse.get_person().get_bmap_size() > 2
-        && skill.get_move_self().pow(2) + skill.get_move_target().pow(2) > 0
-    {
-        false
+    let o_result = call_original!(current, reverse, skill, results, method);
+    if current.is_none() || reverse.is_none() {
+        o_result
     } else {
-        call_original!(current, reverse, skill, results, method)
+        let current = current.unwrap();
+        let reverse = reverse.unwrap();
+        if current.get_person().get_bmap_size().pow(2) + reverse.get_person().get_bmap_size().pow(2)
+            > 2
+            && skill.get_move_self().abs() + skill.get_move_target().abs() > 0
+        {
+            false
+        } else {
+            o_result
+        }
     }
 }
 
