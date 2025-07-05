@@ -5153,3 +5153,10 @@ Grant +3 Dmg when fighting in
 a space with a terrain effect,
 Take -3 Dmg when fighting in
 a space with no terrain effects.
+
+[MSID_RodKilling]
+Rodbreaker
+
+[MSID_H_RodKilling]
+Avo+30 if the enemy
+uses staves.
