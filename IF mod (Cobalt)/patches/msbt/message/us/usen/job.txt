@@ -150,15 +150,15 @@ Sentinel
 [MJID_H_PitchforkLC]
 A Sentinel who takes up arms to
 defend her nation. Proficient with
-the lance.
+the lance and magic.
 
 [MJID_Pitchfork]
-Picket
+Basara
 
 [MJID_H_Pitchfork]
-A lancer who pierces the enemy lines
-with flawless skill. Her bouncy steps
-presage deadly attacks.
+A warrior who lives freely and unconventionally,
+unbound by rules.
+Confounds enemies with naginatas and magic.
 
 [MJID_CupidoLC]
 Sentinel
