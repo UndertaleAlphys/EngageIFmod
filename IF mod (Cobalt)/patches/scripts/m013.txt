@@ -57,6 +57,9 @@ function Startup()
 	EventEntryDestroy(民家破壊_フラグセット, 13, 14, 13, 14,		12, 15, 13, 16,		g_key_house1destroy)
 	EventEntryDestroy(民家破壊_フラグセット,  2,  2,  2,  2,		 1,  3,  3,  4,		g_key_house2destroy)
 	EventEntryDestroy(奥民家破壊, 22,  6, 22,  6,	21,  7, 23,  8)
+	EventEntryDestroy(民家破壊_フラグセット, 2, 10, 2, 10,		1, 9, 1, 11,		g_key_house1destroy)
+	EventEntryDestroy(民家破壊_フラグセット, 18, 9, 18, 9,		17, 10, 19, 11,		g_key_house1destroy)
+	EventEntryDestroy(民家破壊_フラグセット, 13, 3, 13, 3,		12, 4, 14, 5,		g_key_house1destroy)
 	EventEntryDestroy(Reinforcement1, 22,  6, 22,  6)
 	
 	EventEntryDestroy(TerraSet, 2, 15, 3, 16)
@@ -117,9 +120,8 @@ end
 function MapOpening()
 	
 	Log("MapOpening");
-	
-	CursorSetPos_FromPid_DistanceModeNear("PID_M013_蛮族_お頭Ａ");
-	MapCameraWait();
+
+	Talk("MID_OP8");
 
 --	リュール軍到着();
 --	FadeWait();
@@ -129,7 +131,17 @@ function MapOpening()
 	UnitCreateGodUnit("PID_ミスティラ", "GID_アイク");
 	UnitSetEngageCount("PID_ミスティラ", 7)
 
+	CursorSetPos( 11, 12 )
+	MapCameraWait()
 	
+	EffectPlay( "カムイ竜脈", 11, 12 )
+	EffectWait()
+
+	BreakAllObjects()
+	
+	Talk("MID_EV7")
+
+	Dialog("MID_TUT_M013_RULE")
 end
 
 -- -----------------------------------
@@ -152,42 +164,55 @@ function BreakAllObjects()
 	
 	WaitTime( 0.5 )
 
+	CursorSetPos( 2, 15 )
 	EventBrokenObject(2, 15)
 	WaitTime( 0.5 )
 	
+	CursorSetPos( 2, 13 )
 	EventBrokenObject(2, 13)
 	WaitTime( 0.5 )
 	
+	CursorSetPos( 1, 12 )
 	EventBrokenObject(1, 12)
 	WaitTime( 0.5 )
 	
+	CursorSetPos( 2, 7 )
 	EventBrokenObject(2, 7)
 	WaitTime( 0.5 )
 	
+	CursorSetPos( 6, 8 )
 	EventBrokenObject(6, 8)
 	WaitTime( 0.5 )
 	
+	CursorSetPos( 8, 6 )
 	EventBrokenObject(8, 6)
 	WaitTime( 0.5 )
 	
+	CursorSetPos( 10, 6 )
 	EventBrokenObject(10, 6)
 	WaitTime( 0.5 )
 	
+	CursorSetPos( 12, 8 )
 	EventBrokenObject(12, 8)
 	WaitTime( 0.5 )
 
+	CursorSetPos( 8, 8 )
 	EventBrokenObject(8, 8)
 	WaitTime( 0.5 )
 	
+	CursorSetPos( 9, 10 )
 	EventBrokenObject(9, 10)
 	WaitTime( 0.5 )
 	
+	CursorSetPos( 12, 10 )
 	EventBrokenObject(12, 10)
 	WaitTime( 0.5 )
 	
+	CursorSetPos( 14, 12 )
 	EventBrokenObject(14, 12)
 	WaitTime( 0.5 )
 
+	CursorSetPos( 15, 6 )
 	EventBrokenObject(15, 6)
 	WaitTime( 0.5 )
 end
@@ -263,21 +288,6 @@ end
 -- -----------------------------------
 
 function 進撃開始直後イベント()
-	
-	CursorSetPos_FromPid_DistanceModeNear("PID_M013_蛮族_お頭Ａ");
-	Talk("MID_OP7");
-	
-	CursorAnimeCreate( 10, 16 )
-	CursorAnimeDelete()
-	UnitRotation(UnitGetByPos(10, 16), 13, 14)
-	UnitMoveWait();
-	Talk("MID_OP8");
-	
-	UnitMovePos("PID_ミスティラ", 10, 13, MOVE_FLAG_NONE);
-	UnitMovePos("PID_パネトネ", 12, 13, MOVE_FLAG_NONE);
-	UnitMovePos("PID_メリン", 11, 14, MOVE_FLAG_NONE);
-	MapCameraWait();
-	UnitMoveWait();
 	
 	-- 緑軍→青軍
 	UnitJoin( "PID_ミスティラ", "PID_メリン", "PID_パネトネ" )
