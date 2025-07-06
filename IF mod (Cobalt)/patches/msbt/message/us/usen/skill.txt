@@ -3974,6 +3974,15 @@ within 5 tiles.
 [MSID_H_Shuttle_CMD]
 Swap places with an ally.
 
+[MSID_H_Shuttle]
+Grants the unit "Swap" command,
+use to swap places with an ally
+within 5 tiles.
+[Dragon] +2 range
+
+[MSID_H_Shuttle_Dragon_CMD]
+Swap places with an ally.
+
 [MSID_H_DualAssist_1_M007]
 When an ally attacks an enemy
 within this unit's weapon range,
