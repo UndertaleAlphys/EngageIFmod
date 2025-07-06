@@ -388,15 +388,16 @@ lightning from a distance.
 Thoron
 
 [MIID_H_Chrom_Thoron]
-Powerful lightning magic wielded
-by Emblem Robin.
+Long-range Lightning magic
+wielded byEmblem Robin.
+Cannot follow up.
 
 [MIID_Chrom_Falchion]
-Falchion
+Sealed Falchion
 
 [MIID_H_Chrom_Falchion]
-A legendary sword wielded by
-Emblem Chrom. Effective: Dragon.
+The sealed legendary sword wielded by
+Emblem Chrom. Dex+20. Effective: Dragon.
 
 [MSID_SPConvert]
 SP Conversion
@@ -655,28 +656,8 @@ Giga Levin Sword
 
 [MSID_H_ChromEngageAtk]
 Use to attack with a magic sword.
-Magic attack that uses physical
-attack power. Swords only.
-
-[MSID_H_ChromEngageAtk_Dragon]
-Use to attack with a magic sword.
-Magic attack that uses physical
-attack power. Swords only.
-[Dragon] Deals extra damage = half
-of Str.
-
-[MSID_H_ChromEngageAtk_Fly]
-Use to attack with a magic sword.
-Magic attack that uses physical
-attack power. Swords only.
-[Flying] Deals extra damage = Bld.
-
-[MSID_H_ChromEngageAtk_Magic]
-Use to attack with a magic sword.
-Magic attack that uses physical
-attack power. Swords only.
-[Mystical] Deals extra damage =
-half of Mag.
+Uses the power of both Str and Mag.
+Swords only.
 
 [MSID_H_ChromEngageAtk_CMD]
 Attack with a magic sword.
@@ -686,30 +667,8 @@ Giga Levin Sword+
 
 [MSID_H_ChromEngageAtk+]
 Use to attack with a magic sword.
-Magic attack that uses physical
-attack power. Swords only. Adjacent
-allies chain attack.
-
-[MSID_H_ChromEngageAtk+_Dragon]
-Use to attack with a magic sword.
-Magic attack that uses physical
-attack power. Swords only. Adjacent
-allies chain attack. [Dragon] Deals
-extra damage = half of Str.
-
-[MSID_H_ChromEngageAtk+_Fly]
-Use to attack with a magic sword.
-Magic attack that uses physical
-attack power. Swords only. Adjacent
-allies chain attack.
-[Flying] Deals extra damage = Bld.
-
-[MSID_H_ChromEngageAtk+_Magic]
-Use to attack with a magic sword.
-Magic attack that uses physical
-attack power. Swords only. Adjacent
-allies chain attack. [Mystical] Deals
-extra damage = half of Mag.
+Uses the power of both Str and Mag.
+Swords only. Adjacent allies chain attack.
 
 [MSID_H_ChromEngageAtk+_CMD]
 Adjacent allies participate in

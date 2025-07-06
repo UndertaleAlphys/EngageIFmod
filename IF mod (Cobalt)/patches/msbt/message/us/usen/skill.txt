@@ -5160,3 +5160,49 @@ Rodbreaker
 [MSID_H_RodKilling]
 Avo+30 if the enemy
 uses staves.
+
+[MSID_OtherHalf]
+Other Half
+
+[MSID_H_OtherHalf]
+If unit initiates combat, Robin chain
+attacks.
+When hit, may prevent the damage.
+Trigger% = Bond Level×1.5
+
+[MSID_Veteran]
+Veteran
+
+[MSID_H_Veteran]
+Allies within 3 spaces
+deal +3 Dmg, take -3 Dmg,
+if they equip weapons of
+the same color with unit.
+
+[MSID_Veteran_2]
+Veteran+
+
+[MSID_H_Veteran_2]
+Allies within 3 spaces
+deal +3 Dmg, take -3 Dmg,
+if they equip weapons of
+the same color, or have
+the same battle style with unit.
+
+[MSID_RightfulKing]
+Rightful King
+
+[MSID_H_RightfulKing]
++10% to unit's skill activation rates.
+
+[MSID_H_RightfulKing_Dragon]
++10% to unit's skill activation rates.
+[Dragon] +5% extra rates.
+
+[MSID_Awakening]
+Awakening
+
+[MSID_H_Awakening]
+If no allies are within 3 spaces,
+grants +50 to Hit/Ddg, +10 to Avo/Crit,
+and the effect of Veteran applies to unit.
