@@ -18,6 +18,94 @@ Analysis:
 A: Mov
 */
 
+#[skyline::hook(offset = 0x1A1D7D8, inline)]
+pub fn bound_max_hp_emblem(ctx: &mut InlineCtx) {
+    unsafe {
+        *ctx.registers[1].w.as_mut() = i8::MIN as u32;
+        *ctx.registers[2].w.as_mut() = i8::MAX as u32;
+    }
+}
+
+#[skyline::hook(offset = 0x1A1D808, inline)]
+pub fn bound_str_emblem(ctx: &mut InlineCtx) {
+    unsafe {
+        *ctx.registers[1].w.as_mut() = i8::MIN as u32;
+        *ctx.registers[2].w.as_mut() = i8::MAX as u32;
+    }
+}
+
+#[skyline::hook(offset = 0x1A1D83C, inline)]
+pub fn bound_dex_emblem(ctx: &mut InlineCtx) {
+    unsafe {
+        *ctx.registers[1].w.as_mut() = i8::MIN as u32;
+        *ctx.registers[2].w.as_mut() = i8::MAX as u32;
+    }
+}
+
+#[skyline::hook(offset = 0x1A1D870, inline)]
+pub fn bound_spd_emblem(ctx: &mut InlineCtx) {
+    unsafe {
+        *ctx.registers[1].w.as_mut() = i8::MIN as u32;
+        *ctx.registers[2].w.as_mut() = i8::MAX as u32;
+    }
+}
+
+#[skyline::hook(offset = 0x1A1D8A4, inline)]
+pub fn bound_lck_emblem(ctx: &mut InlineCtx) {
+    unsafe {
+        *ctx.registers[1].w.as_mut() = i8::MIN as u32;
+        *ctx.registers[2].w.as_mut() = i8::MAX as u32;
+    }
+}
+
+#[skyline::hook(offset = 0x1A1D8DC, inline)]
+pub fn bound_def_emblem(ctx: &mut InlineCtx) {
+    unsafe {
+        *ctx.registers[1].w.as_mut() = i8::MIN as u32;
+        *ctx.registers[2].w.as_mut() = i8::MAX as u32;
+    }
+}
+
+#[skyline::hook(offset = 0x1A1D914, inline)]
+pub fn bound_mag_emblem(ctx: &mut InlineCtx) {
+    unsafe {
+        *ctx.registers[1].w.as_mut() = i8::MIN as u32;
+        *ctx.registers[2].w.as_mut() = i8::MAX as u32;
+    }
+}
+
+#[skyline::hook(offset = 0x1A1D948, inline)]
+pub fn bound_res_emblem(ctx: &mut InlineCtx) {
+    unsafe {
+        *ctx.registers[1].w.as_mut() = i8::MIN as u32;
+        *ctx.registers[2].w.as_mut() = i8::MAX as u32;
+    }
+}
+
+#[skyline::hook(offset = 0x1A1D97C, inline)]
+pub fn bound_bld_emblem(ctx: &mut InlineCtx) {
+    unsafe {
+        *ctx.registers[1].w.as_mut() = i8::MIN as u32;
+        *ctx.registers[2].w.as_mut() = i8::MAX as u32;
+    }
+}
+
+#[skyline::hook(offset = 0x1A1D9B4, inline)]
+pub fn bound_sight_emblem(ctx: &mut InlineCtx) {
+    unsafe {
+        *ctx.registers[1].w.as_mut() = i8::MIN as u32;
+        *ctx.registers[2].w.as_mut() = i8::MAX as u32;
+    }
+}
+
+#[skyline::hook(offset = 0x1A1D9EC, inline)]
+pub fn bound_mov_emblem(ctx: &mut InlineCtx) {
+    unsafe {
+        *ctx.registers[1].w.as_mut() = i8::MIN as u32;
+        *ctx.registers[2].w.as_mut() = i8::MAX as u32;
+    }
+}
+
 #[skyline::hook(offset = 0x1A1C934, inline)]
 pub fn bound_max_hp(ctx: &mut InlineCtx) {
     unsafe {
@@ -98,7 +186,7 @@ pub fn bound_sight(ctx: &mut InlineCtx) {
     }
 }
 
-#[skyline::hook(offset = 0x1A1CB5C, inline)]
+#[skyline::hook(offset = 0x1A1CB48, inline)]
 pub fn bound_mov(ctx: &mut InlineCtx) {
     unsafe {
         *ctx.registers[1].w.as_mut() = i8::MIN as u32;
@@ -147,6 +235,17 @@ pub fn main() {
     //
     // A ``install_hooks!`` variant exists to let you install multiple hooks at once if separated by a comma.
     skyline::install_hooks!(
+        bound_max_hp_emblem,
+        bound_str_emblem,
+        bound_dex_emblem,
+        bound_spd_emblem,
+        bound_lck_emblem,
+        bound_def_emblem,
+        bound_mag_emblem,
+        bound_res_emblem,
+        bound_bld_emblem,
+        bound_sight_emblem,
+        bound_mov_emblem,
         bound_max_hp,
         bound_str,
         bound_dex,
