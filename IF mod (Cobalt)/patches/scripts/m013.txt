@@ -117,6 +117,9 @@ function MapOpening()
 	UnitCreateGodUnit("PID_ミスティラ", "GID_アイク");
 	UnitSetEngageCount("PID_ミスティラ", 7)
 
+	UnitCreateGodUnit("PID_アルフレッド", "GID_カムイ")
+	UnitSetEngageCount("PID_アルフレッド", 7)
+
 	CursorSetPos( 11, 12 )
 	MapCameraWait()
 	
