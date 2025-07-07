@@ -3663,6 +3663,14 @@ MSID_CrtMoreDmg
 [MSID_H_Shuttle_CMD]
 与5格内友军互换位置
 
+[MSID_H_Shuttle_Dragon]
+可使用“穿梭”指令，
+与5格内友军互换位置。
+【龙族】范围+2
+
+[MSID_H_Shuttle_Dragon_CMD]
+与7格内友军互换位置
+
 [MSID_H_DualAssist_1_M007]
 我方单位发起战斗时，
 若敌人位于自身射程内，
