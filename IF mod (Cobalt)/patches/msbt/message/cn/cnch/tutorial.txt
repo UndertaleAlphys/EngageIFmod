@@ -2799,6 +2799,15 @@ $P的兵种变成“神龙之王”后，即可在后院游玩“飞龙射手”
 [MID_TUT_M013_RULE]
 本章请尽可能多地访问和救援村庄吧！
 
+[MID_TUT_M013_REWARD1]
+因为救援了较多村庄。获得了奖励！
+
+[MID_TUT_M013_REWARD2]
+因为救援了村庄。获得了奖励！
+
+[MID_TUT_M013_REWARD3]
+因为救援了少数村庄。获得了奖励！
+
 [MID_TIPS_WEAPON_TRIANGLE_T]
 武器之间的克制三角
 
