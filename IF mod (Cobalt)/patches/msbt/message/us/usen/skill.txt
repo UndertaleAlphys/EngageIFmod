@@ -3560,12 +3560,6 @@ GrislyWound
 The enemy's HP is reduced 
 by 20% after the battle.
 
-[MSID_MagicKilling]
-MagicKilling
-
-[MSID_KnifeKilling]
-KnifeKilling
-
 [MSID_H_SwordKilling]
 Hit/Avo+50 if the enemy
 is equipped with a sword.
@@ -3584,10 +3578,11 @@ Space Shifter
 Can use all positioning commands.
 
 [MSID_BetterOdds]
-奇妙的鸣声
+Better Odds
 
 [MSID_H_BetterOdds]
-Better Odds
+Recover 40% HP at the start 
+of odd-numbered player' phase.
 
 [MSID_EvenBetter]
 Even Better
