@@ -1,0 +1,815 @@
+[MID_OP1_#001]
+$Type(2)
+$Window(0, "スフォリア", "1")
+$Window(0, "リュール", "2")
+$Window(2, "スフォリア")
+Divine One, royals of the three kingdoms...
+Welcome to Solm Palace.$Wait(2)
+
+[MID_OP1_#002]
+I'm Seforia, the queen of Solm.$Wait(0)
+
+[MID_OP1_#003]
+$Window(2, "リュール")
+It's an honor to meet you, Queen Seforia.$Wait(0)
+
+[MID_OP1_#004]
+$Window(2, "スフォリア")
+And you. Really, it's a treat.$Wait(2)
+
+[MID_OP1_#005]
+And a surprise! I never expected Fogado to
+bring the Divine Dragon here.$Wait(2)
+
+[MID_OP1_#006]
+Out of everything he's done on his outings,
+this is the most impressive.$Wait(0)
+
+[MID_OP1_#007]
+$Window(0, "フォガート", "4")
+$Window(2, "フォガート")
+I was just doing what any prince would do for
+his queen.$Wait(0)
+
+[MID_OP1_#008]
+$Window(2, "スフォリア")
+That's "Mom" to you. My son─tries to act so
+cool, so detached.$Wait(2)
+
+[MID_OP1_#009]
+Anyway! Those introductions when you arrived.
+There were...a lot of them.$Wait(2)
+
+[MID_OP1_#010]
+First you, Divine One, and then the Firenese,
+Brodian, and Elusian royalty...$Wait(2)
+
+[MID_OP1_#011]
+Quite the guest list! I was so overwhelmed,
+I nearly fell off my throne.$Wait(0)
+
+[MID_OP1_#012]
+$Window(2, "リュール")
+You have my apologies. We're here about a
+very important matter.$Wait(0)
+
+[MID_OP1_#013]
+$Window(2, "スフォリア")
+Yes, you said. Fell Dragon Sombron's return.
+I had no idea all that was happening.$Wait(2)
+
+[MID_OP1_#014]
+And he created those creatures, hm? That
+explains why they're so vicious.$Wait(0)
+
+[MID_OP1_#015]
+$Window(2, "リュール")
+But your palace hasn't been attacked by
+the Corrupted? Or Elusian forces?$Wait(0)
+
+[MID_OP1_#016]
+$Window(2, "スフォリア")
+Oh, it has. We got rid of them.$Wait(0)
+
+[MID_OP1_#017]
+$Window(2, "リュール")
+I see. You got rid of them...$Wait(2)
+
+[MID_OP1_#018]
+Wait, really? All of them?$Wait(0)
+
+[MID_OP1_#019]
+$Window(2, "スフォリア")
+You seem surprised.$Wait(0)
+
+[MID_OP1_#020]
+$Window(2, "リュール")
+I'm impressed. But certainly glad no one's
+breached the palace.$Wait(0)
+
+[MID_OP1_#021]
+$Window(2, "スフォリア")
+I'm sorry to hear the other countries are having
+a harder time of it. And Queen Lumera...$Wait(2)
+
+[MID_OP1_#022]
+I visited her in Lythos many times. She was
+always very gracious.$Wait(2)
+
+[MID_OP1_#023]
+Naturally, the queendom of Solm stands with
+you in your war against the Fell Dragon.$Wait(0)
+
+[MID_OP1_#024]
+$Window(2, "リュール")
+Thank you. On that note, I have a request.$Wait(2)
+
+[MID_OP1_#025]
+The Ring of the Radiant Hero, which was
+entrusted to Solm... May I take it?$Wait(0)
+
+[MID_OP1_#026]
+$Window(2, "スフォリア")
+Of course. I'll get it right away.$Wait(2)
+
+[MID_OP1_#027]
+Wait... Hmm...$Wait(2)
+
+[MID_OP1_#028]
+Where was it again?$Wait(0)
+
+[MID_OP1_#029]
+$Window(2, "リュール")
+...$Wait(0)
+
+[MID_OP1_#030]
+$Window(2, "スフォリア")
+I haven't seen it for a while. Fogado, do you
+know where the ring might be?$Wait(0)
+
+[MID_OP1_#031]
+$Window(2, "フォガート")
+No clue. Maybe it's in the doodad drawer?$Wait(0)
+
+[MID_OP1_#032]
+$Window(1, "フォガート")
+$Window(2, "スフォリア")
+Hm. Please, wait here a moment.$Wait(0)
+
+[MID_OP1_#033]
+$Window(2, "リュール")
+Oh! OK...$Wait(0)
+
+[MID_OP1_#034]
+$Window(1, "スフォリア")
+$Window(0, "アイビー", "4")
+$Window(2, "アイビー")
+The "doodad drawer."$Wait(0)
+
+[MID_OP1_#035]
+$Window(1, "アイビー")
+$Window(0, "アルフレッド", "4")
+$Window(2, "アルフレッド")
+Has it been lying around in a musty cupboard
+this whole time?$Wait(0)
+
+[MID_OP1_#036]
+$Window(1, "アルフレッド")
+$Window(0, "ディアマンド", "4")
+$Window(2, "ディアマンド")
+This is one of the strongest Emblem Rings.
+I... I don't know what to say.$Wait(0)
+
+[MID_OP1_#037]
+$Window(1, "ディアマンド")
+$Window(1, "リュール")
+$Window(0, "スフォリア", "1")
+$Window(0, "フォガート", "3")
+$Window(2, "スフォリア")
+Ah, you know what? I just remembered. Timerra
+took it with her.$Wait(0)
+
+[MID_OP1_#038]
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+Timerra?$Wait(0)
+
+[MID_OP1_#039]
+$Window(2, "フォガート")
+My sister. Also, the crown princess.$Wait(0)
+
+[MID_OP1_#040]
+$Window(2, "スフォリア")
+She's set to inherit my crown...and like Fogado,
+she's always out doing who knows what.$Wait(2)
+
+[MID_OP1_#041]
+To be fair, I acted the same when I was young.
+Anyway, she's been gone for days.$Wait(0)
+
+[MID_OP1_#042]
+$Window(2, "フォガート")
+Probably on a camping trip. Oh, that sounds
+great right now.$Wait(0)
+
+[MID_OP1_#043]
+$Window(0, "アルフレッド", "4")
+$Window(2, "アルフレッド")
+So it's true. The crown princess and prince
+aren't around much.$Wait(0)
+
+[MID_OP1_#044]
+$Window(1, "アルフレッド")
+$Window(0, "ディアマンド", "4")
+$Window(2, "ディアマンド")
+And she doesn't know when they'll be back.$Wait(0)
+
+[MID_OP1_#045]
+$Window(2, "リュール")
+We can look for Princess Timerra. Do you have
+any idea where she might be?$Wait(0)
+
+[MID_OP1_#046]
+$Window(2, "スフォリア")
+I think she was heading to the southern desert...
+in which case, she'd set up camp in the oasis.$Wait(0)
+
+[MID_OP1_#047]
+$Window(2, "リュール")
+All right, then. We'll head there.$Wait(0)
+
+[MID_OP1_#048]
+$Window(2, "スフォリア")
+You know, a trip to the oasis is just what I need!
+I'll pack my things.$Wait(0)
+
+[MID_OP1_#049]
+$Window(2, "フォガート")
+Actually, Mom, how about you stay put?$Wait(0)
+
+[MID_OP1_#050]
+$Window(2, "スフォリア")
+Oh, all right. You kids go on without me.$Wait(2)
+
+[MID_OP1_#051]
+If you find Timerra, do summon the Emblem,
+will you? I'd love to meet him.$Wait(2)
+
+[MID_OP1_#052]
+Be careful. It's already getting dark out.$Wait(0)
+
+[MID_OP1_#053]
+$Window(2, "フォガート")
+Come on, everyone─I'll lead the way!$Wait(0)
+
+[MID_MOVIE1_#001]
+$Window(2, "ミスティラ")
+Mmm! This meat is gonna hit the spot!$Wait(2)
+
+[MID_MOVIE1_#002]
+I hope you're hungry for fun, 'cause that's
+what's on the menu first!$Wait(2)
+
+[MID_MOVIE1_#003]
+Ahem... And now, an exclusive performance
+from the one and only...$Wait(2)
+
+[MID_MOVIE1_#004]
+Timerra!$Wait(0)
+
+[MID_OP2_#001]
+$Type(2)
+$Window(0, "ミスティラ", "2")
+$Window(2, "ミスティラ")
+I'll be performing my favorite song with my
+backup singers, Merrin and Panette!$Wait(0)
+
+[MID_OP2_#002]
+$Window(0, "メリン", "4")
+$Window(2, "メリン")
+Ready.$Wait(0)
+
+[MID_OP2_#003]
+$Window(1, "メリン")
+$Window(0, "パネトネ", "4")
+$Window(2, "パネトネ")
+As am I!$Wait(0)
+
+[MID_OP2_#004]
+$Window(2, "ミスティラ")
+Hope you remember the words! And a one,
+and a two...$Wait(2)
+
+[MID_OP2_#005]
+♪Meat! Meat! Meaty meat meaaat...♪$Wait(0)
+
+[MID_OP2_#006]
+$Window(0, "M013_蛮族_お頭Ａ", "1")
+$Window(2, "M013_蛮族_お頭Ａ")
+What have we here? A bunch of pretty birds,
+squawking away in the night. Hah, cheep-cheep.$Wait(0)
+
+[MID_OP2_#007]
+$Window(0, "M013_蛮族_お頭Ｂ", "3")
+$Window(2, "M013_蛮族_お頭Ｂ")
+Cheep-cheep is right. But there's nothing cheap
+about the ring that one has. Let's grab it.$Wait(0)
+
+[MID_OP2_#008]
+$Window(2, "ミスティラ")
+♪Meaty, meaty, aw yeah! Meaty, meaty...♪$Wait(0)
+
+[MID_OP2_#009]
+$Window(2, "M013_蛮族_お頭Ａ")
+Hey. Hey! Quit your cawing!$Wait(0)
+
+[MID_OP2_#010]
+$Window(2, "ミスティラ")
+Who're you two?$Wait(0)
+
+[MID_OP2_#011]
+$Window(2, "M013_蛮族_お頭Ａ")
+Come on. Wake up! What do you think?
+We're bandits. Bandits!$Wait(0)
+
+[MID_OP2_#012]
+$Window(2, "M013_蛮族_お頭Ｂ")
+And what do bandits do? Take stuff! Like your
+fancy ring there. Give it!$Wait(0)
+
+[MID_OP2_#013]
+$Window(2, "ミスティラ")
+Ooh!$Wait(0)
+
+[MID_OP2_#014]
+$Window(2, "M013_蛮族_お頭Ａ")
+Oh? Oooh?! That's all? You're in trouble.
+Really in it. Right now!$Wait(0)
+
+[MID_OP2_#015]
+$Window(2, "M013_蛮族_お頭Ｂ")
+In it and surrounded by it! We've got monsters─
+big fans of ours. These two and way more!$Wait(0)
+
+[MID_OP2_#016]
+$Window(1, "M013_蛮族_お頭Ｂ")
+$Window(0, "M013_異形兵_アクスペガサス", "3")
+$Window(2, "M013_異形兵_アクスペガサス")
+Rrrgh...$Wait(0)
+
+[MID_OP2_#017]
+$Window(2, "ミスティラ")
+...$Wait(0)
+
+[MID_OP2_#018]
+$Window(2, "M013_蛮族_お頭Ａ")
+So, we asked nicely, but you had to make us
+mad. Now we'll do this our way!$Wait(0)
+
+[MID_OP3_#001]
+$Type(2)
+$Window(0, "フォガート", "1")
+$Window(0, "リュール", "2")
+$Window(2, "フォガート")
+I saw a bonfire. That's gotta be her!$Wait(0)
+
+[MID_OP3_#002]
+$Window(2, "リュール")
+What were those strange sounds?$Wait(0)
+
+[MID_OP3_#003]
+$Window(2, "フォガート")
+Timerra and her friends singing.$Wait(0)
+
+[MID_OP3_#004]
+$Window(2, "リュール")
+Oh... Sorry.$Wait(0)
+
+[MID_OP3_#005]
+$Window(2, "フォガート")
+Haha, don't worry about it. People call them
+the Racket of Solm for a reason.$Wait(2)
+
+[MID_OP3_#006]
+Weird that they stopped. An attack, you think?$Wait(0)
+
+[MID_OP3_#007]
+$Window(2, "リュール")
+Let's get over there and find out.$Wait(0)
+
+[MID_OP4_#001]
+$Type(2)
+$Window(0, "ミスティラ", "1")
+$Window(0, "フォガート", "4")
+$Window(2, "フォガート")
+Timerra!$Wait(0)
+
+[MID_OP4_#002]
+$Window(2, "ミスティラ")
+Oh! Hey, Fogado.$Wait(0)
+
+[MID_OP4_#003]
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+So, you're Princess Timerra. Nice to meet you.$Wait(0)
+
+[MID_OP4_#004]
+$Window(2, "ミスティラ")
+Don't tell me! You're the Divine Dragon, right?$Wait(2)
+
+[MID_OP4_#005]
+Fogado wouldn't have come here unless he'd
+found you first.$Wait(0)
+
+[MID_OP4_#006]
+$Window(2, "リュール")
+He wouldn't have... What?$Wait(0)
+
+[MID_OP4_#007]
+$Window(2, "ミスティラ")
+Not important. We've got bigger steaks to roast.
+Have to deal with these bandits, for a start!$Wait(2)
+
+[MID_OP4_#008]
+It'd really help if you could use your summoning
+powers on this ring.$Wait(0)
+
+[MID_OP4_#009]
+$Window(2, "リュール")
+The Ring of the Radiant Hero.$Wait(0)
+
+[MID_OP4_#010]
+$Window(2, "ミスティラ")
+I've always wanted to meet the person who
+lives in here. Can you make that happen?$Wait(0)
+
+[MID_OP4_#011]
+$Window(2, "リュール")
+All right.$Wait(0)
+
+[MID_OP4_#012]
+$Window(2, "ミスティラ")
+Great! And a one, and a two...$Wait(0)
+
+[MID_OP4_#013]
+$Window(2, "リュール")
+Fight on, Emblem of Radiance!$Wait(0)
+
+[MID_OP6_#001]
+$Type(2)
+$Window(0, "ミスティラ", "1")
+$Window(0, "リュール", "2")
+$Window(0, "アイク", "4")
+$Window(2, "ミスティラ")
+Dang, those arms. You're ready to fight.$Wait(0)
+
+[MID_OP6_#002]
+$Window(2, "アイク")
+I'm Ike. Make sure you use me wisely.$Wait(0)
+
+[MID_OP6_#003]
+$Window(2, "リュール")
+Thanks for your help, Ike. You'll be fighting
+alongside Princess Timerra in this battle.$Wait(0)
+
+[MID_OP7_#001]
+$Type(1)
+$Window(0, "M013_蛮族_お頭Ａ", "b")
+$Anim(1, "M013_蛮族_お頭Ａ", "Smile")
+$Window(2, "M013_蛮族_お頭Ａ")
+What's that? More?! Those cheep-cheep birds
+must've gone cawing for help!$Wait(2)
+
+[MID_OP7_#002]
+Phooey, that's what I say. They won't beat
+our monsters!$Wait(0)
+
+[MID_OP7_#003]
+$Window(0, "M013_蛮族_お頭Ｂ", "t")
+$Anim(1, "M013_蛮族_お頭Ｂ", "Smile")
+$Window(2, "M013_蛮族_お頭Ｂ")
+That's right. Not to mention our thieves.
+Experts in the art of ransackery!$Wait(0)
+
+[MID_OP8_#001]
+$Type(1)
+$Window(0, "M013_蛮族_お頭Ｂ", "b")
+$Window(2, "M013_蛮族_お頭Ｂ")
+Ahahaha...$Wait(0)
+
+[MID_OP8_#002]
+$Window(0, "ミスティラ", "t")
+$Anim(1, "ミスティラ", "Strike")
+$Window(2, "ミスティラ")
+They're gonna attack the village. We have to
+stop them before anybody gets hurt.$Wait(2)
+
+[MID_OP8_#003]
+Merrin, Panette, come on!$Wait(0)
+
+[MID_OP8_#004]
+$Window(1, "M013_蛮族_お頭Ｂ")
+$Window(0, "メリン", "b")
+$Anim(1, "メリン", "Angry")
+$Window(2, "メリン")
+As you command, my princess. We'll crush
+them with the hammer of justice.$Wait(0)
+
+[MID_OP8_#005]
+$Window(1, "メリン")
+$Window(0, "パネトネ", "b")
+$Anim(1, "パネトネ", "Angry")
+$Window(2, "パネトネ")
+Indeed! They shall sorely regret terrorizing these
+poor, innocent people!$Wait(0)
+
+[MID_OP8_#006]
+$Window(1, "M013_蛮族")
+$Window(0, "リュール", "b")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+If these obstacles delay us,
+we may be too late to save them! $Wait(0)
+
+[MID_OP8_#007]
+$Window(1, "M013_蛮族")
+$Window(0, "アイク", "t")
+$Anim(1, "アイク", "Angry")
+$Window(2, "アイク")
+...Just a few obstacles?
+Leave it to me. Hah!$Wait(0)
+
+[MID_EV1_#001]
+$Type(1)
+$Window(0, "M013_村人おじいさん", "t")
+$Anim(1, "M013_村人おじいさん", "Surprise")
+$Window(2, "M013_村人おじいさん")
+Eh, what's that? Bandits?! Oh, geez! I'd rather
+you get ahold of this than they do.$Wait(0)
+
+[MID_EV2_#001]
+$Type(1)
+$Window(0, "M013_村人女の子", "t")
+$Anim(1, "M013_村人女の子", "Pain")
+$Window(2, "M013_村人女の子")
+Oh no! I'll tell my nana to hide. Use this to beat
+the bad guys!$Wait(0)
+
+[MID_EV3_#001]
+$Type(1)
+$Window(0, "M013_村人おばさん", "t")
+$Anim(1, "M013_村人おばさん", "Sad")
+$Window(2, "M013_村人おばさん")
+Bandits, you say? Oh dear! You had better take
+this, then. It might be useful.$Wait(0)
+
+[MID_EV4_#001]
+$Type(1)
+$Window(0, "M013_蛮族_お頭Ａ", "b")
+$Window(2, "M013_蛮族_お頭Ａ")
+You think the village will loot itself? Get going!$Wait(0)
+
+[MID_EV4_#002]
+$Window(0, "M013_蛮族_お頭Ｂ", "t")
+$Window(2, "M013_蛮族_お頭Ｂ")
+Yeah! Start at that house there!$Wait(0)
+
+[MID_EV5_#001]
+$Type(1)
+$Window(0, "アイク", "t")
+$Anim(1, "アイク", "StandBy")
+$Window(2, "アイク")
+The way forward is blocked, but not for long.$Wait(2)
+
+[MID_EV5_#002]
+$Anim(1, "アイク", "Strike")
+Go, Timerra. With my strength, you'll have no
+problem opening up a path.$Wait(0)
+
+[MID_EV6_#001]
+$Type(1)
+$Window(0, "M013_蛮族_お頭Ａ", "b")
+$Window(2, "M013_蛮族_お頭Ａ")
+Yeah! Keep on pillaging, just like that!$Wait(0)
+
+[MID_EV6_#002]
+$Window(0, "M013_蛮族_お頭Ｂ", "t")
+$Window(2, "M013_蛮族_お頭Ｂ")
+Haha, who's going to stop us? Nobody!$Wait(0)
+
+[MID_EV7_#001]
+$Type(1)
+$Window(0, "リュール", "b")
+$Window(2, "リュール")
+Such astounding strength...  
+With the way open, we must move quickly to aid the villages! $Wait(0)
+
+[MID_BT1_#001]
+$Type(1)
+$Window(0, "M013_蛮族_お頭Ａ", "b")
+$Anim(1, "M013_蛮族_お頭Ａ", "Strike")
+$Window(2, "M013_蛮族_お頭Ａ")
+Nothing I hate worse than a meddler. You stuck
+your nose in our business! You'll pay!$Wait(0)
+
+[MID_BT2_#001]
+$Type(1)
+$Window(0, "M013_蛮族_お頭Ａ", "b")
+$Anim(1, "M013_蛮族_お頭Ａ", "Sad")
+$Window(2, "M013_蛮族_お頭Ａ")
+Wasn't much of a big brother, was I?$Wait(0)
+
+[MID_BT3_#001]
+$Type(1)
+$Window(0, "M013_蛮族_お頭Ｂ", "b")
+$Anim(1, "M013_蛮族_お頭Ｂ", "Angry")
+$Window(2, "M013_蛮族_お頭Ｂ")
+The oasis is ours, you hear? We've got
+exclusive plundering rights!$Wait(0)
+
+[MID_BT4_#001]
+$Type(1)
+$Window(0, "M013_蛮族_お頭Ｂ", "b")
+$Anim(1, "M013_蛮族_お頭Ｂ", "Pain")
+$Window(2, "M013_蛮族_お頭Ｂ")
+Guess I let my brother down... Again...$Wait(0)
+
+[MID_ED1_#001]
+$Type(2)
+$Window(0, "ミスティラ", "1")
+$Window(0, "リュール", "2")
+$Window(2, "ミスティラ")
+That takes care of that. Sorry for roping you
+into the scuffle, Divine One.$Wait(0)
+
+[MID_ED1_#002]
+$Window(2, "リュール")
+That's all right. But I haven't had a chance to
+say why I'm here.$Wait(2)
+
+[MID_ED1_#003]
+I already explained this to Queen Seforia and
+Prince Fogado, but...$Wait(2)
+
+[MID_ED1_#004]
+The Fell Dragon has been released. He's back.$Wait(0)
+
+[MID_ED1_#005]
+$Window(2, "ミスティラ")
+Hm.$Wait(0)
+
+[MID_ED1_#006]
+$Window(2, "リュール")
+It's sudden, I know. You're probably shocked.$Wait(0)
+
+[MID_ED1_#007]
+$Window(2, "ミスティラ")
+I already knew.$Wait(0)
+
+[MID_ED1_#008]
+$Window(2, "リュール")
+You did?$Wait(0)
+
+[MID_ED1_#009]
+$Window(2, "ミスティラ")
+Mom and Fogado did too. We've all known for
+a while now.$Wait(0)
+
+[MID_ED1_#010]
+$Window(2, "リュール")
+Fogado, you too?$Wait(0)
+
+[MID_ED1_#011]
+$Window(0, "フォガート", "3")
+$Window(2, "フォガート")
+Sorry. Truth is, our chance meeting in Tullah
+Desert...wasn't totally by chance.$Wait(0)
+
+[MID_ED1_#012]
+$Window(2, "リュール")
+Were you deceiving us?$Wait(0)
+
+[MID_ED1_#013]
+$Window(2, "フォガート")
+The opposite, actually. I had to make sure that
+you weren't deceiving us.$Wait(2)
+
+[MID_ED1_#014]
+When the Fell Dragon returned, we had to take
+steps to protect our country.$Wait(0)
+
+[MID_ED1_#015]
+$Window(2, "ミスティラ")
+I'll lay it out for you.$Wait(2)
+
+[MID_ED1_#016]
+The palace has scouts all over Elyos─keeping
+an eye on the three kingdoms.$Wait(2)
+
+[MID_ED1_#017]
+When Elusia brought back the Fell Dragon,
+we learned about it early on.$Wait(2)
+
+[MID_ED1_#018]
+But we couldn't beat him without the Emblem
+Rings─and we couldn't use them without you.$Wait(2)
+
+[MID_ED1_#019]
+Our only option was to focus on defense.$Wait(2)
+
+[MID_ED1_#020]
+The Corrupted started appearing, so we had
+to quickly lay out a plan.$Wait(0)
+
+[MID_ED1_#021]
+$Window(2, "リュール")
+And what was the plan?$Wait(0)
+
+[MID_ED1_#022]
+$Window(2, "ミスティラ")
+First off, Mom would stay in the palace. She'd
+work with the royal guard to keep out intruders.$Wait(2)
+
+[MID_ED1_#023]
+And we'd send out our militia, the Sentinels, to
+bolster soldiers' efforts against the Corrupted.$Wait(0)
+
+[MID_ED1_#024]
+$Window(2, "フォガート")
+As captain, my job was to watch out for the
+Corrupted near the Elusian border.$Wait(2)
+
+[MID_ED1_#025]
+If someone claimed to be the Divine Dragon,
+I'd size them up and bring them to the palace.$Wait(0)
+
+[MID_ED1_#026]
+$Window(2, "リュール")
+That's why you hid the fact you're a prince.$Wait(0)
+
+[MID_ED1_#027]
+$Window(2, "ミスティラ")
+I was in the Sentinels too. And I wandered the
+country, keeping our ring safe.$Wait(0)
+
+[MID_ED1_#028]
+$Window(2, "リュール")
+As part of this plan, did you ever consider
+asking for another country's help?$Wait(0)
+
+[MID_ED1_#029]
+$Window(2, "ミスティラ")
+No. Because then we'd have to help them.$Wait(2)
+
+[MID_ED1_#030]
+We can't fight another country's battles. We're
+stretched thin fighting our own.$Wait(2)
+
+[MID_ED1_#031]
+That's how Solm does it. You scratch your own
+back, we'll scratch ours, thank you very much.$Wait(0)
+
+[MID_ED1_#032]
+$Window(2, "リュール")
+I see.$Wait(0)
+
+[MID_ED1_#033]
+$Window(2, "ミスティラ")
+I'm sorry we misled you. But we did it to
+protect the queendom.$Wait(0)
+
+[MID_ED1_#034]
+$Window(2, "リュール")
+I don't mean to criticize your country's way of
+doing things. I'm just surprised.$Wait(0)
+
+[MID_ED1_#035]
+$Window(2, "ミスティラ")
+Here's the most important part of the
+plan, though.$Wait(2)
+
+[MID_ED1_#036]
+If you did turn out to be the Divine Dragon,
+we'd give you the Ring of the Radiant Hero...$Wait(2)
+
+[MID_ED1_#037]
+And then tell you where to find our other
+Emblem Ring.$Wait(0)
+
+[MID_ED1_#038]
+$Window(2, "リュール")
+Solm has a second ring?$Wait(0)
+
+[MID_ED1_#039]
+$Window(2, "ミスティラ")
+Yup. The Ring of the Crux of Fate. It's in the─$Wait(0)
+
+[MID_ED1_#040]
+$Window(1, "フォガート")
+$Window(0, "ソルム兵士_ソードナイト3", "3")
+$Window(2, "ソルム兵士_ソードナイト3")
+Your Highness! A message from Solm Palace!$Wait(0)
+
+[MID_ED1_#041]
+$Window(2, "ミスティラ")
+Huh? What is it?$Wait(0)
+
+[MID_ED1_#042]
+$Window(2, "ソルム兵士_ソードナイト3")
+Hortensia, princess of Elusia, has breached
+the palace.$Wait(0)
+
+[MID_ED1_#043]
+$Window(0, "アイビー", "4")
+$Window(2, "アイビー")
+Oh... Oh.$Wait(0)
+
+[MID_ED1_#044]
+$Window(2, "ミスティラ")
+What?! How did she get in? We have to
+save Mom!$Wait(0)
+
+[MID_ED1_#045]
+$Window(2, "リュール")
+Let's go!$Wait(0)
+

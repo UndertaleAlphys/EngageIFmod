@@ -2819,6 +2819,18 @@ attacks, but she would attack Alear and Vander first. Make haste!
 [MID_TUT_G002_RULE]
 Lyn will fight at your side. Team up with her to bring Hector down!
 
+[MID_TUT_M013_RULE]
+Try to visit and rescue as many villages as you can this chapter!
+
+[MID_TUT_M013_REWARD1]
+You rescued many villages. A reward has been granted!
+
+[MID_TUT_M013_REWARD2]
+You rescued some villages. A reward has been granted!
+
+[MID_TUT_M013_REWARD3]
+You rescued a few villages. A reward has been granted!
+
 [MID_TIPS_WEAPON_TRIANGLE_T]
 Weapon Triangle
 

@@ -3354,7 +3354,7 @@ HP为50%以下时，必杀+30
 回避+15（持续一回合）
 
 [MSID_CrtMoreDmg]
-必杀时造成特大伤害
+必杀武器
 
 [MSID_H_CrtMoreDmg]
 MSID_CrtMoreDmg

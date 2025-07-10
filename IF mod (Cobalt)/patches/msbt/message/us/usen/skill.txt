@@ -3641,7 +3641,7 @@ When using "wait" command,
 grants Avo+15, last for 1 turn.
 
 [MSID_CrtMoreDmg]
-Deals more damage when Crit.
+Killer Weapon
 
 [MSID_H_CrtMoreDmg]
 MSID_CrtMoreDmg
