@@ -3,7 +3,14 @@
 
 use std::default;
 
-use engage::gamedata::{item::ItemData, skill::SkillArray, unit::Unit};
+use engage::{
+    gamedata::{
+        item::ItemData,
+        skill::{SkillArray, SkillData},
+        unit::Unit,
+    },
+    unitpool::UnitPool,
+};
 use unity::prelude::*;
 /// This is called a proc(edural) macro. You use this to indicate that a function will be used as a hook.
 ///
@@ -47,6 +54,16 @@ impl UnitGetter for Unit {
     }
 }
 
+trait UnitCalculator {
+    fn can_charge_engage_count(&self) -> bool;
+}
+
+impl UnitCalculator for Unit {
+    fn can_charge_engage_count(&self) -> bool {
+        self.get_engage_count() < self.get_engage_count_limit() && !self.is_engaging()
+    }
+}
+
 #[skyline::hook(offset = 0x01DEA700)]
 pub fn can_item_use(
     unit: Option<&Unit>,
@@ -56,61 +73,35 @@ pub fn can_item_use(
     skills: Option<&SkillArray>,
     method_info: OptionalMethod,
 ) -> bool {
+    let o_result = call_original!(unit, item, target, use_type, skills, method_info);
     if unit.is_none() || item.is_none() || target.is_none() || use_type == 0 {
-        call_original!(unit, item, target, use_type, skills, method_info)
+        o_result
     } else {
         let unit = unit.unwrap();
         let item = item.unwrap();
         let target = target.unwrap();
         match item.usetype {
-            3 => {
+            2 => {
+                let skills = item.get_equip_skills();
+                if skills.find_sid(Il2CppString::new("SID_祝福")).is_some()
+                    && target.can_charge_engage_count()
                 {
-                    // println!(
-                    //     "Target: {}",
-                    //     target
-                    //         .get_person()
-                    //         .get_name()
-                    //         .unwrap_or(Il2CppString::new("None"))
-                    //         .to_string()
-                    // );
-                    // println!("HP: {} MaxHP: {}", target.get_hp(), target.get_max_hp());
-                    // println!(
-                    //     "EC: {} ECL:{}",
-                    //     target.get_engage_count(),
-                    //     target.get_engage_count_limit()
-                    // );
-                    // println!(
-                    //     "BadStates: {}",
-                    //     if target.mask_skill.is_none() {
-                    //         0
-                    //     } else {
-                    //         target.mask_skill.unwrap().bad_states
-                    //     }
-                    // );
-                }
-                if target.get_hp() < target.get_max_hp() {
                     true
-                } else if target.get_engage_count() < target.get_engage_count_limit() {
-                    true
-                } else if let Some(mask_skill) = target.mask_skill {
-                    const REST_TARGET: u32 = 1831;
-                    if mask_skill.bad_states & 1831 != 0 {
-                        true
-                    } else {
-                        false
-                    }
                 } else {
-                    false
+                    o_result
                 }
             }
-            _ => call_original!(
-                Some(unit),
-                Some(item),
-                Some(target),
-                use_type,
-                skills,
-                method_info
-            ),
+            3 => {
+                let skills = item.get_equip_skills();
+                if skills.find_sid(Il2CppString::new("SID_祝福")).is_some()
+                    && target.can_charge_engage_count()
+                {
+                    true
+                } else {
+                    o_result
+                }
+            }
+            _ => o_result,
         }
     }
 }
