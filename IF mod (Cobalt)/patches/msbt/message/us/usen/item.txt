@@ -25,7 +25,7 @@ Steel Sword
 
 [MIID_H_SteelSword]
 A sword made of steel.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 
 [MIID_SilverSword]
 Silver Sword
@@ -48,7 +48,7 @@ Brave Sword
 [MIID_H_BraveSword]
 A sword built for expert wielders.
 If user initiates combat, attacks twice
--4 Def/Res when equipped
+Def/Res -4
 
 [MIID_ThunderSword]
 Levin Sword
@@ -98,8 +98,7 @@ Caladbolg
 [MIID_H_GodSword]
 A legendary sword, famous for its
 great power.
-After the battle,
-Strength is halved for the next attack
+Halves Str until unit attacks again.
 
 [MIID_IronSwordL]
 Iron Blade
@@ -142,8 +141,7 @@ Georgios
 A legendary blade that smashes foes.
 Cannot follow up, or strike first if
 initiating combat.
-After the battle,
-Strength is halved for the next attack
+Halves Str until unit attacks again.
 
 [MIID_Dragonslayer]
 Wyrmslayer
@@ -165,7 +163,7 @@ Steel Lance
 
 [MIID_H_SteelLance]
 A lance made of steel.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 
 [MIID_SilverLance]
 Silver Lance
@@ -189,7 +187,7 @@ Brave Lance
 A lance built for expert wielders.
 If user initiates combat, attacks
 twice.
--4 Def/Res when equipped
+Def/Res -4
 
 [MIID_HandLance]
 Javelin
@@ -197,7 +195,8 @@ Javelin
 [MIID_H_HandLance]
 A light throwing lance that can
 strike close or at range.
-Weak to follow up (-5)
+Cannot Crit/Trigger skill/follow up
+/+5 foe's ability to follow up
 
 [MIID_RiderKiller]
 Ridersbane
@@ -222,7 +221,7 @@ Spear
 A powerful throwing lance that
 can only strike at range.
 Cannot Crit/Trigger skill/follow up
-/weak to follow up (-5)
+/+5 foe's ability to follow up
 
 [MIID_FlameSpear]
 Flame Naginata
@@ -238,8 +237,7 @@ Brionac
 [MIID_H_GodLance]
 A powerful naginata of legend.
 When equipped, +4 Def/Res
-After the battle,
-Strength is halved for the next attack
+Halves Str until unit attacks again.
 
 [MIID_IronLanceL]
 Iron Greatlance
@@ -275,8 +273,7 @@ A naginata of legend that smashes.
 When equipped, +4 Def/Res
 Cannot follow up,
 or strike first if initiating combat.
-After the battle,
-Strength is halved for the next attack
+Halves Str until unit attacks again.
 
 [MIID_IronAxe]
 Iron Axe
@@ -290,7 +287,7 @@ Steel Axe
 
 [MIID_H_SteelAxe]
 An axe made of steel.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 
 [MIID_SilverAxe]
 Silver Axe
@@ -314,7 +311,7 @@ Brave Axe
 An axe built for expert wielders.
 If user initiates combat, attacks
 twice.
--4 Def/Res when equipped
+Def/Res -4
 
 [MIID_HandAxe]
 Hand Axe
@@ -323,7 +320,7 @@ Hand Axe
 A light throwing axe that can
 strike close or at range.
 Cannot Crit/Trigger skill/follow up
-/weak to follow up (-5)
+/+5 foe's ability to follow up
 
 [MIID_Tomahawk]
 Tomahawk
@@ -332,7 +329,7 @@ Tomahawk
 A powerful throwing axe that
 can only strike at range.
 Cannot Crit/Trigger skill/follow up
-/weak to follow up (-5)
+/+5 foe's ability to follow up
 
 [MIID_Hammer]
 Hammer
@@ -364,7 +361,7 @@ Fragarach
 
 [MIID_H_GodAxe]
 A legendary axe.
-After the battle,Strength is halved for the next attack
+Halves Str until unit attacks again.
 
 [MIID_IronAxeL]
 Iron Greataxe
@@ -408,8 +405,7 @@ Ukonvasara
 A huge, legendary axe that smashes
 foes. Cannot follow up, or strike first
 if initiating combat.
-After the battle,
-Strength is halved for the next attack
+Halves Str until unit attacks again.
 
 [MIID_ShortBow]
 Mini Bow
@@ -431,7 +427,7 @@ Steel Bow
 [MIID_H_SteelBow]
 A bow made of steel.
 Effective: Flying.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 
 [MIID_SilverBow]
 Silver Bow
@@ -443,13 +439,14 @@ Inflicts stacking debuff on unit after combat
 (Str/Dex-2)
 
 [MIID_BraveBow]
-Brave Bow
+Soldier's Bow
 
 [MIID_H_BraveBow]
 A bow built for expert wielders.
 If user initiates combat, attacks
 twice. Effective: Flying.
--4 Def/Res when equipped
+Halves Str until unit attacks again.
+
 
 [MIID_LongBow]
 Longbow
@@ -481,8 +478,8 @@ Pursuer
 [MIID_H_GodBow]
 A bow wielded by legends.
 Effective: Flying.
-Def/Res -5/easy to follow up (+5)/
-weak to follow up (-5)
+Def/Res -5
++5 unit's and foe's ability to follow up
 
 [MIID_SmallKnife]
 Short Shuriken
@@ -505,7 +502,7 @@ Steel Dagger
 
 [MIID_H_SteelKnife]
 A throwing knife made of steel.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 Inflicts debuff on foe after combat.
 (Str -3 Def/Res -4)
 
@@ -568,7 +565,7 @@ Surge
 
 [MIID_H_Surge]
 A standard tome of water magic.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 
 [MIID_Fire]
 Fire
@@ -591,7 +588,7 @@ Elsurge
 
 [MIID_H_LSurge]
 An advanced water tome.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 
 [MIID_LFire]
 Elfire
@@ -622,8 +619,7 @@ Bolganone
 
 [MIID_H_Bolganone]
 A truly mighty fire tome.
-Reduce user's Mag by half,
-until user fights again
+Halves Mag until unit attacks again.
 
 [MIID_Thoron]
 Thoron
@@ -637,8 +633,9 @@ Excalibur
 [MIID_H_Excalibur]
 A truly mighty wind tome.
 Effective: Flying.
-Easy to follow up (+5)/
-weak to follow up (-5)
+Def/Res -5
++5 unit's and foe's ability
+to follow up
 
 [MIID_H_Excalibur_Gris]
 A truly mighty wind tome.
@@ -650,8 +647,7 @@ Nova
 [MIID_H_Nova]
 An extremely potent tome. If user
 initiates combat, attacks twice.
-Reduce user's Mag by half,
-until user fights again
+Halves Mag until unit attacks again.
 
 [MIID_Meteo]
 Meteor
@@ -817,7 +813,7 @@ Steel-Hand Art
 A scroll of a standard martial skill.
 If user initiates combat, attacks
 twice.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 
 [MIID_HighFist]
 Silver-Spirit Art
@@ -840,9 +836,10 @@ Grants Def+5.
 Flashing Fist Art
 
 [MIID_H_FlashFist]
-A scroll of brash martial skill. Grants
-Spd+5, but user takes +5 damage. If
+A scroll of brash martial skill. If
 user initiates combat, attacks twice.
+Def/Res -5
++5 unit's and foe's ability to follow up
 
 [MIID_GodFist]
 Divine Fist Art
@@ -851,8 +848,7 @@ Divine Fist Art
 A scroll of a legendary martial skill.
 If user initiates combat, attacks
 twice.
-Reduce user's Str/Mag by half,
-until user fights again
+Halves Str & Mag until unit attacks again.
 
 [MIID_FireBreath]
 Fire Breath
@@ -2606,7 +2602,7 @@ Kodachi
 A light throwing katana that can
 strike close or at range.
 Cannot Crit/Trigger skill/follow up
-/weak to follow up (-5)
+/+5 foe's ability to follow up
 
 [MIID_Wakizashi]
 Wakizashi
@@ -2615,7 +2611,7 @@ Wakizashi
 A powerful throwing axe that
 can only strike at range.
 Cannot Crit/Trigger skill/follow up
-/weak to follow up (-5)
+/+5 foe's ability to follow up
 
 [MIID_SpyShuriken]
 Spy Shuriken
@@ -2652,7 +2648,7 @@ Soldier's Knife
 A Knife built for expert wielders.
 If user initiates combat, attacks twice.
 After the battle,
-Strength is halved for the next attack
+Halves Str until unit attacks again.
 Inflicts debuff on foe after combat.
 (Str/Mag/Skl/Spd/Luck -2 Def/Res -5)
 
@@ -2669,9 +2665,8 @@ Chakram
 
 [MIID_H_Hazy]
 A shuriken wielded by legends.
--5 Def/Res when equipped
-Easy to follow up (+5)/
-weak to follow up (-5)
+Def/Res -5
++5 unit's and foe's ability to follow up
 Inflicts debuff on foe after combat.
 (Str/Mag/Def/Res -6)
 
@@ -2682,7 +2677,8 @@ Lightning
 A tome combined with light
 and thunder.
 If user initiates combat, attacks twice.
-User lose HP after battle.
+Inflicts stacking debuff on unit after combat
+(Mag/Dex-2)
 
 [MIID_Kamui_CalamityGate]
 Calamity Gate
@@ -2852,7 +2848,7 @@ Can attack at range.
 
 [MIID_H_SteelKukri]
 A sword made of steel.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 Can attack at range.
 
 [MIID_H_SilverKukri]
@@ -2869,7 +2865,7 @@ Can attack at range.
 
 [MIID_H_SteelJavelin]
 A lance made of steel.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 Can attack at range.
 
 [MIID_H_IronJavelin]
@@ -2882,7 +2878,7 @@ Can attack at range.
 
 [MIID_H_SteelStarAxe]
 A axe made of steel.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 Can attack at range.
 
 [MIID_H_SilverStarAxe]
@@ -2904,7 +2900,7 @@ Can attack nearby enemy.
 
 [MIID_H_SteelShortBow]
 A bow made of steel.
-Difficult to follow up (-3)
+-3 user's ability to follow up
 Can attack nearby enemy.
 
 [MIID_Concoction]
@@ -3088,8 +3084,7 @@ Dragon Spirit
 A anti-dragon scroll.
 Deffective: Dragon
 Ineffective otherwise
-Reduce user's Mag by half,
-until user fights again
+Halves Mag until unit attacks again.
 
 [MIID_Ward]
 Ward
