@@ -6,6 +6,9 @@ g_key_turn_count = "増援_章カウント"
 g_key_visit_1	= "訪問_1_済"
 g_key_visit_2	= "訪問_2_済"
 g_key_visit_3	= "訪問_3_済"
+g_key_visit_4	= "訪問_4_済"
+g_key_visit_5	= "訪問_5_済"
+g_key_visit_6	= "訪問_6_済"
 
 g_key_house1destroy			= "S_民家１破壊_済"
 g_key_house2destroy			= "S_民家２破壊_済"
@@ -30,7 +33,10 @@ function Startup()
 	VariableEntry( g_key_visit_1, 0 )
 	VariableEntry( g_key_visit_2, 0 )
 	VariableEntry( g_key_visit_3, 0 )
-	
+	VariableEntry( g_key_visit_4, 0 )
+	VariableEntry( g_key_visit_5, 0 )
+	VariableEntry( g_key_visit_6, 0 )
+
 	VariableEntry( g_key_house1destroy, 0 )
 	VariableEntry( g_key_house2destroy, 0 )
 	VariableEntry( g_key_house3destroy, 0 )
@@ -52,9 +58,9 @@ function Startup()
 	EventEntryVisit(訪問イベント_1, 13, 14)
 	EventEntryVisit(訪問イベント_2,  2, 2)
 	EventEntryVisit(訪問イベント_3, 22, 6)
-	EventEntryVisit(訪問イベント_1, 2, 10)
-	EventEntryVisit(訪問イベント_2, 18, 9)
-	EventEntryVisit(訪問イベント_3, 13, 3)
+	EventEntryVisit(訪問イベント_4, 2, 10)
+	EventEntryVisit(訪問イベント_5, 18, 9)
+	EventEntryVisit(訪問イベント_6, 13, 3)
 
 	EventEntryDestroy(Other_Destroy, 13, 14, 13, 14)
 	EventEntryDestroy(Other_Destroy,  2,  2,  2,  2)
@@ -389,15 +395,40 @@ end
 
 function 訪問イベント_1()
 	Talk("MID_EV1");
+	VariableSet(g_key_visit_1 , 1 )
+	TerraSet()
 end
 
 function 訪問イベント_2()
 	Talk("MID_EV2");
+	VariableSet(g_key_visit_2 , 1 )
+	TerraSet()
 end
 
 function 訪問イベント_3()
 	Talk("MID_EV3");
+	VariableSet(g_key_visit_3 , 1 )
+	TerraSet()
 end
+
+function 訪問イベント_4()
+	Talk("MID_EV1");
+	VariableSet(g_key_visit_4 , 1 )
+	TerraSet()
+end
+
+function 訪問イベント_5()
+	Talk("MID_EV2");
+	VariableSet(g_key_visit_5 , 1 )
+	TerraSet()
+end
+
+function 訪問イベント_6()
+	Talk("MID_EV3");
+	VariableSet(g_key_visit_6 , 1 )
+	TerraSet()
+end
+
 
 -- -----------------------------------
 
@@ -413,12 +444,14 @@ function 奥民家破壊()
 	Log(g_destroy)
 	
 	VariableSet( g_key_house3destroy, 1 )
+	TerraSet()
 end
 
 function Other_Destroy()
 	Log("Other_Destroy")
 	g_destroy = g_destroy + 1
 	Log(g_destroy)
+	TerraSet()
 end
 
 -- -----------------------------------
@@ -466,7 +499,15 @@ end
 function MapEnding()
 	
 	Log("MapEnding");
-	if g_destroy < 3 then
+	Log(VariableGet(g_key_visit_1))
+	Log(VariableGet(g_key_visit_2))
+	Log(VariableGet(g_key_visit_3))
+	Log(VariableGet(g_key_visit_4))
+	Log(VariableGet(g_key_visit_5))
+	Log(VariableGet(g_key_visit_6))
+	local village_Visited = VariableGet(g_key_visit_1) + VariableGet(g_key_visit_2) + VariableGet(g_key_visit_3) + VariableGet(g_key_visit_4) + VariableGet(g_key_visit_5) + VariableGet(g_key_visit_6) 
+	Log(village_Visited)
+	if village_Visited > 3 then
 		Log(g_destroy)
 		Dialog("MID_TUT_M013_REWARD1")
 		ItemGain(nil, "IID_10000G")
@@ -474,14 +515,14 @@ function MapEnding()
 		return
 	end
 
-	if g_destroy < 4 then
+	if village_Visited > 2 then
 		Log(g_destroy)
 		Dialog("MID_TUT_M013_REWARD2")
 		ItemGain(nil, "IID_10000G")
 		return
 	end
 
-	if g_destroy < 5 then
+	if village_Visited < 3 then
 		Log(g_destroy)
 		Dialog("MID_TUT_M013_REWARD3")
 		ItemGain(nil, "IID_5000G")
