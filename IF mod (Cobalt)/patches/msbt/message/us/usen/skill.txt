@@ -5210,3 +5210,16 @@ Awakening
 If no allies are within 3 spaces,
 grants +50 to Hit/Ddg, +10 to Avo/Crit,
 and the effect of Veteran applies to unit.
+
+[MSID_Gamble]
+Gamble
+
+[MSID_H_Gamble]
+-10 to Hit, +10 to Crit.
+
+[MSID_Underdog]
+Underdog
+
+[MSID_H_Underdog]
+If unit's Lvl < foe's Lvl,
+grants Hit/Avo+15.
