@@ -3210,7 +3210,7 @@ Inflicts debuff on foe after combat.
 [MIID_Bullet_L]
 Big Blast
 
-[MIID_H_Bullet]
+[MIID_H_Bullet_L]
 A short-range blast.
 Inflicts stacking debuff on unit after combat
 (Str/Dex-2)
