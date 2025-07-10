@@ -32,7 +32,8 @@ Silver Sword
 
 [MIID_H_SilverSword]
 An exceptional sword of rare metals.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 
 [MIID_SmallSword]
 Slim Sword
@@ -123,7 +124,8 @@ Silver Blade
 A massive sword of rare metals that
 smashes foes. Cannot follow up,
 or strike first if initiating combat.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 
 [MIID_WilleGlanz]
 Wille Glanz
@@ -170,7 +172,8 @@ Silver Lance
 
 [MIID_H_SilverLance]
 An exceptional lance of rare metals.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 
 [MIID_SmallLance]
 Slim Lance
@@ -261,7 +264,8 @@ Silver Greatlance
 A massive lance of rare metals that
 smashes foes. Cannot follow up,
 or strike first if initiating combat.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 
 [MIID_GodLanceL]
 Venomous
@@ -293,7 +297,8 @@ Silver Axe
 
 [MIID_H_SilverAxe]
 An exceptional axe of rare metals.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 
 [MIID_SmallAxe]
 Compact Axe
@@ -384,7 +389,8 @@ Silver Greataxe
 A massive axe of rare metals that
 smashes foes. Cannot follow up,
 or strike first if initiating combat.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 
 [MIID_WindAxeL]
 Hurricane Axe
@@ -433,7 +439,8 @@ Silver Bow
 [MIID_H_SilverBow]
 An exceptional bow of rare metals.
 Effective: Flying.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 
 [MIID_BraveBow]
 Brave Bow
@@ -482,7 +489,7 @@ Short Shuriken
 
 [MIID_H_SmallKnife]
 An easy-to-use throwing knife.
-Lower foe's stats when hit.
+Inflicts debuff on foe after combat.
 (Skl/Spd -1 Def/Res -2)
 
 [MIID_IronKnife]
@@ -490,7 +497,7 @@ Iron Shuriken
 
 [MIID_H_IronKnife]
 A standard throwing knife.
-Lower foe's stats when hit.
+Inflicts debuff on foe after combat.
 (Mag -2 Def/Res -3)
 
 [MIID_SteelKnife]
@@ -499,7 +506,7 @@ Steel Dagger
 [MIID_H_SteelKnife]
 A throwing knife made of steel.
 Difficult to follow up (-3)
-Lower foe's stats when hit.
+Inflicts debuff on foe after combat.
 (Str -3 Def/Res -4)
 
 [MIID_SilverKnife]
@@ -507,8 +514,9 @@ Silver Dagger
 
 [MIID_H_SilverKnife]
 A throwing knife made of rare metals.
-After battle, Str, Skl -2, Recover 1/turn
-Lower foe's stats when hit.
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
+Inflicts debuff on foe after combat.
 (Spd/Def/Res -4)
 
 [MIID_Kard]
@@ -590,7 +598,8 @@ Elfire
 
 [MIID_H_LFire]
 An advanced fire tome.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Mag/Dex-2)
 
 [MIID_LThunder]
 Elthunder
@@ -817,7 +826,8 @@ Silver-Spirit Art
 A scroll of a highly polished martial
 skill. If user initiates combat,
 attacks twice.
-After battle, Str, Mag, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Mag/Dex -2)
 
 [MIID_GuardFist]
 Shielding Art
@@ -2623,7 +2633,7 @@ Hunter's Knife
 [MIID_H_BeastHunter]
 An dagger used by hunters.
 Effective: Cavalry/Flier
-Lower foe's stats when hit.
+Inflicts debuff on foe after combat.
 (Luck -2 Def/Res -3)
 
 [MIID_ReverseShuriken]
@@ -2632,7 +2642,7 @@ Dual Shuriken
 [MIID_H_ReverseShuriken]
 Reverse the weapon triangle
 and double its effect.
-Lower foe's stats when hit.
+Inflicts debuff on foe after combat.
 (Str/Mag -2 Def/Res -4)
 
 [MIID_SoldierKnife]
@@ -2643,7 +2653,7 @@ A Knife built for expert wielders.
 If user initiates combat, attacks twice.
 After the battle,
 Strength is halved for the next attack
-Lower foe's stats when hit.
+Inflicts debuff on foe after combat.
 (Str/Mag/Skl/Spd/Luck -2 Def/Res -5)
 
 [MIID_SpyBow]
@@ -2662,7 +2672,7 @@ A shuriken wielded by legends.
 -5 Def/Res when equipped
 Easy to follow up (+5)/
 weak to follow up (-5)
-Lower foe's stats when hit.
+Inflicts debuff on foe after combat.
 (Str/Mag/Def/Res -6)
 
 [MIID_Lightning]
@@ -2700,7 +2710,8 @@ Skl -2 Spd -1 Def +4 Res +5
 A Dragon stone that can
 unleash extreme power.
 Skl +8 Spd +6 Def -5 Res -3
-After battle, Str/Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 
 [MIID_H_EvilStone]
 A Dragon stone used for attack.
@@ -2738,7 +2749,7 @@ A shuriken surrounded by
 magic flame.
 Magic weapon/cannot Crit/
 trigger skill
-Lower foe's stats when hit.
+Inflicts debuff on foe after combat.
 (Mag/Def/Res -4)
 
 [MIID_FujinYumi]
@@ -2846,12 +2857,14 @@ Can attack at range.
 
 [MIID_H_SilverKukri]
 An exceptional sword of rare metals.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 Can attack at range.
 
 [MIID_H_SilverJavelin]
 An exceptional lance of rare metals.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 Can attack at range.
 
 [MIID_H_SteelJavelin]
@@ -2874,7 +2887,8 @@ Can attack at range.
 
 [MIID_H_SilverStarAxe]
 An exceptional axe of rare metals.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 Can attack at range.
 
 [MIID_H_IronShortBow]
@@ -2884,7 +2898,8 @@ Effective: Flying
 
 [MIID_H_SilverShortBow]
 An exceptional bow of rare metals.
-After battle, Str, Skl -2, Recover 1/turn
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
 Can attack nearby enemy.
 
 [MIID_H_SteelShortBow]
@@ -3183,3 +3198,21 @@ A corrupted slayer.
 Effective: Corrupted/Ineffective otherwise
 /When equipped, -3 Def & Res/
 Restore 10 HP at the start of the phase.
+
+[MIID_Bullet]
+Blast
+
+[MIID_H_Bullet]
+A short-range blast.
+Inflicts debuff on foe after combat.
+(Str/Mag-4)
+
+[MIID_Bullet_L]
+Big Blast
+
+[MIID_H_Bullet]
+A short-range blast.
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
+Inflicts debuff on foe after combat.
+(Str/Mag-6)
