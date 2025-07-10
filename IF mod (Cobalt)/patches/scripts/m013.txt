@@ -39,7 +39,7 @@ function Startup()
 	-- イベント
 	EventEntryTurn(進撃開始直後イベント, 1, 1,  FORCE_PLAYER);
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
-	EventEntryTurn( ボス移動開始,	7,  7, FORCE_PLAYER )
+	EventEntryTurn( Reinforcement_Fly,	7,  7, FORCE_PLAYER )
 	EventEntryTurnAfter(敵開始直後イベント, 1, 1,  FORCE_ENEMY);
 
 	-- 蛮族ボス
@@ -135,6 +135,8 @@ function MapOpening()
 	Talk("MID_EV7")
 
 	Dialog("MID_TUT_M013_RULE")
+
+	飛行ユニットの０ダメージ攻撃を許可()
 end
 
 -- -----------------------------------
@@ -151,6 +153,22 @@ function TerraSet()
 	end
 	Log("TerrainSetEnd")
 	TerrainSetEnd()
+end
+
+function 飛行ユニットの０ダメージ攻撃を許可()
+	if DifficultyGet() == DIFFICULTY_LUNATIC then
+		
+		local index	= ForceUnitGetFirst( FORCE_ENEMY )
+		
+		while ( index != nil ) do
+			
+			if (UnitGetPID( index ) == "PID_M012_IFMOD_ランスファイター" ) then
+				AiSetRejectPower0Attack( index, false )
+			end
+			
+			index = ForceUnitGetNext( index )
+		end
+	end
 end
 
 function BreakAllObjects()
