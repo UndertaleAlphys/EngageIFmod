@@ -8,6 +8,7 @@ g_revive_Sepia = "Revive_Sepia"
 g_revive_Gris = "Revive_Gris"
 g_revive_Mauve = "Revive_Mauve"
 g_revive_Marron = "Revive_Marron"
+g_key_tutorial_summon = "Revive_Marron"
 
 -- -----------------------------------
 
@@ -54,6 +55,7 @@ function フラグ登録()
 	VariableEntry(g_revive_Mauve, 0)
 	VariableEntry(g_revive_Marron, 0)
 	VariableEntry(g_revive_Gris, 0)
+	VariableEntry(g_key_tutorial_summon,0)
 	E_BattleTalk_VariableEntry()
 	
 end
@@ -150,13 +152,52 @@ function MapOpening()
 	UnitSetItemEquip( "PID_M014_オルテンシア", "IID_ベレト_ルーン" )
 	EffectCreate( "水晶障壁_ループ", 15, 18 )
 	EffectCreate("魔法陣_G001",	15, 16)
-	DraginVein_Skill_Equip( "SID_DragonVein_Template" )
+	DraginVein_Skill_Equip( "SID_DragonVein_M014" )
 	TerraInit_M014()
 	WaitTime( 2.0 )
 	Tutorial_M014()
 end
 
 -- -----------------------------------
+
+function 召喚渦作成(areaname)
+	CursorSetPos_FromPid(g_pid_boss)
+	MapCameraWait()
+
+	local countD = DisposGetGroupCount(areaname)
+	countD = countD - 1
+
+		-- グループの人数分処理を回し、ユニットの座標を走査、取得する
+		for i = 0, countD do
+			local unitX = DisposGetUnitX(areaname, i,DifficultyGet())
+			local unitZ = DisposGetUnitZ(areaname, i,DifficultyGet())
+
+			if unitX != -1 then
+				EffectCreate( "召喚渦", unitX,unitZ )
+			end
+		end
+
+end
+
+function 召喚渦消去と配置(areaname)
+	CursorSetPos_FromPid(g_pid_boss)
+	MapCameraWait()
+
+	Dispos( areaname, DISPOS_FLAG_FOCUS + DISPOS_FLAG_WARP  + DISPOS_FLAG_NOT_FORCED)
+	Yield()
+
+	countD = DisposGetGroupCount(areaname)
+	countD = countD - 1
+	for i = 0, countD do
+		local unitX = DisposGetUnitX(areaname, i,DifficultyGet())
+		local unitZ = DisposGetUnitZ(areaname, i,DifficultyGet())
+		if unitX != -1 then
+			EffectDelete( "召喚渦", unitX,unitZ )
+		end
+	end
+	Yield()
+
+end
 
 function condition_魔法障壁解除()
 	if VariableGet(g_revive_Gris) == 1 and VariableGet(g_revive_Marron) == 1 and VariableGet(g_revive_Mauve) == 1 and VariableGet(g_revive_Sepia) == 1 then
@@ -194,8 +235,6 @@ function 魔法障壁解除()
 end
 
 function Rewrap_Sepia()
-		Log("Rewrap_Sepia")
-		Talk("MID_EV2")
 
 		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_セピア"), UnitGetZ("PID_M014_セピア") )
 		WaitTime( 0.3 )
@@ -219,14 +258,25 @@ function Rewrap_Sepia()
 
 		Yield()
 
+		召喚渦作成("Reinforcement_Sepia")
+		CursorSetPos(16,26)
+		MapCameraWait()
+
+		Yield()
+
+		召喚渦消去と配置("Reinforcement_Sepia")
+		CursorSetPos(16,26)
+		MapCameraWait()
+
+		Yield()
+
 		if condition_魔法障壁解除() then
 			魔法障壁解除()
 		end
 end
 
 function Rewrap_Mauve()
-		Log("Rewrap_Mauve")
-		Talk("MID_EV2")
+
 		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_モーヴ"), UnitGetZ("PID_M014_モーヴ") )
 		WaitTime( 0.3 )
 		
@@ -253,7 +303,6 @@ function Rewrap_Mauve()
 end
 
 function Rewrap_Marron()
-		Talk("MID_EV2")
 
 		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_マロン"), UnitGetZ("PID_M014_マロン") )
 		WaitTime( 0.3 )
@@ -279,7 +328,7 @@ function Rewrap_Marron()
 end
 
 function Rewrap_Gris()
-		Talk("MID_EV2")
+
 		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_グリ"), UnitGetZ("PID_M014_グリ") )
 		WaitTime( 0.3 )
 		
@@ -327,12 +376,12 @@ end
 
 function DragonVeinUsed()
 	Log("DragonVeinUsed")
-	local used = DraginVein_Skill_Remove("SID_DragonVein_Template","SID_DragonVein_Used")
+	local used = DraginVein_Skill_Remove("SID_DragonVein_M014","SID_DragonVein_Used")
 	Log(used)
 	if used == true then
 		WaitTime( 0.5 )
 		EffectPlay( "カムイ竜脈", 15, 18 )
-		WaitTime( 0.5 )
+		WaitTime( 3.0 )
 		EffectDelete("魔法陣_G001", 15, 16)
 		TerrainSetBegin()
 			TerrainSet( 15, 16, "TID_平地")

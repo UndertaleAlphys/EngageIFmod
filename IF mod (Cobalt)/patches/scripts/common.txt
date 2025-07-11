@@ -1205,8 +1205,6 @@ function DraginVein_Skill_Remove(DragonVein_Sid,Used_Sid)
 		if (UnitGetPID( index ) == "PID_リュール" ) or (UnitGetPID( index ) == "PID_アルフレッド" ) or (UnitGetPID( index ) == "PID_セリーヌ" ) or (UnitGetPID( index ) == "PID_スタルーク" ) or (UnitGetPID( index ) == "PID_ディアマンド" ) or (UnitGetPID( index ) == "PID_アイビー" ) or (UnitGetPID( index ) == "PID_フォガート" ) or (UnitGetPID( index ) == "PID_ミスティラ" ) or (UnitGetPID( index ) == "PID_オルテンシア" ) or (UnitGetPID( index ) == "PID_ヴェイル" ) then
 			local pid = UnitGetPID( index )
 			if UnitHasWholeSkill( pid, Used_Sid ) then
-				CobaltNotice(pid)
-				CobaltNotice(Used_Sid)
 				used = true
 				break
 			end

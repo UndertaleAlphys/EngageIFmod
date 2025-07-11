@@ -1294,8 +1294,10 @@ function 召喚予告()
 		MapCameraWait()
 		CursorAnimeCreate( 11, 7 )
 
-		Talk( "MID_EV3" )
 		Tutorial( "TUTID_イル召喚" )
+
+		Talk( "MID_EV3" )
+		
 		CursorAnimeDelete()
 
 	elseif turn == sNum2 then
