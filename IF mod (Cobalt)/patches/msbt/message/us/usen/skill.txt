@@ -5229,3 +5229,6 @@ Dragon Vein
 
 [MSID_H_DragonVein_Template]
 Has no effect at all
+
+[MSID_H_DragonVein_M014]
+Freeze all enemies for 1 turn.

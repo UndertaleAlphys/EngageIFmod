@@ -4817,3 +4817,6 @@ HP不满时伤害+4
 
 [MSID_H_DragonVein_Template]
 并没有什么卵用
+
+[MSID_H_DragonVein_M014]
+冰封所有敌人1回合
