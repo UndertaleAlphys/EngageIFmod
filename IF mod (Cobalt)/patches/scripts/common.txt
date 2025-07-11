@@ -869,6 +869,23 @@ function AiSetActiveAll(force, pid, active)
 	
 end
 
+function UnitSetPrivateSkillAll(force, pid, sid)
+	
+	local unit = ForceUnitGetFirst(force)
+	while unit != nil do
+		
+		local _pid = UnitGetPID( unit )
+		
+		if _pid == pid then
+			UnitSetPrivateSkill(unit, sid)
+		end
+		
+		unit = ForceUnitGetNext( unit )
+		
+	end
+	
+end
+
 --Aiシーケンス設定
 function AiSetSequenceAll(force, pid, order, sequence, values)
 	
@@ -1168,4 +1185,44 @@ function Set_Interference_AI_by_Pid(pid)
 	end
 	
 	return targetresult_pid
+end
+
+function DraginVein_Skill_Equip(sid)
+	local index	= ForceUnitGetFirst( FORCE_PLAYER )
+	while ( index != nil ) do
+		if (UnitGetPID( index ) == "PID_リュール" ) or (UnitGetPID( index ) == "PID_アルフレッド" ) or (UnitGetPID( index ) == "PID_セリーヌ" ) or (UnitGetPID( index ) == "PID_スタルーク" ) or (UnitGetPID( index ) == "PID_ディアマンド" ) or (UnitGetPID( index ) == "PID_アイビー" ) or (UnitGetPID( index ) == "PID_フォガート" ) or (UnitGetPID( index ) == "PID_ミスティラ" ) or (UnitGetPID( index ) == "PID_オルテンシア" ) or (UnitGetPID( index ) == "PID_ヴェイル" ) then
+			local pid = UnitGetPID( index )
+			スキル装備(pid, sid)
+		end
+		index = ForceUnitGetNext( index )
+	end
+end
+
+function DraginVein_Skill_Remove(DragonVein_Sid,Used_Sid)
+	local used = false
+	local index	= ForceUnitGetFirst( FORCE_PLAYER )
+	while ( index != nil ) do
+		if (UnitGetPID( index ) == "PID_リュール" ) or (UnitGetPID( index ) == "PID_アルフレッド" ) or (UnitGetPID( index ) == "PID_セリーヌ" ) or (UnitGetPID( index ) == "PID_スタルーク" ) or (UnitGetPID( index ) == "PID_ディアマンド" ) or (UnitGetPID( index ) == "PID_アイビー" ) or (UnitGetPID( index ) == "PID_フォガート" ) or (UnitGetPID( index ) == "PID_ミスティラ" ) or (UnitGetPID( index ) == "PID_オルテンシア" ) or (UnitGetPID( index ) == "PID_ヴェイル" ) then
+			local pid = UnitGetPID( index )
+			if UnitHasWholeSkill( pid, Used_Sid ) then
+				CobaltNotice(pid)
+				CobaltNotice(Used_Sid)
+				used = true
+				break
+			end
+		end
+		index = ForceUnitGetNext( index )
+	end
+
+	if used == true then
+		index	= ForceUnitGetFirst( FORCE_PLAYER )
+		while ( index != nil ) do
+			local pid = UnitGetPID( index )
+			スキル解除(pid, DragonVein_Sid)
+			スキル解除(pid, Used_Sid)
+			index = ForceUnitGetNext( index )
+		end
+	end
+
+	return used
 end

@@ -470,9 +470,7 @@ function 毒ガスによる状態異常を付与する( unit,gasType )
 		local newHp = math.floor(math.min( hp, (maxHp+1)/2 ))
 		スキル装備(unit, newSkill)
 		if gasType == 4 then
-			Log("111")
 			UnitSetHp( unitPid, newHp )
-			Log("222")
 		end
 	end
 

@@ -776,6 +776,9 @@ $P被击败或超过$Arg(0)回合
 [MTID_Desert]
 沙漠
 
+[MTID_DragonVein]
+龙脉
+
 [MTID_Quicksand]
 流沙
 

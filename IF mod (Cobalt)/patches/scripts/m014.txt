@@ -4,6 +4,10 @@ Include("Common_E")
 g_pid_lueur = "PID_リュール";
 g_key_area = "ボス部屋アクティブ_済"
 g_key_bosszou = "ボス部屋増援_済"
+g_revive_Sepia = "Revive_Sepia"
+g_revive_Gris = "Revive_Gris"
+g_revive_Mauve = "Revive_Mauve"
+g_revive_Marron = "Revive_Marron"
 
 -- -----------------------------------
 
@@ -46,7 +50,10 @@ function フラグ登録()
 	
 	VariableEntry(g_key_area, 0)
 	VariableEntry(g_key_bosszou, 0)
-	
+	VariableEntry(g_revive_Sepia, 0)
+	VariableEntry(g_revive_Mauve, 0)
+	VariableEntry(g_revive_Marron, 0)
+	VariableEntry(g_revive_Gris, 0)
 	E_BattleTalk_VariableEntry()
 	
 end
@@ -78,6 +85,7 @@ function イベント登録()
 	-- ボス部屋
 	EventEntryArea(ボス部屋アクティブ化, 10, 18, 20, 23, FORCE_PLAYER, g_key_area)
 	EventEntryTurn(ボス部屋増援, -1, -1, FORCE_PLAYER);
+	EventEntryFixed(DragonVeinUsed ,"", FORCE_PLAYER)
 
 
 	-- 宝箱
@@ -90,7 +98,11 @@ function イベント登録()
 	EventEntryBattleTalk(Talk, "PID_アイビー", FORCE_PLAYER, "PID_M014_オルテンシア", FORCE_ENEMY, true, "戦闘前会話_オルテンシア_アイビー_済", "MID_BT2");
 	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, "PID_M014_オルテンシア", FORCE_ENEMY, true, "戦闘前会話_オルテンシア_済", "MID_BT1");
 	EventEntryReviveAfter(	オルテンシア暴走後, "PID_M014_オルテンシア", FORCE_ENEMY, "オルテンシア暴走後_済" )
-	
+	EventEntryReviveAfter(	Rewrap_Sepia, "PID_M014_セピア", FORCE_ENEMY, "1" )
+	EventEntryReviveAfter(	Rewrap_Mauve, "PID_M014_モーヴ", FORCE_ENEMY, "2" )
+	EventEntryReviveAfter(	Rewrap_Marron, "PID_M014_マロン", FORCE_ENEMY, "3" )
+	EventEntryReviveAfter(	Rewrap_Gris, "PID_M014_グリ", FORCE_ENEMY, "4" )
+
 	EventEntryDie(Talk, "PID_M014_オルテンシア", FORCE_ENEMY, condition_true, "MID_BT3");
 	
 	-- セピア
@@ -125,10 +137,10 @@ function Opening()
 	
 	Log("Opening");
 
-	PuppetDemo("M014", "MID_OP1")
-	PuppetDemo("M014", "MID_OP2")
-	PuppetDemo("M014", "MID_OP3")
-	PuppetDemo("M014", "MID_OP4")
+	-- PuppetDemo("M014", "MID_OP1")
+	-- PuppetDemo("M014", "MID_OP2")
+	-- PuppetDemo("M014", "MID_OP3")
+	-- PuppetDemo("M014", "MID_OP4")
 
 end
 
@@ -136,28 +148,221 @@ function MapOpening()
 	
 	Log("MapOpening");
 	UnitSetItemEquip( "PID_M014_オルテンシア", "IID_ベレト_ルーン" )
-	
-
---	紋章氣エフェクトの配置( emblem_effect )
-
---	リュール軍到着();
-	
---	FadeWait();
---	WaitTime(1.0);
---	CursorSetPos_FromPid_DistanceModeNear("PID_M014_オルテンシア");
---	Dispos( "Enemy_OP1", DISPOS_FLAG_NONE )
---	Yield();
---	WaitTime(0.5)
---	CursorSetPos_FromPid( "PID_M014_オルテンシア" );
---	MapOpening_スフォリア連行()
---	Talk("MID_OP4");
---	Dispos("Enemy_OP11", DISPOS_FLAG_NONE)
---	Yield()
-	--周回カメラ()
-
-
+	EffectCreate( "水晶障壁_ループ", 15, 18 )
+	EffectCreate("魔法陣_G001",	15, 16)
+	DraginVein_Skill_Equip( "SID_DragonVein_Template" )
+	TerraInit_M014()
+	WaitTime( 2.0 )
+	Tutorial_M014()
 end
 
+-- -----------------------------------
+
+function condition_魔法障壁解除()
+	if VariableGet(g_revive_Gris) == 1 and VariableGet(g_revive_Marron) == 1 and VariableGet(g_revive_Mauve) == 1 and VariableGet(g_revive_Sepia) == 1 then
+		return true
+	else
+		return false
+	end
+end
+
+function 魔法障壁解除()
+	
+	CursorSetPos( 15, 18 )
+	MapCameraWait()
+	
+	EffectPlay( "水晶障壁_破壊", 15, 18 )
+	EffectDelete( "水晶障壁_ループ", 15, 18 )
+	
+	WaitTime( 2.0 )
+
+	TerrainSetBegin()
+		TerrainSet( 3, 19, "TID_平地" )
+		TerrainSet( 4, 19, "TID_平地" )
+		TerrainSet( 5, 19, "TID_平地" )
+		TerrainSet( 6, 19, "TID_平地" )
+		TerrainSet( 7, 19, "TID_平地" )
+		TerrainSet( 14, 18, "TID_平地" )
+		TerrainSet( 15, 18, "TID_平地" )
+		TerrainSet( 16, 18, "TID_平地" )
+		TerrainSet( 23, 19, "TID_平地" )
+		TerrainSet( 24, 19, "TID_平地" )
+		TerrainSet( 25, 19, "TID_平地" )
+		TerrainSet( 26, 19, "TID_平地" )
+		TerrainSet( 27, 19, "TID_平地" )
+	TerrainSetEnd()
+end
+
+function Rewrap_Sepia()
+		Log("Rewrap_Sepia")
+		Talk("MID_EV2")
+
+		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_セピア"), UnitGetZ("PID_M014_セピア") )
+		WaitTime( 0.3 )
+		
+		CursorSetPos( 16, 26 )
+		WaitTime( 0.3 )
+		MapCameraWait()
+
+		UnitSetPos("PID_M014_セピア", 16, 26 )
+		UnitMoveWait()
+		
+		EffectPlay( "ワープイン_闇", 16, 26 )
+
+		UnitRotation("PID_M014_セピア", ROTATE_DOWN)
+
+		WaitTime( 0.3 )
+
+		VariableSet(g_revive_Sepia, 1)
+
+		CobaltNotice("Sepia Rewrap Event End")
+
+		Yield()
+
+		if condition_魔法障壁解除() then
+			魔法障壁解除()
+		end
+end
+
+function Rewrap_Mauve()
+		Log("Rewrap_Mauve")
+		Talk("MID_EV2")
+		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_モーヴ"), UnitGetZ("PID_M014_モーヴ") )
+		WaitTime( 0.3 )
+		
+		CursorSetPos( 14, 26 )
+		WaitTime( 0.3 )
+		MapCameraWait()
+
+		UnitSetPos("PID_M014_モーヴ", 14, 26 )
+		UnitMoveWait()
+				
+		EffectPlay( "ワープイン_闇", 14, 26 )
+		UnitRotation( "PID_M014_モーヴ", ROTATE_DOWN)
+		WaitTime( 0.3 )
+
+		VariableSet(g_revive_Mauve, 1)
+
+		CobaltNotice("Mauve Rewrap Event End")
+
+		Yield()
+
+		if condition_魔法障壁解除() then
+			魔法障壁解除()
+		end
+end
+
+function Rewrap_Marron()
+		Talk("MID_EV2")
+
+		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_マロン"), UnitGetZ("PID_M014_マロン") )
+		WaitTime( 0.3 )
+		
+		CursorSetPos( 13, 25 )
+		WaitTime( 0.3 )
+		MapCameraWait()
+
+		UnitSetPos("PID_M014_マロン", 13, 25 )
+		UnitMoveWait()
+		
+		EffectPlay( "ワープイン_闇", 13, 25 )
+		UnitRotation( "PID_M014_マロン", ROTATE_DOWN)
+		WaitTime( 0.3 )
+
+		VariableSet(g_revive_Marron, 1)
+
+		CobaltNotice("Marron Rewrap Event End")
+
+		if condition_魔法障壁解除() == true then
+			魔法障壁解除()
+		end
+end
+
+function Rewrap_Gris()
+		Talk("MID_EV2")
+		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_グリ"), UnitGetZ("PID_M014_グリ") )
+		WaitTime( 0.3 )
+		
+		CursorSetPos( 17, 25 )
+		WaitTime( 0.3 )
+		MapCameraWait()
+
+		UnitSetPos("PID_M014_グリ", 17, 25 )
+		UnitMoveWait()
+		
+		EffectPlay( "ワープイン_闇", 17, 25 )
+		UnitRotation( "PID_M014_グリ", ROTATE_DOWN)
+		WaitTime( 0.3 )
+
+		VariableSet(g_revive_Gris, 1)
+
+		CobaltNotice("Gris Rewrap Event End")
+
+		if condition_魔法障壁解除() == true then
+			魔法障壁解除()
+		end
+end
+
+
+-- -----------------------------------
+function Tutorial_M014()
+	CursorAnimeCreate( 15, 16, "W1H1" )
+	CursorAnimeDelete()
+	WaitTime( 0.5 )
+	Talk("MID_EV2")
+	Dialog("MID_TUT_M014_DRAGONVEIN")
+end
+
+-- -----------------------------------
+function DragonVeinEffect()
+	local index	= ForceUnitGetFirst( FORCE_ENEMY )
+	while ( index != nil ) do
+		local pid = UnitGetPID( index )
+		UnitSetPrivateSkill(index, "SID_移動不可")
+		index = ForceUnitGetNext( index )		
+	end
+end
+
+-- -----------------------------------
+
+function DragonVeinUsed()
+	Log("DragonVeinUsed")
+	local used = DraginVein_Skill_Remove("SID_DragonVein_Template","SID_DragonVein_Used")
+	Log(used)
+	if used == true then
+		WaitTime( 0.5 )
+		EffectPlay( "カムイ竜脈", 15, 18 )
+		WaitTime( 0.5 )
+		EffectDelete("魔法陣_G001", 15, 16)
+		TerrainSetBegin()
+			TerrainSet( 15, 16, "TID_平地")
+		TerrainSetEnd()
+		DragonVeinEffect()
+	end
+	Log("DragonVeinUsedComplete")
+end
+
+-- -----------------------------------
+
+function TerraInit_M014()
+	
+	TerrainSetBegin()
+		TerrainSet( 15, 16, "TID_龙脉")
+		TerrainSet( 3, 19, "TID_魔法障壁" )
+		TerrainSet( 4, 19, "TID_魔法障壁" )
+		TerrainSet( 5, 19, "TID_魔法障壁" )
+		TerrainSet( 6, 19, "TID_魔法障壁" )
+		TerrainSet( 7, 19, "TID_魔法障壁" )
+		TerrainSet( 14, 18, "TID_魔法障壁" )
+		TerrainSet( 15, 18, "TID_魔法障壁" )
+		TerrainSet( 16, 18, "TID_魔法障壁" )
+		TerrainSet( 23, 19, "TID_魔法障壁" )
+		TerrainSet( 24, 19, "TID_魔法障壁" )
+		TerrainSet( 25, 19, "TID_魔法障壁" )
+		TerrainSet( 26, 19, "TID_魔法障壁" )
+		TerrainSet( 27, 19, "TID_魔法障壁" )
+	TerrainSetEnd()
+end
 -- -----------------------------------
 
 function MapOpening_イルシオン兵入場()
