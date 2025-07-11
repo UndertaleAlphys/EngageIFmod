@@ -5223,3 +5223,9 @@ Underdog
 [MSID_H_Underdog]
 If unit's Lvl < foe's Lvl,
 grants Hit/Avo+15.
+
+[MSID_DragonVein]
+Dragon Vein
+
+[MSID_H_DragonVein_Template]
+Has no effect at all

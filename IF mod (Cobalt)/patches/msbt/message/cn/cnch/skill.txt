@@ -4811,3 +4811,9 @@ HP不满时伤害+4
 [MSID_H_Underdog]
 自身等级低于对方时，
 命中·回避+15
+
+[MSID_DragonVein]
+龙脉
+
+[MSID_H_DragonVein_Template]
+并没有什么卵用
