@@ -812,6 +812,9 @@ Sand
 [MTID_DragonVein]
 Dragon Vein
 
+[MTID_DragonVein_M014]
+Freeze enemies/1T
+
 [MTID_Quicksand]
 Quicksand
 
