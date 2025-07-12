@@ -3089,3 +3089,9 @@ S药水
 
 [MIID_H_RaiderKatana]
 追击系数+3
+
+[MIID_ExpBook]
+EXP之书
+
+[MIID_H_ExpBook]
+使用后获得100EXP

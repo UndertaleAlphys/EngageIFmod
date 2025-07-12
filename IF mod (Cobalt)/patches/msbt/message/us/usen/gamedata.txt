@@ -813,7 +813,7 @@ Sand
 Dragon Vein
 
 [MTID_DragonVein_M014]
-Freeze enemies/1T
+DV: Freeze enemies for 1T
 
 [MTID_Quicksand]
 Quicksand

@@ -3277,3 +3277,9 @@ Raider Katana
 
 [MIID_H_RaiderKatana]
 +3 unit's ability to follow up
+
+[MIID_ExpBook]
+Book of Exp
+
+[MIID_H_ExpBook]
+Grants 100 EXP.
