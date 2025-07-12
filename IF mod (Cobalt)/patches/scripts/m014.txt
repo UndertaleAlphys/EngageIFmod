@@ -64,29 +64,12 @@ end
 function イベント登録()
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
 	
-	if DifficultyGet() == DIFFICULTY_NORMAL then
-		EventEntryTurn(右盗賊登場, 3, 3, FORCE_PLAYER);
-		EventEntryTurn(左盗賊登場, 4, 4, FORCE_PLAYER);
-		EventEntryTurn(青７ターン直前_増援, 8, 8, FORCE_PLAYER);
-		EventEntryTurn(青１２ターン直前_増援, 13, 13, FORCE_PLAYER);
-
-	elseif DifficultyGet() == DIFFICULTY_LUNATIC then
-
-		EventEntryTurn(右盗賊登場, 2, 2, FORCE_PLAYER);
-		EventEntryTurn(左盗賊登場, 2, 2, FORCE_PLAYER);
-		EventEntryTurn(青７ターン直前_増援, 7, 7, FORCE_PLAYER);
-		EventEntryTurn(青１２ターン直前_増援, 12, 13, FORCE_PLAYER);
-
-	else
-		EventEntryTurn(右盗賊登場, 2, 2, FORCE_PLAYER);
-		EventEntryTurn(左盗賊登場, 3, 3, FORCE_PLAYER);
-		EventEntryTurn(青７ターン直前_増援, 7, 7, FORCE_PLAYER);
-		EventEntryTurn(青１２ターン直前_増援, 12, 12, FORCE_PLAYER);
-	end
+	EventEntryTurn(右盗賊登場, 2, 2, FORCE_PLAYER);
+	EventEntryTurn(左盗賊登場, 2, 2, FORCE_PLAYER);
+	EventEntryTurn(青７ターン直前_増援, 7, 7, FORCE_PLAYER);
+	EventEntryTurn(青１２ターン直前_増援, 12, 13, FORCE_PLAYER);
 	
-	-- ボス部屋
-	EventEntryArea(ボス部屋アクティブ化, 10, 18, 20, 23, FORCE_PLAYER, g_key_area)
-	EventEntryTurn(ボス部屋増援, -1, -1, FORCE_PLAYER);
+	EventEntryArea(ボス部屋アクティブ化, 10, 18, 20, 27, FORCE_PLAYER, g_key_area)
 	EventEntryFixed(DragonVeinUsed ,"", FORCE_PLAYER)
 
 
@@ -200,6 +183,11 @@ function 召喚渦消去と配置(areaname)
 end
 
 function condition_魔法障壁解除()
+	Log("condition_魔法障壁解除")
+	Log(VariableGet(g_revive_Gris))
+	Log(VariableGet(g_revive_Marron))
+	Log(VariableGet(g_revive_Mauve))
+	Log(VariableGet(g_revive_Sepia))
 	if VariableGet(g_revive_Gris) == 1 and VariableGet(g_revive_Marron) == 1 and VariableGet(g_revive_Mauve) == 1 and VariableGet(g_revive_Sepia) == 1 then
 		return true
 	else
@@ -235,7 +223,8 @@ function 魔法障壁解除()
 end
 
 function Rewrap_Sepia()
-
+		
+		Talk("MID_EV3")
 		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_セピア"), UnitGetZ("PID_M014_セピア") )
 		WaitTime( 0.3 )
 		
@@ -258,17 +247,9 @@ function Rewrap_Sepia()
 
 		Yield()
 
-		召喚渦作成("Reinforcement_Sepia")
-		CursorSetPos(16,26)
-		MapCameraWait()
+		AiSetSequence("PID_M014_セピア", AI_ORDER_MOVE,"AI_MV_Null")
 
-		Yield()
-
-		召喚渦消去と配置("Reinforcement_Sepia")
-		CursorSetPos(16,26)
-		MapCameraWait()
-
-		Yield()
+		UnitSetPrivateSkill("PID_M014_セピア", "SID_天刻の拍動＋")
 
 		if condition_魔法障壁解除() then
 			魔法障壁解除()
@@ -277,6 +258,7 @@ end
 
 function Rewrap_Mauve()
 
+		Talk("MID_EV4")
 		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_モーヴ"), UnitGetZ("PID_M014_モーヴ") )
 		WaitTime( 0.3 )
 		
@@ -297,6 +279,12 @@ function Rewrap_Mauve()
 
 		Yield()
 
+		AiSetSequence("PID_M014_モーヴ", AI_ORDER_MOVE,"AI_MV_Null")
+
+		UnitSetPrivateSkill("PID_M014_モーヴ", "SID_後ノ後＋")
+		スキル解除("PID_M014_モーヴ", "SID_不屈_効果_2ターン")
+		スキル解除("PID_M014_モーヴ", "SID_不屈_効果_1ターン")
+
 		if condition_魔法障壁解除() then
 			魔法障壁解除()
 		end
@@ -304,6 +292,7 @@ end
 
 function Rewrap_Marron()
 
+		Talk("MID_EV5")
 		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_マロン"), UnitGetZ("PID_M014_マロン") )
 		WaitTime( 0.3 )
 		
@@ -322,6 +311,10 @@ function Rewrap_Marron()
 
 		CobaltNotice("Marron Rewrap Event End")
 
+		AiSetSequence("PID_M014_マロン", AI_ORDER_MOVE,"AI_MV_Null")
+
+		UnitSetPrivateSkill("PID_M014_マロン", "SID_天刻の拍動＋")
+
 		if condition_魔法障壁解除() == true then
 			魔法障壁解除()
 		end
@@ -329,6 +322,7 @@ end
 
 function Rewrap_Gris()
 
+		Talk("MID_EV6")
 		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_グリ"), UnitGetZ("PID_M014_グリ") )
 		WaitTime( 0.3 )
 		
@@ -346,6 +340,13 @@ function Rewrap_Gris()
 		VariableSet(g_revive_Gris, 1)
 
 		CobaltNotice("Gris Rewrap Event End")
+
+		AiSetActiveAll(FORCE_ENEMY,"PID_M014_グリ", false)
+
+		UnitSetPrivateSkill("PID_M014_グリ", "SID_後ノ後＋")
+		スキル解除("PID_M014_グリ", "SID_踏ん張り_発動済み_効果")
+
+		AiSetSequence("PID_M014_グリ", AI_ORDER_MOVE,"AI_MV_Null")
 
 		if condition_魔法障壁解除() == true then
 			魔法障壁解除()
@@ -599,36 +600,38 @@ function オルテンシア暴走後()
 end
 
 function ボス部屋増援()
+	if(VariableGet( g_key_bosszou ) == 0) then
+		CursorSetDistanceMode( CURSOR_DISTANCE_FAR )
+		召喚渦作成("Enemy_Final")
+		CursorSetPos(16,15)
+		MapCameraWait()
 
-	if VariableGet( g_key_bosszou ) == 0 then
-		if VariableGet( "オルテンシア暴走後_済" ) == 1 then
-			VariableSet( g_key_bosszou, 1 );
-			Dispos( "Enemy_Reinforcement4", DISPOS_FLAG_FOCUS )
-			Yield()
-			WaitTime(0.5)
-		end
+		Yield()
+
+		召喚渦消去と配置("Enemy_Final")
+		CursorSetPos(16,26)
+		MapCameraWait()
+
+		AiSetSequence("PID_M014_オルテンシア", AI_ORDER_ATTACK, "AI_AT_EngageDance","1,1")
+		AiSetPriority("PID_M014_オルテンシア", 50)
+		CobaltNotice("Reinforcement and set AI for boss.")
 	end
+	VariableSet( g_key_bosszou, 1 );
 end
 
 function ボス部屋アクティブ化()
-
-	--	ここで何某か会話イベントして、エンゲージ技の設定とかする。
-	--AiSetSequence("PID_M014_オルテンシア", AI_ORDER_ATTACK, "AI_AT_EngageAttack")
-
-
+	CobaltNotice("M014_Boss_Activate")
 	UnitClearStatus("PID_M014_オルテンシア", UNIT_STATUS_MOVE_NOT_ALLOW)
-
-	AiSetSequence("PID_M014_オルテンシア", AI_ORDER_CAUSE, "AI_AC_Everytime")	--	AI_AC_InterferenceRange
 	AiSetSequence("PID_M014_セピア", AI_ORDER_CAUSE, "AI_AC_Everytime")
 	AiSetSequence("PID_M014_マロン", AI_ORDER_CAUSE, "AI_AC_Everytime")
 	AiSetSequence("PID_M014_モーヴ", AI_ORDER_CAUSE, "AI_AC_Everytime")
-
-	VariableSet(g_key_area, 1)
-
-
-	--Dispos( "Enemy_Reinforcement4", DISPOS_FLAG_FOCUS )
-	--Yield()
-	--WaitTime(0.5)
+	AiSetSequence("PID_M014_グリ", AI_ORDER_CAUSE, "AI_AC_Everytime")
+	AiSetSequence("PID_M014_セピア", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
+	AiSetSequence("PID_M014_マロン", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
+	AiSetSequence("PID_M014_モーヴ", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
+	AiSetSequence("PID_M014_グリ", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
+	local currentTurn = MapGetTurn()
+    EventEntryTurn(ボス部屋増援, currentTurn + 1, currentTurn + 1, FORCE_ENEMY)
 
 end
 
