@@ -25,7 +25,7 @@ Steel Sword
 
 [MIID_H_SteelSword]
 A sword made of steel.
--3 user's ability to follow up
+-3 unit's ability to follow up
 
 [MIID_SilverSword]
 Silver Sword
@@ -163,7 +163,7 @@ Steel Lance
 
 [MIID_H_SteelLance]
 A lance made of steel.
--3 user's ability to follow up
+-3 unit's ability to follow up
 
 [MIID_SilverLance]
 Silver Lance
@@ -287,7 +287,7 @@ Steel Axe
 
 [MIID_H_SteelAxe]
 An axe made of steel.
--3 user's ability to follow up
+-3 unit's ability to follow up
 
 [MIID_SilverAxe]
 Silver Axe
@@ -427,7 +427,7 @@ Steel Bow
 [MIID_H_SteelBow]
 A bow made of steel.
 Effective: Flying.
--3 user's ability to follow up
+-3 unit's ability to follow up
 
 [MIID_SilverBow]
 Silver Bow
@@ -502,7 +502,7 @@ Steel Dagger
 
 [MIID_H_SteelKnife]
 A throwing knife made of steel.
--3 user's ability to follow up
+-3 unit's ability to follow up
 Inflicts debuff on foe after combat.
 (Str -3 Def/Res -4)
 
@@ -565,7 +565,7 @@ Surge
 
 [MIID_H_Surge]
 A standard tome of water magic.
--3 user's ability to follow up
+-3 unit's ability to follow up
 
 [MIID_Fire]
 Fire
@@ -588,7 +588,7 @@ Elsurge
 
 [MIID_H_LSurge]
 An advanced water tome.
--3 user's ability to follow up
+-3 unit's ability to follow up
 
 [MIID_LFire]
 Elfire
@@ -813,7 +813,7 @@ Steel-Hand Art
 A scroll of a standard martial skill.
 If user initiates combat, attacks
 twice.
--3 user's ability to follow up
+-3 unit's ability to follow up
 
 [MIID_HighFist]
 Silver-Spirit Art
@@ -2848,7 +2848,7 @@ Can attack at range.
 
 [MIID_H_SteelKukri]
 A sword made of steel.
--3 user's ability to follow up
+-3 unit's ability to follow up
 Can attack at range.
 
 [MIID_H_SilverKukri]
@@ -2865,7 +2865,7 @@ Can attack at range.
 
 [MIID_H_SteelJavelin]
 A lance made of steel.
--3 user's ability to follow up
+-3 unit's ability to follow up
 Can attack at range.
 
 [MIID_H_IronJavelin]
@@ -2878,7 +2878,7 @@ Can attack at range.
 
 [MIID_H_SteelStarAxe]
 A axe made of steel.
--3 user's ability to follow up
+-3 unit's ability to follow up
 Can attack at range.
 
 [MIID_H_SilverStarAxe]
@@ -2900,7 +2900,7 @@ Can attack nearby enemy.
 
 [MIID_H_SteelShortBow]
 A bow made of steel.
--3 user's ability to follow up
+-3 unit's ability to follow up
 Can attack nearby enemy.
 
 [MIID_Concoction]
@@ -3211,3 +3211,69 @@ Inflicts stacking debuff on unit after combat
 (Str/Dex-2)
 Inflicts debuff on foe after combat.
 (Str/Mag-6)
+
+[MIID_ElusiaBlade]
+Elusia Blade
+
+[MIID_H_ElusiaBlade]
+Def +3
+
+[MIID_PandreoFlameBlade]
+Pandreo's FlameBlade
+
+[MIID_H_PandreoFlameBlade]
+Magic weapon/
+Inflicts stacking debuff on unit after combat
+(Mag/Dex-2)
+
+[MIID_DaikonRadish]
+Daikon Radish
+
+[MIID_H_DaikonRadish]
+Not the best weapon, but
+delicious when pickled.
+
+[MIID_Parasol]
+Parasol
+
+[MIID_H_Parasol]
+Cannot follow up/
++5 foe's ability to follow up
+
+[MIID_SunriseKatana]
+Sunrise Katana
+
+[MIID_H_SunriseKatana]
+A defensive katana.
+
+[MIID_StalukeShinai]
+Alcryst's Shinai
+
+[MIID_H_StalukeShinai]
+Def/Res -2 / Cannot follow up/
+Leave foe with 1 HP left
+
+[MIID_LapisKatana]
+Lapis' Katana
+
+[MIID_H_LapisKatana]
+A katana that smashes foe.
+Cannot follow up, or strike first if
+initiating combat.
+
+[MIID_KagetsuKatana]
+Kagetsu's Katana
+
+[MIID_H_KagetsuKatana]
+A katana that smashes foe.
+Def/Res -2
+Inflicts stacking debuff on unit after combat
+(Str/Dex-2)
+Cannot follow up, or strike first if
+initiating combat.
+
+[MIID_RaiderKatana]
+Raider Katana
+
+[MIID_H_RaiderKatana]
++3 unit's ability to follow up
