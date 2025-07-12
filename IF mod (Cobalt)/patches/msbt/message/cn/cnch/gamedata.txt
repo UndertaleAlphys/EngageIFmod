@@ -779,6 +779,9 @@ $P被击败或超过$Arg(0)回合
 [MTID_DragonVein]
 龙脉
 
+[MTID_DragonVein_M014]
+龙脉：冻结敌人1回合
+
 [MTID_Quicksand]
 流沙
 
