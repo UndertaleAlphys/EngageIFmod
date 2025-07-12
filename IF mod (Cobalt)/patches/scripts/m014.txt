@@ -64,20 +64,16 @@ end
 function イベント登録()
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(Set_Interference_AI_M014, -1, -1, FORCE_ENEMY)
-	EventEntryTurn(右盗賊登場, 2, 2, FORCE_PLAYER);
-	EventEntryTurn(左盗賊登場, 2, 2, FORCE_PLAYER);
-	EventEntryTurn(青７ターン直前_増援, 7, 7, FORCE_PLAYER);
-	EventEntryTurn(青１２ターン直前_増援, 12, 13, FORCE_PLAYER);
 	
 	EventEntryArea(ボス部屋アクティブ化, 10, 18, 20, 27, FORCE_PLAYER, g_key_area)
 	EventEntryFixed(DragonVeinUsed ,"", FORCE_PLAYER)
 
 
 	-- 宝箱
-	EventEntryTbox(宝箱入手,  3, 26, "IID_銀身の法")
-	EventEntryTbox(宝箱入手,  6, 26, "IID_ドラゴンキラー")
-	EventEntryTbox(宝箱入手, 24, 26, "IID_ブーツ")
-	EventEntryTbox(宝箱入手, 27, 26, "IID_光の弓")
+	EventEntryTbox(宝箱入手,  3, 26, "IID_追い剥ぎの刀")
+	EventEntryTbox(宝箱入手,  6, 26, "IID_IFMOD_逆薙刀")
+	EventEntryTbox(宝箱入手, 24, 26, "IID_槍砕きの金棒")
+	EventEntryTbox(宝箱入手, 27, 26, "IID_ライトニング")
 	
 	-- オルテンシア
 	EventEntryBattleTalk(Talk, "PID_アイビー", FORCE_PLAYER, "PID_M014_オルテンシア", FORCE_ENEMY, true, "戦闘前会話_オルテンシア_アイビー_済", "MID_BT2");
@@ -398,7 +394,7 @@ end
 function TerraInit_M014()
 	
 	TerrainSetBegin()
-		TerrainSet( 15, 16, "TID_龙脉")
+		TerrainSet( 15, 16, "TID_龙脉_M014")
 		TerrainSet( 3, 19, "TID_魔法障壁" )
 		TerrainSet( 4, 19, "TID_魔法障壁" )
 		TerrainSet( 5, 19, "TID_魔法障壁" )

@@ -54,7 +54,7 @@
       <Param Condition="" Iid="IID_追い剥ぎの刀" Stock="-1" Attribute="0" />
     </Data>
   </Sheet>
-  <Sheet Name="道具屋" Count="100">
+  <Sheet Name="道具屋" Count="102">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -95,6 +95,8 @@
       <Param Condition="" Iid="IID_竜の盾M1" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_魔よけM1" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_ブーツM1" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_EXPの書" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_スキルの書・無限" Stock="-1" Attribute="0" />
       <Param Condition="M005" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_HPの薬" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_力の薬" Stock="1" Attribute="0" />

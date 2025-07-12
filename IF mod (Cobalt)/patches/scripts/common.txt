@@ -1265,8 +1265,6 @@ function Set_Attack_Always(...)
         while index ~= nil do
             if UnitGetPID(index) == pid then
                 AiSetRejectPower0Attack(index, false)
-				CobaltNotice("AiSetPower0Attack")
-				CobaltNotice(pid)
             end
             index = ForceUnitGetNext(index)
         end
