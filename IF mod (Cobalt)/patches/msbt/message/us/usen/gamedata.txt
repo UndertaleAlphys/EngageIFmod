@@ -809,6 +809,9 @@ Woods
 [MTID_Desert]
 Sand
 
+[MTID_DragonVein]
+Dragon Vein
+
 [MTID_Quicksand]
 Quicksand
 

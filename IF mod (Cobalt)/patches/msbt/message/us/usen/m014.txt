@@ -1,0 +1,982 @@
+[MID_OP1_#001]
+$Type(2)
+$Window(0, "オルテンシア", "1")
+$Window(0, "スフォリア", "3")
+$Window(0, "ミスティラ", "4")
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+Queen Seforia!$Wait(0)
+
+[MID_OP1_#002]
+$Window(2, "オルテンシア")
+Finally! Took you long enough.$Wait(0)
+
+[MID_OP1_#003]
+$Window(2, "ミスティラ")
+Let her go.$Wait(0)
+
+[MID_OP1_#004]
+$Window(2, "オルテンシア")
+Yeah, I don't think so. And don't you dare come
+any closer.$Wait(2)
+
+[MID_OP1_#005]
+I've got an Emblem Ring. It'd be so easy to
+kill her.$Wait(0)
+
+[MID_OP1_#006]
+$Window(2, "ミスティラ")
+...$Wait(0)
+
+[MID_OP1_#007]
+$Window(2, "スフォリア")
+Sorry, everyone. I didn't realize she was still on
+Elusia's side.$Wait(0)
+
+[MID_OP1_#008]
+$Window(2, "リュール")
+I don't see any other soldiers. Did you get in
+by yourself?$Wait(0)
+
+[MID_OP1_#009]
+$Window(2, "オルテンシア")
+Uh-huh. I told the guards I'd been separated
+from Ivy, and they let me walk right in.$Wait(2)
+
+[MID_OP1_#010]
+Now, you've got a choice: hand over the rings
+or I kill the queen.$Wait(0)
+
+[MID_OP1_#011]
+$Window(1, "ミスティラ")
+$Window(0, "アイビー", "4")
+$Window(2, "アイビー")
+Hortensia, don't do this.$Wait(0)
+
+[MID_OP1_#012]
+$Window(2, "オルテンシア")
+Ivy! It's been a while... You know, I... I thought
+you were dead.$Wait(2)
+
+[MID_OP1_#013]
+I was so relieved when I heard you'd made it.
+But...now what? You're with them?$Wait(0)
+
+[MID_OP1_#014]
+$Window(2, "アイビー")
+Well, I...$Wait(0)
+
+[MID_OP1_#015]
+$Window(2, "オルテンシア")
+Since Father sacrificed himself, Elusia has been
+working in concert with Lord Sombron.$Wait(2)
+
+[MID_OP1_#016]
+But you? You abandoned us─abandoned me─
+and took sides with the enemy.$Wait(2)
+
+[MID_OP1_#017]
+You're a traitor, Ivy! A stinking traitor!$Wait(0)
+
+[MID_OP1_#018]
+$Window(2, "アイビー")
+I have not betrayed anyone. Hortensia, please,
+hear me out.$Wait(0)
+
+[MID_OP1_#019]
+$Window(2, "オルテンシア")
+I don't wanna hear another word out of your
+dirty, double-crossing mouth! Just give me
+the rings.$Wait(0)
+
+[MID_OP1_#020]
+$Window(2, "リュール")
+...$Wait(2)
+
+[MID_OP1_#021]
+No, Hortensia. Never.$Wait(0)
+
+[MID_OP1_#022]
+$Window(2, "オルテンシア")
+I'm sorry, did I not make myself clear? Hand
+them over or I kill the queen.$Wait(0)
+
+[MID_OP1_#023]
+$Window(2, "リュール")
+I heard you. But I'm not doing what you ask.$Wait(2)
+
+[MID_OP1_#024]
+I'd be throwing away everything she, Timerra,
+Fogado, and the people of Solm have done.$Wait(2)
+
+[MID_OP1_#025]
+So no, I won't give you the rings. And I won't
+let you kill Queen Seforia.$Wait(0)
+
+[MID_OP1_#026]
+$Window(2, "オルテンシア")
+Ugh!$Wait(0)
+
+[MID_OP1_#027]
+$Window(1, "アイビー")
+$Window(0, "ミスティラ", "2")
+$Window(2, "ミスティラ")
+I agree with the Divine Dragon. Those rings are
+staying with us.$Wait(2)
+
+[MID_OP1_#028]
+$Window(0, "リュール", "4")
+$Window(2, "リュール")
+Right.$Wait(0)
+
+[MID_OP1_#029]
+$Window(2, "ミスティラ")
+If we let the Fell Dragon have them, my country
+and my people are doomed.$Wait(2)
+
+[MID_OP1_#030]
+So threaten us all you want. Take my whole
+family hostage, if it makes you happy.$Wait(2)
+
+[MID_OP1_#031]
+But I stand for Solm, and I always will.$Wait(0)
+
+[MID_OP1_#032]
+$Window(2, "スフォリア")
+There she is, the future queen of Solm.
+And her ally, the Divine Dragon.$Wait(0)
+
+[MID_OP1_#033]
+$Window(2, "オルテンシア")
+What's wrong with you?! This is your mother!
+You're supposed to be scared!$Wait(2)
+
+[MID_OP1_#034]
+Cry already! Cower and beg for her life! Give me
+what I want!$Wait(2)
+
+[MID_OP1_#035]
+No, what I need. I need the rings. It's the only
+way to bring Father back.$Wait(0)
+
+[MID_OP1_#036]
+$Window(1, "リュール")
+$Window(0, "アイビー", "4")
+$Window(2, "アイビー")
+Hortensia... He's gone. The Fell Dragon
+murdered him. You watched it happen.$Wait(2)
+
+[MID_OP1_#037]
+There's no way we can bring him back, even
+with the rings.$Wait(0)
+
+[MID_OP1_#038]
+$Window(2, "オルテンシア")
+You don't know that! I have to try! I have to
+save Father and Elusia!$Wait(2)
+
+[MID_OP1_#039]
+Everything's all wrong now. I just want to put it
+back how it was before!$Wait(0)
+
+[MID_OP1_#040]
+$Window(2, "アイビー")
+I know how you feel.$Wait(0)
+
+[MID_OP1_#041]
+$Window(2, "オルテンシア")
+No! Stop trying to get in my head, all right?
+I'll kill her! I'll do it!$Wait(0)
+
+[MID_OP1_#042]
+$Window(1, "ミスティラ")
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+I don't think you can.$Wait(2)
+
+[MID_OP1_#043]
+Not if you know the pain of losing a parent.$Wait(0)
+
+[MID_OP1_#044]
+$Window(2, "オルテンシア")
+...$Wait(0)
+
+[MID_OP1_#045]
+$Window(2, "スフォリア")
+Well? Get on with it, then, if that's what you
+truly want. Are we doing this or aren't we?$Wait(0)
+
+[MID_OP1_#046]
+$Window(2, "オルテンシア")
+I... I...$Wait(2)
+
+[MID_OP1_#047]
+Whaaa!$Wait(0)
+
+[MID_OP1_#048]
+$Window(2, "リュール")
+She needs her sister now.$Wait(0)
+
+[MID_OP1_#049]
+$Window(2, "アイビー")
+It's all right, Hortensia. Oh, I've been so worried
+about you.$Wait(0)
+
+[MID_OP1_#050]
+$Window(2, "オルテンシア")
+Ivy...$Wait(0)
+
+[MID_OP2_#001]
+$Type(2)
+$Window(0, "オルテンシア", "1")
+$Window(0, "アイビー", "4")
+$Window(0, "リュール", "2")
+$Window(0, "セピア", "3")
+$Window(2, "セピア")
+I'm afraid I have to cut the reunion short.$Wait(0)
+
+[MID_OP2_#002]
+$Window(2, "リュール")
+Zephia. What are you doing here?$Wait(0)
+
+[MID_OP2_#003]
+$Window(2, "セピア")
+Missed you, too, Divine One. I must thank you
+for helping us gather so many rings.$Wait(2)
+
+[MID_OP2_#004]
+All of them, I thought. Until the princess's─
+rather former princess's─thievery came to light.$Wait(0)
+
+[MID_OP2_#005]
+$Window(2, "アイビー")
+...$Wait(0)
+
+[MID_OP2_#006]
+$Window(2, "セピア")
+Enough about that. More importantly...
+Princess Hortensia...$Wait(0)
+
+[MID_OP2_#007]
+$Window(2, "オルテンシア")
+...$Wait(0)
+
+[MID_OP2_#008]
+$Window(2, "セピア")
+Taking a ring without permission? Sneaking off
+to a place like this? Naughty, naughty.$Wait(2)
+
+[MID_OP2_#009]
+Lord Sombron and Lady Veyle's orders were
+clear─to wait, to watch.$Wait(2)
+
+[MID_OP2_#010]
+Oh, your retainers, by the way? They tried to
+stop us. They failed.$Wait(0)
+
+[MID_OP2_#011]
+$Window(2, "オルテンシア")
+Where are they? What did you do to Goldmary
+and Rosado?$Wait(0)
+
+[MID_OP2_#012]
+$Window(2, "セピア")
+You'll have to see for yourself. Now, we hadn't
+planned on making a move this early.$Wait(2)
+
+[MID_OP2_#013]
+But since we're here, it would be a shame to
+return home without a few souvenirs.$Wait(2)
+
+[MID_OP2_#014]
+Marni? Mauvier? Wouldn't you agree?$Wait(0)
+
+[MID_OP3_#001]
+$Type(2)
+$Window(0, "リュール", "2")
+$Window(0, "アイビー", "4")
+$Window(2, "リュール")
+More Hounds.$Wait(0)
+
+[MID_OP3_#002]
+$Window(0, "モーヴ", "1")
+$Window(0, "マロン", "3")
+$Window(2, "モーヴ")
+I did not expect it would be so easy to enter
+the impregnable Solm Palace.$Wait(0)
+
+[MID_OP3_#003]
+$Window(2, "マロン")
+Zephia, what do we do with the queen? Kill her?
+She's not much use anymore.$Wait(0)
+
+[MID_OP3_#004]
+$Window(1, "モーヴ")
+$Window(0, "セピア", "1")
+$Window(2, "セピア")
+No. Lord Sombron will want to savor every last
+drop of sovereign blood.$Wait(0)
+
+[MID_OP3_#005]
+$Window(2, "マロン")
+Ah! Haha, I gotcha.$Wait(0)
+
+[MID_OP4_#001]
+$Type(2)
+$Window(0, "リュール", "2")
+$Window(0, "アイビー", "4")
+$Window(0, "セピア", "1")
+$Window(2, "リュール")
+Queen Seforia!$Wait(0)
+
+[MID_OP4_#002]
+$Window(0, "オルテンシア", "3")
+$Window(2, "セピア")
+What a good girl you are, Princess Hortensia,
+coming here to get rings for Lord Sombron.$Wait(2)
+
+[MID_OP4_#003]
+Now that the three of us are here, why don't we
+help finish what you started.$Wait(2)
+
+[MID_OP4_#004]
+We can kill them all and head back home to
+Elusia. What do you say?$Wait(0)
+
+[MID_OP4_#005]
+$Window(2, "オルテンシア")
+But... But I...$Wait(0)
+
+[MID_OP4_#006]
+$Window(2, "セピア")
+Come, dear. Take command.$Wait(2)
+
+[MID_OP4_#007]
+Just think. If we take their rings, we'll be so
+close to having all 12.$Wait(0)
+
+[MID_OP4_#008]
+$Window(2, "オルテンシア")
+So close... Just a few more rings...$Wait(0)
+
+[MID_OP4_#009]
+$Window(2, "リュール")
+Hortensia? What's going on?$Wait(0)
+
+[MID_OP4_#010]
+$Window(2, "オルテンシア")
+With all the rings, then Father will...$Wait(0)
+
+[MID_OP4_#011]
+$Window(2, "セピア")
+That's right. King Hyacinth will be resurrected.
+We'll make everything just as it was before.$Wait(0)
+
+[MID_OP4_#012]
+$Window(2, "オルテンシア")
+Just as it was...before...$Wait(2)
+
+[MID_OP4_#013]
+$Window(1, "オルテンシア")
+$Window(0, "M014_オルテンシア", "3")
+$Window(2, "M014_オルテンシア")
+...$Wait(2)
+
+[MID_OP4_#014]
+I will kill them all. I will take their rings. It's the
+only way to save Father.$Wait(0)
+
+[MID_OP4_#015]
+$Window(2, "リュール")
+Is she really going to fight us?$Wait(0)
+
+[MID_OP4_#016]
+$Window(2, "アイビー")
+Hortensia, snap out of it, please! Hortensia!$Wait(0)
+
+[MID_OP4_#017]
+$Window(2, "セピア")
+She can't hear you, unfortunately. Enjoy killing
+one another, won't you?$Wait(0)
+
+[MID_EV1_#001]
+$Type(1)
+$Window(0, "M014_オルテンシア", "b")
+$Anim(1, "M014_オルテンシア", "Pain")
+$Window(2, "M014_オルテンシア")
+I will defeat you. It's the only way to...
+Ugh... Ahh!$Wait(0)
+
+[MID_EV1_#002]
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Surprise")
+$Window(2, "リュール")
+The Emblem is surging with Fell Dragon energy!$Wait(2)
+
+[MID_EV1_#003]
+$Anim(1, "リュール", "Angry")
+Be on your guard.$Wait(0)
+
+[MID_EV2_#001]
+$Type(1)
+$Window(0, "ヴァンドレ", "t")
+$Anim(1, "ヴァンドレ", "Angry")
+$Window(2, "ヴァンドレ")
+Divine, that magic circle...  
+It appears to be a Dragon Vein that stirs the power of the land. $Wait(0)
+
+[MID_EV2_#002]
+$Window(0, "ヴァンドレ", "t")
+$Anim(1, "ヴァンドレ", "Angry")
+$Window(2, "ヴァンドレ")
+It’s said that only those of royal blood  
+can awaken such overwhelming power… $Wait(0)
+
+[MID_EV2_#003]
+$Window(0, "ヴァンドレ", "t")
+$Anim(1, "ヴァンドレ", "Angry")
+$Window(2, "ヴァンドレ")
+Unleashing the Dragon Vein at the right moment  
+could turn the tide of battle. $Wait(0)
+
+[MID_EV3_#001]
+$Type(1)
+$Window(0, "セピア", "t")
+$Anim(1, "セピア", "Angry")
+$Window(2, "セピア")
+Heheheh... I’ll toy with you a little longer today,  
+my dear Divine Dragon… $Wait(0)
+
+[MID_EV4_#001]
+$Type(1)
+$Window(0, "モーヴ", "t")
+$Anim(1, "モーヴ", "Angry")
+$Window(2, "モーヴ")
+Your strength is impressive indeed…  
+It seems I must fight in earnest. $Wait(0)
+
+[MID_EV5_#001]
+$Type(1)
+$Window(0, "マロン", "t")
+$Anim(1, "マロン", "Angry")
+$Window(2, "マロン")
+No matter how hard you try,  
+you can't beat we Four Hounds! $Wait(0)
+
+[MID_EV6_#001]
+$Type(1)
+$Window(0, "グリ", "t")
+$Anim(1, "グリ", "Angry")
+$Window(2, "グリ")
+Come chase me—hurt me harder…  
+I live for this kind of pain...! $Wait(0)
+
+[MID_BT1_#001]
+$Type(1)
+$Window(0, "M014_オルテンシア", "b")
+$Anim(1, "M014_オルテンシア", "Status")
+$Window(2, "M014_オルテンシア")
+I must get the rings. I must save Father.$Wait(0)
+
+[MID_BT2_#001]
+$Type(1)
+$Window(0, "アイビー", "t")
+$Anim(1, "アイビー", "Pain")
+$Window(2, "アイビー")
+Hortensia, please! Come to your senses!$Wait(0)
+
+[MID_BT2_#002]
+$Window(0, "M014_オルテンシア", "b")
+$Anim(1, "M014_オルテンシア", "Pain")
+$Window(2, "M014_オルテンシア")
+Why fight me, Ivy? All I want is to bring Father
+back. Don't you miss him?$Wait(0)
+
+[MID_BT2_#003]
+$Anim(1, "アイビー", "StandBy")
+$Window(2, "アイビー")
+Of course. So much, I fear my heart will never
+mend. That's why I cannot lose you too.$Wait(0)
+
+[MID_BT3_#001]
+$Type(1)
+$Window(0, "M014_オルテンシア", "b")
+$Anim(1, "M014_オルテンシア", "Pain")
+$Window(2, "M014_オルテンシア")
+Why does nothing go my way?$Wait(0)
+
+[MID_BT4_#001]
+$Type(1)
+$Window(0, "M014_セピア", "b")
+$Anim(1, "M014_セピア", "Relax")
+$Window(2, "M014_セピア")
+The stolen rings. You'll return them, won't you?$Wait(0)
+
+[MID_BT5_#001]
+$Type(1)
+$Window(0, "M014_セピア", "b")
+$Anim(1, "M014_セピア", "Smile")
+$Window(2, "M014_セピア")
+Well, if it isn't my favorite lizard! How's Solm
+treating you?$Wait(2)
+
+[MID_BT5_#002]
+Don't you worry, your friends are safe with me.
+Sigurd, Celica, Micaiah... Marth.$Wait(0)
+
+[MID_BT5_#003]
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Strike")
+$Window(2, "リュール")
+You...$Wait(0)
+
+[MID_BT5_#004]
+$Anim(1, "M014_セピア", "Strike")
+$Window(2, "M014_セピア")
+Oh, did you want to see them? Shame. I didn't
+bring them with me.$Wait(2)
+
+[MID_BT5_#005]
+$Anim(1, "M014_セピア", "Smile")
+Couldn't have you taking them, could I?$Wait(0)
+
+[MID_BT6_#001]
+$Type(1)
+$Window(0, "M014_セピア", "b")
+$Anim(1, "M014_セピア", "Pain")
+$Window(2, "M014_セピア")
+That would have been too easy, I suppose...
+We'll meet again soon enough.$Wait(0)
+
+[MID_BT7_#001]
+$Type(1)
+$Window(0, "M014_マロン", "b")
+$Anim(1, "M014_マロン", "Strike")
+$Window(2, "M014_マロン")
+Solm Palace is so pretty! It's a nicer tomb than
+you deserve!$Wait(0)
+
+[MID_BT8_#001]
+$Type(1)
+$Window(0, "M014_マロン", "b")
+$Anim(1, "M014_マロン", "Pain")
+$Window(2, "M014_マロン")
+The floor's slippery! That's the only reason
+I lost! I'm going home!$Wait(0)
+
+[MID_BT9_#001]
+$Type(1)
+$Window(0, "M014_モーヴ", "b")
+$Anim(1, "M014_モーヴ", "Angry")
+$Window(2, "M014_モーヴ")
+Your army is not to be trifled with. Because
+I respect you, I will hold nothing back.$Wait(0)
+
+[MID_BT10_#001]
+$Type(1)
+$Window(0, "M014_モーヴ", "b")
+$Anim(1, "M014_モーヴ", "Pain")
+$Window(2, "M014_モーヴ")
+My orders do not involve dying. I take my leave.$Wait(0)
+
+[MID_ED1_#001]
+$Type(2)
+$Window(0, "オルテンシア", "3")
+$Window(0, "アイビー", "4")
+$Window(2, "オルテンシア")
+Ivy, what...happened?$Wait(0)
+
+[MID_ED1_#002]
+$Window(2, "アイビー")
+Oh, you've come back to me! Thank goodness.$Wait(0)
+
+[MID_ED1_#003]
+$Window(2, "オルテンシア")
+Where'd all the Elusian soldiers go?$Wait(0)
+
+[MID_ED1_#004]
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+They retreated.$Wait(0)
+
+[MID_ED1_#005]
+$Window(2, "オルテンシア")
+I should go with them...$Wait(0)
+
+[MID_ED1_#006]
+$Window(2, "リュール")
+No. It's not safe. Zephia could take control over
+you again.$Wait(0)
+
+[MID_ED1_#007]
+$Window(2, "オルテンシア")
+But I was the last person left at Elusia Castle.
+Without me, there'll be no one to lead.$Wait(2)
+
+[MID_ED1_#008]
+No one to take care of the country Father
+left behind...$Wait(0)
+
+[MID_ED1_#009]
+$Window(2, "アイビー")
+That is true... But it's out of our hands.$Wait(0)
+
+[MID_ED1_#010]
+$Window(2, "オルテンシア")
+How can you say that? Don't you care about
+Elusia at all?$Wait(0)
+
+[MID_ED1_#011]
+$Window(2, "アイビー")
+Of course I do. I would have given my life to
+protect our kingdom.$Wait(2)
+
+[MID_ED1_#012]
+But it is not our kingdom anymore. It's the
+Fell Dragon's. Surely you see that.$Wait(0)
+
+[MID_ED1_#013]
+$Window(2, "オルテンシア")
+...$Wait(0)
+
+[MID_ED1_#014]
+$Window(2, "リュール")
+Princess Ivy...$Wait(0)
+
+[MID_ED1_#015]
+$Window(2, "アイビー")
+I didn't want to admit it, but Father stopped
+being king as soon as the Fell Dragon awoke.$Wait(2)
+
+[MID_ED1_#016]
+Since then true power has rested with Sombron,
+his daughter, and the Four Hounds.$Wait(2)
+
+[MID_ED1_#017]
+If you went back now, you would become an
+instrument of their designs─just as Father was.$Wait(0)
+
+[MID_ED1_#018]
+$Window(2, "オルテンシア")
+I...$Wait(0)
+
+[MID_ED1_#019]
+$Window(2, "アイビー")
+I want to go home too. You have no idea
+how badly.$Wait(2)
+
+[MID_ED1_#020]
+But there's no home to go back to until we
+defeat the Fell Dragon.$Wait(2)
+
+[MID_ED1_#021]
+After allowing Father to relinquish his power to
+Sombron, we owe our people no less.$Wait(0)
+
+[MID_ED1_#022]
+$Window(2, "オルテンシア")
+...$Wait(2)
+
+[MID_ED1_#023]
+The castle. My only home since I was little...
+We really can't go back now, can we?$Wait(0)
+
+[MID_ED1_#024]
+$Window(2, "アイビー")
+No... We can't.$Wait(0)
+
+[MID_ED1_#025]
+$Window(2, "オルテンシア")
+That little nook where I had tea with my friends.
+The garden where you and I read together...$Wait(2)
+
+[MID_ED1_#026]
+Even Rosado and Goldmary. I've left everything
+and everyone behind.$Wait(2)
+
+[MID_ED1_#027]
+All right, Ivy. I'll join this fight. So that someday,
+things can be like they were again.$Wait(0)
+
+[MID_ED1_#028]
+$Window(2, "アイビー")
+Thank you, Hortensia.$Wait(0)
+
+[MID_ED1_#029]
+$Window(2, "オルテンシア")
+I'm really sorry for...for what I did. Divine One?
+You should have this.$Wait(0)
+
+[MID_ED1_#030]
+$Window(2, "リュール")
+The Ring of the Instructor. One of the rings
+stolen from Lythos. Thank you for returning it.$Wait(0)
+
+[MID_ED1_#031]
+$Window(2, "オルテンシア")
+Don't give me too much credit. I wasn't exactly
+planning to hand it over.$Wait(0)
+
+[MID_ED1_#032]
+$Window(2, "リュール")
+Even so, you have my thanks.$Wait(0)
+
+[MID_ED1_#033]
+Teach us, Emblem of the Academy!$Wait(0)
+
+[MID_ED2_#001]
+$Type(2)
+$Window(0, "ベレト", "1")
+$Window(0, "リュール", "2")
+$Window(2, "ベレト")
+I am Emblem Byleth. It feels as though I've just
+awoken from a very long dream...$Wait(2)
+
+[MID_ED2_#002]
+I'm glad to be where I belong─at your side. Use
+my power to guide everyone.$Wait(0)
+
+[MID_ED2_#003]
+$Window(2, "リュール")
+I will. Thank you, Emblem Byleth.$Wait(0)
+
+[MID_ED3_#001]
+$Type(2)
+$Window(0, "スフォリア", "1")
+$Window(0, "リュール", "2")
+$Window(2, "スフォリア")
+So, how is everyone?$Wait(0)
+
+[MID_ED3_#002]
+$Window(2, "リュール")
+Queen Seforia, you're all right!$Wait(0)
+
+[MID_ED3_#003]
+$Window(2, "スフォリア")
+That I am. Some Elusian soldiers tried to seize
+me, but I was saved at just the right moment.$Wait(0)
+
+[MID_ED3_#004]
+$Window(0, "ミスティラ", "3")
+$Window(2, "ミスティラ")
+We took 'em down.$Wait(0)
+
+[MID_ED3_#005]
+$Window(0, "ディアマンド", "4")
+$Window(2, "ディアマンド")
+Alfred and I intended to help.$Wait(0)
+
+[MID_ED3_#006]
+$Window(1, "ディアマンド")
+$Window(0, "アルフレッド", "4")
+$Window(2, "アルフレッド")
+But by the time we'd drawn our weapons, the
+fight was already over.$Wait(0)
+
+[MID_ED3_#007]
+$Window(2, "ミスティラ")
+Haha! That's the Solm royal guard for ya.
+Pretty good, right?$Wait(0)
+
+[MID_ED3_#008]
+$Window(2, "リュール")
+I'm just glad the queen is safe. Well
+done, everyone.$Wait(0)
+
+[MID_ED3_#009]
+$Window(2, "スフォリア")
+Well done yourself. No more trespassers. My
+palace is rid of them.$Wait(2)
+
+[MID_ED3_#010]
+Divine One, thank you for protecting the rings
+and my family with such courage.$Wait(2)
+
+[MID_ED3_#011]
+The way you spoke, the look in your eyes...
+You were the spitting image of Queen Lumera.$Wait(0)
+
+[MID_ED3_#012]
+$Window(2, "リュール")
+...$Wait(2)
+
+[MID_ED3_#013]
+Your words mean so much... Thank you.$Wait(0)
+
+[MID_ED3_#014]
+$Window(1, "ミスティラ")
+$Window(1, "アルフレッド")
+$Window(1, "リュール")
+$Window(0, "オルテンシア", "2")
+$Window(2, "オルテンシア")
+Um, excuse me, Queen Seforia?$Wait(0)
+
+[MID_ED3_#015]
+$Window(2, "スフォリア")
+You. I assumed you'd gone back to Elusia.$Wait(0)
+
+[MID_ED3_#016]
+$Window(2, "オルテンシア")
+Look, I'm really sorry about what I did. I'll
+accept whatever punishment you give me.$Wait(0)
+
+[MID_ED3_#017]
+$Window(0, "アイビー", "4")
+$Window(2, "アイビー")
+I owe you an apology as well.$Wait(0)
+
+[MID_ED3_#018]
+$Window(2, "スフォリア")
+...$Wait(0)
+
+[MID_ED3_#019]
+$Window(0, "リュール", "3")
+$Window(2, "リュール")
+Queen Seforia, please. Zephia was using some
+sort of magic to control Princess Hortensia.$Wait(2)
+
+[MID_ED3_#020]
+As soon as it wore off, she stopped fighting─
+even gave me her Emblem Ring.$Wait(0)
+
+[MID_ED3_#021]
+$Window(2, "スフォリア")
+I don't recall Zephia being there when the
+young princess held me hostage.$Wait(2)
+
+[MID_ED3_#022]
+Look me in the eyes, you two.$Wait(0)
+
+[MID_ED3_#023]
+$Window(2, "オルテンシア")
+OK...$Wait(0)
+
+[MID_ED3_#024]
+$Window(2, "スフォリア")
+Threatening a queen's life is a grave crime. You
+deserve a room in the dungeons.$Wait(2)
+
+[MID_ED3_#025]
+But...I won't send you there.$Wait(0)
+
+[MID_ED3_#026]
+$Window(2, "オルテンシア")
+You...won't?$Wait(0)
+
+[MID_ED3_#027]
+$Window(2, "スフォリア")
+It was the Fell Dragon's minions who broke in
+and started the conflict, right?$Wait(2)
+
+[MID_ED3_#028]
+Your only crimes were slipping in uninvited...
+and threatening to kill me.$Wait(2)
+
+[MID_ED3_#029]
+If you want to make amends, defeat the
+Fell Dragon. Rebuild your kingdom.$Wait(2)
+
+[MID_ED3_#030]
+When cooler heads return to Elusia, Solm can
+only benefit. Let's move on now, shall we?$Wait(0)
+
+[MID_ED3_#031]
+$Window(2, "オルテンシア")
+Thank you, Queen Seforia.$Wait(0)
+
+[MID_ED3_#032]
+$Window(2, "アイビー")
+Your show of compassion will not be forgotten.
+We will restore Elusia. I swear it.$Wait(0)
+
+[MID_ED3_#033]
+$Window(2, "スフォリア")
+For my part, I think I'd better look into shoring
+up the palace's defenses.$Wait(0)
+
+[MID_ED3_#034]
+$Window(2, "リュール")
+You're right. The Fell Dragon's forces might
+come back for you...$Wait(2)
+
+[MID_ED3_#035]
+I can leave some soldiers here to help keep
+you safe.$Wait(0)
+
+[MID_ED3_#036]
+$Window(2, "スフォリア")
+Oh, no need, no need. I have lots of family
+members who can handle things here.$Wait(2)
+
+[MID_ED3_#037]
+If the situation really boils over, I can always
+leave a double here and wander the land.$Wait(2)
+
+[MID_ED3_#038]
+So don't worry about me. You just focus on
+taking out the Fell Dragon.$Wait(0)
+
+[MID_ED3_#039]
+$Window(2, "リュール")
+We will. Thank you.$Wait(0)
+
+[MID_ED3_#040]
+$Window(2, "スフォリア")
+Timerra, it's time you showed the Divine
+Dragon where to find Solm's other ring.$Wait(0)
+
+[MID_ED3_#041]
+$Window(1, "オルテンシア")
+$Window(0, "ミスティラ", "4")
+$Window(2, "ミスティラ")
+Sure thing, Mom. One Ring of the Crux of Fate,
+coming right up!$Wait(0)
+
+[MID_ED3_#042]
+$Window(2, "リュール")
+Where is it?$Wait(0)
+
+[MID_ED3_#043]
+$Window(2, "ミスティラ")
+The Northern Fortress. Oh... You don't scare
+easily, do you?$Wait(0)
+
+[MID_ED4_#001]
+$Type(2)
+$Window(0, "ヴェイル_白_悪", "2")
+$Window(2, "ヴェイル_白_悪")
+Hm...$Wait(2)
+
+[MID_ED4_#002]
+Another ring in the Divine Dragon's hands.
+Still, not enough to turn the tide.$Wait(2)
+
+[MID_ED4_#003]
+Urgh...$Wait(2)
+
+[MID_ED4_#004]
+I must sleep. Curse this feeble form of mine for
+plunging me into darkness.$Wait(2)
+
+[MID_ED4_#005]
+I pray that next time, my waking hours will not
+end so soon.$Wait(2)
+
+[MID_ED4_#006]
+...$Wait(2)
+
+[MID_ED4_#007]
+$Window(1, "ヴェイル_白_悪")
+$Window(0, "ヴェイル", "2")
+$Window(2, "ヴェイル")
+...$Wait(2)
+
+[MID_ED4_#008]
+Sand? But...what happened to all the snow?$Wait(2)
+
+[MID_ED4_#009]
+Where am I?$Wait(2)
+
+[MID_ED4_#010]
+Why does this keep happening to me?$Wait(0)
+

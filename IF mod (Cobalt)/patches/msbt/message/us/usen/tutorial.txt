@@ -2831,6 +2831,10 @@ You rescued some villages. A reward has been granted!
 [MID_TUT_M013_REWARD3]
 You rescued a few villages. A reward has been granted!
 
+[MID_TUT_M014_DRAGONVEIN]
+Royal units can use the "Dragon Vein" command on Dragon Vein tiles.
+Its effects can greatly shift the tide of battle—use it wisely!
+
 [MID_TIPS_WEAPON_TRIANGLE_T]
 Weapon Triangle
 
