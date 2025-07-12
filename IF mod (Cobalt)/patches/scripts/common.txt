@@ -1224,3 +1224,51 @@ function DraginVein_Skill_Remove(DragonVein_Sid,Used_Sid)
 
 	return used
 end
+
+function UnitAttackRangeExpectedInterference(pid,AI)
+	local foundTargetInRange = false
+    local unitX = UnitGetX(pid)
+    local unitZ = UnitGetZ(pid)
+    local target = ForceUnitGetFirst(FORCE_PLAYER)
+	while (target != nil) do
+        local targetX = UnitGetX(target)
+        local targetZ = UnitGetZ(target)
+        local distance = math.abs(unitX - targetX) + math.abs(unitZ - targetZ)
+        if distance <= 2 then
+            foundTargetInRange = true
+            break
+        end
+        target = ForceUnitGetNext(target)
+    end
+
+	if (foundTargetInRange == true) then
+        AiSetSequence(pid, AI_ORDER_ATTACK, "AI_AT_Attack", "")
+    else
+        AiSetSequence(pid, AI_ORDER_ATTACK, AI, "")
+    end
+end
+
+function Set_Attack_Always(...)
+    if DifficultyGet() ~= DIFFICULTY_LUNATIC then
+        return
+    end
+
+    local pids = {...}
+
+    if #pids == 0 then
+        return
+    end
+
+    for i = 1, #pids do
+        local pid = pids[i]
+        local index = ForceUnitGetFirst(FORCE_ENEMY)
+        while index ~= nil do
+            if UnitGetPID(index) == pid then
+                AiSetRejectPower0Attack(index, false)
+				CobaltNotice("AiSetPower0Attack")
+				CobaltNotice(pid)
+            end
+            index = ForceUnitGetNext(index)
+        end
+    end
+end

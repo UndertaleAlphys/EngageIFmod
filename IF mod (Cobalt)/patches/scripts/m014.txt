@@ -63,7 +63,7 @@ end
 
 function イベント登録()
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
-	
+	EventEntryTurn(Set_Interference_AI_M014, -1, -1, FORCE_ENEMY)
 	EventEntryTurn(右盗賊登場, 2, 2, FORCE_PLAYER);
 	EventEntryTurn(左盗賊登場, 2, 2, FORCE_PLAYER);
 	EventEntryTurn(青７ターン直前_増援, 7, 7, FORCE_PLAYER);
@@ -139,6 +139,7 @@ function MapOpening()
 	TerraInit_M014()
 	WaitTime( 2.0 )
 	Tutorial_M014()
+	Set_Attack_Always("PID_IFMOD_M014_イルシオン兵_モンク1","PID_IFMOD_M014_イルシオン兵_モンク2","PID_IFMOD_M014_イルシオン兵_モンク3","PID_IFMOD_M014_イルシオン兵_モンク4")
 end
 
 -- -----------------------------------
@@ -243,7 +244,6 @@ function Rewrap_Sepia()
 
 		VariableSet(g_revive_Sepia, 1)
 
-		CobaltNotice("Sepia Rewrap Event End")
 
 		Yield()
 
@@ -274,8 +274,6 @@ function Rewrap_Mauve()
 		WaitTime( 0.3 )
 
 		VariableSet(g_revive_Mauve, 1)
-
-		CobaltNotice("Mauve Rewrap Event End")
 
 		Yield()
 
@@ -309,8 +307,6 @@ function Rewrap_Marron()
 
 		VariableSet(g_revive_Marron, 1)
 
-		CobaltNotice("Marron Rewrap Event End")
-
 		AiSetSequence("PID_M014_マロン", AI_ORDER_MOVE,"AI_MV_Null")
 
 		UnitSetPrivateSkill("PID_M014_マロン", "SID_天刻の拍動＋")
@@ -339,8 +335,6 @@ function Rewrap_Gris()
 
 		VariableSet(g_revive_Gris, 1)
 
-		CobaltNotice("Gris Rewrap Event End")
-
 		AiSetActiveAll(FORCE_ENEMY,"PID_M014_グリ", false)
 
 		UnitSetPrivateSkill("PID_M014_グリ", "SID_後ノ後＋")
@@ -351,6 +345,13 @@ function Rewrap_Gris()
 		if condition_魔法障壁解除() == true then
 			魔法障壁解除()
 		end
+end
+
+function Set_Interference_AI_M014()
+	UnitAttackRangeExpectedInterference("PID_IFMOD_M014_イルシオン兵_モンク1","AI_AT_HealToInterference")
+	UnitAttackRangeExpectedInterference("PID_IFMOD_M014_イルシオン兵_モンク2","AI_AT_HealToInterference")
+	UnitAttackRangeExpectedInterference("PID_IFMOD_M014_イルシオン兵_モンク3","AI_AT_HealToInterference")
+	UnitAttackRangeExpectedInterference("PID_IFMOD_M014_イルシオン兵_モンク4","AI_AT_HealToInterference")
 end
 
 
@@ -614,13 +615,11 @@ function ボス部屋増援()
 
 		AiSetSequence("PID_M014_オルテンシア", AI_ORDER_ATTACK, "AI_AT_EngageDance","1,1")
 		AiSetPriority("PID_M014_オルテンシア", 50)
-		CobaltNotice("Reinforcement and set AI for boss.")
 	end
 	VariableSet( g_key_bosszou, 1 );
 end
 
 function ボス部屋アクティブ化()
-	CobaltNotice("M014_Boss_Activate")
 	UnitClearStatus("PID_M014_オルテンシア", UNIT_STATUS_MOVE_NOT_ALLOW)
 	AiSetSequence("PID_M014_セピア", AI_ORDER_CAUSE, "AI_AC_Everytime")
 	AiSetSequence("PID_M014_マロン", AI_ORDER_CAUSE, "AI_AC_Everytime")
