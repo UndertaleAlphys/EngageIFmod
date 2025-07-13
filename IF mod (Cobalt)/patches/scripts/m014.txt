@@ -78,7 +78,6 @@ function イベント登録()
 	-- オルテンシア
 	EventEntryBattleTalk(Talk, "PID_アイビー", FORCE_PLAYER, "PID_M014_オルテンシア", FORCE_ENEMY, true, "戦闘前会話_オルテンシア_アイビー_済", "MID_BT2");
 	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, "PID_M014_オルテンシア", FORCE_ENEMY, true, "戦闘前会話_オルテンシア_済", "MID_BT1");
-	EventEntryReviveAfter(	オルテンシア暴走後, "PID_M014_オルテンシア", FORCE_ENEMY, "オルテンシア暴走後_済" )
 	EventEntryReviveAfter(	Rewrap_Sepia, "PID_M014_セピア", FORCE_ENEMY, "1" )
 	EventEntryReviveAfter(	Rewrap_Mauve, "PID_M014_モーヴ", FORCE_ENEMY, "2" )
 	EventEntryReviveAfter(	Rewrap_Marron, "PID_M014_マロン", FORCE_ENEMY, "3" )
@@ -225,14 +224,14 @@ function Rewrap_Sepia()
 		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_セピア"), UnitGetZ("PID_M014_セピア") )
 		WaitTime( 0.3 )
 		
-		CursorSetPos( 16, 26 )
+		CursorSetPos( 16, 27 )
 		WaitTime( 0.3 )
 		MapCameraWait()
 
-		UnitSetPos("PID_M014_セピア", 16, 26 )
+		UnitSetPos("PID_M014_セピア", 16, 27 )
 		UnitMoveWait()
 		
-		EffectPlay( "ワープイン_闇", 16, 26 )
+		EffectPlay( "ワープイン_闇", 16, 27 )
 
 		UnitRotation("PID_M014_セピア", ROTATE_DOWN)
 
@@ -243,9 +242,14 @@ function Rewrap_Sepia()
 
 		Yield()
 
+		AiSetActiveAll(FORCE_ENEMY,"PID_M014_セピア", false)
 		AiSetSequence("PID_M014_セピア", AI_ORDER_MOVE,"AI_MV_Null")
+		AiSetSequence("PID_M014_セピア", AI_ORDER_CAUSE, "AI_AC_Null")
+	
 
 		UnitSetPrivateSkill("PID_M014_セピア", "SID_天刻の拍動＋")
+
+		AiSetBandNo("PID_M014_セピア", 0)
 
 		if condition_魔法障壁解除() then
 			魔法障壁解除()
@@ -258,14 +262,14 @@ function Rewrap_Mauve()
 		EffectPlay( "ワープアウト_闇", UnitGetX("PID_M014_モーヴ"), UnitGetZ("PID_M014_モーヴ") )
 		WaitTime( 0.3 )
 		
-		CursorSetPos( 14, 26 )
+		CursorSetPos( 14, 27 )
 		WaitTime( 0.3 )
 		MapCameraWait()
 
-		UnitSetPos("PID_M014_モーヴ", 14, 26 )
+		UnitSetPos("PID_M014_モーヴ", 14, 27 )
 		UnitMoveWait()
 				
-		EffectPlay( "ワープイン_闇", 14, 26 )
+		EffectPlay( "ワープイン_闇", 14, 27 )
 		UnitRotation( "PID_M014_モーヴ", ROTATE_DOWN)
 		WaitTime( 0.3 )
 
@@ -273,11 +277,17 @@ function Rewrap_Mauve()
 
 		Yield()
 
+
+		AiSetActiveAll(FORCE_ENEMY,"PID_M014_モーヴ", false)
 		AiSetSequence("PID_M014_モーヴ", AI_ORDER_MOVE,"AI_MV_Null")
+		AiSetSequence("PID_M014_モーヴ", AI_ORDER_CAUSE, "AI_AC_Null")
+	
 
 		UnitSetPrivateSkill("PID_M014_モーヴ", "SID_後ノ後＋")
 		スキル解除("PID_M014_モーヴ", "SID_不屈_効果_2ターン")
 		スキル解除("PID_M014_モーヴ", "SID_不屈_効果_1ターン")
+
+		AiSetBandNo("PID_M014_モーヴ", 0)
 
 		if condition_魔法障壁解除() then
 			魔法障壁解除()
@@ -301,11 +311,16 @@ function Rewrap_Marron()
 		UnitRotation( "PID_M014_マロン", ROTATE_DOWN)
 		WaitTime( 0.3 )
 
+		AiSetActiveAll(FORCE_ENEMY,"PID_M014_マロン", false)
+
 		VariableSet(g_revive_Marron, 1)
 
 		AiSetSequence("PID_M014_マロン", AI_ORDER_MOVE,"AI_MV_Null")
+		AiSetSequence("PID_M014_マロン", AI_ORDER_CAUSE, "AI_AC_Null")
 
 		UnitSetPrivateSkill("PID_M014_マロン", "SID_天刻の拍動＋")
+		
+		AiSetBandNo("PID_M014_マロン", 0)
 
 		if condition_魔法障壁解除() == true then
 			魔法障壁解除()
@@ -337,6 +352,9 @@ function Rewrap_Gris()
 		スキル解除("PID_M014_グリ", "SID_踏ん張り_発動済み_効果")
 
 		AiSetSequence("PID_M014_グリ", AI_ORDER_MOVE,"AI_MV_Null")
+		AiSetSequence("PID_M014_グリ", AI_ORDER_CAUSE, "AI_AC_Null")
+
+		AiSetBandNo("PID_M014_グリ", 0)
 
 		if condition_魔法障壁解除() == true then
 			魔法障壁解除()
@@ -344,10 +362,19 @@ function Rewrap_Gris()
 end
 
 function Set_Interference_AI_M014()
-	UnitAttackRangeExpectedInterference("PID_IFMOD_M014_イルシオン兵_モンク1","AI_AT_HealToInterference")
-	UnitAttackRangeExpectedInterference("PID_IFMOD_M014_イルシオン兵_モンク2","AI_AT_HealToInterference")
-	UnitAttackRangeExpectedInterference("PID_IFMOD_M014_イルシオン兵_モンク3","AI_AT_HealToInterference")
-	UnitAttackRangeExpectedInterference("PID_IFMOD_M014_イルシオン兵_モンク4","AI_AT_HealToInterference")
+	if IsExistForcePlayerNearby("PID_IFMOD_M014_イルシオン兵_モンク1",7) == false then
+		UnitSetStatus( "PID_IFMOD_M014_イルシオン兵_モンク1", UNIT_STATUS_FIXED )
+	end
+	if IsExistForcePlayerNearby("PID_IFMOD_M014_イルシオン兵_モンク2",7) == false then
+		UnitSetStatus( "PID_IFMOD_M014_イルシオン兵_モンク2", UNIT_STATUS_FIXED )
+	end
+	if IsExistForcePlayerNearby("PID_IFMOD_M014_イルシオン兵_モンク3",10) == false then
+		UnitSetStatus( "PID_IFMOD_M014_イルシオン兵_モンク3", UNIT_STATUS_FIXED )
+	end
+	if IsExistForcePlayerNearby("PID_IFMOD_M014_イルシオン兵_モンク4",10) == false then
+		UnitSetStatus( "PID_IFMOD_M014_イルシオン兵_モンク4", UNIT_STATUS_FIXED )
+	end
+	CobaltNotice("M014_UnitAttackRangeExpectedInterference Complete")
 end
 
 
@@ -557,48 +584,9 @@ end
 
 -- -----------------------------------
 
-function オルテンシア暴走後()
-	CursorSetPos_FromPid( "PID_M014_オルテンシア" )
-	Yield()
-	WaitTime(0.5)
-
-	--Dialog("ベレト暴走")
-	Talk( "MID_EV1" )	--ベレト暴走
-	UnitSetItemEquip( "PID_M014_オルテンシア", "IID_ベレト_天帝の覇剣" )
-	
-	Tutorial("TUTID_暴走")
-	
-	
-	AiSetPriority("PID_M014_オルテンシア", 50)
-
-	AiSetPriority("PID_M014_マロン", 100)
-	AiSetPriority("PID_M014_モーヴ", 100)
-	AiSetPriority("PID_M014_セピア", 100)
-	AiSetPriority("PID_M014_イルシオン兵_ブレイブヒーロー", 100)
-	AiSetPriority("PID_M014_イルシオン兵_ソードファイター", 100)
-	AiSetPriority("PID_M014_イルシオン兵_ハイプリースト", 100)
-	AiSetPriority("PID_M014_イルシオン兵_モンク", 100)
-	AiSetPriority("PID_M014_イルシオン兵_ソードマスター", 100)
-
-	AiSetSequence("PID_M014_オルテンシア", AI_ORDER_ATTACK, "AI_AT_EngageDance","1,1")
-
-	AiSetSequence("PID_M014_イルシオン兵_ブレイブヒーロー", AI_ORDER_CAUSE, "AI_AC_Everytime")
-	AiSetSequence("PID_M014_イルシオン兵_ソードファイター", AI_ORDER_CAUSE, "AI_AC_Everytime")
-	AiSetSequence("PID_M014_イルシオン兵_ハイプリースト", AI_ORDER_CAUSE, "AI_AC_Everytime")
-	AiSetSequence("PID_M014_イルシオン兵_モンク", AI_ORDER_CAUSE, "AI_AC_Everytime")
-	AiSetSequence("PID_M014_イルシオン兵_ソードマスター", AI_ORDER_CAUSE, "AI_AC_Everytime")
-
-	if	MapGetPhase() == FORCE_PLAYER then
-		VariableSet( g_key_bosszou, 1 );
-		Dispos( "Enemy_Reinforcement4", DISPOS_FLAG_FOCUS )
-		Yield()
-		WaitTime(0.5)
-	end
-end
-
 function ボス部屋増援()
 	if(VariableGet( g_key_bosszou ) == 0) then
-		CursorSetDistanceMode( CURSOR_DISTANCE_FAR )
+		CursorSetDistanceMode( CURSOR_DISTANCE_MIDDLE )
 		召喚渦作成("Enemy_Final")
 		CursorSetPos(16,15)
 		MapCameraWait()
@@ -617,6 +605,7 @@ end
 
 function ボス部屋アクティブ化()
 	UnitClearStatus("PID_M014_オルテンシア", UNIT_STATUS_MOVE_NOT_ALLOW)
+	AiSetSequence("PID_M014_オルテンシア", AI_ORDER_CAUSE, "AI_AC_Everytime")
 	AiSetSequence("PID_M014_セピア", AI_ORDER_CAUSE, "AI_AC_Everytime")
 	AiSetSequence("PID_M014_マロン", AI_ORDER_CAUSE, "AI_AC_Everytime")
 	AiSetSequence("PID_M014_モーヴ", AI_ORDER_CAUSE, "AI_AC_Everytime")
@@ -628,39 +617,6 @@ function ボス部屋アクティブ化()
 	local currentTurn = MapGetTurn()
     EventEntryTurn(ボス部屋増援, currentTurn + 1, currentTurn + 1, FORCE_ENEMY)
 
-end
-
-function 左盗賊登場()
-	Dispos("Enemy01", DISPOS_FLAG_FOCUS);
-	Yield();
-	WaitTime(0.5);
-end
-
-function 右盗賊登場()
-	Dispos("Enemy02", DISPOS_FLAG_FOCUS);
-	Yield();
-	WaitTime(0.5);
-end
-
-function 青７ターン直前_増援()
-	
-	Dispos( "Enemy_Reinforcement1", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime(0.5)
-	
-	Dispos( "Enemy_Reinforcement2", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime(0.5)
-	
-end
-
-function 青１２ターン直前_増援()
-	
-	Dispos( "Enemy_Reinforcement3", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime(0.5)
-	
-	
 end
 
 -- -----------------------------------

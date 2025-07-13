@@ -1270,3 +1270,26 @@ function Set_Attack_Always(...)
         end
     end
 end
+
+function IsExistForcePlayerNearby(pid, range)
+    if not UnitIsExist(pid) then
+        return false
+    end
+
+    local unitX = UnitGetX(pid)
+    local unitZ = UnitGetZ(pid)
+
+    local target = ForceUnitGetFirst(FORCE_PLAYER)
+    while target ~= nil do
+        local targetPid = UnitGetPID(target)
+        local targetX = UnitGetX(target)
+        local targetZ = UnitGetZ(target)
+        local distance = math.abs(unitX - targetX) + math.abs(unitZ - targetZ)
+        if distance <= range then
+            return true
+        end
+        target = ForceUnitGetNext(target)
+    end
+
+    return false
+end
