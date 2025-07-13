@@ -48,7 +48,7 @@ end
 
 function イベント登録()
 	
-	EventEntryTurn( 進撃開始直後,			 1,  1, FORCE_PLAYER )
+	EventEntryTurn( BattleStartAfter,			 1,  1, FORCE_PLAYER )
 	EventEntryTurn( 勝利条件_紋章士にフォーカス,	1,  1, FORCE_PLAYER )
 	
 	EventEntryTurn( 竜脈_ハード以下,		 2, -1, FORCE_PLAYER, condition_竜脈_ハード以下 )
@@ -112,7 +112,7 @@ end
 
 -- -----------------------------------
 
-function 進撃開始直後()
+function BattleStartAfter()
 	
 	CursorSetPos_FromPid( g_pid_boss )
 	

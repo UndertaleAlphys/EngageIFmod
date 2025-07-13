@@ -73,7 +73,7 @@ end
 
 function イベント登録()
 
-	EventEntryTurn(進撃開始直後, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(BattleStartAfter, 1, 1, FORCE_PLAYER)
 	EventEntryTurn( 勝利条件, 1, 1, FORCE_PLAYER )
 
 	EventEntryTurnAfter(チュートリアル魔砲台, 1, 1, FORCE_PLAYER)
@@ -235,7 +235,7 @@ end
 
 -- ----------------------------------------------------------------------
 
-function 進撃開始直後()
+function BattleStartAfter()
 
 	CursorSetPos_FromPid( "PID_M010_異形兵_モリオン" )
 	WaitTime(0.5)

@@ -178,8 +178,8 @@ function 召喚渦消去と配置(areaname)
 
 end
 
-function condition_魔法障壁解除()
-	Log("condition_魔法障壁解除")
+function condition_Barrier_Destroy()
+	Log("condition_Barrier_Destroy")
 	Log(VariableGet(g_revive_Gris))
 	Log(VariableGet(g_revive_Marron))
 	Log(VariableGet(g_revive_Mauve))
@@ -191,7 +191,7 @@ function condition_魔法障壁解除()
 	end
 end
 
-function 魔法障壁解除()
+function Barrier_Destroy()
 	
 	CursorSetPos( 15, 18 )
 	MapCameraWait()
@@ -251,8 +251,8 @@ function Rewrap_Sepia()
 
 		AiSetBandNo("PID_M014_セピア", 0)
 
-		if condition_魔法障壁解除() then
-			魔法障壁解除()
+		if condition_Barrier_Destroy() then
+			Barrier_Destroy()
 		end
 end
 
@@ -289,8 +289,8 @@ function Rewrap_Mauve()
 
 		AiSetBandNo("PID_M014_モーヴ", 0)
 
-		if condition_魔法障壁解除() then
-			魔法障壁解除()
+		if condition_Barrier_Destroy() then
+			Barrier_Destroy()
 		end
 end
 
@@ -322,8 +322,8 @@ function Rewrap_Marron()
 		
 		AiSetBandNo("PID_M014_マロン", 0)
 
-		if condition_魔法障壁解除() == true then
-			魔法障壁解除()
+		if condition_Barrier_Destroy() == true then
+			Barrier_Destroy()
 		end
 end
 
@@ -356,8 +356,8 @@ function Rewrap_Gris()
 
 		AiSetBandNo("PID_M014_グリ", 0)
 
-		if condition_魔法障壁解除() == true then
-			魔法障壁解除()
+		if condition_Barrier_Destroy() == true then
+			Barrier_Destroy()
 		end
 end
 

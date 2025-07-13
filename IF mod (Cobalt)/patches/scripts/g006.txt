@@ -14,13 +14,15 @@ g_CrystalPos = {
 	{ 24, 15 }
 }
 
-g_key_SortieNum					= "戦闘開始時出撃人数"
+OddPIDs = {"PID_G006_クロム"}
+EvenPIDs = {}
+
 g_key_BrokenCrystalNum			= "水晶破壊数"
 g_key_FirstBrokenCrystal		= "水晶破壊_初回_済"
 g_key_FirstResetCrystal			= "水晶リセット_初回_済"
 g_key_puddleOn_Judge			= "水たまり配置_判定"
 g_key_puddleOn					= "水たまり配置_済"
-g_key_BrokenBarrier				= "魔法障壁解除_済"
+g_key_BrokenBarrier				= "Barrier_Destroy_済"
 g_key_ReinforcementBrokenBarrier= "障壁破壊後増援_済"
 
 g_key_battleTalk_chrom_lueur	= "戦闘会話_クロム_リュール_済"
@@ -28,6 +30,9 @@ g_key_battleTalk_chrom_lucina	= "戦闘会話_クロム_ルキナ_済"
 g_key_battleTalk_reflet_lueur	= "戦闘会話_ルフレ_リュール_済"
 g_key_battleTalk_reflet_lucina	= "戦闘会話_ルフレ_ルキナ_済"
 
+g_Break_Crystal1 = "クリスタル1破壊_済"
+g_Break_Crystal2 = "クリスタル2破壊_済"
+g_Break_Crystal3 = "クリスタル3破壊_済"
 
 g_key_ChromDie					= "クロム死亡_済"
 g_key_RobinDie					= "ルフレ死亡_済"
@@ -36,21 +41,21 @@ g_key_RobinDie					= "ルフレ死亡_済"
 g_width		= 27
 g_height	= 27
 g_puddleMap = {
-	0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,
-	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-	0,0,0,1,0,1,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,
-	0,0,0,0,1,0,0,0,1,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,
-	0,0,0,1,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,1,0,1,0,0,
-	0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,
-	0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,1,1,0,1,0,0,0,1,0,
-	1,0,0,1,1,1,0,1,0,0,0,0,0,0,0,1,1,0,1,0,0,0,1,0,0,
-	0,1,0,0,0,1,1,0,1,1,0,1,0,0,0,1,0,1,0,0,0,0,0,0,1,
-	0,0,1,0,1,0,1,0,1,0,1,0,1,1,1,0,1,1,1,0,1,0,0,0,0,
-	0,0,0,0,0,1,0,1,0,1,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,
-	0,0,0,0,1,1,0,0,1,0,1,0,0,1,0,1,0,1,0,0,1,0,0,0,0,
-	0,0,0,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,
-	0,0,0,1,0,0,1,0,0,1,1,0,0,0,0,0,1,1,0,0,1,0,0,0,0,
-	0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,
+	2,1,3,0,2,3,1,0,2,3,0,1,3,0,2,1,0,2,3,1,3,0,1,2,1,
+    0,2,3,1,0,3,1,2,0,1,2,3,0,2,1,3,0,1,2,3,0,2,1,3,0,
+    3,0,1,2,0,1,2,3,1,2,3,0,2,3,0,1,3,0,1,2,0,1,2,3,1,
+    2,3,0,1,2,0,3,1,2,1,0,3,2,0,3,1,2,3,1,0,3,1,2,0,2,
+    1,0,3,2,1,3,0,2,1,2,3,0,1,3,0,2,1,0,2,3,0,2,1,3,1,
+    0,3,1,2,0,1,2,3,0,2,3,1,0,3,1,2,0,1,2,3,0,2,3,1,0,
+    3,1,0,2,3,2,1,0,3,0,1,2,3,1,2,0,3,2,0,1,3,0,2,1,2,
+    1,2,0,3,1,3,0,2,1,0,2,3,1,2,3,0,1,3,0,2,1,0,3,2,0,
+    2,0,1,3,2,1,3,0,2,3,0,1,2,0,3,1,2,1,0,3,2,3,1,0,1,
+    0,1,2,3,0,2,3,1,0,3,1,2,0,1,3,2,0,2,1,3,0,3,2,1,2,
+    3,0,2,1,3,1,0,2,3,2,1,0,3,0,1,2,3,1,2,0,3,2,0,1,1,
+    1,3,2,0,1,0,3,2,1,2,0,3,1,3,0,2,1,0,2,3,1,2,3,0,0,
+    2,3,1,0,2,0,1,3,2,1,3,0,2,3,0,1,2,0,3,1,2,1,0,3,3,
+    0,2,1,3,0,3,2,1,0,1,3,2,0,2,1,3,0,3,1,2,0,1,2,3,2,
+    1,0,2,3,1,2,3,0,1,3,0,2,1,0,3,2,1,2,0,3,1,3,2,0,0,
 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -83,7 +88,6 @@ end
 
 function 変数登録()
 	
-	VariableEntry( g_key_SortieNum,					0 )
 	VariableEntry( g_key_BrokenCrystalNum,			0 )
 	VariableEntry( g_key_FirstBrokenCrystal,		0 )
 	VariableEntry( g_key_FirstResetCrystal,			0 )
@@ -97,28 +101,22 @@ function 変数登録()
 	VariableEntry( g_key_battleTalk_chrom_lucina,	0 )
 	VariableEntry( g_key_battleTalk_reflet_lueur,	0 )
 	VariableEntry( g_key_battleTalk_reflet_lucina,	0 )
+	VariableEntry( g_Break_Crystal1, 0 )
+	VariableEntry( g_Break_Crystal2, 0 )
+	VariableEntry( g_Break_Crystal3, 0 )
 	
 end
 
 function イベント登録()
 	
-	EventEntryDestroy(水晶_破壊,		g_CrystalPos[1][1], g_CrystalPos[1][2])
-	EventEntryDestroy(水晶_破壊,		g_CrystalPos[2][1], g_CrystalPos[2][2])
-	EventEntryDestroy(水晶_破壊,		g_CrystalPos[3][1], g_CrystalPos[3][2])
+	EventEntryDestroy( Crystal1_Destroy, 13, 7)
 	
-	EventEntryTurn(進撃開始直後,		 1,  1, FORCE_PLAYER)
+	EventEntryTurn(BattleStartAfter,		 1,  1, FORCE_PLAYER)
 	EventEntryTurn(勝利条件_紋章士にフォーカス,	 1,  1, FORCE_PLAYER)
-	EventEntryTurn(水晶_リセット,		 2, -1, FORCE_PLAYER, condition_水晶_リセット)
-	
-	EventEntryTurn(増援４ターンめ,		 4,  4, FORCE_PLAYER, condition_増援４ターンめ)
-	EventEntryTurn(増援６ターンめ,		 6,  6, FORCE_PLAYER, condition_増援６ターンめ)
-	
-	EventEntryTurn(増援_エリア奥,		 2, 50, FORCE_PLAYER, condition_増援_エリア奥)
-	
-	EventEntryFixed(EmptyFunction, "", FORCE_PLAYER, condition_プレイヤー軍ばらつきチェック)
-	EventEntryTurn(水浸しイベント,		-1, -1, FORCE_PLAYER, condition_水浸しイベント)
-	
-	EventEntryTurn(障壁破壊後増援,		-1, -1, FORCE_PLAYER, condition_障壁破壊後増援)
+	EventEntryTurn(Crystal1_Effect, 2, -1, FORCE_PLAYER)
+	EventEntryTurn(Crystal2_Effect_EmenyTurn, 1, -1, FORCE_ENEMY)
+	EventEntryTurn(Crystal2_Effect_PlayerTurn, 2, -1, FORCE_PLAYER)
+	-- EventEntryTurn(水晶_リセット,		 2, -1, FORCE_PLAYER, Get_Crystal_MaxHp)
 	
 	EventEntryDie(EmptyFunction,		"PID_G006_クロム",		FORCE_ENEMY, g_key_ChromDie)
 	EventEntryDie(EmptyFunction,		"G006_クロム_移動－１",	FORCE_ENEMY, g_key_ChromDie)
@@ -166,13 +164,10 @@ function MapOpening()
 	
 	Log("MapOpening");
 	
-	FadeOutAndWait( FADE_NORMAL )
-	
 	EffectCreate( "水晶障壁_ループ", 13, 15 )
 	クロムとルフレのスキル設定()
 	
-	FadeInAndWait( FADE_NORMAL )
-	
+	MapGenerateFog()
 end
 
 -- -----------------------------------
@@ -208,7 +203,7 @@ end
 
 -- -----------------------------------
 
-function 進撃開始直後()
+function BattleStartAfter()
 	
 	CursorSetPos_FromPid( クロムのPID取得() )
 	
@@ -228,23 +223,6 @@ function 進撃開始直後()
 	CursorAnimeCreate( g_CrystalPos[2][1], g_CrystalPos[2][2] )
 	Talk( "MID_EV3" )
 	CursorAnimeDelete()
-	
-	出撃人数のチェック()
-	
-end
-
--- -----------------------------------
-
-function 出撃人数のチェック()
-	
-	local count = 0
-	local unit = ForceUnitGetFirst(FORCE_PLAYER)
-	while unit != nil do
-		count = count + 1
-		unit = ForceUnitGetNext(unit)
-	end
-	
-	VariableSet( g_key_SortieNum, count )
 	
 end
 
@@ -277,51 +255,211 @@ end
 
 -- -----------------------------------
 
-function 水晶_破壊()
-	
-	
+function Crystal1_Destroy()
 	local num = VariableGet( g_key_BrokenCrystalNum )
 	num = num + 1
+	CobaltNotice( "Crystal1_Destroy" )
+	CobaltNotice( "num = " .. num )
 	VariableSet( g_key_BrokenCrystalNum, num )
-	
-	
+	VariableSet( g_Break_Crystal1, 1 )
+	EffectPlay( "竜化_G1", 13, 7 )
+	WaitTime(2.0)
+	MapOverlapAllClear()
 	if ( num == g_CrystalMaxNum ) then
-		水晶_全破壊()
+		Crystal_All_Destroy()
 	end
-	
-	
-	-- 初回破壊イベント
+
 	if VariableGet( g_key_FirstBrokenCrystal ) == 0 then
-		水晶_初回破壊イベント()
+		Crystal_Destroy_First()
 	end
-	
-	
+
+	local recovery_Turn = MapGetTurn() + 2
+
+	EventEntryTurn( Crystal1_Recovery, recovery_Turn, recovery_Turn, FORCE_PLAYER)
+
+end
+
+function Crystal2_Destroy()
+	local num = VariableGet( g_key_BrokenCrystalNum )
+	num = num + 1
+	CobaltNotice( "Crystal1_Destroy" )
+	CobaltNotice( "num = " .. num )
+	VariableSet( g_key_BrokenCrystalNum, num )
+	VariableSet( g_Break_Crystal2, 1 )
+	EffectPlay( "竜化_G1", 2, 15 )
+	WaitTime(2.0)
+	if ( num == g_CrystalMaxNum ) then
+		Crystal_All_Destroy()
+	end
+	if VariableGet( g_key_FirstBrokenCrystal ) == 0 then
+		Crystal_Destroy_First()
+	end
+	local recovery_Turn = MapGetTurn() + 2
+	EventEntryTurn( Crystal2_Recovery, recovery_Turn, recovery_Turn, FORCE_PLAYER)
+end
+
+function Crystal1_Recovery()
+	local num = VariableGet( g_key_BrokenCrystalNum )
+	num = num - 1
+	CobaltNotice( "Crystal1_Recovery" )
+	CobaltNotice( "num = " .. num )
+	VariableSet( g_key_BrokenCrystalNum, num )
+	VariableSet( g_Break_Crystal1, 0 )
+	Crystal_Recovery( 13, 7 )
+	if VariableGet( g_key_FirstResetCrystal ) == 0 then
+		Talk( "MID_EV5" )
+		VariableSet( g_key_FirstResetCrystal, 1 )
+	end
+end
+
+function Crystal2_Recovery()
+	local num = VariableGet( g_key_BrokenCrystalNum )
+	num = num - 1
+	CobaltNotice( "Crystal1_Recovery" )
+	CobaltNotice( "num = " .. num )
+	VariableSet( g_key_BrokenCrystalNum, num )
+	VariableSet( g_Break_Crystal2, 0 )
+	Crystal_Recovery( 2, 15 )
+	if VariableGet( g_key_FirstResetCrystal ) == 0 then
+		Talk( "MID_EV5" )
+		VariableSet( g_key_FirstResetCrystal, 1 )
+	end
+end
+
+function MapOverlapAllClear()
+	for z = 1, g_height-2 do
+		for x = 1, g_width-2 do
+			local key = x + ( z - 1 ) * ( g_width - 2 )
+			if MapOverlapGet( x, z) == "TID_霧_永続"then
+				MapOverlapSet(x, z, "TID_無し")
+			end
+		end
+	end
+end
+
+function MapGenerateFogByTurn(turn)
+	MapOverlapSetBegin()
+		for z = 1, g_height-2 do
+			for x = 1, g_width-2 do
+				local key = x + ( z - 1 ) * ( g_width - 2 )
+				if g_puddleMap[key] == turn then
+					MapOverlapSet(x, z, "TID_霧_永続")
+				end
+			end
+		end
+	MapOverlapSetEnd()
+end
+
+function MapGenerateFog()
+	MapOverlapSetBegin()
+	for z = 1, g_height-2 do
+		for x = 1, g_width-2 do
+			local key = x + ( z - 1 ) * ( g_width - 2 )
+			if g_puddleMap[key] == 2 then
+				MapOverlapSet(x, z, "TID_霧_永続")
+			end
+		end
+	end
+	MapOverlapSetEnd()
+end
+
+
+function Crystal1_Effect()
+	local flag = VariableGet( g_Break_Crystal1 )
+	if( flag == 0 ) then
+		CobaltNotice( "Crystal1_Effect" )
+		CursorSetPos(13,7)
+		EffectPlay( "竜化_G1", 13, 7 )
+		WaitTime(2.0)
+		local turn = MapGetTurn() % 3 + 1
+		MapOverlapSetBegin()
+		for z = 1, g_height-2 do
+			for x = 1, g_width-2 do
+				local key = x + ( z - 1 ) * ( g_width - 2 )
+				if g_puddleMap[key] == turn then
+					MapOverlapSet(x, z, "TID_霧_永続")
+				else
+					MapOverlapSet(x, z, "TID_無し")
+				end
+			end
+		end
+		MapOverlapSetEnd()
+	end
+end
+
+function Crystal2_Effect_EmenyTurn()
+	local turn = MapGetTurn() % 2
+	local flag = VariableGet( g_Break_Crystal2 )
+	if( flag == 0 ) and (turn == 1) then
+		CobaltNotice( "Crystal2_Effect_EmenyTurn" )
+		CursorSetPos(2,15)
+		EffectPlay( "竜化_G1", 2, 15 )
+		WaitTime(2.0)
+
+		if #OddPIDs == 0 then
+			return
+		end
+
+		for i = 1, #OddPIDs do
+			local pid = OddPIDs[i]
+			local index = ForceUnitGetFirst(FORCE_ENEMY)
+			while index ~= nil do
+				if UnitGetPID(index) == pid then
+					UnitSetPrivateSkill(index,"SID_神風招来効果")
+				end
+				index = ForceUnitGetNext(index)
+			end
+		end
+	end
+end
+
+function Crystal2_Effect_PlayerTurn()
+	local turn = MapGetTurn() % 2
+	local flag = VariableGet( g_Break_Crystal2 )
+	if( flag == 0 ) and (turn == 0) then
+		CobaltNotice( "Crystal2_Effect_PlayerTurn" )
+		if #OddPIDs == 0 then
+			return
+		end
+
+		for i = 1, #OddPIDs do
+			local pid = OddPIDs[i]
+			local index = ForceUnitGetFirst(FORCE_ENEMY)
+			while index ~= nil do
+				if UnitGetPID(index) == pid then
+					local x = UnitGetX(index)
+					local z = UnitGetZ(index)
+					TerrainSetBegin()
+						TerrainSet(x, z, "TID_床_氷結界")
+					TerrainSetEnd()
+				end
+				index = ForceUnitGetNext(index)
+			end
+		end
+	end
 end
 
 -- -----------------------------------
 
-function 水晶_初回破壊イベント()
+function Crystal_Destroy_First()
 	CursorSetPos( 13, 15 )
 	MapCameraWait()
 	
 	Talk( "MID_EV4" )
+	Talk( "MID_EV10" )
 	
 	VariableSet( g_key_FirstBrokenCrystal, 1 )
 end
 
 -- -----------------------------------
 
-function 水晶_全破壊()
+function Crystal_All_Destroy()
 	
 	Talk( "MID_EV8" )
 	
-	魔法障壁解除()
+	Barrier_Destroy()
 	
 	クロムとルフレのスキル解除()
-	
-	if VariableGet( g_key_puddleOn ) == 0 then
-		水浸しイベント()
-	end
 	
 	VariableSet( g_key_BrokenBarrier, 1 )
 	
@@ -329,7 +467,7 @@ end
 
 -- -----------------------------------
 
-function 魔法障壁解除()
+function Barrier_Destroy()
 	
 	CursorSetPos( 13, 15 )
 	MapCameraWait()
@@ -372,7 +510,7 @@ end
 
 -- -----------------------------------
 
-function 水晶の最大HP()
+function Get_Crystal_MaxHp()
 	if		モードはノーマル() then
 		return 30
 		
@@ -384,52 +522,9 @@ function 水晶の最大HP()
 		
 	end
 end
-
 -- -----------------------------------
 
-function condition_水晶_リセット()
-	
-	if VariableGet( g_key_BrokenBarrier ) == 1 then
-		return false
-	end
-	
-	if VariableGet( g_key_SortieNum ) < 3 then
-		return false
-	end
-	
-	if		( VariableGet( "破壊_" .. tostring( g_CrystalPos[1][1] ) .. "_" .. tostring( g_CrystalPos[1][2] ) ) == 1 )
-		or	( VariableGet( "破壊_" .. tostring( g_CrystalPos[2][1] ) .. "_" .. tostring( g_CrystalPos[2][2] ) ) == 1 )
-		or	( VariableGet( "破壊_" .. tostring( g_CrystalPos[3][1] ) .. "_" .. tostring( g_CrystalPos[3][2] ) ) == 1 ) then
-		
-		return true
-	end
-	
-	return false
-	
-end
-
--- -----------------------------------
-
-function 水晶_リセット()
-	
-	水晶_リセット個別( g_CrystalPos[1][1], g_CrystalPos[1][2] )
-	水晶_リセット個別( g_CrystalPos[2][1], g_CrystalPos[2][2] )
-	水晶_リセット個別( g_CrystalPos[3][1], g_CrystalPos[3][2] )
-	
-	-- 水晶リセットイベント（初回）
-	if VariableGet( g_key_FirstResetCrystal ) == 0 then
-		Talk( "MID_EV5" )
-		
-		VariableSet( g_key_FirstResetCrystal, 1 )
-	end
-	
-	VariableSet( g_key_BrokenCrystalNum, 0 )
-	
-end
-
--- -----------------------------------
-
-function 水晶_リセット個別( x, z )
+function Crystal_Recovery( x, z )
 	
 	local 破壊フラグ	= "破壊_" .. tostring( x ) .. "_" .. tostring( z )
 	local HPフラグ		= "破壊_HP_" .. tostring( x ) .. "_" .. tostring( z )
@@ -443,7 +538,7 @@ function 水晶_リセット個別( x, z )
 		EventStateObject( x, z, 0 )
 		
 		VariableSet( 破壊フラグ, 0 )
-		VariableSet( HPフラグ, 水晶の最大HP() )
+		VariableSet( HPフラグ, Get_Crystal_MaxHp() )
 		TerrainSetOne( x, z, "TID_水晶_味方破壊" )
 		WaitTime( 1.0 )
 	end
@@ -488,119 +583,6 @@ end
 
 -- -----------------------------------
 
-function condition_増援４ターンめ()
-	return ( VariableGet( g_key_ReinforcementBrokenBarrier ) == 0 ) 
-end
-
-function 増援４ターンめ()
-	
-	増援( "Reinforcement1_1", DISPOS_FLAG_FOCUS )
-	
-end
-
--- -----------------------------------
-
-function condition_水浸しイベント()
-	
-	if VariableGet( g_key_puddleOn ) == 1 then
-		return false
-	end
-	
-	return ( VariableGet( g_key_puddleOn_Judge ) == 1 )
-	
-end
-
-function 水浸しイベント()
-	
-	CursorSetPos_FromPid_DistanceModeNear( ルフレのPID取得() )
-	Talk( "MID_EV6" )
-	
-	水浸し()
-	
-	CursorSetPos_FromPid( g_pid_lueur )
-	Talk( "MID_EV7" )
-	
-	増援( "Reinforcement2_1", DISPOS_FLAG_FOCUS )
-	増援( "Reinforcement2_2", DISPOS_FLAG_FOCUS )
-	増援( "Reinforcement2_3", DISPOS_FLAG_FOCUS )
-	増援( "Reinforcement2_4", DISPOS_FLAG_FOCUS )
-	
-	VariableSet( g_key_puddleOn, 1 )
-	
-end
-
-function 水浸し()
-	
-	MapOverlapSetBegin()
-	
-	for z = 1, g_height-2 do
-		for x = 1, g_width-2 do
-			
-			local key = x + ( z - 1 ) * ( g_width - 2 )
-			
-			if g_puddleMap[key] == 1 then
-				MapOverlapSet(x, z, "TID_水溜まり_永続")
-			end
-			
-		end
-	end
-	
-	MapOverlapSetEnd()
-	
-end
-
--- -----------------------------------
-
-function condition_増援６ターンめ()
-	return ( VariableGet( g_key_ReinforcementBrokenBarrier ) == 0 ) and ( DifficultyGet() > DIFFICULTY_NORMAL )
-end
-
-function 増援６ターンめ()
-	
-	増援( "Reinforcement3_1", DISPOS_FLAG_FOCUS )
-	増援( "Reinforcement3_2", DISPOS_FLAG_FOCUS )
-	増援( "Reinforcement3_3", DISPOS_FLAG_FOCUS )
-	
-end
-
--- -----------------------------------
-
-function condition_増援_エリア奥()
-	
-	return ( VariableGet( g_key_BrokenBarrier ) == 0 )
-	
-end
-
-function 増援_エリア奥()
-	
-	local turn = MapGetTurn()
-	local label = "Reinforcement_turn" .. tostring(turn)
-	
-	増援( label .. "L", DISPOS_FLAG_FOCUS )
-	増援( label .. "R", DISPOS_FLAG_FOCUS )
-	
-end
-
--- -----------------------------------
-
-function condition_障壁破壊後増援()
-	
-	return ( VariableGet( g_key_ReinforcementBrokenBarrier ) == 0 ) and ( VariableGet( g_key_BrokenBarrier ) == 1 )
-	
-end
-
-function 障壁破壊後増援()
-	
-	増援( "Reinforcement4_1", DISPOS_FLAG_FOCUS )
-	増援( "Reinforcement4_2", DISPOS_FLAG_FOCUS )
-	増援( "Reinforcement4_3", DISPOS_FLAG_FOCUS )
-	
-	VariableSet( g_key_ReinforcementBrokenBarrier, 1 )
-	
-end
-
--- -----------------------------------
-
 function クロムエンゲ技AI変更()
 	
 	if VariableGet( g_key_ChromDie ) == 0 then
@@ -614,16 +596,6 @@ function クロムエンゲ技AI変更()
 		end
 		
 	end
-	
-end
-
--- -----------------------------------
-
-function 増援( dispos, disposFlag )
-	
-	Dispos( dispos, disposFlag )
-	Yield()
-	WaitTime( 0.5 )
 	
 end
 
