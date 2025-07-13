@@ -3095,3 +3095,26 @@ EXP之书
 
 [MIID_H_ExpBook]
 使用后获得100EXP
+
+[MIID_BeastFang]
+兽牙
+
+[MIID_H_BeastFang]
+幻影狼族的獠牙。
+兽特效。
+技+5/速+3/守备-2
+
+[MIID_SuperBeastFang]
+超兽牙
+
+[MIID_H_SuperBeastFang]
+幻影狼族的尖锐獠牙。兽特效。
+使用后力、技-2，逐回合恢复。
+技+8/速+6/守备-5/魔防-3
+
+[MIID_GuardBeastFang]
+守兽牙
+
+[MIID_H_GuardBeastFang]
+幻影狼族护身的獠牙。兽特效。
+技-2/速-1/守备+4/魔防+5

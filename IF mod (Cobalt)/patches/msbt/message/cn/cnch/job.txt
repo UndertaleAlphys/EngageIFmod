@@ -564,3 +564,17 @@
 
 [MJID_BasicBraveHero]
 斧战士/佣兵
+
+[MJID_PhantomWolf]
+幻影狼
+
+[MJID_H_PhantomWolf]
+在地上爬行的狼之眷属。
+行动敏捷难以捉摸，能以獠牙咬伤敌人。
+
+[MJID_MoonWolf]
+幻影月狼
+
+[MJID_H_MoonWolf]
+掌握暗月之力的狼之眷属，据说会吃人。
+具有出色的力量和速度。
