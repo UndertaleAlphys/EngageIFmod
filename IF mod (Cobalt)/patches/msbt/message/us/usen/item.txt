@@ -3283,3 +3283,29 @@ Book of Exp
 
 [MIID_H_ExpBook]
 Grants 100 EXP.
+
+[MIID_BeastFang]
+Beast Fangs
+
+[MIID_H_BeastFang]
+Fangs of phantom wolfs.
+Effective: Cavalry
+Dex+5/Spd+3/Def-2
+
+[MIID_SuperBeastFang]
+Beast Fangs+
+
+[MIID_H_SuperBeastFang]
+Sharp fangs of phantom wolfs.
+Effective: Cavalry
+Inflicts stacking debuff on unit
+(Str/Dex-2)
+Dex+8/Spd+6/Def-5/Res-3
+
+[MIID_GuardBeastFang]
+Guard Beast Fangs
+
+[MIID_H_GuardBeastFang]
+Defensive fangs of phantom wolfs.
+Effective: Cavalry
+Dex-2/Spd-1/Def+4/Res+5

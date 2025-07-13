@@ -63,14 +63,6 @@ Barrier
 [MTID_Pond]
 Pool
 
-[MPID_PhantomWolf]
-Fabrication
-
-[MPID_H_PhantomWolf]
-A soulless beast created by secret
-techniques. It has no will of its own
-and only follows its master's orders.
-
 [MPID_Veronica]
 Veronica
 
