@@ -374,7 +374,6 @@ function Set_Interference_AI_M014()
 	if IsExistForcePlayerNearby("PID_IFMOD_M014_イルシオン兵_モンク4",10) == false then
 		UnitSetStatus( "PID_IFMOD_M014_イルシオン兵_モンク4", UNIT_STATUS_FIXED )
 	end
-	CobaltNotice("M014_UnitAttackRangeExpectedInterference Complete")
 end
 
 
