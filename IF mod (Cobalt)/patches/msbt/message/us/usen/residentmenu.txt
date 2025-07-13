@@ -1,0 +1,1392 @@
+[MID_MENU_YES]
+OK
+
+[MID_MENU_START]
+Start
+
+[MID_MENU_NO]
+No
+
+[MID_MENU_CANCEL]
+Return
+
+[MID_MENU_CANCEL_NO]
+Cancel
+
+[MID_MONETARY_UNIT]
+G
+
+[MID_MENU_UNIT_LIST]
+Units
+
+[MID_MENU_UNIT_LIST_HELP]
+Compare stats for all allies.
+
+[MID_MENU_UNIT_LIST_TITLEHELP]
+Compare stats for all allies.
+
+[MID_MENU_ORDER]
+Auto-Battle
+
+[MID_MENU_ORDER_HELP]
+Set an overall strategy and let units fight on their own.
+
+[MID_MENU_REWIND]
+Time Crystal
+
+[MID_MENU_REWIND_HELP]
+Go back in time to try a different approach.
+
+[MID_MENU_SYSTEM]
+System
+
+[MID_MENU_H_SYSTEM]
+Review tutorials and settings.
+
+[MID_MENU_TUTORIAL]
+Guide
+
+[MID_MENU_TUTORIAL_HELP]
+Select a category.
+
+[MID_MENU_H_TUTORIAL]
+Refer back to various tutorials.
+
+[MID_MENU_CONFIG]
+Settings
+
+[MID_MENU_CONFIG_HELP]
+Adjust settings to your liking.
+
+[MID_MENU_H_CONFIG]
+Configure settings.
+
+[MID_MENU_RESTART]
+Retry
+
+[MID_MENU_RESTART_HELP]
+Start this battle over from the
+beginning.
+
+[MID_MENU_RESTART_CONFIRM]
+Start this battle over from the beginning?
+(This will reset everything, including any EXP
+you've earned so far.)
+
+[MID_MENU_RESTART_CONFIRM_YES]
+Retry
+
+[MID_MENU_CONTINUEBATTLE_RESTART]
+Retry Series
+
+[MID_MENU_CONTINUEBATTLE_RESTART_HELP]
+Start this series of battles
+over from the first.
+
+[MID_MENU_CONTINUEBATTLE_CONFIRM]
+Start this series over from the first battle?
+(This will reset everything, including any EXP
+you've earned so far.)
+
+[MID_MENU_RESET]
+Quit
+
+[MID_MENU_RESET_HELP]
+Return to the title screen.
+
+[MID_MENU_RESET_CONFIRM]
+Return to the title screen?
+Unsaved progress will be lost.
+
+[MID_MENU_RESET_CONFIRM_YES]
+Return to Title
+
+[MID_MENU_TEMPORARY_SAVE]
+Bookmark
+
+[MID_MENU_TEMPORARY_SAVE_HELP]
+Save this battle and temporarily suspend the game.
+
+[MID_MENU_END_TURN]
+End Turn
+
+[MID_MENU_END_TURN_HELP]
+End your army's turn.
+
+[MID_MENU_MVP]
+MVP:
+
+[MID_MENU_TURN_COUNT]
+Turn:
+
+[MID_MENU_TURNS_COUNT]
+Turns:
+
+[MID_MENU_WAIT_UNIT_COUNT]
+Units Ready:
+
+[MID_STATUS_STYLE]
+Type
+
+[MID_STATUS_ATTACK_DEFENSE]
+Ph Atk/Def
+
+[MID_STATUS_MAGIC_ATTACK_DEFENSE]
+Mag Atk/Res
+
+[MID_STATUS_HIT_AVOIDANCE]
+Hit/Avo
+
+[MID_STATUS_CRITICAL_SECURE]
+Crit/Ddg
+
+[MID_STATUS_TECHNIQUE_SPEED]
+Dex/Spd
+
+[MID_STATUS_MOVE_PHYSIQUE]
+Mov/Bld
+
+[MID_STATUS_NONE]
+Hide
+
+[MID_STATUS_MINIMAP]
+Minimap
+
+[MID_STATUS_MINIMAP_SMALL]
+Small
+
+[MID_STATUS_MINIMAP_BIG]
+Large
+
+[MID_CONFIG_INITIALIZE]
+Revert to default settings?
+
+[MID_CONFIG_GRID]
+Grid Visibility
+
+[MID_CONFIG_H_GRID]
+Adjust the thickness of grid lines or remove them altogether.
+
+[MID_CONFIG_OVERALLINFORMATION]
+Danger Radius
+
+[MID_CONFIG_OVERALLINFORMATION_TOGGLE]
+Toggle
+
+[MID_CONFIG_H_OVERALLINFORMATION_TOGGLE]
+Toggle danger radius by pressing $Icon("ZL").
+
+[MID_CONFIG_OVERALLINFORMATION_PUSH]
+Hold
+
+[MID_CONFIG_H_OVERALLINFORMATION_PUSH]
+Show danger radius only while $Icon("ZL") is held down.
+
+[MID_CONFIG_COMBATANIME]
+Combat Animations
+
+[MID_CONFIG_COMBATANIME_ON]
+On
+
+[MID_CONFIG_H_COMBATANIME_ON]
+Always display combat animations.
+
+[MID_CONFIG_COMBATANIME_OFF]
+Off
+
+[MID_CONFIG_H_COMBATANIME_OFF]
+Never display combat animations.
+
+[MID_CONFIG_COMBATANIME_MYUNIT]
+Allied Units
+
+[MID_CONFIG_H_COMBATANIME_MYUNIT]
+Display combat animations only when allied units are involved.
+
+[MID_CONFIG_COMBATANIME_MYTURN]
+Your Turn
+
+[MID_CONFIG_H_COMBATANIME_MYTURN]
+Display combat animations only when it is your turn.
+
+[MID_CONFIG_ROD_DANCE]
+Staff/Dance Animations
+
+[MID_CONFIG_ROD_DANCE_ON]
+On
+
+[MID_CONFIG_H_ROD_DANCE_ON]
+Display staff and dance animations.
+
+[MID_CONFIG_ROD_DANCE_OFF]
+Off
+
+[MID_CONFIG_H_ROD_DANCE_OFF]
+Do not display staff or dance animations.
+
+[MID_CONFIG_ROD_DANCE_MYUNIT]
+Allied Units
+
+[MID_CONFIG_H_ROD_DANCE_MYUNIT]
+Display staff and dance animations only with allied units.
+
+[MID_CONFIG_ROD_DANCE_MYTURN]
+Your Turn
+
+[MID_CONFIG_H_ROD_DANCE_MYTURN]
+Display staff and dance animations only when it is your turn.
+
+[MID_CONFIG_ENGAGE]
+Engage Animations
+
+[MID_CONFIG_ENGAGE_ON]
+On
+
+[MID_CONFIG_H_ENGAGE_ON]
+Display engage animations.
+
+[MID_CONFIG_ENGAGE_OFF]
+Off
+
+[MID_CONFIG_H_ENGAGE_OFF]
+Do not display engage animations.
+
+[MID_CONFIG_ENGAGE_ONCE]
+First Time
+
+[MID_CONFIG_H_ENGAGE_ONCE]
+Play only the first engage animation of each turn.
+
+[MID_CONFIG_AI_SKIP]
+Action Skip
+
+[MID_CONFIG_AI_SKIP_ON]
+On
+
+[MID_CONFIG_H_AI_SKIP_ON]
+Skip through actions during Auto-Battle.
+
+[MID_CONFIG_AI_SKIP_OFF]
+Off
+
+[MID_CONFIG_H_AI_SKIP_OFF]
+Do not skip through actions during Auto-Battle.
+
+[MID_CONFIG_UNITHELP_PAGE]
+Additional Info Config
+
+[MID_CONFIG_UNITHELP_PAGE_H_STYLE]
+Display unit type as additional information.
+
+[MID_CONFIG_UNITHELP_PAGE_H_ATTACK_DEFENSE]
+Display Ph Atk and Def as additional information.
+
+[MID_CONFIG_UNITHELP_PAGE_H_MAGIC_ATTACK_DEFENSE]
+Display Mag Atk and Res as additional information.
+
+[MID_CONFIG_UNITHELP_PAGE_H_HIT_AVOIDANCE]
+Display Hit and Avo as additional information.
+
+[MID_CONFIG_UNITHELP_PAGE_H_CRITICAL_SECURE]
+Display Crit and Ddg as additional information.
+
+[MID_CONFIG_UNITHELP_PAGE_H_TECHNIQUE_SPEED]
+Display Dex and Spd as additional information.
+
+[MID_CONFIG_UNITHELP_PAGE_H_MOVE_PHYSIQUE]
+Display Mov and Bld as additional information.
+
+[MID_CONFIG_BATTLE_MINIMAP]
+Battle Minimap
+
+[MID_CONFIG_H_BATTLE_MINIMAP_BIG]
+Large Minimap
+
+[MID_CONFIG_H_BATTLE_MINIMAP_SMALL]
+Small Minimap
+
+[MID_CONFIG_H_BATTLE_MINIMAP_OFF]
+No Minimap
+
+[MID_CONFIG_MAPUNIT]
+Unit Control Style
+
+[MID_CONFIG_MAPUNIT_DIRECT]
+Direct
+
+[MID_CONFIG_H_MAPUNIT_DIRECT]
+Control units directly by selecting them.
+
+[MID_CONFIG_MAPUNIT_INDIRECT]
+Cursor
+
+[MID_CONFIG_H_MAPUNIT_INDIRECT]
+Control units indirectly by selecting a target space with the cursor.
+
+[MID_CONFIG_MINIMAP_ROTATION]
+Minimap Rotation
+
+[MID_CONFIG_MINIMAP_ROTATION_ON]
+On
+
+[MID_CONFIG_H_MINIMAP_ROTATION_ON]
+Minimap will rotate with camera movement while exploring.
+
+[MID_CONFIG_MINIMAP_ROTATION_OFF]
+Off
+
+[MID_CONFIG_H_MINIMAP_ROTATION_OFF]
+Minimap will not rotate while exploring.
+
+[MID_CONFIG_CAMERA_SPEED]
+Camera Sensitivity
+
+[MID_CONFIG_H_CAMERA_SPEED]
+Adjust camera sensitivity for exploring and the Somniel.
+
+[MID_CONFIG_COMBATCAMERA_HORIZON]
+Combat Camera (Horizontal)
+
+[MID_CONFIG_COMBATCAMERA_HORIZON_NOMAL]
+Normal
+
+[MID_CONFIG_H_COMBATCAMERA_HORIZON_NOMAL]
+Sets horizontal controls for the combat camera to standard.
+
+[MID_CONFIG_COMBATCAMERA_HORIZON_REVERSE]
+Inverted
+
+[MID_CONFIG_H_COMBATCAMERA_HORIZON_REVERSE]
+Inverts horizontal combat-camera controls.
+
+[MID_CONFIG_COMBATCAMERA_VERTICAL]
+Combat Camera (Vertical)
+
+[MID_CONFIG_COMBATCAMERA_VERTICAL_NOMAL]
+Normal
+
+[MID_CONFIG_H_COMBATCAMERA_VERTICAL_NOMAL]
+Sets vertical controls for the combat camera to standard.
+
+[MID_CONFIG_COMBATCAMERA_VERTICAL_REVERSE]
+Inverted
+
+[MID_CONFIG_H_COMBATCAMERA_VERTICAL_REVERSE]
+Inverts vertical combat-camera controls.
+
+[MID_CONFIG_HABCAMERA_HORIZON]
+Walking Camera (Horizontal)
+
+[MID_CONFIG_HABCAMERA_HORIZON_NOMAL]
+Normal
+
+[MID_CONFIG_H_HABCAMERA_HORIZON_NOMAL]
+Sets horizontal controls for the walking camera to standard.
+
+[MID_CONFIG_HABCAMERA_HORIZON_REVERSE]
+Inverted
+
+[MID_CONFIG_H_HABCAMERA_HORIZON_REVERSE]
+Inverts horizontal walking-camera controls.
+
+[MID_CONFIG_HABCAMERA_VERTICAL]
+Walking Camera (Vertical)
+
+[MID_CONFIG_HABCAMERA_VERTICAL_NOMAL]
+Normal
+
+[MID_CONFIG_H_HABCAMERA_VERTICAL_NOMAL]
+Sets vertical controls for the walking camera to standard.
+
+[MID_CONFIG_HABCAMERA_VERTICAL_REVERSE]
+Inverted
+
+[MID_CONFIG_H_HABCAMERA_VERTICAL_REVERSE]
+Inverts vertical walking-camera controls.
+
+[MID_CONFIG_GAMESPEED]
+Game Speed
+
+[MID_CONFIG_GAMESPEED_FAST]
+Fast
+
+[MID_CONFIG_H_GAMESPEED_FAST]
+Set game flow (movement, etc.) to fast.
+
+[MID_CONFIG_GAMESPEED_NOMAL]
+Normal
+
+[MID_CONFIG_H_GAMESPEED_NOMAL]
+Set game flow (movement, etc.) to normal.
+
+[MID_CONFIG_GAMESPEED_SLOW]
+Slow
+
+[MID_CONFIG_H_GAMESPEED_SLOW]
+Set game flow (movement, etc.) to slow.
+
+[MID_CONFIG_HPGAGE]
+HP Gauges
+
+[MID_CONFIG_HPGAGE_ON]
+On
+
+[MID_CONFIG_H_HPGAGE_ON]
+HP gauges will display.
+
+[MID_CONFIG_HPGAGE_OFF]
+Off
+
+[MID_CONFIG_H_HPGAGE_OFF]
+HP gauges will not display.
+
+[MID_CONFIG_SPEAKMODE]
+Conversation Advancement
+
+[MID_CONFIG_SPEAKMODE_MANUAL]
+Manual
+
+[MID_CONFIG_H_SPEAKMODE_MANUAL]
+Advance conversation manually.
+
+[MID_CONFIG_SPEAKMODE_AUTOMATIC]
+Automatic
+
+[MID_CONFIG_H_SPEAKMODE_AUTOMATIC]
+Advance conversation automatically.
+
+[MID_CONFIG_BGM]
+Music Volume
+
+[MID_CONFIG_H_BGM]
+Adjust the volume of music.
+
+[MID_CONFIG_SE]
+SFX Volume
+
+[MID_CONFIG_H_SE]
+Adjust the volume of sound effects.
+
+[MID_CONFIG_VOICE]
+Voice Volume
+
+[MID_CONFIG_H_VOICE]
+Adjust the volume of voices.
+
+[MID_CONFIG_BGM_CHANGE_MYTURN]
+Music Settings (Player Phase)
+
+[MID_CONFIG_H_BGM_CHANGE_MYTURN]
+$Arg(0) will play during non-story player phase.
+
+[MID_CONFIG_H_BGM_CHANGE_MYTURN_NONE]
+Music will not change during non-story player phase.
+
+[MID_CONFIG_BGM_CHANGE_ENEMYTURN]
+Music Settings (Enemy Phase)
+
+[MID_CONFIG_H_BGM_CHANGE_ENEMYTURN]
+$Arg(0) will play during non-story enemy phase.
+
+[MID_CONFIG_H_BGM_CHANGE_ENEMYTURN_NONE]
+Music will not change during non-story enemy phase.
+
+[MID_CONFIG_BGM_CHANGE_DECIDE]
+Change Setting
+
+[MID_CONFIG_BGM_CHANGE_NOSELECT]
+No Selection
+
+[MID_CONFIG_TUTORIAL]
+Guide Display
+
+[MID_CONFIG_TUTORIAL_ON]
+On
+
+[MID_CONFIG_H_TUTORIAL_ON]
+Tutorials will appear during gameplay.
+
+[MID_CONFIG_TUTORIAL_OFF]
+Off
+
+[MID_CONFIG_H_TUTORIAL_OFF]
+Tutorials will not appear during gameplay (with some exceptions).
+
+[MID_CONFIG_NETWORK]
+Network Features
+
+[MID_CONFIG_NETWORK_ON]
+On
+
+[MID_CONFIG_H_NETWORK_ON]
+Enable online-communication features.
+
+[MID_CONFIG_NETWORK_OFF]
+Off
+
+[MID_CONFIG_H_NETWORK_OFF]
+Disable online-communication features.
+
+[MID_MENU_TITLE_GMAP]
+World Map Menu
+
+[MID_MENU_TITLE_KIZUNA]
+Exploration Menu
+
+[MID_MENU_TITLE_HUB]
+Somniel Menu
+
+[MID_MENU_TITLE_FASTTRAVEL]
+Fast Travel
+
+[MID_MENU_TITLE_FASTTRAVEL_HELP]
+Select a location to visit.
+
+[MID_MENU_ENTER_CHAPTER]
+Begin Chapter
+
+[MID_MENU_ENTER_CHAPTER_HELP]
+Continue the story.
+
+[MID_MENU_ENTER_ENCOUNTER]
+Begin Skirmish
+
+[MID_MENU_ENTER_ENCOUNTER_HELP]
+Battle enemies here.
+
+[MID_MENU_ENTER_TRAINING]
+Begin Training
+
+[MID_MENU_ENTER_TRAINING_HELP]
+Train with the soldiers here.
+
+[MID_MENU_ENTER_CHAPTER_CONFIRM]
+Begin this chapter?
+
+[MID_MENU_ENTER_CHAPTER_CONFIRM_M010]
+Once you start this chapter, there is a series
+of battles before you can return to the Somniel.
+
+[MID_MENU_ENTER_ENCOUNTER_CONFIRM]
+Begin this skirmish?
+
+[MID_MENU_ENTER_TRAINING_CONFIRM]
+Begin this training?
+
+[MID_MENU_ENTER_YES]
+Begin
+
+[MID_MENU_ENTER_CHAPTER_OPEN_M026]
+You can access the final battle with Fell Dragon
+Sombron from the second floor balcony of the
+Somniel's Café Terrace.
+
+[MID_MENU_FRIEND]
+Reference
+
+[MID_MENU_FRIEND_HELP]
+Check info/support on allies & Emblems.
+
+[MID_MENU_FRIEND_LIST]
+Ally Notebook
+
+[MID_MENU_FRIEND_LIST_HELP]
+Review notes on allies.
+
+[MID_MENU_FRIEND_LIST_SELECT_HELP]
+Select an ally to review.
+
+[MID_MENU_FRIEND_LIST_NONE]
+No notes yet. Try speaking with your allies on
+the Somniel.
+
+[MID_MENU_RING_LIST]
+Ring Reference
+
+[MID_MENU_RING_LIST_HELP]
+Review Emblems and Bond Rings.
+
+[MID_MENU_RING_LIST_SELECT_HELP]
+Select a ring$Arg(10) to review.
+
+[MID_MENU_HUB_MATERIAL]
+Storehouse
+
+[MID_MENU_HUB_MATERIAL_HELP]
+Review materials and gifts.
+
+[MID_MENU_HUB_MAP_CHECK]
+Somniel Map
+
+[MID_MENU_HUB_MAP_CHECK_HELP]
+Fast travel and review facility information.
+
+[MID_MENU_KIZUNA_DEPART]
+Depart
+
+[MID_MENU_KIZUNA_DEPART_HELP]
+Proceed to your next destination.
+
+[MID_MENU_TO_SOLANEL]
+To Somniel
+
+[MID_MENU_TO_SOLANEL_HELP]
+Travel to your base on the Somniel.
+
+[MID_MENU_TO_SOLANEL_CONFIRM]
+Travel to the Somniel?
+
+[MID_MENU_TO_GMAP]
+To World Map
+
+[MID_MENU_TO_GMAP_HELP]
+Depart to the world map.
+
+[MID_MENU_SHOPPING]
+Marketplace
+
+[MID_MENU_SHOPPING_HELP]
+Buy or sell weapons and items.
+
+[MID_MENU_Recall_Reliance]
+Support
+
+[MID_MENU_H_Recall_Reliance]
+View support relationships.
+
+[MID_MENU_Recall_Reliance_Unit]
+Supports
+
+[MID_MENU_Recall_GodReliance]
+Bond
+
+[MID_MENU_H_Recall_GodReliance]
+View bond relationships.
+
+[MID_MENU_Recall_GodReliance_Unit]
+Bonds
+
+[MID_MENU_SoundList]
+Songs
+
+[MID_GMAP_MapDetails_TRAINING]
+Training!
+
+[MID_GMAP_MapDetails_ENCOUNTER]
+Skirmish!
+
+[MID_GMAP_MapDetails_RarEnemy_EXP]
+Silver Corrupted!
+
+[MID_GMAP_MapDetails_RarEnemy_Gold]
+Gold Corrupted!
+
+[MID_GMAP_MapDetails_Position]
+Suggested:
+
+[MID_GMAP_MapDetails_PositionLv]
+$Arg(0) Lvl $Arg(1)
+
+[MID_GMAP_MapDetails_Investment]
+Donation Lvl $Arg(0)
+
+[MID_GMAP_MapDetails_Material]
+Materials
+
+[MID_GMAP_MapDetails_Food]
+Ingredients
+
+[MID_GMAP_MapDetails_Animal]
+Animals
+
+[MID_GMAP_MapDetails_Animal_Capture_OK]
+Can Adopt
+
+[MID_GMAP_MapDetails_Animal_Capture_NG]
+Can't Adopt
+
+[MID_GMAP_MapDetails_Animal_Capture_Verification]
+Adopt $Arg(0) and bring it back to the Somniel?
+
+[MID_GMAP_MapDetails_Animal_Capture_Yes]
+Adopt
+
+[MID_GMAP_MapDetails_Animal_Capture_Attention]
+You can't adopt this $Arg(0) because
+you don't know how to raise it.
+See the donation section of the bulletin board
+at Café Terrace to learn more.
+
+[MID_GMAP_MapDetails_Animal_Capture_Get]
+Adopt
+
+[MID_GMAP_MapDetails_Animal_Capture_Got]
+Adopted!
+
+[MID_MENU_ORDER_ADVANCE]
+Advance
+
+[MID_MENU_ORDER_ADVANCE_HELP]
+Proceed in a balanced and
+flexible way.
+
+[MID_MENU_ORDER_RUSH]
+Charge
+
+[MID_MENU_ORDER_RUSH_HELP]
+Attack aggressively.
+
+[MID_MENU_ORDER_ESCORT]
+Protect
+
+[MID_MENU_ORDER_ESCORT_HELP]
+Focus on protecting
+$P.
+
+[MID_MENU_ORDER_WITHDRAW]
+Fall Back
+
+[MID_MENU_ORDER_WITHDRAW_HELP]
+Keep away from the enemy.
+
+[MID_MENU_BREAK_DOWN]
+Seize
+
+[MID_MENU_HELP_BREAK_DOWN]
+Clear this map.
+
+[MID_MENU_ESCAPE]
+Seize
+
+[MID_MENU_HELP_ESCAPE]
+Complete the chapter.
+
+[MID_MENU_ATTACK]
+Attack
+
+[MID_MENU_HELP_ATTACK]
+Combat a foe.
+
+[MID_MENU_ENGAGE_COMMAND]
+Engage
+
+[MID_MENU_ENGAGE_COMMAND_RELEASE]
+Disengage
+
+[MID_MENU_HELP_ENGAGE_COMMAND]
+Merge with an Emblem.
+
+[MID_MENU_ENGAGE_HELP_TITLE]
+Bond Effects
+
+[MID_MENU_ALTERNATE_HELP_TITLE]
+Effects Altered
+
+[MID_MENU_ENGAGE_LINK]
+Engage+
+
+[MID_MENU_HELP_ENGAGE_LINK]
+Unit and an adjacent ally
+both become engaged.
+
+[MID_MENU_ENGAGE_LINK_OUT_OF_MOVE_RANGE]
+You are not within movement range to do this.
+
+[MID_MENU_CANNON]
+Fire
+
+[MID_MENU_HELP_CANNON]
+Use mounted weapon to attack a foe.
+
+[MID_MENU_CANNON_NO_AVAILABLE_BOW]
+Unit has no bow.
+
+[MID_MENU_CANNON_NO_AVAILABLE_MAGIC]
+Unit has no tome.
+
+[MID_MENU_CANNON_OUT_OF_AMMO]
+No more uses left.
+
+[MID_MENU_CANNON_OUT_OF_RANGE]
+No enemies in range.
+
+[MID_MENU_DESTROY]
+Destroy
+
+[MID_MENU_HELP_DESTROY]
+Break through walls or obstacles.
+
+[MID_MENU_ROD]
+Staff
+
+[MID_MENU_HELP_ROD]
+Heal allies, impair enemies, etc.
+
+[MID_MENU_VISIT]
+Visit
+
+[MID_MENU_HELP_VISIT]
+Speak to people in houses.
+
+[MID_MENU_TREASURE_BOX]
+Chest
+
+[MID_MENU_HELP_TREASURE_BOX]
+Obtain an item from a chest.
+
+[MID_MENU_TORCH_ON]
+Light
+
+[MID_MENU_HELP_TORCH_ON]
+Light up surroundings.
+
+[MID_MENU_DOOR]
+Door
+
+[MID_MENU_HELP_DOOR]
+Open a door.
+
+[MID_MENU_ITEM]
+Items
+
+[MID_MENU_HELP_ITEM]
+Use or equip items.
+
+[MID_MENU_TRADE]
+Trade
+
+[MID_MENU_HELP_TRADE]
+Swap items with an ally.
+
+[MID_MENU_TRANSPORTER]
+Convoy
+
+[MID_MENU_HELP_TRANSPORTER]
+Store/retrieve items.
+
+[MID_MENU_TITLEHELP_TRANSPORTER]
+Store/retrieve items.
+
+[MID_MENU_TALK]
+Talk
+
+[MID_MENU_HELP_TALK]
+Speak to a unit on the map.
+
+[MID_MENU_GUARD]
+Chain Guard
+
+[MID_MENU_HELP_GUARD]
+Shield adjacent allies from attack.
+
+[MID_MENU_GUARD_FULL_HP]
+Can only be used with full HP.
+
+[MID_MENU_DANCE]
+Dance
+
+[MID_MENU_HELP_DANCE]
+Inspire allies to act again this phase.
+
+[MID_MENU_WAIT]
+Wait
+
+[MID_MENU_HELP_WAIT]
+End this unit's turn.
+
+[MID_MENU_ITEM_EQUIP]
+Equip
+
+[MID_MENU_ITEM_REMOVE]
+Remove
+
+[MID_MENU_ITEM_ARRANGE]
+Arrange
+
+[MID_MENU_ITEM_USE]
+Use
+
+[MID_MENU_ITEM_USE_CONFIRM]
+Use $Arg(0)?
+
+[MID_MENU_ITEM_USE_DOPING_FOREVER]
+$Arg(0) increased by $Arg(1).
+
+[MID_MENU_ITEM_USE_DOPING_TEMPORARY]
+$Arg(0) increased by $Arg(1) for one battle.
+
+[MID_MENU_ITEM_TRADE]
+Trade
+
+[MID_MENU_ITEM_DISCARD]
+Discard
+
+[MID_MENU_ITEM_DISCARD_NOTIFY]
+Your inventory is
+full. Choose one
+item to discard.
+
+[MID_MENU_ITEM_SEND_NOTIFY]
+You cannot carry
+any more. Send one
+item to the convoy.
+
+[MID_MENU_ITEM_SEND_EQUIP]
+You cannot send or discard a weapon that is
+currently equipped.
+
+[MID_MENU_ITEM_DISCARD_CONFIRM]
+Discard $Arg(0)$Arg(1)?
+
+[MID_MENU_ITEM_DISCARD_CONFIRM_YES]
+Discard
+
+[MID_MENU_ITEM_SEND_CONFIRM]
+Send $Arg(0)$Arg(1) to the convoy?
+
+[MID_MENU_ITEM_SEND_YES]
+Send
+
+[MID_MENU_ITEM_CASH_ANNOUNCE]
+Convoy storage limit exceeded. One or more of
+your least valuable items have been sold to free
+up space.
+
+[MID_ITEMMENU_TITLE_ITEM]
+Items
+
+[MID_ITEMMENU_TITLE_ATTACK]
+Weapon Selection
+
+[MID_ITEMMENU_TITLE_ROD]
+Staff Selection
+
+[MID_ITEMMENU_TITLE_TRANSPORTER]
+Convoy
+
+[MID_ITEMMENU_ITEM_COUNT]
+Number
+
+[MID_ITEMMENU_ITEM_ALL]
+ALL
+
+[MID_MENU_REWIND_INFO_TURN]
+Turn:
+
+[MID_MENU_REWIND_INFO_TURNS]
+Turns
+
+[MID_MENU_REWIND_INFO_REST_UNIT]
+Units Ready:
+
+[MID_MENU_REWIND_INFO_TIMES]
+Charges
+
+[MID_MENU_REWIND_CONFIRM]
+This is not during your own army's phase.
+Do you still wish to rewind to this point?
+
+[MID_MENU_REWIND_DECIDE_YES]
+Rewind
+
+[MID_MENU_SHOP_HELP]
+Select an action.
+
+[MID_MENU_SHOP_BUY]
+Buy
+
+[MID_MENU_SHOP_BUY_EMPTY]
+Nothing available.
+
+[MID_MENU_SHOP_BUY_CONFIRM]
+Buy this item?
+
+[MID_MENU_SHOP_PurchasedItem]
+Item to Buy
+
+[MID_MENU_SHOP_BUY_CONFIRM_YES]
+Buy
+
+[MID_MENU_SHOP_BUY_NOTICE_FULL]
+Unable to purchase. You cannot carry any more.
+
+[MID_MENU_SHOP_SELL]
+Sell
+
+[MID_MENU_SHOP_SELL_EMPTY]
+(No items)
+
+[MID_MENU_SHOP_SELL_CANNOT]
+Can't Sell
+
+[MID_MENU_SHOP_SELL_CONFIRM]
+Sell this item?
+
+[MID_MENU_SHOP_SELL_CONFIRM_Multiple]
+Sell these items?
+
+[MID_MENU_SHOP_SELL_CONFIRM_Other]
+Other: $Arg(0)
+
+[MID_MENU_SHOP_SaleItem]
+Items
+
+[MID_MENU_SHOP_SELL_CONFIRM_YES]
+Sell
+
+[MID_MENU_SHOP_ITEM]
+Items
+
+[MID_MENU_SHOP_STOCK]
+Stock
+
+[MID_MENU_SHOP_USABLE_COUNT]
+Uses
+
+[MID_MENU_SHOP_PRICE]
+Cost
+
+[MID_MENU_SHOP_SELLING_COUNT]
+Qty
+
+[MID_MENU_SHOP_SELLING_TOTAL]
+Price
+
+[MID_MENU_WEAPON_SHOP]
+Armory
+
+[MID_MENU_WEAPON_SHOP_BUY_HELP]
+Select a weapon to buy.
+
+[MID_MENU_WEAPON_SHOP_HOLDING_COUNT]
+Inventory
+
+[MID_MENU_WEAPON_SHOP_EQUIPPED_POSSIBLE]
+Equippable
+
+[MID_MENU_ITEM_SHOP]
+Item Shop
+
+[MID_MENU_ITEM_SHOP_BUY_HELP]
+Select an item to buy.
+
+[MID_MENU_ITEM_SHOP_SELL_HELP]
+Select items to sell.
+
+[MID_MENU_ITEM_SHOP_HOLDING_COUNT]
+Inventory 
+
+[MID_MENU_ACCESSORY_SHOP]
+Boutique
+
+[MID_MENU_ACCESSORY_SHOP_CHANGE]
+Change
+
+[MID_MENU_ACCESSORY_SHOP_BUY_HELP]
+Select what to buy.
+
+[MID_MENU_ACCESSORY_SHOP_BUY_CONFIRM]
+Purchase this accessory?
+
+[MID_MENU_ACCESSORY_SHOP_ACCESSORY]
+Accessories
+
+[MID_MENU_ACCESSORY_SHOP_PART_BODY]
+Body
+
+[MID_MENU_ACCESSORY_SHOP_PART_HEAD]
+Head
+
+[MID_MENU_ACCESSORY_SHOP_PART_FACE]
+Face
+
+[MID_MENU_ACCESSORY_SHOP_PART_BACK]
+Back
+
+[MID_MENU_ACCESSORY_SHOP_CHANGE_HELP]
+Select outfit/accessory to wear.
+
+[MID_MENU_ACCESSORY_SHOP_CHANGE_EMPTY]
+(None)
+
+[MID_MENU_REFINE_SHOP]
+Smithy
+
+[MID_MENU_REFINE_SHOP_REFINE]
+Refine
+
+[MID_MENU_REFINE_SHOP_REFINE_WEAPONS]
+Weapons
+
+[MID_MENU_REFINE_SHOP_REFINE_GODSYMBOL]
+Emblems
+
+[MID_MENU_REFINE_SHOP_ENGRAVE]
+Engrave
+
+[MID_MENU_REFINE_SHOP_EXCHANGE]
+Exchange
+
+[MID_MENU_REFINE_SHOP_REFINE_BASE_HELP]
+Select a weapon to upgrade.
+
+[MID_MENU_REFINE_SHOP_REFINE_BASE_EMPTY]
+(No Weapons)
+
+[MID_MENU_REFINE_SHOP_REFINE_TARGET_HELP]
+Select a weapon to refine into.
+
+[MID_MENU_REFINE_SHOP_REFINE_TARGET_UNKNOWN]
+???
+
+[MID_MENU_REFINE_SHOP_REFINE_CONFIRM]
+Refine this weapon?
+
+[MID_MENU_REFINE_SHOP_REFINE_CONTENTS]
+Refine:
+
+[MID_MENU_REFINE_SHOP_REFINE_CONFIRM_YES]
+Refine
+
+[MID_MENU_REFINE_SHOP_EVOLVE_CONFIRM]
+Transform this weapon?
+
+[MID_MENU_REFINE_SHOP_EVOLVE_CONTENTS]
+Transform:
+
+[MID_MENU_REFINE_SHOP_EVOLVE_CONFIRM_YES]
+Transform
+
+[MID_MENU_REFINE_SHOP_ENGRAVE_ITEM_HELP]
+Select a weapon to engrave.
+
+[MID_MENU_REFINE_SHOP_ENGRAVE_ITEM_EMPTY]
+(No Weapons)
+
+[MID_MENU_REFINE_SHOP_ENGRAVE_GOD_HELP]
+Select an Emblem to engrave.
+
+[MID_MENU_REFINE_SHOP_ENGRAVE_CONFIRM]
+Engrave this Emblem?
+
+[MID_MENU_REFINE_SHOP_ENGRAVE_CONTENTS]
+Engraved
+
+[MID_MENU_REFINE_SHOP_ENGRAVE_CONFIRM_YES]
+Engrave
+
+[MID_MENU_REFINE_SHOP_ENGRAVE_CONFIRM_TO_REPLACE]
+Your $Arg(1) already has the Emblem of $Arg(0) engraved on it. Engrave it on this weapon instead?
+
+[MID_MENU_REFINE_SHOP_ENGRAVE_EMPTY]
+(No Emblems)
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_SELECT_TARGET]
+What metal do you want?
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_SELECT_SOURCE]
+What metal will you offer?
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_SELECT_COUNT]
+How many will you trade?
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_SOURCE]
+Offered
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_GET]
+Obtained
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_POSSIBLE]
+Tradable
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_ADJUSTMENT]
+Change
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_IMPOSSIBLE]
+Not enough capacity to trade.
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_Lack]
+Not enough metal.
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_01]
+Make this exchange?
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_02]
+Unable to obtain $Arg(1) $Arg(0) because
+you are at maximum capacity.
+
+[MID_MENU_REFINE_SHOP_EXCHANGE_YES]
+Trade
+
+[MID_MENU_FLEA_MARKET]
+Flea Market
+
+[MID_MENU_FLEA_MARKET_NOUNIT]
+No one is tending the store, but you can shop.
+
+[MID_MENU_FORTUNE_TELLING_TITLE]
+Fortune
+
+[MID_MENU_FORTUNE_TELLING_HELP]
+Select a unit to fortune-read.
+
+[MID_MENU_FORTUNE_TELLING_RESULT0]
+Current Worry
+
+[MID_MENU_FORTUNE_TELLING_RESULT1]
+Thinking Of
+
+[MID_MENU_PROFILE_CARD]
+Profile Card
+
+[MID_MENU_PROFILE_CARD_HELP]
+View your card and exchange
+cards with others online.
+
+[MID_RINGLIST_SKILLLIST_TITLE]
+Bond Effects
+
+[MID_RINGLIST_BONDSRING_NAME]
+Bond Ring
+
+[MID_RINGLIST_BONDSRING_NAME_MULTIPLE]
+Bond Rings
+
+[MID_RINGLIST_BONDSRINGLIST_TITLE]
+Bond Ring Effects
+
+[MID_MAINMENU_START]
+New Game
+
+[MID_MAINMENU_CONTINUE]
+Continue
+
+[MID_MAINMENU_OPTION]
+Options
+
+[MID_MAINMENU_SAVEDATA_COPY]
+Copy
+
+[MID_MAINMENU_SAVEDATA_DELETE]
+Delete
+
+[MID_MAINMENU_LANGUAGE_SETTING]
+Change Language
+
+[MID_MAINMENU_LANGUAGE_SETTING_HELP]
+Change the language displayed while playing.
+
+[MID_MAINMENU_LANGUAGE_MESS]
+Text
+
+[MID_MAINMENU_LANGUAGE_VOICE]
+Voice
+
+[MID_MAINMENU_LANGUAGE_CONFIRM]
+Change language?
+
+[MID_MAINMENU_LANGUAGE_CONFIRM_YES]
+Change
+
+[MID_MAINMENU_PRIVILEFE_LABEL]
+© Nintendo / INTELLIGENT SYSTEMS
+
+[MID_MAINMENU_GAME_VERSION]
+Ver. $Arg(0)
+
+[MID_GAMESTART_PRESS_ANY_BUTTON]
+PRESS ANY BUTTON
+
+[MID_GAMESTART_MODE_TITLE]
+Mode
+
+[MID_GAMESTART_PLAYER_NAME_TITLE]
+Name
+
+[MID_GAMESTART_PLAYER_BIRTHDAY_TITLE]
+Birthday
+
+[MID_GAMESTART_DIFFICULTY_TITLE]
+Difficulty
+
+[MID_GAMESTART_GROWMODE_TITLE]
+Growth Type
+
+[MID_GAMESTART_NETWORK_SERVICE_TITLE]
+Network
+
+[MID_GAMESTART_DIFFICULTY_SELECT_TITLE]
+Select Difficulty
+
+[MID_GAMESTART_DIFFICULTY_SELECT_HELP]
+Select a difficulty level.
+
+[MID_GAMESTART_MODE_SELECT_TITLE]
+Select Mode
+
+[MID_GAMESTART_MODE_SELECT_HELP]
+Select a mode.
+
+[MID_GAMESTART_GROWMODE_SELECT_TITLE]
+Stat Growth
+
+[MID_GAMESTART_GROWMODE_SELECT_HELP]
+Select your units' growth type.
+
+[MID_GAMESTART_GROEMODE_LOCKED_BY_LUNATIC]
+You need to clear the game on Maddening
+difficulty first before you can select Random
+as your units' growth type in Maddening.
+
+[MID_GAMESTART_NETWORK_SERVICE_ON]
+Connected
+
+[MID_GAMESTART_NETWORK_SERVICE_OFF]
+Unconnected
+
+[MID_GAMESTART_PLAYER_GENDER_SELECT_TITLE]
+Appearance
+
+[MID_GAMESTART_PLAYER_GENDER_SELECT_HELP]
+Select a form.
+
+[MID_GAMESTART_PLAYER_NAME_INPUT]
+Enter your name.
+
+[MID_GAMESTART_PLAYER_NAME_CHECK]
+Is this name OK? (Characters that cannot be
+displayed will show as $Arg(0).)
+
+[MID_GAMESTART_PLAYER_NAME_CHECK_YES]
+Yes
+
+[MID_GAMESTART_PLAYER_NAME_CHECK_NO]
+No
+
+[MID_GAMESTART_PLAYER_BIRTHDAY_INPUT_TITLE]
+Enter Birthday
+
+[MID_GAMESTART_PLAYER_BIRTHDAY_INPUT_HELP]
+Enter birthday.
+
+[MID_GAMESTART_PLAYER_BIRTHDAY_INPUT_MONTH]
+Month
+
+[MID_GAMESTART_PLAYER_BIRTHDAY_INPUT_DAY]
+Day
+
+[MID_GAMESTART_PLAYER_BIRTHDAY_INPUT_MONTH_DAY]
+$Arg(0)/$Arg(1)
+
+[MID_GAMESTART_NETWORK_SERVICE_SELECT_TITLE]
+Configure Network
+
+[MID_GAMESTART_NETWORK_SERVICE_SELECT_HELP]
+Set up online play.
+
+[MID_GAMESTART_CONFIRM_FINAL]
+Start the game?
+
+[MID_GAMESTART_CONFIRM_FINAL_OK]
+Start
+
