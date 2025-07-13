@@ -2707,14 +2707,6 @@ HP为50%以下时
 [MSID_H_RoyRing_Dieck]
 使用猛击武器攻击时，命中+20
 
-[MSID_LeafRing_Fin]
-祈祷
-
-[MSID_H_LeafRing_Fin]
-受到致命伤害时
-会根据“幸运”%的几率
-回避攻击。（最多50%）
-
 [MSID_LeafRing_Olwen]
 神雷
 
@@ -4047,8 +4039,20 @@ MSID_CrtMoreDmg
 祈祷
 
 [MSID_H_Pray]
-回合开始时，
-回复2格内我方单位20%最大HP
+若自身HP>1，
+受到致命伤害时，
+一定几率保留1HP。
+（几率为“幸运”%）
+
+[MSID_Pray_2]
+祈祷+
+
+[MSID_H_Pray_2]
+若自身HP>1，
+受到致命伤害时，
+一定几率保留1HP。
+（几率为“幸运”%）
+【祈祷+】必定发动祈祷
 
 [MSID_SeekWeakness]
 弱点寻觅

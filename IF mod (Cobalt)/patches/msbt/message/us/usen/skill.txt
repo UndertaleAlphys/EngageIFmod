@@ -4392,12 +4392,21 @@ dagger/other damage in the
 next enemy's phase.
 
 [MSID_Pray]
-Pray
+Miracle
 
 [MSID_H_Pray]
-At the start of player' phase,
-restore allies within 2 radius
-20% of max HP.
+If unit's HP>1, and if
+foe's attack would otherwise kill unit,
+may reduce its damage to leave unit with 1 HP.
+Trigger %=Lck
+
+[MSID_Pray_2]
+Miracle+
+
+[MSID_H_Pray_2]
+If unit's HP>1, and if
+foe's attack would otherwise kill unit,
+reduces its damage to leave unit with 1 HP.
 
 [MSID_SeekWeakness]
 Break Weakness
