@@ -2378,9 +2378,9 @@ Dmg+2 and suffers -2 damage.
 Ride-by Attack
 
 [MSID_H_PrivateSkill_Alfred]
-When initiate an attack, foe
-suffers Spd -1 for every 2 spaces
-Alfred traveled before attack.
+When unit initiates an attack, foe
+suffers Spd/Def -1 for every 2 spaces
+unit traveled before attack.
 
 [MSID_PrivateSkill_Boucheron]
 Lucky Dog
