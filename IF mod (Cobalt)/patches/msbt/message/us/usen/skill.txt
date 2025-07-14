@@ -1879,8 +1879,9 @@ Let adjacent allies act again.
 Diabolical Dance
 
 [MSID_H_M014_BylethEngageAtk_DarkSide]
-Use to grant another action to allies
-within 2 spaces.
+Use to grant another action to
+all adjacent allies.
+If equipped by Hortensia...
 
 [MSID_DragonPulse]
 Dragon Vein
@@ -4422,7 +4423,7 @@ Aether
 [MSID_H_Aether]
 Has a chance to perform a 
 consecutive Sol and Luna attack.
-(=Dex%)
+(=Dex/2%)
 
 [MSID_Lethality]
 Lethality
@@ -4835,8 +4836,8 @@ Brooding Menace
 
 [MSID_H_Dominance]
 All enemies within 3 radius
-lose 2 Str/Def, and this unit's
-Str/Def increase the same value.
+lose 2 Str/Dex/Def, and this unit's
+Str/Dex/Def increase the same value.
 (Maximum of 12 Str/Def)
 
 [MSID_BackThrow_1]
