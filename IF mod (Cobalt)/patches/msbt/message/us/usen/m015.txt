@@ -1,0 +1,707 @@
+[MID_OP1_#001]
+$Type(0, "PP")
+$Window(0, "セアダス", "3")
+$Window(2, "セアダス")
+My new moves are coming together nicely.
+Just a bit more practice and I'll call it a day.$Wait(2)
+
+[MID_OP1_#002]
+And this spot...it's perfect for rehearsal.
+So quiet and empty.$Wait(2)
+
+[MID_OP1_#003]
+Hm?$Wait(0)
+
+[MID_OP1_#004]
+Raaargh...$Wait(0)
+
+[MID_OP1_#005]
+$Window(2, "セアダス")
+Ah! Wh-what is that?!$Wait(0)
+
+[MID_OP1_#006]
+Raaargh!$Wait(0)
+
+[MID_OP1_#007]
+$Window(2, "セアダス")
+No good. I'm trapped here. Is it my fate to die
+like this?$Wait(2)
+
+[MID_OP1_#008]
+It's such a pity to be caught so unprepared.
+I'd have practiced combat as well as dance.$Wait(0)
+
+[MID_OP1_#009]
+$Window(0, "M015_カムイ", "4")
+$Window(2, "M015_カムイ")
+Hurry! You must get to safety, now!$Wait(0)
+
+[MID_OP1_#010]
+$Window(2, "セアダス")
+Who said that?$Wait(0)
+
+[MID_OP1_#011]
+$Window(2, "M015_カムイ")
+Oh, thank goodness. You can hear what I'm saying,
+can't you? Follow the sound of my voice.$Wait(2)
+
+[MID_OP1_#011_2]
+$Window(2, "M015_カムイ")
+You can hide in here!$Wait(2)
+
+[MID_OP1_#012]
+There's a door to your right! Now go─hurry!$Wait(0)
+
+[MID_OP1_#013]
+$Window(2, "セアダス")
+I'm coming!$Wait(0)
+
+[MID_OP2_#001]
+$Type(2)
+$Window(0, "ミスティラ", "1")
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+Is the Northern Fortress that frightening?$Wait(0)
+
+[MID_OP2_#002]
+$Window(2, "ミスティラ")
+Yup. My ancestors designed it that way.
+Didn't want people to go poking around.$Wait(2)
+
+[MID_OP2_#003]
+The locals won't get near the place. They say
+ghosts wander the ruins.$Wait(2)
+
+[MID_OP2_#004]
+A haunted castle! Lately, some have heard a
+young woman's voice calling out from inside...$Wait(0)
+
+[MID_OP2_#005]
+$Window(2, "リュール")
+...$Wait(0)
+
+[MID_OP2_#006]
+$Window(2, "ミスティラ")
+Relax! That's just the local lore.$Wait(0)
+
+[MID_OP2_#007]
+$Window(2, "リュール")
+Then why did you make it sound so real?!$Wait(0)
+
+[MID_OP2_#008]
+$Window(2, "ミスティラ")
+Sorry, sorry. I shouldn't be talking─I've never
+even been there.$Wait(2)
+
+[MID_OP2_#009]
+Mom always told me to stay away so nobody
+would figure out the ring's location.$Wait(2)
+
+[MID_OP2_#010]
+There it is now. The Northern Fortress.$Wait(0)
+
+[MID_OP2_#011]
+$Window(2, "リュール")
+Hm. For an abandoned fortress, it's
+awfully noisy...$Wait(0)
+
+[MID_OP2_#012]
+$Window(2, "ミスティラ")
+Wait a sec... The Corrupted! They've gotten in!$Wait(0)
+
+[MID_OP2_#013]
+$Window(2, "リュール")
+Let's go. We can't let them get the ring.$Wait(0)
+
+[MID_OP3_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Surprise")
+$Window(2, "リュール")
+Oh no...$Wait(0)
+
+[MID_OP3_#002]
+$Window(0, "ミスティラ", "b")
+$Anim(1, "ミスティラ", "Surprise")
+$Window(2, "ミスティラ")
+Yeah, this place is swarming. Guess it is a little
+haunted, huh?$Wait(2)
+
+[MID_OP3_#003]
+$Anim(1, "ミスティラ", "Angry")
+Hang on. Divine One, look! There's
+someone here!$Wait(0)
+
+[MID_OP4_#001]
+$Type(1)
+$Window(0, "セアダス", "t")
+$Anim(1, "セアダス", "Sad")
+$Window(2, "セアダス")
+They have us well and truly surrounded─again.
+Still, safer inside than out in the open.$Wait(2)
+
+[MID_OP4_#002]
+$Anim(1, "セアダス", "Smile")
+Thank you, ring.$Wait(0)
+
+[MID_OP4_#003]
+$Window(0, "M015_カムイ", "b")
+$Window(7, "M015_カムイ")
+$Window(2, "M015_カムイ")
+I was telling you to hide, not come looking
+for me.$Wait(0)
+
+[MID_OP4_#004]
+$Window(2, "セアダス")
+How could I stay away? A talking ring! You
+really set off those creatures as well.$Wait(2)
+
+[MID_OP4_#005]
+$Anim(1, "セアダス", "Relax")
+I take it you're a princess, trapped in this
+unusual form by a wicked curse. Let me help.$Wait(0)
+
+[MID_OP4_#006]
+$Window(2, "M015_カムイ")
+Actually, I'm─$Wait(0)
+
+[MID_OP4_#007]
+$Anim(1, "セアダス", "Smile")
+$Window(2, "セアダス")
+No need to persuade me, Your Highness. I'm
+not one to doubt an unusual story.$Wait(2)
+
+[MID_OP4_#008]
+$Anim(1, "セアダス", "Die")
+O spirit of the cards! Cast your light upon the
+path before us...$Wait(0)
+
+[MID_OP4_#009]
+$Window(2, "M015_カムイ")
+You're a fortune-teller, hm? What are your
+cards saying to you?$Wait(0)
+
+[MID_OP4_#010]
+$Anim(1, "セアダス", "Normal")
+$Window(2, "セアダス")
+Le Dragon... It means help may come from an
+unexpected source.$Wait(2)
+
+[MID_OP4_#011]
+$Anim(1, "セアダス", "Angry")
+I suppose we'll just have to hold off the beasts
+until it arrives.$Wait(0)
+
+[MID_OP5_#001]
+$Type(1)
+$Window(0, "ミスティラ", "t")
+$Anim(1, "ミスティラ", "Angry")
+$Window(2, "ミスティラ")
+That guy's not here to steal the ring.$Wait(2)
+
+[MID_OP5_#002]
+I think he's trying to protect it.$Wait(0)
+
+[MID_OP5_#003]
+$Window(0, "リュール", "b")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+He's clearly no friend of the Corrupted.$Wait(2)
+
+[MID_OP5_#004]
+Let's give him a hand. It looks like he could
+use one.$Wait(0)
+
+[MID_EV1_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+You there! Are you hurt?$Wait(0)
+
+[MID_EV1_#002]
+$Window(0, "セアダス", "b")
+$Anim(1, "セアダス", "Angry")
+$Window(2, "セアダス")
+Who are you?!$Wait(0)
+
+[MID_EV1_#003]
+$Window(2, "リュール")
+Don't worry─I'm not your enemy. I'm the
+Divine Dragon $P.$Wait(0)
+
+[MID_EV1_#004]
+$Anim(1, "セアダス", "Surprise")
+$Window(2, "セアダス")
+The Divine Dragon, you say... What do you
+know? My cards spoke true.$Wait(2)
+
+[MID_EV1_#005]
+$Anim(1, "セアダス", "Smile")
+Unexpected source indeed. Thank you. I am
+Seadall, a traveling dancer.$Wait(2)
+
+[MID_EV1_#006]
+$Show(0, "Tex_Event_ItemPicture_10", "picture_item_fade_in_normal")
+$Anim(1, "セアダス", "Status")
+I was out there rehearsing, and those creatures
+appeared. A talking ring called me to safety.$Wait(0)
+
+[MID_EV1_#007]
+$Anim(1, "リュール", "Surprise")
+$Window(2, "リュール")
+A talking ring, hm?$Wait(0)
+
+[MID_EV1_#008]
+$Anim(1, "セアダス", "Strike")
+$Window(2, "セアダス")
+Yes. I believe it's a young princess who fell
+victim to some sort of curse. Isn't that awful?$Wait(0)
+
+[MID_EV1_#009]
+$Hide(0, "picture_item_fade_out_normal")
+$Anim(1, "リュール", "Smile")
+$Window(2, "リュール")
+Not a curse, exactly.$Wait(0)
+
+[MID_EV1_#010]
+$Anim(1, "セアダス", "Surprise")
+$Window(2, "セアダス")
+You know her story, then? Tell me, who is this
+mysterious ring woman?$Wait(0)
+
+[MID_EV1_#011]
+$Window(2, "リュール")
+Hand it to me, and we'll find out together.$Wait(0)
+
+[MID_EV1_#012]
+$Window(2, "セアダス")
+All right.$Wait(0)
+
+[MID_EV1_#013]
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+$Show(0, "Tex_Event_Effect_White", "picture_fade_in_slow")
+Bare your fangs, Emblem of Fates!$Wait(0)
+$Fade(1, 0, 52481)
+
+[MID_EV2_#001]
+$Type(1)
+$Window(0, "カムイ", "t")
+$Anim(1, "カムイ", "Smile")
+$Window(2, "カムイ")
+$Fade(0, 0)
+I am Emblem Corrin. I'll fight with all I have.$Wait(2)
+
+[MID_EV2_#002]
+Thank you for finding me. I'll help ensure the
+path you decide to walk is the right one.$Wait(0)
+
+[MID_EV2_#003]
+$Window(0, "リュール", "b")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+Thank you, Emblem Corrin. I'm sorry I kept you
+waiting for so long.$Wait(0)
+
+[MID_EV2_#004]
+$Window(1, "カムイ")
+$Window(0, "セアダス", "t")
+$Anim(1, "セアダス", "Surprise")
+$Window(2, "セアダス")
+An Emblem, really? One of the godlike figures
+of legend...$Wait(0)
+
+[MID_EV2_#005]
+$Window(2, "リュール")
+Seadall, would you fight by Corrin's side?
+We could use your help getting out of here.$Wait(0)
+
+[MID_EV2_#006]
+$Anim(1, "セアダス", "Smile")
+$Window(2, "セアダス")
+It would be my pleasure. This world... Wonders
+upon wonders.$Wait(0)
+
+[MID_EV3_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Surprise")
+$Window(2, "リュール")
+Huh? Did those doors just...$Wait(0)
+
+[MID_EV4_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+We won't be able to escape the way we came
+in. Let's try that path over there.$Wait(0)
+
+[MID_EV5_#001]
+$Type(1)
+$Window(0, "セアダス", "t")
+$Anim(1, "セアダス", "Smile")
+$Window(2, "セアダス")
+Divine One, as a dancer, I can raise your allies'
+spirits with my graceful movements.$Wait(2)
+
+[MID_EV5_#002]
+Please, call upon my abilities as you see fit.$Wait(0)
+
+[MID_EV6_#001]
+$Type(1)
+$Window(0, "セアダス", "t")
+$Anim(1, "セアダス", "Angry")
+$Window(2, "セアダス")
+I was in such a rush earlier, I didn't notice the
+miasma all over the place.$Wait(0)
+
+[MID_EV6_#002]
+$Window(0, "カムイ", "b")
+$Anim(1, "カムイ", "Sad")
+$Window(2, "カムイ")
+The creatures must have brought it with them─
+it certainly wasn't here before.$Wait(2)
+
+[MID_EV6_#003]
+$Anim(1, "カムイ", "Strike")
+Use my power to dispel the miasma and open a
+path for your allies.$Wait(0)
+
+[MID_EV7_#001]
+$Type(1)
+$Window(0, "セアダス", "t")
+$Anim(1, "セアダス", "Relax")
+$Window(2, "セアダス")
+Our paths diverge for a moment. Divine One,
+Emblem Corrin... Thank you.$Wait(0)
+
+[MID_EV8_#001]
+$Type(1)
+$Window(0, "アルフレッド", "t")
+$Anim(1, "アルフレッド", "Angry")
+$Window(2, "アルフレッド")
+More?! Divine One, we can't keep this up. Time
+to make our escape.$Wait(0)
+
+[MID_EV9_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+Huh!?  
+Flames just burst out by the gate!$Wait(0)
+
+[MID_EV9_#002]
+$Window(0, "ミスティラ", "b")
+$Anim(1, "ミスティラ", "Angry")
+$Window(2, "ミスティラ")
+A defense mechanism must've been triggered...  
+These flames will spread—we must be careful!$Wait(0)
+
+[MID_EV9_#003]
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+Then we need to press forward now!  
+If we don’t, we’ll be trapped in the fire!$Wait(0)
+
+[MID_DIE_LOCAL_Seadas_#001]
+$Type(1)
+$Window(0, "セアダス", "b")
+$Anim(1, "セアダス", "Die")
+$Window(2, "セアダス")
+So this was the fates' intention after all.
+Please... Protect Emblem Corrin...$Wait(0)
+
+[MID_ED1_#001]
+$Type(2)
+$Window(0, "ミスティラ", "4")
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+All right. We're safe.$Wait(0)
+
+[MID_ED1_#002]
+$Window(2, "ミスティラ")
+Hang on. Someone's at the entrance.$Wait(0)
+
+[MID_ED1_#003]
+$Window(2, "リュール")
+Don't tell me. More of the Corrupted?$Wait(0)
+
+[MID_ED1_#004]
+$Window(0, "ヴェイル", "1")
+$Window(2, "ヴェイル")
+Is everyone OK? I saw all those monsters
+coming in and got worried.$Wait(0)
+
+[MID_ED1_#005]
+$Window(2, "リュール")
+Veyle?!$Wait(0)
+
+[MID_ED1_#006]
+$Window(2, "ヴェイル")
+Oh my! We meet again, $P. Did you
+defeat the monsters?$Wait(0)
+
+[MID_ED1_#007]
+$Window(2, "リュール")
+...$Wait(2)
+
+[MID_ED1_#008]
+Yes, we did. Every last one.$Wait(0)
+
+[MID_ED1_#009]
+$Window(2, "ヴェイル")
+I'm glad. How have you been?$Wait(2)
+
+[MID_ED1_#010]
+I was surprised to see you out in that blizzard.
+I hope you found the cathedral.$Wait(0)
+
+[MID_ED1_#011]
+$Window(2, "リュール")
+Whatever game you're playing, stop it.$Wait(0)
+
+[MID_ED1_#012]
+$Window(2, "ヴェイル")
+Huh? Are you mad about something?$Wait(0)
+
+[MID_ED1_#013]
+$Window(2, "リュール")
+Don't act like you forgot. I can see through
+your lies now.$Wait(0)
+
+[MID_ED1_#014]
+$Window(2, "ヴェイル")
+Lies? What do you mean? I promise you,
+$P, I'm not─$Wait(0)
+
+[MID_ED1_#015]
+$Window(0, "アルフレッド", "3")
+$Window(2, "アルフレッド")
+Not a step closer! You stay where you are,
+Fell Princess.$Wait(0)
+
+[MID_ED1_#016]
+$Window(2, "ヴェイル")
+How did you know?!$Wait(0)
+
+[MID_ED1_#017]
+$Window(1, "ミスティラ")
+$Window(0, "ディアマンド", "4")
+$Window(2, "ディアマンド")
+Just looking at you, I feel again the shame of
+losing Father...$Wait(0)
+
+[MID_ED1_#018]
+$Window(1, "アルフレッド")
+$Window(0, "アイビー", "3")
+$Window(2, "アイビー")
+You took my country from me─my father.
+What more do you want?$Wait(0)
+
+[MID_ED1_#019]
+$Window(2, "リュール")
+The people you killed...they had families.$Wait(2)
+
+[MID_ED1_#020]
+But you don't care, do you? All that pain...
+You don't even give it a second thought.$Wait(0)
+
+[MID_ED1_#021]
+$Window(2, "ヴェイル")
+Wait a moment. I... I killed people? Who?$Wait(0)
+
+[MID_ED1_#022]
+$Window(2, "リュール")
+Drop the act! You know what you did! How dare
+you show your face here.$Wait(2)
+
+[MID_ED1_#023]
+You murdered my mother and stole the rings.$Wait(0)
+
+[MID_ED1_#024]
+$Window(2, "ヴェイル")
+I didn't. I didn't. Please believe me...$Wait(0)
+
+[MID_ED1_#025]
+$Window(2, "リュール")
+Believe you? Like I believed we were friends?
+I won't make that mistake again.$Wait(0)
+
+[MID_ED1_#026]
+$Window(2, "ヴェイル")
+...$Wait(0)
+
+[MID_ED1_#027]
+$Window(1, "ヴェイル")
+$Window(1, "アイビー")
+$Window(0, "アルフレッド", "3")
+$Window(2, "アルフレッド")
+We've got to do something!$Wait(0)
+
+[MID_ED1_#028]
+$Window(2, "リュール")
+Let her go. It's probably a trap.$Wait(0)
+
+[MID_ED1_#029]
+$Window(2, "アルフレッド")
+You're right.$Wait(0)
+
+[MID_ED1_#030]
+$Window(1, "ディアマンド")
+$Window(0, "ミスティラ", "4")
+$Window(2, "ミスティラ")
+Divine One, are you all right?$Wait(0)
+
+[MID_ED1_#031]
+$Window(2, "リュール")
+I'm fine. But the next time I see Veyle, I swear...$Wait(0)
+
+[MID_ED2_#001]
+$Type(2)
+$Window(0, "ヴェイル", "2")
+$Window(2, "ヴェイル")
+...$Wait(2)
+
+[MID_ED2_#002]
+I killed people? Stole rings?$Wait(2)
+
+[MID_ED2_#003]
+Why would I do that? I don't understand!$Wait(0)
+
+[MID_ED2_#004]
+$Window(0, "グリ", "1")
+$Window(2, "グリ")
+Lady Veyle! I finally caught up with you.$Wait(0)
+
+[MID_ED2_#005]
+$Window(2, "ヴェイル")
+Oh, Griss. It's you.$Wait(0)
+
+[MID_ED2_#006]
+$Window(2, "グリ")
+You're a hard girl to find. Why'd you disappear?
+Had me all freaked out.$Wait(0)
+
+[MID_ED2_#007]
+$Window(2, "ヴェイル")
+Papa told you to drag me back home, right?$Wait(0)
+
+[MID_ED2_#008]
+$Window(2, "グリ")
+Told me to... Huh?$Wait(2)
+
+[MID_ED2_#009]
+Oh, I see what's going on here. You're the
+other one.$Wait(0)
+
+[MID_ED2_#010]
+$Window(2, "ヴェイル")
+I'm not going back, no matter what you say.
+Papa will just make me do something cruel.$Wait(2)
+
+[MID_ED2_#011]
+When he awoke, I thought we could finally
+spend time together. But no.$Wait(2)
+
+[MID_ED2_#012]
+Always telling me to kill the Divine Dragon or
+attack so-and-so's castle. Well, I don't want to!$Wait(2)
+
+[MID_ED2_#013]
+I'm not an evil person. Despite what all those
+people said.$Wait(2)
+
+[MID_ED2_#014]
+Even the Divine Dragon was angry with me.
+And I thought we were friends...$Wait(0)
+
+[MID_ED2_#015]
+$Window(2, "グリ")
+The Divine Dragon said you were friends?
+Wait─you met the Divine Dragon?!$Wait(0)
+
+[MID_ED2_#016]
+$Window(2, "ヴェイル")
+Mm-hmm.$Wait(0)
+
+[MID_ED2_#017]
+$Window(2, "グリ")
+Oh, that's...complicated.$Wait(2)
+
+[MID_ED2_#018]
+Look, whatever those people told you, it's not
+true. They were imagining things.$Wait(0)
+
+[MID_ED2_#019]
+$Window(2, "ヴェイル")
+You think so?$Wait(0)
+
+[MID_ED2_#020]
+$Window(2, "グリ")
+Of course. How could you have done
+something bad and then forgotten it?$Wait(0)
+
+[MID_ED2_#021]
+$Window(2, "ヴェイル")
+Right... Right! I couldn't have!$Wait(2)
+
+[MID_ED2_#022]
+If only I'd said that before, maybe there
+wouldn't be this awful misunderstanding.$Wait(0)
+
+[MID_ED2_#023]
+$Window(2, "グリ")
+You wanna try and speak with 'em again?
+Set things straight?$Wait(0)
+
+[MID_ED2_#024]
+$Window(2, "ヴェイル")
+I do, but... Weren't you going to bring me back?$Wait(0)
+
+[MID_ED2_#025]
+$Window(2, "グリ")
+If this is what you want, I'll help out. Nothing if
+not loyal, that's me.$Wait(0)
+
+[MID_ED2_#026]
+$Window(2, "ヴェイル")
+All right... Thank you, Griss. It seems
+I misjudged you.$Wait(0)
+
+[MID_ED2_#027]
+$Window(2, "グリ")
+It's settled, then. Let's head to Firene.$Wait(0)
+
+[MID_ED2_#028]
+$Window(2, "ヴェイル")
+Firene? Why there?$Wait(0)
+
+[MID_ED2_#029]
+$Window(2, "グリ")
+'Cause that's where the Divine Dragon is going.$Wait(0)
+
+[MID_ED2_#030]
+$Window(2, "ヴェイル")
+How do you know that?$Wait(0)
+
+[MID_ED2_#031]
+$Window(2, "グリ")
+Come on, we're on a schedule here! Gotta head
+for the port and set sail.$Wait(2)
+
+[MID_ED2_#032]
+Do you wanna patch things up or don't you?$Wait(0)
+
+[MID_ED2_#033]
+$Window(2, "ヴェイル")
+I do. I do! You're right─no time to waste!$Wait(0)
+
+[MID_ED2_#034]
+$Window(1, "ヴェイル")
+$Window(2, "グリ")
+Heh, this oughta be real interesting.$Wait(0)
+

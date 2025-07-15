@@ -2835,6 +2835,10 @@ You rescued a few villages. A reward has been granted!
 Royal units can use the "Dragon Vein" command on Dragon Vein tiles.
 Its effects can greatly shift the tide of battle—use it wisely!
 
+[MID_TUT_M015_RULE]
+The fortress flames will spread over time.  
+Plan your path and escape before it’s too late!
+
 [MID_TIPS_WEAPON_TRIANGLE_T]
 Weapon Triangle
 
