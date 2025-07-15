@@ -17,6 +17,8 @@ g_key_house3destroy			= "S_民家３破壊_済"
 g_Height = 23
 g_Width = 30
 g_destroy = 0
+
+
 -- -----------------------------------
 
 function Startup()

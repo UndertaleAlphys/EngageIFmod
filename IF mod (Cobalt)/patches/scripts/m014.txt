@@ -9,6 +9,7 @@ g_revive_Gris = "Revive_Gris"
 g_revive_Mauve = "Revive_Mauve"
 g_revive_Marron = "Revive_Marron"
 g_key_tutorial_summon = "Revive_Marron"
+g_reinforcement_turn = "増援ターン_BOSS"
 
 -- -----------------------------------
 
@@ -56,6 +57,7 @@ function フラグ登録()
 	VariableEntry(g_revive_Marron, 0)
 	VariableEntry(g_revive_Gris, 0)
 	VariableEntry(g_key_tutorial_summon,0)
+	VariableEntry(g_reinforcement_turn,2)
 	E_BattleTalk_VariableEntry()
 	
 end
@@ -64,7 +66,7 @@ end
 function イベント登録()
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(Set_Interference_AI_M014, -1, -1, FORCE_ENEMY)
-	
+	EventEntryTurn(SetBossReinforcement, -1, -1, FORCE_ENEMY)
 	EventEntryArea(ボス部屋アクティブ化, 10, 18, 20, 27, FORCE_PLAYER, g_key_area)
 	EventEntryFixed(DragonVeinUsed ,"", FORCE_PLAYER)
 
@@ -135,6 +137,25 @@ function MapOpening()
 	WaitTime( 2.0 )
 	Tutorial_M014()
 	Set_Attack_Always("PID_IFMOD_M014_イルシオン兵_モンク1","PID_IFMOD_M014_イルシオン兵_モンク2","PID_IFMOD_M014_イルシオン兵_モンク3","PID_IFMOD_M014_イルシオン兵_モンク4")
+end
+
+function SetBossReinforcement()
+	CobaltNotice("M014_SetBossReinforcement")
+	if VariableGet(g_key_area) == 0 then
+		return
+	end
+
+	if VariableGet(g_reinforcement_turn) == 0 then
+		return
+	end
+
+	CobaltNotice("BossReinforcement start Cal")
+	local remainTurn = VariableGet(g_reinforcement_turn) - 1
+	VariableSet(g_reinforcement_turn, remainTurn)
+	if(remainTurn == 0) then
+		CobaltNotice("BossReinforcement start")
+	  	ボス部屋増援()
+	end
 end
 
 -- -----------------------------------
@@ -613,9 +634,6 @@ function ボス部屋アクティブ化()
 	AiSetSequence("PID_M014_マロン", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
 	AiSetSequence("PID_M014_モーヴ", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
 	AiSetSequence("PID_M014_グリ", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
-	local currentTurn = MapGetTurn()
-    EventEntryTurn(ボス部屋増援, currentTurn + 1, currentTurn + 1, FORCE_ENEMY)
-
 end
 
 -- -----------------------------------
