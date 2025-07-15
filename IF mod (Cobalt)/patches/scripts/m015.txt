@@ -241,7 +241,8 @@ function Fire_Expansion()
                 local unit = UnitGetByPos(x, z)
                 if unit ~= nil and UnitExistOnMap(unit) then
 					CobaltNotice("Fire Damage")
-					UnitSetHp( unit, 0 )
+					FireDamage(unit)
+					UnitSetPrivateSkill( unit, "SID_自壊")
                 end
             end
         end

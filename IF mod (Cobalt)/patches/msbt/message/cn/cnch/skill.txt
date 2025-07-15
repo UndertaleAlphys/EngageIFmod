@@ -1713,7 +1713,8 @@ HP为75%及以下时
 计策：邪神之舞
 
 [MSID_H_M014_BylethEngageAtk_DarkSide]
-使周围2格内的我方单位再次行动
+使相邻的我方单位再次行动，
+奥尔坦希亚装备的话...
 
 [MSID_DragonPulse]
 龙脉
@@ -4066,7 +4067,7 @@ MSID_CrtMoreDmg
 
 [MSID_H_Aether]
 一定几率连续发动一次太阳和一次月光攻击
-（几率为“技巧”%）
+（几率为“技巧”÷2%）
 
 [MSID_Lethality]
 灭杀
@@ -4445,7 +4446,7 @@ MSID_CrtMoreDmg
 
 [MSID_H_Dominance]
 令周围3格敌方单位的
-力、守备各下降2点
+力、技、守备各下降2点
 然后自身对应能力提高等量值
 （每种能力至多提高12点）
 

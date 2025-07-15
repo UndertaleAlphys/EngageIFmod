@@ -2,6 +2,7 @@
 #![feature(lazy_cell, ptr_sub_ptr)]
 
 use engage::gamedata::unit::Unit;
+use skyline::hooks::InlineCtx;
 use unity::prelude::*;
 /// This is called a proc(edural) macro. You use this to indicate that a function will be used as a hook.
 ///
@@ -13,6 +14,17 @@ use unity::prelude::*;
 #[skyline::hook(offset = 0x02B4AFA0)]
 pub fn gmap_get_avg_lv(difficulty: i32, sortie_count: i32, method: OptionalMethod) -> i32 {
     1
+}
+
+// For Tri's mod
+#[skyline::hook(offset = 0x01A0CDCC, inline)]
+pub fn set_internal_level_1(ctx: &mut InlineCtx) {
+    unsafe { *ctx.registers[0].w.as_mut() = 0 }
+}
+
+#[skyline::hook(offset = 0x01A0CE34, inline)]
+pub fn set_internal_level_2(ctx: &mut InlineCtx) {
+    unsafe { *ctx.registers[0].w.as_mut() = 0 }
 }
 
 /// The internal name of your plugin. This will show up in crash logs. Make it 8 characters long at max.
@@ -55,5 +67,5 @@ pub fn main() {
     // Do keep in mind that hooks cannot currently be uninstalled, so proceed accordingly.
     //
     // A ``install_hooks!`` variant exists to let you install multiple hooks at once if separated by a comma.
-    skyline::install_hook!(gmap_get_avg_lv);
+    skyline::install_hooks!(gmap_get_avg_lv, set_internal_level_1, set_internal_level_2,);
 }
