@@ -136,7 +136,7 @@ function MapOpening()
 		end
 	end
 	
-	if HubIsCompleteChapter("M014") then
+	if HubIsCompleteChapter("M017") then
 		if GodUnitExists("GID_エーデルガルト") == false then
 			Log("Can start Three House")
 			HubSolanelNoticeP0()

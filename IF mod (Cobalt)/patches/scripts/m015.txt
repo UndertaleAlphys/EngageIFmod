@@ -5,6 +5,9 @@ g_key_tutorial_dance	= "チュートリアル_踊り_済"
 g_key_tutorial_kamui	= "チュートリアル_カムイ_済"
 g_key_talk_seadas		= "会話イベント_セアダス加入_済"
 g_key_reinforcement2_count = "増援２_カウンター"
+g_width = 27
+g_height = 20
+g_Deadline_Begin = "M015_Rule_Deadline_Begin"
 
 -- -----------------------------------
 
@@ -28,6 +31,7 @@ function 変数登録()
 	VariableEntry( "増援_エリア侵入0_済", 0 )
 	VariableEntry( "増援_エリア侵入1_済", 0 )
 	VariableEntry( "増援_戦闘後増援_Lunatic_済", 0 )
+	VariableEntry( "g_Deadline_Begin", 0)
 	
 end
 
@@ -64,8 +68,11 @@ function イベント登録()
 	EventEntryEscape(離脱イベント１, 4, 1, "PID_セアダス", condition_離脱イベント１)
 	EventEntryEscape(離脱イベント１, 5, 1, "PID_セアダス", condition_離脱イベント１)
 	
-	EventEntryEscape(離脱イベント２, 23, 1, "PID_セアダス", condition_離脱イベント２)
-	EventEntryEscape(離脱イベント２, 24, 1, "PID_セアダス", condition_離脱イベント２)
+	-- EventEntryEscape(離脱イベント２, 23, 1, "", condition_離脱イベント２)
+	-- EventEntryEscape(離脱イベント２, 24, 1, "", condition_離脱イベント２)
+	EventEntryEscape(EmptyFunction, 23, 1, "PID_G006_クロム", condition_true)
+	EventEntryEscape(EmptyFunction, 24, 1, "PID_G006_クロム", condition_true)
+	EventEntryArea(PersonEscape, 23, 1, 24, 1, FORCE_PLAYER, condition_true)
 	
 	-- 増援エリアイベント_東0
 	EventEntryArea(EmptyFunction, 17, 8, 18, 13, FORCE_PLAYER, "エリアイベント0_済")
@@ -75,7 +82,8 @@ function イベント登録()
 	EventEntryTurn(青軍ターン開始直前0, -1, -1, FORCE_PLAYER, condition_エリア侵入0)
 	EventEntryTurn(青軍ターン開始直前1, -1, -1, FORCE_PLAYER, condition_エリア侵入1)
 	EventEntryTurn(青軍ターン開始直前3, -1, -1, FORCE_PLAYER, condition_戦闘後増援_Lunatic)
-	
+	EventEntryTurn(Fire_Expansion_PlayerTurn, -1, -1, FORCE_PLAYER)
+	EventEntryTurn(Fire_Expansion_EnemyTurn, -1, -1, FORCE_ENEMY)
 --[[
 	-- 扉を開けたら瘴気を配置
 	EventEntryDoor(瘴気の配置1, 7, 9, 7, 10)
@@ -115,6 +123,18 @@ function MapOpening()
 	
 	Log("MapOpening")
 	
+	EventOpenDoor(7,9)
+	ClearAllMiasma()
+	EventOpenDoor(7,15)
+	ClearAllMiasma()
+	EventOpenDoor(17,14)
+	ClearAllMiasma()
+	EventOpenDoor(20,15)
+	ClearAllMiasma()
+	EventOpenDoor(23,7)
+	ClearAllMiasma()
+	
+	FireInit()
 	FadeOutAndWait( FADE_FAST )
 	EventActionObject( 4, 0, MAP_ACTION_DONE )
 	
@@ -127,11 +147,117 @@ function MapOpening()
 	Talk("MID_OP4")
 	
 	CursorSetPos_FromPid(g_pid_lueur)
-	
+
+	EffectCreate("魔法陣_G001",	15, 16)
 end
 
 -- ----------------------------------------------------------------------
 
+function ClearAllMiasma()
+	MapOverlapSetBegin()
+	for i = 1, g_width do
+		for j = 1, g_height do
+			if ( MapOverlapGet( i, j ) == "TID_瘴気_永続") then
+				MapOverlapSet( i , j, "TID_無し" )
+			end
+		end
+	end
+	MapOverlapSetEnd()
+end
+
+function FireInit()
+	TerrainSetBegin()
+		TerrainSet( 4 , 2, "TID_炎上_M015" )
+		TerrainSet( 5 , 2, "TID_炎上_M015" )
+	TerrainSetEnd()
+
+	MapOverlapSetBegin()
+		MapOverlapSet( 4 , 2, "TID_炎上_M015_Overlap" )
+		MapOverlapSet( 5 , 2, "TID_炎上_M015_Overlap" )
+	MapOverlapSetEnd()
+end
+
+function Fire_Expansion_PlayerTurn()
+	Fire_Expansion()
+	Fire_Expansion()
+end
+
+function Fire_Expansion_EnemyTurn()
+	Fire_Expansion()
+end
+
+function Fire_Expansion()
+	CobaltNotice("Fire_Expansion")
+	local directions = { {0, 1}, {1, 0}, {0, -1}, {-1, 0} }
+
+    local toUpdate = {}  
+    local visited = {} 
+
+    for x = 1, g_width do
+        for z = 1, g_height do
+            if TerrainGet(x, z) == "TID_炎上_M015" then
+				 for _, dir in ipairs(directions) do
+                    local nx = x + dir[1]
+                    local nz = z + dir[2]
+                    local key = nx .. "," .. nz
+
+                    if not visited[key] then
+                        if IsWithinBounds(nx, nz) then
+                            local cost = TerrainGetMoveCost(nx, nz)
+                            if cost ~= "COST_不可" then
+                                table.insert(toUpdate, {x = nx, z = nz})
+                                visited[key] = true
+                            end
+                        end
+                    end
+                end
+			end
+		end
+	end
+
+	CobaltNotice("BFS Complete")
+
+	if #toUpdate > 0 then
+        TerrainSetBegin()
+		MapOverlapSetBegin()
+        for _, pos in ipairs(toUpdate) do
+            if TerrainGet(pos.x, pos.z) ~= "TID_炎上_M015" then
+                TerrainSet(pos.x, pos.z, "TID_炎上_M015")
+            end
+			if MapOverlapGet(pos.x, pos.z) ~= "TID_炎上_M015_Overlap" then
+                MapOverlapSet(pos.x, pos.z, "TID_炎上_M015_Overlap")
+            end
+        end
+		MapOverlapSetEnd()
+        TerrainSetEnd()
+    end
+
+	CobaltNotice("Update Terrain")
+
+	CobaltNotice("Damage Event Begin")
+	for x = 1, g_width do
+        for z = 1, g_height do
+            if TerrainGet(x, z) == "TID_炎上_M015" then
+                local unit = UnitGetByPos(x, z)
+                if unit ~= nil and UnitExistOnMap(unit) then
+					CobaltNotice("Fire Damage")
+					UnitSetHp( unit, 0 )
+                end
+            end
+        end
+    end
+
+end
+
+function FireDamage(unit)
+    MapDamageBegin()
+    MapDamageAdd(unit, 100)  -- 固定造成100点伤害
+    MapDamageEnd()
+end
+
+function IsWithinBounds(x, z)
+    return x > 0 and x < g_width and z > 0 and z < g_height
+end
 
 function 出口の扉を消す()
 
@@ -272,7 +398,6 @@ end
 -- ----------------------------------------------------------------------
 
 function セアダス加入()
-	
 	Talk("MID_EV1")
 	
 	Movie("Kengen10")
@@ -456,13 +581,45 @@ function condition_離脱イベント２()
 		return false
 	end
 	
+	if (ForceUnitGetCount(FORCE_PLAYER) == 1) then
+		return false
+	end
+
 	return true
 	
 end
 
 function 離脱イベント２()
-	Talk( "MID_EV7" )
-	VariableSet( "勝利", 1 )
+
+end
+
+function PersonEscape()
+
+	local unit = MindGetUnit()
+
+	local unit_x = UnitGetX(unit)
+
+	WaitTime(0.5)
+
+	UnitRotation( unit, ROTATE_DOWN)
+
+	WaitTime(0.5)
+
+	if (unix_x == 23) then
+		UnitMovePosFromPos(23,1,23,0)
+	end
+
+	if (unix_x == 24) then
+		UnitMovePos(24,1,24,0)
+	end
+	
+	if (ForceUnitGetCount(FORCE_PLAYER) == 1) then
+		Talk( "MID_EV7" )
+		VariableSet( "勝利", 1 )
+	end
+
+	UnitTransfer(unit,FORCE_ABSENT)
+
 end
 
 -- ----------------------------------------------------------------------
@@ -645,4 +802,22 @@ function GameOver()
 	
 	Log("GameOver")
 	
+end
+
+function MapDamageM015( unit )
+	
+	MapDamageBegin();
+
+	local hp		= UnitGetCapability(unit, CAPABILITY_HP, true)
+
+	local damage	= hp * 1
+
+	MapDamageAdd(unit, damage)
+
+	MapDamageEnd();
+
+end
+
+function MapPutWaterEffect()
+
 end
