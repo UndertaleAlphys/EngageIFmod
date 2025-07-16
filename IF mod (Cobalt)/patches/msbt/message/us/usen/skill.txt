@@ -5185,6 +5185,10 @@ attacks.
 When hit, may prevent the damage.
 Trigger% = Bond Level×1.5
 
+[MSID_H_OtherHalf_G006]
+If unit initiates combat, Robin chain
+attacks.
+
 [MSID_Veteran]
 Veteran
 
