@@ -47,7 +47,7 @@ end
 function イベント登録()
 	
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
-		
+	
 	-- ピックアップ
 	EventEntryPickup(チュートリアル_踊り,	"",	condition_チュートリアル_踊り)
 	EventEntryPickup(チュートリアル_カムイ,	"PID_セアダス",	condition_チュートリアル_カムイ)
@@ -132,8 +132,6 @@ function MapOpening()
 	CursorSetPos_FromPid(g_pid_lueur)
 
 	EffectCreate("魔法陣_G001",	15, 16)
-
-	セアダス加入()
 
 end
 
