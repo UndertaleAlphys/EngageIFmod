@@ -3118,3 +3118,17 @@ EXP之书
 [MIID_H_GuardBeastFang]
 幻影狼族护身的獠牙。兽特效。
 技-2/速-1/守备+4/魔防+5
+
+[MIID_ShackledFist]
+乱拳
+
+[MIID_H_ShackledFist]
+异形专用之体术，
+仅以力计算伤害。
+
+[MIID_Gauntlet]
+狂乱拳
+
+[MIID_H_Gauntlet]
+异形专用之体术，仅以力计算伤害。
+使用后力、技-2，逐回合恢复。

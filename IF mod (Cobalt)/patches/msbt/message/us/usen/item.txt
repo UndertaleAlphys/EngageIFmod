@@ -3309,3 +3309,19 @@ Guard Beast Fangs
 Defensive fangs of phantom wolfs.
 Effective: Cavalry
 Dex-2/Spd-1/Def+4/Res+5
+
+[MIID_ShackledFist]
+Shackled Fist
+
+[MIID_H_ShackledFist]
+The only weapon Corrupted needs.
+Use Str only.
+
+[MIID_Gauntlet]
+Gauntlet
+
+[MIID_H_Gauntlet]
+Dangerous weapons in the wrong hand.
+Use Str only.
+Inflicts stacking debuff on unit
+(Str/Dex -2)
