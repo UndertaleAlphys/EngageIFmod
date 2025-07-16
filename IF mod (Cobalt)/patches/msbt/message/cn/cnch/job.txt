@@ -578,3 +578,10 @@
 [MJID_H_MoonWolf]
 掌握暗月之力的狼之眷属，据说会吃人。
 具有出色的力量和速度。
+
+[MJID_Faceless]
+嗜血魔
+
+[MJID_H_Faceless]
+死去的怪物。
+用拳头攻击对手。

@@ -3321,7 +3321,7 @@ Use Str only.
 Gauntlet
 
 [MIID_H_Gauntlet]
-Dangerous weapons in the wrong hand.
+Dangerous on the wrong hand.
 Use Str only.
 Inflicts stacking debuff on unit
 (Str/Dex -2)

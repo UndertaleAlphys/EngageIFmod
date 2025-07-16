@@ -653,3 +653,10 @@ Phantom Moon Wolf
 A wolf-kin said to wield the power of the dark moon—  
 and rumored to devour humans.  
 Known for its fearsome strength and speed.
+
+[MJID_Faceless]
+Faceless
+
+[MJID_H_Faceless]
+An undead monster conjured by fell
+magic. Attacks with its fists.
