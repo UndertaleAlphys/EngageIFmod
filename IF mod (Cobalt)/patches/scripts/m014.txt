@@ -140,7 +140,6 @@ function MapOpening()
 end
 
 function SetBossReinforcement()
-	CobaltNotice("M014_SetBossReinforcement")
 	if VariableGet(g_key_area) == 0 then
 		return
 	end
@@ -149,11 +148,9 @@ function SetBossReinforcement()
 		return
 	end
 
-	CobaltNotice("BossReinforcement start Cal")
 	local remainTurn = VariableGet(g_reinforcement_turn) - 1
 	VariableSet(g_reinforcement_turn, remainTurn)
 	if(remainTurn == 0) then
-		CobaltNotice("BossReinforcement start")
 	  	ボス部屋増援()
 	end
 end
