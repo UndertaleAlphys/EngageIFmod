@@ -1487,8 +1487,8 @@ All nearby allies chain attack.
 Alacrity
 
 [MSID_H_Pursuit_1]
-If unit initiates combat with a Spd
-advantage of 9 or more, unit's
+If unit initiates combat with an ability
+to follow up of 7 or more, unit's
 follow-up (if possible) occurs before
 foe can counterattack.
 
@@ -1496,8 +1496,8 @@ foe can counterattack.
 Alacrity+
 
 [MSID_H_Pursuit_2]
-If unit initiates combat with a Spd
-advantage of 7 or more, unit's
+If unit initiates combat with an ability
+to follow up of 6 or more, unit's
 follow-up (if possible) occurs before
 foe can counterattack.
 
@@ -1505,8 +1505,8 @@ foe can counterattack.
 Alacrity++
 
 [MSID_H_Pursuit_3]
-If unit initiates combat with a Spd
-advantage of 5 or more, unit's
+If unit initiates combat with an ability
+to follow up of 5 or more, unit's
 follow-up (if possible) occurs before
 foe can counterattack.
 
