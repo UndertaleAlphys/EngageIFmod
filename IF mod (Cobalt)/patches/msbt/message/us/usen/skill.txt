@@ -892,7 +892,7 @@ Momentum
 [MSID_H_Approach_1]
 Grants Atk+1 to first attack during
 combat for each mov point unit cost
-before attacking.
+before attacking(max 9).
 
 [MSID_Approach_2]
 Momentum+
@@ -2381,7 +2381,7 @@ Ride-by Attack
 [MSID_H_PrivateSkill_Alfred]
 When unit initiates an attack, foe
 suffers Spd/Def -1 for every 2 spaces
-unit traveled before attack.
+unit traveled before attack(max 4).
 
 [MSID_PrivateSkill_Boucheron]
 Lucky Dog

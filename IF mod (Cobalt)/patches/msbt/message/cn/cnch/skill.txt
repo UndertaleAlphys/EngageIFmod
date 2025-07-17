@@ -826,7 +826,7 @@ HP回复量+15、杖的命中+30
 
 [MSID_H_Approach_1]
 移动后发起战斗时，每消耗1移动力
-首次攻击攻击力提升1
+首次攻击攻击力提升1（至多增加9）
 
 [MSID_Approach_2]
 助跑+
@@ -2173,6 +2173,7 @@ $P伤害+2，所受伤害-2
 [MSID_H_PrivateSkill_Alfred]
 移动后发动攻击时
 每移动2格敌方的速度、守备-1
+（至多减少4）
 
 [MSID_PrivateSkill_Boucheron]
 幸运儿
