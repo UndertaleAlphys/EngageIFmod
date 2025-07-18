@@ -3331,3 +3331,27 @@ Hunter's Bow
 A bow used by hunters.
 Effective: Flier/Cavalry
 Ineffective otherwise.
+
+[MIID_Stick]
+Stick
+
+[MIID_H_Stick]
+Dex+3
+
+[MIID_HexlockSpear]
+Hexlock Spear
+
+[MIID_H_HexlockSpear]
+A spear destined to pierce
+a mage's heart.
+Res+8
+
+[MIID_DiamandLance]
+Diamant's Lance
+
+[MIID_H_DiamandLance]
+Cannot Crit/Trigger skill
+Inflicts stacking debuff on unit
+(Str/Dex-2)
+Grants Str+4 for two foes
+within 2-radius after combat.
