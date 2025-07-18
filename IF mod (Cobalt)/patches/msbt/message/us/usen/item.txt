@@ -2628,7 +2628,7 @@ Hunter's Knife
 
 [MIID_H_BeastHunter]
 An dagger used by hunters.
-Effective: Cavalry/Flier
+Effective: Cavalry
 Inflicts debuff on foe after combat.
 (Luck -2 Def/Res -3)
 
@@ -3323,3 +3323,11 @@ Dangerous on the wrong hand.
 Use Str only.
 Inflicts stacking debuff on unit
 (Str/Dex -2)
+
+[MIID_HunterBow]
+Hunter's Bow
+
+[MIID_H_HunterBow]
+A bow used by hunters.
+Effective: Flier/Cavalry
+Ineffective otherwise.
