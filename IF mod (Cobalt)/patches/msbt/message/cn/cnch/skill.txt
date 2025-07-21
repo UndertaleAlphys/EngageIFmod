@@ -622,70 +622,128 @@ HP提升15
 [MSID_H_MartialArts_Mind_5]
 装备体术时，命中+30、必避-10
 
-[MSID_KnifeArts_1]
-短剑术Lv.1
+[MSID_DaggerArts_1]
+暗器术Lv.1
 
-[MSID_H_KnifeArts_1]
-装备短剑时，命中+3、回避+3
+[MSID_DaggerArts_2]
+暗器术Lv.2
 
-[MSID_KnifeArts_2]
-短剑术Lv.2
+[MSID_DaggerArts_3]
+暗器术Lv.3
 
-[MSID_H_KnifeArts_2]
-装备短剑时，命中+5、回避+5
+[MSID_DaggerArts_4]
+暗器术Lv.4
 
-[MSID_KnifeArts_3]
-短剑术Lv.3
+[MSID_DaggerArts_5]
+暗器术Lv.5
 
-[MSID_H_KnifeArts_3]
-装备短剑时，命中+7、回避+7
+[MSID_H_DaggerArts_1]
+装备暗器时，
+攻击力+1，
+三相克制不利时失效。
 
-[MSID_KnifeArts_4]
-短剑术Lv.4
+[MSID_H_DaggerArts_2]
+装备暗器时，
+攻击力+2，
+三相克制不利时失效。
 
-[MSID_H_KnifeArts_4]
-装备短剑时，命中+10、回避+10
+[MSID_H_DaggerArts_3]
+装备暗器时，
+攻击力+3，
+三相克制不利时失效。
 
-[MSID_KnifeArts_5]
-短剑术Lv.5
+[MSID_H_DaggerArts_4]
+装备暗器时，
+攻击力+4，命中+5，
+三相克制不利时失效。
 
-[MSID_H_KnifeArts_5]
-装备短剑时，命中+15、回避+15
+[MSID_H_DaggerArts_5]
+装备暗器时，
+攻击力+4，命中+5，
+三相克制不利时失效。
+【达人】攻击力+5
 
-[MSID_MagicArts_1]
+[MSID_TomeArts_1]
 魔道Lv.1
 
-[MSID_H_MagicArts_1]
-装备魔道书时，
-命中+5，回避+5
-
-[MSID_MagicArts_2]
+[MSID_TomeArts_2]
 魔道Lv.2
 
-[MSID_H_MagicArts_2]
-装备魔道书时，
-攻击力+1，命中+5，回避+5
-
-[MSID_MagicArts_3]
+[MSID_TomeArts_3]
 魔道Lv.3
 
-[MSID_H_MagicArts_3]
-装备魔道书时，
-攻击力+1，命中+10，回避+5
-
-[MSID_MagicArts_4]
+[MSID_TomeArts_4]
 魔道Lv.4
 
-[MSID_H_MagicArts_4]
-装备魔道书时，
-攻击力+2，命中+10，回避+5
-
-[MSID_MagicArts_5]
+[MSID_TomeArts_5]
 魔道Lv.5
 
-[MSID_H_MagicArts_5]
-装备魔道书时，
-攻击力+3，命中+10，回避+10
+[MSID_H_TomeArts_1]
+装备魔法时，
+攻击力+1，
+三相克制不利时失效。
+
+[MSID_H_TomeArts_2]
+装备魔法时，
+攻击力+1，命中+5，
+三相克制不利时失效。
+
+[MSID_H_TomeArts_3]
+装备魔法时，
+攻击力+2，命中+5，
+三相克制不利时失效。
+
+[MSID_H_TomeArts_4]
+装备魔法时，
+攻击力+3，命中+10，
+三相克制不利时失效。
+
+[MSID_H_TomeArts_5]
+装备魔法时，
+攻击力+3，命中+10，
+三相克制不利时失效。
+【达人】攻击力+5
+
+[MSID_BowArts_1]
+弓术Lv.1
+
+[MSID_BowArts_2]
+弓术Lv.2
+
+[MSID_BowArts_3]
+弓术Lv.3
+
+[MSID_BowArts_4]
+弓术Lv.4
+
+[MSID_BowArts_5]
+弓术Lv.5
+
+[MSID_H_BowArts_1]
+装备弓时，
+攻击力+1，
+三相克制不利时失效。
+
+[MSID_H_BowArts_2]
+装备弓时，
+攻击力+1，命中+5，
+三相克制不利时失效。
+
+[MSID_H_BowArts_3]
+装备弓时，
+攻击力+2，命中+5，
+三相克制不利时失效。
+
+[MSID_H_BowArts_4]
+装备弓时，
+攻击力+3，命中+10，
+三相克制不利时失效。
+
+[MSID_H_BowArts_5]
+装备弓时，
+攻击力+3，命中+10，
+三相克制不利时失效。
+【达人】攻击力+5
 
 [MSID_RodArts_1]
 信仰Lv.1
@@ -3578,78 +3636,81 @@ MSID_CrtMoreDmg
 
 [MSID_H_SwordArts_1]
 装备剑时，
-攻击力+1，回避+5
-三相克制不利时失效
+攻击力+1，
+三相克制不利时失效。
 
 [MSID_H_SwordArts_2]
 装备剑时，
-攻击力+1，回避+10
-三相克制不利时失效
+攻击力+2，
+三相克制不利时失效。
 
 [MSID_H_SwordArts_3]
 装备剑时，
-攻击力+2，回避+10
-三相克制不利时失效
+攻击力+3，
+三相克制不利时失效。
 
 [MSID_H_SwordArts_4]
 装备剑时，
-攻击力+2，回避+15
-三相克制不利时失效
+攻击力+4，命中+5，
+三相克制不利时失效。
 
 [MSID_H_SwordArts_5]
 装备剑时，
-攻击力+3，回避+20
-三相克制不利时失效
+攻击力+4，命中+5，
+三相克制不利时失效。
+【达人】攻击力+5
 
 [MSID_H_LanceArts_1]
 装备枪时，
-命中+5，回避+5
-三相克制不利时失效
+攻击力+1，
+三相克制不利时失效。
 
 [MSID_H_LanceArts_2]
 装备枪时，
-攻击力+1，命中+5，回避+5
-三相克制不利时失效
+攻击力+1，命中+5，
+三相克制不利时失效。
 
 [MSID_H_LanceArts_3]
 装备枪时，
-攻击力+1，命中+10，回避+5
-三相克制不利时失效
+攻击力+2，命中+5，
+三相克制不利时失效。
 
 [MSID_H_LanceArts_4]
 装备枪时，
-攻击力+2，命中+10，回避+5
-三相克制不利时失效
+攻击力+3，命中+10，
+三相克制不利时失效。
 
 [MSID_H_LanceArts_5]
 装备枪时，
-攻击力+3，命中+10，回避+10
-三相克制不利时失效
+攻击力+3，命中+10，
+三相克制不利时失效。
+【达人】攻击力+5
 
 [MSID_H_AxeArts_1]
 装备斧时，
-攻击力+1，命中+5
-三相克制不利时失效
+命中+5，
+三相克制不利时失效。
 
 [MSID_H_AxeArts_2]
 装备斧时，
-攻击力+1，命中+10
-三相克制不利时失效
+命中+10，
+三相克制不利时失效。
 
 [MSID_H_AxeArts_3]
 装备斧时，
-攻击力+2，命中+10
-三相克制不利时失效
+攻击力+1，命中+10。
+三相克制不利时失效。
 
 [MSID_H_AxeArts_4]
 装备斧时，
-攻击力+2，命中+15
-三相克制不利时失效
+攻击力+2，命中+15。
+三相克制不利时失效。
 
 [MSID_H_AxeArts_5]
 装备斧时，
-攻击力+3，命中+20
-三相克制不利时失效
+攻击力+2，命中+15。
+三相克制不利时失效。
+【达人】攻击力+5
 
 [MSID_H_Shuttle]
 可使用“穿梭”指令，

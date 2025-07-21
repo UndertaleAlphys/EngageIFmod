@@ -667,75 +667,128 @@ Art Focus 5
 Grants Hit+30 at a cost of Ddg-10
 when using an art.
 
-[MSID_KnifeArts_1]
-Knife Precision 1
+[MSID_DaggerArts_1]
+Dagger Prowess Lv.1
 
-[MSID_H_KnifeArts_1]
-Grants Hit/Avo+3 when using
-a knife.
+[MSID_DaggerArts_2]
+Dagger Prowess Lv.2
 
-[MSID_KnifeArts_2]
-Knife Precision 2
+[MSID_DaggerArts_3]
+Dagger Prowess Lv.3
 
-[MSID_H_KnifeArts_2]
-Grants Hit/Avo+5 when using
-a knife.
+[MSID_DaggerArts_4]
+Dagger Prowess Lv.4
 
-[MSID_KnifeArts_3]
-Knife Precision 3
+[MSID_DaggerArts_5]
+Dagger Prowess Lv.5
 
-[MSID_H_KnifeArts_3]
-Grants Hit/Avo+7 when using
-a knife.
+[MSID_H_DaggerArts_1]
+Grants Atk+1
+when using daggers,
+fails at weapon disadvantage.
 
-[MSID_KnifeArts_4]
-Knife Precision 4
+[MSID_H_DaggerArts_2]
+Grants Atk+2
+when using daggers,
+fails at weapon disadvantage.
 
-[MSID_H_KnifeArts_4]
-Grants Hit/Avo+10 when using
-a knife.
+[MSID_H_DaggerArts_3]
+Grants Atk+3
+when using daggers,
+fails at weapon disadvantage.
 
-[MSID_KnifeArts_5]
-Knife Precision 5
+[MSID_H_DaggerArts_4]
+Grants Atk+4 and Hit+5
+when using daggers,
+fails at weapon disadvantage.
 
-[MSID_H_KnifeArts_5]
-Grants Hit/Avo+15 when using
-a knife.
+[MSID_H_DaggerArts_5]
+Grants Atk+4 and Hit+5
+when using daggers,
+fails at weapon disadvantage.
+[Daggerfaire]Grants Atk+5
 
-[MSID_MagicArts_1]
-Tome Precision 1
+[MSID_TomeArts_1]
+Tome Prowess Lv.1
 
-[MSID_H_MagicArts_1]
-Grants Hit/Avo+5 when using
-a tome.
+[MSID_TomeArts_2]
+Tome Prowess Lv.2
 
-[MSID_MagicArts_2]
-Tome Precision 2
+[MSID_TomeArts_3]
+Tome Prowess Lv.3
 
-[MSID_H_MagicArts_2]
-Grants Dmg+1, Hit/Avo+5
-when using a tome.
+[MSID_TomeArts_4]
+Tome Prowess Lv.4
 
-[MSID_MagicArts_3]
-Tome Precision 3
+[MSID_TomeArts_5]
+Tome Prowess Lv.5
 
-[MSID_H_MagicArts_3]
-Grants Dmg+1, Hit+10, Avo+5 
-when using a tome.
+[MSID_H_TomeArts_1]
+Grants Atk+1
+when using tomes,
+fails at weapon disadvantage.
 
-[MSID_MagicArts_4]
-Tome Precision 4
+[MSID_H_TomeArts_2]
+Grants Atk+1 and Hit+5
+when using tomes,
+fails at weapon disadvantage.
 
-[MSID_H_MagicArts_4]
-Grants Dmg+2, Hit+10, Avo+5
-when using a tome.
+[MSID_H_TomeArts_3]
+Grants Atk+2 and Hit+5
+when using tomes,
+fails at weapon disadvantage.
 
-[MSID_MagicArts_5]
-Tome Precision 5
+[MSID_H_TomeArts_4]
+Grants Atk+3 and Hit+10
+when using tomes,
+fails at weapon disadvantage.
 
-[MSID_H_MagicArts_5]
-Grants Dmg+3, Hit/Avo+10
-when using a tome.
+[MSID_H_TomeArts_5]
+Grants Atk+3 and Hit+10
+when using tomes,
+fails at weapon disadvantage.
+[Tomefaire]Grants Atk+5
+
+[MSID_BowArts_1]
+Bow Prowess Lv.1
+
+[MSID_BowArts_2]
+Bow Prowess Lv.2
+
+[MSID_BowArts_3]
+Bow Prowess Lv.3
+
+[MSID_BowArts_4]
+Bow Prowess Lv.4
+
+[MSID_BowArts_5]
+Bow Prowess Lv.5
+
+[MSID_H_BowArts_1]
+Grants Atk+1
+when using bows,
+fails at weapon disadvantage.
+
+[MSID_H_BowArts_2]
+Grants Atk+1 and Hit+5
+when using bows,
+fails at weapon disadvantage.
+
+[MSID_H_BowArts_3]
+Grants Atk+2 and Hit+5
+when using bows,
+fails at weapon disadvantage.
+
+[MSID_H_BowArts_4]
+Grants Atk+3 and Hit+10
+when using bows,
+fails at weapon disadvantage.
+
+[MSID_H_BowArts_5]
+Grants Atk+3 and Hit+10
+when using bows,
+fails at weapon disadvantage.
+[Bow Prowess]Grants Atk+5
 
 [MSID_RodArts_1]
 Staff Mastery 1
@@ -1521,10 +1574,10 @@ At the start of each player's phase,
 if this unit didn't defeat
 any enemy last turn, lose 2 Spd.
 
-[MSID_H_SpeedAbsorption]
+[MSID_StrengthAbsorption]
 Strengthtaker
 
-[MSID_StrengthAbsorption]
+[MSID_H_StrengthAbsorption]
 Grants a stacking Str+2 each time
 unit initiates combat and defeats a
 foe. (Max +10)
@@ -3584,14 +3637,14 @@ Better Odds
 
 [MSID_H_BetterOdds]
 Recover 40% HP at the start 
-of odd-numbered player' phase.
+of odd-numbered player phase.
 
 [MSID_EvenBetter]
 Even Better
 
 [MSID_H_EvenBetter]
 Recover 40% HP at the start 
-of even-numbered player' phase.
+of even-numbered player phase.
 
 [MSID_Brynhild]
 Brynhildr
@@ -3844,124 +3897,127 @@ Allies within a 2 tile radius deal 2 extra
 damage and receive 2 less damage during battles.
 
 [MSID_SwordArts_1]
-剑术Lv.1
+Sword Prowess Lv.1
 
 [MSID_SwordArts_2]
-剑术Lv.2
+Sword Prowess Lv.2
 
 [MSID_SwordArts_3]
-剑术Lv.3
+Sword Prowess Lv.3
 
 [MSID_SwordArts_4]
-剑术Lv.4
+Sword Prowess Lv.4
 
 [MSID_SwordArts_5]
-剑术Lv.5
-
-[MSID_LanceArts_5]
-枪术Lv.5
+Sword Prowess Lv.5
 
 [MSID_LanceArts_1]
-枪术Lv.1
+Lance Prowess Lv.1
 
 [MSID_LanceArts_2]
-枪术Lv.2
+Lance Prowess Lv.2
 
 [MSID_LanceArts_3]
-枪术Lv.3
+Lance Prowess Lv.3
 
 [MSID_LanceArts_4]
-枪术Lv.4
+Lance Prowess Lv.4
 
-[MSID_AxeArts_4]
-斧术Lv.4
+[MSID_LanceArts_5]
+Lance Prowess Lv.5
 
 [MSID_AxeArts_1]
-斧术Lv.1
+Axe Prowess Lv.1
 
 [MSID_AxeArts_2]
-斧术Lv.2
+Axe Prowess Lv.2
 
 [MSID_AxeArts_3]
-斧术Lv.3
+Axe Prowess Lv.3
+
+[MSID_AxeArts_4]
+Axe Prowess Lv.4
 
 [MSID_AxeArts_5]
-斧术Lv.5
+Axe Prowess Lv.5
 
 [MSID_H_SwordArts_1]
-装备剑时，
-攻击力+1，回避+5
-三相克制不利时失效
+Grants Atk+1
+when using swords,
+fails at weapon disadvantage.
 
 [MSID_H_SwordArts_2]
-装备剑时，
-攻击力+1，回避+10
-三相克制不利时失效
+Grants Atk+2
+when using swords,
+fails at weapon disadvantage.
 
 [MSID_H_SwordArts_3]
-装备剑时，
-攻击力+2，回避+10
-三相克制不利时失效
+Grants Atk+3
+when using swords,
+fails at weapon disadvantage.
 
 [MSID_H_SwordArts_4]
-装备剑时，
-攻击力+2，回避+15
-三相克制不利时失效
+Grants Atk+4 and Hit+5
+when using swords,
+fails at weapon disadvantage.
 
 [MSID_H_SwordArts_5]
-装备剑时，
-攻击力+3，回避+20
-三相克制不利时失效
+Grants Atk+4 and Hit+5
+when using swords,
+fails at weapon disadvantage.
+[Swordfaire]Grants Atk+5
 
 [MSID_H_LanceArts_1]
-装备枪时，
-命中+5，回避+5
-三相克制不利时失效
+Grants Atk+1
+when using lances,
+fails at weapon disadvantage.
 
 [MSID_H_LanceArts_2]
-装备枪时，
-攻击力+1，命中+5，回避+5
-三相克制不利时失效
+Grants Atk+1 and Hit+5
+when using lances,
+fails at weapon disadvantage.
 
 [MSID_H_LanceArts_3]
-装备枪时，
-攻击力+1，命中+10，回避+5
-三相克制不利时失效
+Grants Atk+2 and Hit+5
+when using lances,
+fails at weapon disadvantage.
 
 [MSID_H_LanceArts_4]
-装备枪时，
-攻击力+2，命中+10，回避+5
-三相克制不利时失效
+Grants Atk+3 and Hit+10
+when using lances,
+fails at weapon disadvantage.
 
 [MSID_H_LanceArts_5]
-装备枪时，
-攻击力+3，命中+10，回避+10
-三相克制不利时失效
+Grants Atk+3 and Hit+10
+when using lances,
+fails at weapon disadvantage.
+[Lancefaire]Grants Atk+5
 
 [MSID_H_AxeArts_1]
-装备斧时，
-攻击力+1，命中+5
-三相克制不利时失效
+Grants Hit+5
+when using axes,
+fails at weapon disadvantage.
 
 [MSID_H_AxeArts_2]
-装备斧时，
-攻击力+1，命中+10
-三相克制不利时失效
+Grants Hit+10
+when using axes,
+fails at weapon disadvantage.
 
 [MSID_H_AxeArts_3]
-装备斧时，
-攻击力+2，命中+10
-三相克制不利时失效
+Grants Atk+1 and Hit+10
+when using axes,
+fails at weapon disadvantage.
 
 [MSID_H_AxeArts_4]
-装备斧时，
-攻击力+2，命中+15
-三相克制不利时失效
+Grants Atk+2 and Hit+15
+when using axes,
+fails at weapon disadvantage.
 
 [MSID_H_AxeArts_5]
-装备斧时，
-攻击力+3，命中+20
-三相克制不利时失效
+Grants Atk+2 and Hit+15
+when using axes,
+fails at weapon disadvantage.
+[Axefaire]Grants Atk+5
 
 [MSID_H_Shuttle]
 Grants the unit "Swap" command,
