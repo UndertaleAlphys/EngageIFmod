@@ -3747,7 +3747,6 @@ MSID_CrtMoreDmg
 将连续攻击2次
 奥尔坦希亚装备时，3格内我方单位获得特技
 “双重攻击”、“双重协助”和“双重支援 · 暗”
-但参与连锁攻击时伤害减半
 
 [MSID_PrivateSkill_Hortensia_E]
 辉煌原力 · 暗

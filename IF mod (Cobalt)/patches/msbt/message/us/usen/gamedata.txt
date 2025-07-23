@@ -621,7 +621,7 @@ $P or Yunaka is defeated.
 Defeat Boss.
 
 [MID_RULE_M008_WIN]
-Defeat Boss.
+Defend for 11 Turns.
 
 [MID_RULE_M008_LOSE]
 $P is defeated or foes reach area.

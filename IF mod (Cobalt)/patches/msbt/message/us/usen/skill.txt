@@ -4058,9 +4058,7 @@ If this unit is at max HP,
 chain attack twice.
 When equipped by Hortensia, all
 allies in 3 radius get "Dual Assist",
-"Dual Strike", "Dark Dual Support" 
-but the damage of chain attack
-is reduced by half.
+"Dual Strike", "Dark Dual Support"
 
 [MSID_PrivateSkill_Hortensia_E]
 Dark Big Personality
