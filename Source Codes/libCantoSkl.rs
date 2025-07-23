@@ -2,7 +2,7 @@
 #![feature(lazy_cell, ptr_sub_ptr)]
 
 use engage::{
-    gamedata::{ai::MoveLimitRange, terrain::TerrainData, unit::Unit},
+    gamedata::{ai::MoveLimitRange, skill::SkillData, terrain::TerrainData, unit::Unit, Gamedata},
     map::{
         image::{MapImage, MapImageTerrain},
         terrain::MapTerrain,
@@ -57,16 +57,25 @@ pub fn map_sequence_mind_fixed(map_sequence_mind: i64, method: OptionalMethod) {
     let unit = unsafe {
         let map_sequence_mind_o = map_sequence_mind as *const *const Unit;
         let p_unit = *map_sequence_mind_o.byte_add(0x70);
-        if p_unit == std::ptr::null(){
+        if p_unit == std::ptr::null() {
             None
-        }else{
+        } else {
             let p_unit = p_unit as *mut Unit;
             Some(&mut *p_unit)
         }
     };
     clear_move_distance(unit, 0);
+    // if let Some(unit) = unit{
+    //     unit.private_skill.remove_sid(Il2CppString::new("SID_Canto_Flag"));
+    // }
 }
 
+// #[unity::from_offset("App", "Unit", "RemovePrivateSkill")]
+// pub fn remove_skill(unit: &Unit, sid: &Il2CppString, method: OptionalMethod) -> bool;
+#[skyline::from_offset(0x01A0C630)]
+pub fn add_skill(unit: &Unit, sid: &Il2CppString, method: OptionalMethod) -> bool;
+
+static mut LAST_MOVE_POWER: i32 = 0;
 #[skyline::hook(offset = 0x02C1E7F0)]
 pub fn unit_move_xz(
     template: i64,
@@ -80,13 +89,18 @@ pub fn unit_move_xz(
 ) {
     let real_move_power = if unit.status.value & 0x40000 != 0 {
         if unit.has_sid(Il2CppString::new("SID_再移動＋＋")) {
-            let unit_mov = unit.get_capability(0xA, true);
-            (unit_mov - unit.move_distance).max(0)
+            if unit.has_sid(Il2CppString::new("SID_Canto_Flag")) {
+                unsafe { LAST_MOVE_POWER }
+            } else {
+                let unit_mov = unit.get_capability(0xA, true);
+                let move_power = (unit_mov - unit.move_distance).max(0);
+                unsafe { add_skill(unit, Il2CppString::new("SID_Canto_Flag"), None) };
+                unsafe { LAST_MOVE_POWER = move_power };
+                move_power
+            }
         } else {
             move_power
         }
-        // let unit_mov = unit.get_capability(0xA, true);
-        // unit_mov - unit.move_distance
     } else {
         move_power
     };
