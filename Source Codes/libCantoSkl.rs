@@ -2,7 +2,7 @@
 #![feature(lazy_cell, ptr_sub_ptr)]
 
 use engage::{
-    gamedata::{ai::MoveLimitRange, skill::SkillData, terrain::TerrainData, unit::Unit, Gamedata},
+    gamedata::{ai::MoveLimitRange, skill::{SkillArray, SkillData}, terrain::TerrainData, unit::Unit, Gamedata},
     map::{
         image::{MapImage, MapImageTerrain},
         terrain::MapTerrain,
@@ -72,8 +72,8 @@ pub fn map_sequence_mind_fixed(map_sequence_mind: i64, method: OptionalMethod) {
 
 // #[unity::from_offset("App", "Unit", "RemovePrivateSkill")]
 // pub fn remove_skill(unit: &Unit, sid: &Il2CppString, method: OptionalMethod) -> bool;
-#[skyline::from_offset(0x01A0C630)]
-pub fn add_skill(unit: &Unit, sid: &Il2CppString, method: OptionalMethod) -> bool;
+#[skyline::from_offset(0x01A5D430)]
+pub fn add_skill(unit: &Unit, skill_data: &SkillData, method: OptionalMethod) -> bool;
 
 static mut LAST_MOVE_POWER: i32 = 0;
 #[skyline::hook(offset = 0x02C1E7F0)]
@@ -94,7 +94,7 @@ pub fn unit_move_xz(
             } else {
                 let unit_mov = unit.get_capability(0xA, true);
                 let move_power = (unit_mov - unit.move_distance).max(0);
-                unsafe { add_skill(unit, Il2CppString::new("SID_Canto_Flag"), None) };
+                unsafe { add_skill(unit, SkillData::get(Il2CppString::new("SID_Canto_Flag")).unwrap(), None) };
                 unsafe { LAST_MOVE_POWER = move_power };
                 move_power
             }
