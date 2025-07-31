@@ -457,8 +457,10 @@ function InitEnemyLeafStatus()
 	local turn = MapGetTurn() % 2
 	if turn == 1 then
 		InitEvenEnemyLeafStatus()
+		EvenEnemySetBarrier()
 	else
 		InitOddEnemyLeafStatus()
+		OddEnemySetBarrier()
 	end
 end
 
