@@ -474,14 +474,14 @@ Keen Insight
 
 [MSID_H_KeenInsight]
 When unit has weapon advantage,
-grants Atk+5.
+grants Atk+3.
 
 [MSID_KeenInsight+]
 Keen Insight+
 
 [MSID_H_KeenInsight+]
 When unit has weapon advantage,
-grants Atk+7.
+grants Atk+5.
 
 [MSID_TacticalAdvice]
 Tactical Advice

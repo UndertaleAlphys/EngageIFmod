@@ -448,14 +448,14 @@ HP未达最大值，无法使用。
 
 [MSID_H_KeenInsight]
 三相克制有利时
-攻击力+5
+攻击力+3
 
 [MSID_KeenInsight+]
 慧眼+
 
 [MSID_H_KeenInsight+]
 三相克制有利时
-攻击力+7
+攻击力+5
 
 [MSID_TacticalAdvice]
 战术指南
