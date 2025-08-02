@@ -200,8 +200,7 @@ Reflect
 
 [MIID_H_Senerio_MagicShield]
 Staff of Emblem Soren. Allies within
-2 spaces gain "deals 50% of magic
-damage taken back to foe" for 1 turn.
+2 spaces gain "Counter Magic" for 1 turn.
 
 [MIID_Senerio_Rexcalibur]
 Rexcalibur
@@ -209,7 +208,9 @@ Rexcalibur
 [MIID_H_Senerio_Rexcalibur]
 Powerful wind magic wielded by
 Emblem Soren.
-Effective: Flying.
+Effective: Flying. Def/Res-5.
++5 unit's and foe's ability
+to follow up
 
 [MIID_Senerio_Disaster]
 Cataclysm
@@ -463,23 +464,31 @@ Attack at triple weapon's Mt.
 Anima Focus
 
 [MSID_H_MagicOfLaw+]
-When using tomes, unit inflicts Def-3
-with fire, Hit-20 with thunder, or
-Mov-2 with wind magic for 1 turn.
+Grants Atk+4 if unit attacks with:
+fire, and foe's style is Cavalry;
+thunder, and foe's style is Dragon;
+wind, and foe's style is Flying.
 
 [MSID_KeenInsight]
 Keen Insight
 
 [MSID_H_KeenInsight]
-When unit deals Effective damage,
-deal +5 damage.
+When unit has weapon advantage,
+grants Atk+5.
 
 [MSID_KeenInsight+]
 Keen Insight+
 
 [MSID_H_KeenInsight+]
-When unit deals Effective damage,
-deal +7 damage.
+When unit has weapon advantage,
+grants Atk+7.
+
+[MSID_TacticalAdvice]
+Tactical Advice
+
+[MSID_H_TacticalAdvice]
+Grants the ability to use
+multiple positioning commands.
 
 [MSID_NominateDecoy]
 Assign Decoy
@@ -499,64 +508,46 @@ be targeted by enemies.
 Block Recovery
 
 [MSID_H_PreventionReturn]
-When attacking a broken foe with
-a tome, grants a chance the foe will
-remain broken. Chance increases
-with high Spd.
+When unit attacks a broken foe
+with weapon advantage,
+the foe will remain broken.
 
 [MSID_SenerioEngage]
 Flare
 
 [MSID_H_SenerioEngage]
-When attacking with tomes, inflicts
-Res-20% on foe, and unit recovers
-50% of damage dealt.
+Inflicts Res-20% on foe.
+Unit recovers 50% of damage dealt
+when initiating combat.
 
 [MSID_H_SenerioEngage_Dragon]
-When attacking with tomes, inflicts
-Res-20% on foe, and unit recovers
-50% of damage dealt.
-[Dragon] Critical rate is doubled.
+Inflicts Res-20% on foe.
+Unit recovers 50% of damage dealt
+when initiating combat.
+[Dragon] Extra -5% to foe's Res.
 
 [MSID_H_SenerioEngage_Magic]
-When attacking with tomes, inflicts
-Res-20% on foe, and unit recovers
-50% of damage dealt.
+Inflicts Res-20% on foe.
+Unit recovers 50% of damage dealt
+when initiating combat.
 [Mystical] Extra -10% to foe's Res.
-
-[MSID_H_SenerioEngage_Prana]
-When attacking with tomes, inflicts
-Res-20% on foe, and unit recovers
-50% of damage dealt.
-[Qi Adept] Unit recovers 100% of
-damage dealt instead.
 
 [MSID_SenerioEngageAtk]
 Cataclysm
 
 [MSID_H_SenerioEngageAtk]
-Use to attack foes in an area with
-fire, thunder and wind magic at 40%
-damage. Wind is effective: Flying.
+Use to attack a foe with fire, thunder
+and wind magic at 70% damage.
 
 [MSID_H_SenerioEngageAtk_Dragon]
-Use to attack foes in an area with
-fire, thunder and wind magic at 40%
-damage. Wind is effective: Flying.
-[Dragon] Sets terrain on fire.
+Use to attack a foe with fire, thunder
+and wind magic at 70% damage.
+[Dragon] +20% damage.
 
 [MSID_H_SenerioEngageAtk_Magic]
-Use to attack foes in an area with
-fire, thunder and wind magic at 40%
-damage. Wind is effective: Flying.
+Use to attack a foe with fire, thunder
+and wind magic at 70% damage.
 [Mystical] +10% damage.
-
-[MSID_H_SenerioEngageAtk_Prana]
-Use to attack foes in an area with
-fire, thunder and wind magic at 40%
-damage. Wind is effective: Flying.
-[Qi Adept] 20% chance of breaking
-target.
 
 [MSID_H_SenerioEngageAtk_CMD]
 Attacks area with fire, wind,
@@ -571,28 +562,21 @@ damage. Wind is effective: Flying.
 Cataclysm+
 
 [MSID_H_SenerioEngageAtk+]
-Use to attack foes in an area with
-fire, thunder and wind magic at 40%
-damage. Wind is effective: Flying.
+Use to attack a foe with fire, thunder
+and wind magic at 70% damage.
+Enemies adjacent to foe take Dmg of 40% MaxHP.
 
 [MSID_H_SenerioEngageAtk+_Dragon]
-Use to attack foes in an area with
-fire, thunder and wind magic at 40%
-damage. Wind is effective: Flying.
-[Dragon] Sets terrain on fire.
+Use to attack a foe with fire, thunder
+and wind magic at 70% damage.
+Enemies adjacent to foe take Dmg of 40% MaxHP.
+[Dragon] +20% damage.
 
 [MSID_H_SenerioEngageAtk+_Magic]
-Use to attack foes in an area with
-fire, thunder and wind magic at 40%
-damage. Wind is effective: Flying.
+Use to attack a foe with fire, thunder
+and wind magic at 70% damage.
+Enemies adjacent to foe take Dmg of 40% MaxHP.
 [Mystical] +10% damage.
-
-[MSID_H_SenerioEngageAtk+_Prana]
-Use to attack foes in an area with
-fire, thunder and wind magic at 40%
-damage. Wind is effective: Flying.
-[Qi Adept] 20% chance of breaking
-target.
 
 [MSID_H_SenerioEngageAtk+_CMD]
 Attacks area with fire, wind,
