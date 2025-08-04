@@ -3619,9 +3619,6 @@ MSID_CrtMoreDmg
 [MSID_LanceArts_4]
 枪术Lv.4
 
-[MSID_AxeArts_4]
-斧术Lv.4
-
 [MSID_AxeArts_1]
 斧术Lv.1
 
@@ -3631,8 +3628,26 @@ MSID_CrtMoreDmg
 [MSID_AxeArts_3]
 斧术Lv.3
 
+[MSID_AxeArts_4]
+斧术Lv.4
+
 [MSID_AxeArts_5]
 斧术Lv.5
+
+[MSID_MartialArts_1]
+格斗术Lv.1
+
+[MSID_MartialArts_2]
+格斗术Lv.2
+
+[MSID_MartialArts_3]
+格斗术Lv.3
+
+[MSID_MartialArts_4]
+格斗术Lv.4
+
+[MSID_MartialArts_5]
+格斗术Lv.5
 
 [MSID_H_SwordArts_1]
 装备剑时，
@@ -3708,6 +3723,32 @@ MSID_CrtMoreDmg
 
 [MSID_H_AxeArts_5]
 装备斧时，
+攻击力+2，命中+15。
+三相克制不利时失效。
+【达人】攻击力+5
+
+[MSID_H_MartialArts_1]
+装备体术时，
+命中+5，
+三相克制不利时失效。
+
+[MSID_H_MartialArts_2]
+装备体术时，
+命中+10，
+三相克制不利时失效。
+
+[MSID_H_MartialArts_3]
+装备体术时，
+攻击力+1，命中+10。
+三相克制不利时失效。
+
+[MSID_H_MartialArts_4]
+装备体术时，
+攻击力+2，命中+15。
+三相克制不利时失效。
+
+[MSID_H_MartialArts_5]
+装备体术时，
 攻击力+2，命中+15。
 三相克制不利时失效。
 【达人】攻击力+5
