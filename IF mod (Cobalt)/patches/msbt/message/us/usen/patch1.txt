@@ -92,6 +92,12 @@ Known as the Emblem of Strength.
 An exuberant, heroic young man,
 brimming with confidence.
 
+[MSID_Severance]
+Severance
+
+[MSID_H_Severance]
+Add 30% of foe's (maxHP - HP) to Dmg dealt
+
 [MPID_Senerio]
 Soren
 

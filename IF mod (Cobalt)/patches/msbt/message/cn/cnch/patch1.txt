@@ -483,6 +483,12 @@ HP未达最大值，无法使用。
 若三相克制有利
 将让敌人继续维持打破状态
 
+[MSID_Severance]
+斩绝
+
+[MSID_H_Severance]
+伤害增加对方已损失HP的30%
+
 [MSID_SenerioEngage]
 阳光
 
