@@ -3445,12 +3445,19 @@ MSID_CrtMoreDmg
 [MSID_H_Lunge_CMD]
 战斗后，与敌人互换位置
 
-[MSID_AirSuperiority]
+[MSID_AirSuperiority_1]
 天翔
 
-[MSID_H_AirSuperiority]
+[MSID_H_AirSuperiority_1]
 对手是飞行单位时
-命中+30，回避+30
+命中·回避+15
+
+[MSID_AirSuperiority_2]
+天翔+
+
+[MSID_H_AirSuperiority_2]
+对手是飞行单位时
+命中·回避+30
 
 [MSID_StrengthCry]
 力之呐喊

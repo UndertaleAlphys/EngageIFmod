@@ -3739,10 +3739,17 @@ For the first 7 turns,
 Swap places with the enemy
 after battle.
 
-[MSID_AirSuperiority]
+[MSID_AirSuperiority_1]
 Air Superiority
 
-[MSID_H_AirSuperiority]
+[MSID_H_AirSuperiority_1]
+When fighting against a
+flying unit, grants Hit/Avo+15.
+
+[MSID_AirSuperiority_2]
+Air Superiority+
+
+[MSID_H_AirSuperiority_2]
 When fighting against a
 flying unit, grants Hit/Avo+30.
 
