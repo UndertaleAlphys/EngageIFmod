@@ -550,7 +550,7 @@ $Icon("WhiteStone")无色召唤石
 
 [MSID_H_Charisma]
 自身的攻击触发连锁攻击时
-提升连锁攻击的命中率
+提升连锁攻击的伤害
 
 [MSID_SuckerPunch]
 偷袭

@@ -705,55 +705,29 @@ HP未达最大值，无法使用。
 暗夜爆破阵
 
 [MSID_H_CamillaEngageAtk]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
+对自身周围3格内的敌人造成40%HP伤害
 
 [MSID_H_CamillaEngageAtk_Dragon]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【龙族】扩大效果范围
-
-[MSID_H_CamillaEngageAtk_Magic]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【魔道】伤害增为120%
-
-[MSID_H_CamillaEngageAtk_Prana]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【气功】对自身周围1格的地形
-赋予“熏香”效果
+对自身周围3格内的敌人造成40%HP伤害
+【龙族】伤害+10%
 
 [MSID_H_CamillaEngageAtk_CMD]
-攻击特定格子后，
-使格子陷入燃烧状态
+攻击周围3格内的敌人
 
 [MSID_CamillaEngageAtk+]
 暗夜爆破阵+
 
 [MSID_H_CamillaEngageAtk+]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
+对自身周围3格内的敌人造成40%HP伤害，
+然后对这些格子施加火焰。
 
 [MSID_H_CamillaEngageAtk+_Dragon]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【龙族】扩大效果范围
-
-[MSID_H_CamillaEngageAtk+_Magic]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【魔道】伤害增为120%
-
-[MSID_H_CamillaEngageAtk+_Prana]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【气功】对自身周围1格的地形
-赋予“熏香”效果
+对自身周围3格内的敌人造成40%HP伤害，
+然后对这些格子施加火焰。
+【龙族】伤害+10%
 
 [MSID_H_CamillaEngageAtk+_CMD]
-攻击特定格子后，
-使格子陷入燃烧状态
+攻击周围3格内的敌人并施加火焰
 
 [MSID_Str_Def_1]
 力量、防守+1

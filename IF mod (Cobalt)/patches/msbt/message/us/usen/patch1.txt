@@ -736,63 +736,34 @@ as if flying.
 Dark Inferno
 
 [MSID_H_CamillaEngageAtk]
-Use to deal damage to foes on
-certain spaces near unit and set
-those spaces on fire.
+Use to deal damage to foes
+within 3 tiles
 
 [MSID_H_CamillaEngageAtk_Dragon]
-Use to deal damage to foes on
-certain spaces near unit and set
-those spaces on fire.
-[Dragon] Increases area of effect.
-
-[MSID_H_CamillaEngageAtk_Magic]
-Use to deal damage to foes on
-certain spaces near unit and set
-those spaces on fire.
-[Mystical] +20% damage.
-
-[MSID_H_CamillaEngageAtk_Prana]
-Use to deal damage to foes on
-certain spaces near unit and set
-those spaces on fire.
-[Qi Adept] Adds Glow to adjacent
-spaces.
+Use to deal damage to foes
+within 3 tiles
+[Dragon] Increases damage.
 
 [MSID_H_CamillaEngageAtk_CMD]
-Attacks certain spaces then
-sets those spaces on fire.
+Deal damage to foes within 3 tiles.
 
 [MSID_CamillaEngageAtk+]
 Dark Inferno+
 
 [MSID_H_CamillaEngageAtk+]
-Use to deal damage to foes on
-certain spaces near unit and set
-those spaces on fire.
+Use to deal damage to foes
+within 3 tiles, then set
+those space in fire.
 
 [MSID_H_CamillaEngageAtk+_Dragon]
-Use to deal damage to foes on
-certain spaces near unit and set
-those spaces on fire.
-[Dragon] Increases area of effect.
-
-[MSID_H_CamillaEngageAtk+_Magic]
-Use to deal damage to foes on
-certain spaces near unit and set
-those spaces on fire.
-[Mystical] +20% damage.
-
-[MSID_H_CamillaEngageAtk+_Prana]
-Use to deal damage to foes on
-certain spaces near unit and set
-those spaces on fire.
-[Qi Adept] Adds Glow to adjacent
-spaces.
+Use to deal damage to foes
+within 3 tiles, then set
+those space in fire.
+[Dragon] Increases damage.
 
 [MSID_H_CamillaEngageAtk+_CMD]
-Attacks certain spaces then
-sets those spaces on fire.
+Deal damage to foes within 3 tiles,
+and set fire.
 
 [MSID_Str_Def_1]
 Str/Def +1
