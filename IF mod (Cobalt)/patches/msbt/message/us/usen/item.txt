@@ -3354,3 +3354,50 @@ Inflicts stacking debuff on unit
 (Str/Dex-2)
 Grants Str+4 for two foes
 within 2-radius after combat.
+
+[MIID_EtieLance]
+Etie's Lance
+
+[MIID_H_EtieLance]
+-5 user's ability to follow up
++5 foe's ability to follow up
+
+[MIID_HortensiaLance]
+Hortensia's Lance
+
+[MIID_H_HortensiaLance]
+Cannot follow up
++5 foe's ability to follow up
+
+[MIID_BambooPole]
+Bamboo Pole
+
+[MIID_H_BambooPole]
+Nature's finest blacksmithing on
+display.
+
+[MIID_PineTree]
+Pine Tree
+
+[MIID_H_PineTree]
+-3 user's ability to follow up
+
+[MIID_RaiderNaginata]
+Raider Naginata
+
+[MIID_H_RaiderNaginata]
++3 user's ability to follow up
+
+[MIID_BoldNaginata]
+Bold Naginata
+
+[MIID_H_BoldNaginata]
+Def/Res-6
+Cannot follow up/
++5 foe's ability to follow up
+
+[MIID_TimerraSpear]
+Timerra's Spear
+
+[MIID_H_TimerraSpear]
+Def/Res-2
