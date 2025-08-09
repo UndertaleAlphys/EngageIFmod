@@ -4204,9 +4204,9 @@ Terrain Resistance
 
 [MSID_H_TerrainResistance]
 Nullifies damage from terrain.
-Will not be affected by the negative
-effect of terrain, will not be slowed
-by terrain.
+Unit won't be affected by the negative
+effect of terrain or pay extra cost on
+any terrain.
 
 [MSID_WeaponColorAdept_2]
 Triangle Adept+
@@ -5349,3 +5349,114 @@ Has no effect at all
 
 [MSID_H_DragonVein_M014]
 Freeze all enemies for 1 turn.
+
+[MSID_FriendlyCompetition]
+Friendly Rivalry
+
+[MSID_H_FriendlyCompetition]
+At start of player phase, the Emblem
+will randomly switch.
+If sycned emblem is:
+Edelgard, grants immunity to break
+from weapon advantage;
+Dimitri, grants mov+1 and canto;
+Claude, unit pays no extra cost on
+any terrain.
+
+[MSID_ClassPresidentsEngage]
+Combat Arts
+
+[MSID_H_ClassPresidentsEngage]
+Enables use of Edelgard, Dimitri, or
+Claude's Combat Art based on sycned emblem.
+
+[MSID_FlickeringFlower]
+Flickering Flower
+
+[MSID_H_FlickeringFlower]
+Cost 4 engage meter or 2 engage turns
+to freeze foe when hit.
+
+[MSID_Paraselene]
+Paraselene
+
+[MSID_H_Paraselene]
+Cost 3 engage meter or 1 engage turn
+to break foe when hit.
+
+[MSID_WardArrow]
+Ward Arrow
+
+[MSID_H_WardArrow]
+Cost 2 engage meter or 1 engage turn
+to silence foe when hit.
+
+[MSID_Charisma]
+Charm
+
+[MSID_H_Charisma]
+If unit's attack triggers a chain
+attack, increases chain attack
+Dmg by 20%.
+
+[MSID_WeaponSynchronized]
+Weapon Sync
+
+[MSID_H_WeaponSynchronized]
+If unit initiates combat using same
+weapon type as the synced Emblem,
+grants Atk+3.
+
+[MSID_WeaponSynchronized+]
+Weapon Sync+
+
+[MSID_H_WeaponSynchronized+]
+If unit initiates combat using same
+weapon type as the synced Emblem,
+grants Atk+5.
+
+[MSID_BreakThroughLimit]
+Limit Breaker
+
+[MSID_H_BreakThroughLimit]
+Grants unit all effects of Friendly Rivalry.
+Enables use of Edelgard, Dimitri, or
+Claude's Combat Art regardless of sycned emblem.
+Triggers "Weapon Sync" regardless of
+equipped weapons.
+
+[MSID_ClassPresidentsEngageAtk]
+Houses Unite
+
+[MSID_H_ClassPresidentsEngageAtk]
+Use to restore unit's and foe's HP to full,
+then attack with Aymr, Areadbhar,
+and Failnaught at 50% damage.
+
+[MSID_H_ClassPresidentsEngageAtk_Dragon]
+Use to restore unit's and foe's HP to full,
+then attack with Aymr, Areadbhar,
+and Failnaught at 50% damage.
+[Dragon] +10% damage.
+
+[MSID_H_ClassPresidentsEngageAtk_CMD]
+Attacks with axe, lance, and
+bow.
+
+[MSID_ClassPresidentsEngageAtk+]
+Houses Unite+
+
+[MSID_H_ClassPresidentsEngageAtk+]
+Use to restore unit's and foe's HP to full,
+then attack with Aymr(Freeze), Areadbhar(Break),
+and Failnaught(Silence) at 50% damage and 100% hit.
+
+[MSID_H_ClassPresidentsEngageAtk+_Dragon]
+Use to restore unit's and foe's HP to full,
+then attack with Aymr(Freeze), Areadbhar(Break),
+and Failnaught(Silence) at 50% damage and 100% hit.
+[Dragon] +10% damage.
+
+[MSID_H_ClassPresidentsEngageAtk+_CMD]
+Attacks with lance, bow, and
+axe. Inflicts debuff on foe.
