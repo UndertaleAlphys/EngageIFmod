@@ -1375,7 +1375,7 @@ HP回复量+15、杖的命中+30
 （减少幅度为相邻我方单位的合计支援值）
 
 [MSID_LucinaEngage]
-牵绊之盾
+牵绊
 
 [MSID_H_LucinaEngage]
 给予周围2格友军“双重攻击”

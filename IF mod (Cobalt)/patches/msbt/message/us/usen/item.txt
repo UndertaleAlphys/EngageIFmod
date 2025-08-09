@@ -2844,48 +2844,48 @@ Silver Shortbow
 
 [MIID_H_IronKukri]
 A standard sword made of iron.
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SteelKukri]
 A sword made of steel.
 -3 unit's ability to follow up
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SilverKukri]
 An exceptional sword of rare metals.
 Inflicts stacking debuff on unit after combat
 (Str/Dex-2)
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SilverJavelin]
 An exceptional lance of rare metals.
 Inflicts stacking debuff on unit after combat
 (Str/Dex-2)
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SteelJavelin]
 A lance made of steel.
 -3 unit's ability to follow up
-Can attack at range.
+Can strike at range.
 
 [MIID_H_IronJavelin]
 A standard lance made of iron.
-Can attack at range.
+Can strike at range.
 
 [MIID_H_IronStarAxe]
 A standard axe made of iron.
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SteelStarAxe]
 A axe made of steel.
 -3 unit's ability to follow up
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SilverStarAxe]
 An exceptional axe of rare metals.
 Inflicts stacking debuff on unit after combat
 (Str/Dex-2)
-Can attack at range.
+Can strike at range.
 
 [MIID_H_IronShortBow]
 A standard bow made of iron.
@@ -3114,10 +3114,11 @@ Gradius
 [MIID_H_Marth_Gradius]
 Emblem Marth's most
 valuable lance.
-Can attack at range.
+Can strike at range.
 Cannot follow up/Crit/
-Trigger skill/weak to
-follow up (-5)/usable
+Trigger skills/
++5 Foe's ability to follow up/
+Use to recover HP
 
 [MIID_Siglud_KnightSword]
 Knight Sword

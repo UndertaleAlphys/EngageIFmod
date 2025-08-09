@@ -1503,7 +1503,7 @@ less damage.
 Each support level increase this value by 1.
 
 [MSID_LucinaEngage]
-Bonded Shield
+Bonded
 
 [MSID_H_LucinaEngage]
 All allies within 2 radius gets the

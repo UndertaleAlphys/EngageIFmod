@@ -2163,9 +2163,8 @@ HP吸收/不可追击
 帕提亚
 
 [MIID_H_Lucina_Parthia]
-纹章士露琪娜的强弓。
-魔防+5/可获得1.2倍经验值。
-克制飞行。
+纹章士露琪娜威力强大的和弓。
+克制飞行/可使用
 
 [MIID_Lucina_ParallelFalchion]
 里剑法尔西昂
