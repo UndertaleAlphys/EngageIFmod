@@ -12,60 +12,60 @@ g_Deadline_Begin = "M015_Rule_Deadline_Begin"
 -- -----------------------------------
 
 function Startup()
-	
+
 	Log("Startup")
-	
+
 	-- 勝利条件設定：敵将撃破
 	WinRuleSetEnemyNumberLessThanOrEqualTo(-1)
 	WinRuleSetMID( "MID_RULE_M015_WIN" )
 	LoseRuleSetMID( "MID_RULE_M015_LOSE" )
-	
+
 	変数登録()
 	フラグ登録()
 	イベント登録()
-	
+
 end
 
 function 変数登録()
-	
+
 	VariableEntry( "増援_エリア侵入0_済", 0 )
 	VariableEntry( "増援_エリア侵入1_済", 0 )
 	VariableEntry( "増援_戦闘後増援_Lunatic_済", 0 )
 	VariableEntry( "g_Deadline_Begin", 0)
-	
+
 end
 
 function フラグ登録()
-	
+
 	VariableEntry( g_key_tutorial_dance, 0 )
 	VariableEntry( g_key_tutorial_kamui, 0 )
 	VariableEntry( g_key_talk_seadas, 0 )
 	VariableEntry( g_key_reinforcement2_count, 2 )
-	
+
 end
 
 function イベント登録()
-	
+
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
-	
+
 	-- ピックアップ
 	EventEntryPickup(チュートリアル_踊り,	"",	condition_チュートリアル_踊り)
 	EventEntryPickup(チュートリアル_カムイ,	"PID_セアダス",	condition_チュートリアル_カムイ)
 
-	
+
 	-- 宝箱
 	EventEntryTbox(宝箱入手, 17, 6, "IID_魔よけ")
 	EventEntryTbox(宝箱入手, 17, 8, "IID_力のしずく")
-	
+
 	-- セアダス死亡
 	EventEntryDie(セアダス死亡, "PID_セアダス", FORCE_ALL)
-	
+
 	-- EventEntryEscape(離脱イベント２, 23, 1, "", condition_離脱イベント２)
 	-- EventEntryEscape(離脱イベント２, 24, 1, "", condition_離脱イベント２)
 	EventEntryEscape(EmptyFunction, 23, 1, "PID_G006_クロム", condition_true)
 	EventEntryEscape(EmptyFunction, 24, 1, "PID_G006_クロム", condition_true)
 	EventEntryArea(PersonEscape, 23, 1, 24, 1, FORCE_PLAYER, condition_true)
-	
+
 	-- 増援エリアイベント_東0
 	EventEntryArea(EmptyFunction, 17, 8, 18, 13, FORCE_PLAYER, "エリアイベント0_済")
 	EventEntryArea(EmptyFunction, 21, 8, 26, 16, FORCE_PLAYER, "エリアイベント0_済")
@@ -78,35 +78,35 @@ function イベント登録()
 	EventEntryTurnEnd(DamageEvent, -1, -1, FORCE_PLAYER)
 	EventEntryTurn(FireInit, 3, 3, FORCE_PLAYER)
 	EventEntryDoor(出口の扉を消す, 23, 7, 24, 7)
-	
+
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 5, 4, "PID_リュール", condition_true)
-	
+
 end
 
 function Cleanup()
-	
+
 	Log("Cleanup")
-	
+
 end
 
 -- -----------------------------------
 
 function Opening()
-	
+
 	Log("Opening")
-	
+
 	Movie("Scene18")
 	SkipEscape()
-	
+
 	PuppetDemo("M015", "MID_OP2")
-	
+
 end
 
 function MapOpening()
-	
+
 	Log("MapOpening")
-	
+
 	EventOpenDoor(7,9)
 	ClearAllMiasma()
 	EventOpenDoor(7,15)
@@ -120,15 +120,15 @@ function MapOpening()
 
 	FadeOutAndWait( FADE_FAST )
 	EventActionObject( 4, 0, MAP_ACTION_DONE )
-	
+
 	リュール達入場()
-	
+
 	Talk("MID_OP3")
-	
+
 	CursorSetPos_FromPid("PID_セアダス")
-	
+
 	Talk("MID_OP4")
-	
+
 	CursorSetPos_FromPid(g_pid_lueur)
 
 	EffectCreate("魔法陣_G001",	15, 16)
@@ -197,8 +197,8 @@ end
 function Fire_Expansion()
 	CobaltNotice("Fire_Expansion")
 	local directions = { {0, 1}, {1, 0}, {0, -1}, {-1, 0} }
-    local toUpdate = {}  
-    local visited = {} 
+    local toUpdate = {}
+    local visited = {}
     for x = 1, g_width do
         for z = 1, g_height do
             if TerrainGet(x, z) == "TID_炎上_M015" then
@@ -269,148 +269,148 @@ function 出口の扉を消す()
 end
 
 function リュール達入場()
-	
+
 	-- リュール達一旦退避
 	--UnitSetPosFromPos(3,3,3,2)
-	
+
 	CursorSetPos_FromPid_DistanceModeNear( g_pid_lueur )
 	FadeIn(FADE_NORMAL)
 	WaitTime(0.1)
-	
+
 	-- リュール達登場
 	--UnitMovePosFromPos(4,4,4,5)
-	
+
 	UnitMoveWait()
 	FadeWait()
-	
+
 end
 
 -- ----------------------------------------------------------------------
 
 function BattleStartAfterイベント()
-	
+
 	CursorSetPos_FromPid("PID_セアダス")
 	PlayFieldBgm(FORCE_PLAYER)
 	Talk("MID_OP5")
-	
+
 	CursorSetPos( 4, 3 )
 	MapCameraWait()
-	
+
 	Dialog( "MID_TUT_NAVI_M015_ESCAPE" )
-	
+
 	CursorSetPos_FromPid( g_pid_lueur )
-	
+
 end
 
 -- ----------------------------------------------------------------------
 
 function セアダス加入()
 	Talk("MID_EV1")
-	
+
 	Movie("Kengen10")
 	SkipEscape()
 	-- 顕現前の会話内でフェードアウトしているので強制的にフェードを戻す
 	FadeInAndWait(FADE_FAST)
-	
+
 	-- Dialog("セアダス・カムイ　エンゲージ")
 	UnitCreateGodUnit("PID_セアダス", "GID_カムイ")
 	UnitSetEngageCount("PID_セアダス", 7)
-	
+
 	Talk("MID_EV2")
-	
+
 	-- -----------------------------------
-	
+
 	-- 緑軍→青軍
 	pid = "PID_セアダス"
 	if UnitExistOnMap( pid ) then
 		UnitJoin( pid )
 	end
-	
+
 	WaitTime( 1.0 )
-	
+
 	-- -----------------------------------
-	
+
 	閉じている扉を開ける()
-	
+
 	-- -----------------------------------
-	
+
 	-- 下の通路クローズ
-	
+
 	CursorSetPos( 3, 0 )
 	MapCameraWait()
-	
+
 	EventActionObject( 4, 0, MAP_ACTION_IDLE )
 	WaitTime( 2.0 )
-	
+
 	TerrainSetBegin()
 	TerrainSet( 4, 0, "TID_扉" )
 	TerrainSet( 5, 0, "TID_扉" )
 	TerrainSetEnd()
-	
+
 	Talk( "MID_EV3" )
-	
+
 	-- -----------------------------------
-	
+
 	-- 上の通路
-	
+
 	CursorSetPos( 5, 17 )
 	MapCameraWait()
-	
+
 	CursorAnimeCreate( 7, 15, "W1H2")
 	Talk( "MID_EV4" )
 	CursorAnimeDelete()
-	
+
 end
 
 -- ----------------------------------------------------------------------
 
 function 閉じている扉を開ける()
-	
+
 	if		VariableGet( "扉_7_9" ) == 0 then
-		
+
 		CursorSetPos( 4, 11 )
 		MapCameraWait()
-		
+
 		if VariableGet( "扉_7_9" ) == 0 then
 			EventOpenDoor( 7, 9)
 		end
-		
+
 		WaitTime(0.5)
-		
+
 	end
-	
+
 end
 
 -- ----------------------------------------------------------------------
 
 function condition_チュートリアル_踊り()
-	
+
 	if ( UnitGetPID( MindGetUnit()) == "PID_セアダス" ) then
 		return false
 	end
-	
+
 	if ( VariableGet( g_key_tutorial_dance ) == 1 ) then
 		return false
 	end
-	
+
 	if ( VariableGet( g_key_talk_seadas ) == 1 ) then
 		return true
 	end
-	
+
 	return false
-	
+
 end
 
 function チュートリアル_踊り()
-	
+
 	CursorSetPos_FromPid(MindGetUnit())
-	
+
 	Talk("MID_EV5")
-	
+
 	Tutorial( "TUTID_踊り" )
-	
+
 	VariableSet( g_key_tutorial_dance, 1 )
-	
+
 end
 
 -- ----------------------------------------------------------------------
@@ -420,51 +420,51 @@ function condition_チュートリアル_カムイ()
 	if ( VariableGet( g_key_tutorial_kamui ) == 1 ) then
 		return false
 	end
-	
+
 	if ( VariableGet( g_key_talk_seadas ) == 1 ) then
 		return true
 	end
-	
+
 	return false
-	
+
 end
-	
+
 function チュートリアル_カムイ_瘴気()
-	
+
 	CursorSetPos( 5, 10)
 	MapCameraWait()
-	
+
 	CursorAnimeCreate( 5, 9, "W2H3" )
 	CursorAnimeDelete()
-	
+
 end
 
 function チュートリアル_カムイ()
-	
+
 	if MapOverlapGet(5, 11) == "TID_瘴気_永続"
 		or MapOverlapGet(5, 10) == "TID_瘴気_永続"
 			or MapOverlapGet(5, 9) == "TID_瘴気_永続"
 				or MapOverlapGet(6, 10) == "TID_瘴気_永続"
 					or MapOverlapGet(6, 9) == "TID_瘴気_永続"  then
-						
+
 						チュートリアル_カムイ_瘴気()
-							
+
 							end
-	
+
 	Talk( "MID_EV6" )
-	
+
 	Tutorial( "TUTID_紋章士カムイ" )
-	
+
 	VariableSet( g_key_tutorial_kamui, 1 )
-	
+
 end
 
 -- ----------------------------------------------------------------------
 
 function セアダス死亡()
-	
+
 	VariableSet( "敗北", 1 )
-	
+
 end
 
 -- ----------------------------------------------------------------------
@@ -473,7 +473,7 @@ function condition_離脱イベント１()
 	if VariableGet( g_key_talk_seadas ) == 1 then
 		return false
 	end
-	
+
 	return true
 end
 
@@ -487,13 +487,13 @@ function condition_離脱イベント２()
 	if VariableGet( g_key_talk_seadas ) == 0 then
 		return false
 	end
-	
+
 	if (ForceUnitGetCount(FORCE_PLAYER) == 1) then
 		return false
 	end
 
 	return true
-	
+
 end
 
 function 離脱イベント２()
@@ -519,7 +519,7 @@ function PersonEscape()
 	if (unix_x == 24) then
 		UnitMovePos(24,1,24,0)
 	end
-	
+
 	if (ForceUnitGetCount(FORCE_PLAYER) == 1) then
 		Talk( "MID_EV7" )
 		VariableSet( "勝利", 1 )
@@ -532,23 +532,23 @@ end
 -- ----------------------------------------------------------------------
 
 function condition_エリア侵入0()
-	
+
 	if DifficultyGet() == DIFFICULTY_NORMAL then
 		return false
 	end
-	
+
 	-- 既にこのイベントが処理されていたらfalse
 	if VariableGet( "増援_エリア侵入0_済" ) == 1 then
 		return false
 	end
-	
+
 	-- エリアに侵入したかチェック
 	if VariableGet( "エリアイベント0_済" ) == 1 then
 		return true
 	end
-	
+
 	return false
-	
+
 end
 
 function EmptyFunction()
@@ -559,121 +559,121 @@ end
 -- -----------------------------------
 
 function 青軍ターン開始直前0()
-	
+
 	CursorSetPos( 4, 10 )
-	
+
 	WaitTime(0.5)
-	
+
 	-- 増援
 	Dispos("Enemy_Reinforcement0", DISPOS_FLAG_FORCED)
 	Yield()
-	
+
 	WaitTime(0.5)
-	
+
 	VariableSet( "増援_エリア侵入0_済", 1 )
-	
+
 	CursorSetPos( 4, 8 )
-	
+
 	CursorSetPos_FromPid("PID_リュール")
-	
+
 	Talk("MID_EV8")
-	
+
 	WaitTime(0.5)
-	
+
 end
 
 -- ----------------------------------------------------------------------
 
 function condition_エリア侵入1()
-	
+
 	if DifficultyGet() == DIFFICULTY_NORMAL then
 		return false
 	end
-	
+
 	if VariableGet( "増援_エリア侵入1_済" ) == 1 then
 		return false
 	end
-	
+
 	-- エリアに侵入したかチェック
 	if VariableGet( "エリアイベント0_済" ) == 0 then
 		return false
 	end
-	
+
 	-- -----------------------------------
-	
+
 	local counter = VariableGet( g_key_reinforcement2_count )
 	counter = counter - 1
 	VariableSet( g_key_reinforcement2_count, counter )
-	
+
 	if counter == 0 then
 		return true
 	end
-	
+
 	-- -----------------------------------
-	
+
 	return false
-	
+
 end
 
 -- -----------------------------------
 
 function 青軍ターン開始直前1()
-	
+
 	CursorSetPos( 4, 10 )
-	
+
 	WaitTime(0.5)
-	
+
 	-- 増援
 	Dispos("Enemy_Reinforcement1", DISPOS_FLAG_FORCED)
 	Yield()
-	
+
 	WaitTime(0.5)
-	
+
 	-- 再びこのイベントが再生されないように、実行済みフラグを立てておく
 	VariableSet( "増援_エリア侵入1_済", 1 )
-	
+
 end
 
 -- -----------------------------------
 
 function condition_戦闘後増援_Lunatic()
-	
+
 	if DifficultyGet() == DIFFICULTY_NORMAL
 		or DifficultyGet() == DIFFICULTY_HARD then
 			return false
 	end
-	
+
 	-- 既にこのイベントが処理されていたらfalse
 	if VariableGet( "増援_戦闘後増援_Lunatic_済" ) == 1 then
 		return false
 	end
-	
+
 	-- 戦闘したかチェック
 	if VariableGet( "戦闘後イベント_Lunatic_済" ) == 1 then
 		return true
 	end
-	
+
 	return false
-	
+
 end
 
 -- -----------------------------------
 
 function 青軍ターン開始直前3()
-	
+
 	CursorSetPos( 4, 10 )
-	
+
 	WaitTime(0.5)
-	
+
 	-- 増援
 	Dispos("Enemy_Reinforcement2", DISPOS_FLAG_FORCED)
 	Yield()
-	
+
 	WaitTime(0.5)
-	
+
 	-- 再びこのイベントが再生されないように、実行済みフラグを立てておく
 	VariableSet( "増援_戦闘後増援_Lunatic_済", 1 )
-	
+
 end
 
 -- -----------------------------------
@@ -683,35 +683,35 @@ function 離脱イベント()
 	if not UnitExistOnMap( unit ) then
 		return
 	end
-	
+
 	UnitRotation( g_pid_lueur, ROTATE_UP)
 	UnitMoveWait()
-	
+
 	VariableSet( "勝利", 1 )
 end
 
 -- -----------------------------------
 
 function MapEnding()
-	
+
 	Log("MapEnding")
-	
+
 end
 
 function Ending()
-	
+
 	Log("Ending")
-	
+
 end
 
 function GameOver()
-	
+
 	Log("GameOver")
-	
+
 end
 
 function MapDamageM015( unit )
-	
+
 	MapDamageBegin();
 
 	local hp		= UnitGetCapability(unit, CAPABILITY_HP, true)
