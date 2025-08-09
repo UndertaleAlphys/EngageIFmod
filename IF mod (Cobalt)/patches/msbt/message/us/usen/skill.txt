@@ -2158,39 +2158,47 @@ HP=50% of damage dealt.
 Gentility
 
 [MSID_H_GentleWind_1]
-Unit takes 3 less damage.
+When an ally within 3 radius is attacked,
+grants +3 Def/Res for allies within 3 radius
+for 1 turn.
 
 [MSID_GentleWind_2]
 Gentility+
 
 [MSID_H_GentleWind_2]
-Unit takes 5 less damage.
+When an ally within 3 radius is attacked,
+grants +4 Def/Res for allies within 3 radius
+for 1 turn.
 
 [MSID_BraveSky_1]
 Bravery
 
 [MSID_H_BraveSky_1]
-Unit deals +3 damage.
+When an ally within 3 radius initiates combat,
+grants +3 Str/Dex for allies within 3 radius
+for 1 turn.
 
 [MSID_BraveSky_2]
 Bravery+
 
 [MSID_H_BraveSky_2]
-Unit deals +5 damage.
+When an ally within 3 radius initiates combat,
+grants +4 Str/Dex for allies within 3 radius
+for 1 turn.
 
 [MSID_Azure_1]
 Blue Skies
 
 [MSID_H_Azure_1]
-Unit takes 3 less damage and deals
-+3 damage.
+Grants unit "Gentility"
+and "Bravery".
 
 [MSID_Azure_2]
 Blue Skies+
 
 [MSID_H_Azure_2]
-Unit takes 5 less damage and deals
-+5 damage.
+Grants unit "Gentility+"
+and "Bravery+".
 
 [MSID_EirikEngage]
 Sacred Twins
