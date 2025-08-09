@@ -121,6 +121,7 @@ function MapOpening()
 	FadeOutAndWait( FADE_FAST )
 	EventActionObject( 4, 0, MAP_ACTION_DONE )
 
+
 	リュール達入場()
 
 	Talk("MID_OP3")
