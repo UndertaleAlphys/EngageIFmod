@@ -2039,7 +2039,7 @@ $Arg(7)G
 由自身发动攻击时，连续攻击2次。
 
 [MIID_Siglud_Tyrfing]
-斩裂剑
+圣剑提尔芬古
 
 [MIID_H_Siglud_Tyrfing]
 纹章士西格尔特的传说圣剑。

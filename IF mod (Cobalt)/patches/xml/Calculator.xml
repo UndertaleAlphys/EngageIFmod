@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Book Count="2">
-  <Sheet Name="共通" Count="73">
+  <Sheet Name="共通" Count="76">
     <Header>
       <Param Name="名前" Ident="Name" Type="PublicString" Min="" Max="" Chg="" />
       <Param Name="条件式" Ident="Condition" Type="string[]" Min="" Max="" Chg="" />
@@ -15,6 +15,9 @@
       <Param Name="黄" Condition="" Function="4;" />
       <Param Name="武器の色" Condition="武器の種類 == 剣 || 武器の種類 == 魔道書; 武器の種類 == 斧 || 武器の種類 == 弓; 武器の種類 == 槍 || 武器の種類 == 短剣;" Function="赤;緑;青;黄;" />
       <Param Name="相手の武器の色" Condition="相手の武器の種類 == 剣 || 相手の武器の種類 == 魔道書; 相手の武器の種類 == 斧 || 相手の武器の種類 == 弓; 相手の武器の種類 == 槍 || 相手の武器の種類 == 短剣;" Function="赤;緑;青;黄;" />
+      <Param Name="毒判定" Condition="生存 &amp;&amp; 相手の生存 &amp;&amp; HP &gt; 0 &amp;&amp; 相手のHP &gt; 0;" Function="1;0;" />
+      <Param Name="死の吐息判定" Condition="生存 &amp;&amp; HP &gt; 0;" Function="1;0;" />
+      <Param Name="封じ判定" Condition="生存 &amp;&amp; 相手の生存 &amp;&amp; HP &gt; 0;" Function="1;0;" />
       <Param Name="相性補正_攻撃" Condition="武器相性 == 有利;" Function="2;0;" />
       <Param Name="相性補正_防御" Condition="武器相性 == 有利;" Function="2;0;" />
       <Param Name="相性補正_命中" Condition="武器相性 == 有利;" Function="20;0;" />

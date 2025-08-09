@@ -571,7 +571,7 @@ Charm
 [MSID_H_Charisma]
 If unit's attack triggers a chain
 attack, increases chain attack
-accuracy to 90%.
+Dmg by 20%.
 
 [MSID_SuckerPunch]
 Surprise Attack

@@ -3739,10 +3739,17 @@ For the first 7 turns,
 Swap places with the enemy
 after battle.
 
-[MSID_AirSuperiority]
+[MSID_AirSuperiority_1]
 Air Superiority
 
-[MSID_H_AirSuperiority]
+[MSID_H_AirSuperiority_1]
+When fighting against a
+flying unit, grants Hit/Avo+15.
+
+[MSID_AirSuperiority_2]
+Air Superiority+
+
+[MSID_H_AirSuperiority_2]
 When fighting against a
 flying unit, grants Hit/Avo+30.
 
@@ -3941,6 +3948,21 @@ Axe Prowess Lv.4
 [MSID_AxeArts_5]
 Axe Prowess Lv.5
 
+[MSID_MartialArts_1]
+Martial Prowess Lv.1
+
+[MSID_MartialArts_2]
+Martial Prowess Lv.2
+
+[MSID_MartialArts_3]
+Martial Prowess Lv.3
+
+[MSID_MartialArts_4]
+Martial Prowess Lv.4
+
+[MSID_MartialArts_5]
+Martial Prowess Lv.5
+
 [MSID_H_SwordArts_1]
 Grants Atk+1
 when using swords,
@@ -4019,8 +4041,34 @@ when using axes,
 fails at weapon disadvantage.
 [Axefaire]Grants Atk+5
 
+[MSID_H_MartialArts_1]
+Grants Hit+5
+when using martials,
+fails at weapon disadvantage.
+
+[MSID_H_MartialArts_2]
+Grants Hit+10
+when using martials,
+fails at weapon disadvantage.
+
+[MSID_H_MartialArts_3]
+Grants Atk+1 and Hit+10
+when using martials,
+fails at weapon disadvantage.
+
+[MSID_H_MartialArts_4]
+Grants Atk+2 and Hit+15
+when using martials,
+fails at weapon disadvantage.
+
+[MSID_H_MartialArts_5]
+Grants Atk+2 and Hit+15
+when using martials,
+fails at weapon disadvantage.
+[Martialfaire]Grants Atk+5
+
 [MSID_H_Shuttle]
-Grants the unit "Swap" command,
+Grants the unit "Shuttle" command,
 use to swap places with an ally
 within 5 tiles.
 
@@ -4028,7 +4076,7 @@ within 5 tiles.
 Swap places with an ally.
 
 [MSID_H_Shuttle]
-Grants the unit "Swap" command,
+Grants the unit "Shuttle" command,
 use to swap places with an ally
 within 5 tiles.
 [Dragon] +2 range
@@ -4820,7 +4868,7 @@ and restore HP to 30% after battle.
 After that, lose HoldOut for a turn.
 
 [MSID_Shuttle]
-Swap
+Shuttle
 
 [MSID_PhysiquePress]
 Daunting Physique

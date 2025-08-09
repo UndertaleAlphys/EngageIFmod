@@ -184,7 +184,7 @@ Ver.1.2.0 更新内容
 雷暴
 
 [MIID_H_Senerio_Thunderstorm]
-纹章士塞涅里欧的长射程雷魔法
+纹章士塞涅里欧的长射程雷魔法。
 不可追击
 
 [MIID_Senerio_MagicShield]
@@ -192,8 +192,7 @@ Ver.1.2.0 更新内容
 
 [MIID_H_Senerio_MagicShield]
 纹章士塞涅里欧的魔法之杖。
-周围2格内的我方单位受到魔法攻击时，
-可将所受伤害的50%反击给对方，
+周围2格内的我方单位获得“魔法反击”，
 效果持续1回合。
 
 [MIID_Senerio_Rexcalibur]
@@ -201,7 +200,8 @@ Ver.1.2.0 更新内容
 
 [MIID_H_Senerio_Rexcalibur]
 纹章士塞涅里欧最高等的风魔法。
-克制飞行。
+克制飞行/守备·魔防-5/
+容易追击（+5）/容易被追击（-5）
 
 [MIID_Senerio_Disaster]
 灾厄
@@ -437,23 +437,31 @@ HP未达最大值，无法使用。
 理之精髓
 
 [MSID_H_MagicOfLaw+]
-使用魔道书攻击时，炎之魔法可使对方防守-3
-雷之魔法可使对方命中-20
-风之魔法可使对方移动-2，效果持续1回合
+当武器属性为：
+炎，且对方为骑马时；
+雷，且对方为龙族时；
+风，且对方为飞行时：
+攻击力+4。
 
 [MSID_KeenInsight]
 慧眼
 
 [MSID_H_KeenInsight]
-造成克制伤害时
-伤害+5
+三相克制有利时
+攻击力+3
 
 [MSID_KeenInsight+]
 慧眼+
 
 [MSID_H_KeenInsight+]
-造成克制伤害时
-伤害+7
+三相克制有利时
+攻击力+5
+
+[MSID_TacticalAdvice]
+战术指南
+
+[MSID_H_TacticalAdvice]
+可使用多种位移指令移动友方。
 
 [MSID_NominateDecoy]
 指名诱饵
@@ -471,83 +479,82 @@ HP未达最大值，无法使用。
 阻止复原
 
 [MSID_H_PreventionReturn]
-使用魔道书攻击陷入打破状态的敌人时
-有一定几率让敌人继续维持打破状态
-（速度比对方越高，几率越高）
+攻击陷入打破状态的敌人时
+若三相克制有利
+将让敌人继续维持打破状态
+
+[MSID_Severance]
+斩绝
+
+[MSID_H_Severance]
+伤害增加对方已损失HP的30%
 
 [MSID_SenerioEngage]
 阳光
 
 [MSID_H_SenerioEngage]
-用魔法发动攻击时，使对手的魔防-20%
-并回复造成伤害50%的HP
+使对手的魔防-20%
+主动攻击时回复造成伤害50%的HP
 
 [MSID_H_SenerioEngage_Dragon]
-以魔法发动攻击时，使对手的魔防-20%
-并回复造成伤害50%的HP
-【龙族】必杀增为2倍
+使对手的魔防-20%
+主动攻击时回复造成伤害50%的HP
+【龙族】使对方的魔防额外-5%
 
 [MSID_H_SenerioEngage_Magic]
-用魔法发动攻击时，使对手的魔防-20%
-并回复造成伤害50%的HP
+使对手的魔防-20%
+主动攻击时回复造成伤害50%的HP
 【魔道】使对方的魔防额外-10%
 
 [MSID_H_SenerioEngage_Prana]
-用魔法发动攻击时，使对手的魔防-20%
-并回复造成伤害50%的HP
+使对手的魔防-20%
+主动攻击时回复造成伤害50%的HP
 【气功】回复量增为造成伤害的100%
 
 [MSID_SenerioEngageAtk]
 灾厄
 
 [MSID_H_SenerioEngageAtk]
-以40%伤害的炎、雷、风魔法（克制飞行）
-对范围内的敌人发动3连击
+以70%伤害的炎、雷、风魔法
+对敌人发动3连击
 
 [MSID_H_SenerioEngageAtk_Dragon]
-以40%伤害的炎、雷、风魔法（克制飞行）
-对范围内的敌人发动3连击
-【龙族】对攻击范围的地形赋予“火焰”效果
+以70%伤害的炎、雷、风魔法
+对敌人发动3连击
+【龙族】伤害倍率+20%
 
 [MSID_H_SenerioEngageAtk_Magic]
-以40%伤害的炎、雷、风魔法（克制飞行）
-对范围内的敌人发动3连击
-【魔道】伤害+10%
-
-[MSID_H_SenerioEngageAtk_Prana]
-以40%伤害的炎、雷、风魔法（克制飞行）
-对范围内的敌人发动3连击
-【气功】20%几率使对方陷入打破状态
+以70%伤害的炎、雷、风魔法
+对敌人发动3连击
+【魔道】伤害倍率+10%
 
 [MSID_H_SenerioEngageAtk_CMD]
 对范围内的敌人发动
 炎、雷、风魔法的3连击
 
 [MSID_H_SenerioEngageAtk_G004]
-以30%伤害的炎、雷、风魔法（克制飞行）
+以30%伤害的炎、雷、风魔法
 对范围内的敌人发动3连击
 
 [MSID_SenerioEngageAtk+]
 灾厄+
 
 [MSID_H_SenerioEngageAtk+]
-以40%伤害的炎、雷、风魔法（克制飞行）
-对范围内的敌人发动3连击
+以70%伤害的炎、雷、风魔法
+对敌人发动3连击，
+其相邻单位减少40%HP。
 
 [MSID_H_SenerioEngageAtk+_Dragon]
-以40%伤害的炎、雷、风魔法（克制飞行）
-对范围内的敌人发动3连击
-【龙族】对攻击范围的地形赋予“火焰”效果
+以70%伤害的炎、雷、风魔法
+对敌人发动3连击，
+其相邻单位减少40%HP。
+【龙族】伤害倍率+20%
 
 [MSID_H_SenerioEngageAtk+_Magic]
-以40%伤害的炎、雷、风魔法（克制飞行）
-对范围内的敌人发动3连击
-【魔道】伤害+10%
-
-[MSID_H_SenerioEngageAtk+_Prana]
-以40%伤害的炎、雷、风魔法（克制飞行）
-对范围内的敌人发动3连击
-【气功】20%机率使对方陷入打破状态
+以70%伤害的炎、雷、风魔法
+对敌人发动3连击，
+其相邻单位减少40%HP。
+【魔道】伤害倍率+10%
 
 [MSID_H_SenerioEngageAtk+_CMD]
 对范围内的敌人发动
@@ -698,55 +705,29 @@ HP未达最大值，无法使用。
 暗夜爆破阵
 
 [MSID_H_CamillaEngageAtk]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
+对自身周围3格内的敌人造成40%HP伤害
 
 [MSID_H_CamillaEngageAtk_Dragon]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【龙族】扩大效果范围
-
-[MSID_H_CamillaEngageAtk_Magic]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【魔道】伤害增为120%
-
-[MSID_H_CamillaEngageAtk_Prana]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【气功】对自身周围1格的地形
-赋予“熏香”效果
+对自身周围3格内的敌人造成40%HP伤害
+【龙族】伤害+10%
 
 [MSID_H_CamillaEngageAtk_CMD]
-攻击特定格子后，
-使格子陷入燃烧状态
+攻击周围3格内的敌人
 
 [MSID_CamillaEngageAtk+]
 暗夜爆破阵+
 
 [MSID_H_CamillaEngageAtk+]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
+对自身周围3格内的敌人造成40%HP伤害，
+然后对这些格子施加火焰。
 
 [MSID_H_CamillaEngageAtk+_Dragon]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【龙族】扩大效果范围
-
-[MSID_H_CamillaEngageAtk+_Magic]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【魔道】伤害增为120%
-
-[MSID_H_CamillaEngageAtk+_Prana]
-对自身周围特定格子上的敌人造成伤害
-并使格子陷入燃烧状态
-【气功】对自身周围1格的地形
-赋予“熏香”效果
+对自身周围3格内的敌人造成40%HP伤害，
+然后对这些格子施加火焰。
+【龙族】伤害+10%
 
 [MSID_H_CamillaEngageAtk+_CMD]
-攻击特定格子后，
-使格子陷入燃烧状态
+攻击周围3格内的敌人并施加火焰
 
 [MSID_Str_Def_1]
 力量、防守+1
