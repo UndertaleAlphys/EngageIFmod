@@ -5468,3 +5468,37 @@ and Failnaught(Silence) at 50% damage and 100% hit.
 [MSID_H_ClassPresidentsEngageAtk+_CMD]
 Attacks with lance, bow, and
 axe. Inflicts debuff on foe.
+
+[MSID_Warp]
+Warp
+
+[MSID_H_Warp]
+Grants unit "Warp" command
+to teleport next to any ally.
+
+[MSID_H_Warp_CMD]
+Teleport next to an ally
+
+[MSID_Warp_Up]
+Warp: Up
+
+[MSID_H_Warp_Up_CMD]
+Teleport to the upper tile of an ally
+
+[MSID_Warp_Down]
+Warp: Down
+
+[MSID_H_Warp_Down_CMD]
+Teleport to the lower tile of an ally
+
+[MSID_Warp_Left]
+Warp: Left
+
+[MSID_H_Warp_Left_CMD]
+Teleport to the left tile of an ally
+
+[MSID_Warp_Right]
+Warp: Right
+
+[MSID_H_Warp_Right_CMD]
+Teleport to the right tile of an ally
