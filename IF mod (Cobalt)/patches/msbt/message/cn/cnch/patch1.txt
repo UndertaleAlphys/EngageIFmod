@@ -230,8 +230,7 @@ Ver.1.2.0 更新内容
 
 [MIID_H_Camilla_Camilla'sAxe]
 纹章士卡米拉的斧。
-魔防+10/将对方的（魔防-防守）
-加计至伤害。
+力·魔防+2
 
 [MIID_HE_Vulnerary]
 可回复自身与周围2格内

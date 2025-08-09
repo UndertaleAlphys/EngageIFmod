@@ -2215,7 +2215,7 @@ Binding Blade
 
 [MIID_H_Roy_BindingBlade]
 Famous sword wielded by Emblem
-Roy. Grants Def/Res+5. Can strike
+Roy. Grants Def/Res+2. Can strike
 close or at range.
 Effective: Dragon
 
@@ -2271,8 +2271,7 @@ Parthia
 
 [MIID_H_Lucina_Parthia]
 Bow wielded by Emblem Lucina.
-User gets 1.2x earned experience.
-Grants Res+5. Effective: Flying.
+Effective: Flying.
 
 [MIID_Lucina_ParallelFalchion]
 Parallel Falchion
@@ -2314,7 +2313,7 @@ Effective: Cavalry, Flier, Armored.
 Mulagir
 
 [MIID_H_Lin_Myrgleis]
-Mighty bow wielded by Emblem Lyn.
+Mighty yumi wielded by Emblem Lyn.
 If user initiates combat, attacks twice.
 Grants Spd+2. Effective: Flying,
 Dragon.
@@ -2332,15 +2331,15 @@ Urvan
 
 [MIID_H_Ike_Urvan]
 Heirloom axe wielded by Emblem
-Ike. Grants Res+3.
+Ike.
 
 [MIID_Ike_Ragnell]
 Ragnell
 
 [MIID_H_Ike_Ragnell]
 Sacred sword wielded by Emblem
-Ike. Grants Def+5. Can strike
-close or at range.
+Ike. Grants Def+2/
+The type of damage varies by distance.
 
 [MIID_Byleth_Aymr]
 Aymr
@@ -3132,15 +3131,14 @@ unit, grants Def +5.
 Falcon Bow
 
 [MIID_H_Lin_FalconBow]
-Emblem Lyn's Bow
-+2 Res/weapon's Mtx5
-against flying unit.
+Emblem Lyn's yumi
+Effective: Flying (5x).
 
 [MIID_Lin_WestWind]
 Wind Chaser
 
 [MIID_H_Lin_WestWind]
-Emblem Lyn's longbow
+Emblem Lyn's long range yumi
 Cannot follow up
 When unit initiate a battle and hit,
 reduce foe's Mov by half, last one turn.

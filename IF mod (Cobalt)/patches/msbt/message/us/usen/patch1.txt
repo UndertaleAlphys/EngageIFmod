@@ -246,8 +246,7 @@ Camilla's Axe
 
 [MIID_H_Camilla_Camilla'sAxe]
 Axe wielded by Emblem Camilla.
-Grants Res+10 and deals extra
-damage = foe's Res-Def.
+Grants Str/Res+2
 
 [MIID_HE_Vulnerary]
 Recovers 15 HP for unit and allies
