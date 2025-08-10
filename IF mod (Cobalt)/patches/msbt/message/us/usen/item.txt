@@ -3401,3 +3401,41 @@ Timerra's Spear
 
 [MIID_H_TimerraSpear]
 Def/Res-2
+
+[MIID_FryingPan]
+Frying Pan
+
+[MIID_H_FryingPan]
+Heavy and hard to wield, but cast
+iron, so you don't really need to clean it.
+
+[MIID_BoneAxe]
+Bone Axe
+
+[MIID_H_BoneAxe]
+Res+3. Sometimes the old ways are best.
+
+[MIID_RaiderAxe]
+RaiderAxe
+
+[MIID_H_RaiderAxe]
++3 user's ability to follow up
+
+[MIID_BerserkerAxe]
+Berserker Axe
+
+[MIID_H_BerserkerAxe]
+If user attacked, 
+Lowers user's HP by 30% of max.
+
+[MIID_BoucheronAxe]
+Boucheron's Axe
+
+[MIID_H_BoucheronAxe]
+Male only/Def+2
+
+[MIID_AmberAxe]
+Amber's Axe
+
+[MIID_H_AmberAxe]
+Deals extra damage when Crit
