@@ -66,7 +66,8 @@ function イベント登録()
 	-- EventEntryEscape(離脱イベント２, 24, 1, "", condition_離脱イベント２)
 	EventEntryEscape(EmptyFunction, 23, 1, "PID_G006_クロム", condition_true)
 	EventEntryEscape(EmptyFunction, 24, 1, "PID_G006_クロム", condition_true)
-	EventEntryArea(PersonEscape, 23, 1, 24, 1, FORCE_PLAYER, condition_true)
+	EventEntryEscape(EmptyFunction, 24, 2, "PID_G006_クロム", condition_true)
+	EventEntryArea(PersonEscape, 23, 1, 24, 2, FORCE_PLAYER, condition_true)
 
 	-- 増援エリアイベント_東0
 	EventEntryArea(EmptyFunction, 17, 8, 18, 13, FORCE_PLAYER, "エリアイベント0_済")
@@ -156,43 +157,70 @@ end
 
 function FireInit()
 
-	local flag = VariableGet(g_Deadline_Begin)
 
-	if flag == 1 then
-		return false
-	end
-
-	TerrainSetBegin()
-		TerrainSet( 4 , 1, "TID_炎上_M015" )
-		TerrainSet( 5 , 1, "TID_炎上_M015" )
-		TerrainSet( 4 , 2, "TID_炎上_M015" )
-		TerrainSet( 5 , 2, "TID_炎上_M015" )
-	TerrainSetEnd()
-
-	MapOverlapSetBegin()
-		MapOverlapSet( 4 , 1, "TID_炎上_M015_Overlap" )
-		MapOverlapSet( 5 , 1, "TID_炎上_M015_Overlap" )
-		MapOverlapSet( 4 , 2, "TID_炎上_M015_Overlap" )
-		MapOverlapSet( 5 , 2, "TID_炎上_M015_Overlap" )
-	MapOverlapSetEnd()
+    CursorSetPos(4,1)
+    MapCameraWait()
+    Dispos( "Reinforcement_Back", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(1.5)
 
 	VariableSet(g_Deadline_Begin, 1)
 
-	CursorSetPos( 5 , 1 )
-	MapCameraWait()
-
 	WaitTime(1.5)
 
-	Talk("MID_EV9")
+end
 
-	WaitTime(1.0)
+function 召喚渦作成(areaname)
+	CursorSetPos_FromPid(g_pid_boss)
+	MapCameraWait()
 
-	Dialog("MID_TUT_M015_RULE")
+	local countD = DisposGetGroupCount(areaname)
+	countD = countD - 1
+
+		-- グループの人数分処理を回し、ユニットの座標を走査、取得する
+		for i = 0, countD do
+			local unitX = DisposGetUnitX(areaname, i,DifficultyGet())
+			local unitZ = DisposGetUnitZ(areaname, i,DifficultyGet())
+
+			if unitX != -1 then
+				EffectCreate( "召喚渦", unitX,unitZ )
+			end
+		end
+
+end
+
+function 召喚渦消去と配置(areaname)
+	CursorSetPos_FromPid(g_pid_boss)
+	MapCameraWait()
+
+	Dispos( areaname, DISPOS_FLAG_FOCUS + DISPOS_FLAG_WARP)
+	Yield()
+
+	countD = DisposGetGroupCount(areaname)
+	countD = countD - 1
+	for i = 0, countD do
+		local unitX = DisposGetUnitX(areaname, i,DifficultyGet())
+		local unitZ = DisposGetUnitZ(areaname, i,DifficultyGet())
+		if unitX != -1 then
+			EffectDelete( "召喚渦", unitX,unitZ )
+		end
+	end
+	Yield()
+
 end
 
 function Fire_Expansion_PlayerTurn()
-	Fire_Expansion()
-	Fire_Expansion()
+    if VariableGet(g_Deadline_Begin) == 1 then
+        local turn = MapGetTurn()
+        if (turn % 2 == 1) then
+             CursorSetPos(4,1)
+             MapCameraWait()
+             Dispos( "Reinforcement_Back", DISPOS_FLAG_FORCED)
+             Yield()
+             WaitTime(1.5)
+        end
+    end
+
 	if VariableGet(g_door3_opened) == 1 then
         SpawnReinforcements()
     end
@@ -216,8 +244,11 @@ function SpawnReinforcements()
 
 
     if reinforcement_config ~= "" then
+        CursorSetPos( 24, 1 )
+        WaitTime(1.5)
         Dispos(reinforcement_config, DISPOS_FLAG_FORCED)
         Yield()
+        WaitTime(1.5)
     end
 
     roll = (roll + 1) % 4
@@ -383,10 +414,10 @@ function セアダス加入()
 
 	-- 上の通路
 
-	CursorSetPos( 5, 17 )
+	CursorSetPos( 7, 9 )
 	MapCameraWait()
 
-	CursorAnimeCreate( 7, 15, "W1H2")
+	CursorAnimeCreate( 7, 9, "W1H2")
 	Talk( "MID_EV4" )
 	CursorAnimeDelete()
 
