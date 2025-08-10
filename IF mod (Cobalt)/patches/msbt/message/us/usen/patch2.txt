@@ -413,14 +413,6 @@ Reprisal+
 If unit's HP is not full, adds 50% of
 lost HP to Atk.
 
-[MSID_BreakThroughLimit]
-Level Boost
-
-[MSID_H_BreakThroughLimit]
-When unit defeats a foe of a higher
-level, grants Lvl+1 until the end of
-battle. (Max +3)
-
 [MSID_AnotherWorldsPower]
 Book of Worlds
 
@@ -564,14 +556,6 @@ Brute Force
 [MSID_H_ByForce]
 While making a physical attack,
 critical hits deal increased damage.
-
-[MSID_Charisma]
-Charm
-
-[MSID_H_Charisma]
-If unit's attack triggers a chain
-attack, increases chain attack
-Dmg by 20%.
 
 [MSID_SuckerPunch]
 Surprise Attack

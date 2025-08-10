@@ -335,7 +335,7 @@ Areadbhar
 [MIID_H_Edelgard_Areadbhar]
 Lance wielded by Emblem Dimitri.
 If user initiates combat, grants
-Mt+50%.
+Mt+20%.
 
 [MIID_Edelgard_Failnaught]
 Failnaught
@@ -343,7 +343,7 @@ Failnaught
 [MIID_H_Edelgard_Failnaught]
 Bow wielded by Emblem Claude.
 If user initiates combat, grants
-Avo+20. Effective: Dragon, Flying.
+Avo+15. Effective: Dragon, Flying.
 
 [MIID_SilverCard]
 Silver Card
@@ -352,14 +352,6 @@ Silver Card
 Carrying this reduces cost of items
 by 30% when shopping at locations
 such as the armory or item shop.
-
-[MSID_FriendlyCompetition]
-Friendly Rivalry
-
-[MSID_H_FriendlyCompetition]
-At start of player phase, the Emblem
-will randomly switch to Edelgard,
-Dimitri, or Claude.
 
 [MSID_Strategy]
 Gambit
@@ -418,37 +410,11 @@ all foes adjacent to it after combat.
 Poison a target and foes
 adjacent to it after combat.
 
-[MSID_WeaponSynchronized]
-Weapon Sync
-
-[MSID_H_WeaponSynchronized]
-If unit initiates combat using same
-weapon type as the synced Emblem,
-grants Atk+5. If engaged, grants
-Atk+5 regardless of weapon type.
-
-[MSID_WeaponSynchronized+]
-Weapon Sync+
-
-[MSID_H_WeaponSynchronized+]
-If unit initiates combat using same
-weapon type as the synced Emblem,
-grants Atk+7. If engaged, grants
-Atk+7 regardless of weapon type.
-
 [MSID_Pedigree]
 Lineage
 
 [MSID_H_Pedigree]
 Grants 1.2× EXP modifier to unit.
-
-[MSID_ClassPresidentsEngage]
-Combat Arts
-
-[MSID_H_ClassPresidentsEngage]
-Enables use of Edelgard, Dimitri, or
-Claude's Combat Art. Spends some
-remaining engage turns.
 
 [MSID_H_ClassPresidentsEngage_Dragon]
 Enables use of Edelgard, Dimitri, or
@@ -486,90 +452,6 @@ Fallen Star
 [MSID_H_ClassPresidentsEngage_FallingStarts_CMD]
 Avoid foe's attacks during
 next combat. (Spend 1 turn.)
-
-[MSID_ClassPresidentsEngageAtk]
-Houses Unite
-
-[MSID_H_ClassPresidentsEngageAtk]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-
-[MSID_H_ClassPresidentsEngageAtk_Dragon]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-[Dragon] +10% damage.
-
-[MSID_H_ClassPresidentsEngageAtk_Horse]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-[Cavalry] +10% damage with
-Areadbhar.
-
-[MSID_H_ClassPresidentsEngageAtk_Covert]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-[Covert] +10% damage with
-Failnaught.
-
-[MSID_H_ClassPresidentsEngageAtk_Heavy]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-[Armored] +10% damage
-with Aymr.
-
-[MSID_H_ClassPresidentsEngageAtk_Prana]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-[Qi Adept] Breaks foe.
-
-[MSID_H_ClassPresidentsEngageAtk_CMD]
-Attacks with axe, lance, and
-bow.
-
-[MSID_ClassPresidentsEngageAtk+]
-Houses Unite+
-
-[MSID_H_ClassPresidentsEngageAtk+]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-After combat, take another action.
-
-[MSID_H_ClassPresidentsEngageAtk+_Dragon]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-After combat, take another action.
-[Dragon] +10% damage.
-
-[MSID_H_ClassPresidentsEngageAtk+_Horse]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-After combat, take another action.
-[Cavalry] +10% damage with
-Areadbhar.
-
-[MSID_H_ClassPresidentsEngageAtk+_Covert]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-After combat, take another action.
-[Covert] +10% damage with
-Failnaught.
-
-[MSID_H_ClassPresidentsEngageAtk+_Heavy]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-After combat, take another action.
-[Armored] +10% damage
-with Aymr.
-
-[MSID_H_ClassPresidentsEngageAtk+_Prana]
-Use to attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
-After combat, take another action.
-[Qi Adept] Breaks foe.
-
-[MSID_H_ClassPresidentsEngageAtk+_CMD]
-Attacks with lance, bow, and
-axe. Get another action.
 
 [MSID_BallsProtection_Light]
 Lightsphere

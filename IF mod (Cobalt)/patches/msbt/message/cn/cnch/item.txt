@@ -2111,7 +2111,7 @@ HP吸收/不可追击
 
 [MIID_H_Roy_BindingBlade]
 纹章士罗伊的英雄之剑。
-防守、魔防+5/能攻击远方敌人
+守备、魔防+2/能攻击远方敌人
 龙特效
 
 [MIID_Leaf_KillerAxe]
@@ -2163,9 +2163,8 @@ HP吸收/不可追击
 帕提亚
 
 [MIID_H_Lucina_Parthia]
-纹章士露琪娜的强弓。
-魔防+5/可获得1.2倍经验值。
-克制飞行。
+纹章士露琪娜威力强大的和弓。
+克制飞行/可使用
 
 [MIID_Lucina_ParallelFalchion]
 里剑法尔西昂
@@ -2208,7 +2207,7 @@ HP吸收/不可追击
 妙尔葛雷
 
 [MIID_H_Lin_Myrgleis]
-纹章士琳的疾风之弓。
+纹章士琳的疾风之和弓。
 由自身发动攻击时，连续攻击两次/
 速度+2/克制龙/克制飞行
 
@@ -2225,14 +2224,13 @@ HP吸收/不可追击
 
 [MIID_H_Ike_Urvan]
 纹章士艾克的战斧。
-魔防+3。
 
 [MIID_Ike_Ragnell]
 瑞格内尔
 
 [MIID_H_Ike_Ragnell]
 纹章士艾克的传说神剑。
-防守+5/能攻击远方敌人。
+防守+2/攻击属性随距离变化。
 
 [MIID_Byleth_Aymr]
 艾姆鲁
@@ -2955,15 +2953,14 @@ M屏障
 游隼弓
 
 [MIID_H_Lin_FalconBow]
-纹章士琳的弓
-魔防+2/
+纹章士琳的必中之和弓
 对飞行敌人5倍克制
 
 [MIID_Lin_WestWind]
 西风
 
 [MIID_H_Lin_WestWind]
-纹章士琳的远击弓
+纹章士琳的远击之和弓
 不可追击/
 主动攻击命中后使对方移动减半
 持续一回合
@@ -3159,3 +3156,108 @@ EXP之书
 无必杀/无奥义/
 使用后能力降低（力·技-2，逐回合恢复）
 战斗后对敌方释放力量之呐喊。
+
+[MIID_EtieLance]
+艾媞耶之大枪
+
+[MIID_H_EtieLance]
+难以追击（-5）/容易被追击（+5）
+
+[MIID_HortensiaLance]
+奥尔坦希亚之小枪
+
+[MIID_H_HortensiaLance]
+不可追击/容易被追击（+5）
+
+[MIID_BambooPole]
+竹竿
+
+[MIID_H_BambooPole]
+不适合战斗...
+
+[MIID_PineTree]
+松木
+
+[MIID_H_PineTree]
+难以追击（-3）
+
+[MIID_RaiderNaginata]
+剪径之薙刀
+
+[MIID_H_RaiderNaginata]
+追击系数+3
+
+[MIID_BoldNaginata]
+舍身之薙刀
+
+[MIID_H_BoldNaginata]
+守备·魔防-6
+不可追击/容易被追击（+5）
+
+[MIID_TimerraSpear]
+蜜丝提拉之红薙刀
+
+[MIID_H_TimerraSpear]
+守备·魔防-2
+
+[MIID_FryingPan]
+炒锅
+
+[MIID_H_FryingPan]
+料理使用的铁具，
+不适合战斗...
+
+[MIID_BoneAxe]
+兽骨
+
+[MIID_H_BoneAxe]
+魔防+3
+
+[MIID_RaiderAxe]
+剪径之斧
+
+[MIID_H_RaiderAxe]
+追击系数+3
+
+[MIID_BerserkerAxe]
+狂战士之斧
+
+[MIID_H_BerserkerAxe]
+战斗后失去30%HP
+
+[MIID_BoucheronAxe]
+布修隆之雄斧
+
+[MIID_H_BoucheronAxe]
+男性专用/守备+2
+
+[MIID_AmberAxe]
+安巴之杀斧
+
+[MIID_H_AmberAxe]
+必杀时造成特大伤害
+
+[MIID_CarpStreamer]
+鲤鱼旗帜
+
+[MIID_H_CarpStreamer]
+不适合战斗...
+
+[MIID_Hoe]
+桑
+
+[MIID_H_Hoe]
+无视双方的地形守备和防御
+
+[MIID_AdamantClub]
+金刚之棍棒
+
+[MIID_H_AdamantClub]
+守备+4
+
+[MIID_AlfredClub]
+阿尔弗雷德之锻炼棒
+
+[MIID_H_AlfredClub]
+丑陋但威力巨大的武器。
+速度-5

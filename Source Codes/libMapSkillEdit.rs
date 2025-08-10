@@ -8,7 +8,10 @@ use engage::{
     map::image::MapImage,
 };
 use skyline::hooks::InlineCtx;
-use unity::{prelude::OptionalMethod, system::Il2CppString};
+use unity::{
+    prelude::{Il2CppArray, OptionalMethod},
+    system::Il2CppString,
+};
 // / This is called a proc(edural) macro. You use this to indicate that a function will be used as a hook.
 // /
 // / Pay attention to the argument, offset.
@@ -157,10 +160,17 @@ impl MapSkillResultsTrait for MapSkillResults {
     }
 }
 
+#[skyline::from_offset(0x02489C10)]
+pub fn skill_get_syncsids(
+    this: &SkillData,
+    method: OptionalMethod,
+) -> Option<&Il2CppArray<&Il2CppString>>;
+
 trait SkillDataTrait {
     fn get_move_self(&self) -> i32;
     fn get_move_target(&self) -> i32;
     fn is_before_move(&self) -> bool;
+    fn get_syncsids(&self) -> Vec<String>;
 }
 
 impl SkillDataTrait for SkillData {
@@ -179,6 +189,17 @@ impl SkillDataTrait for SkillData {
     fn is_before_move(&self) -> bool {
         const BEFORE_MOVE: i64 = 0x4000000;
         self.get_flag() & BEFORE_MOVE != 0
+    }
+
+    fn get_syncsids(&self) -> Vec<String> {
+        let mut result: Vec<String> = Vec::new();
+        let syncsid = unsafe { skill_get_syncsids(self, None) };
+        if let Some(syncsid) = syncsid {
+            for sid in syncsid.iter(){
+                result.push(sid.to_string());
+            }
+        }
+        result
     }
 }
 
@@ -212,6 +233,32 @@ fn map_skill_get_skill(ctx: &InlineCtx) -> &'static SkillData {
     map_skill_results.get_skill().unwrap()
 }
 
+fn map_skill_get_x_offset(ctx: &InlineCtx) -> i32 {
+    let skill = map_skill_get_skill(ctx);
+    let mut x_offset = 0;
+    let sids = skill.get_syncsids();
+    if sids.contains(&"SID_MapSkill_X+".to_string()) {
+        x_offset += 1;
+    }
+    if sids.contains(&"SID_MapSkill_X-".to_string()) {
+        x_offset -= 1;
+    }
+    x_offset
+}
+
+fn map_skill_get_z_offset(ctx: &InlineCtx) -> i32 {
+    let skill = map_skill_get_skill(ctx);
+    let mut z_offset = 0;
+    let sids = skill.get_syncsids();
+    if sids.contains(&"SID_MapSkill_Z+".to_string()) {
+        z_offset += 1;
+    }
+    if sids.contains(&"SID_MapSkill_Z-".to_string()) {
+        z_offset -= 1;
+    }
+    z_offset
+}
+
 #[skyline::hook(offset = 0x23BC470, inline)]
 pub fn enable_resurrection_unit_move(ctx: &mut InlineCtx) {
     unsafe { *ctx.registers[0].x.as_mut() = 0 }
@@ -238,8 +285,9 @@ pub fn map_skill_disable_line_check_restore_w19(ctx: &mut InlineCtx) {
 pub fn map_skill_set_current_x(ctx: &mut InlineCtx) {
     let skill = map_skill_get_skill(ctx);
     let diff_x = map_skill_get_diff_x(ctx);
+    let offset_x = map_skill_get_x_offset(ctx);
     if !skill.is_before_move() {
-        unsafe { *ctx.registers[20].w.as_mut() = diff_x as u32 }
+        unsafe { *ctx.registers[20].w.as_mut() = (diff_x + offset_x) as u32 }
     }
 }
 
@@ -247,8 +295,9 @@ pub fn map_skill_set_current_x(ctx: &mut InlineCtx) {
 pub fn map_skill_set_current_z(ctx: &mut InlineCtx) {
     let skill = map_skill_get_skill(ctx);
     let diff_z = map_skill_get_diff_z(ctx);
+    let offset_z = map_skill_get_z_offset(ctx);
     if !skill.is_before_move() {
-        unsafe { *ctx.registers[21].w.as_mut() = diff_z as u32 }
+        unsafe { *ctx.registers[21].w.as_mut() = (diff_z + offset_z) as u32 }
     }
 }
 

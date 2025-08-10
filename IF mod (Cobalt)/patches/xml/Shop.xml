@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Book Count="4">
-  <Sheet Name="武器屋" Count="108">
+  <Sheet Name="武器屋" Count="125">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -116,9 +116,26 @@
       <Param Condition="" Iid="IID_小枝" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_魔封じの槍" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_指南槍" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_大槍" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_小槍" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_竹竿" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_松の木" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_追い剥ぎの薙刀" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_捨て身の薙刀" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_紅薙刀" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_フライパン" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_獣の骨" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_追い剥ぎの斧" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_狂戦士の斧" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_雄斧" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_殺斧" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_鯉のぼり" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_クワ" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_金剛の金棒" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_鍛錬棒" Stock="-1" Attribute="0" />
     </Data>
   </Sheet>
-  <Sheet Name="道具屋" Count="102">
+  <Sheet Name="道具屋" Count="104">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -199,6 +216,8 @@
       <Param Condition="" Iid="IID_調合薬" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_フリーズ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_チェンジプルフ" Stock="1" Attribute="0" />
+      <Param Condition="M013" Iid="" Stock="" Attribute="" />
+      <Param Condition="" Iid="IID_ぎんの晶石" Stock="-1" Attribute="0" />
       <Param Condition="M014" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_リブロー" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_リカバー" Stock="1" Attribute="0" />
@@ -230,7 +249,7 @@
       <Param Condition="" Iid="IID_フリーズ" Stock="1" Attribute="0" />
     </Data>
   </Sheet>
-  <Sheet Name="蚤の市" Count="28">
+  <Sheet Name="蚤の市" Count="16">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -249,23 +268,11 @@
       <Param Condition="" Iid="IID_無し" Stock="-1" Attribute="1" />
       <Param Condition="" Iid="IID_無し" Stock="-1" Attribute="1" />
       <Param Condition="" Iid="IID_無し" Stock="-1" Attribute="1" />
-      <Param Condition="" Iid="IID_はがねの晶石" Stock="10" Attribute="0" />
+      <Param Condition="" Iid="IID_ぎんの晶石" Stock="-1" Attribute="0" />
       <Param Condition="M016" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_釣り竿Ⅱ" Stock="1" Attribute="0" />
-      <Param Condition="" Iid="IID_はがねの晶石" Stock="40" Attribute="0" />
-      <Param Condition="M018" Iid="" Stock="" Attribute="" />
-      <Param Condition="" Iid="IID_はがねの晶石" Stock="100" Attribute="0" />
-      <Param Condition="" Iid="IID_ぎんの晶石" Stock="5" Attribute="0" />
       <Param Condition="M020" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_釣り竿Ⅲ" Stock="1" Attribute="0" />
-      <Param Condition="" Iid="IID_はがねの晶石" Stock="100" Attribute="0" />
-      <Param Condition="" Iid="IID_ぎんの晶石" Stock="5" Attribute="0" />
-      <Param Condition="M023" Iid="" Stock="" Attribute="" />
-      <Param Condition="" Iid="IID_はがねの晶石" Stock="100" Attribute="0" />
-      <Param Condition="" Iid="IID_ぎんの晶石" Stock="5" Attribute="0" />
-      <Param Condition="M026" Iid="" Stock="" Attribute="" />
-      <Param Condition="" Iid="IID_はがねの晶石" Stock="150" Attribute="0" />
-      <Param Condition="" Iid="IID_ぎんの晶石" Stock="35" Attribute="0" />
     </Data>
   </Sheet>
   <Sheet Name="アクセサリー屋" Count="37">

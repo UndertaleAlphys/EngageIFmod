@@ -2215,7 +2215,7 @@ Binding Blade
 
 [MIID_H_Roy_BindingBlade]
 Famous sword wielded by Emblem
-Roy. Grants Def/Res+5. Can strike
+Roy. Grants Def/Res+2. Can strike
 close or at range.
 Effective: Dragon
 
@@ -2271,8 +2271,7 @@ Parthia
 
 [MIID_H_Lucina_Parthia]
 Bow wielded by Emblem Lucina.
-User gets 1.2x earned experience.
-Grants Res+5. Effective: Flying.
+Effective: Flying.
 
 [MIID_Lucina_ParallelFalchion]
 Parallel Falchion
@@ -2314,7 +2313,7 @@ Effective: Cavalry, Flier, Armored.
 Mulagir
 
 [MIID_H_Lin_Myrgleis]
-Mighty bow wielded by Emblem Lyn.
+Mighty yumi wielded by Emblem Lyn.
 If user initiates combat, attacks twice.
 Grants Spd+2. Effective: Flying,
 Dragon.
@@ -2332,15 +2331,15 @@ Urvan
 
 [MIID_H_Ike_Urvan]
 Heirloom axe wielded by Emblem
-Ike. Grants Res+3.
+Ike.
 
 [MIID_Ike_Ragnell]
 Ragnell
 
 [MIID_H_Ike_Ragnell]
 Sacred sword wielded by Emblem
-Ike. Grants Def+5. Can strike
-close or at range.
+Ike. Grants Def+2/
+The type of damage varies by distance.
 
 [MIID_Byleth_Aymr]
 Aymr
@@ -2844,48 +2843,48 @@ Silver Shortbow
 
 [MIID_H_IronKukri]
 A standard sword made of iron.
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SteelKukri]
 A sword made of steel.
 -3 unit's ability to follow up
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SilverKukri]
 An exceptional sword of rare metals.
 Inflicts stacking debuff on unit after combat
 (Str/Dex-2)
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SilverJavelin]
 An exceptional lance of rare metals.
 Inflicts stacking debuff on unit after combat
 (Str/Dex-2)
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SteelJavelin]
 A lance made of steel.
 -3 unit's ability to follow up
-Can attack at range.
+Can strike at range.
 
 [MIID_H_IronJavelin]
 A standard lance made of iron.
-Can attack at range.
+Can strike at range.
 
 [MIID_H_IronStarAxe]
 A standard axe made of iron.
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SteelStarAxe]
 A axe made of steel.
 -3 unit's ability to follow up
-Can attack at range.
+Can strike at range.
 
 [MIID_H_SilverStarAxe]
 An exceptional axe of rare metals.
 Inflicts stacking debuff on unit after combat
 (Str/Dex-2)
-Can attack at range.
+Can strike at range.
 
 [MIID_H_IronShortBow]
 A standard bow made of iron.
@@ -3114,10 +3113,11 @@ Gradius
 [MIID_H_Marth_Gradius]
 Emblem Marth's most
 valuable lance.
-Can attack at range.
+Can strike at range.
 Cannot follow up/Crit/
-Trigger skill/weak to
-follow up (-5)/usable
+Trigger skills/
++5 Foe's ability to follow up/
+Use to recover HP
 
 [MIID_Siglud_KnightSword]
 Knight Sword
@@ -3131,15 +3131,14 @@ unit, grants Def +5.
 Falcon Bow
 
 [MIID_H_Lin_FalconBow]
-Emblem Lyn's Bow
-+2 Res/weapon's Mtx5
-against flying unit.
+Emblem Lyn's yumi
+Effective: Flying (5x).
 
 [MIID_Lin_WestWind]
 Wind Chaser
 
 [MIID_H_Lin_WestWind]
-Emblem Lyn's longbow
+Emblem Lyn's long range yumi
 Cannot follow up
 When unit initiate a battle and hit,
 reduce foe's Mov by half, last one turn.
@@ -3355,3 +3354,116 @@ Inflicts stacking debuff on unit
 (Str/Dex-2)
 Grants Str+4 for two foes
 within 2-radius after combat.
+
+[MIID_EtieLance]
+Etie's Lance
+
+[MIID_H_EtieLance]
+-5 user's ability to follow up
++5 foe's ability to follow up
+
+[MIID_HortensiaLance]
+Hortensia's Lance
+
+[MIID_H_HortensiaLance]
+Cannot follow up
++5 foe's ability to follow up
+
+[MIID_BambooPole]
+Bamboo Pole
+
+[MIID_H_BambooPole]
+Nature's finest blacksmithing on
+display.
+
+[MIID_PineTree]
+Pine Tree
+
+[MIID_H_PineTree]
+-3 user's ability to follow up
+
+[MIID_RaiderNaginata]
+Raider Naginata
+
+[MIID_H_RaiderNaginata]
++3 user's ability to follow up
+
+[MIID_BoldNaginata]
+Bold Naginata
+
+[MIID_H_BoldNaginata]
+Def/Res-6
+Cannot follow up/
++5 foe's ability to follow up
+
+[MIID_TimerraSpear]
+Timerra's Spear
+
+[MIID_H_TimerraSpear]
+Def/Res-2
+
+[MIID_FryingPan]
+Frying Pan
+
+[MIID_H_FryingPan]
+Heavy and hard to wield, but cast
+iron, so you don't really need to clean it.
+
+[MIID_BoneAxe]
+Bone Axe
+
+[MIID_H_BoneAxe]
+Res+3. Sometimes the old ways are best.
+
+[MIID_RaiderAxe]
+RaiderAxe
+
+[MIID_H_RaiderAxe]
++3 user's ability to follow up
+
+[MIID_BerserkerAxe]
+Berserker Axe
+
+[MIID_H_BerserkerAxe]
+If user attacked, 
+Lowers user's HP by 30% of max.
+
+[MIID_BoucheronAxe]
+Boucheron's Axe
+
+[MIID_H_BoucheronAxe]
+Male only/Def+2
+
+[MIID_AmberAxe]
+Amber's Axe
+
+[MIID_H_AmberAxe]
+Deals extra damage when Crit
+
+[MIID_CarpStreamer]
+Carp Streamer
+
+[MIID_H_CarpStreamer]
+Not great in a fight, but very
+festive.
+
+[MIID_Hoe]
+Hoe
+
+[MIID_H_Hoe]
+Ignores terrain effects for 
+both user and foe on combat.
+
+[MIID_AdamantClub]
+Adamant Club
+
+[MIID_H_AdamantClub]
+An enduring weapon.
+Def+4
+
+[MIID_AlfredClub]
+Alfred's Club
+
+[MIID_H_AlfredClub]
+An ugly but powerful club.
+Spd-5

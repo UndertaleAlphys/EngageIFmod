@@ -399,14 +399,6 @@ HP未达最大值时
 HP未达最大值时
 将减少量的50%加计至攻击力
 
-[MSID_BreakThroughLimit]
-突破极限
-
-[MSID_H_BreakThroughLimit]
-击败等级高于自身的单位时
-自身等级+1，效果持续至该战斗结束为止
-（等级最多+3）
-
 [MSID_AnotherWorldsPower]
 异界之力
 
@@ -544,13 +536,6 @@ $Icon("WhiteStone")无色召唤石
 发动物理攻击时
 必杀攻击可比平常
 造成更多伤害
-
-[MSID_Charisma]
-超凡魅力
-
-[MSID_H_Charisma]
-自身的攻击触发连锁攻击时
-提升连锁攻击的伤害
 
 [MSID_SuckerPunch]
 偷袭

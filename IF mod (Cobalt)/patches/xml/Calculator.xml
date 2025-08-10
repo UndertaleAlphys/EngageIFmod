@@ -44,7 +44,7 @@
       <Param Name="素早い動作速度" Condition="" Function="1;" />
       <Param Name="間合い判断値" Condition="" Function="0.5;" />
       <Param Name="攻撃速度計算" Condition="" Function="速さ;" />
-      <Param Name="速度補正" Condition="" Function="cond(スキル所持(&quot;追撃しにくい&quot;), -3, 0) + cond(スキル所持(&quot;追撃しやすい&quot;), 3, 0) + cond(相手のスキル所持(&quot;追撃されやすい&quot;), 5, 0) + cond(スキル所持(&quot;追撃しやすくされやすい&quot;), 5, 0) + cond(相手のスキル所持(&quot;追撃しやすくされやすい&quot;), 5, 0) + cond(スキル所持(&quot;飛燕の一撃&quot;) &amp;&amp; 立場 == 攻め, 5, 0);" />
+      <Param Name="速度補正" Condition="" Function="cond(スキル所持(&quot;追撃しにくい&quot;), -3, 0) + cond(スキル所持(&quot;追撃しにくい-5&quot;), -5, 0) + cond(スキル所持(&quot;追撃しやすい&quot;), 3, 0) + cond(相手のスキル所持(&quot;追撃されやすい&quot;), 5, 0) + cond(スキル所持(&quot;追撃しやすくされやすい&quot;), 5, 0) + cond(相手のスキル所持(&quot;追撃しやすくされやすい&quot;), 5, 0) + cond(スキル所持(&quot;飛燕の一撃&quot;) &amp;&amp; 立場 == 攻め, 5, 0);" />
       <Param Name="追撃係数初始" Condition="" Function="攻撃速度 - 相手の攻撃速度 + 速度補正;" />
       <Param Name="追撃係数挟撃" Condition="スキル所持(&quot;挟撃&quot;) &amp;&amp; 挟撃中 &amp;&amp; 追撃係数初始 &lt; 5 &amp;&amp; 立場 == 攻め;" Function="5;追撃係数初始;" />
       <Param Name="追撃係数切り返し" Condition="スキル所持(&quot;切り返し&quot;) &amp;&amp; ( HP*100 &gt;= MaxHP*75 ) &amp;&amp; 追撃係数挟撃 &lt; 5 &amp;&amp; 立場 == 受け;" Function="5;追撃係数挟撃;" />
