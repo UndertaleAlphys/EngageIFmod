@@ -3158,13 +3158,13 @@ EXP之书
 战斗后对敌方释放力量之呐喊。
 
 [MIID_EtieLance]
-艾媞耶的大枪
+艾媞耶之大枪
 
 [MIID_H_EtieLance]
 难以追击（-5）/容易被追击（+5）
 
 [MIID_HortensiaLance]
-奥尔坦希亚的小枪
+奥尔坦希亚之小枪
 
 [MIID_H_HortensiaLance]
 不可追击/容易被追击（+5）
@@ -3195,7 +3195,7 @@ EXP之书
 不可追击/容易被追击（+5）
 
 [MIID_TimerraSpear]
-蜜丝提拉的红薙刀
+蜜丝提拉之红薙刀
 
 [MIID_H_TimerraSpear]
 守备·魔防-2
@@ -3226,13 +3226,38 @@ EXP之书
 战斗后失去30%HP
 
 [MIID_BoucheronAxe]
-布修隆的雄斧
+布修隆之雄斧
 
 [MIID_H_BoucheronAxe]
 男性专用/守备+2
 
 [MIID_AmberAxe]
-安巴的杀斧
+安巴之杀斧
 
 [MIID_H_AmberAxe]
 必杀时造成特大伤害
+
+[MIID_CarpStreamer]
+鲤鱼旗帜
+
+[MIID_H_CarpStreamer]
+不适合战斗...
+
+[MIID_Hoe]
+桑
+
+[MIID_H_Hoe]
+无视双方的地形守备和防御
+
+[MIID_AdamantClub]
+金刚之棍棒
+
+[MIID_H_AdamantClub]
+守备+4
+
+[MIID_AlfredClub]
+阿尔弗雷德之锻炼棒
+
+[MIID_H_AlfredClub]
+丑陋但威力巨大的武器。
+速度-5

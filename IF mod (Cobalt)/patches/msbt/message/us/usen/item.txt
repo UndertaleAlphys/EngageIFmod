@@ -3439,3 +3439,31 @@ Amber's Axe
 
 [MIID_H_AmberAxe]
 Deals extra damage when Crit
+
+[MIID_CarpStreamer]
+Carp Streamer
+
+[MIID_H_CarpStreamer]
+Not great in a fight, but very
+festive.
+
+[MIID_Hoe]
+Hoe
+
+[MIID_H_Hoe]
+Ignores terrain effects for 
+both user and foe on combat.
+
+[MIID_AdamantClub]
+Adamant Club
+
+[MIID_H_AdamantClub]
+An enduring weapon.
+Def+4
+
+[MIID_AlfredClub]
+Alfred's Club
+
+[MIID_H_AlfredClub]
+An ugly but powerful club.
+Spd-5
