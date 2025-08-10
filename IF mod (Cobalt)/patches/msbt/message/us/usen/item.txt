@@ -220,7 +220,7 @@ Spear
 [MIID_H_Spear]
 A powerful throwing lance that
 can only strike at range.
-Cannot Crit/Trigger skill/follow up
+Cannot follow up
 /+5 foe's ability to follow up
 
 [MIID_FlameSpear]
@@ -328,7 +328,7 @@ Tomahawk
 [MIID_H_Tomahawk]
 A powerful throwing axe that
 can only strike at range.
-Cannot Crit/Trigger skill/follow up
+Cannot follow up
 /+5 foe's ability to follow up
 
 [MIID_Hammer]
@@ -2609,7 +2609,7 @@ Wakizashi
 [MIID_H_Wakizashi]
 A powerful throwing axe that
 can only strike at range.
-Cannot Crit/Trigger skill/follow up
+Cannot follow up
 /+5 foe's ability to follow up
 
 [MIID_SpyShuriken]
