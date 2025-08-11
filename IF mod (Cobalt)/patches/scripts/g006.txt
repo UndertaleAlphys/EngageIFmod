@@ -86,6 +86,21 @@ function Startup()
 	
 end
 
+function InitTerrain()
+    TerrainSetBegin()
+    for z = 0, g_height - 1 do
+        for x = 0, g_width - 1 do
+            if TerrainGet(x,z) == "TID_防衛床_ターゲット・ワープ禁" then
+                TerrainSet(x, z, "TID_床")
+            end
+            if TerrainGet(x,z) == "TID_防衛床" then
+                TerrainSet(x, z, "TID_床")
+            end
+        end
+    end
+    TerrainSetEnd()
+end
+
 function 変数登録()
 	
 	VariableEntry( g_key_BrokenCrystalNum,			0 )
@@ -174,6 +189,7 @@ function MapOpening()
 	
 	MapGenerateFog()
 	InitEvenEnemyLeafStatus()
+	InitTerrain()
 end
 
 -- -----------------------------------
@@ -623,6 +639,8 @@ function Crystal_All_Destroy()
 	クロムとルフレのスキル解除()
 
 	MapOverlapAllClear()
+
+	InitTerrain()
 
 	Reinforcement_Boss()
 	

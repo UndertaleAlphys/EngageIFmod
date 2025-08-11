@@ -6,6 +6,7 @@ g_pid_boss			= "PID_G001_チキ"
 g_pid_boss_doragon		= "PID_G001_チキ_竜化"
 g_pid_bossB			= "PID_G001_チキ_特効無効"
 g_pid_bossB_doragon		= "PID_G001_チキ_竜化_特効無効"
+g_get_book = "G_GET_BOOK"
 
 g_Width			= 32
 g_Height		= 32
@@ -182,6 +183,7 @@ function 変数登録()
 	VariableEntry("左のスイッチ_済", 0)
 	VariableEntry("中央のスイッチ_済", 0)
 	VariableEntry("戦闘前会話_チキ_マルス_済", 0)
+	VariableEntry(g_get_book,0)
 end
 
 -- -----------------------------------
@@ -632,6 +634,9 @@ function IsPositionValid(x, y)
 end
 
 function アイテム入手()
+    if VariableGet(g_get_book) == 1 then
+        return false
+    end
     ItemGain(MindGetUnit(), "IID_知識の書")
     EffectDelete("ドロップアイテム", 9, 25)
     TerrainSetOne(9, 25, "TID_平地")
@@ -651,6 +656,7 @@ function アイテム入手()
             Log("【Script】找不到可行的传送位置！")
         end
     end
+    VariableSet(g_get_book,1)
 end
 
 -- -----------------------------------
