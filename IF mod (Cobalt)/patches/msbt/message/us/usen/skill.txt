@@ -5259,14 +5259,14 @@ Elbow Room
 
 [MSID_H_ElbowRoom]
 Grant +3 Dmg when fighting in
-a space with a terrain effect
+a space with no terrain effects
 
 [MSID_NaturalCover]
 Natrual Cover
 
 [MSID_H_NaturalCover]
 Take -3 Dmg when fighting in
-a space with no terrain effects
+a space with a terrain effect
 
 [MSID_AdaptiveTactics]
 Adaptive Tactics
