@@ -27,8 +27,8 @@
       <Param Name="無効補正" Condition="相手のスキル所持(&quot;3すくみ無効&quot;) || スキル所持(&quot;3すくみ無効&quot;);" Function="0;1;" />
       <Param Name="攻撃力計算" Condition="" Function="ユニット攻撃力 + 武器攻撃力 * 武器特効 + (相性補正_攻撃 * 無効補正 * 逆転補正);" />
       <Param Name="防御力計算" Condition="" Function="ユニット防御力 + 地形防御 + (相性補正_防御 * 無効補正 * 逆転補正);" />
-      <Param Name="命中値計算" Condition="" Function="int(技*1.5) + int(幸運/2) + 武器命中 + 支援命中 + (相性補正_命中 * 無効補正 * 逆転補正) + チェインアタック命中値;" />
-      <Param Name="回避値計算" Condition="" Function="int(攻撃速度*1.5) + int(幸運/2) + 武器回避 + 支援回避 + 地形回避 + (相性補正_回避 * 無効補正 * 逆転補正);" />
+      <Param Name="命中値計算" Condition="" Function="int(技*1.5+幸運*0.5)+ 武器命中 + 支援命中 + (相性補正_命中 * 無効補正 * 逆転補正) + チェインアタック命中値;" />
+      <Param Name="回避値計算" Condition="" Function="int(攻撃速度*1.5+幸運*0.5) + 武器回避 + 支援回避 + 地形回避 + (相性補正_回避 * 無効補正 * 逆転補正);" />
       <Param Name="必殺値計算" Condition="" Function="int((技-4)/2) + 武器必殺 + 支援必殺;" />
       <Param Name="必殺回避計算" Condition="" Function="int(幸運/2) + 武器必殺回避 + 支援必殺回避;" />
       <Param Name="威力計算" Condition="" Function="max(攻撃力 - 相手の防御力, 0);" />
