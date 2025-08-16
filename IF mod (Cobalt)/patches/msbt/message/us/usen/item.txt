@@ -854,8 +854,9 @@ Halves Str & Mag until unit attacks again.
 Fire Breath
 
 [MIID_H_FireBreath]
-A scorching breath attack. Ignores
-foe's Def/Res.
+A scorching breath attack.
+Cannot follow up/
+Crit/Trigger skills
 
 [MIID_FlameBall]
 Fireball
@@ -863,7 +864,7 @@ Fireball
 [MIID_H_FlameBall]
 A long-range fire attack.
 Cannot follow up/
-Crit/Trigger skill
+Crit/Trigger skills
 
 [MIID_SombrePhysicalAttack]
 Fell Assault
@@ -2570,11 +2571,11 @@ skills. Grants 1,000 SP.
 Thunder Sword
 
 [MIID_Kamui_TrueStone]
-True Dragon Stone
+Dragonstone+
 
 [MIID_H_Kamui_TrueStone]
 The dragon stone owned by
-emblem Kamui, magic weapon.
+Emblem Corrin, magic weapon.
 Cannot follow up
 -5 Skl/-4 Spd/+9 Def/+7 Res
 
@@ -2583,7 +2584,7 @@ Dual Club
 
 [MIID_H_Camilla_DualClub]
 The dual club owned by
-emblem Kamui, magic weapon.
+Emblem Camilla, magic weapon.
 Reverse the weapon triangle
 and double its effect.
 
@@ -2683,8 +2684,7 @@ Inflicts stacking debuff on unit after combat
 Calamity Gate
 
 [MIID_H_Kamui_CalamityGate]
-A scroll used by emblem
-Kamui. 
+A scroll used by Emblem Corrin.
 Reverse the weapon triangle
 and double its effect.
 
