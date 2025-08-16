@@ -3469,3 +3469,10 @@ Alfred's Club
 [MIID_H_AlfredClub]
 An ugly but powerful club.
 Spd-5
+
+[MIID_Leaf_FarHeal+]
+Physic+
+
+[MIID_H_Leaf_FarHeal+]
+Emblem Leif's long range staff.
+Can heal at a distance.

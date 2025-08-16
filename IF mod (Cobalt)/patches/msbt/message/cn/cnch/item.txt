@@ -3258,3 +3258,10 @@ EXP之书
 [MIID_H_AlfredClub]
 丑陋但威力巨大的武器。
 速度-5
+
+[MIID_Leaf_FarHeal+]
+远程圣疗+
+
+[MIID_H_Leaf_FarHeal+]
+纹章士里弗的长距离杖。
+可以治疗远处的友方。
