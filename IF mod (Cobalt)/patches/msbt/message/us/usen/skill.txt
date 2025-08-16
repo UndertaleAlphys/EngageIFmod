@@ -2100,8 +2100,8 @@ Night and Day
 
 [MSID_H_God_Change]
 Use to switch Emblems and swap
-between Lunar Brace/Gentility and
-Solar Brace/Bravery for all allies.
+between Lunar Brace/Gentility/Demoiselle and
+Solar Brace/Bravery/Gentilhomme for all allies.
 
 [MSID_H_God_Change_CMD]
 Switch between Emblems.
@@ -2110,16 +2110,18 @@ Switch between Emblems.
 Lunar Brace
 
 [MSID_H_MoonBracelet_1]
-If unit initiates combat, deals
-extra damage=20% of foe's Def
+If unit initiates combat with
+a physical/magical weapon, 
+grants Atk+30% of foe's Def/Res
 for the first hit.
 
 [MSID_MoonBracelet_2]
 Lunar Brace+
 
 [MSID_H_MoonBracelet_2]
-If unit initiates combat, deals
-extra damage=20% of foe's Def
+If unit initiates combat with
+a physical/magical weapon,
+grants Atk+50% of foe's Def/Res
 for the first hit.
 
 [MSID_SunBracelet_1]
@@ -2140,19 +2142,19 @@ HP=50% of damage dealt.
 Eclipse Brace
 
 [MSID_H_SunMoonBracelet_1]
-If unit initiates combat, unit deals
-extra damage=20% of foe's Def
-for the first hit, and recovers
-HP=30% of damage dealt.
+If unit initiates combat with
+a physical/magical weapon, unit grants
+Atk+30% of foe's Def/Res for the first hit,
+and recovers HP=30% of damage dealt.
 
 [MSID_SunMoonBracelet_2]
 Eclipse Brace+
 
 [MSID_H_SunMoonBracelet_2]
-If unit initiates combat, unit deals
-extra damage=30% of foe's Def
-with physical attacks and recovers
-HP=50% of damage dealt.
+If unit initiates combat with
+a physical/magical weapon, unit grants
+Atk+50% of foe's Def/Res for the first hit,
+and recovers HP=50% of damage dealt.
 
 [MSID_GentleWind_1]
 Gentility
@@ -2205,8 +2207,9 @@ Sacred Twins
 
 [MSID_H_EirikEngage]
 While engaged with Eirika, changes
-Lunar Brace to Eclipse Brace and
-Gentility to Blue Skies for all allies.
+Lunar Brace to Eclipse Brace,
+Gentility to Blue Skies, and
+Demoiselle to Nobility for all allies.
 
 [MSID_EirikEngageAtk]
 Twin Strike
@@ -5502,3 +5505,24 @@ Warp: Right
 
 [MSID_H_Warp_Right_CMD]
 Teleport to the right tile of an ally
+
+[MSID_Demoiselle]
+Demoiselle
+
+[MSID_H_Demoiselle]
+Male allies within 2-radius
+tale -2 Dmg.
+
+[MSID_Gentilhomme]
+Demoiselle
+
+[MSID_H_Gentilhomme]
+Female allies within 2-radius
+tale -2 Dmg.
+
+[MSID_Nobility]
+Nobility
+
+[MSID_H_Nobility]
+Allies within 2-radius
+tale -2 Dmg.

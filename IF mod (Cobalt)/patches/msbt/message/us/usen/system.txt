@@ -1,0 +1,973 @@
+[MID_SYS_Difficulty_Normal]
+Normal
+
+[MID_H_Difficulty_Normal]
+For new and intermediate players.
+
+[MID_SYS_Difficulty_Hard]
+Hard
+
+[MID_H_Difficulty_Hard]
+For experienced players.
+
+[MID_SYS_Difficulty_Lunatic]
+Lunatic+
+
+[MID_H_Difficulty_Lunatic]
+For those who seek a true challenge.
+
+[MID_SYS_Mode_Select]
+Select a mode.
+
+[MID_SYS_Mode_Casual]
+Casual
+
+[MID_H_Mode_Casual]
+Fallen units return in the next battle.
+
+[MID_SYS_Mode_Classic]
+Classic
+
+[MID_H_Mode_Classic]
+Fallen units are lost forever.
+Every decision counts.
+
+[MID_SYS_Grow_Random]
+Random
+
+[MID_H_Grow_Random]
+Stat boosts when leveling up will be assigned
+randomly, but influenced by the unit and class.
+
+[MID_SYS_Grow_Fixed]
+Fixed
+
+[MID_H_Grow_Fixed]
+Stat boosts when leveling up will be assigned
+based strictly on the unit and class.
+
+[MID_Decision]
+Confirm
+
+[MID_ToNext]
+Next
+
+[MID_SYS_BattleRecord]
+Battle Data
+
+[MID_SYS_Time]
+Time
+
+[MID_SYS_None]
+None
+
+[MID_SYS_Battle_Count]
+ Battles
+
+[MID_SYS_Win_Count]
+ Wins
+
+[MID_SYS_FoughtTogetherGod]
+Most Used Emblem
+
+[MID_SYS_TypeSection]
+Class Division
+
+[MID_SYS_SeniorPosition]
+Advanced
+
+[MID_SYS_BasicPosition]
+Base
+
+[MID_SYS_SpecialPosition]
+Special
+
+[MID_SYS_Position]
+$Arg(0) Class
+
+[MID_SYS_UseWeapon]
+Weapons
+
+[MID_SYS_TypeOfWepon_1]
+Type 1
+
+[MID_SYS_TypeOfWepon_2]
+Type 2
+
+[MID_SYS_Status]
+Combat Stats
+
+[MID_SYS_Capability]
+Basic Stats
+
+[MID_SYS_EquipedStatus]
+In-Use Stats
+
+[MID_SYS_Spec]
+Performance
+
+[MID_SYS_Detail]
+Details
+
+[MID_SYS_EngageWeapon]
+Engage Weapons
+
+[MID_SYS_Class]
+Class
+
+[MID_SYS_Item]
+Items
+
+[MID_SYS_Skill]
+Skills
+
+[MID_SYS_SP]
+SP
+
+[MID_H_INFO_SP]
+Skill Points. Used to inherit skills
+from Emblems.
+
+[MID_SYS_Rating]
+Rating
+
+[MID_H_INFO_Rating]
+The sum of the unit's key stats.
+
+[MID_SYS_LV]
+Lvl
+
+[MID_H_INFO_LV]
+Indicates the unit's overall strength.
+Increases with experience.
+$Arg(0) EXP until next level.
+
+[MID_H_INFO_LV_MAX]
+Indicates the unit's overall strength.
+Increases with experience.
+Unit has reached maximum level.
+
+[MID_H_INFO_LV_ENEMY]
+Indicates the unit's overall strength.
+Increases with experience.
+
+[MID_H_INFO_BOND_LV]
+The strength of the bond between
+the unit and Emblem. The higher it is
+the more power the Emblem grants.
+
+[MID_SYS_Exp]
+EXP
+
+[MID_SYS_HP_MAX_UP]
+Max HP
+
+[MID_SYS_HP]
+HP
+
+[MID_H_INFO_HP]
+Overall health. The unit is
+defeated if this reaches 0.
+
+[MID_H_COMBAT_INFO_HP]
+A prediction of changes to HP as a
+result of this combat.
+
+[MID_SYS_Str]
+Str
+
+[MID_H_INFO_Str]
+Strength. Affects damage the
+unit deals with physical attacks.
+
+[MID_SYS_Mag]
+Mag
+
+[MID_H_INFO_Mag]
+Magic. Affects damage the unit
+deals with magical attacks.
+
+[MID_SYS_Tec]
+Dex
+
+[MID_H_INFO_Tec]
+Dexterity. Determines hit rate
+and frequency of critical hits.
+
+[MID_SYS_Spd]
+Spd
+
+[MID_H_INFO_Spd]
+Speed. Contributes to Avo. If greater
+than or equal to foe's Spd+5, unit
+strikes twice.
+
+[MID_SYS_Lck]
+Lck
+
+[MID_H_INFO_Lck]
+Luck. Has various effects, including
+lowering risk of enemy criticals.
+
+[MID_SYS_Def]
+Def
+
+[MID_H_INFO_Def]
+Defense. Reduces damage
+from physical attacks.
+
+[MID_SYS_Res]
+Res
+
+[MID_H_INFO_Res]
+Resistance. Reduces damage
+from magical attacks.
+
+[MID_SYS_Mov]
+Mov
+
+[MID_H_INFO_Mov]
+Movement. Determines how
+many spaces a unit can move.
+
+[MID_SYS_Phy]
+??
+
+[MID_H_INFO_Phy]
+??
+
+[MID_SYS_Vis]
+??
+
+[MID_H_INFO_Vis]
+??
+
+[MID_SYS_Atk]
+Atk
+
+[MID_SYS_Dmg]
+Dmg
+
+[MID_H_INFO_Atk]
+Attack. The offensive power of the
+unit's physical or magical attacks.
+
+[MID_H_COMBAT_INFO_Dmg]
+The amount of damage dealt to the
+foe on a hit.
+
+[MID_SYS_Weapon_Attack]
+Ph Atk
+
+[MID_SYS_H_Weapon_Attack]
+Physical attack. The unit's attack
+power using a physical weapon.
+
+[MID_SYS_Magic_Attack]
+Mag Atk
+
+[MID_SYS_H_Magic_Attack]
+Magical attack. The unit's attack
+power using a magic weapon.
+
+[MID_SYS_Special_Attack]
+Pn Atk
+
+[MID_SYS_H_Special_Attack]
+Penetrating attack. The unit's attack
+power with attacks that are not
+affected by Defense or Resistance.
+
+[MID_SYS_Hit]
+Hit
+
+[MID_H_INFO_Hit]
+Hit rate. Determines the
+odds of landing an attack.
+
+[MID_H_COMBAT_INFO_Hit]
+Hit rate for attacks and other effects.
+
+[MID_SYS_Avo]
+Avo
+
+[MID_H_INFO_Avo]
+Avoid rate. Determines the odds of
+evading an attack.
+
+[MID_SYS_Crit]
+Crit
+
+[MID_H_INFO_Crit]
+Critical rate. Determines the odds of
+landing a critical hit (triple damage).
+
+[MID_H_COMBAT_INFO_Crit]
+The chance of landing a critical hit.
+
+[MID_SYS_Secure]
+Ddg
+
+[MID_H_INFO_Secure]
+Dodge. Determines the odds of
+avoiding a critical hit.
+
+[MID_COMBAT_INFO_Recovery]
+Rec
+
+[MID_H_COMBAT_INFO_Recovery]
+The amount of HP the unit's target
+will recover when healed.
+
+[MID_H_INFO_WLV]
+$Arg(0) Level
+
+[MID_H_INFO_WLV_Special]
+Special
+
+[MID_H_INFO_WLV_Sword]
+Sword
+
+[MID_H_INFO_WLV_Lance]
+Lance
+
+[MID_H_INFO_WLV_Magic]
+Tome
+
+[MID_H_INFO_WLV_Dagger]
+Knife
+
+[MID_H_INFO_WLV_Axe]
+Axe
+
+[MID_H_INFO_WLV_Bow]
+Bow
+
+[MID_H_INFO_WLV_Rod]
+Staff
+
+[MID_H_INFO_WLV_Fist]
+Art
+
+[MID_SYS_BondCombi]
+$Arg(0) and $Arg(1)'s Bond
+
+[MID_SYS_BOND_LV]
+Bond
+
+[MID_SYS_MAX]
+MAX
+
+[MID_SYS_Infinity]
+∞
+
+[MID_SYS_STYLE_BONUS]
+Type Bonus!
+
+[MID_SYS_QUALITY_Sword]
+Sword Prof.
+
+[MID_SYS_H_QUALITY_Sword]
+Proficiency with swords.
+Required for promotion to
+certain classes.
+
+[MID_SYS_QUALITY_Lance]
+Lance Prof.
+
+[MID_SYS_H_QUALITY_Lance]
+Proficiency with lances.
+Required for promotion to
+certain classes.
+
+[MID_SYS_QUALITY_Magic]
+Magic Prof.
+
+[MID_SYS_H_QUALITY_Magic]
+Proficiency with magic.
+Required for promotion to
+certain classes.
+
+[MID_SYS_QUALITY_Knife]
+Knife Prof.
+
+[MID_SYS_H_QUALITY_Knife]
+Proficiency with knives.
+Required for promotion to
+certain classes.
+
+[MID_SYS_QUALITY_Axe]
+Axe Prof.
+
+[MID_SYS_H_QUALITY_Axe]
+Proficiency with axes.
+Required for promotion to
+certain classes.
+
+[MID_SYS_QUALITY_Bow]
+Bow Prof.
+
+[MID_SYS_H_QUALITY_Bow]
+Proficiency with bows.
+Required for promotion to
+certain classes.
+
+[MID_SYS_QUALITY_Rod]
+Staff Prof.
+
+[MID_SYS_H_QUALITY_Rod]
+Proficiency with staves.
+Required for promotion to
+certain classes.
+
+[MID_SYS_QUALITY_Fist]
+Art Prof.
+
+[MID_SYS_H_QUALITY_Fist]
+Proficiency with arts.
+Required for promotion to
+certain classes.
+
+[MID_SYS_H_HPStock]
+Revival Stones
+Consumed to recover all HP once
+unit's HP reaches 0.
+
+[MID_SYS_ValueEmpty]
+--
+
+[MID_SYS_Mt]
+Mt
+
+[MID_SYS_Rec]
+Pwr
+
+[MID_SYS_Eff]
+Eff
+
+[MID_SYS_Weight]
+??
+
+[MID_SYS_Rng]
+Rng
+
+[MID_SYS_WLV_Short]
+Lvl
+
+[MID_H_SYS_Equip]
+E
+
+[MID_SYS_Target]
+Target
+
+[MID_SYS_Me]
+Self
+
+[MID_H_INFO_DISABLE_ENGAGE]
+Cannot Use (Not Engaged)
+
+[MID_H_INFO_DISABLE_WEAPONLEVEL]
+Cannot Use (Wrong Unit Type)
+
+[MID_SYS_GodWeapon_LV]
+Lvl
+
+[MID_SYS_ExpNext]
+Next
+
+[MID_SYS_GOLD_COUNT]
+Money
+
+[MID_SYS_ABRIDGEMENT]
+...
+
+[MID_H_INFO_Param_Base]
+Base value: 
+
+[MID_H_INFO_Param_Correction_Weight]
+??
+
+[MID_H_INFO_Param_Correction_God]
+Emblem
+
+[MID_H_INFO_Param_Correction_Support]
+Support
+
+[MID_H_INFO_Param_Correction_Terrain]
+Terrain
+
+[MID_H_INFO_Param_Correction_Effect]
+Effect
+
+[MID_H_INFO_Param_Correction_Hub]
+Activity
+
+[MID_Material_Iron]
+Iron
+
+[MID_Material_Steel]
+Steel
+
+[MID_Material_Silver]
+Silver
+
+[MID_PieceOfBonds]
+Bond Fragments
+
+[MID_B_INFO_DAMAGE]
+Damage
+
+[MID_MSG_GET]
+Obtained
+
+[MID_MSG_COST]
+Cost
+
+[MID_MSG_JOIN_UNIT]
+$Arg(0) joined your group.
+
+[MID_MSG_JOIN_UNIT2]
+$Arg(0) and $Arg(1) joined your group.
+
+[MID_MSG_JOIN_UNIT3]
+$Arg(0), $Arg(1), and $Arg(2) joined your group.
+
+[MID_MSG_GET_ITEM]
+$Arg(0)$Arg(1) obtained.
+
+[MID_MSG_GET_ALREADY]
+You cannot scan this amiibo until your scans
+are refreshed.
+
+[MID_MSG_GET_ITEM_PLURAL]
+You got $Arg(0)$Arg(1)×$Arg(2).
+
+[MID_MSG_GET_GOLD]
+$Arg(0)$Arg(1) G obtained.
+
+[MID_MSG_GET_PIECE]
+$Arg(1) $Arg(0) bond fragments obtained.
+
+[MID_MSG_BREAK_ITEM]
+$Arg(0)$Arg(1) broke.
+
+[MID_MSG_DEPRIVED_ITEM]
+The enemy swiped $Arg(0)$Arg(1).
+
+[MID_MSG_LEARN_SKILL]
+Learned the class skill $Arg(0)$Arg(1).
+
+[MID_MSG_SUPPORT_LEVEL_UP]
+$Arg(0) and $Arg(1)'s support level
+reached $Arg(2).
+
+[MID_MSG_POPUP_RELIANCE_EXP_UP]
+Support Up!
+
+[MID_MSG_POPUP_RELIANCE_ADDITION]
+Conversation available!
+
+[MID_MSG_TUTORIAL_NEW]
+$Arg(0) is now in the Guide.
+
+[MID_MSG_BOND_LV_CAP]
+Bond conversations are available.
+
+[MID_MSG_FRIENDLIST_NEWPAGE]
+New page on $Arg(0) in the Ally Notebook.
+
+[MID_MSG_BONDRING_NEWPAGE]
+New content in the Ring Reference.
+
+[MID_MSG_BOND_LV_CAP_Talk_Attention]
+Bond EXP between $Arg(0) and $Arg(1) is at max. Select Bond in the Reference menu on the Somniel or world map to increase bond level further.
+
+[MID_MSG_BOND_LV_CAP_RELEASE]
+Max bond level unlocked!
+
+[MID_MSG_BOND_LV_MAX_amiiboItem]
+You have received $Arg(1)$Arg(2) for getting Emblem $Arg(0) to maximum bond level with many allies.
+
+[MID_MSG_POPUP_BOND_EXP_UP]
+Bond Up!
+
+[MID_MSG_GAMEOVER_TIMECRYSTAL_ATTENTION]
+If you choose not to use the Time
+Crystal, you will be defeated and
+receive a game over. Is that OK?
+
+[MID_MSG_GAMEOVER_TIMECRYSTAL_ATTENTION_NETWORK]
+If you choose not to use the Time
+Crystal, you will be defeated and
+the trial will be over. Is that OK?
+
+[MID_MSG_GAMEOVER_TIMECRYSTAL_ATTENTION_YES]
+Yes (Game Over)
+
+[MID_MSG_GAMEOVER_TIMECRYSTAL_ATTENTION_YES_NETWORK]
+Yes (End Trial)
+
+[MID_MSG_GAMEOVER_TIMECRYSTAL_ATTENTION_NO]
+No (Use Crystal)
+
+[MID_MSG_GAMEOVER_CONFIRM]
+Retry this battle from the start? You can
+retain your earned experience as well.
+
+[MID_MSG_GAMEOVER_YES_EXP_ON]
+Retain EXP and Try Again
+
+[MID_MSG_GAMEOVER_YES_EXP_OFF]
+Reset EXP and Try Again
+
+[MID_MSG_GAMEOVER_NO]
+Return to Title
+
+[MID_MSG_BGM_CHANGE]
+The Settings menu now has options for music.
+You can change the music for player/enemy
+phases in battles outside of the main story.
+
+[MID_MSG_ENGAGE_PLUS_ATTENTION]
+Emblem $P's Engage+ skill cannot
+be used in Relay Trials or Outrealm Trials.
+
+[MID_MSG_STORY_COMPLETE_REWARD]
+Clear Rewards
+
+[MID_MSG_PLAYER_PHASE]
+PLAYER PHASE
+
+[MID_MSG_ENEMY_PHASE]
+ENEMY PHASE
+
+[MID_MSG_ALLY_PHASE]
+ALLY PHASE
+
+[MID_MSG_OFFENSE_PHASE]
+ATTACKER PHASE
+
+[MID_MSG_DEFENSE_PHASE]
+DEFENDER PHASE
+
+[MID_MSG_PHASE_TURN]
+Turns left: $Arg(0)
+
+[MID_MSG_AUTO_TROPE]
+Auto-battling...
+
+[MID_MSG_SKIP_TROPE]
+Skipping...
+
+[MID_MSG_LEVEL_UP]
+LEVEL UP!
+
+[MID_MSG_CLASS_CHANGE]
+CLASS CHANGE!
+
+[MID_MSG_STAGE_CLEAR]
+STAGE CLEAR!
+
+[MID_MSG_GAME_OVER]
+GAME OVER
+
+[MID_MSG_POPUP_CRITICAL]
+Critical!
+
+[MID_MSG_POPUP_BREAK]
+Break!
+
+[MID_MSG_POPUP_MISS]
+Miss!
+
+[MID_MSG_POPUP_NO_DAMAGE]
+No Damage!
+
+[MID_MSG_POPUP_SMASH]
+Smash!
+
+[MID_MSG_POPUP_CHAINATTACK]
+Chain Attack!
+
+[MID_MSG_POPUP_CHAINGUARD]
+Chain Guard!
+
+[MID_MSG_POPUP_DUALGUARD]
+Dual Guard!
+
+[MID_KEYHELP_MYFACE_SELECT]
+Select Form
+
+[MID_KEYHELP_BIRTHDAY_SELECT]
+Month/Day
+
+[MID_KEYHELP_MAP_HELP]
+Details
+
+[MID_KEYHELP_MINIGAME_OPERATION_HELP]
+Controls
+
+[MID_KEYHELP_MAP_NOT_ACTION]
+Cycle Units
+
+[MID_KEYHELP_MAP_UNIT_VIEWER]
+Unit Details
+
+[MID_KEYHELP_MAP_CANCEL_ORDERS]
+Cancel Auto-Battle
+
+[MID_KEYHELP_MAP_SKIP]
+Skip
+
+[MID_KEYHELP_GMAP_LOOK_OVER]
+Zoom Out
+
+[MID_KEYHELP_GMAP_MOVE_NEWEST]
+To Next Chapter
+
+[MID_KEYHELP_GMAP_FREE_CAMERA]
+Free Camera
+
+[MID_KEYHELP_MAP_ACTION]
+Cycle Map
+
+[MID_KEYHELP_DASH]
+Dash
+
+[MID_KEYHELP_MENU]
+Menu
+
+[MID_KEYHELP_MENU_ACTION]
+Change Menu
+
+[MID_KEYHELP_CATEGORY_ACTION]
+Cycle Category
+
+[MID_KEYHELP_TALK_AUTOPLAY]
+Auto-Advance
+
+[MID_KEYHELP_TALK_AUTOPLAY_CANCEL]
+Cancel Auto-Advance
+
+[MID_KEYHELP_TALK_LOG]
+Text Log
+
+[MID_KEYHELP_TALK_LOG_VOICE]
+Replay Voice
+
+[MID_KEYHELP_MENU_DECIDE]
+Confirm
+
+[MID_KEYHELP_MENU_SELECT]
+Select
+
+[MID_KEYHELP_MENU_RETURN]
+Back
+
+[MID_KEYHELP_MENU_AUTO]
+Optimize All
+
+[MID_KEYHELP_MENU_TROOPLIST_CHANGE]
+Cycle Units
+
+[MID_KEYHELP_MENU_HELP]
+Details
+
+[MID_KEYHELP_MENU_ASSISTINFO_CHANGE]
+Additional Info
+
+[MID_KEYHELP_MENU_WEAPON_CHANGE]
+Cycle Weapons
+
+[MID_KEYHELP_MENU_UNIT_CHANGE]
+Cycle Units
+
+[MID_KEYHELP_MENU_CHARACTER_CHANGE]
+Cycle Allies
+
+[MID_KEYHELP_MENU_GOD_CHANGE]
+Cycle Emblems
+
+[MID_KEYHELP_MENU_HELP_CHANGE]
+Cycle Info
+
+[MID_KEYHELP_MENU_ABILITY]
+Bond Effects
+
+[MID_KEYHELP_MENU_BATTLE_START]
+Fight!
+
+[MID_KEYHELP_MENU_TUTORIAL]
+Guide
+
+[MID_KEYHELP_MENU_COUNTRY_CHANGE]
+Cycle Countries
+
+[MID_KEYHELP_MENU_ZOOM_PICTURE]
+Zoom Portrait
+
+[MID_KEYHELP_MENU_UNIT_SELECT]
+List
+
+[MID_KEYHELP_MENU_LOOK_UNIT]
+View
+
+[MID_KEYHELP_MENU_CAMERA_CHANGE]
+Move Camera
+
+[MID_KEYHELP_MENU_CAMERA_IN_OUT]
+Vertical Camera
+
+[MID_KEYHELP_MENU_CAMERA_OPERATION]
+Control Camera
+
+[MID_KEYHELP_MENU_BACK_CHANGE]
+Background
+
+[MID_KEYHELP_MENU_UI_HIDE]
+Display
+
+[MID_KEYHELP_MENU_EYES]
+Camera Look
+
+[MID_KEYHELP_MENU_RESET]
+Reset Settings
+
+[MID_KEYHELP_MENU_SORT]
+Sort
+
+[MID_KEYHELP_MENU_FISHING_CAST]
+Cast
+
+[MID_KEYHELP_MENU_FISHING_CAST_STOP]
+Cancel
+
+[MID_KEYHELP_MENU_ACHIEVEMENT]
+Claim Reward
+
+[MID_KEYHELP_MENU_ACHIEVEMENT_ALL]
+Claim All
+
+[MID_KEYHELP_MOVIE_CAPTION]
+Subtitles
+
+[MID_KEYHELP_EDIT_TURN]
+Rotate
+
+[MID_KEYHELP_EDIT_PUT]
+Place
+
+[MID_KEYHELP_EDIT_DELETE]
+Delete
+
+[MID_KEYHELP_EDIT_TACTICS_CHANGE]
+Command
+
+[MID_KEYHELP_EDIT_LIST]
+Terrain List
+
+[MID_KEYHELP_EDIT_OBJCHANGE]
+Cycle Terrain
+
+[MID_KEYHELP_EDIT_UNDO]
+Undo
+
+[MID_KEYHELP_NEXT]
+Next
+
+[MID_KEYHELP_ANIMAL_VIEW]
+View
+
+[MID_KEYHELP_ANIMAL_ACTION]
+Action
+
+[MID_KEYHELP_REWIND_TURN]
+Prev/Next Turn
+
+[MID_KEYHELP_REWIND_ACTION]
+Navigate
+
+[MID_WEAPON_NAME_REFINE]
+$Arg(0)+$Arg(1)
+
+[MID_WEAPON_NAME_ENGRAVE]
+$Arg(0)$Arg(1)
+
+[MID_WEAPON_NAME_ENGRAVE_REFINE]
+$Arg(0)+$Arg(1)$Arg(2)
+
+[MID_RING_RANK_S]
+S
+
+[MID_RING_RANK_A]
+A
+
+[MID_RING_RANK_B]
+B
+
+[MID_RING_RANK_C]
+C
+
+[MID_LOCALIZE_COLON]
+
+
+[MID_LOCALIZE_HYPHEN]
+ - 
+
+[MID_LOCALIZE_CN_THIRD_M]
+他
+
+[MID_LOCALIZE_CN_THIRD_F]
+她
+
+[MID_LOCALIZE_TW_THIRD_M]
+他
+
+[MID_LOCALIZE_TW_THIRD_F]
+她
+
+[MID_LANGUAGE_JP_JAPANESE]
+Japanese
+
+[MID_LANGUAGE_US_ENGLISH]
+English (North America)
+
+[MID_LANGUAGE_US_FRENCH]
+French (Canada)
+
+[MID_LANGUAGE_US_SPANISH]
+Spanish (Latin America)
+
+[MID_LANGUAGE_EU_ENGLISH]
+English (Europe)
+
+[MID_LANGUAGE_EU_FRENCH]
+French (Europe)
+
+[MID_LANGUAGE_EU_SPANISH]
+Spanish (Europe)
+
+[MID_LANGUAGE_EU_GERMAN]
+German
+
+[MID_LANGUAGE_EU_ITALIAN]
+Italian
+
+[MID_LANGUAGE_CN_TRADITIONAL]
+Traditional Chinese
+
+[MID_LANGUAGE_CN_SIMPLIFIED]
+Simplified Chinese
+
+[MID_LANGUAGE_KR_KOREAN]
+Korean
+
+[MID_LANGUAGE_VOICE_JAPANESE]
+Japanese
+
+[MID_LANGUAGE_VOICE_ENGLISH]
+English
+
+[MID_MSG_GET_ITEM_FEH]
+You've received a special gift!
+

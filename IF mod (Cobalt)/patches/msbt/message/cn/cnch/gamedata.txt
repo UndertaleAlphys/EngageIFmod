@@ -1101,7 +1101,7 @@ $P被击败或超过$Arg(0)回合
 每回合HP
 
 [MID_TE_Def]
-防守
+守备
 
 [MID_TE_MDef]
 魔防
@@ -1113,7 +1113,7 @@ $P被击败或超过$Arg(0)回合
 敌双防
 
 [MID_TE_Break]
-打破无效
+Break无效
 
 [MID_TE_FlightOnly]
 无法步行

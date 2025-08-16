@@ -2470,11 +2470,11 @@ Dragon Fang
 [MIID_H_Kamui_DragonPiercing]
 Skill wielded by Emblem Corrin.
 
-[MIID_Eirik_Rapier]
-Rapier
+[MIID_Eirik_Reginleif]
+Reginleif
 
-[MIID_H_Eirik_Rapier]
-Sword wielded by Emblem Eirika.
+[MIID_H_Eirik_Reginleif]
+Lance wielded by Emblem Eirika.
 Effective: Cavalry, Flier, Armored.
 
 [MIID_Eirik_WindSword]
@@ -2490,14 +2490,16 @@ Sieglinde
 
 [MIID_H_Eirik_Sieglinde]
 Paired sword wielded by Emblem
-Eirika. Effective: Corrupted.
+Eirika. Grants Res+5.
+Effective: Corrupted.
 
 [MIID_Eirik_Siegmund]
 Siegmund
 
 [MIID_H_Eirik_Siegmund]
 Paired lance wielded by Emblem
-Ephraim. Effective: Corrupted.
+Ephraim. Grants Str+5.
+Effective: Corrupted.
 
 [MIID_Lueur_Oligoludia]
 Oligoludia
