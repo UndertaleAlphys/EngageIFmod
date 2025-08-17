@@ -3,6 +3,7 @@
 
 use engage::gamedata::item::{UnitItem, UnitItemList};
 use engage::gamedata::unit::Unit;
+use skyline::nn::friends::Profile_IsValid;
 use unity::prelude::*;
 /// This is called a proc(edural) macro. You use this to indicate that a function will be used as a hook.
 ///
@@ -24,12 +25,23 @@ pub fn unit_item_list_get_equipped_index(
 ) -> i32;
 
 #[skyline::from_offset(0x01FB4760)]
-pub fn unit_item_list_equip(unit_item_list: &mut UnitItemList, idx: i32, method: OptionalMethod);
+pub fn unit_item_list_equip(unit_item_list: &UnitItemList, idx: i32, method: OptionalMethod);
+
+#[skyline::from_offset(0x01FB4900)]
+pub fn unit_item_list_take_off(
+    unit_item_list: &UnitItemList,
+    idx: i32,
+    method: OptionalMethod,
+) -> bool;
+
+#[skyline::from_offset(0x01A21530)]
+pub fn unit_item_equip(this: &Unit, method: OptionalMethod);
 
 trait ItemListTrait {
     fn get_equipped_item(&self) -> Option<&UnitItem>;
     fn get_equipped_index(&self) -> Option<i32>;
-    fn equip(&mut self, idx: Option<i32>);
+    fn equip(&self, idx: i32);
+    fn take_off(&self, idx: i32) -> bool;
 }
 
 impl ItemListTrait for UnitItemList {
@@ -44,23 +56,25 @@ impl ItemListTrait for UnitItemList {
             Some(idx)
         }
     }
-    fn equip(&mut self, idx: Option<i32>) {
-        let idx = match idx {
-            Some(item) => item,
-            None => -1,
-        };
+    fn equip(&self, idx: i32) {
         unsafe {
             unit_item_list_equip(self, idx, None);
         }
     }
+
+    fn take_off(&self, idx: i32) -> bool {
+        unsafe { unit_item_list_take_off(self, idx, None) }
+    }
 }
+
 #[skyline::hook(offset = 0x01A4F4C0)]
-pub fn clear_god_unit(this: &mut Unit, method: OptionalMethod) {
+pub fn clear_god_unit(this: &Unit, method: OptionalMethod) {
     call_original!(this, method);
     let equip_item = this.item_list.get_equipped_index();
     if let Some(equip_item) = equip_item {
-        if !this.can_equip(equip_item, true, true) {
-            this.item_list.equip(None);
+        if !this.can_equip(equip_item, false, true) {
+            this.item_list.take_off(equip_item);
+            unsafe { unit_item_equip(this, None) };
         }
     }
 }
