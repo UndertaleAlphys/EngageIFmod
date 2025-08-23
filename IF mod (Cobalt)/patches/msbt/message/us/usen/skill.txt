@@ -1517,21 +1517,8 @@ All for One
 
 [MSID_H_LucinaEngageAtk]
 Use to make a sword attack against
-an adjacent foe. All allies within 2
+a foe. All allies within 2
 spaces chain attack.
-
-[MSID_H_LucinaEngageAtk_Dragon]
-Use to make a sword attack against
-an adjacent foe. All allies within 2
-spaces chain attack.
-[Dragon] Ally chain attacks are
-guaranteed to hit.
-
-[MSID_H_LucinaEngageAtk_Coop]
-Use to make a sword attack against
-an adjacent foe. All allies within 2
-spaces chain attack.
-[Backup] Range +1.
 
 [MSID_H_LucinaEngageAtk_CMD]
 All nearby allies chain attack.

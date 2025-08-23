@@ -1388,17 +1388,7 @@ HP回复量+15、杖的命中+30
 
 [MSID_H_LucinaEngageAtk]
 自身周围2格内的我方单位将参与连锁攻击
-仅限持剑且相邻时
-
-[MSID_H_LucinaEngageAtk_Dragon]
-周围2格内的我方单位将参与连锁攻击
-仅限持剑且相邻时
-【龙族】参与连锁的我方单位命中率为100%
-
-[MSID_H_LucinaEngageAtk_Coop]
-周围2格内的我方单位将参与连锁攻击
-仅限持剑且相邻时
-【连携】范围+1
+仅限持剑时
 
 [MSID_H_LucinaEngageAtk_CMD]
 周围的我方单位将参与连锁攻击

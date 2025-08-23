@@ -2889,15 +2889,15 @@ Shuriken
 [MID_TIPS_WEAPON_SHERIKEN]
 The Japanese style dagger.
 Has lower hit compare to daggers,
-gets Spd+2 when equipped.
+grants Spd+2 when equipped.
 
 [MID_TIPS_WEAPON_NAGINATA_T]
 Naginata
 
 [MID_TIPS_WEAPON_NAGINATA]
 The Japanese style lance.
-Has lower Mt compare to daggers,
-gets Def/Res+1 when equipped.
+Has lower Mt compare to lances,
+grants Def/Res+1 when equipped.
 
 [MID_TIPS_WEAPON_EFFECTIVENESS_T]
 Weapon Effectiveness
