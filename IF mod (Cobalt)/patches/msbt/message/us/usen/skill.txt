@@ -1517,21 +1517,8 @@ All for One
 
 [MSID_H_LucinaEngageAtk]
 Use to make a sword attack against
-an adjacent foe. All allies within 2
+a foe. All allies within 2
 spaces chain attack.
-
-[MSID_H_LucinaEngageAtk_Dragon]
-Use to make a sword attack against
-an adjacent foe. All allies within 2
-spaces chain attack.
-[Dragon] Ally chain attacks are
-guaranteed to hit.
-
-[MSID_H_LucinaEngageAtk_Coop]
-Use to make a sword attack against
-an adjacent foe. All allies within 2
-spaces chain attack.
-[Backup] Range +1.
 
 [MSID_H_LucinaEngageAtk_CMD]
 All nearby allies chain attack.
@@ -5526,3 +5513,10 @@ Nobility
 [MSID_H_Nobility]
 Allies within 2-radius
 tale -2 Dmg.
+
+[MSID_H_DragonVein_G004_ICE]
+Puts out all flames and
+halts volcanic eruptions for 1 turn.
+
+[MSID_H_DragonVein_G004_FIRE]
+Unleash a volcanic eruption.
