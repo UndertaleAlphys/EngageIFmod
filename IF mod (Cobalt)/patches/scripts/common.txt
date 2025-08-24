@@ -1295,15 +1295,12 @@ function DraginVein_Skill_Remove(DragonVein_Sid,Used_Sid)
 			local pid = UnitGetPID( index )
 			Log(pid)
 			if UnitHasWholeSkill( pid, Used_Sid ) then
-			    Log("in True")
 				used = true
 				break
 			end
 		end
 		index = ForceUnitGetNext( index )
 	end
-    Log("123")
-    Log(used)
 	if used == true then
 		index	= ForceUnitGetFirst( FORCE_PLAYER )
 		while ( index != nil ) do
@@ -1314,6 +1311,35 @@ function DraginVein_Skill_Remove(DragonVein_Sid,Used_Sid)
 		end
 	end
 
+	return used
+end
+
+function DraginVein_Skill_RemoveWithTid(DragonVein_Sid,tid,x,z,map_height,map_width)
+	local used = false
+    if MapOverlapGet( x, z) == tid then
+        used = true
+    end
+
+	if used == true then
+		index	= ForceUnitGetFirst( FORCE_PLAYER )
+		while ( index != nil ) do
+			local pid = UnitGetPID( index )
+			スキル解除(pid, DragonVein_Sid)
+			index = ForceUnitGetNext( index )
+		end
+	end
+
+    if used == true then
+        MapOverlapSetBegin()
+        for i = 1,map_height do
+            for j = 1,map_width do
+                if MapOverlapGet( i, j) == tid then
+                    MapOverlapSet( i ,j ,"TID_無し")
+                end
+            end
+        end
+        MapOverlapSetEnd()
+    end
 	return used
 end
 
@@ -1619,13 +1645,14 @@ function getUnitsUnderEnemyAttackCount()
     while enemyUnit != nil do
         local enemyAttackRange = GetUnitActualAttackRange(enemyUnit)
 
-        local playerUnitCheck = ForceUnitGetFirst(FORCE_PLAYER)
-        while playerUnitCheck != nil do
-            local pid = UnitGetPID(playerUnitCheck)
-            if IsUnitInAttackRange(enemyAttackRange, playerUnitCheck) then
-                unitAttackCount[pid].count = unitAttackCount[pid].count + 1
+        for _, pos in ipairs(enemyAttackRange) do
+            local unitAtPos = UnitGetByPos(pos.x, pos.z)
+            if unitAtPos != nil and UnitGetForce(unitAtPos) == FORCE_PLAYER then
+                local pid = UnitGetPID(unitAtPos)
+                if unitAttackCount[pid] then
+                    unitAttackCount[pid].count = unitAttackCount[pid].count + 1
+                end
             end
-            playerUnitCheck = ForceUnitGetNext(playerUnitCheck)
         end
 
         enemyUnit = ForceUnitGetNext(enemyUnit)
@@ -1634,85 +1661,3 @@ function getUnitsUnderEnemyAttackCount()
     return unitAttackCount
 end
 
-function TestWithFunctionInfo()
-    Log("Start Test - Function Information")
-    local functionCount = 0
-
-    for name, func in pairs(_G) do
-        if type(func) == "function" then
-            functionCount = functionCount + 1
-            Log("Find Function: " .. name)
-
-            local info = debug and debug.getinfo(func)
-            if info then
-                if info.nparams then
-                    Log("  params count: " .. info.nparams)
-                end
-                if info.isvararg then
-                    Log("  var: " .. tostring(info.isvararg))
-                end
-                if info.what and info.what ~= "C" then
-                    Log("  Lua Function")
-                else
-                    Log("  C Function")
-                end
-            end
-        end
-    end
-
-    Log("Totally find " .. functionCount .. " functions")
-end
-
-function GetFunctionSourceInfo()
-    Log("=== 尝试获取函数源码信息 ===")
-
-    local functionCount = 0
-    local sourceInfoCount = 0
-
-    for name, func in pairs(_G) do
-        if type(func) == "function" then
-            functionCount = functionCount + 1
-
-            -- 尝试使用debug.getinfo获取源码信息
-            local info = nil
-            log("try debug")
-            if debug and type(debug) == "table" and debug.getinfo then
-                info = debug.getinfo(func)
-                log("success")
-            end
-
-            if info then
-                sourceInfoCount = sourceInfoCount + 1
-                Log("函数: " .. name)
-
-                if info.source then
-                    Log("  源文件: " .. info.source)
-                end
-
-                if info.linedefined then
-                    Log("  起始行: " .. info.linedefined)
-                end
-
-                if info.lastlinedefined then
-                    Log("  结束行: " .. info.lastlinedefined)
-                end
-
-                if info.what then
-                    Log("  类型: " .. info.what)  -- "Lua", "C", "main"
-                end
-
-                -- 如果是Lua函数，可能有更多详细信息
-                if info.what == "Lua" then
-                    Log("  这是一个Lua函数")
-                elseif info.what == "C" then
-                    Log("  这是一个C函数")
-                end
-
-                Log("")  -- 空行分隔
-            end
-        end
-    end
-
-    Log("总共检查了 " .. functionCount .. " 个函数")
-    Log("获取到源码信息的函数数量: " .. sourceInfoCount)
-end

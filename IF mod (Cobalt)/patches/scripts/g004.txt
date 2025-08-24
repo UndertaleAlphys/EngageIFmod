@@ -23,6 +23,7 @@ g_map_height		= 32
 g_map_width			= 25
 g_map_halfHeight = 16
 g_map_halfWidth = 13
+g_bomb_counter = "g_bomb_counter"
 bomb_size = 3
 map_damage = 10
 
@@ -125,6 +126,7 @@ function 変数登録()
 	VariableEntry( g_animSetOrg,					-1 )
 	VariableEntry( g_StartupFirstTime,				1 )
 	VariableEntry( g_battleStart,					0 )
+	VariableEntry( g_bomb_counter,                  0 )
 end
 
 function イベント登録()
@@ -133,9 +135,13 @@ function イベント登録()
 
 	EventEntryArea( EmptyFunction, 5, 12, 16, 15, FORCE_PLAYER, g_key_areaEntry )
 
-	EventEntryTurn( Test,		1,	1,	FORCE_PLAYER, condition_true )
-	EventEntryTurn( Test2,		2,	2,	FORCE_PLAYER, condition_true )
-	EventEntryFixed(DragonVeinUsed ,"", FORCE_PLAYER)
+	EventEntryTurnEnd( volcanicBombByTurn,		1,	-1,	FORCE_ENEMY, condition_true )
+	EventEntryArea(DragonVeinUsed, 9, 26, 9, 26, FORCE_PLAYER, condition_true)
+	EventEntryArea(DragonVeinUsed, 4, 22, 4, 22, FORCE_PLAYER, condition_true)
+	EventEntryArea(DragonVeinUsed, 8, 18, 8, 18, FORCE_PLAYER, condition_true)
+	EventEntryArea(DragonVeinUsed, 7, 12, 7, 12, FORCE_PLAYER, condition_true)
+	EventEntryArea(DragonVeinUsed, 20, 11, 20, 11, FORCE_PLAYER, condition_true)
+	EventEntryArea(DragonVeinUsed, 12, 4, 12, 4, FORCE_PLAYER, condition_true)
 
 	EventEntryBattleAfter(EmptyFunction, "", FORCE_ALL, g_pid_boss,					FORCE_ENEMY, true, g_key_senerioActive)
 	EventEntryBattleAfter(EmptyFunction, "", FORCE_ALL, g_pid_boss_moveDown,		FORCE_ENEMY, true, g_key_senerioActive)
@@ -164,15 +170,6 @@ end
 function Cleanup()
 
 	Log("Cleanup");
-
-
-	-- 進撃準備からGMAPへ戻るとき、設定も元に戻す
-	-- ocal config_org = VariableGet( g_animSetOrg )
-	-- if ( VariableGet( g_battleStart ) == 0 ) and ( config_org != -1 ) and ( ConfigGetSupportScene() == CONFIG_ANIM_PLAYER_TURN ) then
-	--	Dialog( "MID_TUT_NAVI_G004_ADVICE_END" )
-	--	ConfigSetSupportScene( config_org )
-	-- end
-
 
 	Cleanup_神竜の章_対象紋章士の無効化解除( "GID_セネリオ" )
 
@@ -212,16 +209,6 @@ function MapOpening()
 	g_bombDamage = g_bombDamage - ( g_bombDamage % 1 )
 	VariableSet( "火山弾ダメージ", g_bombDamage )
 
-
-	-- アニメ設定を変更した場合はここで通知
-	-- if VariableGet( g_animSetOrg ) != -1 then
-	--	Dialog( "MID_TUT_NAVI_G004_ADVICE_START" )
-	-- end
-    -- Log("Test")
-    -- local BombPosition = getRangeSquareWithMapDamage(bomb_size,g_map_height,g_map_width,map_damage)
-    -- Log(BombPosition.centerX)
-    -- Log(BombPosition.centerZ)
-    -- volcanicBombWithSectionAnimations(BombPosition.centerX,BombPosition.centerZ,bomb_size,map_damage)
     EffectCreate("魔法陣_G001",	9, 26)
     EffectCreate("魔法陣_G001",	4, 22)
     EffectCreate("魔法陣_G001",	8, 18)
@@ -236,6 +223,21 @@ function MapOpening()
     DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_2" )
 end
 
+function Test()
+    local BombPosition = getRangeSquareWithMapDamage(bomb_size,g_map_height,g_map_width,map_damage)
+    volcanicBombWithSectionAnimations(BombPosition.centerX,BombPosition.centerZ,bomb_size,map_damage)
+end
+
+function volcanicBombByTurn()
+    local BurnTurnRemain = VariableGet(g_bomb_counter)
+    if BurnTurnRemain > 0 then
+        VariableSet(g_bomb_counter,BurnTurnRemain - 1)
+    else
+        local BombPosition = getRangeSquareWithMapDamage(bomb_size,g_map_height,g_map_width,map_damage)
+        volcanicBombWithSectionAnimations(BombPosition.centerX,BombPosition.centerZ,bomb_size,map_damage)
+    end
+end
+
 function InitDragonVein()
     TerrainSetBegin()
         TerrainSet( 9, 26, "TID_龙脉_G004_FIRE")
@@ -245,23 +247,6 @@ function InitDragonVein()
         TerrainSet( 20, 11, "TID_龙脉_G004_FIRE")
         TerrainSet( 12, 4, "TID_龙脉_G004_ICE")
     TerrainSetEnd()
-end
-
-function Test()
-    TestWithFunctionInfo()
-    local enemyUnit = ForceUnitGetFirst(FORCE_ENEMY)
-    Log("Test1")
-    local skill = SkillGetIndex(enemyUnit,0)
-    Log("Test2")
-    Log(skill)
-end
-
-function Test2()
-    FadeOutAndWait(FADE_FAST)
-    Dispos( "Enemy2", DISPOS_FLAG_FOCUS )
-    Yield()
-    FadeInAndWait(FADE_FAST)
-    WaitTime( 0.5 )
 end
 
 function MapEnding()
@@ -343,7 +328,7 @@ function 戦闘開始直後()
 			CursorAnimeCreate_DistanceModeNear( g_rockInSpot[AREA_A][1], g_rockInSpot[AREA_A][2] )
 			CursorAnimeDelete()
 
-			volcanicBombWithSectionAnimations(10,29,bomb_size,map_damage)
+			volcanicBombWithSectionAnimationsDragonVein(10,29,bomb_size,map_damage)
 
 			WaitTime( 1.0 )
 
@@ -365,12 +350,9 @@ function 勝利条件_紋章士にフォーカス()
 end
 
 function DragonVeinUsed()
-    Log("DragonVeinUsed")
     local unit = MindGetUnit();
     local x = UnitGetX(unit)
     local z = UnitGetZ(unit)
-    Log(x)
-    Log(z)
     local used = ""
     local DragonVeinType = ""
     if(x == 4 and z == 22) then
@@ -385,43 +367,84 @@ function DragonVeinUsed()
         used = DraginVein_Skill_Remove("SID_DragonVein_G004_ICE_2","SID_DragonVein_Used")
         DragonVeinType = "ice"
     end
-    if(x == 9 and z == 16) then
-        used = DraginVein_Skill_Remove("SID_DragonVein_G004_FIRE_CONDITION_0","SID_DragonVein_Used")
+    if(x == 9 and z == 26) then
+        used = DraginVein_Skill_RemoveWithTid("SID_DragonVein_G004_FIRE_CONDITION_0","TID_DragonVein_Used",15,22,g_map_height,g_map_width)
         DragonVeinType = "fire1"
     end
     if(x == 8 and z == 18) then
-        used = DraginVein_Skill_Remove("SID_DragonVein_G004_FIRE_CONDITION_1","SID_DragonVein_Used")
+        used = DraginVein_Skill_RemoveWithTid("SID_DragonVein_G004_FIRE_CONDITION_1","TID_DragonVein_Used",11,12,g_map_height,g_map_width)
         DragonVeinType = "fire2"
     end
     if(x == 20 and z == 11) then
-        used = DraginVein_Skill_Remove("SID_DragonVein_G004_FIRE_CONDITION_2","SID_DragonVein_Used")
+        used = DraginVein_Skill_RemoveWithTid("SID_DragonVein_G004_FIRE_CONDITION_2","TID_DragonVein_Used",19,5,g_map_height,g_map_width)
         DragonVeinType = "fire3"
     end
-    Log(used)
-    Log(DragonVeinType)
+
     if used == true then
         if DragonVeinType == "ice" then
             WaitTime( 0.5 )
             EffectPlay( "水球_発動", x, z )
+            EffectDelete("魔法陣_G001", x, z)
             WaitTime( 1.0 )
             CursorSetPos( g_map_halfWidth, g_map_halfHeight )
             EffectPlay( "水球", g_map_halfWidth, g_map_halfHeight )
             EffectWait()
-            EffectDelete("魔法陣_G001", x, z)
             TerrainSetBegin()
                 TerrainSet( x, z, "TID_平地")
             TerrainSetEnd()
-        else
+            WaitTime( 1.0 )
+            DragonVeinEffect(DragonVeinType)
+        elseif DragonVeinType == "fire1" then
             WaitTime( 0.5 )
-            EffectPlay( "カムイ竜脈", x, z )
-            WaitTime( 3.0 )
+            volcanicBombWithSectionAnimationsDragonVein(15, 22, 3, 10)
             EffectDelete("魔法陣_G001", x, z)
+            WaitTime( 3.0 )
+            TerrainSetBegin()
+                TerrainSet( x, z, "TID_平地")
+            TerrainSetEnd()
+        elseif DragonVeinType == "fire2" then
+            WaitTime( 0.5 )
+            volcanicBombWithSectionAnimationsDragonVein(11, 12, 3, 10)
+            EffectDelete("魔法陣_G001", x, z)
+            WaitTime( 3.0 )
+            TerrainSetBegin()
+                TerrainSet( x, z, "TID_平地")
+            TerrainSetEnd()
+        elseif DragonVeinType == "fire3" then
+            WaitTime( 0.5 )
+            volcanicBombWithSectionAnimationsDragonVein(19, 5, 3, 10)
+            EffectDelete("魔法陣_G001", x, z)
+            WaitTime( 3.0 )
             TerrainSetBegin()
                 TerrainSet( x, z, "TID_平地")
             TerrainSetEnd()
         end
     end
     Log("DragonVeinUsedComplete")
+end
+
+function DragonVeinEffect(DragonVeinType)
+     if DragonVeinType == "ice" then
+        VariableSet(g_bomb_counter,1)
+        MapOverlapSetBegin()
+        for i = 1, g_map_height do
+            for j = 1, g_map_width do
+                if MapOverlapGet(j, i) == "TID_炎上" or MapOverlapGet(j, i) == "TID_炎上_G004" then
+                    MapOverlapSet(j, i, "TID_無し")
+                end
+            end
+        end
+        MapOverlapSetEnd()
+    end
+    if DragonVeinType == "fire1" then
+        Log("fire1 DragonVein")
+    end
+    if DragonVeinType == "fire2" then
+        Log("fire2 DragonVein")
+    end
+    if DragonVeinType == "fire3" then
+        Log("fire3 DragonVein")
+    end
 end
 
 function リュールと戦闘()
@@ -522,13 +545,57 @@ function volcanicBombWithSectionAnimations(x, z, size, map_damage)
     EffectPlay( "火山弾_G004", x, z )
 
     local expand = (size - 1) / 2
-    Log(expand)
+
+    WaitTime(0.5)
+    EffectWait()
 
     local damagedPositions = {}
     for i = x - expand, x + expand do
         for j = z - expand, z + expand do
             local unit = UnitGetByPos(i, j)
-            if unit ~= nil then
+            if unit ~= nil and UnitGetForce(unit) == FORCE_PLAYER then
+                MapDamageBegin()
+                local currentHp = UnitGetHp(unit)
+                local damage = map_damage
+                if damage >= currentHp then
+                    damage = currentHp - 1
+                end
+                MapDamageAdd(unit, damage)
+                MapDamageEnd()
+            end
+            table.insert(damagedPositions, {x = i, z = j})
+        end
+    end
+
+    if #damagedPositions > 0 then
+        MapOverlapSetBegin()
+        for _, pos in ipairs(damagedPositions) do
+            MapOverlapSet(pos.x, pos.z, "TID_炎上")
+        end
+        MapOverlapSetEnd()
+    end
+
+    CursorSetDistanceMode(distOrg)
+end
+
+function volcanicBombWithSectionAnimationsDragonVein(x, z, size, map_damage)
+
+    local distOrg = CursorGetDistanceMode()
+
+    CursorSetDistanceMode(CURSOR_DISTANCE_NEAR)
+    MapCameraWait()
+    CursorSetPos( x, z )
+    MapCameraWait()
+
+    EffectPlay( "火山弾_G004", x, z )
+
+    local expand = (size - 1) / 2
+
+    local damagedPositions = {}
+    for i = x - expand, x + expand do
+        for j = z - expand, z + expand do
+            local unit = UnitGetByPos(i, j)
+            if unit ~= nil and UnitGetForce(unit) == FORCE_ENEMY then
                 MapDamageBegin()
                 local currentHp = UnitGetHp(unit)
                 local damage = map_damage
@@ -597,71 +664,68 @@ function getMapSection(x, z)
     return AREA_A
 end
 
+function getRangeSquareWithMapDamage(squareSize, map_height, map_width, map_damage)
+    local unitUnderAttackCount = getUnitsUnderEnemyAttackCount()
 
-function getRangeSquareWithMapDamage(squareSize,map_height,map_width,map_damage)
-    Log("squareSize:" .. squareSize)
-    Log("map_height:" .. map_height)
-    Log("map_width:" .. map_width)
-    Log("map_damage:" .. map_damage)
+    local damageGrid = {}
+    for z = 1, map_height - squareSize + 1 do
+        damageGrid[z] = {}
+        for x = 1, map_width - squareSize + 1 do
+            damageGrid[z][x] = 0
+        end
+    end
 
-    local results = {}
+    for z = 1, map_height do
+        for x = 1, map_width do
+            local unit = UnitGetByPos(x, z)
+            if unit ~= nil and UnitGetForce(unit) == FORCE_PLAYER then
+                local currentHp = UnitGetHp(unit)
+                local damage = map_damage
+
+                if damage >= currentHp then
+                    damage = currentHp - 1
+                end
+
+                local pid = UnitGetPID(unit)
+                if unitUnderAttackCount[pid] and unitUnderAttackCount[pid].count > 0 then
+                    damage = damage + (unitUnderAttackCount[pid].count * 15)
+                end
+
+                local minSquareZ = math.max(1, z - squareSize + 1)
+                local maxSquareZ = math.min(map_height - squareSize + 1, z)
+                local minSquareX = math.max(1, x - squareSize + 1)
+                local maxSquareX = math.min(map_width - squareSize + 1, x)
+
+                for sz = minSquareZ, maxSquareZ do
+                    for sx = minSquareX, maxSquareX do
+                        damageGrid[sz][sx] = damageGrid[sz][sx] + damage
+                    end
+                end
+            end
+        end
+    end
+
     local maxDamageResult = {}
     local maxTotalDamage = 0
 
     for z = 1, map_height - squareSize + 1 do
         for x = 1, map_width - squareSize + 1 do
-            local playerUnitCount = 0
-            local totalDamage = 0
-
-            for sz = z, z + squareSize - 1 do
-                for sx = x, x + squareSize - 1 do
-                    local unit = UnitGetByPos(sx, sz)
-                    if unit != nil and UnitGetForce(unit) == FORCE_PLAYER then
-                        playerUnitCount = playerUnitCount + 1
-
-                        local currentHp = UnitGetHp(unit)
-                        local damage = map_damage
-
-                        if damage >= currentHp then
-                            damage = currentHp - 1
-                        end
-
-                        totalDamage = totalDamage + damage
-
-                        Log("currentHp:" .. currentHp)
-                        Log("damage:" .. damage)
-                    end
-                end
-            end
-
-            local centerX = x + (squareSize - 1) * 0.5
-            local centerZ = z + (squareSize - 1) * 0.5
-            local result = {
-                            x = x,
-                            z = z,
-                            centerX = centerX,
-                            centerZ = centerZ,
-                            playerUnitCount = playerUnitCount,
-                            totalDamage = totalDamage
-            }
-
-            results[#results + 1] = result
-
+            local totalDamage = damageGrid[z][x]
             if totalDamage > maxTotalDamage then
                 maxTotalDamage = totalDamage
-                maxDamageResult = result
+                local centerX = x + (squareSize - 1) * 0.5
+                local centerZ = z + (squareSize - 1) * 0.5
+                maxDamageResult = {
+                    x = x,
+                    z = z,
+                    centerX = centerX,
+                    centerZ = centerZ,
+                    playerUnitCount = 0,
+                    totalDamage = totalDamage
+                }
             end
-
-            Log("Square: Point(" .. x .. "," .. z .. ") Center(" ..
-            centerX .. "," .. centerZ .. ") playerUnitCount: " .. playerUnitCount ..
-            " totalDamage: " .. totalDamage)
-
-
         end
     end
-
-    Log("ResultX:" .. maxDamageResult.centerX)
-    Log("ResultZ:" .. maxDamageResult.centerZ)
 
     return maxDamageResult
 end
