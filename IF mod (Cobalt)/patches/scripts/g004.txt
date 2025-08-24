@@ -21,6 +21,8 @@ g_key_battleTalk_senerio_ike	= "戦闘会話_セネリオ_アイク_済"
 
 g_map_height		= 32
 g_map_width			= 25
+g_map_halfHeight = 16
+g_map_halfWidth = 13
 bomb_size = 3
 map_damage = 10
 
@@ -133,6 +135,7 @@ function イベント登録()
 
 	EventEntryTurn( Test,		1,	1,	FORCE_PLAYER, condition_true )
 	EventEntryTurn( Test2,		2,	2,	FORCE_PLAYER, condition_true )
+	EventEntryFixed(DragonVeinUsed ,"", FORCE_PLAYER)
 
 	EventEntryBattleAfter(EmptyFunction, "", FORCE_ALL, g_pid_boss,					FORCE_ENEMY, true, g_key_senerioActive)
 	EventEntryBattleAfter(EmptyFunction, "", FORCE_ALL, g_pid_boss_moveDown,		FORCE_ENEMY, true, g_key_senerioActive)
@@ -225,6 +228,23 @@ function MapOpening()
     EffectCreate("魔法陣_G001",	7, 12)
     EffectCreate("魔法陣_G001",	20, 11)
     EffectCreate("魔法陣_G001",	12, 4)
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_0" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_1" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_2" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_0" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_1" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_2" )
+end
+
+function InitDragonVein()
+    TerrainSetBegin()
+        TerrainSet( 9, 26, "TID_龙脉_G004_FIRE")
+        TerrainSet( 4, 22, "TID_龙脉_G004_ICE")
+        TerrainSet( 8, 18, "TID_龙脉_G004_FIRE")
+        TerrainSet( 7, 12, "TID_龙脉_G004_ICE")
+        TerrainSet( 20, 11, "TID_龙脉_G004_FIRE")
+        TerrainSet( 12, 4, "TID_龙脉_G004_ICE")
+    TerrainSetEnd()
 end
 
 function Test()
@@ -344,10 +364,65 @@ function 勝利条件_紋章士にフォーカス()
 	CursorAnimeDelete()
 end
 
-
-
-
-
+function DragonVeinUsed()
+    Log("DragonVeinUsed")
+    local unit = MindGetUnit();
+    local x = UnitGetX(unit)
+    local z = UnitGetZ(unit)
+    Log(x)
+    Log(z)
+    local used = ""
+    local DragonVeinType = ""
+    if(x == 4 and z == 22) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_G004_ICE_0","SID_DragonVein_Used")
+        DragonVeinType = "ice"
+    end
+    if(x == 7 and z == 12) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_G004_ICE_1","SID_DragonVein_Used")
+        DragonVeinType = "ice"
+    end
+    if(x == 12 and z == 4) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_G004_ICE_2","SID_DragonVein_Used")
+        DragonVeinType = "ice"
+    end
+    if(x == 9 and z == 16) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_G004_FIRE_CONDITION_0","SID_DragonVein_Used")
+        DragonVeinType = "fire1"
+    end
+    if(x == 8 and z == 18) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_G004_FIRE_CONDITION_1","SID_DragonVein_Used")
+        DragonVeinType = "fire2"
+    end
+    if(x == 20 and z == 11) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_G004_FIRE_CONDITION_2","SID_DragonVein_Used")
+        DragonVeinType = "fire3"
+    end
+    Log(used)
+    Log(DragonVeinType)
+    if used == true then
+        if DragonVeinType == "ice" then
+            WaitTime( 0.5 )
+            EffectPlay( "水球_発動", x, z )
+            WaitTime( 1.0 )
+            CursorSetPos( g_map_halfWidth, g_map_halfHeight )
+            EffectPlay( "水球", g_map_halfWidth, g_map_halfHeight )
+            EffectWait()
+            EffectDelete("魔法陣_G001", x, z)
+            TerrainSetBegin()
+                TerrainSet( x, z, "TID_平地")
+            TerrainSetEnd()
+        else
+            WaitTime( 0.5 )
+            EffectPlay( "カムイ竜脈", x, z )
+            WaitTime( 3.0 )
+            EffectDelete("魔法陣_G001", x, z)
+            TerrainSetBegin()
+                TerrainSet( x, z, "TID_平地")
+            TerrainSetEnd()
+        end
+    end
+    Log("DragonVeinUsedComplete")
+end
 
 function リュールと戦闘()
 

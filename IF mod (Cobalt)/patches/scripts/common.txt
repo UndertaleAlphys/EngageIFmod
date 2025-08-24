@@ -1284,19 +1284,26 @@ function DraginVein_Skill_Equip(sid)
 end
 
 function DraginVein_Skill_Remove(DragonVein_Sid,Used_Sid)
+    Log(DragonVein_Sid)
+    Log(Used_Sid)
 	local used = false
+	Log("used:")
+	Log(used)
 	local index	= ForceUnitGetFirst( FORCE_PLAYER )
 	while ( index != nil ) do
 		if (UnitGetPID( index ) == "PID_リュール" ) or (UnitGetPID( index ) == "PID_アルフレッド" ) or (UnitGetPID( index ) == "PID_セリーヌ" ) or (UnitGetPID( index ) == "PID_スタルーク" ) or (UnitGetPID( index ) == "PID_ディアマンド" ) or (UnitGetPID( index ) == "PID_アイビー" ) or (UnitGetPID( index ) == "PID_フォガート" ) or (UnitGetPID( index ) == "PID_ミスティラ" ) or (UnitGetPID( index ) == "PID_オルテンシア" ) or (UnitGetPID( index ) == "PID_ヴェイル" ) then
 			local pid = UnitGetPID( index )
+			Log(pid)
 			if UnitHasWholeSkill( pid, Used_Sid ) then
+			    Log("in True")
 				used = true
 				break
 			end
 		end
 		index = ForceUnitGetNext( index )
 	end
-
+    Log("123")
+    Log(used)
 	if used == true then
 		index	= ForceUnitGetFirst( FORCE_PLAYER )
 		while ( index != nil ) do
