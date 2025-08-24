@@ -225,6 +225,91 @@ CONFIG_ANIM_PLAYER_TURN	= 3
 -- システム系
 ----------------------------------------------
 
+Job_MoveVal_Table = {
+   { job = "JID_神竜ノ子" ,moveVal = 5},
+   { job = "JID_M000_神竜ノ子" ,moveVal = 5},
+   { job = "JID_神竜ノ王" ,moveVal = 6},
+   { job = "JID_邪竜ノ子" ,moveVal = 6},
+   { job = "JID_M002_神竜ノ王" ,moveVal = 6},
+   { job = "JID_邪竜ノ娘" ,moveVal = 6},
+   { job = "JID_邪竜ノ娘_敵" ,moveVal = 6},
+   { job = "JID_邪竜ノ王" ,moveVal = 6},
+   { job = "JID_M000_邪竜ノ王" ,moveVal = 2},
+   { job = "JID_邪竜" ,moveVal = 0},
+   { job = "JID_アヴニール下級" ,moveVal = 7},
+   { job = "JID_アヴニール" ,moveVal = 8},
+   { job = "JID_フロラージュ下級" ,moveVal = 5},
+   { job = "JID_フロラージュ" ,moveVal = 6},
+   { job = "JID_スュクセサール下級" ,moveVal = 5},
+   { job = "JID_スュクセサール" ,moveVal = 6},
+   { job = "JID_ティラユール下級" ,moveVal = 5},
+   { job = "JID_ティラユール" ,moveVal = 6},
+   { job = "JID_ピッチフォーク下級" ,moveVal = 5},
+   { job = "JID_ピッチフォーク" ,moveVal = 6},
+   { job = "JID_クピードー下級" ,moveVal = 7},
+   { job = "JID_クピードー" ,moveVal = 8},
+   { job = "JID_リンドブルム下級" ,moveVal = 7},
+   { job = "JID_リンドブルム" ,moveVal = 8},
+   { job = "JID_スレイプニル下級" ,moveVal = 7},
+   { job = "JID_スレイプニル" ,moveVal = 8},
+   { job = "JID_メリュジーヌ" ,moveVal = 8},
+   { job = "JID_ソードマスター" ,moveVal = 6},
+   { job = "JID_ソードファイター" ,moveVal = 5},
+   { job = "JID_上忍" ,moveVal = 6},
+   { job = "JID_忍" ,moveVal = 5},
+   { job = "JID_ウルフナイト" ,moveVal = 7},
+   { job = "JID_ベルセルク" ,moveVal = 6},
+   { job = "JID_アクスファイター" ,moveVal = 5},
+   { job = "JID_ブレイブヒーロー" ,moveVal = 6},
+   { job = "JID_傭兵" ,moveVal = 5},
+   { job = "JID_ボウナイト" ,moveVal = 8},
+   { job = "JID_シーフ" ,moveVal = 5},
+   { job = "JID_アドベンチャラー" ,moveVal = 6},
+   { job = "JID_スナイパー" ,moveVal = 6},
+   { job = "JID_アーチャー" ,moveVal = 5},
+   { job = "JID_金鵄武者" ,moveVal = 8},
+   { job = "JID_ソードペガサス" ,moveVal = 7},
+   { job = "JID_ランスペガサス" ,moveVal = 7},
+   { job = "JID_アクスペガサス" ,moveVal = 7},
+   { job = "JID_グリフォンナイト" ,moveVal = 8},
+   { job = "JID_パラディン" ,moveVal = 8},
+   { job = "JID_ソードナイト" ,moveVal = 7},
+   { job = "JID_ランスナイト" ,moveVal = 7},
+   { job = "JID_アクスナイト" ,moveVal = 7},
+   { job = "JID_グレートナイト" ,moveVal = 7},
+   { job = "JID_ソードアーマー" ,moveVal = 5},
+   { job = "JID_ランスアーマー" ,moveVal = 5},
+   { job = "JID_アクスアーマー" ,moveVal = 5},
+   { job = "JID_ジェネラル" ,moveVal = 5},
+   { job = "JID_マージナイト" ,moveVal = 8},
+   { job = "JID_ダークマージ" ,moveVal = 5},
+   { job = "JID_セイジ" ,moveVal = 6},
+   { job = "JID_マージ" ,moveVal = 5},
+   { job = "JID_ハイプリースト" ,moveVal = 6},
+   { job = "JID_ハルバーディア" ,moveVal = 6},
+   { job = "JID_ランスファイター" ,moveVal = 5},
+   { job = "JID_ロイヤルナイト" ,moveVal = 8},
+   { job = "JID_ランスファイター" ,moveVal = 5},
+   { job = "JID_レヴナントナイト" ,moveVal = 8},
+   { job = "JID_ドラゴンナイト" ,moveVal = 7},
+   { job = "JID_ドラゴンマスター" ,moveVal = 8},
+   { job = "JID_ストラテジスト" ,moveVal = 8},
+   { job = "JID_ロッドナイト" ,moveVal = 7},
+   { job = "JID_メイド" ,moveVal = 6},
+   { job = "JID_バトラー" ,moveVal = 6},
+   { job = "JID_修羅" ,moveVal = 6},
+   { job = "JID_モンク" ,moveVal = 5},
+   { job = "JID_マスターモンク" ,moveVal = 6},
+   { job = "JID_ダンサー" ,moveVal = 5},
+   { job = "JID_ノスフェラトゥ" ,moveVal = 5},
+   { job = "JID_蛮族" ,moveVal = 5},
+   { job = "JID_異形竜" ,moveVal = 4},
+   { job = "JID_幻影竜" ,moveVal = 4},
+   { job = "JID_紋章士_セネリオ" ,moveVal = 5}
+}
+
+----------------------------------------------
+
 -- 一定時間停止(1秒=1.0)
 function WaitTime(time)
 	while time > 0 do
@@ -901,7 +986,7 @@ function AiSetSequenceAll(force, pid, order, sequence, values)
 		unit = ForceUnitGetNext( unit )
 		
 	end
-	
+
 end
 
 
@@ -1292,4 +1377,335 @@ function IsExistForcePlayerNearby(pid, range)
     end
 
     return false
+end
+
+function getRangeSquare(squareSize,map_height,map_width)
+
+    local results = {}
+
+    for z = 1, map_height - squareSize + 1 do
+        for x = 1, map_width - squareSize + 1 do
+            local playerUnitCount = 0
+
+            for sz = z, z + squareSize - 1 do
+                for sx = x, x + squareSize - 1 do
+                    local unit = UnitGetByPos(sx, sz)
+                    if unit != nil and UnitGetForce(unit) == FORCE_PLAYER then
+                        playerUnitCount = playerUnitCount + 1
+                    end
+                end
+            end
+
+            local centerX = x + (squareSize - 1) * 0.5
+            local centerZ = z + (squareSize - 1) * 0.5
+            results[#results + 1] = {
+                x = x,
+                z = z,
+                centerX = centerX,
+                centerZ = centerZ,
+                playerUnitCount = playerUnitCount
+            }
+
+        end
+    end
+
+    return results
+end
+
+function GetMoveByJob(jid)
+    for i, entry in ipairs(Job_MoveVal_Table) do
+        if entry.job == jid then
+            moveValue = entry.moveVal
+            return moveValue
+        end
+    end
+end
+
+
+function GetUnitReachablePositions(unit)
+    local unitX = UnitGetX(unit)
+    local unitZ = UnitGetZ(unit)
+    local job = UnitGetJID(unit)
+    local moveType = UnitGetMoveCost(unit)
+    local moveValue = GetMoveByJob(job)
+    local unitForce = UnitGetForce(unit)
+
+    local reachablePositions = {}
+    local visited = {}
+
+    local queue = {{x = unitX, z = unitZ, remainingMove = moveValue}}
+
+    -- Init first position
+    table.insert(reachablePositions, {x = unitX, z = unitZ})
+
+    visited[unitX .. "," .. unitZ] = true
+
+    -- do bfs
+    while #queue > 0 do
+        local current = table.remove(queue, 1)
+
+        local directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}}
+        for _, dir in ipairs(directions) do
+            local newX = current.x + dir[1]
+            local newZ = current.z + dir[2]
+
+            -- position in map range
+            if newX > 0 and newX < g_map_width and newZ > 0 and newZ < g_map_height then
+                local posKey = newX .. "," .. newZ
+
+                -- have not been visited
+                if not visited[posKey] then
+                    local terrainCost = GetTerrainMoveCost(newX, newZ, moveType)
+
+                    local unitAtPos = UnitGetByPos(newX, newZ)
+                    local canPass = CanPassThrough(unit, unitAtPos)
+
+                    if current.remainingMove >= terrainCost and canPass then
+                        local newRemainingMove = current.remainingMove - terrainCost
+                        table.insert(queue, {x = newX, z = newZ, remainingMove = newRemainingMove})
+                        table.insert(reachablePositions, {x = newX, z = newZ})
+                        visited[posKey] = true
+                    end
+                end
+            end
+        end
+    end
+
+    -- Finally remove position which forcePlayer stand at
+    local filteredPositions = {}
+    for _, pos in ipairs(reachablePositions) do
+        local unitAtPos = UnitGetByPos(pos.x, pos.z)
+        if unitAtPos == nil or UnitGetForce(unitAtPos) != FORCE_PLAYER then
+            table.insert(filteredPositions, pos)
+        end
+    end
+
+    return filteredPositions
+
+end
+
+function GetTerrainMoveCost(x, z, moveType)
+    local terrainCost = TerrainGetMoveCost(x, z)
+
+    if terrainCost == "COST_不可" then
+        return 255
+    elseif terrainCost == "COST_空" then
+        if moveType == "COST_飛行" then
+            return 1
+        else
+            return 255
+        end
+    elseif terrainCost == "COST_平地" then
+        return 1
+    elseif terrainCost == "COST_林" then
+        return 2
+    elseif terrainCost == "COST_浅瀬" then
+        return 3
+    elseif terrainCost == "COST_竜のみ" then
+        if moveType == "COST_竜" then
+            return 1
+        else
+            return 255
+        end
+    else
+        return 1
+    end
+end
+
+function CanPassThrough(movingUnit, unitAtPos)
+    if unitAtPos == nil then
+        return true
+    end
+
+    local movingUnitForce = UnitGetForce(movingUnit)
+    local targetUnitForce = UnitGetForce(unitAtPos)
+
+    if movingUnitForce == FORCE_ENEMY and targetUnitForce == FORCE_ENEMY then
+        return true
+    end
+
+    if movingUnitForce == FORCE_PLAYER and targetUnitForce == FORCE_ENEMY then
+        if UnitHasWholeSkill(movingUnit, "SID_すり抜け") then
+            return true
+        end
+        return false
+    end
+
+    if movingUnitForce == FORCE_ENEMY and targetUnitForce == FORCE_PLAYER then
+        if UnitHasWholeSkill(movingUnit, "SID_すり抜け") then
+            return true
+        end
+        return false
+    end
+
+    return true
+end
+
+function GetUnitActualAttackRange(unit)
+    local reachablePositions = GetUnitReachablePositions(unit)
+
+    local weaponCount = UnitGetItemCount(unit)
+
+    local attackRange = {}
+    local attackRangeMap = {} -- 用于去重
+
+    for _, pos in ipairs(reachablePositions) do
+        local posX = pos.x
+        local posZ = pos.z
+
+        for i = 0, weaponCount - 1 do
+            local rangeMin = UnitGetItemRangeI(unit, i)
+            local rangeMax = UnitGetItemRangeO(unit, i)
+
+            for dx = -rangeMax, rangeMax do
+                for dz = -rangeMax, rangeMax do
+                    local distance = math.abs(dx) + math.abs(dz)
+                    if distance >= rangeMin and distance <= rangeMax then
+                        local targetX = posX + dx
+                        local targetZ = posZ + dz
+
+                        if targetX > 0 and targetX < g_map_width and
+                           targetZ > 0 and targetZ < g_map_height then
+
+                            local posKey = targetX .. "," .. targetZ
+                            if not attackRangeMap[posKey] then
+                                attackRangeMap[posKey] = true
+                                table.insert(attackRange, {x = targetX, z = targetZ})
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    return attackRange
+end
+
+function IsUnitInAttackRange(attackRange, targetUnit)
+    local targetX = UnitGetX(targetUnit)
+    local targetZ = UnitGetZ(targetUnit)
+
+    for _, pos in ipairs(attackRange) do
+        if pos.x == targetX and pos.z == targetZ then
+            return true
+        end
+    end
+
+    return false
+end
+
+function getUnitsUnderEnemyAttackCount()
+    local unitAttackCount = {}
+
+    local playerUnit = ForceUnitGetFirst(FORCE_PLAYER)
+    while playerUnit != nil do
+        local pid = UnitGetPID(playerUnit)
+        unitAttackCount[pid] = {
+            pid = pid,
+            count = 0
+        }
+        playerUnit = ForceUnitGetNext(playerUnit)
+    end
+
+    local enemyUnit = ForceUnitGetFirst(FORCE_ENEMY)
+    while enemyUnit != nil do
+        local enemyAttackRange = GetUnitActualAttackRange(enemyUnit)
+
+        local playerUnitCheck = ForceUnitGetFirst(FORCE_PLAYER)
+        while playerUnitCheck != nil do
+            local pid = UnitGetPID(playerUnitCheck)
+            if IsUnitInAttackRange(enemyAttackRange, playerUnitCheck) then
+                unitAttackCount[pid].count = unitAttackCount[pid].count + 1
+            end
+            playerUnitCheck = ForceUnitGetNext(playerUnitCheck)
+        end
+
+        enemyUnit = ForceUnitGetNext(enemyUnit)
+    end
+
+    return unitAttackCount
+end
+
+function TestWithFunctionInfo()
+    Log("Start Test - Function Information")
+    local functionCount = 0
+
+    for name, func in pairs(_G) do
+        if type(func) == "function" then
+            functionCount = functionCount + 1
+            Log("Find Function: " .. name)
+
+            local info = debug and debug.getinfo(func)
+            if info then
+                if info.nparams then
+                    Log("  params count: " .. info.nparams)
+                end
+                if info.isvararg then
+                    Log("  var: " .. tostring(info.isvararg))
+                end
+                if info.what and info.what ~= "C" then
+                    Log("  Lua Function")
+                else
+                    Log("  C Function")
+                end
+            end
+        end
+    end
+
+    Log("Totally find " .. functionCount .. " functions")
+end
+
+function GetFunctionSourceInfo()
+    Log("=== 尝试获取函数源码信息 ===")
+
+    local functionCount = 0
+    local sourceInfoCount = 0
+
+    for name, func in pairs(_G) do
+        if type(func) == "function" then
+            functionCount = functionCount + 1
+
+            -- 尝试使用debug.getinfo获取源码信息
+            local info = nil
+            log("try debug")
+            if debug and type(debug) == "table" and debug.getinfo then
+                info = debug.getinfo(func)
+                log("success")
+            end
+
+            if info then
+                sourceInfoCount = sourceInfoCount + 1
+                Log("函数: " .. name)
+
+                if info.source then
+                    Log("  源文件: " .. info.source)
+                end
+
+                if info.linedefined then
+                    Log("  起始行: " .. info.linedefined)
+                end
+
+                if info.lastlinedefined then
+                    Log("  结束行: " .. info.lastlinedefined)
+                end
+
+                if info.what then
+                    Log("  类型: " .. info.what)  -- "Lua", "C", "main"
+                end
+
+                -- 如果是Lua函数，可能有更多详细信息
+                if info.what == "Lua" then
+                    Log("  这是一个Lua函数")
+                elseif info.what == "C" then
+                    Log("  这是一个C函数")
+                end
+
+                Log("")  -- 空行分隔
+            end
+        end
+    end
+
+    Log("总共检查了 " .. functionCount .. " 个函数")
+    Log("获取到源码信息的函数数量: " .. sourceInfoCount)
 end
