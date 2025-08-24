@@ -815,6 +815,12 @@ Dragon Vein
 [MTID_DragonVein_M014]
 DV: Freeze enemies for 1T
 
+[MTID_DragonVein_G004_ICE]
+DV: Puts out flames
+
+[MTID_DragonVein_G004_FIRE]
+DV: Unleash vocanic eruptions
+
 [MTID_Quicksand]
 Quicksand
 
