@@ -782,6 +782,12 @@ $P被击败或超过$Arg(0)回合
 [MTID_DragonVein_M014]
 龙脉：冻结敌人1回合
 
+[MTID_DragonVein_G004_ICE]
+龙脉：扑灭火焰
+
+[MTID_DragonVein_G004_FIRE]
+龙脉：火山喷发
+
 [MTID_Quicksand]
 流沙
 

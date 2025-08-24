@@ -5513,3 +5513,10 @@ Nobility
 [MSID_H_Nobility]
 Allies within 2-radius
 tale -2 Dmg.
+
+[MSID_H_DragonVein_G004_ICE]
+Puts out all flames and
+halts volcanic eruptions for 1 turn.
+
+[MSID_H_DragonVein_G004_FIRE]
+Unleash a volcanic eruption.
