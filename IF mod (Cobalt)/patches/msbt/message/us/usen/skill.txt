@@ -5521,3 +5521,10 @@ Unleash a volcanic eruption.
 
 [MSID_H_DragonVein_M016_TIDE]
 Drive back the tide.
+
+[MSID_Quixotic]
+Quixotic
+
+[MSID_H_Quixotic]
+Grants Hit+30 and +15% to skill-trigger
+rate to unit and foe in combat.

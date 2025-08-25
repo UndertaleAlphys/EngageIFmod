@@ -4902,10 +4902,10 @@ HP不满时伤害+4
 王器
 
 [MSID_H_RightfulKing]
-自身的技能触发率+10%
+自身的奥义触发率+10%
 
 [MSID_H_RightfulKing_Dragon]
-自身的技能触发率+10%
+自身的奥义触发率+10%
 【龙族】 触发率额外+5%
 
 [MSID_Awakening]
@@ -5106,3 +5106,9 @@ HP不满时伤害+4
 
 [MSID_H_DragonVein_M016_TIDE]
 使潮水退去
+
+[MSID_Quixotic]
+倾奇者
+
+[MSID_H_Quixotic]
+战斗时，双方命中、奥义触发率+15
