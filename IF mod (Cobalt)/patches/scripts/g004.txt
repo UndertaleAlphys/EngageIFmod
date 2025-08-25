@@ -11,6 +11,7 @@ g_pid_boss				= "PID_G004_セネリオ"
 g_pid_boss_moveDown		= "PID_G004_セネリオ_移動－１"
 g_pid_bossLuna			= "PID_G004_セネリオ_ルナ"
 g_pid_bossLuna_moveDown	= "PID_G004_セネリオ_ルナ_移動－１"
+has_reinforcement_final = "has_reinforcement_final"
 
 g_key_areaEntry		= "エリア進入_済"
 g_key_senerioActive	= "セネリオ_アクティブ_済"
@@ -127,11 +128,13 @@ function 変数登録()
 	VariableEntry( g_StartupFirstTime,				1 )
 	VariableEntry( g_battleStart,					0 )
 	VariableEntry( g_bomb_counter,                  0 )
+	VariableEntry( has_reinforcement_final,         0 )
 end
 
 function イベント登録()
 	EventEntryTurn( 戦闘開始直後,	1,  1, FORCE_PLAYER )
 	EventEntryTurn( 勝利条件_紋章士にフォーカス,	1,  1, FORCE_PLAYER )
+	EventEntryTurn( final_reinforcement,  -1,  -1, FORCE_PLAYER, condition_final_reinforcement )
 
 	EventEntryArea( EmptyFunction, 5, 12, 16, 15, FORCE_PLAYER, g_key_areaEntry )
 
@@ -325,6 +328,32 @@ function EmptyFunction()
 end
 
 -- -----------------------------------
+
+function condition_final_reinforcement()
+    if VariableGet(has_reinforcement_final) == 1 then
+        return false
+    end
+
+    if ForceUnitGetCount( FORCE_ENEMY ) <= 7 or MapGetTurn() >= 14 then
+        VariableSet(has_reinforcement_final , 1)
+        return true
+    end
+    return false
+end
+
+function final_reinforcement()
+    Dispos("Enemy_Final1", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Enemy_Final2", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Enemy_Final3", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+end
 
 function 戦闘開始直後()
 
@@ -691,7 +720,6 @@ function getMapSection(x, z)
 end
 
 function getRangeSquareWithMapDamage(squareSize, map_height, map_width, map_damage)
-    local unitUnderAttackCount = getUnitsUnderEnemyAttackCount()
 
     local damageGrid = {}
     for z = 1, map_height - squareSize + 1 do
@@ -713,9 +741,6 @@ function getRangeSquareWithMapDamage(squareSize, map_height, map_width, map_dama
                 end
 
                 local pid = UnitGetPID(unit)
-                if unitUnderAttackCount[pid] and unitUnderAttackCount[pid].count > 0 then
-                    damage = damage + (unitUnderAttackCount[pid].count * 15)
-                end
 
                 local minSquareZ = math.max(1, z - squareSize + 1)
                 local maxSquareZ = math.min(map_height - squareSize + 1, z)
@@ -724,7 +749,7 @@ function getRangeSquareWithMapDamage(squareSize, map_height, map_width, map_dama
 
                 for sz = minSquareZ, maxSquareZ do
                     for sx = minSquareX, maxSquareX do
-                        damageGrid[sz][sx] = damageGrid[sz][sx] + damage
+                        damageGrid[sz][sx] = damageGrid[sz][sx] + damage + 10
                     end
                 end
             end
