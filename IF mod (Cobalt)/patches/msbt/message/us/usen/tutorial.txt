@@ -2911,4 +2911,5 @@ tripled when fighting against them.
 Ineffective Otherwise
 
 [MID_TIPS_WEAPON_EFFECTIVENESS_FAIL]
-Weapon's Mt is halved when it's not effective.
+Inflicts -4 Dmg and -10 Hit
+if not effective.
