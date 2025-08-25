@@ -19,8 +19,8 @@ g_key_smokeFirst	= "煙イベント初回_済"
 g_key_battleTalk_senerio_lueur	= "戦闘会話_セネリオ_リュール_済"
 g_key_battleTalk_senerio_ike	= "戦闘会話_セネリオ_アイク_済"
 
-g_map_height		= 32
-g_map_width			= 25
+g_map_height		= 30
+g_map_width			= 23
 g_map_halfHeight = 16
 g_map_halfWidth = 13
 g_bomb_counter = "g_bomb_counter"
@@ -142,6 +142,10 @@ function イベント登録()
 	EventEntryArea(DragonVeinUsed, 7, 12, 7, 12, FORCE_PLAYER, condition_true)
 	EventEntryArea(DragonVeinUsed, 20, 11, 20, 11, FORCE_PLAYER, condition_true)
 	EventEntryArea(DragonVeinUsed, 12, 4, 12, 4, FORCE_PLAYER, condition_true)
+	EventEntryArea(DragonVeinUsed, 18, 22, 18, 22, FORCE_PLAYER, condition_true)
+    EventEntryArea(DragonVeinUsed, 16, 14, 16, 14, FORCE_PLAYER, condition_true)
+    EventEntryArea(DragonVeinUsed, 16, 8, 16, 8, FORCE_PLAYER, condition_true)
+
 
 	EventEntryBattleAfter(EmptyFunction, "", FORCE_ALL, g_pid_boss,					FORCE_ENEMY, true, g_key_senerioActive)
 	EventEntryBattleAfter(EmptyFunction, "", FORCE_ALL, g_pid_boss_moveDown,		FORCE_ENEMY, true, g_key_senerioActive)
@@ -215,9 +219,15 @@ function MapOpening()
     EffectCreate("魔法陣_G001",	7, 12)
     EffectCreate("魔法陣_G001",	20, 11)
     EffectCreate("魔法陣_G001",	12, 4)
+    EffectCreate("魔法陣_G001",	18, 22)
+    EffectCreate("魔法陣_G001",	16, 14)
+    EffectCreate("魔法陣_G001",	16, 8)
     DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_0" )
     DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_1" )
     DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_2" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_3" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_4" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_5" )
     DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_0" )
     DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_1" )
     DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_2" )
@@ -246,6 +256,9 @@ function InitDragonVein()
         TerrainSet( 7, 12, "TID_龙脉_G004_ICE")
         TerrainSet( 20, 11, "TID_龙脉_G004_FIRE")
         TerrainSet( 12, 4, "TID_龙脉_G004_ICE")
+        TerrainSet( 18, 22, "TID_龙脉_G004_ICE")
+        TerrainSet( 16, 14, "TID_龙脉_G004_ICE")
+        TerrainSet( 16, 8, "TID_龙脉_G004_ICE")
     TerrainSetEnd()
 end
 
@@ -367,6 +380,18 @@ function DragonVeinUsed()
         used = DraginVein_Skill_Remove("SID_DragonVein_G004_ICE_2","SID_DragonVein_Used")
         DragonVeinType = "ice"
     end
+    if(x == 18 and z == 22) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_G004_ICE_3","SID_DragonVein_Used")
+        DragonVeinType = "ice"
+    end
+    if(x == 16 and z == 14) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_G004_ICE_4","SID_DragonVein_Used")
+        DragonVeinType = "ice"
+    end
+    if(x == 16 and z == 8) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_G004_ICE_5","SID_DragonVein_Used")
+        DragonVeinType = "ice"
+    end
     if(x == 9 and z == 26) then
         used = DraginVein_Skill_RemoveWithTid("SID_DragonVein_G004_FIRE_CONDITION_0","TID_DragonVein_Used",15,22,g_map_height,g_map_width)
         DragonVeinType = "fire1"
@@ -427,10 +452,12 @@ function DragonVeinEffect(DragonVeinType)
      if DragonVeinType == "ice" then
         VariableSet(g_bomb_counter,1)
         MapOverlapSetBegin()
-        for i = 1, g_map_height do
-            for j = 1, g_map_width do
-                if MapOverlapGet(j, i) == "TID_炎上" or MapOverlapGet(j, i) == "TID_炎上_G004" then
-                    MapOverlapSet(j, i, "TID_無し")
+        for i = 1, g_map_width do
+            for j = 1, g_map_height do
+                Log("x:" .. i .." z:" .. j)
+                if MapOverlapGet(i, j) == "TID_炎上" or MapOverlapGet(i, j) == "TID_炎上_G004" then
+
+                    MapOverlapSet(i, j, "TID_無し")
                 end
             end
         end
@@ -588,7 +615,7 @@ function volcanicBombWithSectionAnimationsDragonVein(x, z, size, map_damage)
     MapCameraWait()
 
     EffectPlay( "火山弾_G004", x, z )
-
+    EffectWait()
     local expand = (size - 1) / 2
 
     local damagedPositions = {}
@@ -608,8 +635,6 @@ function volcanicBombWithSectionAnimationsDragonVein(x, z, size, map_damage)
             table.insert(damagedPositions, {x = i, z = j})
         end
     end
-
-    EffectWait()
 
     if #damagedPositions > 0 then
         MapOverlapSetBegin()
