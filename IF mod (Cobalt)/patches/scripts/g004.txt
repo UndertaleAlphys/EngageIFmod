@@ -371,7 +371,7 @@ function 戦闘開始直後()
 			CursorAnimeCreate_DistanceModeNear( g_rockInSpot[AREA_A][1], g_rockInSpot[AREA_A][2] )
 			CursorAnimeDelete()
 
-			volcanicBombWithSectionAnimationsDragonVein(10,29,bomb_size,map_damage)
+			volcanicBombWithSectionAnimations(10,29,bomb_size,map_damage)
 
 			WaitTime( 1.0 )
 
@@ -574,6 +574,13 @@ function volcanicBomb(x,z,size,map_damage)
 end
 
 function volcanicBombWithSectionAnimations(x, z, size, map_damage)
+
+    CursorSetPos(19, 3)
+    MapCameraWait()
+
+    EffectPlay( "邪竜紋_発動", 19, 3 )
+    EffectDelete( "邪竜紋_準備", 19, 3 )
+    WaitTime( 1.5 )
 
     -- Determine which section the coordinates belong to
     local section = getMapSection(x, z)
