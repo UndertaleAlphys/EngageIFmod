@@ -1557,9 +1557,8 @@ Speedtaker
 Grants a stacking Spd+2 each time
 unit initiates combat and defeats a
 foe. (Max +10)
-At the start of each player's phase,
-if this unit didn't defeat
-any enemy last turn, lose 2 Spd.
+If this unit didn't combat last turn,
+lose 2 Spd when phase starts.
 
 [MSID_StrengthAbsorption]
 Strengthtaker
@@ -1568,9 +1567,8 @@ Strengthtaker
 Grants a stacking Str+2 each time
 unit initiates combat and defeats a
 foe. (Max +10)
-At the start of each player's phase,
-if this unit didn't defeat
-any enemy last turn, lose 2 Str.
+If this unit didn't combat last turn,
+lose 2 Str when phase starts.
 
 [MSID_LinEngage]
 Call Doubles
