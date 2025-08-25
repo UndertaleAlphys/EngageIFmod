@@ -231,6 +231,7 @@ function MapOpening()
     DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_0" )
     DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_1" )
     DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_2" )
+    InitDragonVein()
 end
 
 function Test()
