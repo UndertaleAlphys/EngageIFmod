@@ -142,8 +142,7 @@ function MapOpening()
 			HubSolanelNoticeP0()
 		end
 	end
-
-	UnitJoin( "PID_ヴァンドレ" )
+	
 end
 
 function MapEnding()
