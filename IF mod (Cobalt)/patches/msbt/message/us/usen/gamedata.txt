@@ -821,6 +821,12 @@ DV: Puts out flames
 [MTID_DragonVein_G004_FIRE]
 DV: Unleash vocanic eruptions
 
+[MTID_DragonVein_M015_TIDE_E]
+DV: Call forth the tide
+
+[MTID_DragonVein_M015_TIDE_P]
+DV: Drive back the tide
+
 [MTID_Quicksand]
 Quicksand
 

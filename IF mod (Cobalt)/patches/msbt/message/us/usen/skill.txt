@@ -5520,3 +5520,6 @@ halts volcanic eruptions for 1 turn.
 
 [MSID_H_DragonVein_G004_FIRE]
 Unleash a volcanic eruption.
+
+[MSID_H_DragonVein_M016_TIDE]
+Drive back the tide.

@@ -5103,3 +5103,6 @@ HP不满时伤害+4
 
 [MSID_H_DragonVein_G004_FIRE]
 使火山喷发
+
+[MSID_H_DragonVein_M016_TIDE]
+使潮水退去
