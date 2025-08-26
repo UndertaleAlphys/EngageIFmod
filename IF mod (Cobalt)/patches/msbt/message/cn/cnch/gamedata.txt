@@ -1107,10 +1107,10 @@ $P被击败或超过$Arg(0)回合
 回避
 
 [MID_TE_Heal]
-每回合HP
+每回合HP%
 
 [MID_TE_Damage]
-每回合HP
+每回合HP%
 
 [MID_TE_Def]
 守备

@@ -1140,10 +1140,10 @@ Shine
 Avo
 
 [MID_TE_Heal]
-Heal/Turn
+Heal%/Turn
 
 [MID_TE_Damage]
-Damage/Turn
+Damage%/Turn
 
 [MID_TE_Def]
 Def
