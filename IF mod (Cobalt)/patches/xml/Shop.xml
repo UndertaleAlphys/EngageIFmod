@@ -139,7 +139,7 @@
       <Param Condition="" Iid="IID_果物ナイフ" Stock="-1" Attribute="0" />
     </Data>
   </Sheet>
-  <Sheet Name="道具屋" Count="104">
+  <Sheet Name="道具屋" Count="106">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -251,6 +251,8 @@
       <Param Condition="" Iid="IID_リザーブ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_特効薬" Stock="2" Attribute="0" />
       <Param Condition="" Iid="IID_フリーズ" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_知識の書" Stock="-1" Attribute="0" />
+      <Param Condition="" Iid="IID_聖水" Stock="-1" Attribute="0" />
     </Data>
   </Sheet>
   <Sheet Name="蚤の市" Count="16">
