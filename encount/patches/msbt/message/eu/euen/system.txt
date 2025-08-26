@@ -1,2 +1,0 @@
-[MID_KEYHELP_GMAP_SPAWN_SKIRMISHES]
-Spawn Skirmishes
