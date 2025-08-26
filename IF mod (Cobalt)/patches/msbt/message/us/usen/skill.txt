@@ -2067,15 +2067,15 @@ Adjacent enemies lose 20 Avo.
 Torrential Roar
 
 [MSID_H_KamuiEngageAtk]
-Use to attack 3 spaces in a line,
-turning those spaces into water
+Use to adjacent foe,
+turning 5 spaces into water
 terrain.
 
 [MSID_H_KamuiEngageAtk_Dragon]
-Use to attack 3 spaces in a line,
-turning those spaces into water
+Use to adjacent foe,
+turning 5 spaces into water
 terrain.
-[Dragon] Range +1.
+[Dragon] Attack Range +1.
 
 [MSID_H_KamuiEngageAtk_CMD]
 Attack and flood an area.

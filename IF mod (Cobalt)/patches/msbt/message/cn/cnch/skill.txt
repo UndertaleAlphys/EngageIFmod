@@ -1898,13 +1898,13 @@ HP为75%及以下时
 龙穿炮
 
 [MSID_H_KamuiEngageAtk]
-使用水之力攻击直向3格
-并使格子化为“水洼”
+使用水之力攻击前方1格
+并使后方5格化为“水洼”
 仅限相邻
 
 [MSID_H_KamuiEngageAtk_Dragon]
-使用水之力攻击直向3格
-并使格子化为“水洼”，仅限相邻
+使用水之力攻击前方1格
+并使后方5格化为“水洼”，仅限相邻
 【龙族】攻击范围+1
 
 [MSID_H_KamuiEngageAtk_CMD]
@@ -4844,14 +4844,14 @@ HP不满时伤害+4
 广所突击
 
 [MSID_H_ElbowRoom]
-地形回避和防御均为0时，
+地形效果为0时，
 伤害+3。
 
 [MSID_NaturalCover]
 闭所防御
 
 [MSID_H_NaturalCover]
-地形回避或防御不为0时，
+地形效果不为0时，
 所受伤害-3。
 
 [MSID_AdaptiveTactics]
