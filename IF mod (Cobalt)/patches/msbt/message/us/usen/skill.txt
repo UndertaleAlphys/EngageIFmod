@@ -4071,7 +4071,7 @@ within 5 tiles.
 [MSID_H_Shuttle_CMD]
 Swap places with an ally.
 
-[MSID_H_Shuttle]
+[MSID_H_Shuttle_Dragon]
 Grants the unit "Shuttle" command,
 use to swap places with an ally
 within 5 tiles.

@@ -3477,3 +3477,29 @@ Physic+
 [MIID_H_Leaf_FarHeal+]
 Emblem Leif's long range staff.
 Can heal at a distance.
+
+[MIID_StingShuriken]
+Sting Shuriken
+
+[MIID_H_StingShuriken]
+Effective: Armored. Ineffective otherwise.
+Inflicts debuff on foe after combat.
+(Dex/Def/Res -3)
+
+[MIID_BarbShuriken]
+Barb Shuriken
+
+[MIID_H_BarbShuriken]
+A shuriken especially well-suited to
+inflicting deadly wounds.
+Deals extra damage when Crit.
+Inflicts debuff on foe after combat.
+(Lck/Def/Res -4)
+
+[MIID_FruitKnife]
+Fruit Knife
+
+[MIID_H_FruitKnife]
+Use to recover 10 HP.
+Inflicts debuff on foe after combat.
+(Dex -2 Def/Res -3)
