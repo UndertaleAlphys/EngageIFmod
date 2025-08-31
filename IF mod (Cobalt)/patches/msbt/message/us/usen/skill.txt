@@ -2057,12 +2057,6 @@ After unit acts or waits, restores
 10 HP to adjacent allies and slightly
 increases support with them.
 
-[MSID_KamuiEngage]
-Dreadful Aura
-
-[MSID_H_KamuiEngage]
-Adjacent enemies lose 20 Avo.
-
 [MSID_KamuiEngageAtk]
 Torrential Roar
 
@@ -5235,6 +5229,12 @@ Grant the unit "Impenetrable",
 cost 2 engage meter
 to grant immunity to break.
 
+[MSID_H_Impenetrable_Dragon]
+Grant the unit "Impenetrable",
+cost 2 engage meter
+to grant immunity to break.
+[Dragon] -1 engage meter cost.
+
 [MSID_H_Impenetrable_CMD]
 Grant immunity to break
 
@@ -5528,3 +5528,13 @@ Quixotic
 [MSID_H_Quixotic]
 Grants Hit+30 and +15% to skill-trigger
 rate to unit and foe in combat.
+
+[MSID_Heartseeker]
+Heartseeker
+
+[MSID_H_Heartseeker]
+Adjacent enemies lose 20 Avo.
+
+[MSID_H_Heartseeker_Dragon]
+Adjacent enemies lose 20 Avo.
+[Dragon] Enemies lose 10 extra Avo.

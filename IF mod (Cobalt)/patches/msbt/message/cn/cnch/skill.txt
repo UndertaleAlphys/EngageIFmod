@@ -1887,13 +1887,6 @@ HP为75%及以下时
 回复相邻我方单位10HP
 并稍微提升支援值
 
-[MSID_KamuiEngage]
-咒缚
-
-[MSID_H_KamuiEngage]
-相邻敌人回避-20
-
-
 [MSID_KamuiEngageAtk]
 龙穿炮
 
@@ -4834,6 +4827,12 @@ HP不满时伤害+4
 消耗2结合计量条，
 使自身于本回合免疫break。
 
+[MSID_H_Impenetrable_Dragon]
+可使用“铁壁态势”指令，
+消耗2结合计量条，
+使自身于本回合免疫break。
+【龙族】-1结合计量条消耗
+
 [MSID_H_Impenetrable_CMD]
 使自身于本回合免疫break
 
@@ -5111,4 +5110,14 @@ HP不满时伤害+4
 倾奇者
 
 [MSID_H_Quixotic]
-战斗时，双方命中、奥义触发率+15
+战斗时，双方命中+30，奥义触发率+15
+
+[MSID_Heartseeker]
+咒缚
+
+[MSID_H_Heartseeker]
+相邻敌人回避-20
+
+[MSID_H_Heartseeker_Dragon]
+相邻敌人回避-20
+【龙族】回避额外-10
