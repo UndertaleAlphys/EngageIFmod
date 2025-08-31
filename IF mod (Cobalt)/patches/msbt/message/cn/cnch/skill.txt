@@ -746,34 +746,34 @@ HP提升15
 【达人】攻击力+5
 
 [MSID_RodArts_1]
-信仰Lv.1
+杖术Lv.1
 
 [MSID_H_RodArts_1]
-HP回复量+3、杖的命中+10
+HP回复量+1
 
 [MSID_RodArts_2]
-信仰Lv.2
+杖术Lv.2
 
 [MSID_H_RodArts_2]
-HP回复量+5、杖的命中+15
+HP回复量+1、杖的命中+5
 
 [MSID_RodArts_3]
-信仰Lv.3
+杖术Lv.3
 
 [MSID_H_RodArts_3]
-HP回复量+7、杖的命中+20
+HP回复量+2、杖的命中+5
 
 [MSID_RodArts_4]
-信仰Lv.4
+杖术Lv.4
 
 [MSID_H_RodArts_4]
-HP回复量+10、杖的命中+25
+HP回复量+3、杖的命中+10
 
 [MSID_RodArts_5]
-信仰Lv.5
+杖术Lv.5
 
 [MSID_H_RodArts_5]
-HP回复量+15、杖的命中+30
+HP回复量+3、杖的命中+30
 
 [MSID_Outclass_1]
 识破

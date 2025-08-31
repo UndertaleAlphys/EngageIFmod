@@ -791,39 +791,38 @@ fails at weapon disadvantage.
 [Bow Prowess]Grants Atk+5
 
 [MSID_RodArts_1]
-Staff Mastery 1
+Staff Prowess 1
 
 [MSID_H_RodArts_1]
+Staves heal an additional 1 HP.
+
+[MSID_RodArts_2]
+Staff Prowess 2
+
+[MSID_H_RodArts_2]
+Grants Hit+5 when using a staff.
+Staves also heal an additional 1 HP.
+
+[MSID_RodArts_3]
+Staff Prowess 3
+
+[MSID_H_RodArts_3]
+Grants Hit+5 when using a staff.
+Staves also heal an additional 2 HP.
+
+[MSID_RodArts_4]
+Staff Prowess 4
+
+[MSID_H_RodArts_4]
 Grants Hit+10 when using a staff.
 Staves also heal an additional 3 HP.
 
-[MSID_RodArts_2]
-Staff Mastery 2
-
-[MSID_H_RodArts_2]
-Grants Hit+15 when using a staff.
-Staves also heal an additional 5 HP.
-
-[MSID_RodArts_3]
-Staff Mastery 3
-
-[MSID_H_RodArts_3]
-Grants Hit+20 when using a staff.
-Staves also heal an additional 7 HP.
-
-[MSID_RodArts_4]
-Staff Mastery 4
-
-[MSID_H_RodArts_4]
-Grants Hit+25 when using a staff.
-Staves also heal an additional 10 HP.
-
 [MSID_RodArts_5]
-Staff Mastery 5
+Staff Prowess 5
 
 [MSID_H_RodArts_5]
 Grants Hit+30 when using a staff.
-Staves also heal an additional 15 HP.
+Staves also heal an additional 3 HP.
 
 [MSID_Outclass_1]
 Perceptive
