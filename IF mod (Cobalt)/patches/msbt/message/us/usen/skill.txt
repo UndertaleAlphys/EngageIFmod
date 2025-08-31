@@ -1,3 +1,9 @@
+[MSID_Hp_3]
+HP +3
+
+[MSID_H_Hp_3]
+Grants max HP+3.
+
 [MSID_Hp_5]
 HP +5
 
@@ -190,6 +196,12 @@ Defense +5
 [MSID_H_Def_5]
 Grants Def+5.
 
+[MSID_Mag_1]
+Magic +1
+
+[MSID_H_Mag_1]
+Grants Mag+1.
+
 [MSID_Mag_2]
 Magic +2
 
@@ -213,6 +225,12 @@ Magic +5
 
 [MSID_H_Mag_5]
 Grants Mag+5.
+
+[MSID_Res_1]
+Resistance +1
+
+[MSID_H_Res_1]
+Grants Res+1.
 
 [MSID_Res_2]
 Resistance +2
@@ -791,39 +809,38 @@ fails at weapon disadvantage.
 [Bow Prowess]Grants Atk+5
 
 [MSID_RodArts_1]
-Staff Mastery 1
+Staff Prowess 1
 
 [MSID_H_RodArts_1]
+Staves heal an additional 1 HP.
+
+[MSID_RodArts_2]
+Staff Prowess 2
+
+[MSID_H_RodArts_2]
+Grants Hit+5 when using a staff.
+Staves also heal an additional 1 HP.
+
+[MSID_RodArts_3]
+Staff Prowess 3
+
+[MSID_H_RodArts_3]
+Grants Hit+5 when using a staff.
+Staves also heal an additional 2 HP.
+
+[MSID_RodArts_4]
+Staff Prowess 4
+
+[MSID_H_RodArts_4]
 Grants Hit+10 when using a staff.
 Staves also heal an additional 3 HP.
 
-[MSID_RodArts_2]
-Staff Mastery 2
-
-[MSID_H_RodArts_2]
-Grants Hit+15 when using a staff.
-Staves also heal an additional 5 HP.
-
-[MSID_RodArts_3]
-Staff Mastery 3
-
-[MSID_H_RodArts_3]
-Grants Hit+20 when using a staff.
-Staves also heal an additional 7 HP.
-
-[MSID_RodArts_4]
-Staff Mastery 4
-
-[MSID_H_RodArts_4]
-Grants Hit+25 when using a staff.
-Staves also heal an additional 10 HP.
-
 [MSID_RodArts_5]
-Staff Mastery 5
+Staff Prowess 5
 
 [MSID_H_RodArts_5]
 Grants Hit+30 when using a staff.
-Staves also heal an additional 15 HP.
+Staves also heal an additional 3 HP.
 
 [MSID_Outclass_1]
 Perceptive
@@ -2056,12 +2073,6 @@ Quality Time+
 After unit acts or waits, restores
 10 HP to adjacent allies and slightly
 increases support with them.
-
-[MSID_KamuiEngage]
-Dreadful Aura
-
-[MSID_H_KamuiEngage]
-Adjacent enemies lose 20 Avo.
 
 [MSID_KamuiEngageAtk]
 Torrential Roar
@@ -4071,7 +4082,7 @@ within 5 tiles.
 [MSID_H_Shuttle_CMD]
 Swap places with an ally.
 
-[MSID_H_Shuttle]
+[MSID_H_Shuttle_Dragon]
 Grants the unit "Shuttle" command,
 use to swap places with an ally
 within 5 tiles.
@@ -5235,6 +5246,12 @@ Grant the unit "Impenetrable",
 cost 2 engage meter
 to grant immunity to break.
 
+[MSID_H_Impenetrable_Dragon]
+Grant the unit "Impenetrable",
+cost 2 engage meter
+to grant immunity to break.
+[Dragon] -1 engage meter cost.
+
 [MSID_H_Impenetrable_CMD]
 Grant immunity to break
 
@@ -5528,3 +5545,13 @@ Quixotic
 [MSID_H_Quixotic]
 Grants Hit+30 and +15% to skill-trigger
 rate to unit and foe in combat.
+
+[MSID_Heartseeker]
+Heartseeker
+
+[MSID_H_Heartseeker]
+Adjacent enemies lose 20 Avo.
+
+[MSID_H_Heartseeker_Dragon]
+Adjacent enemies lose 20 Avo.
+[Dragon] Enemies lose 10 extra Avo.
