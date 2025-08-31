@@ -1,3 +1,9 @@
+[MSID_Hp_3]
+HP+3
+
+[MSID_H_Hp_3]
+HP提升3
+
 [MSID_Hp_5]
 HP+5
 
@@ -29,70 +35,70 @@ HP+15
 HP提升15
 
 [MSID_Str_1]
-力量+1
+力+1
 
 [MSID_H_Str_1]
-力量提升1
+力提升1
 
 [MSID_Str_2]
-力量+2
+力+2
 
 [MSID_H_Str_2]
-力量提升2
+力提升2
 
 [MSID_Str_3]
-力量+3
+力+3
 
 [MSID_H_Str_3]
-力量提升3
+力提升3
 
 [MSID_Str_4]
-力量+4
+力+4
 
 [MSID_H_Str_4]
-力量提升4
+力提升4
 
 [MSID_Str_5]
-力量+5
+力+5
 
 [MSID_H_Str_5]
-力量提升5
+力提升5
 
 [MSID_Str_6]
-力量+6
+力+6
 
 [MSID_H_Str_6]
-力量提升6
+力提升6
 
 [MSID_Tec_1]
-技巧+1
+技+1
 
 [MSID_H_Tec_1]
-技巧提升1
+技提升1
 
 [MSID_Tec_2]
-技巧+2
+技+2
 
 [MSID_H_Tec_2]
-技巧提升2
+技提升2
 
 [MSID_Tec_3]
-技巧+3
+技+3
 
 [MSID_H_Tec_3]
-技巧提升3
+技提升3
 
 [MSID_Tec_4]
-技巧+4
+技+4
 
 [MSID_H_Tec_4]
-技巧提升4
+技提升4
 
 [MSID_Tec_5]
-技巧+5
+技+5
 
 [MSID_H_Tec_5]
-技巧提升5
+技提升5
 
 [MSID_Spd_1]
 速度+1
@@ -161,34 +167,40 @@ HP提升15
 幸运提升12
 
 [MSID_Def_1]
-防守+1
+守备+1
 
 [MSID_H_Def_1]
-防守提升1
+守备提升1
 
 [MSID_Def_2]
-防守+2
+守备+2
 
 [MSID_H_Def_2]
-防守提升2
+守备提升2
 
 [MSID_Def_3]
-防守+3
+守备+3
 
 [MSID_H_Def_3]
-防守提升3
+守备提升3
 
 [MSID_Def_4]
-防守+4
+守备+4
 
 [MSID_H_Def_4]
-防守提升4
+守备提升4
 
 [MSID_Def_5]
-防守+5
+守备+5
 
 [MSID_H_Def_5]
-防守提升5
+守备提升5
+
+[MSID_Mag_1]
+魔力+1
+
+[MSID_H_Mag_1]
+魔力提升1
 
 [MSID_Mag_2]
 魔力+2
@@ -213,6 +225,12 @@ HP提升15
 
 [MSID_H_Mag_5]
 魔力提升5
+
+[MSID_Res_1]
+魔防+1
+
+[MSID_H_Res_1]
+魔防提升1
 
 [MSID_Res_2]
 魔防+2
@@ -1140,7 +1158,7 @@ HP回复量+3、杖的命中+30
 [MSID_H_MicaiahEngageAtk_Heavy]
 完全回复10格内我军与友军的HP
 使用后，自身的HP变为1
-【重装】10格内我方于下次战斗时防守+1
+【重装】10格内我方于下次战斗时守备+1
 
 [MSID_H_MicaiahEngageAtk_Prana]
 完全回复10格内我军与友军的HP
@@ -1312,7 +1330,7 @@ HP回复量+3、杖的命中+30
 [MSID_H_LeafEngage_Heavy]
 受到敌人攻击时
 若持有较占优势的武器，将自动更换为该武器
-【重装】该次战斗中，防守+5
+【重装】该次战斗中，守备+5
 
 [MSID_H_LeafEngage_Fly]
 受到敌人攻击时
@@ -1555,19 +1573,19 @@ HP为75%及以下时
 仅限持剑斧
 
 [MSID_H_IkeEngageAtk_Dragon]
-舍弃反击使防守、魔防+5，并于下回合对
+舍弃反击使守备、魔防+5，并于下回合对
 周围2格施展范围攻击，回复伤害30%的HP
 仅限持剑、斧
 【龙族】伤害+1×遇袭次数
 
 [MSID_H_IkeEngageAtk_Heavy]
-舍弃反击使防守、魔防+5，并于下回合对
+舍弃反击使守备、魔防+5，并于下回合对
 周围2格施展范围攻击，回复伤害30%的HP
 仅限持剑、斧
-【重装】发动中防守额外+5
+【重装】发动中守备额外+5
 
 [MSID_H_IkeEngageAtk_Fly]
-舍弃反击使防守、魔防+5，并于下回合对
+舍弃反击使守备、魔防+5，并于下回合对
 周围2格施展范围攻击，回复伤害30%的HP
 仅限持剑、斧
 【飞行】发动中魔防额外+5
@@ -1627,25 +1645,25 @@ HP为75%及以下时
 可使用“指导”指令
 使周围2格内我方单位依战斗类型
 提升能力值，效果持续1回合
-【连携】力量+4
+【连携】力+4
 
 [MSID_BylethEngage_Coop_CMD]
-指导〈力量〉
+指导〈力〉
 
 [MSID_H_BylethEngage_Coop_CMD]
-周围2格内我方单位的力量+4
+周围2格内我方单位的力+4
 
 [MSID_H_BylethEngage_Horse]
 可使用“指导”指令
 使周围2格内我方单位依战斗类型
 提升能力值，效果持续1回合
-【骑马】技巧+10
+【骑马】技+10
 
 [MSID_BylethEngage_Horse_CMD]
-指导〈技巧〉
+指导〈技〉
 
 [MSID_H_BylethEngage_Horse_CMD]
-周围2格内我方单位的技巧+10
+周围2格内我方单位的技+10
 
 [MSID_H_BylethEngage_Covert]
 可使用“指导”指令
@@ -1663,13 +1681,13 @@ HP为75%及以下时
 可使用“指导”指令
 使周围2格内我方单位依战斗类型
 提升能力值，效果持续1回合
-【重装】防守+5
+【重装】守备+5
 
 [MSID_BylethEngage_Heavy_CMD]
-指导〈防守〉
+指导〈守备〉
 
 [MSID_H_BylethEngage_Heavy_CMD]
-周围2格内我方单位的防守+5
+周围2格内我方单位的守备+5
 
 [MSID_H_BylethEngage_Fly]
 可使用“指导”指令
@@ -1721,12 +1739,12 @@ HP为75%及以下时
 
 [MSID_H_BylethEngageAtk_Coop]
 使相邻4格的我方单位再次行动
-【连携】再次行动的我方单位力量+4
+【连携】再次行动的我方单位力+4
 效果持续1回合
 
 [MSID_H_BylethEngageAtk_Horse]
 使相邻4格的我方单位再次行动
-【骑马】再次行动的我方单位技巧+10
+【骑马】再次行动的我方单位技+10
 效果持续1回合
 
 [MSID_H_BylethEngageAtk_Covert]
@@ -1736,7 +1754,7 @@ HP为75%及以下时
 
 [MSID_H_BylethEngageAtk_Heavy]
 使相邻4格的我方单位再次行动
-【重装】再次行动的我方单位防守+5
+【重装】再次行动的我方单位守备+5
 效果持续1回合
 
 [MSID_H_BylethEngageAtk_Fly]
@@ -1783,12 +1801,12 @@ HP为75%及以下时
 龙脉<护>
 
 [MSID_H_DragonPulse_DefUp]
-创造出具有防守、魔防提升效果的土柱。
+创造出具有守备、魔防提升效果的土柱。
 
 [MSID_H_DragonPulse_Coop]
 可使用“龙脉〈护〉”指令
 对格子赋予特殊效果
-【连携】创造出具有防守、魔防
+【连携】创造出具有守备、魔防
 提升效果的土柱
 
 [MSID_DragonPulse_AvoDown]
@@ -2092,12 +2110,12 @@ HP为75%及以下时
 [MSID_H_LueurEngage_Coop]
 自身发动攻击并打倒敌人时
 结合解除前,结合对象的全基本能力值+4
-【连携】力量额外+2
+【连携】力额外+2
 
 [MSID_H_LueurEngage_Horse]
 自身发动攻击并打倒敌人时
 结合解除前,结合对象的全基本能力值+4
-【骑马】技巧额外+2
+【骑马】技额外+2
 
 [MSID_H_LueurEngage_Covert]
 自身发动攻击并打倒敌人时
@@ -2107,7 +2125,7 @@ HP为75%及以下时
 [MSID_H_LueurEngage_Heavy]
 自身发动攻击并打倒敌人时
 结合解除前,结合对象的全基本能力值+4
-【重装】防守额外+2
+【重装】守备额外+2
 
 [MSID_H_LueurEngage_Fly]
 自身发动攻击并打倒敌人时
@@ -2139,7 +2157,7 @@ HP为75%及以下时
 [MSID_H_LueurEngageAtk_Coop]
 剑与光束（魔法）的组合攻击
 仅限持剑且相邻时
-【连携】将力量的20%加计至剑攻击伤害
+【连携】将力的20%加计至剑攻击伤害
 
 [MSID_H_LueurEngageAtk_Magic]
 剑与光束（魔法）的组合攻击
@@ -2172,7 +2190,7 @@ HP为75%及以下时
 与结合对象联手施展剑与光束（魔法）的
 3连攻击
 仅限持剑且相邻时
-【连携】将力量的20%加计至剑攻击伤害
+【连携】将力的20%加计至剑攻击伤害
 
 [MSID_H_LueurEngageAtk_p_Magic]
 与结合对象联手施展剑与光束（魔法）的
@@ -2236,7 +2254,7 @@ $P伤害+2，所受伤害-2
 怪力
 
 [MSID_H_PrivateSkill_Atie]
-力量比敌人高出5以上时，
+力比敌人高出5以上时，
 伤害+3
 
 [MSID_PrivateSkill_Celine]
@@ -2612,14 +2630,14 @@ HP为50%以下时
 
 [MSID_H_JobSkill_Avenir]
 回合开始时，一定几率回复40%HP
-（几率为“技巧”%）
+（几率为“技”%）
 
 [MSID_JobSkill_Fleurage]
 华炎
 
 [MSID_H_JobSkill_Fleurage]
-一定几率增加攻击伤害（几率为“技巧”%）
-使用魔法攻击时，将力量的50%加计至伤害
+一定几率增加攻击伤害（几率为“技”%）
+使用魔法攻击时，将力的50%加计至伤害
 使用其他攻击时，将魔力的50%加计至伤害
 
 [MSID_JobSkill_Successeur]
@@ -2628,7 +2646,7 @@ HP为50%以下时
 [MSID_H_JobSkill_Successeur]
 对敌人造成伤害时，
 一定几率回复造成伤害的50%HP
-（几率为“技巧”%）
+（几率为“技”%）
 
 [MSID_Luna]
 月光
@@ -2636,7 +2654,7 @@ HP为50%以下时
 [MSID_H_Luna]
 攻击时，
 一定几率无视敌人一半的守备与魔防
-（几率为“技巧”%）
+（几率为“技”%）
 
 [MSID_Luna_2]
 月光+
@@ -2644,7 +2662,7 @@ HP为50%以下时
 [MSID_H_Luna_2]
 攻击时，
 一定几率无视敌人一半的守备与魔防
-（几率为“技巧”%）
+（几率为“技”%）
 【月光+】必定触发月光
 
 [MSID_JobSkill_Lindwurm]
@@ -2653,20 +2671,20 @@ HP为50%以下时
 [MSID_H_JobSkill_Lindwurm]
 使用魔道书攻击时
 一定几率无视敌方的魔防
-（几率为“技巧”%）
+（几率为“技”%）
 
 [MSID_JobSkill_Sleipnir]
 大树
 
 [MSID_H_JobSkill_Sleipnir]
 使用杖时，一定几率不消耗使用次数
-（几率为“技巧”*2%）
+（几率为“技”*2%）
 
 [MSID_JobSkill_Pitchfork]
 破天
 
 [MSID_H_JobSkill_Pitchfork]
-一定几率增加攻击伤害（几率为“技巧×1.5”%）
+一定几率增加攻击伤害（几率为“技×1.5”%）
 使用物理攻击时，将对方力的50%加计至伤害
 使用魔法攻击时，将对方魔力的50%加计至伤害
 
@@ -2676,21 +2694,21 @@ HP为50%以下时
 [MSID_H_JobSkill_Cupido]
 发动攻击时
 一定几率以速度的150%计算伤害
-（几率为“技巧”%）
+（几率为“技”%）
 
 [MSID_JobSkill_Melusine]
 魔法剑
 
 [MSID_H_JobSkill_Melusine]
 使用剑攻击时，将依对手的
-“防守与魔防的较低值”来计算造成伤害
+“守备与魔防的较低值”来计算造成伤害
 
 [MSID_JobSkill_Dancer]
 特别舞蹈
 
 [MSID_H_JobSkill_Dancer]
 对我方单位使用“起舞”时
-该单位技巧、速度、幸运+3，效果持续1回合
+该单位技、速度、幸运+3，效果持续1回合
 
 [MSID_MarthRing_Sheeda]
 传道师
@@ -2738,7 +2756,7 @@ HP为50%以下时
 
 [MSID_H_MicaiahRing_Sothe]
 一定几率使对方的HP变为1（部分强敌除外）
-（几率为“技巧÷2”%）
+（几率为“技÷2”%）
 
 [MSID_MicaiahRing_Erincia]
 慈悲
@@ -2804,7 +2822,7 @@ HP回复量+5
 
 [MSID_H_IkeRing_Senerio]
 使用烈风攻击时，一定几率连续攻击2次
-（几率为“技巧”%）
+（几率为“技”%）
 
 [MSID_IkeRing_Wayu]
 冲撞
@@ -2870,7 +2888,7 @@ HP回复量+5
 
 [MSID_H_EirikRing_Heanius]
 自身发动攻击时，有一定几率必定命中
-（几率为“技巧”%）
+（几率为“技”%）
 
 [MSID_SpecialRing_Alfonse]
 攻击纹章
@@ -2879,11 +2897,11 @@ HP回复量+5
 使相邻我方单位的攻击力+2
 
 [MSID_SpecialRing_Sharena]
-防守鼓舞
+守备鼓舞
 
 [MSID_H_SpecialRing_Sharena]
 我军行动阶段开始时
-相邻我方单位的防守+2
+相邻我方单位的守备+2
 
 [MSID_SpecialRing_Anna]
 魔防纹章
@@ -3309,7 +3327,7 @@ HP为50%以下时，必杀+30
 流星
 
 [MSID_H_Astra]
-以一定几率发动（几率为“技巧÷2”%）
+以一定几率发动（几率为“技÷2”%）
 连续发动威力为50%的5次攻击
 
 [MSID_GrislyWound]
@@ -4169,14 +4187,14 @@ MSID_CrtMoreDmg
 
 [MSID_H_Aether]
 一定几率连续发动一次太阳和一次月光攻击
-（几率为“技巧”÷2%）
+（几率为“技”÷2%）
 
 [MSID_Lethality]
 灭杀
 
 [MSID_H_Lethality]
 一定几率一击杀死敌方
-（几率为“技巧”÷2%）
+（几率为“技”÷2%）
 
 [MSID_EquipWeapon_1]
 武器大师
@@ -4218,13 +4236,13 @@ MSID_CrtMoreDmg
 华炎+
 
 [MSID_H_Ignis]
-一定几率增加攻击伤害（几率为“技巧”%）
-使用魔法攻击时，将力量的50%加计至伤害
+一定几率增加攻击伤害（几率为“技”%）
+使用魔法攻击时，将力的50%加计至伤害
 使用其他攻击时，将魔力的50%加计至伤害
 
 [MSID_H_Ignis_2]
-一定几率增加攻击伤害（几率为“技巧”%）
-使用魔法攻击时，将力量的50%加计至伤害
+一定几率增加攻击伤害（几率为“技”%）
+使用魔法攻击时，将力的50%加计至伤害
 使用其他攻击时，将魔力的50%加计至伤害
 【华炎+】必定发动华炎
 

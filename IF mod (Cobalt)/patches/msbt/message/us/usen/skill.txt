@@ -1,3 +1,9 @@
+[MSID_Hp_3]
+HP +3
+
+[MSID_H_Hp_3]
+Grants max HP+3.
+
 [MSID_Hp_5]
 HP +5
 
@@ -190,6 +196,12 @@ Defense +5
 [MSID_H_Def_5]
 Grants Def+5.
 
+[MSID_Mag_1]
+Magic +1
+
+[MSID_H_Mag_1]
+Grants Mag+1.
+
 [MSID_Mag_2]
 Magic +2
 
@@ -213,6 +225,12 @@ Magic +5
 
 [MSID_H_Mag_5]
 Grants Mag+5.
+
+[MSID_Res_1]
+Resistance +1
+
+[MSID_H_Res_1]
+Grants Res+1.
 
 [MSID_Res_2]
 Resistance +2
