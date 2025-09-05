@@ -5132,7 +5132,7 @@ In odd-number turns, allies within
 3 radius get Hit/Crit+10.
 In even-number turns, allies within
 3 radius get Avo/Ddg+10.
-[Calvary] Provide extra 10 Ddg in even turns.
+[Cavalry] Provide extra 10 Ddg in even turns.
 
 [MSID_OddRhythm]
 Odd Rhythm
@@ -5156,7 +5156,7 @@ In even-number turns, allies within
 [MSID_H_EvenRhythm_Horse]
 In even-number turns, allies within
 3 radius get Avo/Ddg+10.
-[Calvary] Provide extra 10 Ddg in even turns.
+[Cavalry] Provide extra 10 Ddg in even turns.
 
 [MSID_CleanUp]
 Press Advantage
@@ -5555,3 +5555,42 @@ Adjacent enemies lose 20 Avo.
 [MSID_H_Heartseeker_Dragon]
 Adjacent enemies lose 20 Avo.
 [Dragon] Enemies lose 10 extra Avo.
+
+[MSID_MonsterBlast]
+Monster Blast
+
+[MSID_H_MonsterBlast]
+Grant the unit "Monster Crusher".
+Cost 3 engage meter or 1 engage turn.
+Effective: Corrupted.
+
+[MSID_H_MonsterBlast_CMD]
+Cost 3 engage meter or 1 engage turn
+to attack with arrows.
+Effective: Corrupted.
+
+[MSID_Knightkneeler]
+Knightkneeler
+
+[MSID_H_Knightkneeler]
+Grant the unit "Knightkneeler".
+Cost 4 engage meter or 2 engage turn
+to attack with lances.
+Effective: Cavalry.
+
+[MSID_H_Knightkneeler_CMD]
+Cost 4 engage meter or 2 engage turn.
+Effective: Cavalry.
+
+[MSID_HelmSplitter]
+Helm Splitter
+
+[MSID_H_HelmSplitter]
+Grant the unit "Helm Splitter".
+Cost 4 engage meter or 2 engage turn
+to attack with axes.
+Effective: Armored.
+
+[MSID_H_HelmSplitter_CMD]
+Cost 4 engage meter or 2 engage turn.
+Effective: Armored.
