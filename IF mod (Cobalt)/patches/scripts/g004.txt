@@ -139,6 +139,8 @@ function イベント登録()
 	EventEntryArea( EmptyFunction, 5, 12, 16, 15, FORCE_PLAYER, g_key_areaEntry )
 
 	EventEntryTurnEnd( volcanicBombByTurn,		1,	-1,	FORCE_ENEMY, condition_true )
+	EventEntryTurn(Set_Interference_AI_G004, -1, -1, FORCE_ENEMY)
+
 	EventEntryArea(DragonVeinUsed, 9, 26, 9, 26, FORCE_PLAYER, condition_true)
 	EventEntryArea(DragonVeinUsed, 4, 22, 4, 22, FORCE_PLAYER, condition_true)
 	EventEntryArea(DragonVeinUsed, 8, 18, 8, 18, FORCE_PLAYER, condition_true)
@@ -486,7 +488,6 @@ function DragonVeinEffect(DragonVeinType)
             for j = 1, g_map_height do
                 Log("x:" .. i .." z:" .. j)
                 if MapOverlapGet(i, j) == "TID_炎上" or MapOverlapGet(i, j) == "TID_炎上_G004" then
-
                     MapOverlapSet(i, j, "TID_無し")
                 end
             end
@@ -786,6 +787,12 @@ function getRangeSquareWithMapDamage(squareSize, map_height, map_width, map_dama
     end
 
     return maxDamageResult
+end
+
+function Set_Interference_AI_G004()
+	if IsExistForcePlayerNearby("PID_IFMOD_G004_幻影兵_ハイプリースト3",10) == false then
+		UnitSetStatus( "PID_IFMOD_G004_幻影兵_ハイプリースト3", UNIT_STATUS_FIXED )
+	end
 end
 
 
