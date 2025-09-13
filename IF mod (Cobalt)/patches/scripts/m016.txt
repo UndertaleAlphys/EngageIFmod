@@ -73,7 +73,12 @@ function イベント登録()
 	EventEntryVisit(訪問イベント, 5, 20)
 	EventEntryDestroy(民家破壊_フラグセット, 5, 20, 5, 20,	4, 21, 5, 22,	g_key_houseDestroy)
 
-	EventEntryArea(DragonVeinUsed, 26, 11, 26, 11, FORCE_PLAYER, condition_true)
+    -- (27,12)  (14,13)   (18,3)    (9,17)
+	EventEntryArea(DragonVeinUsed, 27, 12, 27, 12, FORCE_PLAYER, condition_true)
+	EventEntryArea(DragonVeinUsed, 14, 13, 14, 13, FORCE_PLAYER, condition_true)
+	EventEntryArea(DragonVeinUsed, 18, 3, 18, 3, FORCE_PLAYER, condition_true)
+    EventEntryArea(DragonVeinUsed, 9, 17, 9, 17, FORCE_PLAYER, condition_true)
+
 	EventEntryArea(conditon_reinforcemen2, 1, 1, 7, 22, FORCE_PLAYER, condition_true)
 	EventEntryArea(conditon_reinforcemen1, 1, 1, 15, 22, FORCE_PLAYER, condition_true)
 
@@ -171,8 +176,21 @@ end
 -- -----------------------------------
 
 function InitDragonVein()
-    EffectCreate("魔法陣_G001", 26, 11)
+    EffectCreate("魔法陣_G001", 27, 12)
     DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_0" )
+    EffectCreate("魔法陣_G001", 14, 13)
+    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_1" )
+    EffectCreate("魔法陣_G001", 18, 3)
+    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_2" )
+    EffectCreate("魔法陣_G001", 9, 17)
+    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_3" )
+
+    TerrainSetBegin()
+        TerrainSet(27, 12, "TID_龙脉_M016_TIDE")
+        TerrainSet(14, 13, "TID_龙脉_M016_TIDE")
+        TerrainSet(18, 3, "TID_龙脉_M016_TIDE")
+        TerrainSet(9, 17, "TID_龙脉_M016_TIDE")
+    TerrainSetEnd()
 end
 
 -- -----------------------------------
@@ -182,8 +200,20 @@ function DragonVeinUsed()
     local z = UnitGetZ(unit)
     local used = ""
     local DragonVeinType = ""
-    if(x == 26 and z == 11) then
-        used = DraginVein_Skill_Remove("SID_DragonVein_G004_ICE_0","SID_DragonVein_Used")
+    if(x == 27 and z == 12) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_M016_TIDE_0","SID_DragonVein_Used")
+        DragonVeinType = "tide"
+    end
+    if(x == 14 and z == 13) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_M016_TIDE_1","SID_DragonVein_Used")
+        DragonVeinType = "tide"
+    end
+    if(x == 18 and z == 3) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_M016_TIDE_2","SID_DragonVein_Used")
+        DragonVeinType = "tide"
+    end
+    if(x == 9 and z == 17) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_M016_TIDE_3","SID_DragonVein_Used")
         DragonVeinType = "tide"
     end
 
@@ -193,7 +223,7 @@ function DragonVeinUsed()
         WaitTime( 3.0 )
         EffectDelete("魔法陣_G001", x, z)
         TerrainSetBegin()
-            TerrainSet( x, z, "TID_平地")
+            TerrainSet( x, z, "TID_砂浜")
         TerrainSetEnd()
         DragonVeinEffect()
     end
@@ -218,9 +248,9 @@ function BattleStartAfterイベント()
 
 	Talk( "MID_EV2" )
 
-	local x = UnitGetX(g_pid_Marron)
-    local z = UnitGetZ(g_pid_Marron)
-    CursorSetPos_FromPid( g_pid_Marron )
+	local x = UnitGetX(g_pid_Mauve)
+    local z = UnitGetZ(g_pid_Mauve)
+    CursorSetPos_FromPid( g_pid_Mauve )
     WaitTime( 0.5 )
     EffectPlay( "水球_発動", x, z )
     EffectWait()
@@ -348,15 +378,15 @@ function reinforcement_1()
     Yield()
     WaitTime( 0.5 )
 
-    if VariableGet(g_key_highTide) == 0 then
-        local x = UnitGetX(g_pid_Marron)
-        local z = UnitGetZ(g_pid_Marron)
-        CursorSetPos_FromPid( g_pid_Marron )
-        WaitTime( 0.5 )
-        EffectPlay( "水球_発動", x, z )
-        EffectWait()
-        HighTide()
-    end
+    --if VariableGet(g_key_highTide) == 0 then
+    --    local x = UnitGetX(g_pid_Marron)
+    --    local z = UnitGetZ(g_pid_Marron)
+    --    CursorSetPos_FromPid( g_pid_Marron )
+    --    WaitTime( 0.5 )
+    --    EffectPlay( "水球_発動", x, z )
+    --    EffectWait()
+    --    HighTide()
+    --end
 
     VariableSet( g_key_reinforcement1, 2 )
 end
@@ -392,15 +422,15 @@ function reinforcement_2()
     Yield()
     WaitTime( 0.5 )
 
-    if VariableGet(g_key_highTide) == 0 then
-         local x = UnitGetX(g_pid_Marron)
-         local z = UnitGetZ(g_pid_Marron)
-         CursorSetPos_FromPid( g_pid_Marron )
-         WaitTime( 0.5 )
-         EffectPlay( "水球_発動", x, z )
-         EffectWait()
-         HighTide()
-    end
+    --if VariableGet(g_key_highTide) == 0 then
+    --     local x = UnitGetX(g_pid_Marron)
+    --     local z = UnitGetZ(g_pid_Marron)
+    --     CursorSetPos_FromPid( g_pid_Marron )
+    --     WaitTime( 0.5 )
+    --     EffectPlay( "水球_発動", x, z )
+    --     EffectWait()
+    --     HighTide()
+    --end
 
     VariableSet( g_key_reinforcement2, 2 )
 end

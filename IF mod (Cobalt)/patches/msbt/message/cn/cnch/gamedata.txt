@@ -788,10 +788,10 @@ $P被击败或超过$Arg(0)回合
 [MTID_DragonVein_G004_FIRE]
 龙脉：火山喷发
 
-[MTID_DragonVein_M015_TIDE_E]
+[MTID_DragonVein_M016_TIDE_E]
 龙脉：涨潮
 
-[MTID_DragonVein_M015_TIDE_P]
+[MTID_DragonVein_M016_TIDE_P]
 龙脉：退潮
 
 [MTID_Quicksand]
