@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4b169b47-318b-4bf7-89cf-ac20829d5684" name="更改" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$USER_HOME$/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.23.4.windows-amd64" />
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/go/pkg/mod/fyne.io/fyne/v2@v2.6.3/canvas/image.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/go/pkg/mod/fyne.io/fyne/v2@v2.6.3/canvas/text.go" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/go/pkg/mod/fyne.io/fyne/v2@v2.6.3/widget/widget.go" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="32H3PAXBlb6tis2LaxkP2WOvDI6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go 构建.go build main.go.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/khysz/AppData/Roaming/Ryujinx/sdcard/engage/EngageCalculator&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/khysz/AppData/Roaming/Ryujinx/sdcard/engage/mods/IF mod (Cobalt)/EngageCalculator/EngageCalculator/main.go&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\khysz\AppData\Roaming\Ryujinx\sdcard\engage\mods\IF mod (Cobalt)\EngageCalculator\resources" />
+      <recent name="C:\Users\khysz\AppData\Roaming\Ryujinx\sdcard\engage\mods\IF mod (Cobalt)\EngageCalculator" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\khysz\AppData\Roaming\Ryujinx\sdcard\engage\mods\IF mod (Cobalt)\EngageCalculator\resources" />
+      <recent name="C:\Users\khysz\AppData\Roaming\Ryujinx\sdcard\engage\mods\IF mod (Cobalt)\EngageCalculator\'" />
+      <recent name="C:\Users\khysz\AppData\Roaming\Ryujinx\sdcard\engage\mods\IF mod (Cobalt)\EngageCalculator\models" />
+      <recent name="C:\Users\khysz\AppData\Roaming\Ryujinx\sdcard\engage\mods\IF mod (Cobalt)\EngageCalculator" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go 构建.go build main.go">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="calculator" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="EngageCalculator" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build person_view.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="calculator" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="EngageCalculator" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/views/person_view.go" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go 构建.go build main.go" />
+        <item itemvalue="Go 构建.go build person_view.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="4b169b47-318b-4bf7-89cf-ac20829d5684" name="更改" comment="" />
+      <created>1757063643886</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757063643886</updated>
+      <workItem from="1757063645022" duration="2755000" />
+      <workItem from="1757066429391" duration="66000" />
+      <workItem from="1757066506854" duration="4177000" />
+      <workItem from="1757071791082" duration="23205000" />
+      <workItem from="1757095168929" duration="5050000" />
+      <workItem from="1757100241427" duration="1008000" />
+      <workItem from="1757101277772" duration="6019000" />
+      <workItem from="1757107339911" duration="1489000" />
+      <workItem from="1757127359165" duration="11473000" />
+      <workItem from="1757146898790" duration="43799000" />
+      <workItem from="1757194825244" duration="248000" />
+      <workItem from="1757216762234" duration="10216000" />
+      <workItem from="1757227507803" duration="142000" />
+      <workItem from="1757227673575" duration="1511000" />
+      <workItem from="1757230949031" duration="3083000" />
+      <workItem from="1757234965701" duration="1799000" />
+      <workItem from="1757247468320" duration="7748000" />
+      <workItem from="1757261560793" duration="179000" />
+      <workItem from="1757262672230" duration="584000" />
+      <workItem from="1757297382851" duration="416000" />
+      <workItem from="1757782493700" duration="1081000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
