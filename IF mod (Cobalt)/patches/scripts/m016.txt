@@ -9,6 +9,9 @@ g_pid_Marron            = "PID_M016_マロン"
 g_key_highTide			= "満潮"
 g_key_highTide_turn		= "満ち引きターン"
 
+g_key_reinforcement1    = "g_key_reinforcement1"
+g_key_reinforcement2    = "g_key_reinforcement2"
+
 map_width				= 30
 map_height				= 22
 
@@ -36,6 +39,8 @@ function 変数登録()
 	VariableEntry( g_key_highTide_turn, -1 )
 	VariableEntry( g_key_bandit, 0 )
 	VariableEntry( g_key_houseDestroy, 0 )
+	VariableEntry( g_key_reinforcement1, 0 )
+	VariableEntry( g_key_reinforcement2, 0 )
 
 	E_BattleTalk_VariableEntry()
 
@@ -46,14 +51,12 @@ function イベント登録()
 	EventEntryTurn(BattleStartAfterイベント, 1, 1,  FORCE_PLAYER)
 	EventEntryTurn( 勝利条件, 1, 1, FORCE_PLAYER )
 	EventEntryTurn( HighTideByTurn, -1, -1,FORCE_ENEMY)
+    EventEntryTurn( reinforcement_1, -1, -1,FORCE_PLAYER)
+    EventEntryTurn( reinforcement_2, -1, -1,FORCE_PLAYER)
+    EventEntryTurn(Set_Interference_AI_M016, -1, -1, FORCE_ENEMY)
+
 
 	EventEntryPickup(チュートリアル_エイリーク, "PID_ロサード", "チュートリアル_エイリーク_済")
-
-	EventEntryTurn(蛮族登場, 2, 2, FORCE_PLAYER, condition_蛮族登場)
-	EventEntryTurn(蛮族登場, 4, 4, FORCE_PLAYER, condition_蛮族登場_ノーマル)
-
-	EventEntryTurn(増援１, 6, 6, FORCE_PLAYER)
-	EventEntryTurn(増援２, 10, 10, FORCE_PLAYER)
 
 	-- ボス
 	E_BattleTalkEntry_Marron( "PID_M016_マロン" )
@@ -71,6 +74,10 @@ function イベント登録()
 	EventEntryDestroy(民家破壊_フラグセット, 5, 20, 5, 20,	4, 21, 5, 22,	g_key_houseDestroy)
 
 	EventEntryArea(DragonVeinUsed, 26, 11, 26, 11, FORCE_PLAYER, condition_true)
+	EventEntryArea(conditon_reinforcemen2, 1, 1, 7, 22, FORCE_PLAYER, condition_true)
+	EventEntryArea(conditon_reinforcemen1, 1, 1, 15, 22, FORCE_PLAYER, condition_true)
+
+
 
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 27, 11, "PID_リュール", condition_true)
@@ -144,6 +151,21 @@ function MapOpening()
 	Log("step start")
 	InitDragonVein()
 	Log("step end")
+end
+
+function Set_Interference_AI_M016()
+	if IsExistForcePlayerNearby("PID_IFMOD_M016_イルシオン兵_ストラテジスト1",12) == false then
+		UnitSetStatus( "PID_IFMOD_M014_イルシオン兵_モンク1", UNIT_STATUS_FIXED )
+	end
+	if IsExistForcePlayerNearby("PID_IFMOD_M016_イルシオン兵_ストラテジスト2",12) == false then
+		UnitSetStatus( "PID_IFMOD_M014_イルシオン兵_モンク2", UNIT_STATUS_FIXED )
+	end
+	if IsExistForcePlayerNearby("PID_IFMOD_M016_イルシオン兵_ストラテジスト3",12) == false then
+		UnitSetStatus( "PID_IFMOD_M014_イルシオン兵_モンク3", UNIT_STATUS_FIXED )
+	end
+	if IsExistForcePlayerNearby("PID_IFMOD_M016_イルシオン兵_ストラテジスト4",12) == false then
+		UnitSetStatus( "PID_IFMOD_M014_イルシオン兵_モンク4", UNIT_STATUS_FIXED )
+	end
 end
 
 -- -----------------------------------
@@ -297,80 +319,90 @@ function マップ全体の地形変化( fromTid, toTid )
 
 end
 
--- -----------------------------------
-
-function condition_蛮族登場()
-
-	if VariableGet( g_key_bandit ) != 0 then
-		return false
-	end
-
-	if DifficultyGet() > DIFFICULTY_NORMAL then
-		return true
-	end
-
-	return false
-
-end
-
-function condition_蛮族登場_ノーマル()
-
-	if VariableGet( g_key_bandit ) != 0 then
-		return false
-	end
-
-	if DifficultyGet() == DIFFICULTY_NORMAL then
-		return true
-	end
-
-	return false
-
-end
-
-function 蛮族登場()
-
-	Dispos( "Bandit", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-
-	VariableSet( g_key_bandit, 1 )
-
-end
 
 -- -----------------------------------
 
-function 増援１()
+function conditon_reinforcemen1()
+    if VariableGet(g_key_reinforcement1) == 1 then
+        return
+    end
 
-	Dispos( "Reinforcement1_1", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-
-	Dispos( "Reinforcement1_2", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
+    VariableSet( g_key_reinforcement1, 1 )
 
 end
 
+function reinforcement_1()
+    if VariableGet(g_key_reinforcement1) ~= 1 then
+       return
+    end
+
+    Dispos( "Reinforcement_1_1", DISPOS_FLAG_FOCUS )
+    Yield()
+    WaitTime( 0.5 )
+
+    Dispos( "Reinforcement_1_2", DISPOS_FLAG_FOCUS )
+    Yield()
+    WaitTime( 0.5 )
+
+    Dispos( "Reinforcement_1_3", DISPOS_FLAG_FOCUS )
+    Yield()
+    WaitTime( 0.5 )
+
+    if VariableGet(g_key_highTide) == 0 then
+        local x = UnitGetX(g_pid_Marron)
+        local z = UnitGetZ(g_pid_Marron)
+        CursorSetPos_FromPid( g_pid_Marron )
+        WaitTime( 0.5 )
+        EffectPlay( "水球_発動", x, z )
+        EffectWait()
+        HighTide()
+    end
+
+    VariableSet( g_key_reinforcement1, 2 )
+end
 -- -----------------------------------
 
-function 増援２()
+function conditon_reinforcemen2()
+    if VariableGet(g_key_reinforcement1) == 1 then
+        return
+    end
 
-	Dispos( "Reinforcement2_1", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
+	VariableSet( g_key_reinforcement2, 1 )
 
-	Dispos( "Reinforcement2_2", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
+end
 
-	Dispos( "Reinforcement2_3", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
+function reinforcement_2()
+    if VariableGet(g_key_reinforcement1) ~= 1 then
+       return
+    end
 
-	Dispos( "Reinforcement2_4", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
+    Dispos( "Reinforcement_2_1", DISPOS_FLAG_FOCUS )
+    Yield()
+    WaitTime( 0.5 )
 
+    Dispos( "Reinforcement_2_2", DISPOS_FLAG_FOCUS )
+    Yield()
+    WaitTime( 0.5 )
+
+    Dispos( "Reinforcement_2_3", DISPOS_FLAG_FOCUS )
+    Yield()
+    WaitTime( 0.5 )
+
+    Dispos( "Reinforcement_2_4", DISPOS_FLAG_FOCUS )
+    Yield()
+    WaitTime( 0.5 )
+
+    if VariableGet(g_key_highTide) == 0 then
+         local x = UnitGetX(g_pid_Marron)
+         local z = UnitGetZ(g_pid_Marron)
+         CursorSetPos_FromPid( g_pid_Marron )
+         WaitTime( 0.5 )
+         EffectPlay( "水球_発動", x, z )
+         EffectWait()
+         HighTide()
+    end
+
+    VariableSet( g_key_reinforcement2, 2 )
 end
 
 -- -----------------------------------
@@ -378,7 +410,7 @@ end
 function 訪問イベント()
 
 	Talk( "MID_EV4" )
-	ItemGain( MindGetUnit(), "IID_リカバー" )
+	ItemGain( MindGetUnit(), "IID_キルソード" )
 
 end
 
