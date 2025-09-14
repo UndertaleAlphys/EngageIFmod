@@ -31,7 +31,7 @@ function Startup()
 	
 end
 
-function registerVariables()
+function 変数登録()
 	
 	VariableEntry( g_key_enter_center_area, 		0 )
 	VariableEntry( g_key_enter_upward_area, 		0 )
@@ -46,7 +46,7 @@ function registerVariables()
 	
 end
 
-function registerEvents()
+function イベント登録()
 	
 	EventEntryTurn( BattleStartAfter,			 1,  1, FORCE_PLAYER )
 	EventEntryTurn( victoryCondition_FocusOnEmblemSwordsman,	1,  1, FORCE_PLAYER )
@@ -134,168 +134,6 @@ end
 
 -- -----------------------------------
 
-function condition_reinforcement()
-	
-	if modeIsNormal() then
-		return ( MapGetTurn() % 4 == 0 )
-		
-	else
-		return ( MapGetTurn() % 3 == 0 )
-		
-	end
-	
-end
-
-function reinforcement()
-	
-	if		VariableGet( g_key_enter_center_area ) == 0 then
-		if ( MapGetTurn() < g_noEXP_turn ) then
-			reinforcement_1()
-			
-		else
-			reinforcement_1_noEXP()
-			
-		end
-		
-	else
-		if ( MapGetTurn() < g_noEXP_turn ) then
-			reinforcement_2()
-			
-		else
-			reinforcement_2_noEXP()
-			
-		end
-		
-	end
-	
-end
-
-function reinforcement_1()
-	
-	Dispos( "Reinforcement1_1", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	if DifficultyGet() > DIFFICULTY_NORMAL then
-		Dispos( "Reinforcement1_2", DISPOS_FLAG_FOCUS )
-		Yield()
-		WaitTime( 0.5 )
-	end
-	
-	Dispos( "Reinforcement1_3", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-end
-
-function reinforcement_1_noEXP()
-	
-	Dispos( "Reinforcement1_1_noEXP", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	if DifficultyGet() > DIFFICULTY_NORMAL then
-		Dispos( "Reinforcement1_2_noEXP", DISPOS_FLAG_FOCUS )
-		Yield()
-		WaitTime( 0.5 )
-	end
-	
-	Dispos( "Reinforcement1_3_noEXP", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-end
-
-function reinforcement_2()
-	
-	Dispos( "Reinforcement4_1", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	if DifficultyGet() > DIFFICULTY_NORMAL then
-		Dispos( "Reinforcement4_2", DISPOS_FLAG_FOCUS )
-		Yield()
-		WaitTime( 0.5 )
-	end
-	
-	Dispos( "Reinforcement4_3", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-end
-
-function reinforcement_2_noEXP()
-	
-	Dispos( "Reinforcement4_1_noEXP", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	if DifficultyGet() > DIFFICULTY_NORMAL then
-		Dispos( "Reinforcement4_2_noEXP", DISPOS_FLAG_FOCUS )
-		Yield()
-		WaitTime( 0.5 )
-	end
-	
-	Dispos( "Reinforcement4_3_noEXP", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-end
-
--- -----------------------------------
-
-function reinforcement_4thTurn()
-	
-	Dispos( "Reinforcement2", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-end
-
--- -----------------------------------
-
-function reinforcement_9thTurn()
-	
-	Dispos( "Reinforcement3", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-end
-
--- -----------------------------------
-
-
-function condition_reinforcement_AfterEnteringUpperArea()
-	
-	if ( VariableGet( g_key_reinforcement_upwardArea ) == 1 ) then
-		return false
-	end
-	
-	if ( VariableGet( g_key_enter_upward_area ) == 0 ) then
-		return false
-	end
-	
-	if modeIsNormal() or modeIsHard() then
-		return ( MapGetTurn() % 2 == 0 )
-	else
-		return true
-	end
-	
-end
-
-function reinforcement_AfterEnteringUpperArea()
-	
-	Dispos( "Reinforcement5_1", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	Dispos( "Reinforcement5_2", DISPOS_FLAG_FOCUS )
-	Yield()
-	WaitTime( 0.5 )
-	
-	VariableSet( g_key_reinforcement_upwardArea, 1 )
-	
-end
 
 -- -----------------------------------
 
