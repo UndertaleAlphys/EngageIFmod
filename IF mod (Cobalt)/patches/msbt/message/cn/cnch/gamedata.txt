@@ -884,6 +884,9 @@ $P被击败或超过$Arg(0)回合
 [MTID_PrivateHouse]
 民宅
 
+[MTID_Village]
+村
+
 [MTID_House]
 建筑物
 

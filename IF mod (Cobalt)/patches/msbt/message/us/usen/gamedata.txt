@@ -917,6 +917,9 @@ Windmill
 [MTID_PrivateHouse]
 House
 
+[MTID_Village]
+Village
+
 [MTID_House]
 Edifice
 
