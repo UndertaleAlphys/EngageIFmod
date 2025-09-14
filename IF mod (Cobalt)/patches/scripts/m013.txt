@@ -127,19 +127,19 @@ function MapOpening()
 --	リュール軍到着();
 --	FadeWait();
 --	WaitTime(0.5);
-	TerraSet()
+	TerraSetInit()
 	-- 神将作成・バディ化
 	UnitCreateGodUnit("PID_ミスティラ", "GID_アイク");
 	UnitSetEngageCount("PID_ミスティラ", 7)
 
 	CursorSetPos( 11, 12 )
 	MapCameraWait()
-	
+
 	EffectPlay( "カムイ竜脈", 11, 12 )
 	EffectWait()
 
 	BreakAllObjects()
-	
+
 	Talk("MID_EV7")
 
 	Dialog("MID_TUT_M013_RULE")
@@ -152,13 +152,35 @@ function TerraSet()
 	TerrainSetBegin()
 	Log("TerrainSetBegin")
 	for x = 1, g_Width do
-		for z = 1, g_Height do 
+		for z = 1, g_Height do
 			if TerrainGet(x, z) == "TID_砂漠" then
 				TerrainSet(x, z, "TID_平地")
 			end
-			
+
 		end
 	end
+
+	Log("TerrainSetEnd")
+	TerrainSetEnd()
+end
+
+function TerraSetInit()
+	TerrainSetBegin()
+	Log("TerrainSetBegin")
+	for x = 1, g_Width do
+		for z = 1, g_Height do
+			if TerrainGet(x, z) == "TID_砂漠" then
+				TerrainSet(x, z, "TID_平地")
+			end
+
+		end
+	end
+    TerrainSet(13, 14,"TID_村")
+    TerrainSet(2, 2,"TID_村")
+    TerrainSet(22, 6,"TID_村")
+    TerrainSet(2, 10,"TID_村")
+    TerrainSet(18, 9,"TID_村")
+    TerrainSet(13, 3,"TID_村")
 	Log("TerrainSetEnd")
 	TerrainSetEnd()
 end

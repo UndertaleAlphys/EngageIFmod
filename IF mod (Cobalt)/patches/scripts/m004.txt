@@ -166,6 +166,11 @@ function MapOpening()
 	CursorSetPos_FromPid( g_pid_lueur )
 	
 	SoundPostEvent("BGM_Evt_Danger1_Stop_1000")
+
+	TerrainSetBegin()
+	    TerrainSet(7, 4, "TID_平地")
+	    TerrainSet(14, 10, "TID_平地")
+	TerrainSetEnd()
 end
 
 -- ---------------------------------------------------------

@@ -193,6 +193,7 @@ function InitDragonVein()
         TerrainSet(19, 3, "TID_龙脉_M016_TIDE")
         TerrainSet(9, 17, "TID_龙脉_M016_TIDE")
         TerrainSet(3, 3, "TID_龙脉_M016_TIDE_U")
+        TerrainSet(5, 20,"TID_村")
     TerrainSetEnd()
 end
 
