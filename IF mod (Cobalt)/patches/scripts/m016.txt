@@ -73,10 +73,10 @@ function イベント登録()
 	EventEntryVisit(訪問イベント, 5, 20)
 	EventEntryDestroy(民家破壊_フラグセット, 5, 20, 5, 20,	4, 21, 5, 22,	g_key_houseDestroy)
 
-    -- (27,12)  (14,13)   (18,3)    (9,17)
+    -- (27,12)  (14,13)   (19,3)    (9,17)
 	EventEntryArea(DragonVeinUsed, 27, 12, 27, 12, FORCE_PLAYER, condition_true)
 	EventEntryArea(DragonVeinUsed, 14, 13, 14, 13, FORCE_PLAYER, condition_true)
-	EventEntryArea(DragonVeinUsed, 18, 3, 18, 3, FORCE_PLAYER, condition_true)
+	EventEntryArea(DragonVeinUsed, 19, 3, 19, 3, FORCE_PLAYER, condition_true)
     EventEntryArea(DragonVeinUsed, 9, 17, 9, 17, FORCE_PLAYER, condition_true)
 
 	EventEntryArea(conditon_reinforcemen2, 1, 1, 7, 22, FORCE_PLAYER, condition_true)
@@ -180,16 +180,19 @@ function InitDragonVein()
     DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_0" )
     EffectCreate("魔法陣_G001", 14, 13)
     DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_1" )
-    EffectCreate("魔法陣_G001", 18, 3)
+    EffectCreate("魔法陣_G001", 19, 3)
     DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_2" )
     EffectCreate("魔法陣_G001", 9, 17)
     DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_3" )
+    EffectCreate("魔法陣_G001", 3, 3)
+    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_4" )
 
     TerrainSetBegin()
         TerrainSet(27, 12, "TID_龙脉_M016_TIDE")
         TerrainSet(14, 13, "TID_龙脉_M016_TIDE")
-        TerrainSet(18, 3, "TID_龙脉_M016_TIDE")
+        TerrainSet(19, 3, "TID_龙脉_M016_TIDE")
         TerrainSet(9, 17, "TID_龙脉_M016_TIDE")
+        TerrainSet(3, 3, "TID_龙脉_M016_TIDE_U")
     TerrainSetEnd()
 end
 
@@ -208,7 +211,7 @@ function DragonVeinUsed()
         used = DraginVein_Skill_Remove("SID_DragonVein_M016_TIDE_1","SID_DragonVein_Used")
         DragonVeinType = "tide"
     end
-    if(x == 18 and z == 3) then
+    if(x == 19 and z == 3) then
         used = DraginVein_Skill_Remove("SID_DragonVein_M016_TIDE_2","SID_DragonVein_Used")
         DragonVeinType = "tide"
     end
@@ -216,10 +219,15 @@ function DragonVeinUsed()
         used = DraginVein_Skill_Remove("SID_DragonVein_M016_TIDE_3","SID_DragonVein_Used")
         DragonVeinType = "tide"
     end
+    if(x == 3 and z == 3) then
+        used = DraginVein_Skill_Remove("SID_DragonVein_M016_TIDE_4","SID_DragonVein_Used")
+        DragonVeinType = "tide"
+    end
 
     if used == true then
+        CursorSetPos( 15, 11 )
         WaitTime( 0.5 )
-        EffectPlay( "カムイ竜脈", x, z )
+        EffectPlay( "カムイ竜脈", 15, 11 )
         WaitTime( 3.0 )
         EffectDelete("魔法陣_G001", x, z)
         TerrainSetBegin()
@@ -248,13 +256,7 @@ function BattleStartAfterイベント()
 
 	Talk( "MID_EV2" )
 
-	local x = UnitGetX(g_pid_Mauve)
-    local z = UnitGetZ(g_pid_Mauve)
-    CursorSetPos_FromPid( g_pid_Mauve )
-    WaitTime( 0.5 )
-    EffectPlay( "水球_発動", x, z )
-    EffectWait()
-    HighTide()
+	HighTideByDragonVein()
 
 end
 
@@ -307,11 +309,16 @@ function EbbTide()
 end
 
 function HighTideByDragonVein()
-    local x = UnitGetX(g_pid_Marron)
-    local z = UnitGetZ(g_pid_Marron)
-    CursorSetPos_FromPid( g_pid_Marron)
+    local x = UnitGetX(g_pid_Mauve)
+    local z = UnitGetZ(g_pid_Mauve)
+    CursorSetPos_FromPid( g_pid_Mauve)
     WaitTime( 0.5 )
     EffectPlay( "水球_発動", x, z )
+    EffectWait()
+    CursorSetPos( 15, 11 )
+    MapCameraWait()
+
+    EffectPlay( "水球", 15, 11 )
     EffectWait()
     HighTide()
 end

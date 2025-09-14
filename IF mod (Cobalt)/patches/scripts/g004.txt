@@ -217,7 +217,7 @@ function MapOpening()
 
 	g_bombDamage = g_bombDamage - ( g_bombDamage % 1 )
 	VariableSet( "火山弾ダメージ", g_bombDamage )
-
+    EffectCreate("魔法陣_G001",	19, 3)
     EffectCreate("魔法陣_G001",	9, 26)
     EffectCreate("魔法陣_G001",	4, 22)
     EffectCreate("魔法陣_G001",	8, 18)
@@ -256,6 +256,7 @@ end
 
 function InitDragonVein()
     TerrainSetBegin()
+        TerrainSet( 19, 3, "TID_龙脉_G004_FIRE")
         TerrainSet( 9, 26, "TID_龙脉_G004_FIRE")
         TerrainSet( 4, 22, "TID_龙脉_G004_ICE")
         TerrainSet( 8, 18, "TID_龙脉_G004_FIRE")
