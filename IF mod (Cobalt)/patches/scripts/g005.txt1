@@ -26,12 +26,12 @@ function Startup()
 	WinRuleSetDestroyBoss( true )	-- 敵将撃破
 	WinRuleSetMID( "MID_RULE_G005_WIN" )
 	
-	registerVariables()
-	registerEvents()
+	変数登録()
+	イベント登録()
 	
 end
 
-function registerVariables()
+function 変数登録()
 	
 	VariableEntry( g_key_enter_center_area, 		0 )
 	VariableEntry( g_key_enter_upward_area, 		0 )
@@ -46,30 +46,30 @@ function registerVariables()
 	
 end
 
-function registerEvents()
+function イベント登録()
 	
 	EventEntryTurn( BattleStartAfter,			 1,  1, FORCE_PLAYER )
-	EventEntryTurn( victoryCondition_FocusOnEmblemSwordsman,	1,  1, FORCE_PLAYER )
+	EventEntryTurn( 勝利条件_紋章士にフォーカス,	1,  1, FORCE_PLAYER )
 	
-	EventEntryTurn( dragonVein_HardOrBelow,		 2, -1, FORCE_PLAYER, condition_dragonVein_HardOrBelow )
-	EventEntryTurn( dragonVein_Lunatic,		 2, -1, FORCE_PLAYER, condition_dragonVein_Lunatic )
+	EventEntryTurn( 竜脈_ハード以下,		 2, -1, FORCE_PLAYER, condition_竜脈_ハード以下 )
+	EventEntryTurn( 竜脈_ルナティック,		 2, -1, FORCE_PLAYER, condition_竜脈_ルナティック )
 	
-	EventEntryTurn( reinforcement,					 3, -1, FORCE_PLAYER, condition_reinforcement )
-	EventEntryTurn( reinforcement_4thTurn,		 4,  4, FORCE_PLAYER )
-	EventEntryTurn( reinforcement_9thTurn,		 9,  9, FORCE_PLAYER )
-	EventEntryTurn( reinforcement_AfterEnteringUpperArea,		-1, -1, FORCE_PLAYER, condition_reinforcement_AfterEnteringUpperArea )
+	EventEntryTurn( 増援,					 3, -1, FORCE_PLAYER, condition_増援 )
+	EventEntryTurn( 増援_４ターンめ,		 4,  4, FORCE_PLAYER )
+	EventEntryTurn( 増援_９ターンめ,		 9,  9, FORCE_PLAYER )
+	EventEntryTurn( 増援_上方進入直後,		-1, -1, FORCE_PLAYER, condition_増援_上方進入直後 )
 	
-	EventEntryArea( mapCenterEntry,	 1,  9, 29, 25, FORCE_PLAYER, condition_mapCenterEntry )
-	EventEntryArea( mapUpperEntry,	 1, 17, 29, 25, FORCE_PLAYER, condition_mapUpperEntry )
+	EventEntryArea( マップ中央進入,	 1,  9, 29, 25, FORCE_PLAYER, condition_マップ中央進入 )
+	EventEntryArea( マップ上方進入,	 1, 17, 29, 25, FORCE_PLAYER, condition_マップ上方進入 )
 	
-	EventEntryBattleTalk( battleWithLueur,	g_pid_lueur,	FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, g_key_battleTalk_camilla_lueur )
-	EventEntryBattleTalk( battleWithKamui,		"",				FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_battleWithKamui )
+	EventEntryBattleTalk( リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, g_key_battleTalk_camilla_lueur )
+	EventEntryBattleTalk( カムイと戦闘,		"",				FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_カムイと戦闘 )
 	
-	EventEntryBattleBefore(VariableSet, "", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_camillaAttackedFromFar, g_key_camillaAttackedFar, 1 )
-	EventEntryTurn( reinforcement_AfterCamillaNonRangedAttack,	-1, -1, FORCE_PLAYER, condition_reinforcement_AfterCamillaNonRangedAttack )
+	EventEntryBattleBefore(VariableSet, "", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_カミラが遠距離攻撃された, g_key_camillaAttackedFar, 1 )
+	EventEntryTurn( 増援_カミラ非遠距離攻撃後,	-1, -1, FORCE_PLAYER, condition_増援_カミラ非遠距離攻撃後 )
 	
 	-- --------------------------------------------------
-	EventEntryEscape(escapeEvent, 5, 4, "PID_リュール", condition_true)
+	EventEntryEscape(離脱イベント, 5, 4, "PID_リュール", condition_true)
 	
 end
 
@@ -118,7 +118,7 @@ function BattleStartAfter()
 	
 	Talk( "MID_EV1" )
 	
-	dragonVeinActivation( 8, 8, 7.5, 7.5, false )
+	竜脈発動( 8, 8, 7.5, 7.5, false )
 	
 	Talk( "MID_EV2" )
 	
@@ -126,7 +126,7 @@ end
 
 -- -----------------------------------
 
-function victoryCondition_FocusOnEmblemSwordsman()
+function 勝利条件_紋章士にフォーカス()
 	CursorAnimeCreate_FromPid( g_pid_boss )
 	WinRule()
 	CursorAnimeDelete()
@@ -134,9 +134,9 @@ end
 
 -- -----------------------------------
 
-function condition_reinforcement()
+function condition_増援()
 	
-	if modeIsNormal() then
+	if モードはノーマル() then
 		return ( MapGetTurn() % 4 == 0 )
 		
 	else
@@ -146,23 +146,23 @@ function condition_reinforcement()
 	
 end
 
-function reinforcement()
+function 増援()
 	
 	if		VariableGet( g_key_enter_center_area ) == 0 then
 		if ( MapGetTurn() < g_noEXP_turn ) then
-			reinforcement_1()
+			増援_1()
 			
 		else
-			reinforcement_1_noEXP()
+			増援_1_noEXP()
 			
 		end
 		
 	else
 		if ( MapGetTurn() < g_noEXP_turn ) then
-			reinforcement_2()
+			増援_2()
 			
 		else
-			reinforcement_2_noEXP()
+			増援_2_noEXP()
 			
 		end
 		
@@ -170,7 +170,7 @@ function reinforcement()
 	
 end
 
-function reinforcement_1()
+function 増援_1()
 	
 	Dispos( "Reinforcement1_1", DISPOS_FLAG_FOCUS )
 	Yield()
@@ -188,7 +188,7 @@ function reinforcement_1()
 	
 end
 
-function reinforcement_1_noEXP()
+function 増援_1_noEXP()
 	
 	Dispos( "Reinforcement1_1_noEXP", DISPOS_FLAG_FOCUS )
 	Yield()
@@ -206,7 +206,7 @@ function reinforcement_1_noEXP()
 	
 end
 
-function reinforcement_2()
+function 増援_2()
 	
 	Dispos( "Reinforcement4_1", DISPOS_FLAG_FOCUS )
 	Yield()
@@ -224,7 +224,7 @@ function reinforcement_2()
 	
 end
 
-function reinforcement_2_noEXP()
+function 増援_2_noEXP()
 	
 	Dispos( "Reinforcement4_1_noEXP", DISPOS_FLAG_FOCUS )
 	Yield()
@@ -244,7 +244,7 @@ end
 
 -- -----------------------------------
 
-function reinforcement_4thTurn()
+function 増援_４ターンめ()
 	
 	Dispos( "Reinforcement2", DISPOS_FLAG_FOCUS )
 	Yield()
@@ -254,7 +254,7 @@ end
 
 -- -----------------------------------
 
-function reinforcement_9thTurn()
+function 増援_９ターンめ()
 	
 	Dispos( "Reinforcement3", DISPOS_FLAG_FOCUS )
 	Yield()
@@ -265,7 +265,7 @@ end
 -- -----------------------------------
 
 
-function condition_reinforcement_AfterEnteringUpperArea()
+function condition_増援_上方進入直後()
 	
 	if ( VariableGet( g_key_reinforcement_upwardArea ) == 1 ) then
 		return false
@@ -275,7 +275,7 @@ function condition_reinforcement_AfterEnteringUpperArea()
 		return false
 	end
 	
-	if modeIsNormal() or modeIsHard() then
+	if モードはノーマル() or モードはハード() then
 		return ( MapGetTurn() % 2 == 0 )
 	else
 		return true
@@ -283,7 +283,7 @@ function condition_reinforcement_AfterEnteringUpperArea()
 	
 end
 
-function reinforcement_AfterEnteringUpperArea()
+function 増援_上方進入直後()
 	
 	Dispos( "Reinforcement5_1", DISPOS_FLAG_FOCUS )
 	Yield()
@@ -299,35 +299,35 @@ end
 
 -- -----------------------------------
 
-function condition_mapCenterEntry()
+function condition_マップ中央進入()
 	
 	return VariableGet( g_key_enter_center_area ) == 0
 	
 end
 
-function mapCenterEntry()
+function マップ中央進入()
 	
-	if nOrMoreUnitsInAreaWithZOrHigher( 9, 3 ) then
+	if z以上のエリアにn人以上進入( 9, 3 ) then
 		VariableSet( g_key_enter_center_area, 1 )
 	end
 	
 end
 
-function condition_mapUpperEntry()
+function condition_マップ上方進入()
 	
 	return VariableGet( g_key_enter_upward_area ) == 0
 	
 end
 
-function mapUpperEntry()
+function マップ上方進入()
 	
-	if nOrMoreUnitsInAreaWithZOrHigher( 17, 3 ) then
+	if z以上のエリアにn人以上進入( 17, 3 ) then
 		VariableSet( g_key_enter_upward_area, 1 )
 	end
 	
 end
 
-function nOrMoreUnitsInAreaWithZOrHigher( z, n )
+function z以上のエリアにn人以上進入( z, n )
 	
 	local counter = 0
 	local playerNum = 0
@@ -349,19 +349,19 @@ end
 
 -- -----------------------------------
 
-function battleWithLueur()
+function リュールと戦闘()
 	
 	Talk( "MID_BT2" )
 	
-	if condition_battleWithKamui() then
-		battleWithKamui()
+	if condition_カムイと戦闘() then
+		カムイと戦闘()
 	end
 	
 end
 
 -- -----------------------------------
 
-function condition_battleWithKamui()
+function condition_カムイと戦闘()
 	
 	if VariableGet( g_key_battleTalk_camilla_kamui ) == 1 then
 		return false
@@ -379,7 +379,7 @@ function condition_battleWithKamui()
 	
 end
 
-function battleWithKamui()
+function カムイと戦闘()
 	
 	Talk( "MID_BT1" )
 	
@@ -389,13 +389,13 @@ end
 
 -- -----------------------------------
 
-function condition_camillaAttackedFromFar()
+function condition_カミラが遠距離攻撃された()
 	
 	if VariableGet( g_key_camillaAttackedFar ) == 1 then
 		return false
 	end
 	
-	if modeIsLunatic() == false then
+	if モードはルナティック() == false then
 		return false
 	end
 	
@@ -409,17 +409,17 @@ function condition_camillaAttackedFromFar()
 	local camillaX = UnitGetX( g_pid_boss )
 	local camillaZ = UnitGetZ( g_pid_boss )
 	
-	return ( distanceBetweenTwoPoints( x, z, camillaX, camillaZ ) > 8 )
+	return ( 二点間距離( x, z, camillaX, camillaZ ) > 8 )
 	
 end
 
 -- -----------------------------------
 
-function condition_reinforcement_AfterCamillaNonRangedAttack()
+function condition_増援_カミラ非遠距離攻撃後()
 	
 	if VariableGet( g_key_reinforcementCamillaAttackedFar ) == 0 then
 		
-		if modeIsLunatic() == false then
+		if モードはルナティック() == false then
 			return false
 		end
 		
@@ -432,7 +432,7 @@ function condition_reinforcement_AfterCamillaNonRangedAttack()
 	end
 end
 
-function reinforcement_AfterCamillaNonRangedAttack()
+function 増援_カミラ非遠距離攻撃後()
 	
 	if VariableGet( g_key_reinforcementCamillaAttackedFar ) == 0 then
 		
@@ -452,7 +452,7 @@ end
 
 -- -----------------------------------
 
-function escapeEvent()
+function 離脱イベント()
 	local unit = MindGetUnit()
 	if not UnitExistOnMap( unit ) then
 		return
@@ -494,3 +494,4 @@ function GameOver()
 	Log("GameOver")
 	
 end
+

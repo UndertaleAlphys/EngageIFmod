@@ -97,7 +97,7 @@ g_obstaclePointAtOnce = {
 
 -- -----------------------------------
 
-function condition_dragonVein_HardOrBelow()
+function condition_竜脈_ハード以下()
 
 	if DifficultyGet() >= DIFFICULTY_LUNATIC then
 		return false
@@ -108,19 +108,19 @@ function condition_dragonVein_HardOrBelow()
 
 end
 
-function dragonVein_HardOrBelow()
+function 竜脈_ハード以下()
 
 	-- マップ中盤以降、確率で下方の瓦礫を床に
 	if ( VariableGet( g_key_enter_center_area ) == 1 ) and ( RandomGet( 100 ) < g_obstacleBreakTwice ) then
 
-		if dragonVein_DestroyRubbleBelow( g_obstaclePointTwice ) then
+		if 竜脈_下方の瓦礫を破壊( g_obstaclePointTwice ) then
 			return
 		end
 
 	end
 
 
-	local pointList = calculatePointsWhereUnitsGather()
+	local pointList = ユニットが集まっているポイントを算出()
 	if pointList == nil then
 		return
 	end
@@ -129,7 +129,7 @@ function dragonVein_HardOrBelow()
 	-- ユニット近くの障害物を瓦礫に
 	for i = 1, #pointList do
 
-		if dragonVein_DestroyNearestObstacle( g_obstaclePoint, pointList[i], false ) then
+		if 竜脈_一番近くの障害物を破壊( g_obstaclePoint, pointList[i], false ) then
 			return
 		end
 
@@ -138,7 +138,7 @@ function dragonVein_HardOrBelow()
 	-- マップ中盤以降、下方の瓦礫を床に
 	if ( VariableGet( g_key_enter_center_area ) == 1 ) then
 
-		if dragonVein_DestroyRubbleBelow( g_obstaclePointTwice ) then
+		if 竜脈_下方の瓦礫を破壊( g_obstaclePointTwice ) then
 			return
 		end
 
@@ -147,7 +147,7 @@ function dragonVein_HardOrBelow()
 	-- ユニット遠くの（あまり関係ないところの）障害物を瓦礫に
 	for i = 1, #pointList do
 
-		if dragonVein_DestroyNearestObstacle( g_obstaclePointSub, pointList[i], false ) then
+		if 竜脈_一番近くの障害物を破壊( g_obstaclePointSub, pointList[i], false ) then
 			return
 		end
 
@@ -157,27 +157,27 @@ end
 
 -- -----------------------------------
 
-function condition_dragonVein_Lunatic()
+function condition_竜脈_ルナティック()
 
 	-- カミラがアクティブになるまで発動
 
-	return modeIsLunatic() and ( not AiGetActive( g_pid_boss ) )
+	return モードはルナティック() and ( not AiGetActive( g_pid_boss ) )
 
 end
 
-function dragonVein_Lunatic()
+function 竜脈_ルナティック()
 
 	-- マップ中盤以降、確率で下方の瓦礫を床に
 	if ( VariableGet( g_key_enter_center_area ) == 1 ) and ( RandomGet( 100 ) < g_obstacleBreakTwice ) then
 
-		if dragonVein_DestroyRubbleBelow( g_obstaclePointTwice ) then
+		if 竜脈_下方の瓦礫を破壊( g_obstaclePointTwice ) then
 			return
 		end
 
 	end
 
 
-	local pointList = calculatePointsWhereUnitsGather()
+	local pointList = ユニットが集まっているポイントを算出()
 	if pointList == nil then
 		return
 	end
@@ -190,7 +190,7 @@ function dragonVein_Lunatic()
 	-- ユニット近くの障害物を瓦礫に
 	for i = 1, #pointList do
 
-		if dragonVein_DestroyNearestObstacle( g_obstaclePoint, pointList[i], atOnce ) then
+		if 竜脈_一番近くの障害物を破壊( g_obstaclePoint, pointList[i], atOnce ) then
 			return
 		end
 
@@ -199,7 +199,7 @@ function dragonVein_Lunatic()
 	-- マップ中盤以降、下方の瓦礫を床に
 	if ( VariableGet( g_key_enter_center_area ) == 1 ) then
 
-		if dragonVein_DestroyRubbleBelow( g_obstaclePointTwice ) then
+		if 竜脈_下方の瓦礫を破壊( g_obstaclePointTwice ) then
 			return
 		end
 
@@ -208,7 +208,7 @@ function dragonVein_Lunatic()
 	-- ユニット遠くの（あまり関係ないところの）障害物を瓦礫に
 	for i = 1, #pointList do
 
-		if dragonVein_DestroyNearestObstacle( g_obstaclePointSub, pointList[i], false ) then
+		if 竜脈_一番近くの障害物を破壊( g_obstaclePointSub, pointList[i], false ) then
 			return
 		end
 
@@ -218,9 +218,9 @@ end
 
 -- -----------------------------------
 
-function calculatePointsWhereUnitsGather()
+function ユニットが集まっているポイントを算出()
 
-	local hazard_map = createHazardMap( 1 )	-- 危険順にソート済み
+	local hazard_map = ハザードマップ作成( 1 )	-- 危険順にソート済み
 
 	if hazard_map == nil then
 		return nil
@@ -255,7 +255,7 @@ function calculatePointsWhereUnitsGather()
 			local removeList = {}
 
 			for i = 1, #hazard_map do
-				if distanceBetweenTwoPoints( p.X, p.Z, hazard_map[i].X, hazard_map[i].Z ) <= g_unit_near then
+				if 二点間距離( p.X, p.Z, hazard_map[i].X, hazard_map[i].Z ) <= g_unit_near then
 					table.insert( removeList, i )
 				end
 			end
@@ -286,7 +286,7 @@ end
 
 -- -----------------------------------
 
-function dragonVein_DestroyNearestObstacle( list, point, atOnce )
+function 竜脈_一番近くの障害物を破壊( list, point, atOnce )
 
 	local temp_list_near = {}
 	for pointer = 1, #list do
@@ -298,7 +298,7 @@ function dragonVein_DestroyNearestObstacle( list, point, atOnce )
 		-- 破壊済みチェック
 		if TerrainGet( x, z ) == "TID_建造物" then
 
-				local distance = distanceBetweenTwoPoints( point.X, point.Z, x, z )
+				local distance = 二点間距離( point.X, point.Z, x, z )
 				if ( distance < g_obstacle_near ) then
 					temp_list_near[ #temp_list_near + 1 ] = { X=x, Z=z, DIST=distance, EX=ex, EZ=ez }
 				end
@@ -316,9 +316,9 @@ function dragonVein_DestroyNearestObstacle( list, point, atOnce )
 
 		local p = temp_list_near[1]
 
-		atOnce = shouldDestroyAtOnce( p, atOnce )
+		atOnce = 一度で破壊するか( p, atOnce )
 
-		dragonVeinActivation( p.X, p.Z, p.EX, p.EZ, atOnce )
+		竜脈発動( p.X, p.Z, p.EX, p.EZ, atOnce )
 		return true
 
 	end
@@ -329,7 +329,7 @@ end
 
 -- -----------------------------------
 
-function shouldDestroyAtOnce( point, atOnce )
+function 一度で破壊するか( point, atOnce )
 
 	if atOnce then
 
@@ -350,7 +350,7 @@ end
 
 -- -----------------------------------
 
-function dragonVein_DestroyRubbleBelow( list )
+function 竜脈_下方の瓦礫を破壊( list )
 
 	-- 下から順にソート
 	table.sort( list,
@@ -369,7 +369,7 @@ function dragonVein_DestroyRubbleBelow( list )
 		-- 破壊済みチェック
 		if TerrainGet( x, z ) == "TID_瓦礫" then
 
-			dragonVeinActivation( x, z, ex, ez, false )
+			竜脈発動( x, z, ex, ez, false )
 			return true
 
 		end
@@ -382,7 +382,7 @@ end
 
 -- -----------------------------------
 
-function dragonVeinActivation( x, z, ex, ez, atOnce )
+function 竜脈発動( x, z, ex, ez, atOnce )
 
 	if not ( ( TerrainGet( x, z ) == "TID_建造物" ) or ( TerrainGet( x, z ) == "TID_瓦礫" ) ) then
 		return
@@ -399,7 +399,7 @@ function dragonVeinActivation( x, z, ex, ez, atOnce )
 	EffectPlay( "水球", ex, ez )
 	EffectWait()
 
-	destructionProcess( x, z, atOnce )
+	破壊処理( x, z, atOnce )
 
 	WaitTime( 1.0 )
 
@@ -407,7 +407,7 @@ end
 
 -- -----------------------------------
 
-function destructionProcess( x, z, atOnce )
+function 破壊処理( x, z, atOnce )
 
 	local fromTerrain	= TerrainGet( x, z )
 	local isObstacle	= ( fromTerrain == "TID_建造物" )
@@ -423,7 +423,7 @@ function destructionProcess( x, z, atOnce )
 
 
 		if ( x == 21 and z == 23 ) or ( x == 22 and z == 20 ) or ( x == 11 and z == 18 ) or ( x == 9 and z == 18 ) then
-			obstacleDestruction_Special( x, z, toTerrain )
+			障害物破壊_特殊( x, z, toTerrain )
 
 
 
@@ -432,7 +432,7 @@ function destructionProcess( x, z, atOnce )
 			for i = 1, g_width * g_height do
 				map[ #map + 1 ] = 0
 			end
-			map = obstacleDestruction( x, z, map, fromTerrain )
+			map = 障害物破壊( x, z, map, fromTerrain )
 
 			if ( #map > 0 ) then
 				TerrainSetBegin()
@@ -467,7 +467,7 @@ end
 
 -- -----------------------------------
 
-function obstacleDestruction( x, z, map, terrain )
+function 障害物破壊( x, z, map, terrain )
 
 	if ( x > 0 and x < g_width-1 and z > 0 and z < g_height-1 ) then
 
@@ -478,10 +478,10 @@ function obstacleDestruction( x, z, map, terrain )
 			map[ key ] = 1
 
 			-- 上下左右をチェック
-			map = obstacleDestruction( x-1, z, map, terrain )
-			map = obstacleDestruction( x, z-1, map, terrain )
-			map = obstacleDestruction( x+1, z, map, terrain )
-			map = obstacleDestruction( x, z+1, map, terrain )
+			map = 障害物破壊( x-1, z, map, terrain )
+			map = 障害物破壊( x, z-1, map, terrain )
+			map = 障害物破壊( x+1, z, map, terrain )
+			map = 障害物破壊( x, z+1, map, terrain )
 
 		end
 
@@ -493,7 +493,7 @@ end
 
 -- -----------------------------------
 
-function obstacleDestruction_Special( x, z, terrain )
+function 障害物破壊_特殊( x, z, terrain )
 
 	if ( x == 21 and z == 23 ) or ( x == 22 and z == 20 ) then
 		TerrainSetBegin()
@@ -525,7 +525,7 @@ end
 
 -- -----------------------------------
 
-function createHazardMap( range )
+function ハザードマップ作成( range )
 	local temp_map = {}
 
 	local index = ForceUnitGetFirst( FORCE_PLAYER )
@@ -581,20 +581,4 @@ function createHazardMap( range )
 
 	return map
 
-end
-
-function modeIsNormal()
-	return DifficultyGet() == DIFFICULTY_NORMAL
-end
-
-function modeIsHard()
-	return DifficultyGet() == DIFFICULTY_HARD
-end
-
-function modeIsLunatic()
-	return DifficultyGet() == DIFFICULTY_LUNATIC
-end
-
-function distanceBetweenTwoPoints( x1, z1, x2, z2 )
-	return math.sqrt( (x1-x2)*(x1-x2) + (z1-z2)*(z1-z2) )
 end

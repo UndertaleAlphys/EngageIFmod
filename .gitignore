@@ -1,3 +1,7 @@
 encount
 fps
 Triabolical
+.idea/
+*.iml
+*.iws
+out/
