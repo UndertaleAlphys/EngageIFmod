@@ -5539,6 +5539,15 @@ Unleash a volcanic eruption.
 [MSID_H_DragonVein_M016_TIDE]
 Drive back the tide.
 
+[MSID_H_DragonVein_G005_LAND]  
+Fix all obstacles.
+
+[MSID_H_DragonVein_G005_SKY]  
+Grant Soar effect to all allies.
+
+[MSID_H_DragonVein_G005_EXPLOSION]  
+Cause an explosion.
+
 [MSID_Quixotic]
 Quixotic
 

@@ -794,6 +794,15 @@ $P被击败或超过$Arg(0)回合
 [MTID_DragonVein_M016_TIDE_P]
 龙脉：退潮
 
+[MTID_DragonVein_G005_LAND]
+龙脉：修复障碍物
+
+[MTID_DragonVein_G005_SKY]
+龙脉：获得“天驱”
+
+[MTID_DragonVein_G005_EXPLOSION]
+龙脉：造成大爆炸
+
 [MTID_Quicksand]
 流沙
 
