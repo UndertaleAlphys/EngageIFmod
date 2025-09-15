@@ -142,6 +142,9 @@ function MapOpening()
 	UnitCreateGodUnit( "PID_ロサード", "GID_エイリーク" )
 	UnitSetEngageCount( "PID_ロサード", 7 )
 
+	UnitLearnJobSkill("PID_ロサード")
+	UnitLearnJobSkill("PID_ゴルドマリー")
+
 	-- -----------------------------------
 
 	Dispos( "Reinforcement_4dogs", DISPOS_FLAG_FOCUS )
@@ -361,7 +364,7 @@ end
 -- -----------------------------------
 
 function conditon_reinforcemen1()
-    if VariableGet(g_key_reinforcement1) == 1 then
+    if VariableGet(g_key_reinforcement1) == 1 or VariableGet(g_key_reinforcement1) == 2 then
         return
     end
 
@@ -401,7 +404,7 @@ end
 -- -----------------------------------
 
 function conditon_reinforcemen2()
-    if VariableGet(g_key_reinforcement1) == 1 then
+    if VariableGet(g_key_reinforcement1) == 1 or VariableGet(g_key_reinforcement2) == 2 then
         return
     end
 

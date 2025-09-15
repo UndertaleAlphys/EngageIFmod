@@ -1458,10 +1458,8 @@ end
 function GetUnitReachablePositions(unit)
     local unitX = UnitGetX(unit)
     local unitZ = UnitGetZ(unit)
-    local job = UnitGetJID(unit)
     local moveType = UnitGetMoveCost(unit)
-    local moveValue = GetMoveByJob(job)
-    local unitForce = UnitGetForce(unit)
+    local moveValue = UnitGetCapability(unit, CAPABILITY_MOVE, true)
 
     local reachablePositions = {}
     local visited = {}
@@ -1472,13 +1470,13 @@ function GetUnitReachablePositions(unit)
     table.insert(reachablePositions, {x = unitX, z = unitZ})
 
     visited[unitX .. "," .. unitZ] = true
-
     -- do bfs
     while #queue > 0 do
         local current = table.remove(queue, 1)
 
         local directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}}
         for _, dir in ipairs(directions) do
+
             local newX = current.x + dir[1]
             local newZ = current.z + dir[2]
 
@@ -1492,13 +1490,19 @@ function GetUnitReachablePositions(unit)
 
                     local unitAtPos = UnitGetByPos(newX, newZ)
                     local canPass = CanPassThrough(unit, unitAtPos)
-
+                    Log(current.remainingMove)
                     if current.remainingMove >= terrainCost and canPass then
+
                         local newRemainingMove = current.remainingMove - terrainCost
+
                         table.insert(queue, {x = newX, z = newZ, remainingMove = newRemainingMove})
+
                         table.insert(reachablePositions, {x = newX, z = newZ})
+
                         visited[posKey] = true
+
                     end
+
                 end
             end
         end
@@ -1661,3 +1665,302 @@ function getUnitsUnderEnemyAttackCount()
     return unitAttackCount
 end
 
+-- 简化龙脉事件注册
+function DragonVeinRegisterEvent(x, z, eventId)
+    EventEntryArea(DragonVeinUsed, x, z, x, z, FORCE_PLAYER, condition_true)
+end
+
+-- 批量注册龙脉事件
+function DragonVeinRegisterEvents(veinPoints)
+    for _, point in ipairs(veinPoints) do
+        local x, z = point[1], point[2]
+        DragonVeinRegisterEvent(x, z)
+    end
+end
+
+-- 龙脉使用前的检查和处理
+function DragonVeinPreUseCheck(dragonVeinPoints, currentX, currentZ)
+    for _, pointInfo in ipairs(dragonVeinPoints) do
+        local point = pointInfo[1]
+        local skillId = pointInfo[2]
+        local dragonVeinType = pointInfo[3]
+        local param = pointInfo[4]
+
+        if currentX == point[1] and currentZ == point[2] then
+            local used = DraginVein_Skill_Remove(skillId, "SID_DragonVein_Used")
+
+            if used == true then
+                return {
+                    type = dragonVeinType,
+                    param = param,
+                    skillId = skillId,
+                    x = currentX,
+                    z = currentZ
+                }
+            end
+            break
+        end
+    end
+    return nil
+end
+
+-- 简化龙脉魔法阵创建
+function DragonVeinCreateMagicCircle(points)
+    for _, point in ipairs(points) do
+        EffectCreate("魔法陣_G001", point[1], point[2])
+    end
+end
+
+-- 简化龙脉地形设置
+function DragonVeinSetTerrain(terrainPoints)
+    TerrainSetBegin()
+    for _, point in ipairs(terrainPoints) do
+        TerrainSet(point[1], point[2], point[3])
+    end
+    TerrainSetEnd()
+end
+
+-- 简化龙脉技能装备
+function DragonVeinEquipSkills(skillIds)
+    for _, skillId in ipairs(skillIds) do
+        DraginVein_Skill_Equip(skillId)
+    end
+end
+
+function ShouldUnitLand(unit)
+    local x = UnitGetX(unit)
+    local z = UnitGetZ(unit)
+    local terrainCost = TerrainGetMoveCost(x, z)
+    if terrainCost == "COST_空" then
+        local moveType =  UnitGetMoveCost( unit )
+        if moveType ~= "COST_飛行" then
+            if UnitHasPrivateSkill(unit, "SID_天駆") == false then
+                return true
+            end
+        end
+    end
+
+    return false
+end
+
+function FindLandingPosition(startX, startZ)
+    local queue = {{x = startX, z = startZ}}
+    local visited = {}
+    local key = startX + startZ * g_width
+    visited[key] = true
+
+    -- 四个方向：上、右、下、左
+    local directions = {{0, -1}, {1, 0}, {0, 1}, {-1, 0}}
+
+    -- BFS搜索
+    while #queue > 0 do
+        local current = table.remove(queue, 1)
+        local currentX, currentZ = current.x, current.z
+
+        -- 检查当前位置是否适合降落
+        if IsSuitableLandingPosition(currentX, currentZ) then
+            return currentX, currentZ
+        end
+
+        -- 检查四个方向的相邻点
+        for _, dir in ipairs(directions) do
+            local nextX = currentX + dir[1]
+            local nextZ = currentZ + dir[2]
+
+            -- 检查边界
+            if nextX >= 0 and nextX < g_width and nextZ >= 0 and nextZ < g_height then
+                local nextKey = nextX + nextZ * g_width
+
+                -- 如果未访问过，则加入队列
+                if not visited[nextKey] then
+                    table.insert(queue, {x = nextX, z = nextZ})
+                    visited[nextKey] = true
+                end
+            end
+        end
+    end
+
+    -- 如果没有找到合适位置，返回原始位置
+    return startX, startZ
+end
+
+function IsSuitableLandingPosition(x, z)
+    -- 检查地形是否不为COST_不可和COST_空
+    local terrainCost = TerrainGetMoveCost(x, z)
+    if terrainCost == "COST_不可" or terrainCost == "COST_空" then
+        return false
+    end
+
+    -- 检查位置是否没有其他人
+    if UnitGetByPos(x, z) == nil then
+        return true
+    end
+
+    return false
+end
+
+function LandUnit(unit)
+    if ShouldUnitLand(unit) then
+        local x = UnitGetX(unit)
+        local z = UnitGetZ(unit)
+
+        -- 查找合适的降落位置
+        local landX, landZ = FindLandingPosition(x, z)
+
+        -- 如果找到不同的位置，则移动单位
+        if landX ~= x or landZ ~= z then
+             -- 保存单位移动前的位置历史记录
+            MapHistoryPositionListBegin()
+            MapHistoryPositionList(unit)
+            MapHistoryPositionListEnd()
+
+            -- 使用跳躍方式移动单位
+            UnitJumpPos(unit, landX, landZ, 0.5)
+            UnitMoveWait()
+            return true
+        end
+    end
+
+    return false
+end
+
+function ProcessAllUnitsLanding()
+    -- 检查我方单位
+    local playerIndex = ForceUnitGetFirst(FORCE_PLAYER)
+    while playerIndex ~= nil do
+        Log(playerIndex)
+        LandUnit(playerIndex)
+        playerIndex = ForceUnitGetNext(playerIndex)
+    end
+
+    -- 检查敌方单位
+    local enemyIndex = ForceUnitGetFirst(FORCE_ENEMY)
+    while enemyIndex ~= nil do
+        LandUnit(enemyIndex)
+        enemyIndex = ForceUnitGetNext(enemyIndex)
+    end
+end
+
+function UnitMoveStepByStep(unit, targetX, targetZ, rotateDirection)
+    local startX = UnitGetX(unit)
+    local startZ = UnitGetZ(unit)
+
+    -- 如果已经在目标位置，直接返回true
+    if startX == targetX and startZ == targetZ then
+        return true
+    end
+
+    -- 使用BFS寻找路径
+    local path = FindPath(unit, startX, startZ, targetX, targetZ)
+
+    -- 如果找不到路径，返回false
+    if not path then
+        return false
+    end
+
+    -- 按路径一步一步移动
+    for i = 1, #path do
+        local step = path[i]
+        UnitMovePos(unit, step.x, step.z, MOVE_FLAG_NONE)
+        UnitMoveWait() -- 等待移动完成
+    end
+
+    if rotateDirection then
+        UnitRotation(unit, rotateDirection)
+    end
+
+    return true
+end
+
+function FindPath(unit, startX, startZ, targetX, targetZ)
+    -- 如果起点和终点相同，直接返回空路径
+    if startX == targetX and startZ == targetZ then
+        return {}
+    end
+
+    -- 初始化BFS
+    local queue = {{x = startX, z = startZ, path = {}}}
+    local visited = {}
+    visited[startX .. "," .. startZ] = true
+
+    -- 四个方向：上、右、下、左
+    local directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
+
+    -- BFS搜索
+    while #queue > 0 do
+        local current = table.remove(queue, 1)
+        local currentX, currentZ = current.x, current.z
+        local currentPath = current.path
+
+        -- 检查四个方向
+        for _, dir in ipairs(directions) do
+            local nextX = currentX + dir[1]
+            local nextZ = currentZ + dir[2]
+            local nextPosKey = nextX .. "," .. nextZ
+            Log(nextPosKey)
+
+            -- 检查边界（假设全局变量g_map_width和g_map_height存在）
+            if nextX > 0 and nextX <= g_map_width and nextZ > 0 and nextZ <= g_map_height then
+                -- 检查是否已访问过
+                if not visited[nextPosKey] then
+                    -- 检查是否可以通过该位置
+                    if CanPassThroughPosition(unit, nextX, nextZ) then
+                        -- 检查是否到达目标
+                        if nextX == targetX and nextZ == targetZ then
+                            local newPath = {}
+                            for i, pos in ipairs(currentPath) do
+                                newPath[i] = pos
+                            end
+                            table.insert(newPath, {x = nextX, z = nextZ})
+                            return newPath
+                        end
+
+                        -- 添加到队列中继续搜索
+                        local newPath = {}
+                        for i, pos in ipairs(currentPath) do
+                            newPath[i] = pos
+                        end
+                        table.insert(newPath, {x = nextX, z = nextZ})
+
+                        table.insert(queue, {x = nextX, z = nextZ, path = newPath})
+                        visited[nextPosKey] = true
+                    end
+                end
+            end
+        end
+    end
+
+    -- 如果找不到路径，返回nil
+    return nil
+end
+
+
+
+function CanPassThroughPosition(unit, x, z)
+    -- 检查地形是否可通过
+    local terrainCost = TerrainGetMoveCost(x, z)
+    if terrainCost == "COST_不可" then
+        return false
+    end
+
+    if terrainCost == "COST_空" and UnitGetMoveCost( unit ) ~= "COST_飛行" then
+        return false
+    end
+
+    -- 检查是否有单位在该位置
+    local unitAtPos = UnitGetByPos(x, z)
+    if unitAtPos ~= nil then
+        -- 如果是同势力单位，不能通行
+        local unitForce = UnitGetForce(unit)
+        local targetForce = UnitGetForce(unitAtPos)
+
+        -- 不同势力的单位阻挡路径
+        if unitForce ~= targetForce then
+            if not UnitHasWholeSkill(unit, "SID_すり抜け") then
+                return false
+            end
+        end
+    end
+
+    return true
+end

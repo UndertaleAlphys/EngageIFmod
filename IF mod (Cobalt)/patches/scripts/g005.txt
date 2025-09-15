@@ -2,8 +2,6 @@ Include("Common")
 Include("Common_P0")
 Include("G005_Gimmick")
 
-g_noEXP_turn					= 25
-
 g_key_enter_upward_area			= "マップ上進入_済"
 g_key_reinforcement_upwardArea	= "増援_上方進入直後_済"
 
@@ -14,95 +12,232 @@ g_key_camillaAttackedFar		= "カミラ被遠距離攻撃"
 g_key_camillaActiveRun			= "カミラ隊起動"
 g_key_reinforcementCamillaAttackedFar	= "増援_カミラ被遠距離攻撃後_済"
 
+g_map_height = 25
+g_map_width = 29
+g_map_left_column_low = 1
+g_map_left_column_high = 8
+g_map_middle_column_low = 11
+g_map_middle_column_high = 18
+g_map_right_column_low = 22
+g_map_right_column_high = 28
+g_pid_camilla = "PID_G005_カミラ"
+g_pid_Luna = "PID_G005_IFMOD_幻影兵_Luna"
+g_pid_Beierjia = "PID_G005_IFMOD_幻影兵_Beierjia"
+g_pid_Haluoerde = "PID_G005_IFMOD_幻影兵_Haluoerde"
+g_pid_Aierfei = "PID_G005_IFMOD_幻影兵_Aierfei"
+g_engaged_Luna = "g_engaged_Luna"
+g_engaged_Beierjia = "g_engaged_Beierjia"
+g_engaged_Haluoerde = "g_engaged_Haluoerde"
+g_engaged_Aierfei = "g_engaged_Aierfei"
+g_buildingTiles = {}
+
+leftCount = 0
+middleCount = 0
+rightCount = 0
+
+-- 存储各列的我方单位列表
+leftUnits = {}
+middleUnits = {}
+rightUnits = {}
+
+g_key_camillaActive = "g_key_camillaActive"
+
 -- -----------------------------------
 
 function Startup()
-	
-	Log("Startup")
-	
+
+
 	Startup_神竜の章_対象紋章士を一時的に無効化( "GID_カミラ" )
-	
+
 	-- 勝利条件の設定
 	WinRuleSetDestroyBoss( true )	-- 敵将撃破
 	WinRuleSetMID( "MID_RULE_G005_WIN" )
-	
-	registerVariables()
-	registerEvents()
-	
+
+	変数登録()
+	イベント登録()
+
 end
 
 function 変数登録()
-	
+
 	VariableEntry( g_key_enter_center_area, 		0 )
 	VariableEntry( g_key_enter_upward_area, 		0 )
 	VariableEntry( g_key_reinforcement_upwardArea,	0 )
-	
+
 	VariableEntry( g_key_battleTalk_camilla_lueur,	0 )
 	VariableEntry( g_key_battleTalk_camilla_kamui,	0 )
-	
+
 	VariableEntry( g_key_camillaAttackedFar,		0 )
 	VariableEntry( g_key_camillaActiveRun,			0 )
 	VariableEntry( g_key_reinforcementCamillaAttackedFar, 0 )
-	
+	VariableEntry( g_key_camillaActive, 0 )
+
+	VariableEntry( g_engaged_Aierfei,		0 )
+    VariableEntry( g_engaged_Luna,		0 )
+    VariableEntry( g_engaged_Beierjia,		0 )
+    VariableEntry( g_engaged_Haluoerde,		0 )
 end
 
 function イベント登録()
-	
-	EventEntryTurn( BattleStartAfter,			 1,  1, FORCE_PLAYER )
-	EventEntryTurn( victoryCondition_FocusOnEmblemSwordsman,	1,  1, FORCE_PLAYER )
-	
-	EventEntryTurn( dragonVein_HardOrBelow,		 2, -1, FORCE_PLAYER, condition_dragonVein_HardOrBelow )
-	EventEntryTurn( dragonVein_Lunatic,		 2, -1, FORCE_PLAYER, condition_dragonVein_Lunatic )
-	
-	EventEntryTurn( reinforcement,					 3, -1, FORCE_PLAYER, condition_reinforcement )
-	EventEntryTurn( reinforcement_4thTurn,		 4,  4, FORCE_PLAYER )
-	EventEntryTurn( reinforcement_9thTurn,		 9,  9, FORCE_PLAYER )
-	EventEntryTurn( reinforcement_AfterEnteringUpperArea,		-1, -1, FORCE_PLAYER, condition_reinforcement_AfterEnteringUpperArea )
-	
-	EventEntryArea( mapCenterEntry,	 1,  9, 29, 25, FORCE_PLAYER, condition_mapCenterEntry )
-	EventEntryArea( mapUpperEntry,	 1, 17, 29, 25, FORCE_PLAYER, condition_mapUpperEntry )
-	
-	EventEntryBattleTalk( battleWithLueur,	g_pid_lueur,	FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, g_key_battleTalk_camilla_lueur )
-	EventEntryBattleTalk( battleWithKamui,		"",				FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_battleWithKamui )
-	
-	EventEntryBattleBefore(VariableSet, "", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_camillaAttackedFromFar, g_key_camillaAttackedFar, 1 )
-	EventEntryTurn( reinforcement_AfterCamillaNonRangedAttack,	-1, -1, FORCE_PLAYER, condition_reinforcement_AfterCamillaNonRangedAttack )
-	
-	-- --------------------------------------------------
-	EventEntryEscape(escapeEvent, 5, 4, "PID_リュール", condition_true)
-	
+
+	EventEntryTurn( 進撃開始直後,			 1,  1, FORCE_PLAYER )
+	EventEntryTurn( 勝利条件_紋章士にフォーカス,	1,  1, FORCE_PLAYER )
+	EventEntryTurn(checkAndSetEngageEnemy,  1,  -1,  FORCE_ENEMY )
+	EventEntryTurn(AiSetCamillaTurnBefore,  -1,  -1,  FORCE_ENEMY )
+	EventEntryTurn(DragonVeinUsedByEmeny,  1,  -1,  FORCE_ENEMY )
+
+	EventEntryBattleTalk( リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, g_key_battleTalk_camilla_lueur )
+	EventEntryBattleTalk( カムイと戦闘,		"",				FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_カムイと戦闘 )
+
+	EventEntryBattleBefore(VariableSet, "", FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, condition_カミラが遠距離攻撃された, g_key_camillaAttackedFar, 1 )
+	EventEntryTurn( 増援_カミラ非遠距離攻撃後,	-1, -1, FORCE_PLAYER, condition_増援_カミラ非遠距離攻撃後 )
+
+    local dragonVeinPoints = {
+        {2, 25}, {3, 25}, {4, 25},
+        {9, 6}, {15, 10}, {23, 5}, {23, 25}, {12, 21},
+        {9, 10}, {17, 3}, {26, 9}, {29, 25}, {18, 20}
+    }
+    DragonVeinRegisterEvents(dragonVeinPoints)
+
+    EventEntryTurn( ProcessAllUnitsLanding, 1, -1, FORCE_PLAYER )
+    EventEntryTurn( ProcessAllUnitsLanding, 1, -1, FORCE_ENEMY )
+
 end
 
 function Cleanup()
-	
-	Log("Cleanup")
-	
+
 	Cleanup_神竜の章_対象紋章士の無効化解除( "GID_カミラ" )
-	
+
 end
 
 -- -----------------------------------
 
 function Opening()
-	
-	Log("Opening")
-	
-	PuppetDemo("G005", "MID_OP1")
-	FadeInAndWait(FADE_NORMAL)
-	Movie("Kengen17")
-	SkipEscape()
-	FadeOutAndWait(FADE_NORMAL)
-	PuppetDemo("G005", "MID_OP2")
-	
+
+	--Log("Opening")
+    --
+	--PuppetDemo("G005", "MID_OP1")
+	--FadeInAndWait(FADE_NORMAL)
+	--Movie("Kengen17")
+	--SkipEscape()
+	--FadeOutAndWait(FADE_NORMAL)
+	--PuppetDemo("G005", "MID_OP2")
+
 end
 
+function checkAndSetEngageEnemy()
+    -- 检查艾尔菲是否应该进入交战状态
+    if VariableGet(g_engaged_Aierfei) == 0 then
+        local attackRange = GetUnitActualAttackRange(g_pid_Aierfei)
+        local index = ForceUnitGetFirst(FORCE_PLAYER)
+
+        while index ~= nil do
+            local isIndexInRange = IsUnitInAttackRange(attackRange, index)
+            if isIndexInRange == true then
+                 VariableSet(g_engaged_Aierfei, 1)
+                 UnitSetEngaging(g_pid_Aierfei, true)
+                 break
+            end
+            index = ForceUnitGetNext(index)
+        end
+    end
+
+    -- 检查露娜是否应该进入交战状态
+    if VariableGet(g_engaged_Luna) == 0 then
+        local attackRange = GetUnitActualAttackRange(g_pid_Luna)
+        local index = ForceUnitGetFirst(FORCE_PLAYER)
+
+        while index ~= nil do
+            local isIndexInRange = IsUnitInAttackRange(attackRange, index)
+            if isIndexInRange == true then
+                 VariableSet(g_engaged_Luna, 1)
+                 UnitSetEngaging(g_pid_Luna, true)
+                 break
+            end
+            index = ForceUnitGetNext(index)
+        end
+    end
+
+    -- 检查贝尔加是否应该进入交战状态
+    if VariableGet(g_engaged_Beierjia) == 0 then
+        local attackRange = GetUnitActualAttackRange(g_pid_Beierjia)
+        local index = ForceUnitGetFirst(FORCE_PLAYER)
+
+        while index ~= nil do
+            local isIndexInRange = IsUnitInAttackRange(attackRange, index)
+            if isIndexInRange == true then
+                 VariableSet(g_engaged_Beierjia, 1)
+                 UnitSetEngaging(g_pid_Beierjia, true)
+                 break
+            end
+            index = ForceUnitGetNext(index)
+        end
+    end
+
+    -- 检查哈洛尔德是否应该进入交战状态
+    if VariableGet(g_engaged_Haluoerde) == 0 then
+        local attackRange = GetUnitActualAttackRange(g_pid_Haluoerde)
+        local index = ForceUnitGetFirst(FORCE_PLAYER)
+
+        while index ~= nil do
+            local isIndexInRange = IsUnitInAttackRange(attackRange, index)
+            if isIndexInRange == true then
+                 VariableSet(g_engaged_Haluoerde, 1)
+                 UnitSetEngaging(g_pid_Haluoerde, true)
+                 break
+            end
+            index = ForceUnitGetNext(index)
+        end
+    end
+end
+
+
+function UpdateBuildingTilesList()
+    g_buildingTiles = {}
+    local visited = {}    -- 记录已访问的坐标，避免重复处理
+
+    for _, obstacle in ipairs(g_obstaclePoint) do
+        local startX = obstacle[1]
+        local startZ = obstacle[2]
+
+        -- 检查地形状态，如果是建造物则进行BFS扩展
+        local terrain = TerrainGet(startX, startZ)
+        if terrain == "TID_建造物" and not visited[startX .. "," .. startZ] then
+            -- 使用BFS查找所有相连的相同地形
+            local queue = {{x = startX, z = startZ}}
+            visited[startX .. "," .. startZ] = true
+
+            while #queue > 0 do
+                local current = table.remove(queue, 1)
+                local currentX = current.x
+                local currentZ = current.z
+
+                table.insert(g_buildingTiles, {currentX, currentZ})
+
+                local directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}}
+                for _, dir in ipairs(directions) do
+                    local nextX = currentX + dir[1]
+                    local nextZ = currentZ + dir[2]
+                    local key = nextX .. "," .. nextZ
+
+                    if nextX >= 0 and nextX < g_width and nextZ >= 0 and nextZ < g_height and not visited[key] then
+                        if TerrainGet(nextX, nextZ) == "TID_建造物" then
+                            table.insert(queue, {x = nextX, z = nextZ})
+                            visited[key] = true
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+
 function MapOpening()
-	
+
 	Log("MapOpening")
-	
-	-- ボスの０ダメージ攻撃を許可する
-	-- AiSetRejectPower0Attack( g_pid_boss, false )
-	
+    initMapG005()
+    UpdateBuildingTilesList()
 end
 
 -- -----------------------------------
@@ -112,223 +247,637 @@ end
 
 -- -----------------------------------
 
-function BattleStartAfter()
-	
+function 進撃開始直後()
+
 	CursorSetPos_FromPid( g_pid_boss )
-	
+
 	Talk( "MID_EV1" )
-	
-	dragonVeinActivation( 8, 8, 7.5, 7.5, false )
-	
+
+	竜脈発動( 8, 8, 7.5, 7.5, false )
+
 	Talk( "MID_EV2" )
-	
+
 end
 
--- -----------------------------------
+function AiSetCamillaTurnBefore()
+    if VariableGet(g_key_camillaActive) == 1 then
+        return
+    end
 
-function victoryCondition_FocusOnEmblemSwordsman()
+    local attackRangeCamilla = GetUnitActualAttackRange(g_pid_camilla)
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+
+    while index ~= nil do
+        local isIndexInRange = IsUnitInAttackRange(attackRangeCamilla,index)
+        if isIndexInRange == true then
+             VariableSet(g_key_camillaActive , 1)
+             AiSetSequence(g_pid_camilla, AI_ORDER_CAUSE, "AI_AC_Everytime")
+             return
+        end
+        index = ForceUnitGetNext(index)
+    end
+    AiSetSequence(g_pid_camilla, AI_ORDER_CAUSE, "AI_AC_Null")
+end
+
+function initMapG005()
+    -- 使用封装函数创建魔法阵
+    local magicCirclePoints = {
+        {2, 25}, {3, 25}, {4, 25}, {9, 6}, {15, 10},
+        {23, 5}, {23, 25}, {12, 21}, {9, 10}, {17, 3},
+        {26, 9}, {29, 25}, {18, 20}
+    }
+    DragonVeinCreateMagicCircle(magicCirclePoints)
+
+    -- 使用封装函数设置地形
+    local terrainPoints = {
+        {2, 25, "TID_龙脉_G005_BOMB"}, {3, 25, "TID_龙脉_G005_BOMB"},
+        {4, 25, "TID_龙脉_G005_BOMB"}, {9, 6, "TID_龙脉_G005_SKY"},
+        {15, 10, "TID_龙脉_G005_SKY"}, {23, 5, "TID_龙脉_G005_SKY"},
+        {23, 25, "TID_龙脉_G005_SKY"}, {12, 21, "TID_龙脉_G005_SKY"},
+        {9, 10, "TID_龙脉_G005_GROUND"}, {17, 3, "TID_龙脉_G005_GROUND"},
+        {26, 9, "TID_龙脉_G005_GROUND"}, {29, 25, "TID_龙脉_G005_GROUND"},
+        {18, 20, "TID_龙脉_G005_GROUND"}
+    }
+    DragonVeinSetTerrain(terrainPoints)
+
+    -- 使用封装函数装备技能
+    local skillIds = {
+        "SID_DragonVein_G005_EXPLOSION_0", "SID_DragonVein_G005_EXPLOSION_1",
+        "SID_DragonVein_G005_EXPLOSION_2", "SID_DragonVein_G005_SKY_0",
+        "SID_DragonVein_G005_SKY_1", "SID_DragonVein_G005_SKY_2",
+        "SID_DragonVein_G005_SKY_3", "SID_DragonVein_G005_SKY_4",
+        "SID_DragonVein_G005_LAND_0", "SID_DragonVein_G005_LAND_1",
+        "SID_DragonVein_G005_LAND_2", "SID_DragonVein_G005_LAND_3",
+        "SID_DragonVein_G005_LAND_4"
+    }
+    DragonVeinEquipSkills(skillIds)
+
+    UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Luna", 7)
+    UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Beierjia", 7)
+    UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Haluoerde", 7)
+    UnitSetEngageCount("PID_G002_IFMOD_幻影兵_Aierfei", 7)
+end
+
+function CamillaAiSetTurnBefore()
+    local attackRangeCamilla = GetUnitActualAttackRange(g_pid_camilla)
+
+    -- 检查卡米拉AI是否已经完全激活
+    if VariableGet(g_key_camillaActiveRun) == 1 then
+        return
+    end
+
+    -- 遍历检查全部我方单位，观察其是否在卡米ラ范围内
+    local camillaX = UnitGetX(g_pid_camilla)
+    local camillaZ = UnitGetZ(g_pid_camilla)
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+    local shouldActivate = false
+
+    while index ~= nil do
+        local unitX = UnitGetX(index)
+        local unitZ = UnitGetZ(index)
+
+        -- 检查单位是否在卡米ラ攻击范围内
+        if 二点間距離(unitX, unitZ, camillaX, camillaZ) <= attackRangeCamilla then
+            shouldActivate = true
+            break
+        end
+
+        index = ForceUnitGetNext(index)
+    end
+
+    -- 根据检查结果设置AI模式和标记
+    if shouldActivate then
+        AiSet(g_pid_camilla, AI_AC_EveryTime)
+        VariableSet(g_key_camillaActiveRun, 1)
+    else
+        AiSet(g_pid_camilla, AI_AC_Null)
+    end
+end
+
+function DragonVeinUsed()
+    local unit = MindGetUnit()
+    local x = UnitGetX(unit)
+    local z = UnitGetZ(unit)
+
+    -- 定义龙脉点信息表
+    local dragonVeinPoints = {
+        -- 爆破类型龙脉
+        {{2, 25}, "SID_DragonVein_G005_EXPLOSION_0", "bomb", 0},
+        {{3, 25}, "SID_DragonVein_G005_EXPLOSION_1", "bomb", 1},
+        {{4, 25}, "SID_DragonVein_G005_EXPLOSION_2", "bomb", 2},
+        -- 天空类型龙脉
+        {{9, 6}, "SID_DragonVein_G005_SKY_0", "sky", 0},
+        {{15, 10}, "SID_DragonVein_G005_SKY_1", "sky", 1},
+        {{23, 5}, "SID_DragonVein_G005_SKY_2", "sky", 2},
+        {{23, 25}, "SID_DragonVein_G005_SKY_3", "sky", 3},
+        {{12, 21}, "SID_DragonVein_G005_SKY_4", "sky", 4},
+        -- 地面类型龙脉
+        {{9, 10}, "SID_DragonVein_G005_LAND_0", "ground", 0},
+        {{17, 3}, "SID_DragonVein_G005_LAND_1", "ground", 1},
+        {{26, 9}, "SID_DragonVein_G005_LAND_2", "ground", 2},
+        {{29, 25}, "SID_DragonVein_G005_LAND_3", "ground", 3},
+        {{18, 20}, "SID_DragonVein_G005_LAND_4", "ground", 4}
+    }
+
+    -- 使用封装的检查函数
+    local veinInfo = DragonVeinPreUseCheck(dragonVeinPoints, x, z)
+
+    if veinInfo then
+        -- 执行龙脉效果
+        DragonVeinPostUseHandleG005(veinInfo)
+    end
+end
+
+
+-- 龙脉使用后的处理
+function DragonVeinPostUseHandleG005(veinInfo)
+    if veinInfo.type == "bomb" then
+        DragonVeinEffectBomb(veinInfo.param)
+        DraginVein_Skill_Equip(veinInfo.skillId)
+    elseif veinInfo.type == "sky" then
+        DragonVeinEffectSky()
+        TerrainSetBegin()
+            TerrainSet(veinInfo.x, veinInfo.z, "TID_床")
+        TerrainSetEnd()
+        EffectDelete("魔法陣_G001", veinInfo.x, veinInfo.z)
+    elseif veinInfo.type == "ground" then
+        DragonVeinEffectGround()
+        TerrainSetBegin()
+            TerrainSet(veinInfo.x, veinInfo.z, "TID_床")
+        TerrainSetEnd()
+        EffectDelete("魔法陣_G001", veinInfo.x, veinInfo.z)
+    end
+end
+
+
+function DragonVeinEffectBomb(column)
+    local enemys = GetEnemyUnitsInColumn(column)
+    local x,z = CalculateVisualCenter(enemys)
+    if x == 0 or z == 0 then
+        z = 13
+        x = 10 * column + 5
+    end
+    CursorSetPos(x,z)
+    WaitTime(1.0)
+    EffectPlay( "カムイ竜脈", x, z )
+    EffectWait()
+
+    for _, unit in ipairs(enemys) do
+        MapDamageBegin()
+            local currentHp = UnitGetHp(unit)
+            local map_damage = currentHp/3;
+            local damage = map_damage
+            if damage >= currentHp then
+                damage = currentHp - 1
+            end
+            MapDamageAdd(unit, damage)
+        MapDamageEnd()
+    end
+
+    DestroyObstaclesInColumn(column)
+end
+
+function DragonVeinEffectSky()
+    local unit = MindGetUnit()
+    local x = UnitGetX(unit)
+    local z = UnitGetZ(unit)
+    CursorSetPos(x, z)
+    WaitTime(1.0)
+    EffectPlay("水球_発動", x, z)
+    EffectWait()
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+    while index ~= nil do
+        UnitSetPrivateSkill(index, "SID_天駆")
+        index = ForceUnitGetNext(index)
+    end
+end
+
+function DragonVeinEffectGround()
+    local unit = MindGetUnit()
+    local x = UnitGetX(unit)
+    local z = UnitGetZ(unit)
+    CursorSetPos(x, z)
+    WaitTime(1.0)
+    EffectPlay("水球_発動", x, z)
+    EffectWait()
+
+    TerrainSetBegin()
+    for _, tile in ipairs(g_buildingTiles) do
+        local tileX = tile[1]
+        local tileZ = tile[2]
+        TerrainSet(tileX, tileZ, "TID_建造物")
+    end
+    TerrainSetEnd()
+
+    for _, obstacle in ipairs(g_obstaclePoint) do
+        local obstacleX = obstacle[1]
+        local obstacleZ = obstacle[2]
+
+        if TerrainGet(obstacleX, obstacleZ) == "TID_建造物" then
+            EventStateObject(obstacleX, obstacleZ, 0)
+        end
+    end
+end
+
+
+function GetUnitCountByColumn()
+    leftCount = 0
+    middleCount = 0
+    rightCount = 0
+
+    leftUnits = {}
+    middleUnits = {}
+    rightUnits = {}
+
+    -- 遍历所有我方单位
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+    while index ~= nil do
+        local x = UnitGetX(index)
+        local z = UnitGetZ(index)
+
+        -- 根据x坐标判断单位所在的列区域
+        if x >= g_map_left_column_low and x <= g_map_left_column_high then
+            leftCount = leftCount + 1
+            table.insert(leftUnits, index)
+        elseif x >= g_map_middle_column_low and x <= g_map_middle_column_high then
+            middleCount = middleCount + 1
+            table.insert(middleUnits, index)
+        elseif x >= g_map_right_column_low and x <= g_map_right_column_high then
+            rightCount = rightCount + 1
+            table.insert(rightUnits, index)
+        end
+
+        index = ForceUnitGetNext(index)
+    end
+
+    local targetColumn = GetMostPopulatedAvailableColumn()
+    -- 确定人数最多的列，并计算视觉中心点
+    if targetColumn == 0 then
+        -- 计算左侧列的视觉中心点
+        local centerX, centerZ = CalculateVisualCenter(leftUnits)
+        local enemyUnits = GetEnemyUnitsInColumn(0)
+        return 0, leftUnits, centerX, centerZ, enemyUnits
+    elseif targetColumn == 1 then
+        -- 计算中间列的视觉中心点
+        local centerX, centerZ = CalculateVisualCenter(middleUnits)
+        local enemyUnits = GetEnemyUnitsInColumn(1)
+        return 1, middleUnits, centerX, centerZ, enemyUnits
+    else
+        -- 计算右侧列的视觉中心点
+        local centerX, centerZ = CalculateVisualCenter(rightUnits)
+        local enemyUnits = GetEnemyUnitsInColumn(2)
+        return 2, rightUnits, centerX, centerZ, enemyUnits
+    end
+end
+
+function locationCanUsed(x,z)
+    local unit = UnitGetByPos(x, z)
+    if unit == nil then
+        return true
+    end
+
+    if UnitGetPID(unit) == g_pid_camilla then
+        return true
+    end
+    return false
+end
+
+-- 判断哪一列人数最多且可以使用
+function GetMostPopulatedAvailableColumn()
+    local canLeftUse = locationCanUsed(2, 25)
+    local canMiddleUse = locationCanUsed(3, 25)
+    local canRightUse = locationCanUsed(4, 25)
+    -- 检查各列是否可用并比较人数
+    local maxCount = -1
+    local targetColumn = -1
+
+    -- 检查左侧列
+    if canLeftUse and leftCount > maxCount then
+        maxCount = leftCount
+        targetColumn = 0
+    end
+    -- 检查中间列
+    if canMiddleUse and middleCount > maxCount then
+        maxCount = middleCount
+        targetColumn = 1
+    end
+    -- 检查右侧列
+    if canRightUse and rightCount > maxCount then
+        maxCount = rightCount
+        targetColumn = 2
+    end
+    return targetColumn
+end
+
+
+-- 计算单位列表的视觉中心点
+function CalculateVisualCenter(units)
+    if #units == 0 then
+        return 0, 0
+    end
+
+    local totalX = 0
+    local totalZ = 0
+
+    for _, unit in ipairs(units) do
+        totalX = totalX + UnitGetX(unit)
+        totalZ = totalZ + UnitGetZ(unit)
+    end
+
+    -- 返回平均坐标作为视觉中心点
+    return totalX / #units, totalZ / #units
+end
+
+-- 获取指定列的敌方单位列表
+function GetEnemyUnitsInColumn(column)
+    local enemyUnits = {}
+
+    -- 确定列的x坐标范围
+    local low, high
+    if column == 0 then
+        low = g_map_left_column_low
+        high = g_map_left_column_high
+    elseif column == 1 then
+        low = g_map_middle_column_low
+        high = g_map_middle_column_high
+    else
+        low = g_map_right_column_low
+        high = g_map_right_column_high
+    end
+
+    -- 遍历所有敌方单位
+    local index = ForceUnitGetFirst(FORCE_ENEMY)
+    while index ~= nil do
+        local x = UnitGetX(index)
+
+        -- 检查敌方单位是否在指定列中
+        if x >= low and x <= high then
+            table.insert(enemyUnits, index)
+        end
+
+        index = ForceUnitGetNext(index)
+    end
+
+    return enemyUnits
+end
+
+function DragonVeinUsedByEmeny()
+    if VariableGet(g_key_camillaActive) == 1 then
+        return
+    end
+    -- column: 0=左, 1=中, 2=右
+    -- unitList: 该列的单位列表
+    -- centerX, centerZ: 视觉中心点坐标
+    local column, unitListPlayer, centerX, centerZ, unitListEnemy = GetUnitCountByColumn()
+    CursorSetPos_FromPid( g_pid_camilla)
+    UnitMoveStepByStep(g_pid_camilla,column+2,25,ROTATE_DOWN)
+    local x = UnitGetX(g_pid_camilla)
+    local z = UnitGetZ(g_pid_camilla)
+    WaitTime( 0.5 )
+    EffectPlay( "邪竜紋_発動", x, z )
+    WaitTime( 1.5 )
+    if centerX == 0 then
+        centerX = 10*column+5
+        centerZ = 13
+    end
+    CursorSetPos( centerX, centerZ )
+    MapCameraWait()
+    EffectPlay( "カムイ竜脈", centerX, centerZ )
+    EffectWait()
+
+    DragonVeinUsedByEmenyEffect(column,unitListPlayer,unitListEnemy)
+
+    UnitSetStatus( g_pid_camilla, UNIT_STATUS_FIXED )
+end
+
+function DragonVeinUsedByEmenyEffect(column,unitListPlayer,unitListEnemy)
+    for _, unit in ipairs(unitListPlayer) do
+        MapDamageBegin()
+            local currentHp = UnitGetHp(unit)
+            local map_damage = currentHp/3;
+            local damage = map_damage
+            if damage >= currentHp then
+                damage = currentHp - 1
+            end
+            MapDamageAdd(unit, damage)
+        MapDamageEnd()
+    end
+
+    for _, unit in ipairs(unitListEnemy) do
+        UnitSetPrivateSkill(unit, "SID_天駆")
+    end
+
+    DestroyObstaclesInColumn(column)
+end
+
+function DestroyObstaclesInColumn(column)
+    -- 确定列的x坐标范围
+    local low, high
+    if column == 0 then
+        low = g_map_left_column_low
+        high = g_map_left_column_high
+    elseif column == 1 then
+        low = g_map_middle_column_low
+        high = g_map_middle_column_high
+    else
+        low = g_map_right_column_low
+        high = g_map_right_column_high
+    end
+
+    -- 遍历G005_Gimmick中定义的障碍物列表
+    for _, obstacle in ipairs(g_obstaclePoint) do
+        local x = obstacle[1]  -- 障碍物的x坐标
+        local z = obstacle[2]  -- 障碍物的z坐标
+        local ex = obstacle[3] -- 障碍物の演出x坐标
+        local ez = obstacle[4] -- 障碍物の演出z坐标
+
+        -- 检查障碍物是否在指定列范围内
+        if x >= low and x <= high then
+            -- 检查障碍物是否仍然存在（TID_建造物表示未被破坏的障碍物）
+            if TerrainGet(x, z) == "TID_建造物" or TerrainGet(x, z) == "TID_瓦礫" then
+                -- 破坏障碍物
+                DestroyObstacle(x, z, ex, ez)
+            end
+        end
+    end
+end
+
+function DestroyObstacle(x, z, ex, ez)
+    -- 检查是否为需要两次破坏的障碍物
+    local isTwiceBreakable = false
+    for _, obstacle in ipairs(g_obstaclePointTwice) do
+        if obstacle[1] == x and obstacle[2] == z then
+            isTwiceBreakable = true
+            break
+        end
+    end
+
+    -- 检查是否为一次就能完全破坏的障碍物（在特定条件下）
+    local isAtOnceBreakable = false
+    for _, obstacle in ipairs(g_obstaclePointAtOnce) do
+        if obstacle[1] == x and obstacle[2] == z then
+            isAtOnceBreakable = true
+            break
+        end
+    end
+
+    -- 检查是否为特殊障碍物
+    local isSpecial = (x == 21 and z == 23) or (x == 22 and z == 20) or
+                      (x == 11 and z == 18) or (x == 9 and z == 18)
+
+    -- 根据不同类型采用不同的破坏方式
+    if isSpecial then
+        障害物破壊_特殊(x, z, "TID_床")
+    else
+        -- 检查当前地形状态决定破坏方式
+        local currentTerrain = TerrainGet(x, z)
+
+        if currentTerrain == "TID_建造物" then
+            if isAtOnceBreakable == true then
+                破壊処理(x,z,true)
+            else
+                破壊処理(x,z,false)
+            end
+        elseif currentTerrain == "TID_瓦礫" then
+            破壊処理(x,z,true)
+        end
+    end
+end
+
+
+
+function 勝利条件_紋章士にフォーカス()
 	CursorAnimeCreate_FromPid( g_pid_boss )
 	WinRule()
 	CursorAnimeDelete()
 end
 
--- -----------------------------------
 
+function リュールと戦闘()
 
--- -----------------------------------
-
-function condition_mapCenterEntry()
-	
-	return VariableGet( g_key_enter_center_area ) == 0
-	
-end
-
-function mapCenterEntry()
-	
-	if nOrMoreUnitsInAreaWithZOrHigher( 9, 3 ) then
-		VariableSet( g_key_enter_center_area, 1 )
-	end
-	
-end
-
-function condition_mapUpperEntry()
-	
-	return VariableGet( g_key_enter_upward_area ) == 0
-	
-end
-
-function mapUpperEntry()
-	
-	if nOrMoreUnitsInAreaWithZOrHigher( 17, 3 ) then
-		VariableSet( g_key_enter_upward_area, 1 )
-	end
-	
-end
-
-function nOrMoreUnitsInAreaWithZOrHigher( z, n )
-	
-	local counter = 0
-	local playerNum = 0
-	
-	local index = ForceUnitGetFirst( FORCE_PLAYER )
-	while ( index != nil ) do
-		
-		if ( UnitGetZ( index ) >= z ) then
-			counter = counter + 1
-		end
-		
-		playerNum = playerNum + 1
-		index = ForceUnitGetNext( index )
-	end
-	
-	return ( ( counter >= n ) or ( counter >= playerNum ) )
-	
-end
-
--- -----------------------------------
-
-function battleWithLueur()
-	
 	Talk( "MID_BT2" )
-	
-	if condition_battleWithKamui() then
-		battleWithKamui()
+
+	if condition_カムイと戦闘() then
+		カムイと戦闘()
 	end
-	
+
 end
 
 -- -----------------------------------
 
-function condition_battleWithKamui()
-	
+function condition_カムイと戦闘()
+
 	if VariableGet( g_key_battleTalk_camilla_kamui ) == 1 then
 		return false
 	end
-	
-	
+
+
 	local god = nil
 	if MindGetForce() == FORCE_PLAYER then
 		god = UnitGetGodUnit( MindGetUnit() )
 	else
 		god = UnitGetGodUnit( MindGetTargetUnit() )
 	end
-	
+
 	return ( god == "GID_カムイ" )
-	
+
 end
 
-function battleWithKamui()
-	
+function カムイと戦闘()
+
 	Talk( "MID_BT1" )
-	
+
 	VariableSet( g_key_battleTalk_camilla_kamui, 1 )
-	
+
 end
 
 -- -----------------------------------
 
-function condition_camillaAttackedFromFar()
-	
+function condition_カミラが遠距離攻撃された()
+
 	if VariableGet( g_key_camillaAttackedFar ) == 1 then
 		return false
 	end
-	
-	if modeIsLunatic() == false then
+
+	if モードはルナティック() == false then
 		return false
 	end
-	
+
 	if AiGetActive( g_pid_boss ) == true then
 		return false
 	end
-	
+
 	local unit = MindGetUnit()
 	local x = UnitGetX( unit )
 	local z = UnitGetZ( unit )
 	local camillaX = UnitGetX( g_pid_boss )
 	local camillaZ = UnitGetZ( g_pid_boss )
-	
-	return ( distanceBetweenTwoPoints( x, z, camillaX, camillaZ ) > 8 )
-	
+
+	return ( 二点間距離( x, z, camillaX, camillaZ ) > 8 )
+
 end
 
 -- -----------------------------------
 
-function condition_reinforcement_AfterCamillaNonRangedAttack()
-	
+function condition_増援_カミラ非遠距離攻撃後()
+
 	if VariableGet( g_key_reinforcementCamillaAttackedFar ) == 0 then
-		
-		if modeIsLunatic() == false then
+
+		if モードはルナティック() == false then
 			return false
 		end
-		
+
 		return ( VariableGet( g_key_camillaAttackedFar ) == 1 )
-		
+
 	elseif VariableGet( g_key_reinforcementCamillaAttackedFar ) == 1 then
-		
+
 		return ( VariableGet( g_key_camillaActiveRun ) == 0 )
-		
+
 	end
 end
 
-function reinforcement_AfterCamillaNonRangedAttack()
-	
+function 増援_カミラ非遠距離攻撃後()
+
 	if VariableGet( g_key_reinforcementCamillaAttackedFar ) == 0 then
-		
+
 		Dispos( "Reinforcement6", DISPOS_FLAG_FOCUS )
 		Yield()
 		WaitTime( 0.5 )
-		
+
 		VariableSet( g_key_reinforcementCamillaAttackedFar, 1 )
-		
+
 	elseif VariableGet( g_key_reinforcementCamillaAttackedFar ) == 1 then
-		
+
 		VariableSet( g_key_camillaActiveRun, 1 )
-		
-	end
-	
-end
 
--- -----------------------------------
-
-function escapeEvent()
-	local unit = MindGetUnit()
-	if not UnitExistOnMap( unit ) then
-		return
 	end
-	
-	UnitRotation( g_pid_lueur, ROTATE_UP)
-	UnitMoveWait()
-	
-	VariableSet( "勝利", 1 )
+
 end
 
 -- -----------------------------------
 
 function MapEnding()
-	
-	Log("MapEnding")
-	
+
+
 end
 
 function Ending()
-	
-	Log("Ending")
-	
+
 	PuppetDemo("G005", "MID_ED1")
-	
+
 	神竜の章_紋章士加入( "GID_カミラ" )
-	
+
 	if GodUnitExists("GID_カムイ") then
 		PuppetDemo("G005", "MID_ED2")
 	end
-	
+
 	FadeInAndWait(FADE_FAST)
 	Tutorial("TUTID_紋章士カミラ")
-	
+
 end
 
 function GameOver()
-	
-	Log("GameOver")
-	
+
+
 end
+
