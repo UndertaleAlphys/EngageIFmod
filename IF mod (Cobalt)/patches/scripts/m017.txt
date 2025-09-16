@@ -125,6 +125,18 @@ function MapOpening()
 	Talk("MID_EV1")
 	
 	CursorSetPos_FromPid( g_pid_lueur )
+
+    GodUnitSetDarkness("GID_M017_敵ルキナ",	true)
+	GodUnitSetDarkness("GID_M017_敵リン",	true)
+	GodUnitSetDarkness("GID_M017_敵アイク",	true)
+	GodUnitSetDarkness("GID_M017_敵ベレト",	true)
+	GodUnitSetDarkness("GID_M017_敵カムイ",	true)
+	GodUnitSetDarkness("GID_M017_敵エイリーク",	true)
+	GodUnitSetDarkness("GID_M017_敵チキ",	true)
+	GodUnitSetDarkness("GID_M017_敵ヘクトル",	true)
+	GodUnitSetDarkness("GID_M017_敵セネリオ",	true)
+	GodUnitSetDarkness("GID_M017_敵カミラ",	true)
+	GodUnitSetDarkness("GID_M017_敵クロム",	true)
 	
 end
 

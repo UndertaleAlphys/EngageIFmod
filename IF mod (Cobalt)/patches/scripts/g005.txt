@@ -32,6 +32,9 @@ g_engaged_Aierfei = "g_engaged_Aierfei"
 g_key_dragonvein_camilla_1_used = "g_key_dragonvein_camilla_1_used"
 g_key_dragonvein_camilla_2_used = "g_key_dragonvein_camilla_2_used"
 g_key_dragonvein_camilla_3_used = "g_key_dragonvein_camilla_3_used"
+g_key_reinforcement1_triggered = "reinforcement1_triggered"
+g_key_reinforcement2_triggered = "reinforcement2_triggered"
+g_key_reinforcement3_triggered = "reinforcement3_triggered"
 g_buildingTiles = {}
 
 leftCount = 0
@@ -83,13 +86,16 @@ function 変数登録()
     VariableEntry( g_key_dragonvein_camilla_1_used, 0 )
     VariableEntry( g_key_dragonvein_camilla_2_used, 0 )
     VariableEntry( g_key_dragonvein_camilla_3_used, 0 )
+
+    VariableEntry(g_key_reinforcement1_triggered, 0)
+    VariableEntry(g_key_reinforcement2_triggered, 0)
+    VariableEntry(g_key_reinforcement3_triggered, 0)
 end
 
 function イベント登録()
 
 	EventEntryTurn( 進撃開始直後,			 1,  1, FORCE_PLAYER )
 	EventEntryTurn( 勝利条件_紋章士にフォーカス,	1,  1, FORCE_PLAYER )
-	EventEntryTurn(checkAndSetEngageEnemy,  1,  -1,  FORCE_ENEMY )
 	EventEntryTurn(AiSetCamillaTurnBefore,  -1,  -1,  FORCE_ENEMY )
 	EventEntryTurn(DragonVeinUsedByEmeny,  1,  -1,  FORCE_ENEMY )
 
@@ -108,7 +114,42 @@ function イベント登録()
 
     EventEntryTurn( ProcessAllUnitsLanding, 1, -1, FORCE_PLAYER )
     EventEntryTurn( ProcessAllUnitsLanding, 1, -1, FORCE_ENEMY )
+    EventEntryTurn(CheckAreaEntry, 1, -1, FORCE_PLAYER)
 
+    -- --------------------------------------------------
+    EventEntryEscape(離脱イベント, 24, 2, "PID_リュール", condition_true)
+
+end
+
+function CheckAreaEntry()
+    -- 获取地图中心点
+    local centerX = g_map_width / 2
+    local centerZ = g_map_height / 2
+
+    -- 遍历所有我方单位
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+    while index ~= nil do
+        local x = UnitGetX(index)
+        local z = UnitGetZ(index)
+
+        -- 左下区域 (x < centerX 且 z > centerZ)
+        if x < centerX and z < centerZ then
+            if VariableGet(g_key_reinforcement1_triggered) == 0 and MapGetTurn() >= 8 then
+                Dispos("Reinforcement1", DISPOS_FLAG_FOCUS)
+                VariableSet(g_key_reinforcement1_triggered, 1)
+            end
+        end
+
+        -- 右上区域 (x > centerX 且 z < centerZ)
+        if x > centerX and z > centerZ then
+            if VariableGet(g_key_reinforcement2_triggered) == 0 and MapGetTurn() >= 8 then
+                Dispos("Reinforcement2", DISPOS_FLAG_FOCUS)
+                VariableSet(g_key_reinforcement2_triggered, 1)
+            end
+        end
+
+        index = ForceUnitGetNext(index)
+    end
 end
 
 function Cleanup()
@@ -323,7 +364,17 @@ function initMapG005()
     UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Luna", 7)
     UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Beierjia", 7)
     UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Haluoerde", 7)
-    UnitSetEngageCount("PID_G002_IFMOD_幻影兵_Aierfei", 7)
+    UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Aierfei", 7)
+
+    TerrainSetBegin()
+    for z = 1, g_map_height do
+        for x = 1, g_map_width do
+            if TerrainGet(x, z) == "TID_川" then
+                TerrainSet(x, z, "TID_浅瀬")
+            end
+        end
+    end
+    TerrainSetEnd()
 end
 
 function CamillaAiSetTurnBefore()
@@ -433,7 +484,7 @@ function DragonVeinEffectBomb(column)
     for _, unit in ipairs(enemys) do
         MapDamageBegin()
             local currentHp = UnitGetHp(unit)
-            local map_damage = currentHp/3;
+            local map_damage = 10;
             local damage = map_damage
             if damage >= currentHp then
                 damage = currentHp - 1
@@ -889,3 +940,14 @@ function GameOver()
 
 end
 
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+
+	VariableSet( "勝利", 1 )
+end
