@@ -35,6 +35,7 @@ g_key_dragonvein_camilla_3_used = "g_key_dragonvein_camilla_3_used"
 g_key_reinforcement1_triggered = "reinforcement1_triggered"
 g_key_reinforcement2_triggered = "reinforcement2_triggered"
 g_key_reinforcement3_triggered = "reinforcement3_triggered"
+g_key_camilla_stop_dragonVein = "g_key_camilla_stop_dragonVein"
 g_buildingTiles = {}
 
 leftCount = 0
@@ -90,6 +91,7 @@ function 変数登録()
     VariableEntry(g_key_reinforcement1_triggered, 0)
     VariableEntry(g_key_reinforcement2_triggered, 0)
     VariableEntry(g_key_reinforcement3_triggered, 0)
+    VariableEntry(g_key_camilla_stop_dragonVein, 0)
 end
 
 function イベント登録()
@@ -536,6 +538,10 @@ function DragonVeinEffectGround()
             EventStateObject(obstacleX, obstacleZ, 0)
         end
     end
+
+    ProcessAllUnitsLanding()
+
+    VariableSet(g_key_camilla_stop_dragonVein, 1)
 end
 
 
@@ -684,6 +690,11 @@ function DragonVeinUsedByEmeny()
     if VariableGet(g_key_camillaActive) == 1 then
         return
     end
+
+    if VariableGet(g_key_camilla_stop_dragonVein) == 1 then
+        VariableSet(g_key_camilla_stop_dragonVein, 0)
+        return
+    end
     -- column: 0=左, 1=中, 2=右
     -- unitList: 该列的单位列表
     -- centerX, centerZ: 视觉中心点坐标
@@ -713,8 +724,7 @@ function DragonVeinUsedByEmenyEffect(column,unitListPlayer,unitListEnemy)
     for _, unit in ipairs(unitListPlayer) do
         MapDamageBegin()
             local currentHp = UnitGetHp(unit)
-            local map_damage = currentHp/3;
-            local damage = map_damage
+            local damage = 10;
             if damage >= currentHp then
                 damage = currentHp - 1
             end
@@ -756,6 +766,7 @@ function DestroyObstaclesInColumn(column)
             if TerrainGet(x, z) == "TID_建造物" or TerrainGet(x, z) == "TID_瓦礫" then
                 -- 破坏障碍物
                 DestroyObstacle(x, z, ex, ez)
+                WaitTime(0.2)
             end
         end
     end

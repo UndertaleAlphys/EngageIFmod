@@ -163,7 +163,7 @@ function MapOpening()
 end
 
 function IsMauveAlive()
-    return VariableGet(g_key_mauve_alive) == 1
+    return UnitExistOnMap(g_pid_Mauve)
 end
 
 function Set_Interference_AI_M016()
@@ -231,6 +231,22 @@ function DragonVeinUsed()
     if(x == 3 and z == 3) then
         used = DraginVein_Skill_Remove("SID_DragonVein_M016_TIDE_4","SID_DragonVein_Used")
         DragonVeinType = "tide"
+        if used == true then
+            CursorSetPos(3,3)
+            WaitTime( 0.5 )
+            EffectPlay( "水球_発動", 3, 3 )
+            EffectWait()
+            CursorSetPos( 15, 11 )
+            MapCameraWait()
+            EffectPlay( "水球", 15, 11 )
+            EffectWait()
+            EffectDelete("魔法陣_G001", 3, 3)
+            TerrainSetBegin()
+                TerrainSet( 3, 3, "TID_砂浜")
+            TerrainSetEnd()
+            HighTide()
+            return
+        end
     end
 
     if used == true then

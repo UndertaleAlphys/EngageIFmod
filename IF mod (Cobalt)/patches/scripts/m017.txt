@@ -2,8 +2,12 @@ Include("Common")
 Include("Common_E")
 
 g_pid_lueur = "PID_リュール"
+g_pid_veyre = "PID_M017_ヴェイル"
 g_key_runaways = "暴走_初回"
 
+canUsedGodList = {"GID_ルキナ","GID_リン","GID_アイク","GID_ベレト","GID_カムイ","GID_エイリーク","GID_チキ","GID_ヘクトル","GID_セネリオ","GID_カミラ","GID_クロム"}
+player_God_Table = {}
+notEquipGodList = {}
 
 -- -----------------------------------
 
@@ -26,13 +30,24 @@ function 変数登録()
 	
 	VariableEntry( "増援_戦闘後増援_済", 0 )
 	VariableEntry( g_key_runaways, 0 )
-	
+
+    for _, godId in ipairs(canUsedGodList) do
+        local varName = "戒指_" .. godId .. "_状态"
+        VariableEntry(varName, 0)  -- 0表示可被夺取
+    end
+
 	E_BattleTalk_VariableEntry()
 	
 end
 
+
+
 function イベント登録()
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(setPlayerGodTable, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(setGodFromUnequip, 1, -1, FORCE_PLAYER)
+    EventEntryDie(checkDeadEnemy, "", FORCE_ENEMY, condition_true, "")
+
 	
 	-- 増援戦闘後イベント
 	EventEntryBattleAfter(EmptyFunction, "", FORCE_PLAYER, "PID_M017_セピア", FORCE_ENEMY, true, "戦闘後イベント_済")
@@ -103,43 +118,144 @@ function Opening()
 	
 	Log("Opening")
 	
-	PuppetDemo("M017", "MID_OP1")
-
-	Movie("Scene19")
-	SkipEscape()
-
-	PuppetDemo("M017", "MID_OP2")
-
-	Movie("Scene20")
-	SkipEscape()
+	--PuppetDemo("M017", "MID_OP1")
+    --
+	--Movie("Scene19")
+	--SkipEscape()
+    --
+	--PuppetDemo("M017", "MID_OP2")
+    --
+	--Movie("Scene20")
+	--SkipEscape()
 end
 
 function MapOpening()
 	
-	Log("MapOpening")
-	
-	FadeWait()
-	
-	CursorSetPos_FromPid( "PID_M017_異形兵_ハイアシンス" )
-	
-	Talk("MID_EV1")
-	
+	--Log("MapOpening")
+	--
+	--FadeWait()
+	--
+	--CursorSetPos_FromPid( "PID_M017_異形兵_ハイアシンス" )
+	--
+	--Talk("MID_EV1")
+	--
 	CursorSetPos_FromPid( g_pid_lueur )
 
-    GodUnitSetDarkness("GID_M017_敵ルキナ",	true)
-	GodUnitSetDarkness("GID_M017_敵リン",	true)
-	GodUnitSetDarkness("GID_M017_敵アイク",	true)
-	GodUnitSetDarkness("GID_M017_敵ベレト",	true)
-	GodUnitSetDarkness("GID_M017_敵カムイ",	true)
-	GodUnitSetDarkness("GID_M017_敵エイリーク",	true)
-	GodUnitSetDarkness("GID_M017_敵チキ",	true)
-	GodUnitSetDarkness("GID_M017_敵ヘクトル",	true)
-	GodUnitSetDarkness("GID_M017_敵セネリオ",	true)
-	GodUnitSetDarkness("GID_M017_敵カミラ",	true)
-	GodUnitSetDarkness("GID_M017_敵クロム",	true)
-	
+	GodUnitSetDarkness("GID_M017_敵ルキナ", true)
 end
 
+function setPlayerGodTable()
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+
+    while index ~= nil do
+        local unitPid = UnitGetPID(index)
+        local equippedRing = UnitGetGodUnit(index)
+        if equippedRing ~= nil then
+            table.insert(player_God_Table, {
+                pid = unitPid,
+                ring = equippedRing
+            })
+        end
+        index = ForceUnitGetNext(index)
+    end
+
+    for _, godId in ipairs(canUsedGodList) do
+        local isEquipped = false
+
+        for _, equippedInfo in ipairs(player_God_Table) do
+            if equippedInfo.ring == godId then
+                isEquipped = true
+                break
+            end
+        end
+
+        if not isEquipped then
+            table.insert(notEquipGodList, godId)
+        end
+    end
+end
+
+function setGodFromUnequip()
+    for _, godId in ipairs(notEquipGodList) do
+        if not IsGodStolen(godId) then
+            StealGodRing(godId,g_pid_lueur)
+        end
+    end
+end
+
+function StealGodRing(godId,fromPid)
+    local nearestEnemy, targetX, targetZ = FindNearestEnemyUnitHasNoGod(fromPid)
+
+    if nearestEnemy ~= nil then
+        -- 显示效果
+        CursorSetPos(targetX, targetZ)
+        MapCameraWait()
+        EffectPlay("ワープイン_闇", targetX, targetZ)
+        UnitShine(nearestEnemy, 0.3)
+        WaitTime(0.3)
+
+        -- 为敌方单位装备敌方版本的戒指
+        local newGodId = ConvertToEnemyGodId(godId)
+        UnitCreateGodUnit(nearestEnemy, newGodId)
+
+        -- 标记该戒指已被夺取
+        SetGodStolen(godId)
+
+        CobaltNotice("敌方单位在位置(" .. targetX .. "," .. targetZ .. ")装备了戒指: " .. newGodId)
+    end
+end
+
+-- 检查被击杀敌方单位的戒指
+function checkDeadEnemy()
+    Log("step1")
+    local deadUnit = MindGetEventUnit()  -- 获取被击杀的单位
+    Log("step2")
+    if deadUnit == nil then
+        return
+    end
+
+    local enemyGodId = UnitGetGodUnit(deadUnit)  -- 获取敌方单位装备的戒指
+    Log("step3")
+    if enemyGodId == nil then
+        return  -- 没有装备戒指，直接返回
+    end
+
+    -- 将敌方戒指ID转换为我方版本
+    local playerGodId = ConvertToNormalGodId(enemyGodId)
+    Log("step4")
+
+    if playerGodId == enemyGodId then
+        return  -- 转换失败，不是我们需要处理的戒指
+    end
+
+    -- 检查该戒指是否在notEquipGodList中
+    local isInNotEquipList = false
+    for _, godId in ipairs(notEquipGodList) do
+        if godId == playerGodId then
+            isInNotEquipList = true
+            break
+        end
+    end
+    Log("step5")
+
+    if not isInNotEquipList then
+        -- 不在notEquipGodList中，搜寻player_God_Table找到原先装备该戒指的单位
+        for _, equippedInfo in ipairs(player_God_Table) do
+            if equippedInfo.ring == playerGodId then
+                -- 找到原先装备该戒指的单位，重新为其装备戒指
+                UnitSetGodUnit(equippedInfo.pid, playerGodId)
+                SetGodAvailable(playerGodId)
+                Log("step5-1")
+                break
+            end
+        end
+    else
+        -- 在notEquipGodList中，只刷新其偷取状态
+        CobaltNotice(playerGodId)
+        SetGodAvailable(playerGodId)
+        Log("step5-2")
+    end
+end
 -- -----------------------------------
 
 function EmptyFunction()
@@ -285,4 +401,72 @@ function GameOver()
 	
 	Log("GameOver")
 	
+end
+
+function ConvertToEnemyGodId(godId)
+    if not IsGodStealable(godId) then
+        return godId
+    end
+
+    if string.sub(godId, 1, 4) == "GID_" then
+        local baseName = string.sub(godId, 5)
+        if baseName then
+            return "GID_M017_敵" .. baseName
+        end
+    end
+    return godId
+end
+
+function ConvertToNormalGodId(enemyGodId)
+    Log(enemyGodId)
+    if string.sub(enemyGodId, 1, 10) == "GID_M017_敵" then
+        local baseName = string.sub(enemyGodId, 11)
+        Log(baseName)
+        if baseName then
+            local normalGodId = "GID_" .. baseName
+            Log(normalGodId)
+            -- 检查转换后的戒指是否在可夺取列表中
+            if IsGodStealable(normalGodId) then
+                return normalGodId
+            end
+        end
+    end
+    return enemyGodId
+end
+
+function IsGodStolen(godId)
+    if not IsGodStealable(godId) then
+        return false
+    end
+
+    local varName = "戒指_" .. godId .. "_状态"
+    return VariableGet(varName) == 1
+end
+
+function IsGodStealable(godId)
+    Log("IsGodStealable")
+    for _, stealableGod in ipairs(canUsedGodList) do
+        if stealableGod == godId then
+            return true
+        end
+    end
+    return false
+end
+
+function SetGodStolen(godId)
+    if not IsGodStealable(godId) then
+        return
+    end
+    local varName = "戒指_" .. godId .. "_状态"
+    VariableSet(varName, 1)  -- 1表示已被夺取
+end
+
+function SetGodAvailable(godId)
+    if not IsGodStealable(godId) then
+        return
+    end
+    Log("5-2-1")
+    local varName = "戒指_" .. godId .. "_状态"
+    VariableSet(varName, 0)  -- 0表示可被夺取
+    Log("5-2-2")
 end

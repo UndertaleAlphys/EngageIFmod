@@ -1731,8 +1731,15 @@ function ShouldUnitLand(unit)
     local x = UnitGetX(unit)
     local z = UnitGetZ(unit)
     local terrainCost = TerrainGetMoveCost(x, z)
+
+    -- 当地形为不可通行时，无论什么移动类型都需要降落
+    if terrainCost == "COST_不可" then
+        return true
+    end
+
+    -- 当地形为空中时，非飞行单位需要降落
     if terrainCost == "COST_空" then
-        local moveType =  UnitGetMoveCost( unit )
+        local moveType = UnitGetMoveCost(unit)
         if moveType ~= "COST_飛行" then
             if UnitHasPrivateSkill(unit, "SID_天駆") == false then
                 return true
@@ -1743,7 +1750,8 @@ function ShouldUnitLand(unit)
     return false
 end
 
-function FindLandingPosition(startX, startZ)
+
+function FindLandingPosition(startX, startZ,isFly)
     local queue = {{x = startX, z = startZ}}
     local visited = {}
     local key = startX + startZ * g_width
@@ -1758,7 +1766,7 @@ function FindLandingPosition(startX, startZ)
         local currentX, currentZ = current.x, current.z
 
         -- 检查当前位置是否适合降落
-        if IsSuitableLandingPosition(currentX, currentZ) then
+        if IsSuitableLandingPosition(currentX, currentZ, isFly) then
             return currentX, currentZ
         end
 
@@ -1784,11 +1792,19 @@ function FindLandingPosition(startX, startZ)
     return startX, startZ
 end
 
-function IsSuitableLandingPosition(x, z)
+function IsSuitableLandingPosition(x, z ,isFly)
     -- 检查地形是否不为COST_不可和COST_空
     local terrainCost = TerrainGetMoveCost(x, z)
-    if terrainCost == "COST_不可" or terrainCost == "COST_空" then
-        return false
+    if isFly == false then
+       if terrainCost == "COST_不可" or terrainCost == "COST_空" then
+           return false
+       end
+    end
+
+    if isFly == true then
+        if terrainCost == "COST_不可" then
+           return false
+       end
     end
 
     -- 检查位置是否没有其他人
@@ -1803,9 +1819,9 @@ function LandUnit(unit)
     if ShouldUnitLand(unit) then
         local x = UnitGetX(unit)
         local z = UnitGetZ(unit)
-
+        local isFlyBattleType = (UnitGetMoveCost(unit) == "COST_飛行")
         -- 查找合适的降落位置
-        local landX, landZ = FindLandingPosition(x, z)
+        local landX, landZ = FindLandingPosition(x, z ,isFlyBattleType)
 
         -- 如果找到不同的位置，则移动单位
         if landX ~= x or landZ ~= z then
@@ -1963,4 +1979,85 @@ function CanPassThroughPosition(unit, x, z)
     end
 
     return true
+end
+
+function FindNearestEnemyUnit(targetPid)
+    local targetUnit = UnitGetByPID(targetPid)
+    if targetUnit == nil then
+        return nil
+    end
+
+    local targetX = UnitGetX(targetUnit)
+    local targetZ = UnitGetZ(targetUnit)
+
+    local nearestEnemy = nil
+    local minDistance = 999
+    local nearestX = 0
+    local nearestZ = 0
+
+    local enemyIndex = ForceUnitGetFirst(FORCE_ENEMY)
+    while enemyIndex ~= nil do
+        if enemyIndex ~= targetUnit then
+            local enemyX = UnitGetX(enemyIndex)
+            local enemyZ = UnitGetZ(enemyIndex)
+
+            local distance = math.abs(targetX - enemyX) + math.abs(targetZ - enemyZ)
+
+            if distance < minDistance then
+                minDistance = distance
+                nearestEnemy = enemyIndex
+                nearestX = enemyX
+                nearestZ = enemyZ
+            end
+        end
+
+        enemyIndex = ForceUnitGetNext(enemyIndex)
+    end
+
+    return nearestEnemy, nearestX, nearestZ
+end
+
+-- 查找与指定PID单位最近的未装备GodUnit的敌方单位
+function FindNearestEnemyUnitHasNoGod(targetPid)
+    local targetUnit = UnitGetByPID(targetPid)
+    if targetUnit == nil then
+        return nil
+    end
+
+    local targetX = UnitGetX(targetUnit)
+    local targetZ = UnitGetZ(targetUnit)
+
+    local nearestEnemy = nil
+    local minDistance = 999
+    local nearestX = 0
+    local nearestZ = 0
+
+    -- 遍历所有敌方单位
+    local enemyIndex = ForceUnitGetFirst(FORCE_ENEMY)
+    while enemyIndex ~= nil do
+        -- 排除目标单位自身
+        if enemyIndex ~= targetUnit then
+            -- 检查该敌方单位是否未装备GodUnit
+            local enemyGodUnit = UnitGetGodUnit(enemyIndex)
+            if enemyGodUnit == nil then
+                local enemyX = UnitGetX(enemyIndex)
+                local enemyZ = UnitGetZ(enemyIndex)
+
+                -- 计算曼哈顿距离
+                local distance = math.abs(targetX - enemyX) + math.abs(targetZ - enemyZ)
+
+                -- 更新最近的未装备GodUnit的敌方单位
+                if distance < minDistance then
+                    minDistance = distance
+                    nearestEnemy = enemyIndex
+                    nearestX = enemyX
+                    nearestZ = enemyZ
+                end
+            end
+        end
+
+        enemyIndex = ForceUnitGetNext(enemyIndex)
+    end
+
+    return nearestEnemy, nearestX, nearestZ
 end
