@@ -691,10 +691,10 @@ function DragonVeinUsedByEmeny()
         return
     end
 
-    if VariableGet(g_key_camilla_stop_dragonVein) == 1 then
-        VariableSet(g_key_camilla_stop_dragonVein, 0)
-        return
-    end
+    --if VariableGet(g_key_camilla_stop_dragonVein) == 1 then
+    --    VariableSet(g_key_camilla_stop_dragonVein, 0)
+    --    return
+    --end
     -- column: 0=左, 1=中, 2=右
     -- unitList: 该列的单位列表
     -- centerX, centerZ: 视觉中心点坐标

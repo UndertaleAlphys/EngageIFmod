@@ -1741,9 +1741,7 @@ function ShouldUnitLand(unit)
     if terrainCost == "COST_空" then
         local moveType = UnitGetMoveCost(unit)
         if moveType ~= "COST_飛行" then
-            if UnitHasPrivateSkill(unit, "SID_天駆") == false then
-                return true
-            end
+             return true
         end
     end
 

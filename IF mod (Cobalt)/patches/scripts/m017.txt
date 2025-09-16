@@ -47,6 +47,7 @@ function イベント登録()
 	EventEntryTurn(setPlayerGodTable, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(setGodFromUnequip, 1, -1, FORCE_PLAYER)
     EventEntryDie(checkDeadEnemy, "", FORCE_ENEMY, condition_true, "")
+    EventEntryTurn(StealGodRingFromPlayer, 1, -1, FORCE_PLAYER)
 
 	
 	-- 増援戦闘後イベント
@@ -202,6 +203,67 @@ function StealGodRing(godId,fromPid)
         SetGodStolen(godId)
 
         CobaltNotice("敌方单位在位置(" .. targetX .. "," .. targetZ .. ")装备了戒指: " .. newGodId)
+    end
+end
+
+function StealGodRingFromPlayer()
+    local stealablePlayerRings = {}
+
+    for _, equippedInfo in ipairs(player_God_Table) do
+        local godId = equippedInfo.ring
+        -- 检查该戒指是否可偷取且未被偷取过
+        if IsGodStealable(godId) and not IsGodStolen(godId) then
+            table.insert(stealablePlayerRings, equippedInfo)
+        end
+    end
+
+    local stealCount = math.min(2, #stealablePlayerRings)
+    Log("stealCount" .. stealCount)
+    -- 如果没有可偷取的戒指，直接返回
+    if stealCount <= 0 then
+        return
+    end
+
+    local stolenRings = {}
+    for i = 1, stealCount do
+        local randomIndex = math.random(1, #stealablePlayerRings)
+        table.insert(stolenRings, stealablePlayerRings[randomIndex])
+        table.remove(stealablePlayerRings, randomIndex)
+    end
+
+    for _, equippedInfo in ipairs(stolenRings) do
+        local godId = equippedInfo.ring
+        local unitPid = equippedInfo.pid
+
+        -- 找到装备该戒指的单位位置
+        if UnitExistOnMap(unitPid) then
+            local unitX = UnitGetX(unitPid)
+            local unitZ = UnitGetZ(unitPid)
+
+            -- 找到最近的未装备戒指的敌方单位
+            local nearestEnemy = FindNearestEnemyUnitHasNoGod(unitPid)
+
+            if nearestEnemy ~= nil then
+                -- 显示效果
+                CursorSetPos(unitX, unitZ)
+                MapCameraWait()
+                EffectPlay("ワープアウト_闇", unitX, unitZ)
+                UnitShine(UnitGetByPID(unitPid), 0.3)
+                WaitTime(0.3)
+
+                -- 从玩家单位移除戒指
+                UnitSetGodUnit(unitPid, nil)
+
+                -- 为敌方单位装备敌方版本的戒指
+                local enemyGodId = ConvertToEnemyGodId(godId)
+                UnitCreateGodUnit(nearestEnemy, enemyGodId)
+
+                -- 标记该戒指已被偷取
+                SetGodStolen(godId)
+
+                CobaltNotice("从玩家单位 " .. unitPid .. " 处偷取了戒指 " .. godId .. " 并装备给敌方单位")
+            end
+        end
     end
 end
 
