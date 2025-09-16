@@ -5,6 +5,7 @@ g_pid_lueur				= "PID_リュール"
 
 g_pid_Mauve             = "PID_M016_モーヴ"
 g_pid_Marron            = "PID_M016_マロン"
+g_key_mauve_alive = "g_key_mauve_alive"
 
 g_key_highTide			= "満潮"
 g_key_highTide_turn		= "満ち引きターン"
@@ -41,6 +42,7 @@ function 変数登録()
 	VariableEntry( g_key_houseDestroy, 0 )
 	VariableEntry( g_key_reinforcement1, 0 )
 	VariableEntry( g_key_reinforcement2, 0 )
+	VariableEntry( g_key_mauve_alive, 1 )
 
 	E_BattleTalk_VariableEntry()
 
@@ -78,6 +80,7 @@ function イベント登録()
 	EventEntryArea(DragonVeinUsed, 14, 13, 14, 13, FORCE_PLAYER, condition_true)
 	EventEntryArea(DragonVeinUsed, 19, 3, 19, 3, FORCE_PLAYER, condition_true)
     EventEntryArea(DragonVeinUsed, 9, 17, 9, 17, FORCE_PLAYER, condition_true)
+    EventEntryArea(DragonVeinUsed, 3, 3, 3, 3, FORCE_PLAYER, condition_true)
 
 	EventEntryArea(conditon_reinforcemen2, 1, 1, 7, 22, FORCE_PLAYER, condition_true)
 	EventEntryArea(conditon_reinforcemen1, 1, 1, 15, 22, FORCE_PLAYER, condition_true)
@@ -130,7 +133,6 @@ function MapOpening()
 	Dispos( "Ally_Goldmary", DISPOS_FLAG_NONE )
 	Yield()
 	WaitTime( 0.5 )
-
 	-- FadeOutAndWait(FADE_FAST)
 		-- PuppetDemo("M016", "MID_OP6")
 		-- Movie("Kengen11")
@@ -156,9 +158,12 @@ function MapOpening()
 	UnitRotation("PID_ロサード",		ROTATE_LEFT)
 	UnitRotation("PID_ゴルドマリー",	ROTATE_LEFT)
 	CursorSetPos_FromPid( g_pid_lueur )
-	Log("step start")
 	InitDragonVein()
-	Log("step end")
+	VariableSet(g_key_mauve_alive, 1)
+end
+
+function IsMauveAlive()
+    return VariableGet(g_key_mauve_alive) == 1
 end
 
 function Set_Interference_AI_M016()
@@ -309,10 +314,13 @@ function EbbTide()
     MapObjectAction( 9, 1, MAP_ACTION_IDLE)
     マップ全体の地形変化( "TID_浅瀬", "TID_砂浜_M016" )
     VariableSet(g_key_highTide,0);
-    VariableSet(g_key_highTide_turn,2);
+    VariableSet(g_key_highTide_turn,4);
 end
 
 function HighTideByDragonVein()
+     if not IsMauveAlive() then
+        return
+    end
     local x = UnitGetX(g_pid_Mauve)
     local z = UnitGetZ(g_pid_Mauve)
     CursorSetPos_FromPid( g_pid_Mauve)
@@ -404,7 +412,7 @@ end
 -- -----------------------------------
 
 function conditon_reinforcemen2()
-    if VariableGet(g_key_reinforcement1) == 1 or VariableGet(g_key_reinforcement2) == 2 then
+    if VariableGet(g_key_reinforcement2) == 1 or VariableGet(g_key_reinforcement2) == 2 then
         return
     end
 

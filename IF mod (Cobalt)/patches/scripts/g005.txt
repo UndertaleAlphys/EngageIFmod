@@ -29,6 +29,9 @@ g_engaged_Luna = "g_engaged_Luna"
 g_engaged_Beierjia = "g_engaged_Beierjia"
 g_engaged_Haluoerde = "g_engaged_Haluoerde"
 g_engaged_Aierfei = "g_engaged_Aierfei"
+g_key_dragonvein_camilla_1_used = "g_key_dragonvein_camilla_1_used"
+g_key_dragonvein_camilla_2_used = "g_key_dragonvein_camilla_2_used"
+g_key_dragonvein_camilla_3_used = "g_key_dragonvein_camilla_3_used"
 g_buildingTiles = {}
 
 leftCount = 0
@@ -76,6 +79,10 @@ function 変数登録()
     VariableEntry( g_engaged_Luna,		0 )
     VariableEntry( g_engaged_Beierjia,		0 )
     VariableEntry( g_engaged_Haluoerde,		0 )
+
+    VariableEntry( g_key_dragonvein_camilla_1_used, 0 )
+    VariableEntry( g_key_dragonvein_camilla_2_used, 0 )
+    VariableEntry( g_key_dragonvein_camilla_3_used, 0 )
 end
 
 function イベント登録()
@@ -238,6 +245,7 @@ function MapOpening()
 	Log("MapOpening")
     initMapG005()
     UpdateBuildingTilesList()
+    
 end
 
 -- -----------------------------------
