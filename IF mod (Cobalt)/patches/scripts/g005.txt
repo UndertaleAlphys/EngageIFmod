@@ -116,42 +116,22 @@ function イベント登録()
 
     EventEntryTurn( ProcessAllUnitsLanding, 1, -1, FORCE_PLAYER )
     EventEntryTurn( ProcessAllUnitsLanding, 1, -1, FORCE_ENEMY )
-    EventEntryTurn(CheckAreaEntry, 1, -1, FORCE_PLAYER)
+    EventEntryTurn(ReinforcementTurn7, 7, 7, FORCE_PLAYER)
 
     -- --------------------------------------------------
     EventEntryEscape(離脱イベント, 24, 2, "PID_リュール", condition_true)
 
 end
 
-function CheckAreaEntry()
-    -- 获取地图中心点
-    local centerX = g_map_width / 2
-    local centerZ = g_map_height / 2
+function ReinforcementTurn7 ()
 
-    -- 遍历所有我方单位
-    local index = ForceUnitGetFirst(FORCE_PLAYER)
-    while index ~= nil do
-        local x = UnitGetX(index)
-        local z = UnitGetZ(index)
+     Dispos("Reinforcement1", DISPOS_FLAG_FOCUS)
+     Yield()
+     WaitTime( 0.5 )
 
-        -- 左下区域 (x < centerX 且 z > centerZ)
-        if x < centerX and z < centerZ then
-            if VariableGet(g_key_reinforcement1_triggered) == 0 and MapGetTurn() >= 8 then
-                Dispos("Reinforcement1", DISPOS_FLAG_FOCUS)
-                VariableSet(g_key_reinforcement1_triggered, 1)
-            end
-        end
-
-        -- 右上区域 (x > centerX 且 z < centerZ)
-        if x > centerX and z > centerZ then
-            if VariableGet(g_key_reinforcement2_triggered) == 0 and MapGetTurn() >= 8 then
-                Dispos("Reinforcement2", DISPOS_FLAG_FOCUS)
-                VariableSet(g_key_reinforcement2_triggered, 1)
-            end
-        end
-
-        index = ForceUnitGetNext(index)
-    end
+     Dispos("Reinforcement2", DISPOS_FLAG_FOCUS)
+     Yield()
+     WaitTime( 0.5 )
 end
 
 function Cleanup()
@@ -252,7 +232,7 @@ function UpdateBuildingTilesList()
 
         -- 检查地形状态，如果是建造物则进行BFS扩展
         local terrain = TerrainGet(startX, startZ)
-        if terrain == "TID_建造物" and not visited[startX .. "," .. startZ] then
+        if (terrain == "TID_建造物" or terrain == "TID_瓦礫" )and not visited[startX .. "," .. startZ] then
             -- 使用BFS查找所有相连的相同地形
             local queue = {{x = startX, z = startZ}}
             visited[startX .. "," .. startZ] = true
@@ -271,7 +251,7 @@ function UpdateBuildingTilesList()
                     local key = nextX .. "," .. nextZ
 
                     if nextX >= 0 and nextX < g_width and nextZ >= 0 and nextZ < g_height and not visited[key] then
-                        if TerrainGet(nextX, nextZ) == "TID_建造物" then
+                        if TerrainGet(nextX, nextZ) == "TID_建造物" or TerrainGet(nextX, nextZ) == "TID_瓦礫" then
                             table.insert(queue, {x = nextX, z = nextZ})
                             visited[key] = true
                         end
@@ -287,7 +267,6 @@ function MapOpening()
 
 	Log("MapOpening")
     initMapG005()
-    UpdateBuildingTilesList()
     
 end
 
@@ -299,6 +278,21 @@ end
 -- -----------------------------------
 
 function 進撃開始直後()
+
+    UpdateBuildingTilesList()
+
+    -- 使用封装函数装备技能
+    local skillIds = {
+        "SID_DragonVein_G005_EXPLOSION_0", "SID_DragonVein_G005_EXPLOSION_1",
+        "SID_DragonVein_G005_EXPLOSION_2", "SID_DragonVein_G005_SKY_0",
+        "SID_DragonVein_G005_SKY_1", "SID_DragonVein_G005_SKY_2",
+        "SID_DragonVein_G005_SKY_3", "SID_DragonVein_G005_SKY_4",
+        "SID_DragonVein_G005_LAND_0", "SID_DragonVein_G005_LAND_1",
+        "SID_DragonVein_G005_LAND_2", "SID_DragonVein_G005_LAND_3",
+        "SID_DragonVein_G005_LAND_4"
+    }
+    DragonVeinEquipSkills(skillIds)
+
 
 	CursorSetPos_FromPid( g_pid_boss )
 
@@ -350,18 +344,6 @@ function initMapG005()
         {18, 20, "TID_龙脉_G005_GROUND"}
     }
     DragonVeinSetTerrain(terrainPoints)
-
-    -- 使用封装函数装备技能
-    local skillIds = {
-        "SID_DragonVein_G005_EXPLOSION_0", "SID_DragonVein_G005_EXPLOSION_1",
-        "SID_DragonVein_G005_EXPLOSION_2", "SID_DragonVein_G005_SKY_0",
-        "SID_DragonVein_G005_SKY_1", "SID_DragonVein_G005_SKY_2",
-        "SID_DragonVein_G005_SKY_3", "SID_DragonVein_G005_SKY_4",
-        "SID_DragonVein_G005_LAND_0", "SID_DragonVein_G005_LAND_1",
-        "SID_DragonVein_G005_LAND_2", "SID_DragonVein_G005_LAND_3",
-        "SID_DragonVein_G005_LAND_4"
-    }
-    DragonVeinEquipSkills(skillIds)
 
     UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Luna", 7)
     UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Beierjia", 7)
@@ -506,6 +488,14 @@ function DragonVeinEffectSky()
     WaitTime(1.0)
     EffectPlay("水球_発動", x, z)
     EffectWait()
+
+    local centerX,centerZ = CalculatePlayerUnitsCenter()
+    CursorSetPos( centerX,centerZ )
+    MapCameraWait()
+
+    EffectPlay( "水球", centerX,centerZ )
+    EffectWait()
+
     local index = ForceUnitGetFirst(FORCE_PLAYER)
     while index ~= nil do
         UnitSetPrivateSkill(index, "SID_天駆")
@@ -520,6 +510,13 @@ function DragonVeinEffectGround()
     CursorSetPos(x, z)
     WaitTime(1.0)
     EffectPlay("水球_発動", x, z)
+    EffectWait()
+
+    local centerX,centerZ = CalculatePlayerUnitsCenter()
+    CursorSetPos( centerX,centerZ )
+    MapCameraWait()
+
+    EffectPlay( "水球", centerX,centerZ )
     EffectWait()
 
     TerrainSetBegin()

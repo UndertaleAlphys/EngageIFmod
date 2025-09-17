@@ -1108,6 +1108,8 @@ function 勝利条件()
 	end
 	
 	WinRule()
+
+	Dialog( "MID_TUT_M017_RULE" )
 end
 
 
@@ -2037,7 +2039,9 @@ function FindNearestEnemyUnitHasNoGod(targetPid)
         if enemyIndex ~= targetUnit then
             -- 检查该敌方单位是否未装备GodUnit
             local enemyGodUnit = UnitGetGodUnit(enemyIndex)
-            if enemyGodUnit == nil then
+            local jobId = UnitGetJID(enemyIndex)
+
+            if enemyGodUnit == nil and jobId ~= "JID_異形竜" then
                 local enemyX = UnitGetX(enemyIndex)
                 local enemyZ = UnitGetZ(enemyIndex)
 
@@ -2058,4 +2062,30 @@ function FindNearestEnemyUnitHasNoGod(targetPid)
     end
 
     return nearestEnemy, nearestX, nearestZ
+end
+
+function CalculatePlayerUnitsCenter()
+    local totalX = 0
+    local totalZ = 0
+    local unitCount = 0
+
+    -- 遍历所有我方单位
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+    while index ~= nil do
+        totalX = totalX + UnitGetX(index)
+        totalZ = totalZ + UnitGetZ(index)
+        unitCount = unitCount + 1
+        index = ForceUnitGetNext(index)
+    end
+
+    -- 避免除零错误
+    if unitCount == 0 then
+        return 0, 0, 0
+    end
+
+    -- 计算平均坐标作为视觉中心点
+    local centerX = totalX / unitCount
+    local centerZ = totalZ / unitCount
+
+    return centerX, centerZ, unitCount
 end

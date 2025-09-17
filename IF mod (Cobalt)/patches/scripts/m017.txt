@@ -18,6 +18,7 @@ function Startup()
 	-- 勝利条件設定：敵将撃破
 	WinRuleSetDestroyBoss(true)
 	WinRuleSetMID( "MID_RULE_M017_WIN" )
+	LoseRuleSetMID( "MID_RULE_M017_LOSE")
 	
 	変数登録()
 	イベント登録()
@@ -33,7 +34,9 @@ function 変数登録()
 
     for _, godId in ipairs(canUsedGodList) do
         local varName = "戒指_" .. godId .. "_状态"
+        local engageCount = "戒指_" .. godId .. "_计数"
         VariableEntry(varName, 0)  -- 0表示可被夺取
+        VariableEntry(engageCount, 0)
     end
 
 	E_BattleTalk_VariableEntry()
@@ -45,9 +48,9 @@ end
 function イベント登録()
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(setPlayerGodTable, 1, 1, FORCE_PLAYER)
-	EventEntryTurn(setGodFromUnequip, 1, -1, FORCE_PLAYER)
+	EventEntryTurn(setGodFromUnequip, 1, -1, FORCE_ENEMY)
     EventEntryDie(checkDeadEnemy, "", FORCE_ENEMY, condition_true, "")
-    EventEntryTurn(StealGodRingFromPlayer, 1, -1, FORCE_PLAYER)
+    EventEntryTurn(StealGodRingFromPlayer, 2, -1, FORCE_ENEMY)
 
 	
 	-- 増援戦闘後イベント
@@ -56,15 +59,11 @@ function イベント登録()
 	-- ヴェイル
 	EventEntryBattleTalk(Talk, g_pid_lueur, FORCE_PLAYER, "PID_M017_ヴェイル", FORCE_ENEMY, true, "戦闘前会話_ヴェイル_リュール_済", "MID_BT1")
 	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, "PID_M017_ヴェイル", FORCE_ENEMY, true, "戦闘前会話_ヴェイル_済", "MID_BT2")
-	EventEntryReviveBefore(	ヴェイル暴走前, "PID_M017_ヴェイル", FORCE_ENEMY, "ヴェイル暴走前_済" )
-	EventEntryReviveAfter(	ヴェイル暴走後, "PID_M017_ヴェイル", FORCE_ENEMY, "ヴェイル暴走後_済" )
 	EventEntryDie(Talk, "PID_M017_ヴェイル", FORCE_ENEMY, condition_true, "MID_BT3")
 	
 	-- セピア
 	E_BattleTalkEntry_Sepia( "PID_M017_セピア" )
 	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, "PID_M017_セピア", FORCE_ENEMY, true, "戦闘前会話_セピア_済", "MID_BT4")
-	EventEntryReviveBefore(	セピア暴走前, "PID_M017_セピア", FORCE_ENEMY, "セピア暴走前_済" )
-	EventEntryReviveAfter(	セピア暴走後, "PID_M017_セピア", FORCE_ENEMY, "セピア暴走後_済" )
 	EventEntryDie(Talk, "PID_M017_セピア", FORCE_ENEMY, condition_true, "MID_BT5")
 	
 	-- グリ
@@ -85,8 +84,6 @@ function イベント登録()
 	EventEntryBattleTalk(Talk, "PID_アイビー",		FORCE_PLAYER, "PID_M017_異形兵_ハイアシンス", FORCE_ENEMY, true, "戦闘前会話_ハイアシンス_アイビー_済",		"MID_BT12")
 	EventEntryBattleTalk(Talk, "PID_オルテンシア",	FORCE_PLAYER, "PID_M017_異形兵_ハイアシンス", FORCE_ENEMY, true, "戦闘前会話_ハイアシンス_オルテンシア_済",	"MID_BT13")
 	EventEntryBattleTalk(Talk, "",					FORCE_PLAYER, "PID_M017_異形兵_ハイアシンス", FORCE_ENEMY, true, "戦闘前会話_ハイアシンス_済",				"MID_BT14")
-	EventEntryReviveBefore(	ハイアシンス暴走前, "PID_M017_異形兵_ハイアシンス", FORCE_ENEMY, "ハイアシンス暴走前_済" )
-	EventEntryReviveAfter(	ハイアシンス暴走後, "PID_M017_異形兵_ハイアシンス", FORCE_ENEMY, "ハイアシンス暴走後_済" )
 	EventEntryDie(Talk, "PID_M017_異形兵_ハイアシンス", FORCE_ENEMY, condition_true, "MID_BT15")
 	
 	-- 戦闘後AI変更_グリ
@@ -142,7 +139,6 @@ function MapOpening()
 	--
 	CursorSetPos_FromPid( g_pid_lueur )
 
-	GodUnitSetDarkness("GID_M017_敵ルキナ", true)
 end
 
 function setPlayerGodTable()
@@ -177,9 +173,28 @@ function setPlayerGodTable()
 end
 
 function setGodFromUnequip()
+    -- 检查是否有至少一个未装备且未被偷取的戒指
+    local canStealCount = 0
     for _, godId in ipairs(notEquipGodList) do
         if not IsGodStolen(godId) then
-            StealGodRing(godId,g_pid_lueur)
+            canStealCount = canStealCount + 1
+        end
+    end
+
+    -- 只有在至少能偷取一个戒指时才播放动画
+    if canStealCount > 0 then
+        CursorSetPos_FromPid(g_pid_veyre)
+        local x = UnitGetX(g_pid_veyre)
+        local z = UnitGetZ(g_pid_veyre)
+        WaitTime(0.5)
+        EffectPlay("邪竜紋_発動", x, z)
+        WaitTime(1.5)
+    end
+
+    -- 执行偷取逻辑
+    for _, godId in ipairs(notEquipGodList) do
+        if not IsGodStolen(godId) then
+            StealGodRing(godId, g_pid_lueur)
         end
     end
 end
@@ -207,84 +222,143 @@ function StealGodRing(godId,fromPid)
 end
 
 function StealGodRingFromPlayer()
+    local transferableEnemies = GetTransferableEnemyCount()
+    if transferableEnemies <= 0 then
+        return  -- 没有可装备戒指的敌人，不进行偷取
+    end
+
+
+    -- 获取ヴェイル的位置
+    local veyleX, veyleZ = 0, 0
+    if UnitExistOnMap("PID_M017_ヴェイル") then
+        veyleX = UnitGetX("PID_M017_ヴェイル")
+        veyleZ = UnitGetZ("PID_M017_ヴェイル")
+    else
+        -- 如果ヴェイル不存在，则直接返回
+        return
+    end
+
     local stealablePlayerRings = {}
 
     for _, equippedInfo in ipairs(player_God_Table) do
-        local godId = equippedInfo.ring
-        -- 检查该戒指是否可偷取且未被偷取过
-        if IsGodStealable(godId) and not IsGodStolen(godId) then
-            table.insert(stealablePlayerRings, equippedInfo)
-        end
-    end
+       local godId = equippedInfo.ring
+       local unitPid = equippedInfo.pid
 
-    local stealCount = math.min(2, #stealablePlayerRings)
-    Log("stealCount" .. stealCount)
+       -- 检查该戒指是否可偷取且未被偷取过
+       if IsGodStealable(godId) and not IsGodStolen(godId) then
+           -- 检查单位是否处于结合状态
+           local unit = UnitGetByPID(unitPid)
+           local isEngaging = false
+           if unit ~= nil then
+               isEngaging = UnitGetEngaging(unit)
+           end
+
+           -- 只有非结合状态的单位才会被偷取
+           if not isEngaging then
+               if UnitExistOnMap(unitPid) then
+                   local unitX = UnitGetX(unitPid)
+                   local unitZ = UnitGetZ(unitPid)
+                   local engageCount = UnitGetEngageCount(unitPid)
+
+                   -- 计算与ヴェイル的距离
+                   local distance = 二点間距離(veyleX, veyleZ, unitX, unitZ)
+
+                   table.insert(stealablePlayerRings, {
+                       pid = unitPid,
+                       ring = godId,
+                       x = unitX,
+                       z = unitZ,
+                       engageCount = engageCount,
+                       distance = distance  -- 添加距离信息
+                   })
+               end
+           end
+       end
+   end
+
+    -- 按距离排序，距离越近优先级越高
+    table.sort(stealablePlayerRings, function(a, b)
+        return a.distance < b.distance
+    end)
+
+    local stealCount = math.min(1, #stealablePlayerRings, transferableEnemies)
+
     -- 如果没有可偷取的戒指，直接返回
     if stealCount <= 0 then
         return
     end
 
+    CursorSetPos_FromPid( g_pid_veyre)
+    local x = UnitGetX(g_pid_veyre)
+    local z = UnitGetZ(g_pid_veyre)
+    WaitTime( 0.5 )
+    EffectPlay( "邪竜紋_発動", x, z )
+    WaitTime( 1.5 )
+
     local stolenRings = {}
     for i = 1, stealCount do
-        local randomIndex = math.random(1, #stealablePlayerRings)
-        table.insert(stolenRings, stealablePlayerRings[randomIndex])
-        table.remove(stealablePlayerRings, randomIndex)
+        table.insert(stolenRings, stealablePlayerRings[i])
     end
 
-    for _, equippedInfo in ipairs(stolenRings) do
-        local godId = equippedInfo.ring
-        local unitPid = equippedInfo.pid
+    for _, ringInfo in ipairs(stolenRings) do
+        local godId = ringInfo.ring
+        local unitPid = ringInfo.pid
+        local unitX = ringInfo.x
+        local unitZ = ringInfo.z
+        local engageCount = ringInfo.engageCount  -- 获取保存的结合气层数
 
-        -- 找到装备该戒指的单位位置
-        if UnitExistOnMap(unitPid) then
-            local unitX = UnitGetX(unitPid)
-            local unitZ = UnitGetZ(unitPid)
+        local engageCountVar = "戒指_" .. godId .. "_计数"
+        VariableSet(engageCountVar, engageCount)
 
-            -- 找到最近的未装备戒指的敌方单位
-            local nearestEnemy = FindNearestEnemyUnitHasNoGod(unitPid)
+        -- 找到最近的未装备戒指的敌方单位
+        local nearestEnemy,targetX,targetZ = FindNearestEnemyUnitHasNoGod(unitPid)
 
-            if nearestEnemy ~= nil then
-                -- 显示效果
-                CursorSetPos(unitX, unitZ)
-                MapCameraWait()
-                EffectPlay("ワープアウト_闇", unitX, unitZ)
-                UnitShine(UnitGetByPID(unitPid), 0.3)
-                WaitTime(0.3)
+        if nearestEnemy ~= nil then
+            -- 显示效果
+            CursorSetPos(unitX, unitZ)
+            MapCameraWait()
+            EffectPlay("ワープアウト_闇", unitX, unitZ)
+            UnitShine(UnitGetByPID(unitPid), 0.3)
+            WaitTime(1.0)
 
-                -- 从玩家单位移除戒指
-                UnitSetGodUnit(unitPid, nil)
+            -- 从玩家单位移除戒指
+            UnitSetGodUnit(unitPid, nil)
 
-                -- 为敌方单位装备敌方版本的戒指
-                local enemyGodId = ConvertToEnemyGodId(godId)
-                UnitCreateGodUnit(nearestEnemy, enemyGodId)
+            CursorSetPos(targetX, targetZ)
+            MapCameraWait()
+            EffectPlay("ワープアウト_闇", targetX, targetZ)
+            UnitShine(UnitGetByPID(nearestEnemy), 0.3)
+            WaitTime(1.0)
 
-                -- 标记该戒指已被偷取
-                SetGodStolen(godId)
+            -- 为敌方单位装备敌方版本的戒指
+            local enemyGodId = ConvertToEnemyGodId(godId)
+            UnitCreateGodUnit(nearestEnemy, enemyGodId)
 
-                CobaltNotice("从玩家单位 " .. unitPid .. " 处偷取了戒指 " .. godId .. " 并装备给敌方单位")
-            end
+            -- 标记该戒指已被偷取
+            SetGodStolen(godId)
+
+            CobaltNotice("从玩家单位 " .. unitPid .. " 处偷取了戒指 " .. godId .. " 并装备给敌方单位")
         end
     end
+
+    CheckPlayerHasRings()
 end
+
 
 -- 检查被击杀敌方单位的戒指
 function checkDeadEnemy()
-    Log("step1")
     local deadUnit = MindGetEventUnit()  -- 获取被击杀的单位
-    Log("step2")
     if deadUnit == nil then
         return
     end
 
     local enemyGodId = UnitGetGodUnit(deadUnit)  -- 获取敌方单位装备的戒指
-    Log("step3")
     if enemyGodId == nil then
         return  -- 没有装备戒指，直接返回
     end
 
     -- 将敌方戒指ID转换为我方版本
     local playerGodId = ConvertToNormalGodId(enemyGodId)
-    Log("step4")
 
     if playerGodId == enemyGodId then
         return  -- 转换失败，不是我们需要处理的戒指
@@ -298,7 +372,6 @@ function checkDeadEnemy()
             break
         end
     end
-    Log("step5")
 
     if not isInNotEquipList then
         -- 不在notEquipGodList中，搜寻player_God_Table找到原先装备该戒指的单位
@@ -306,8 +379,15 @@ function checkDeadEnemy()
             if equippedInfo.ring == playerGodId then
                 -- 找到原先装备该戒指的单位，重新为其装备戒指
                 UnitSetGodUnit(equippedInfo.pid, playerGodId)
+
+                local engageCountVar = "戒指_" .. playerGodId .. "_计数"
+                local engageCount = VariableGet(engageCountVar)
+                local unit = UnitGetByPID(equippedInfo.pid)
+                if unit ~= nil then
+                    UnitSetEngageCount(unit, engageCount-1)
+                end
+
                 SetGodAvailable(playerGodId)
-                Log("step5-1")
                 break
             end
         end
@@ -315,7 +395,6 @@ function checkDeadEnemy()
         -- 在notEquipGodList中，只刷新其偷取状态
         CobaltNotice(playerGodId)
         SetGodAvailable(playerGodId)
-        Log("step5-2")
     end
 end
 -- -----------------------------------
@@ -527,8 +606,42 @@ function SetGodAvailable(godId)
     if not IsGodStealable(godId) then
         return
     end
-    Log("5-2-1")
     local varName = "戒指_" .. godId .. "_状态"
     VariableSet(varName, 0)  -- 0表示可被夺取
-    Log("5-2-2")
+end
+
+function GetTransferableEnemyCount()
+    local count = 0
+    local index = ForceUnitGetFirst(FORCE_ENEMY)
+
+    while index ~= nil do
+        local godUnit = UnitGetGodUnit(index)
+        local jobId = UnitGetJID(index)
+        if godUnit == nil and jobId ~= "JID_異形竜" then
+            count = count + 1
+        end
+        index = ForceUnitGetNext(index)
+    end
+
+    return count
+end
+
+function CheckPlayerHasRings()
+    -- 检查所有我方单位是否都没有戒指
+    local hasRing = false
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+
+    while index ~= nil do
+        local godUnit = UnitGetGodUnit(index)
+        if godUnit ~= nil then
+            hasRing = true
+            break
+        end
+        index = ForceUnitGetNext(index)
+    end
+
+    -- 如果我方没有任何单位拥有戒指，则判定失败
+    if not hasRing then
+        VariableSet("敗北", 1)
+    end
 end
