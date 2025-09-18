@@ -14,12 +14,12 @@ g_key_reinforcementCamillaAttackedFar	= "増援_カミラ被遠距離攻撃後_�
 
 g_map_height = 25
 g_map_width = 29
-g_map_left_column_low = 1
-g_map_left_column_high = 8
-g_map_middle_column_low = 11
+g_map_left_column_low = 2
+g_map_left_column_high = 7
+g_map_middle_column_low = 12
 g_map_middle_column_high = 18
-g_map_right_column_low = 22
-g_map_right_column_high = 28
+g_map_right_column_low = 23
+g_map_right_column_high = 27
 g_pid_camilla = "PID_G005_カミラ"
 g_pid_Luna = "PID_G005_IFMOD_幻影兵_Luna"
 g_pid_Beierjia = "PID_G005_IFMOD_幻影兵_Beierjia"
@@ -223,7 +223,6 @@ end
 
 
 function UpdateBuildingTilesList()
-    g_buildingTiles = {}
     local visited = {}    -- 记录已访问的坐标，避免重复处理
 
     for _, obstacle in ipairs(g_obstaclePoint) do
@@ -499,6 +498,9 @@ function DragonVeinEffectSky()
     local index = ForceUnitGetFirst(FORCE_PLAYER)
     while index ~= nil do
         UnitSetPrivateSkill(index, "SID_天駆")
+        local indexX = UnitGetX(index)
+        local indexZ = UnitGetZ(index)
+        --EffectPlay( "竜化_G1" , indexX, indexZ )
         index = ForceUnitGetNext(index)
     end
 end
@@ -519,26 +521,39 @@ function DragonVeinEffectGround()
     EffectPlay( "水球", centerX,centerZ )
     EffectWait()
 
-    TerrainSetBegin()
-    for _, tile in ipairs(g_buildingTiles) do
-        local tileX = tile[1]
-        local tileZ = tile[2]
-        TerrainSet(tileX, tileZ, "TID_建造物")
-    end
-    TerrainSetEnd()
+    repairList = {}
 
     for _, obstacle in ipairs(g_obstaclePoint) do
         local obstacleX = obstacle[1]
         local obstacleZ = obstacle[2]
 
-        if TerrainGet(obstacleX, obstacleZ) == "TID_建造物" then
-            EventStateObject(obstacleX, obstacleZ, 0)
+        if TerrainGet(obstacleX, obstacleZ) ~= "TID_建造物" then
+            table.insert(repairList, {obstacleX, obstacleZ})
         end
     end
 
+    TerrainSetBegin()
+    for x = 1,g_map_width do
+        for z = 1,g_map_height do
+            if TerrainGet(x, z) == "TID_瓦礫" or TerrainGet(x, z) == "TID_床_G005" then
+                TerrainSet(x, z, "TID_建造物")
+            end
+        end
+    end
+    TerrainSetEnd()
+
+    for _,position in ipairs(repairList) do
+        CursorSetPos(position[1], position[2])
+        WaitTime(0.5)
+        EffectPlay("水球_発動", position[1], position[2])
+        WaitTime(0.5)
+        EventStateObject( position[1], position[2], 0 )
+    end
+
+
     ProcessAllUnitsLanding()
 
-    VariableSet(g_key_camilla_stop_dragonVein, 1)
+    --VariableSet(g_key_camilla_stop_dragonVein, 1)
 end
 
 
@@ -729,7 +744,15 @@ function DragonVeinUsedByEmenyEffect(column,unitListPlayer,unitListEnemy)
         MapDamageEnd()
     end
 
+    WaitTime(1.0)
+
+    CursorSetPos(10*column+5,13)
+    MapCameraWait()
+
     for _, unit in ipairs(unitListEnemy) do
+        local indexX = UnitGetX(unit)
+        local indexZ = UnitGetZ(unit)
+        --EffectPlay( "水晶修復" , indexX, indexZ )
         UnitSetPrivateSkill(unit, "SID_天駆")
     end
 

@@ -139,6 +139,8 @@ function MapOpening()
 	--
 	CursorSetPos_FromPid( g_pid_lueur )
 
+	Dialog( "MID_TUT_M017_RULE" )
+
 end
 
 function setPlayerGodTable()
@@ -170,6 +172,8 @@ function setPlayerGodTable()
             table.insert(notEquipGodList, godId)
         end
     end
+
+    Dialog( "MID_TUT_M017_RULE" )
 end
 
 function setGodFromUnequip()

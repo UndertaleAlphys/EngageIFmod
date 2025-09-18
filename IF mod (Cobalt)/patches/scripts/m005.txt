@@ -236,6 +236,8 @@ function 扉チュートリアル()
 	CursorAnimeDelete()
 	
 	Tutorial( "TUTID_扉" )
+
+
 	
 end
 
@@ -266,7 +268,8 @@ function 盗賊_行動開始()
 	if not UnitExistOnMap( "PID_M005_IFMOD_忍" ) then
 		return
 	end
-	
+
+
 	
 	CursorSetPos(3, 23)
 	MapCameraWait()

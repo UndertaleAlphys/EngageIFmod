@@ -56,7 +56,8 @@ function イベント登録()
 	EventEntryDie( ジャン死亡,		"PID_ジャン",			FORCE_ALL,		g_key_jean_dead )
 	EventEntryDie( ジャン父親死亡,	"PID_S001_ジャン_父親",	FORCE_ALLY,		condition_true )
 	EventEntryDie( 村人死亡,		"",						FORCE_ALLY,		condition_村人死亡 )
-	
+
+	EventEntryEscape(離脱イベント, 4, 3, "PID_リュール", condition_true)
 end
 
 -- -----------------------------------
@@ -275,4 +276,16 @@ function GameOver()
 	
 	Log("GameOver");
 	
+end
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+
+	VariableSet( "勝利", 1 )
 end

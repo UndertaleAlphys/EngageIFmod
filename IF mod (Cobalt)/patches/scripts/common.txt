@@ -1109,7 +1109,6 @@ function 勝利条件()
 	
 	WinRule()
 
-	Dialog( "MID_TUT_M017_RULE" )
 end
 
 
@@ -1830,6 +1829,8 @@ function LandUnit(unit)
             MapHistoryPositionList(unit)
             MapHistoryPositionListEnd()
 
+            CursorSetPos(landX,landZ)
+            MapCameraWait()
             -- 使用跳躍方式移动单位
             UnitJumpPos(unit, landX, landZ, 0.5)
             UnitMoveWait()
@@ -1844,7 +1845,6 @@ function ProcessAllUnitsLanding()
     -- 检查我方单位
     local playerIndex = ForceUnitGetFirst(FORCE_PLAYER)
     while playerIndex ~= nil do
-        Log(playerIndex)
         LandUnit(playerIndex)
         playerIndex = ForceUnitGetNext(playerIndex)
     end
