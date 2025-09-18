@@ -2839,6 +2839,12 @@ Its effects can greatly shift the tide of battle—use it wisely!
 The fortress flames will spread over time.  
 Plan your path and escape before it’s too late!
 
+[MID_TUT_M017_RULE]  
+In this chapter, Veyre will steal your Emblems.  
+Defeat the holder to reclaim an Emblem.  
+If you lose all Emblems, you are defeated.
+Use your tactics wisely to take them back!
+
 [MID_TIPS_WEAPON_TRIANGLE_T]
 Weapon Triangle
 

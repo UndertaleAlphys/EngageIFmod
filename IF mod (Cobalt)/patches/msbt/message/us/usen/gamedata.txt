@@ -656,6 +656,9 @@ Defeat ALL Bosses.
 [MID_RULE_M017_WIN]
 Defeat ALL Bosses.
 
+[MID_RULE_M017_LOSE]
+$P is defeated or lose all Emblems.
+
 [MID_RULE_M018_WIN]
 Defeat Boss.
 
