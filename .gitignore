@@ -5,3 +5,5 @@ Triabolical
 *.iml
 *.iws
 out/
+liblevel_toggle.nro
+libtriabolical.nro
