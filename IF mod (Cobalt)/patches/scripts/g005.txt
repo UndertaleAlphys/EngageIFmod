@@ -781,7 +781,7 @@ function DestroyObstaclesInColumn(column)
         local ez = obstacle[4] -- 障碍物の演出z坐标
 
         -- 检查障碍物是否在指定列范围内
-        if x >= low and x <= high then
+        if x >= low-2 and x <= high+2 then
             -- 检查障碍物是否仍然存在（TID_建造物表示未被破坏的障碍物）
             if TerrainGet(x, z) == "TID_建造物" or TerrainGet(x, z) == "TID_瓦礫" then
                 -- 破坏障碍物
@@ -812,7 +812,7 @@ function DestroyObstacle(x, z, ex, ez)
     end
 
     -- 检查是否为特殊障碍物
-    local isSpecial = (x == 21 and z == 23) or (x == 22 and z == 20) or
+    local isSpecial = (x == 22 and z == 20) or
                       (x == 11 and z == 18) or (x == 9 and z == 18)
 
     -- 根据不同类型采用不同的破坏方式

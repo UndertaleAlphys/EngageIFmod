@@ -2089,3 +2089,92 @@ function CalculatePlayerUnitsCenter()
 
     return centerX, centerZ, unitCount
 end
+
+-- 改进的表序列化函数，专门处理你的数据结构
+function TableToString(tbl)
+    if type(tbl) ~= "table" then
+        return tostring(tbl)
+    end
+
+    local result = "{"
+    local first = true
+
+    for i, v in ipairs(tbl) do
+        if not first then
+            result = result .. ","
+        end
+        first = false
+
+        if type(v) == "table" then
+            result = result .. "{"
+            local subFirst = true
+
+            -- 处理数组部分（索引从1开始）
+            for j, subValue in ipairs(v) do
+                if not subFirst then
+                    result = result .. ","
+                end
+                subFirst = false
+
+                if type(subValue) == "string" then
+                    result = result .. "[" .. j .. "]=" .. '"' .. subValue .. '"'
+                else
+                    result = result .. "[" .. j .. "]=" .. tostring(subValue)
+                end
+            end
+
+            -- 处理哈希部分
+            for key, subValue in pairs(v) do
+                if type(key) ~= "number" or key <= 0 or key > #v or math.floor(key) ~= key then
+                    if not subFirst then
+                        result = result .. ","
+                    end
+                    subFirst = false
+
+                    if type(key) == "string" then
+                        result = result .. '["' .. key .. '"]='
+                    else
+                        result = result .. "[" .. tostring(key) .. "]="
+                    end
+
+                    if type(subValue) == "string" then
+                        result = result .. '"' .. subValue .. '"'
+                    else
+                        result = result .. tostring(subValue)
+                    end
+                end
+            end
+
+            result = result .. "}"
+        elseif type(v) == "string" then
+            result = result .. '"' .. v .. '"'
+        else
+            result = result .. tostring(v)
+        end
+    end
+
+    result = result .. "}"
+    return result
+end
+
+-- 改进的表反序列化函数
+function StringToTable(str)
+    if str == nil or str == "" then
+        return {}
+    end
+
+    -- 使用pcall安全地执行字符串代码
+    local func, err = load("return " .. str)
+    if func then
+        local success, result = pcall(func)
+        if success and type(result) == "table" then
+            return result
+        else
+            Log("StringToTable error: " .. tostring(result))
+            return {}
+        end
+    else
+        Log("StringToTable load error: " .. tostring(err))
+        return {}
+    end
+end

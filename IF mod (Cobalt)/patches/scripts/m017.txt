@@ -8,6 +8,7 @@ g_key_runaways = "暴走_初回"
 canUsedGodList = {"GID_ルキナ","GID_リン","GID_アイク","GID_ベレト","GID_カムイ","GID_エイリーク","GID_チキ","GID_ヘクトル","GID_セネリオ","GID_カミラ","GID_クロム"}
 player_God_Table = {}
 notEquipGodList = {}
+g_deadEnemyList = {}
 
 -- -----------------------------------
 
@@ -39,6 +40,10 @@ function 変数登録()
         VariableEntry(engageCount, 0)
     end
 
+    VariableEntry("player_God_Table", "")
+    VariableEntry("notEquipGodList", "")
+
+
 	E_BattleTalk_VariableEntry()
 	
 end
@@ -48,9 +53,13 @@ end
 function イベント登録()
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(setPlayerGodTable, 1, 1, FORCE_PLAYER)
-	EventEntryTurn(setGodFromUnequip, 1, -1, FORCE_ENEMY)
+	EventEntryTurn(setGodFromUnequip, 2, -1, FORCE_PLAYER)
     EventEntryDie(checkDeadEnemy, "", FORCE_ENEMY, condition_true, "")
-    EventEntryTurn(StealGodRingFromPlayer, 2, -1, FORCE_ENEMY)
+    EventEntryTurn(StealGodRingFromPlayer, 2, -1, FORCE_PLAYER)
+
+    EventEntryTurn(Set_Interference_AI_M017, -1, -1, FORCE_ENEMY)
+    EventEntryFixed(ProcessDeadEnemyList, "", FORCE_PLAYER,condition_true)
+    EventEntryFixed(ProcessDeadEnemyList, "", FORCE_ENEMY,condition_true)
 
 	
 	-- 増援戦闘後イベント
@@ -115,6 +124,7 @@ end
 function Opening()
 	
 	Log("Opening")
+	Log("MOD scripts")
 	
 	--PuppetDemo("M017", "MID_OP1")
     --
@@ -143,6 +153,31 @@ function MapOpening()
 
 end
 
+function ProcessDeadEnemyList()
+    if #g_deadEnemyList == 0 then
+        return
+    end
+    Log("process")
+    local unitX = g_deadEnemyList[1]
+    local unitZ = g_deadEnemyList[2]
+    local targetX = g_deadEnemyList[3]
+    local targetZ = g_deadEnemyList[4]
+
+    CursorSetPos(unitX, unitZ)
+    MapCameraWait()
+    EffectPlay("ワープアウト_闇", unitX, unitZ)
+    UnitShine(UnitGetByPID(unitPid), 0.3)
+    WaitTime(1.0)
+
+    CursorSetPos(targetX, targetZ)
+    MapCameraWait()
+    EffectPlay("ワープイン", targetX, targetZ)
+    UnitShine(UnitGetByPID(nearestEnemy), 0.3)
+    WaitTime(1.0)
+
+    g_deadEnemyList = {}
+end
+
 function setPlayerGodTable()
     local index = ForceUnitGetFirst(FORCE_PLAYER)
 
@@ -150,19 +185,30 @@ function setPlayerGodTable()
         local unitPid = UnitGetPID(index)
         local equippedRing = UnitGetGodUnit(index)
         if equippedRing ~= nil then
-            table.insert(player_God_Table, {
-                pid = unitPid,
-                ring = equippedRing
-            })
+            table.insert(player_God_Table, {unitPid,equippedRing})
         end
         index = ForceUnitGetNext(index)
     end
+
+    local playerGodTableStr = TableToString(player_God_Table)
+    VariableSet("player_God_Table", playerGodTableStr)
+    local currentList1 = StringToTable(VariableGet("player_God_Table"))
+    --CobaltNotice("玩家神将装备表:")
+    --for i, info in ipairs(currentList1) do
+    --    if type(info) == "table" and #info >= 2 then
+    --        CobaltNotice("  " .. i .. ": PID=" .. info[1] .. ", Ring=" .. info[2])
+    --    else
+    --        CobaltNotice("  " .. i .. ": " .. tostring(info))
+    --    end
+    --end
+
+    local notEquipGodList = {}
 
     for _, godId in ipairs(canUsedGodList) do
         local isEquipped = false
 
         for _, equippedInfo in ipairs(player_God_Table) do
-            if equippedInfo.ring == godId then
+            if equippedInfo[2] == godId then
                 isEquipped = true
                 break
             end
@@ -173,13 +219,24 @@ function setPlayerGodTable()
         end
     end
 
-    Dialog( "MID_TUT_M017_RULE" )
+    local notEquipGodListStr = TableToString(notEquipGodList)
+    VariableSet("notEquipGodList", notEquipGodListStr)
+    local currentList = StringToTable(VariableGet("notEquipGodList"))
+    --CobaltNotice("未装备神将列表:")
+    --for i, godId in ipairs(currentList) do
+    --    CobaltNotice("  " .. i .. ": " .. godId)
+    --end
+    --
+    --Dialog( "MID_TUT_M017_RULE" )
 end
 
 function setGodFromUnequip()
+    -- 获取并反序列化表
+    local currentNotEquipGodList = StringToTable(VariableGet("notEquipGodList"))
+
     -- 检查是否有至少一个未装备且未被偷取的戒指
     local canStealCount = 0
-    for _, godId in ipairs(notEquipGodList) do
+    for _, godId in ipairs(currentNotEquipGodList) do
         if not IsGodStolen(godId) then
             canStealCount = canStealCount + 1
         end
@@ -196,13 +253,12 @@ function setGodFromUnequip()
     end
 
     -- 执行偷取逻辑
-    for _, godId in ipairs(notEquipGodList) do
+    for _, godId in ipairs(currentNotEquipGodList) do
         if not IsGodStolen(godId) then
             StealGodRing(godId, g_pid_lueur)
         end
     end
 end
-
 function StealGodRing(godId,fromPid)
     local nearestEnemy, targetX, targetZ = FindNearestEnemyUnitHasNoGod(fromPid)
 
@@ -217,11 +273,12 @@ function StealGodRing(godId,fromPid)
         -- 为敌方单位装备敌方版本的戒指
         local newGodId = ConvertToEnemyGodId(godId)
         UnitCreateGodUnit(nearestEnemy, newGodId)
+        UnitSetHpStock(nearestEnemy,1)
 
         -- 标记该戒指已被夺取
         SetGodStolen(godId)
 
-        CobaltNotice("敌方单位在位置(" .. targetX .. "," .. targetZ .. ")装备了戒指: " .. newGodId)
+        --CobaltNotice("敌方单位在位置(" .. targetX .. "," .. targetZ .. ")装备了戒指: " .. newGodId)
     end
 end
 
@@ -231,6 +288,9 @@ function StealGodRingFromPlayer()
         return  -- 没有可装备戒指的敌人，不进行偷取
     end
 
+    -- 安全地获取表数据
+    local currentPlayerGodTable = StringToTable(VariableGet("player_God_Table"))
+    local currentNotEquipGodList = StringToTable(VariableGet("notEquipGodList"))
 
     -- 获取ヴェイル的位置
     local veyleX, veyleZ = 0, 0
@@ -244,60 +304,63 @@ function StealGodRingFromPlayer()
 
     local stealablePlayerRings = {}
 
-    for _, equippedInfo in ipairs(player_God_Table) do
-       local godId = equippedInfo.ring
-       local unitPid = equippedInfo.pid
+    for _, equippedInfo in ipairs(currentPlayerGodTable) do
+        -- 确保数据格式正确
+        if type(equippedInfo) == "table" and #equippedInfo >= 2 then
+            local unitPid = equippedInfo[1]  -- PID在索引1
+            local godId = equippedInfo[2]    -- GID在索引2
 
-       -- 检查该戒指是否可偷取且未被偷取过
-       if IsGodStealable(godId) and not IsGodStolen(godId) then
-           -- 检查单位是否处于结合状态
-           local unit = UnitGetByPID(unitPid)
-           local isEngaging = false
-           if unit ~= nil then
-               isEngaging = UnitGetEngaging(unit)
-           end
+            -- 检查该戒指是否可偷取且未被偷取过
+            if IsGodStealable(godId) and not IsGodStolen(godId) then
+                -- 检查单位是否处于结合状态
+                local unit = UnitGetByPID(unitPid)
+                local isEngaging = false
+                if unit ~= nil then
+                    isEngaging = UnitGetEngaging(unit)
+                end
 
-           -- 只有非结合状态的单位才会被偷取
-           if not isEngaging then
-               if UnitExistOnMap(unitPid) then
-                   local unitX = UnitGetX(unitPid)
-                   local unitZ = UnitGetZ(unitPid)
-                   local engageCount = UnitGetEngageCount(unitPid)
+                -- 只有非结合状态的单位才会被偷取
+                if not isEngaging then
+                    if UnitExistOnMap(unitPid) then
+                        local unitX = UnitGetX(unitPid)
+                        local unitZ = UnitGetZ(unitPid)
+                        local engageCount = UnitGetEngageCount(unitPid)
 
-                   -- 计算与ヴェイル的距离
-                   local distance = 二点間距離(veyleX, veyleZ, unitX, unitZ)
+                        -- 计算与ヴェイル的距离
+                        local distance = 二点間距離(veyleX, veyleZ, unitX, unitZ)
 
-                   table.insert(stealablePlayerRings, {
-                       pid = unitPid,
-                       ring = godId,
-                       x = unitX,
-                       z = unitZ,
-                       engageCount = engageCount,
-                       distance = distance  -- 添加距离信息
-                   })
-               end
-           end
-       end
-   end
+                        table.insert(stealablePlayerRings, {
+                            pid = unitPid,
+                            ring = godId,
+                            x = unitX,
+                            z = unitZ,
+                            engageCount = engageCount,
+                            distance = distance  -- 添加距离信息
+                        })
+                    end
+                end
+            end
+        end
+    end
 
     -- 按距离排序，距离越近优先级越高
     table.sort(stealablePlayerRings, function(a, b)
         return a.distance < b.distance
     end)
 
-    local stealCount = math.min(1, #stealablePlayerRings, transferableEnemies)
+    local stealCount = math.min(2, #stealablePlayerRings, transferableEnemies)
 
     -- 如果没有可偷取的戒指，直接返回
     if stealCount <= 0 then
         return
     end
 
-    CursorSetPos_FromPid( g_pid_veyre)
+    CursorSetPos_FromPid(g_pid_veyre)
     local x = UnitGetX(g_pid_veyre)
     local z = UnitGetZ(g_pid_veyre)
-    WaitTime( 0.5 )
-    EffectPlay( "邪竜紋_発動", x, z )
-    WaitTime( 1.5 )
+    WaitTime(0.5)
+    EffectPlay("邪竜紋_発動", x, z)
+    WaitTime(1.5)
 
     local stolenRings = {}
     for i = 1, stealCount do
@@ -321,7 +384,7 @@ function StealGodRingFromPlayer()
             -- 显示效果
             CursorSetPos(unitX, unitZ)
             MapCameraWait()
-            EffectPlay("ワープアウト_闇", unitX, unitZ)
+            EffectPlay("ワープアウト", unitX, unitZ)
             UnitShine(UnitGetByPID(unitPid), 0.3)
             WaitTime(1.0)
 
@@ -330,7 +393,7 @@ function StealGodRingFromPlayer()
 
             CursorSetPos(targetX, targetZ)
             MapCameraWait()
-            EffectPlay("ワープアウト_闇", targetX, targetZ)
+            EffectPlay("ワープイン_闇", targetX, targetZ)
             UnitShine(UnitGetByPID(nearestEnemy), 0.3)
             WaitTime(1.0)
 
@@ -341,7 +404,8 @@ function StealGodRingFromPlayer()
             -- 标记该戒指已被偷取
             SetGodStolen(godId)
 
-            CobaltNotice("从玩家单位 " .. unitPid .. " 处偷取了戒指 " .. godId .. " 并装备给敌方单位")
+            --CobaltNotice("从玩家单位 " .. unitPid .. " 处偷取了戒指 " .. godId .. " 并装备给敌方单位")
+            --CobaltNotice("结合数 " .. VariableGet(engageCountVar))
         end
     end
 
@@ -349,9 +413,12 @@ function StealGodRingFromPlayer()
 end
 
 
+
 -- 检查被击杀敌方单位的戒指
 function checkDeadEnemy()
     local deadUnit = MindGetEventUnit()  -- 获取被击杀的单位
+    local deadX = UnitGetX(deadUnit)
+    local deadZ = UnitGetZ(deadUnit)
     if deadUnit == nil then
         return
     end
@@ -368,28 +435,38 @@ function checkDeadEnemy()
         return  -- 转换失败，不是我们需要处理的戒指
     end
 
+    -- 安全地获取表数据
+    local currentNotEquipGodList = StringToTable(VariableGet("notEquipGodList"))
+    local currentPlayerGodTable = StringToTable(VariableGet("player_God_Table"))
+
     -- 检查该戒指是否在notEquipGodList中
     local isInNotEquipList = false
-    for _, godId in ipairs(notEquipGodList) do
+    for _, godId in ipairs(currentNotEquipGodList) do
         if godId == playerGodId then
             isInNotEquipList = true
             break
         end
     end
-
     if not isInNotEquipList then
         -- 不在notEquipGodList中，搜寻player_God_Table找到原先装备该戒指的单位
-        for _, equippedInfo in ipairs(player_God_Table) do
-            if equippedInfo.ring == playerGodId then
+        for _, equippedInfo in ipairs(currentPlayerGodTable) do
+
+            if type(equippedInfo) == "table" and #equippedInfo >= 2 and equippedInfo[2] == playerGodId then
                 -- 找到原先装备该戒指的单位，重新为其装备戒指
-                UnitSetGodUnit(equippedInfo.pid, playerGodId)
+                UnitSetGodUnit(equippedInfo[1], playerGodId)  -- 使用索引1的PID
 
                 local engageCountVar = "戒指_" .. playerGodId .. "_计数"
                 local engageCount = VariableGet(engageCountVar)
-                local unit = UnitGetByPID(equippedInfo.pid)
+                --CobaltNotice("戒指_" .. engageCount .. "_计数")
+                local unit = UnitGetByPID(equippedInfo[1])
                 if unit ~= nil then
-                    UnitSetEngageCount(unit, engageCount-1)
+                    UnitSetEngageCount(unit, engageCount)
                 end
+                local targetX = UnitGetX(unit)
+                local targetZ = UnitGetZ(unit)
+
+                -- 创建死亡敌人信息对象
+                g_deadEnemyList = {deadX,deadZ,targetX,targetZ}
 
                 SetGodAvailable(playerGodId)
                 break
@@ -397,7 +474,7 @@ function checkDeadEnemy()
         end
     else
         -- 在notEquipGodList中，只刷新其偷取状态
-        CobaltNotice(playerGodId)
+        --CobaltNotice(playerGodId)
         SetGodAvailable(playerGodId)
     end
 end
@@ -647,5 +724,23 @@ function CheckPlayerHasRings()
     -- 如果我方没有任何单位拥有戒指，则判定失败
     if not hasRing then
         VariableSet("敗北", 1)
+    end
+end
+
+function Set_Interference_AI_M017()
+	if IsExistForcePlayerNearby("PID_M017_モーヴ",20) == false then
+		UnitSetStatus( "PID_M017_モーヴ", UNIT_STATUS_FIXED )
+	end
+	if IsExistForcePlayerNearby("PID_IFMOD_M017_イルシオン兵_ストラテジスト3",7) == false then
+		UnitSetStatus( "PID_IFMOD_M017_イルシオン兵_ストラテジスト3", UNIT_STATUS_FIXED )
+	end
+	if IsExistForcePlayerNearby("PID_IFMOD_M017_イルシオン兵_ストラテジスト2",7) == false then
+		UnitSetStatus( "PID_IFMOD_M017_イルシオン兵_ストラテジスト2", UNIT_STATUS_FIXED )
+	end
+	if IsExistForcePlayerNearby("PID_IFMOD_M017_イルシオン兵_ロイヤルナイト1",7) == false then
+		UnitSetStatus( "PID_IFMOD_M017_イルシオン兵_ロイヤルナイト1", UNIT_STATUS_FIXED )
+	end
+	if IsExistForcePlayerNearby("PID_IFMOD_M017_イルシオン兵_ロイヤルナイト3",7) == false then
+        UnitSetStatus( "PID_IFMOD_M017_イルシオン兵_ロイヤルナイト3", UNIT_STATUS_FIXED )
     end
 end
