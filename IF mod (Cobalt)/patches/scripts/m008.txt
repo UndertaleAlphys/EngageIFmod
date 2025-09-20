@@ -10,6 +10,7 @@ function Startup()
 	-- WinRuleSetDestroyBoss( true )	-- 敵将撃破
 	WinRuleSetMID( "MID_RULE_M008_WIN" )
 	LoseRuleSetMID( "MID_RULE_M008_LOSE" )
+	WinRuleSetEnemyNumberLessThanOrEqualTo(-1)
 	
 	フラグ登録()
 	

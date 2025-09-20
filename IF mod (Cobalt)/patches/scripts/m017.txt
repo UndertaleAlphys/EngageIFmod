@@ -222,6 +222,8 @@ function setPlayerGodTable()
     local notEquipGodListStr = TableToString(notEquipGodList)
     VariableSet("notEquipGodList", notEquipGodListStr)
     local currentList = StringToTable(VariableGet("notEquipGodList"))
+
+    ItemPutOffAll()
     --CobaltNotice("未装备神将列表:")
     --for i, godId in ipairs(currentList) do
     --    CobaltNotice("  " .. i .. ": " .. godId)
@@ -744,3 +746,4 @@ function Set_Interference_AI_M017()
         UnitSetStatus( "PID_IFMOD_M017_イルシオン兵_ロイヤルナイト3", UNIT_STATUS_FIXED )
     end
 end
+

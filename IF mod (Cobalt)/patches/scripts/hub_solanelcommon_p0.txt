@@ -29,7 +29,7 @@ function CanStartGod()
 		end
 	end
 
-	if (HubIsCompleteChapter("M014")) then
+	if (HubIsCompleteChapter("M017")) then
 		return true;
 	end
 
