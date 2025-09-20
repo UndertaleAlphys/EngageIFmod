@@ -2663,13 +2663,19 @@ If unit is equipped with a weapon of
 lower level than foe's, grants
 Crit+20 during combat.
 
-[MSID_PrivateSkill_Saphir]
-Will to Win
+[MSID_WellVersed]
+Well-Versed
 
-[MSID_H_PrivateSkill_Saphir]
-If unit's HP is 50% or less at start of
-combat, grants Hit/Avo+20 during
-combat.
+[MSID_H_WellVersed]
+Grants Crit+10 when unit is carrying
+three or more tomes/scrolls.
+
+[MSID_InExtremis]
+In Extremis
+
+[MSID_H_InExtremis]
+If unit's HP is 25% or less at start of
+combat, grants Crit+30 during combat.
 
 [MSID_PrivateSkill_Veyre]
 Fell Protection
