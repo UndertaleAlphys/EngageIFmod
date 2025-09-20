@@ -2017,7 +2017,6 @@ function FindNearestEnemyUnit(targetPid)
     return nearestEnemy, nearestX, nearestZ
 end
 
--- 查找与指定PID单位最近的未装备GodUnit的敌方单位
 function FindNearestEnemyUnitHasNoGod(targetPid)
     local targetUnit = UnitGetByPID(targetPid)
     if targetUnit == nil then
@@ -2032,12 +2031,9 @@ function FindNearestEnemyUnitHasNoGod(targetPid)
     local nearestX = 0
     local nearestZ = 0
 
-    -- 遍历所有敌方单位
     local enemyIndex = ForceUnitGetFirst(FORCE_ENEMY)
     while enemyIndex ~= nil do
-        -- 排除目标单位自身
         if enemyIndex ~= targetUnit then
-            -- 检查该敌方单位是否未装备GodUnit
             local enemyGodUnit = UnitGetGodUnit(enemyIndex)
             local jobId = UnitGetJID(enemyIndex)
 
@@ -2045,10 +2041,8 @@ function FindNearestEnemyUnitHasNoGod(targetPid)
                 local enemyX = UnitGetX(enemyIndex)
                 local enemyZ = UnitGetZ(enemyIndex)
 
-                -- 计算曼哈顿距离
                 local distance = math.abs(targetX - enemyX) + math.abs(targetZ - enemyZ)
 
-                -- 更新最近的未装备GodUnit的敌方单位
                 if distance < minDistance then
                     minDistance = distance
                     nearestEnemy = enemyIndex
@@ -2078,19 +2072,16 @@ function CalculatePlayerUnitsCenter()
         index = ForceUnitGetNext(index)
     end
 
-    -- 避免除零错误
     if unitCount == 0 then
         return 0, 0, 0
     end
 
-    -- 计算平均坐标作为视觉中心点
     local centerX = totalX / unitCount
     local centerZ = totalZ / unitCount
 
     return centerX, centerZ, unitCount
 end
 
--- 改进的表序列化函数，专门处理你的数据结构
 function TableToString(tbl)
     if type(tbl) ~= "table" then
         return tostring(tbl)
@@ -2109,7 +2100,6 @@ function TableToString(tbl)
             result = result .. "{"
             local subFirst = true
 
-            -- 处理数组部分（索引从1开始）
             for j, subValue in ipairs(v) do
                 if not subFirst then
                     result = result .. ","
@@ -2123,7 +2113,6 @@ function TableToString(tbl)
                 end
             end
 
-            -- 处理哈希部分
             for key, subValue in pairs(v) do
                 if type(key) ~= "number" or key <= 0 or key > #v or math.floor(key) ~= key then
                     if not subFirst then
@@ -2157,13 +2146,11 @@ function TableToString(tbl)
     return result
 end
 
--- 改进的表反序列化函数
 function StringToTable(str)
     if str == nil or str == "" then
         return {}
     end
 
-    -- 使用pcall安全地执行字符串代码
     local func, err = load("return " .. str)
     if func then
         local success, result = pcall(func)

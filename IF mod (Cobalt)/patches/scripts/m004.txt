@@ -105,7 +105,11 @@ end
 function MapOpening()
 	
 	Log("MapOpening")
-	
+
+	TerrainSetBegin()
+        TerrainSet(12, 10, "TID_砦_M004")
+    TerrainSetEnd()
+
 	-- -----------------------------------
 	
 	-- リュール達一旦退避
@@ -178,6 +182,9 @@ end
 function BattleStartAfterイベント()
 	セリーヌ合流とセリカ顕現()
 	クロエとルイの会話()
+	TerrainSetBegin()
+        TerrainSet(12, 10, "TID_砦_M004")
+    TerrainSetEnd()
 end
 
 function セリーヌ合流とセリカ顕現()
