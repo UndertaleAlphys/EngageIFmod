@@ -15,7 +15,7 @@ use engage::{
     util::get_instance,
 };
 use skyline::nn::friends::Profile_IsValid;
-use unity::prelude::*;
+use unity::{il2cpp::object::Array, prelude::*, system::List};
 /// This is called a proc(edural) macro. You use this to indicate that a function will be used as a hook.
 ///
 /// Pay attention to the argument, offset.
@@ -196,6 +196,7 @@ pub fn add_command_hook(calculator: &mut CalculatorManager, method_info: Optiona
     call_original!(calculator, method_info);
     let terrain_avo_c: &mut CalculatorCommand = calculator.find_command("地形回避");
     let terrain_def_c: &mut CalculatorCommand = calculator.find_command("地形防御");
+    let male_female_count_c: &mut CalculatorCommand = calculator.find_command("周囲の隣接男女数");
     let terrain_heal_c =
         il2cpp::instantiate_class::<GameCalculatorCommand>(terrain_avo_c.get_class().clone())
             .unwrap();
@@ -273,6 +274,18 @@ pub fn add_command_hook(calculator: &mut CalculatorManager, method_info: Optiona
     .unwrap();
     let foe_immune_break_c = terrain_immune_break_c2.reverse();
     calculator.add_command(foe_immune_break_c);
+
+    // Inventory Item Count Command
+    let inventory_item_count_c =
+        il2cpp::instantiate_class::<CalculatorCommand>(male_female_count_c.get_class().clone())
+            .unwrap();
+    inventory_item_count_c
+        .get_class_mut()
+        .get_virtual_method_mut("get_Name")
+        .map(|method| method.method_ptr = get_inventory_item_count_command_name as _);
+    inventory_item_count_c.get_class_mut().get_vtable_mut()[34].method_ptr =
+        inventory_item_count as *mut u8;
+    calculator.add_command(inventory_item_count_c);
 }
 
 fn get_terrain_heal_command_name(
@@ -293,6 +306,14 @@ fn get_terrain_immune_break_command_name(
     method: OptionalMethod,
 ) -> &'static Il2CppString {
     "TerrainImmuneBreak".into()
+}
+
+fn get_inventory_item_count_command_name(
+    _this: &GameCalculatorCommand,
+    method: OptionalMethod,
+) -> &'static Il2CppString {
+    // Usage: InventoryItemCount(type)
+    "InventoryItemCount".into()
 }
 
 fn get_terrain_avo_command_unit(
@@ -376,6 +397,45 @@ fn get_terrain_immune_break_command_battle_info(
         get_terrain_immune_break_command_unit(_this, unit, None)
     } else {
         0f32
+    }
+}
+
+#[unity::class("App", "List")]
+pub struct ListFloats {
+    pub items: &'static Array<f32>,
+    pub size: i32,
+    pub version: i32,
+}
+
+fn inventory_item_count(
+    _this: &GameCalculatorCommand,
+    unit: Option<&Unit>,
+    args: &ListFloats,
+    _method_info: OptionalMethod,
+) -> f32 {
+    let type_list_length = args.size as usize;
+    if unit.is_none() || type_list_length == 0 {
+        0.0
+    } else {
+        let mut cnt = 0;
+        let unit = unit.unwrap();
+        for idx in 0..8 {
+            let item = unit.item_list.get_item(idx);
+            if item.is_none() {
+                continue;
+            }
+            let item = item.unwrap();
+            if item.flags & 128 == 0 || unit.is_engaging() {
+                for idx in 0..type_list_length {
+                    let t = args.items[idx];
+                    if t == item.item.kind as f32 {
+                        cnt += 1;
+                        break;
+                    }
+                }
+            }
+        }
+        cnt as f32
     }
 }
 
