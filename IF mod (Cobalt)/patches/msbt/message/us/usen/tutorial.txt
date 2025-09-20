@@ -2845,6 +2845,14 @@ Defeat the holder to reclaim an Emblem.
 If you lose all Emblems, you are defeated.
 Use your tactics wisely to take them back!
 
+[MID_TUT_M018_RULE]
+In this chapter, enemies will steal army funds each turn.
+Find the suspicious individuals and defeat them!
+
+[MID_TUT_M018_TURNPROCESS]
+$Arg(0)G has been stolen from the army funds.
+$Arg(1)G remains.
+
 [MID_TIPS_WEAPON_TRIANGLE_T]
 Weapon Triangle
 

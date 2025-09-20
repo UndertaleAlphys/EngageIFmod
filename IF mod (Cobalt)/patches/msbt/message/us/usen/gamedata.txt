@@ -663,7 +663,7 @@ $P is defeated or lose all Emblems.
 Defeat Boss.
 
 [MID_RULE_M019_WIN]
-Defeat ALL Bosses.
+Rout the enemy.
 
 [MID_RULE_M020_WIN]
 Defeat Boss.
