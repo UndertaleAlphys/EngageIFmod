@@ -223,7 +223,6 @@ function setPlayerGodTable()
     VariableSet("notEquipGodList", notEquipGodListStr)
     local currentList = StringToTable(VariableGet("notEquipGodList"))
 
-    ItemPutOffAll()
     --CobaltNotice("未装备神将列表:")
     --for i, godId in ipairs(currentList) do
     --    CobaltNotice("  " .. i .. ": " .. godId)
@@ -350,7 +349,7 @@ function StealGodRingFromPlayer()
         return a.distance < b.distance
     end)
 
-    local stealCount = math.min(2, #stealablePlayerRings, transferableEnemies)
+    local stealCount = math.min(1, #stealablePlayerRings, transferableEnemies)
 
     -- 如果没有可偷取的戒指，直接返回
     if stealCount <= 0 then
@@ -610,7 +609,10 @@ end
 -- -----------------------------------
 
 function MapEnding()
-	
+
+	紋章士外伝_レベルキャップ開放( "シグルド", "M017" )
+	紋章士外伝_レベルキャップ開放( "リーフ", "M017" )
+
 	Log("MapEnding")
 	
 end

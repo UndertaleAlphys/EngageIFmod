@@ -7,11 +7,23 @@ function Startup()
 	Log("Startup");
 	
 	-- 勝利条件設定：敵将撃破
-	WinRuleSetDestroyBoss(true)
+	WinRuleSetEnemyNumberLessThanOrEqualTo(-1)
 	WinRuleSetMID( "MID_RULE_M018_WIN" )
-	
+
+	変数登録()
 	イベント登録();
 	
+
+end
+
+function 変数登録()
+
+	VariableEntry("TalkToThiefTimes", 0)
+	VariableEntry("DefeatThiefTimes", 0)
+	VariableEntry("VisitedTopLeft", 0)
+	VariableEntry("VisitedTopRight", 0)
+	VariableEntry("VisitedBottomLeft", 0)
+	VariableEntry("VisitedBottomRight", 0)
 
 end
 
@@ -24,7 +36,8 @@ function イベント登録()
 	EventEntryTurn(火炎砲台チュートリアル, 1, 1, FORCE_PLAYER, "火炎砲台チュートリアル_済");
 	EventEntryTurn(リンデンのひとこと, 1, 1, FORCE_PLAYER, "リンデンのひとこと_済");
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
-	EventEntryTurn(宝を狙うシーフ, 2, 2, FORCE_PLAYER, "宝を狙うシーフ_済");
+	EventEntryTurn(NoticeM018, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(StealMoney,2,-1,FORCE_PLAYER)
 	
 	-- 増援
 	EventEntryTurn(増援６ターン目, 6, 6, FORCE_PLAYER);
@@ -39,29 +52,107 @@ function イベント登録()
 	-- ボス会話
 	EventEntryBattleTalk(Talk, "PID_リンデン",FORCE_PLAYER, "PID_M018_イルシオン兵_ボス", FORCE_ENEMY, true, "戦闘前会話_ボス_リンデン_済",		"MID_BT6");
 	EventEntryBattleTalk(Talk, "",FORCE_PLAYER, "PID_M018_イルシオン兵_ボス", FORCE_ENEMY, true, "戦闘前会話_ボス_済","MID_BT3");
-	EventEntryDie(Talk, "PID_M018_イルシオン兵_ボス", FORCE_ENEMY, "死亡セリフ_ボス_済", "MID_BT7");
-	
+	-- EventEntryDie(Talk, "PID_M018_イルシオン兵_ボス", FORCE_ENEMY, "死亡セリフ_ボス_済", "MID_BT7");
+	EventEntryDie(ProcessDeadCount, "PID_M018_イルシオン兵_ボス", FORCE_ENEMY, condition_true);
 	-- リンデン戦闘前会話
 	EventEntryBattleTalk(Talk, "", FORCE_PLAYER, "PID_リンデン", FORCE_ENEMY, true, "戦闘前会話_リンデン_済", "MID_BT1");
 	EventEntryDie(EmptyFunction, "PID_リンデン", FORCE_ALL, "S_リンデン_死亡_済")
 	
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 15, 12, "PID_リュール", condition_true)
-	
+
+	EventEntryTalk(TalkToThiefM018,"",FORCE_PLAYER, "PID_IFMOD_M018_イルシオン兵_上忍_Ally1", FORCE_ALLY,Condition_CanTalkTopLeft)
+    EventEntryTalk(TalkToThiefM018,"",FORCE_PLAYER, "PID_IFMOD_M018_イルシオン兵_上忍_Ally2", FORCE_ALLY,Condition_CanTalkTopRight)
+    EventEntryTalk(TalkToThiefM018,"",FORCE_PLAYER, "PID_IFMOD_M018_イルシオン兵_上忍_Ally3", FORCE_ALLY,Condition_CanTalkBottomLeft)
+    EventEntryTalk(TalkToThiefM018,"",FORCE_PLAYER, "PID_IFMOD_M018_イルシオン兵_上忍_Ally4", FORCE_ALLY,Condition_CanTalkBottomRight)
+
+
+
 end
 
-function 宝を狙うシーフ()
-	
-	CursorSetPos_FromPid("PID_M018_シーフ")
-	WaitTime(1.0)
-	
-	Talk("MID_EV4");
-	
-	CursorAnimeCreate(4, 1);
-	CursorAnimeDelete()
-	WaitTime(1.0)
-	
+function NoticeM018()
+    Dialog("MID_TUT_M018_RULE")
 end
+
+function TalkToThiefM018()
+    local TalkTimes = VariableGet("TalkToThiefTimes")
+    TalkTimes = TalkTimes + 1
+    VariableSet("TalkToThiefTimes",TalkTimes)
+    local unit = MindGetTargetUnit()
+    local x = UnitGetX(unit)
+    local z = UnitGetZ(unit)
+    EffectPlay( "竜化_G1" , x, z )
+    WaitTime( 0.5 )
+    UnitDelete( unit )
+    if TalkTimes ~= 4 then
+        if x == 6 and z == 24 then
+            Dispos( "NormalBossTopLeft", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED )
+            VariableSet("VisitedTopLeft",1)
+        end
+        if x == 24 and z == 26 then
+            Dispos( "NormalBossTopRight", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED )
+            VariableSet("VisitedTopRight",1)
+        end
+        if x == 6 and z == 3 then
+            Dispos( "NormalBossBottomLeft", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED )
+            VariableSet("VisitedBottomLeft",1)
+        end
+        if x == 24 and z == 6 then
+            Dispos( "NormalBossBottomRight", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED )
+            VariableSet("VisitedBottomRight",1)
+        end
+    else
+        if x == 6 and z == 24 then
+            Dispos( "EnhanceBossTopLeft", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED )
+            VariableSet("VisitedTopLeft",1)
+        end
+        if x == 24 and z == 26 then
+            Dispos( "EnhanceBossTopRight", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED )
+            VariableSet("VisitedTopRight",1)
+        end
+        if x == 6 and z == 3 then
+            Dispos( "EnhanceBossBottomLeft", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED )
+            VariableSet("VisitedBottomLeft",1)
+        end
+        if x == 24 and z == 6 then
+            Dispos( "EnhanceBossBottomRight", DISPOS_FLAG_FOCUS + DISPOS_FLAG_FORCED )
+            VariableSet("VisitedBottomRight",1)
+        end
+    end
+end
+
+function Condition_CanTalkTopLeft()
+    return VariableGet("VisitedTopLeft") == 0
+end
+
+function Condition_CanTalkTopRight()
+    return VariableGet("VisitedTopRight") == 0
+end
+
+function Condition_CanTalkBottomLeft()
+    return VariableGet("VisitedBottomLeft") == 0
+end
+
+function Condition_CanTalkBottomRight()
+    return VariableGet("VisitedBottomRight") == 0
+end
+
+function ProcessDeadCount()
+    local DeadTimes = VariableGet("DefeatThiefTimes")
+    DeadTimes = DeadTimes + 1;
+    VariableSet("DefeatThiefTimes",DeadTimes)
+end
+
+function StealMoney()
+    local StealMoneyValue = 500 * (4-VariableGet("DefeatThiefTimes"))
+    local NowMoney = GoldGet()
+    NowMoney = NowMoney - StealMoneyValue
+    MessSetArgument(0,StealMoneyValue)
+    MessSetArgument(1,NowMoney)
+    Dialog("MID_TUT_M018_TURNPROCESS")
+    GoldSet(NowMoney)
+end
+
 
 function リンデンのひとこと()
 	CursorSetPos(26, 14);
