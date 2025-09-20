@@ -2432,7 +2432,7 @@ HP未达最大值时
 
 [MSID_H_PrivateSkill_Yunaka]
 发动追击时，改为追击一定次数
-（次数为追击系数÷5)
+（次数为追击系数÷5）
 
 [MSID_PrivateSkill_Seadas]
 神秘舞蹈
@@ -2449,12 +2449,18 @@ HP未达最大值时
 自身装备的武器等级
 低于对方时，必杀+20
 
-[MSID_PrivateSkill_Saphir]
-求胜意志
+[MSID_WellVersed]
+博识
 
-[MSID_H_PrivateSkill_Saphir]
-HP为50%以下时
-命中、回避+20
+[MSID_H_WellVersed]
+携带3本及以上魔道书时，
+必杀+10。
+
+[MSID_InExtremis]
+胜利的执念
+
+[MSID_H_InExtremis]
+HP为25%以下时，必杀+30。
 
 [MSID_PrivateSkill_Veyre]
 邪龙的救济
