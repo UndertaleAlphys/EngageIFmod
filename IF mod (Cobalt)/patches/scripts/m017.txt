@@ -232,6 +232,9 @@ function setPlayerGodTable()
 end
 
 function setGodFromUnequip()
+    if UnitExistOnMap(g_pid_veyre) == false then
+        return
+    end
     -- 获取并反序列化表
     local currentNotEquipGodList = StringToTable(VariableGet("notEquipGodList"))
 
@@ -284,6 +287,10 @@ function StealGodRing(godId,fromPid)
 end
 
 function StealGodRingFromPlayer()
+    if UnitExistOnMap(g_pid_veyre) == false then
+        return
+    end
+
     local transferableEnemies = GetTransferableEnemyCount()
     if transferableEnemies <= 0 then
         return  -- 没有可装备戒指的敌人，不进行偷取
