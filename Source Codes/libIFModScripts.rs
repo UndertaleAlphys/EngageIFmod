@@ -1,16 +1,12 @@
 // Currently needed because we use these functionality, they'll be removable when the Rust language stabilizes them
 #![feature(lazy_cell, ptr_sub_ptr)]
 
-use std::iter::Map;
-
 use engage::{
-    gamedata::{skill::SkillData, unit::Unit},
-    mapmind::{self, MapMind},
-    util::get_instance,
+    gamedata::{item::ItemData, Gamedata},
+    script::{DynValue, EventScript, EventScriptCommand, ScriptUtils},
 };
 use skyline::hooks::InlineCtx;
 use unity::prelude::*;
-
 /// This is called a proc(edural) macro. You use this to indicate that a function will be used as a hook.
 ///
 /// Pay attention to the argument, offset.
@@ -19,43 +15,46 @@ use unity::prelude::*;
 /// If you do not know what any of this means, take the address in Ghidra and remove the starting ``71`` and the zeroes that follow it.
 /// Do not forget the 0x indicator, as it denotates that you are providing a hexadecimal value.
 
-#[unity::class("App", "MapUnitCommandMenu_OverlapSkillMenuItem")]
-pub struct OverlapSkillMenuItem {
-    _junk1: [u8; 0x58],
-    pub skill: Option<&'static SkillData>,
+#[skyline::hook(offset = 0x024E279C, inline)]
+pub fn scripts_regist(ctx: &InlineCtx) {
+    let event = unsafe { &*((*ctx.registers[20].x.as_ref()) as *const EventScript) };
+    ScriptIF::register(event);
+}
+pub struct ScriptIF;
+impl ScriptIF {
+    pub fn register(event: &EventScript) {
+        event.register_action("RemoveTransporterItem", remove_transporter_item);
+    }
 }
 
-#[skyline::from_offset(0x01DEE2B0)]
-pub fn map_mind_get_unit(this: &MapMind, method: OptionalMethod) -> &Unit;
-
-#[skyline::from_offset(0x0248E370)]
-pub fn skill_is_condition(
-    this: &SkillData,
-    current: &Unit,
-    reverse: Option<&Unit>,
-    method: OptionalMethod,
-) -> bool;
-
-#[skyline::hook(offset = 0x01E50340)]
-pub fn overlap_menu_item_get_attr(this: &OverlapSkillMenuItem, method: OptionalMethod) -> i32 {
-    let o_result = call_original!(this, method);
-    let skill = this.skill;
-    if let Some(skill) = skill {
-        let mind: &MapMind = get_instance::<MapMind>();
-        let unit = unsafe { map_mind_get_unit(mind, None) };
-        if unsafe { skill_is_condition(skill, unit, None, None) } {
-            o_result
-        } else {
-            const HIDE: i32 = 4;
-            HIDE
+#[skyline::from_offset(0x022A2260)]
+pub fn transporter_delete(idx: i32, method: OptionalMethod);
+#[skyline::from_offset(0x022A2570)]
+pub fn transporter_delete_item(data: &ItemData, method: OptionalMethod);
+extern "C" fn remove_transporter_item(args: &Il2CppArray<DynValue>, _method: OptionalMethod) {
+    for arg_idx in 0..args.len() {
+        const NUMBER: i32 = 3;
+        const STRING: i32 = 4;
+        match args[arg_idx].ty {
+            NUMBER => {
+                let iidx = args.try_get_i32(arg_idx as i32);
+                unsafe { transporter_delete(iidx, None) };
+            }
+            STRING => {
+                if let Some(iid) = args.try_get_string(arg_idx as i32) {
+                    let idata = ItemData::get(iid);
+                    if let Some(idata) = idata {
+                        unsafe { transporter_delete_item(idata, None) };
+                    }
+                }
+            }
+            _ => {}
         }
-    } else {
-        o_result
     }
 }
 
 /// The internal name of your plugin. This will show up in crash logs. Make it 8 characters long at max.
-#[skyline::main(name = "DVFix")]
+#[skyline::main(name = "IFScript")]
 pub fn main() {
     // Install a panic handler for your plugin, allowing you to customize what to do if there's an issue in your code.
     std::panic::set_hook(Box::new(|info| {
@@ -94,5 +93,5 @@ pub fn main() {
     // Do keep in mind that hooks cannot currently be uninstalled, so proceed accordingly.
     //
     // A ``install_hooks!`` variant exists to let you install multiple hooks at once if separated by a comma.
-    skyline::install_hooks!(overlap_menu_item_get_attr);
+    skyline::install_hook!(scripts_regist);
 }
