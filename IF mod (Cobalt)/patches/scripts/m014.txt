@@ -67,6 +67,7 @@ function イベント登録()
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(Set_Interference_AI_M014, -1, -1, FORCE_ENEMY)
 	EventEntryTurn(SetBossReinforcement, -1, -1, FORCE_ENEMY)
+	EventEntryTurn(SetDragonVeinSkill, 1, 1, FORCE_PLAYER)
 	EventEntryArea(ボス部屋アクティブ化, 10, 18, 20, 27, FORCE_PLAYER, g_key_area)
 	EventEntryFixed(DragonVeinUsed ,"", FORCE_PLAYER)
 
@@ -137,6 +138,10 @@ function MapOpening()
 	WaitTime( 2.0 )
 	Tutorial_M014()
 	Set_Attack_Always("PID_IFMOD_M014_イルシオン兵_モンク1","PID_IFMOD_M014_イルシオン兵_モンク2","PID_IFMOD_M014_イルシオン兵_モンク3","PID_IFMOD_M014_イルシオン兵_モンク4")
+end
+
+function SetDragonVeinSkill()
+    DraginVein_Skill_Equip( "SID_DragonVein_M014" )
 end
 
 function SetBossReinforcement()

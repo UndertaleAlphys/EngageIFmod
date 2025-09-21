@@ -1276,9 +1276,10 @@ end
 function DraginVein_Skill_Equip(sid)
 	local index	= ForceUnitGetFirst( FORCE_PLAYER )
 	while ( index != nil ) do
-		if (UnitGetPID( index ) == "PID_リュール" ) or (UnitGetPID( index ) == "PID_アルフレッド" ) or (UnitGetPID( index ) == "PID_セリーヌ" ) or (UnitGetPID( index ) == "PID_スタルーク" ) or (UnitGetPID( index ) == "PID_ディアマンド" ) or (UnitGetPID( index ) == "PID_アイビー" ) or (UnitGetPID( index ) == "PID_フォガート" ) or (UnitGetPID( index ) == "PID_ミスティラ" ) or (UnitGetPID( index ) == "PID_オルテンシア" ) or (UnitGetPID( index ) == "PID_ヴェイル" ) then
+		if UnitHasWholeSkill(index, "SID_王族") then
 			local pid = UnitGetPID( index )
 			スキル装備(pid, sid)
+			--CobaltNotice(pid .. "装备了技能" .. sid)
 		end
 		index = ForceUnitGetNext( index )
 	end

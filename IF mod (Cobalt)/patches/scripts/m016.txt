@@ -185,15 +185,14 @@ end
 
 function InitDragonVein()
     EffectCreate("魔法陣_G001", 27, 12)
-    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_0" )
+
     EffectCreate("魔法陣_G001", 14, 13)
-    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_1" )
+
     EffectCreate("魔法陣_G001", 19, 3)
-    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_2" )
+
     EffectCreate("魔法陣_G001", 9, 17)
-    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_3" )
+
     EffectCreate("魔法陣_G001", 3, 3)
-    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_4" )
 
     TerrainSetBegin()
         TerrainSet(27, 12, "TID_龙脉_M016_TIDE")
@@ -282,6 +281,12 @@ function BattleStartAfterイベント()
 	Talk( "MID_EV2" )
 
 	HighTideByDragonVein()
+
+    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_0" )
+    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_1" )
+    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_2" )
+    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_3" )
+    DraginVein_Skill_Equip( "SID_DragonVein_M016_TIDE_4" )
 
 end
 

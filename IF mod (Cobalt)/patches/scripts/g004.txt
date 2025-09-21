@@ -227,15 +227,7 @@ function MapOpening()
     EffectCreate("魔法陣_G001",	18, 22)
     EffectCreate("魔法陣_G001",	16, 14)
     EffectCreate("魔法陣_G001",	16, 8)
-    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_0" )
-    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_1" )
-    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_2" )
-    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_3" )
-    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_4" )
-    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_5" )
-    DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_0" )
-    DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_1" )
-    DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_2" )
+
     InitDragonVein()
 end
 
@@ -385,6 +377,15 @@ function 戦闘開始直後()
 
 	CursorSetDistanceMode( distOrg )
 
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_0" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_1" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_2" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_3" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_4" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_ICE_5" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_0" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_1" )
+    DraginVein_Skill_Equip( "SID_DragonVein_G004_FIRE_CONDITION_2" )
 end
 
 -- -----------------------------------
