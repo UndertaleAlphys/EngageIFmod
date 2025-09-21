@@ -1,7 +1,13 @@
 // Currently needed because we use these functionality, they'll be removable when the Rust language stabilizes them
 #![feature(lazy_cell, ptr_sub_ptr)]
 
-use engage::gamedata::{skill::SkillData, unit::Unit};
+use std::iter::Map;
+
+use engage::{
+    gamedata::{skill::SkillData, unit::Unit},
+    mapmind::{self, MapMind},
+    util::get_instance,
+};
 use skyline::hooks::InlineCtx;
 use unity::prelude::*;
 
@@ -15,41 +21,33 @@ use unity::prelude::*;
 
 #[unity::class("App", "MapUnitCommandMenu_OverlapSkillMenuItem")]
 pub struct OverlapSkillMenuItem {
-    junk1: [u8; 0x58],
+    _junk1: [u8; 0x58],
     pub skill: Option<&'static SkillData>,
 }
 
-#[skyline::from_offset(0x02489B50)]
-pub fn skill_get_condition(skill: &SkillData, method: OptionalMethod) -> &Il2CppString;
+#[skyline::from_offset(0x01DEE2B0)]
+pub fn map_mind_get_unit(this: &MapMind, method: OptionalMethod) -> &Unit;
 
-static mut UNIT_X: Option<u8> = None;
-static mut UNIT_Z: Option<u8> = None;
-#[skyline::hook(offset = 0x01E4FFC8, inline)]
-pub fn store_x_z(ctx: &mut InlineCtx) {
-    let unit = unsafe { &*((*ctx.registers[0].x.as_ref()) as *const Unit) };
-    unsafe {
-        UNIT_X = Some(unit.x);
-        UNIT_Z = Some(unit.z);
-    }
-}
+#[skyline::from_offset(0x0248E370)]
+pub fn skill_is_condition(
+    this: &SkillData,
+    current: &Unit,
+    reverse: Option<&Unit>,
+    method: OptionalMethod,
+) -> bool;
 
 #[skyline::hook(offset = 0x01E50340)]
 pub fn overlap_menu_item_get_attr(this: &OverlapSkillMenuItem, method: OptionalMethod) -> i32 {
     let o_result = call_original!(this, method);
     let skill = this.skill;
-    if skill.is_some() {
-        let skill = skill.unwrap();
-        let condition = unsafe { skill_get_condition(skill, None) }.to_string();
-        let values: Vec<u8> = condition
-            .split(",")
-            .map(|x| x.parse::<u8>().unwrap())
-            .collect();
-        let (x, z) = (values[0], values[1]);
-        if x != unsafe { UNIT_X }.unwrap() || z != unsafe { UNIT_Z }.unwrap() {
-            // Hide the menu item
-            4
-        } else {
+    if let Some(skill) = skill {
+        let mind: &MapMind = get_instance::<MapMind>();
+        let unit = unsafe { map_mind_get_unit(mind, None) };
+        if unsafe { skill_is_condition(skill, unit, None, None) } {
             o_result
+        } else {
+            const HIDE: i32 = 4;
+            HIDE
         }
     } else {
         o_result
@@ -96,5 +94,5 @@ pub fn main() {
     // Do keep in mind that hooks cannot currently be uninstalled, so proceed accordingly.
     //
     // A ``install_hooks!`` variant exists to let you install multiple hooks at once if separated by a comma.
-    skyline::install_hooks!(store_x_z, overlap_menu_item_get_attr);
+    skyline::install_hooks!(overlap_menu_item_get_attr);
 }
