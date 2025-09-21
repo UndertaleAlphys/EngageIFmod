@@ -151,6 +151,26 @@ function MapOpening()
 
 	Dialog( "MID_TUT_M017_RULE" )
 
+    ItemPutOffAll()
+    RemoveLiberation()
+    SkillGetIndex(g_pid_lueur)
+end
+
+function RemoveLiberation()
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+    while index ~= nil do
+        local unit = index
+        UnitPutOffItem(unit, "IID_リベラシオン")
+        index = ForceUnitGetNext(index)
+    end
+
+	index = ForceUnitGetFirst( FORCE_ABSENT )
+	while ( index != nil ) do
+        local unit = index
+        UnitPutOffItem(unit, "IID_リベラシオン")
+		index = ForceUnitGetNext( index )
+	end
+
 end
 
 function ProcessDeadEnemyList()
@@ -356,7 +376,7 @@ function StealGodRingFromPlayer()
         return a.distance < b.distance
     end)
 
-    local stealCount = math.min(1, #stealablePlayerRings, transferableEnemies)
+    local stealCount = math.min(2, #stealablePlayerRings, transferableEnemies)
 
     -- 如果没有可偷取的戒指，直接返回
     if stealCount <= 0 then
