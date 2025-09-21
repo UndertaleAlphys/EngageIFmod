@@ -151,9 +151,9 @@ function MapOpening()
 
 	Dialog( "MID_TUT_M017_RULE" )
 
-    ItemPutOffAll()
     RemoveLiberation()
-    SkillGetIndex(g_pid_lueur)
+    RemoveTransporterItem("IID_リベラシオン")
+    RemoveTransporterItem(5)
 end
 
 function RemoveLiberation()
@@ -165,7 +165,7 @@ function RemoveLiberation()
     end
 
 	index = ForceUnitGetFirst( FORCE_ABSENT )
-	while ( index != nil ) do
+	while ( index ~= nil ) do
         local unit = index
         UnitPutOffItem(unit, "IID_リベラシオン")
 		index = ForceUnitGetNext( index )
