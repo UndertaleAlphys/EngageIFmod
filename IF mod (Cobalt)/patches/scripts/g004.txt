@@ -560,6 +560,7 @@ function volcanicBomb(x,z,size,map_damage)
     for i = x-expand,x+expand do
         for j = z-expand,z+expand do
             local unit = UnitGetByPos(i,j)
+
              if unit != nil then
                 MapDamageBegin()
                 local currentHp = UnitGetHp(unit)

@@ -27,15 +27,30 @@ impl ScriptIF {
     }
 }
 
+#[skyline::from_offset(0x021A3970)]
+pub fn dyn_value_array_get_by_idx(
+    array: &Il2CppArray<DynValue>,
+    idx: i32,
+    method: OptionalMethod,
+) -> Option<&DynValue>;
+#[skyline::from_offset(0x02E3CD60)]
+pub fn dyn_value_get_type(dv: &DynValue, method: OptionalMethod) -> i32;
 #[skyline::from_offset(0x022A2260)]
 pub fn transporter_delete(idx: i32, method: OptionalMethod);
 #[skyline::from_offset(0x022A2570)]
 pub fn transporter_delete_item(data: &ItemData, method: OptionalMethod);
 extern "C" fn remove_transporter_item(args: &Il2CppArray<DynValue>, _method: OptionalMethod) {
-    for arg_idx in 0..args.len() {
+    for arg_idx in 0..args.max_length {
+        const NONE: i32 = i32::MAX;
         const NUMBER: i32 = 3;
         const STRING: i32 = 4;
-        match args[arg_idx].ty {
+        match {
+            if let Some(dv) = unsafe { dyn_value_array_get_by_idx(args, arg_idx as i32, None) } {
+                unsafe { dyn_value_get_type(dv, None) }
+            } else {
+                NONE
+            }
+        } {
             NUMBER => {
                 let iidx = args.try_get_i32(arg_idx as i32);
                 unsafe { transporter_delete(iidx, None) };

@@ -2166,3 +2166,21 @@ function StringToTable(str)
         return {}
     end
 end
+
+function splitStrToList(str, delimiter)
+    local result = {}
+    local from = 1
+    local len = string.len(str)
+    local delimiter_len = string.len(delimiter)
+
+    for i = 1, len do
+        if string.sub(str, i, i + delimiter_len - 1) == delimiter then
+            table.insert(result, string.sub(str, from, i - 1))
+            from = i + delimiter_len
+            i = i + delimiter_len - 1
+        end
+    end
+
+    table.insert(result, string.sub(str, from))
+    return result
+end

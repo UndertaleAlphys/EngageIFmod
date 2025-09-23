@@ -152,8 +152,6 @@ function MapOpening()
 	Dialog( "MID_TUT_M017_RULE" )
 
     RemoveLiberation()
-    RemoveTransporterItem("IID_リベラシオン")
-    RemoveTransporterItem(5)
 end
 
 function RemoveLiberation()
@@ -347,14 +345,12 @@ function StealGodRingFromPlayer()
                     isEngaging = UnitGetEngaging(unit)
                 end
 
-                -- 只有非结合状态的单位才会被偷取
                 if not isEngaging then
                     if UnitExistOnMap(unitPid) then
                         local unitX = UnitGetX(unitPid)
                         local unitZ = UnitGetZ(unitPid)
                         local engageCount = UnitGetEngageCount(unitPid)
 
-                        -- 计算与ヴェイル的距离
                         local distance = 二点間距離(veyleX, veyleZ, unitX, unitZ)
 
                         table.insert(stealablePlayerRings, {
@@ -363,7 +359,7 @@ function StealGodRingFromPlayer()
                             x = unitX,
                             z = unitZ,
                             engageCount = engageCount,
-                            distance = distance  -- 添加距离信息
+                            distance = distance
                         })
                     end
                 end
@@ -371,14 +367,12 @@ function StealGodRingFromPlayer()
         end
     end
 
-    -- 按距离排序，距离越近优先级越高
     table.sort(stealablePlayerRings, function(a, b)
         return a.distance < b.distance
     end)
 
     local stealCount = math.min(2, #stealablePlayerRings, transferableEnemies)
 
-    -- 如果没有可偷取的戒指，直接返回
     if stealCount <= 0 then
         return
     end
@@ -400,23 +394,20 @@ function StealGodRingFromPlayer()
         local unitPid = ringInfo.pid
         local unitX = ringInfo.x
         local unitZ = ringInfo.z
-        local engageCount = ringInfo.engageCount  -- 获取保存的结合气层数
+        local engageCount = ringInfo.engageCount
 
         local engageCountVar = "戒指_" .. godId .. "_计数"
         VariableSet(engageCountVar, engageCount)
 
-        -- 找到最近的未装备戒指的敌方单位
         local nearestEnemy,targetX,targetZ = FindNearestEnemyUnitHasNoGod(unitPid)
 
         if nearestEnemy ~= nil then
-            -- 显示效果
             CursorSetPos(unitX, unitZ)
             MapCameraWait()
             EffectPlay("ワープアウト", unitX, unitZ)
             UnitShine(UnitGetByPID(unitPid), 0.3)
             WaitTime(1.0)
 
-            -- 从玩家单位移除戒指
             UnitSetGodUnit(unitPid, nil)
 
             CursorSetPos(targetX, targetZ)
@@ -425,11 +416,9 @@ function StealGodRingFromPlayer()
             UnitShine(UnitGetByPID(nearestEnemy), 0.3)
             WaitTime(1.0)
 
-            -- 为敌方单位装备敌方版本的戒指
             local enemyGodId = ConvertToEnemyGodId(godId)
             UnitCreateGodUnit(nearestEnemy, enemyGodId)
 
-            -- 标记该戒指已被偷取
             SetGodStolen(godId)
 
             --CobaltNotice("从玩家单位 " .. unitPid .. " 处偷取了戒指 " .. godId .. " 并装备给敌方单位")
@@ -438,6 +427,8 @@ function StealGodRingFromPlayer()
     end
 
     CheckPlayerHasRings()
+
+    Log(GetUnitSkillListFunc(1))
 end
 
 
@@ -460,14 +451,12 @@ function checkDeadEnemy()
     local playerGodId = ConvertToNormalGodId(enemyGodId)
 
     if playerGodId == enemyGodId then
-        return  -- 转换失败，不是我们需要处理的戒指
+        return
     end
 
-    -- 安全地获取表数据
     local currentNotEquipGodList = StringToTable(VariableGet("notEquipGodList"))
     local currentPlayerGodTable = StringToTable(VariableGet("player_God_Table"))
 
-    -- 检查该戒指是否在notEquipGodList中
     local isInNotEquipList = false
     for _, godId in ipairs(currentNotEquipGodList) do
         if godId == playerGodId then
@@ -476,11 +465,9 @@ function checkDeadEnemy()
         end
     end
     if not isInNotEquipList then
-        -- 不在notEquipGodList中，搜寻player_God_Table找到原先装备该戒指的单位
         for _, equippedInfo in ipairs(currentPlayerGodTable) do
 
             if type(equippedInfo) == "table" and #equippedInfo >= 2 and equippedInfo[2] == playerGodId then
-                -- 找到原先装备该戒指的单位，重新为其装备戒指
                 UnitSetGodUnit(equippedInfo[1], playerGodId)  -- 使用索引1的PID
 
                 local engageCountVar = "戒指_" .. playerGodId .. "_计数"
@@ -493,7 +480,6 @@ function checkDeadEnemy()
                 local targetX = UnitGetX(unit)
                 local targetZ = UnitGetZ(unit)
 
-                -- 创建死亡敌人信息对象
                 g_deadEnemyList = {deadX,deadZ,targetX,targetZ}
 
                 SetGodAvailable(playerGodId)

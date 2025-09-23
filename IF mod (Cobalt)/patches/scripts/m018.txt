@@ -30,15 +30,16 @@ end
 function イベント登録()
 	
 	-- 宝箱
-	EventEntryTbox(宝箱入手, 6, 20, "IID_はやての羽");
-	EventEntryTbox(宝箱入手, 27, 11, "IID_チェンジプルフ");
+	EventEntryTbox(宝箱入手, 6, 20, "IID_天使の衣");
+	EventEntryTbox(宝箱入手, 27, 11, "IID_龍神・辰");
 	
 	EventEntryTurn(火炎砲台チュートリアル, 1, 1, FORCE_PLAYER, "火炎砲台チュートリアル_済");
 	EventEntryTurn(リンデンのひとこと, 1, 1, FORCE_PLAYER, "リンデンのひとこと_済");
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(NoticeM018, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(StealMoney,2,-1,FORCE_PLAYER)
-	
+	EventEntryTurn(SetTerraEnemy,1,-1,FORCE_ENEMY)
+	EventEntryTurn(SetTerraPlayer,1,-1,FORCE_PLAYER)
 	-- 増援
 	EventEntryTurn(増援６ターン目, 6, 6, FORCE_PLAYER);
 	
@@ -68,6 +69,24 @@ function イベント登録()
 
 
 
+end
+
+function SetTerraEnemy()
+    TerrainSetBegin()
+        TerrainSet(24, 26, "TID_床_Barrier")
+        TerrainSet(24, 6, "TID_床_Barrier")
+        TerrainSet(6, 3, "TID_床_Barrier")
+        TerrainSet(6, 24, "TID_床_Barrier")
+    TerrainSetEnd()
+end
+
+function SetTerraPlayer()
+    TerrainSetBegin()
+        TerrainSet(24, 26, "TID_甲板")
+        TerrainSet(24, 6, "TID_甲板")
+        TerrainSet(6, 3, "TID_甲板")
+        TerrainSet(6, 24, "TID_甲板")
+    TerrainSetEnd()
 end
 
 function NoticeM018()
@@ -141,6 +160,9 @@ function ProcessDeadCount()
     local DeadTimes = VariableGet("DefeatThiefTimes")
     DeadTimes = DeadTimes + 1;
     VariableSet("DefeatThiefTimes",DeadTimes)
+    if DeadTimes == 4 then
+       VariableSet( "勝利", 1 )
+    end
 end
 
 function StealMoney()

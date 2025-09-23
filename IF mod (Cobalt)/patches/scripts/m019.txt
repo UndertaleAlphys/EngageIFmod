@@ -115,6 +115,7 @@ function MapOpening()
 	UnitRotation( "PID_M019_マロン", ROTATE_DOWN_LEFT )
 	UnitMoveWait()
 	--瘴気配置()
+	ClearAllMiasma()
 end
 
 -- -----------------------------------
