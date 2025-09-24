@@ -2,10 +2,15 @@
 #![feature(lazy_cell, ptr_sub_ptr)]
 
 use engage::{
-    gamedata::{item::ItemData, Gamedata},
+    gamedata::{item::ItemData, Gamedata,unit::Unit},
     script::{DynValue, EventScript, EventScriptCommand, ScriptUtils},
 };
+use engage::gamedata::skill::{SkillArrayEntity, SkillArrayEntityList};
+use engage::gamedata::unit::UnitUtil;
+use engage::script::EventResultScriptCommand;
 use skyline::hooks::InlineCtx;
+use unity::from_offset;
+use unity::il2cpp::object::Array;
 use unity::prelude::*;
 /// This is called a proc(edural) macro. You use this to indicate that a function will be used as a hook.
 ///
@@ -15,6 +20,30 @@ use unity::prelude::*;
 /// If you do not know what any of this means, take the address in Ghidra and remove the starting ``71`` and the zeroes that follow it.
 /// Do not forget the 0x indicator, as it denotates that you are providing a hexadecimal value.
 
+#[repr(C)]
+pub struct Vector3 {
+    pub fields: Vector3Fields,
+}
+
+#[repr(C)]
+pub struct Vector3Fields {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+}
+
+#[repr(C)]
+pub struct Quaternion {
+    pub fields: QuaternionFields,
+}
+
+#[repr(C)]
+pub struct QuaternionFields {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+    pub w: f32,
+}
 #[skyline::hook(offset = 0x024E279C, inline)]
 pub fn scripts_regist(ctx: &InlineCtx) {
     let event = unsafe { &*((*ctx.registers[20].x.as_ref()) as *const EventScript) };
@@ -24,6 +53,8 @@ pub struct ScriptIF;
 impl ScriptIF {
     pub fn register(event: &EventScript) {
         event.register_action("RemoveTransporterItem", remove_transporter_item);
+        event.register_function("GetUnitSkillList", get_unit_skill_list_func);
+        event.register_action("EffectCreateRotateXYZ", create_map_effect_rotate_xyz);
     }
 }
 
@@ -39,8 +70,23 @@ pub fn dyn_value_get_type(dv: &DynValue, method: OptionalMethod) -> i32;
 pub fn transporter_delete(idx: i32, method: OptionalMethod);
 #[skyline::from_offset(0x022A2570)]
 pub fn transporter_delete_item(data: &ItemData, method: OptionalMethod);
+
+#[skyline::from_offset(0x021961F0)]
+pub fn try_get_unit(array: &Il2CppArray<DynValue>, idx: i32, warning: bool,method: OptionalMethod) -> &Unit;
+
+#[skyline::from_offset(0x01DBD3E0)]
+pub fn app_map_effect_create(
+    name: Option<&'static Il2CppString>,
+    position: Vector3,
+    rotation: Quaternion,
+    method: OptionalMethod
+);
+
+
+
+
 extern "C" fn remove_transporter_item(args: &Il2CppArray<DynValue>, _method: OptionalMethod) {
-    for arg_idx in 0..args.max_length {
+    for arg_idx in 0..args.len() {
         const NONE: i32 = i32::MAX;
         const NUMBER: i32 = 3;
         const STRING: i32 = 4;
@@ -67,6 +113,179 @@ extern "C" fn remove_transporter_item(args: &Il2CppArray<DynValue>, _method: Opt
         }
     }
 }
+
+fn quaternion_multiply(q1: Quaternion, q2: Quaternion) -> Quaternion {
+    Quaternion {
+        fields: QuaternionFields {
+            x: q1.fields.w * q2.fields.x + q1.fields.x * q2.fields.w + q1.fields.y * q2.fields.z - q1.fields.z * q2.fields.y,
+            y: q1.fields.w * q2.fields.y - q1.fields.x * q2.fields.z + q1.fields.y * q2.fields.w + q1.fields.z * q2.fields.x,
+            z: q1.fields.w * q2.fields.z + q1.fields.x * q2.fields.y - q1.fields.y * q2.fields.x + q1.fields.z * q2.fields.w,
+            w: q1.fields.w * q2.fields.w - q1.fields.x * q2.fields.x - q1.fields.y * q2.fields.y - q1.fields.z * q2.fields.z,
+        },
+    }
+}
+extern "C" fn create_map_effect_rotate_xyz(args: &Il2CppArray<DynValue>, _method: OptionalMethod) {
+    let effectName = args.try_get_string(0);
+    let positionX = ((args.try_get_i32(1) as f32 * 5.0)+2.5 );
+    let positionY = (args.try_get_i32(3) );
+    let positionZ = ((args.try_get_i32(2) as f32 * 5.0)+2.5 );
+    let rotationXAngle = args.try_get_i32(4);
+    let rotationYAngle = args.try_get_i32(5);
+    let rotationZAngle = args.try_get_i32(6);
+    let order = args.try_get_i32(7);
+
+    const XYZ: i32 = 0;
+    const XZY: i32 = 1;
+    const YXZ: i32 = 2;
+    const YZX: i32 = 3;
+    const ZXY: i32 = 4;
+    const ZYX: i32 = 5;
+
+    let position = Vector3 {
+        fields: Vector3Fields {
+            x: positionX as f32,
+            y: positionY as f32,
+            z: positionZ as f32,
+        },
+    };
+
+    let x_angle_rad = (rotationXAngle as f32).to_radians();
+    let x_half_angle = x_angle_rad / 2.0;
+    let x_sin_half = x_half_angle.sin();
+    let x_cos_half = x_half_angle.cos();
+
+    let rotation_x = Quaternion {
+        fields: QuaternionFields {
+            x: x_sin_half,
+            y: 0.0,
+            z: 0.0,
+            w: x_cos_half,
+        },
+    };
+
+    let y_angle_rad = (rotationYAngle as f32).to_radians();
+    let y_half_angle = -y_angle_rad / 2.0;
+    let y_sin_half = y_half_angle.sin();
+    let y_cos_half = y_half_angle.cos();
+
+    let rotation_y = Quaternion {
+        fields: QuaternionFields {
+            x: 0.0,
+            y: y_sin_half,
+            z: 0.0,
+            w: y_cos_half,
+        },
+    };
+
+    let z_angle_rad = (rotationZAngle as f32).to_radians();
+    let z_half_angle = z_angle_rad / 2.0;
+    let z_sin_half = z_half_angle.sin();
+    let z_cos_half = z_half_angle.cos();
+
+    let rotation_z = Quaternion {
+        fields: QuaternionFields {
+            x: 0.0,
+            y: 0.0,
+            z: z_sin_half,
+            w: z_cos_half,
+        },
+    };
+
+    // 根据顺序参数选择不同的旋转顺序
+    let rotation = match order {
+        XYZ => {
+            let rot_xy = quaternion_multiply(rotation_y, rotation_x);
+            quaternion_multiply(rotation_z, rot_xy)
+        },
+        XZY => {
+            let rot_xz = quaternion_multiply(rotation_z, rotation_x);
+            quaternion_multiply(rotation_y, rot_xz)
+        },
+        YXZ => {
+            let rot_yx = quaternion_multiply(rotation_x, rotation_y);
+            quaternion_multiply(rotation_z, rot_yx)
+        },
+        YZX => {
+            let rot_yz = quaternion_multiply(rotation_z, rotation_y);
+            quaternion_multiply(rotation_x, rot_yz)
+        },
+        ZXY => {
+            let rot_zx = quaternion_multiply(rotation_x, rotation_z);
+            quaternion_multiply(rotation_y, rot_zx)
+        },
+        ZYX => {
+            let rot_zy = quaternion_multiply(rotation_y, rotation_z);
+            quaternion_multiply(rotation_x, rot_zy)
+        },
+        _ => {
+            let rot_xy = quaternion_multiply(rotation_y, rotation_x);
+            quaternion_multiply(rotation_z, rot_xy)
+        }
+    };
+
+    match effectName {
+        Some(name) => {
+            unsafe {
+                match std::panic::catch_unwind(|| {
+                    app_map_effect_create(Some(name), position, rotation, _method);
+                }) {
+                    Ok(_) => println!("Successfully created effect: {}", name.to_string()),
+                    Err(e) => {
+                        println!("Error occurred while creating effect: {}", name.to_string());
+                        println!("Panic info: {:?}", e);
+                    }
+                }
+            }
+        },
+        None => {
+        }
+    }
+}
+extern "C" fn get_unit_skill_list_func(args: &Il2CppArray<DynValue>, _method: OptionalMethod) -> &'static DynValue {
+    let unit: Option<&Unit> = unsafe {
+        let unit_ptr = try_get_unit(args, 0, true, None) as *const Unit;
+        if unit_ptr.is_null() {
+            None
+        } else {
+            Some(&*unit_ptr)
+        }
+    };
+
+    let mut skill_sids = String::new();
+
+    if let Some(unit) = unit {
+        if let Some(skill_list) = &unit.fields.mask_skill {
+            let skills = &skill_list.fields.list.fields.item;
+
+            for (i, skill_entity) in skills.iter().enumerate() {
+                let skill_entity: &SkillArrayEntity = skill_entity;
+                let skill_data = skill_entity.get_skill();
+
+                let skill_sid = if let Some(skill) = skill_data {
+                    match std::panic::catch_unwind(|| skill.fields.sid.to_string()) {
+                        Ok(sid) => sid,
+                        Err(_) => "None".to_string()
+                    }
+                } else {
+                    "None".to_string()
+                };
+
+                if i > 0 {
+                    skill_sids.push(',');
+                }
+                skill_sids.push_str(&skill_sid);
+            }
+        }
+    }
+
+    let il2cpp_string = Il2CppString::new(&skill_sids);
+
+    DynValue::new_string(&il2cpp_string)
+}
+
+
+
+
 
 /// The internal name of your plugin. This will show up in crash logs. Make it 8 characters long at max.
 #[skyline::main(name = "IFScript")]
@@ -108,5 +327,5 @@ pub fn main() {
     // Do keep in mind that hooks cannot currently be uninstalled, so proceed accordingly.
     //
     // A ``install_hooks!`` variant exists to let you install multiple hooks at once if separated by a comma.
-    skyline::install_hook!(scripts_regist);
+    skyline::install_hooks!(scripts_regist);
 }

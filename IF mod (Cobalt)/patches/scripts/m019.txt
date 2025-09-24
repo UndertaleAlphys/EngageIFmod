@@ -3,6 +3,8 @@ Include("Common_E")
 
 g_pid_lueur = "PID_リュール"
 g_key_area = "モーヴアクティブ_済"
+g_width = 24
+g_height = 22
 
 -- -----------------------------------
 
@@ -98,26 +100,48 @@ end
 function Opening()
 	
 	Log("Opening");
+    --
+	--PuppetDemo("M019", "MID_OP1")
+	--PuppetDemo("M019", "MID_OP2")
 
-	PuppetDemo("M019", "MID_OP1")
-	PuppetDemo("M019", "MID_OP2")
 end
 
 function MapOpening()
 	
 	Log("MapOpening");
-	
+	ClearAllMiasma()
 	CursorSetPos_FromPid( "PID_M019_マロン" )
 	Talk("MID_OP3")
 	UnitMovePos("PID_M019_マロン",	22 ,11, MOVE_FLAG_NONE)
-	UnitMovePos("PID_M019_モーヴ",	15 ,11, MOVE_FLAG_NONE)
+	UnitMovePos("PID_M019_モーヴ",	9 ,11, MOVE_FLAG_NONE)
 	UnitMoveWait()
 	UnitRotation( "PID_M019_マロン", ROTATE_DOWN_LEFT )
 	UnitMoveWait()
 	--瘴気配置()
-	ClearAllMiasma()
+
+	EffectCreateRotateXYZ("魔法障壁_展開_E005",	7, 11, 1.0, 0 ,0 ,90,5)
+    TerrainSetBegin()
+        TerrainSet( 7, 10, "TID_船着き場_M020")
+        TerrainSet( 7, 11, "TID_階段_M020")
+        TerrainSet( 7, 12, "TID_床_M020")
+    TerrainSetEnd()
 end
 
+function ClearAllMiasma()
+    Log("ClearAllMiasma")
+	MapOverlapSetBegin()
+	TerrainSetBegin()
+	for i = 1, g_width do
+		for j = 1, g_height do
+			if ( MapOverlapGet( i, j ) == "TID_瘴気_永続") then
+
+				MapOverlapSet( i , j, "TID_無し" )
+			end
+		end
+	end
+	MapOverlapSetEnd()
+	TerrainSetEnd()
+end
 -- -----------------------------------
 
 function EmptyFunction()
