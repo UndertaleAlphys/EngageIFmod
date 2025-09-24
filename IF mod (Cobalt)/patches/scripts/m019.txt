@@ -125,6 +125,8 @@ function MapOpening()
         TerrainSet( 7, 11, "TID_階段_M020")
         TerrainSet( 7, 12, "TID_床_M020")
     TerrainSetEnd()
+
+    EffectCreate("魔法陣_G001", 6, 7)
 end
 
 function ClearAllMiasma()
