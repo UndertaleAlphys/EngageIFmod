@@ -5554,6 +5554,9 @@ Grant Soar effect to all allies.
 [MSID_H_DragonVein_G005_EXPLOSION]  
 Cause an explosion.
 
+[MSID_H_DragonVein_M019_P]
+Break the barrier.
+
 [MSID_Quixotic]
 Quixotic
 

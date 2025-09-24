@@ -839,6 +839,9 @@ DV: Grant Soar
 [MTID_DragonVein_G005_EXPLOSION]
 DV: Cause an explosion
 
+[MTID_DragonVein_M019_P]
+DV: Break the barrier
+
 [MTID_Quicksand]
 Quicksand
 
