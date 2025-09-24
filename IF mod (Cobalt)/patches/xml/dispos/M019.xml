@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Book Count="1">
-  <Sheet Name="配置" Count="87">
+  <Sheet Name="配置" Count="52">
     <Header>
       <Param Name="グループ" Ident="Group" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="個人" Ident="Pid" Type="string" Min="" Max="" Chg="" />
