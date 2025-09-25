@@ -47,45 +47,24 @@ g_dragonVeinConfig = {
             {10, 4},
             {10, 5}
         }
+    },
+    {
+        point = {11, 2},
+        skillId = "SID_DragonVein_M019_P3",
+        triggerX = 11,
+        triggerZ = 2,
+        effectX = 14,
+        effectZ = 18,
+        targetPoints = {
+            {14, 20},
+            {14, 19},
+            {14, 18},
+            {13, 18},
+            {12, 18},
+        }
     }
 }
 
-dragonVeinEffects = {
-        {
-            triggerX = 6,
-            triggerZ = 7,
-            effectX = 10,
-            effectZ = 18,
-            targetPoints = {
-                {10, 17},
-                {10, 18},
-                {10, 19}
-            }
-        },
-        {
-            triggerX = 5,
-            triggerZ = 17,
-            effectX = 7,
-            effectZ = 11,
-            targetPoints = {
-                {7, 10},
-                {7, 11},
-                {7, 12}
-            }
-        },
-        {
-            triggerX = 5,
-            triggerZ = 15,
-            effectX = 10,
-            effectZ = 3.5,
-            targetPoints = {
-                {10, 2},
-                {10, 3},
-                {10, 4},
-                {10, 5}
-            }
-        }
-    }
 summonVortexEffects = {
             {18, 14, 10.0, 0, 0, 0, 5},
             {19, 14, 10.0, 0, 0, 0, 5},
@@ -128,14 +107,14 @@ summonVortexEffects = {
             {17, 6, 10.0, 0, 0, 0, 5},
             {17, 5, 10.0, 0, 0, 0, 5},
 
-            {14, 16, 10.0, 0, 0, 0, 5},
-            {14, 17, 10.0, 0, 0, 0, 5},
+            {14, 20, 10.0, 0, 0, 0, 5},
+            {14, 19, 10.0, 0, 0, 0, 5},
             {14, 18, 10.0, 0, 0, 0, 5},
             {13, 18, 10.0, 0, 0, 0, 5},
             {12, 18, 10.0, 0, 0, 0, 5},
-            {15, 18, 10.0, 0, 0, 0, 5},
-            {16, 18, 10.0, 0, 0, 0, 5},
+
             {17, 18, 10.0, 0, 0, 0, 5},
+            {17, 17, 10.0, 0, 0, 0, 5},
 
             {10, 17, 10.0, 0, 0, 0, 5},
             {10, 18, 10.0, 0, 0, 0, 5},
@@ -216,6 +195,7 @@ function イベント登録()
         table.insert(dragonVeinPoints, config.point)
     end
     DragonVeinRegisterEvents(dragonVeinPoints)
+
 	-- モーヴ
 	EventEntryArea(モーヴアクティブ化, 9, 7, 24, 16, FORCE_PLAYER, g_key_area)
 
@@ -272,7 +252,6 @@ function MapOpening()
 end
 
 function initMapM019()
-
     ClearAllMiasma()
     local magicCirclePoints = {}
     for _, config in ipairs(g_dragonVeinConfig) do
@@ -292,10 +271,8 @@ function initMapM019()
         local currentTerrain = TerrainGet(effect[1],effect[2])
         local newTerrain = currentTerrain .. "_M019"
         TerrainSet(effect[1],effect[2],newTerrain)
-
     end
     TerrainSetEnd()
-
 end
 
 function DragonVeinUsed()
@@ -323,13 +300,13 @@ function DragonVeinPostUseHandleM019(veinInfo)
     EffectPlay("水球_発動", veinInfo.x, veinInfo.z)
     EffectWait()
 
-    for _, effectConfig in ipairs(dragonVeinEffects) do
-        if veinInfo.x == effectConfig.triggerX and veinInfo.z == effectConfig.triggerZ then
-            CursorSetPos(effectConfig.effectX, effectConfig.effectZ)
+    for _, config in ipairs(g_dragonVeinConfig) do
+        if veinInfo.x == config.triggerX and veinInfo.z == config.triggerZ then
+            CursorSetPos(config.effectX, config.effectZ)
             WaitTime(1.0)
-            EffectPlay("カムイ竜脈", effectConfig.effectX, effectConfig.effectZ)
+            EffectPlay("カムイ竜脈", config.effectX, config.effectZ)
             EffectWait()
-            for _, point in ipairs(effectConfig.targetPoints) do
+            for _, point in ipairs(config.targetPoints) do
                 TerrainSet(point[1], point[2], "TID_床")
                 EffectDelete("瘴気", point[1], point[2])
             end
@@ -417,16 +394,15 @@ end
 -- -----------------------------------
 
 function 青１ターン開始直後()
+    CursorAnimeCreate(2,11)
+    Talk( "MID_EV4" )
+    CursorAnimeDelete()
 
-	CursorAnimeCreate(2,11)
-	Talk( "MID_EV4" )
-	CursorAnimeDelete()
+    CursorAnimeCreate_FromPid("PID_ザフィーア")
+    Talk( "MID_EV1" )
+    CursorAnimeDelete()
 
-	CursorAnimeCreate_FromPid("PID_ザフィーア")
-	Talk( "MID_EV1" )
-	CursorAnimeDelete()
-
-	local skillIds = {}
+    local skillIds = {}
     for _, config in ipairs(g_dragonVeinConfig) do
         table.insert(skillIds, config.skillId)
     end
