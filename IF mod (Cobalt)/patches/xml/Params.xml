@@ -244,7 +244,7 @@
       <Param Out="" Name="マップカメラ傾き近" English="Map camera tilt near " Value="50" Min="0" Max="90" Step="1" Enum="" />
       <Param Out="" Name="マップカメラ傾き遠" English="Map camera tilt far" Value="80" Min="0" Max="90" Step="1" Enum="" />
       <Param Out="" Name="マップカメラ距離近" English="Map camera distance near" Value="60" Min="10" Max="1000" Step="1" Enum="" />
-      <Param Out="" Name="マップカメラ距離遠" English="Map camera distance far" Value="200" Min="10" Max="1000" Step="1" Enum="" />
+      <Param Out="" Name="マップカメラ距離遠" English="Map camera distance far" Value="250" Min="10" Max="1000" Step="1" Enum="" />
       <Param Out="" Name="マップカメラ位置補間時間" English="Map camera position interpolation time" Value="0.75" Min="0.01" Max="10" Step="0.01" Enum="" />
       <Param Out="" Name="マップカメラ回転補間時間" English="Map camera rotation interpolation time" Value="0.75" Min="0.01" Max="10" Step="0.01" Enum="" />
       <Param Out="" Name="マップＨＰゲージオフセット率" English="Map HP gauge offset rate" Value="1" Min="0" Max="2" Step="0.01" Enum="" />
