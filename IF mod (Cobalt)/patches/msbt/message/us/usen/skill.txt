@@ -5555,7 +5555,7 @@ Grant Soar effect to all allies.
 Cause an explosion.
 
 [MSID_H_DragonVein_M019_P]
-Break the barrier.
+Purify miasma.
 
 [MSID_Quixotic]
 Quixotic

@@ -807,7 +807,10 @@ $P被击败或超过$Arg(0)回合
 龙脉：造成大爆炸
 
 [MTID_DragonVein_M019_P]
-龙脉：破坏障碍
+龙脉：净化瘴气
+
+[MTID_DragonVein_M019_E]
+龙脉：释放瘴气
 
 [MTID_Quicksand]
 流沙

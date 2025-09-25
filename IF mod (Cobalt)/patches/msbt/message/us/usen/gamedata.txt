@@ -840,7 +840,10 @@ DV: Grant Soar
 DV: Cause an explosion
 
 [MTID_DragonVein_M019_P]
-DV: Break the barrier
+DV: Purify miasma
+
+[MTID_DragonVein_M019_P]
+DV: Unleash miasma
 
 [MTID_Quicksand]
 Quicksand
