@@ -952,15 +952,15 @@ func (uv *PersonView) onLevelSliderChanged(value float64) {
 						personGrow += 5
 					}
 
+					if simState.EffortTalent {
+						jobGrow *= 2.0
+					}
 					// 计算总成长率
 					totalGrow := personGrow + jobGrow
 
 					points := float64(totalGrow) / 100.0
 
 					// 如果启用努力才能，积分翻倍
-					if simState.EffortTalent {
-						points *= 2.0
-					}
 
 					simState.TotalPoints[i] += points
 					threshold := float64(simState.GrowthCount[i]) + 0.99

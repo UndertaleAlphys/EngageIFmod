@@ -1708,10 +1708,8 @@ function DragonVeinPreUseCheckWithTid(dragonVeinPoints,tid,currentX, currentZ,ta
         local skillId = pointInfo[2]
         local dragonVeinType = pointInfo[3]
         local param = pointInfo[4]
-        Log("test")
         if currentX == point[1] and currentZ == point[2] then
             local used = DraginVein_Skill_RemoveWithTid(skillId,tid,targetX,targetZ,map_height,map_width)
-            used = true
             if used == true then
                 return {
                     type = dragonVeinType,

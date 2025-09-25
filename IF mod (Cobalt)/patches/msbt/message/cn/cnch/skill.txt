@@ -5140,7 +5140,7 @@ HP不满时伤害+4
 造成大爆炸
 
 [MSID_H_DragonVein_M019_P]
-破坏障碍
+净化瘴气
 
 [MSID_Quixotic]
 倾奇者
