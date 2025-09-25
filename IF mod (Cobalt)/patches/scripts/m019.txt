@@ -2,10 +2,178 @@ Include("Common")
 Include("Common_E")
 
 g_pid_lueur = "PID_リュール"
+g_pid_Mauve = "PID_M019_モーヴ"
 g_key_area = "モーヴアクティブ_済"
-g_width = 24
-g_height = 22
+g_map_width = 24
+g_map_height = 22
 
+g_dragonVeinConfig = {
+    {
+        point = {3, 5},
+        skillId = "SID_DragonVein_M019_P0",
+        triggerX = 3,
+        triggerZ = 5,
+        effectX = 10,
+        effectZ = 18,
+        targetPoints = {
+            {10, 17},
+            {10, 18},
+            {10, 19}
+        }
+    },
+    {
+        point = {6, 20},
+        skillId = "SID_DragonVein_M019_P1",
+        triggerX = 6,
+        triggerZ = 20,
+        effectX = 7,
+        effectZ = 11,
+        targetPoints = {
+            {7, 10},
+            {7, 11},
+            {7, 12}
+        }
+    },
+    {
+        point = {6, 15},
+        skillId = "SID_DragonVein_M019_P2",
+        triggerX = 6,
+        triggerZ = 15,
+        effectX = 10,
+        effectZ = 3.5,
+        targetPoints = {
+            {10, 2},
+            {10, 3},
+            {10, 4},
+            {10, 5}
+        }
+    }
+}
+
+dragonVeinEffects = {
+        {
+            triggerX = 6,
+            triggerZ = 7,
+            effectX = 10,
+            effectZ = 18,
+            targetPoints = {
+                {10, 17},
+                {10, 18},
+                {10, 19}
+            }
+        },
+        {
+            triggerX = 5,
+            triggerZ = 17,
+            effectX = 7,
+            effectZ = 11,
+            targetPoints = {
+                {7, 10},
+                {7, 11},
+                {7, 12}
+            }
+        },
+        {
+            triggerX = 5,
+            triggerZ = 15,
+            effectX = 10,
+            effectZ = 3.5,
+            targetPoints = {
+                {10, 2},
+                {10, 3},
+                {10, 4},
+                {10, 5}
+            }
+        }
+    }
+summonVortexEffects = {
+            {18, 14, 10.0, 0, 0, 0, 5},
+            {19, 14, 10.0, 0, 0, 0, 5},
+            {20, 14, 10.0, 0, 0, 0, 5},
+
+            {18, 8, 10.0, 0, 0, 0, 5},
+            {19, 8, 10.0, 0, 0, 0, 5},
+            {20, 8, 10.0, 0, 0, 0, 5},
+
+            {19, 4, 10.0, 0, 0, 0, 5},
+            {20, 4, 10.0, 0, 0, 0, 5},
+            {21, 4, 10.0, 0, 0, 0, 5},
+            {21, 3, 10.0, 0, 0, 0, 5},
+
+            {13, 3, 10.0, 0, 45, 0, 5},
+            {14, 4, 10.0, 0, 45, 0, 5},
+            {15, 5, 10.0, 0, 45, 0, 5},
+
+            {21, 14, 10.0, 0, 0, 0, 5},
+            {21, 13, 10.0, 0, 0, 0, 5},
+            {21, 12, 10.0, 0, 0, 0, 5},
+            {21, 11, 10.0, 0, 0, 0, 5},
+            {21, 10, 10.0, 0, 0, 0, 5},
+            {21, 9, 10.0, 0, 0, 0, 5},
+            {21, 8, 10.0, 0, 0, 0, 5},
+
+            {10, 5, 10.0, 0, 0, 0, 5},
+            {10, 4, 10.0, 0, 0, 0, 5},
+            {10, 3, 10.0, 0, 0, 0, 5},
+            {10, 2, 10.0, 0, 0, 0, 5},
+
+            {17, 13, 10.0, 0, 0, 0, 5},
+            {17, 12, 10.0, 0, 0, 0, 5},
+            {17, 12, 10.0, 0, 0, 0, 5},
+            {17, 11, 10.0, 0, 0, 0, 5},
+            {17, 10, 10.0, 0, 0, 0, 5},
+            {17, 9, 10.0, 0, 0, 0, 5},
+            {17, 8, 10.0, 0, 0, 0, 5},
+            {17, 7, 10.0, 0, 0, 0, 5},
+            {17, 6, 10.0, 0, 0, 0, 5},
+            {17, 5, 10.0, 0, 0, 0, 5},
+
+            {14, 16, 10.0, 0, 0, 0, 5},
+            {14, 17, 10.0, 0, 0, 0, 5},
+            {14, 18, 10.0, 0, 0, 0, 5},
+            {13, 18, 10.0, 0, 0, 0, 5},
+            {12, 18, 10.0, 0, 0, 0, 5},
+            {15, 18, 10.0, 0, 0, 0, 5},
+            {16, 18, 10.0, 0, 0, 0, 5},
+            {17, 18, 10.0, 0, 0, 0, 5},
+
+            {10, 17, 10.0, 0, 0, 0, 5},
+            {10, 18, 10.0, 0, 0, 0, 5},
+            {10, 19, 10.0, 0, 0, 0, 5},
+
+            {10, 13, 10.0, 0, 0, 0, 5},
+            {10, 12, 10.0, 0, 0, 0, 5},
+            {10, 11, 10.0, 0, 0, 0, 5},
+
+            {7, 12, 10.0, 0, 0, 0, 5},
+            {7, 11, 10.0, 0, 0, 0, 5},
+            {7, 10, 10.0, 0, 0, 0, 5},
+
+            {11, 11, 10.0, 0, 0, 0, 5},
+            {12, 11, 10.0, 0, 0, 0, 5},
+            {13, 11, 10.0, 0, 0, 0, 5},
+            {14, 11, 10.0, 0, 0, 0, 5},
+            {15, 11, 10.0, 0, 0, 0, 5},
+            {16, 11, 10.0, 0, 0, 0, 5},
+
+            {21, 21, 10.0, 0, 0, 0, 5},
+            {20, 21, 10.0, 0, 0, 0, 5},
+            {19, 21, 10.0, 0, 0, 0, 5},
+            {19, 20, 10.0, 0, 0, 0, 5},
+
+            {6, 13, 10.0, 0, 0, 0, 5},
+            {5, 13, 10.0, 0, 0, 0, 5},
+            {4, 13, 10.0, 0, 0, 0, 5},
+            {3, 13, 10.0, 0, 0, 0, 5},
+            {2, 13, 10.0, 0, 0, 0, 5},
+            {1, 13, 10.0, 0, 0, 0, 5},
+            {6, 13, 5.0, 0, 0, 0, 5},
+            {5, 13, 5.0, 0, 0, 0, 5},
+            {4, 13, 5.0, 0, 0, 0, 5},
+            {3, 13, 5.0, 0, 0, 0, 5},
+            {2, 13, 5.0, 0, 0, 0, 5},
+            {1, 13, 5.0, 0, 0, 0, 5}
+        }
 -- -----------------------------------
 
 function Startup()
@@ -41,29 +209,13 @@ end
 function イベント登録()
 	EventEntryTurnAfter(青１ターン開始直後, 1, 1, FORCE_PLAYER);
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(RestoreDeletedEffects,1,1,FORCE_ENEMY)
 
-
-
-	if DifficultyGet() == DIFFICULTY_NORMAL then
-		EventEntryTurn(増援４, 6, 6, FORCE_PLAYER);
-		EventEntryTurn(増援５, 4, 4, FORCE_PLAYER);
-		EventEntryTurn(増援３,12,12, FORCE_PLAYER);
-
-	elseif DifficultyGet() == DIFFICULTY_LUNATIC then
-		EventEntryTurn(増援４, 4, 4, FORCE_PLAYER);
-		EventEntryTurn(増援５, 3, 3, FORCE_PLAYER);
-		EventEntryTurn(増援３,10,10, FORCE_PLAYER);
-		EventEntryTurn(増援３,12,12, FORCE_PLAYER);
-
-		EventEntryTurn(モーヴアクティブ化,14,14, FORCE_PLAYER);
-	else
-		EventEntryTurn(増援４, 4, 4, FORCE_PLAYER);
-		EventEntryTurn(増援５, 3, 3, FORCE_PLAYER);
-		EventEntryTurn(増援３,10,10, FORCE_PLAYER);
-	end
-
-
-
+    local dragonVeinPoints = {}
+    for _, config in ipairs(g_dragonVeinConfig) do
+        table.insert(dragonVeinPoints, config.point)
+    end
+    DragonVeinRegisterEvents(dragonVeinPoints)
 	-- モーヴ
 	EventEntryArea(モーヴアクティブ化, 9, 7, 24, 16, FORCE_PLAYER, g_key_area)
 
@@ -92,7 +244,7 @@ function イベント登録()
 	
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 2, 10, "PID_リュール", condition_true)
-
+    EventEntryEscape(離脱イベント, 24, 11, "", condition_true)
 end
 
 -- -----------------------------------
@@ -107,34 +259,148 @@ function Opening()
 end
 
 function MapOpening()
-	
+	initMapM019()
 	Log("MapOpening");
-	ClearAllMiasma()
 	CursorSetPos_FromPid( "PID_M019_マロン" )
 	Talk("MID_OP3")
-	UnitMovePos("PID_M019_マロン",	22 ,11, MOVE_FLAG_NONE)
-	UnitMovePos("PID_M019_モーヴ",	9 ,11, MOVE_FLAG_NONE)
+	UnitMovePos("PID_M019_マロン",	24 ,11, MOVE_FLAG_NONE)
+	UnitMovePos("PID_M019_モーヴ",	19 ,11, MOVE_FLAG_NONE)
 	UnitMoveWait()
 	UnitRotation( "PID_M019_マロン", ROTATE_DOWN_LEFT )
 	UnitMoveWait()
 	--瘴気配置()
-
-	EffectCreateRotateXYZ("魔法障壁_展開_E005",	7, 11, 1.0, 0 ,0 ,90,5)
-    TerrainSetBegin()
-        TerrainSet( 7, 10, "TID_船着き場_M020")
-        TerrainSet( 7, 11, "TID_階段_M020")
-        TerrainSet( 7, 12, "TID_床_M020")
-    TerrainSetEnd()
-
-    EffectCreate("魔法陣_G001", 6, 7)
 end
 
+function initMapM019()
+
+    ClearAllMiasma()
+    local magicCirclePoints = {}
+    for _, config in ipairs(g_dragonVeinConfig) do
+        table.insert(magicCirclePoints, config.point)
+    end
+    DragonVeinCreateMagicCircle(magicCirclePoints)
+
+    local terrainPoints = {}
+    for _, config in ipairs(g_dragonVeinConfig) do
+        table.insert(terrainPoints, {config.point[1], config.point[2], "TID_龙脉_M019_P"})
+    end
+    DragonVeinSetTerrain(terrainPoints)
+
+    TerrainSetBegin()
+    for i, effect in ipairs(summonVortexEffects) do
+        EffectCreateRotateXYZ("瘴気", effect[1], effect[2], effect[3], effect[4], effect[5], effect[6], effect[7])
+        local currentTerrain = TerrainGet(effect[1],effect[2])
+        local newTerrain = currentTerrain .. "_M019"
+        TerrainSet(effect[1],effect[2],newTerrain)
+
+    end
+    TerrainSetEnd()
+
+end
+
+function DragonVeinUsed()
+    local unit = MindGetUnit()
+    local x = UnitGetX(unit)
+    local z = UnitGetZ(unit)
+
+    local dragonVeinPoints = {}
+    for _, config in ipairs(g_dragonVeinConfig) do
+        table.insert(dragonVeinPoints, {config.point, config.skillId, "bomb", 0})
+    end
+
+    local veinInfo = DragonVeinPreUseCheckWithTid(dragonVeinPoints,"TID_DragonVein_Used", x, z, 7, 11, g_map_height, g_map_width)
+    if veinInfo then
+        DragonVeinPostUseHandleM019(veinInfo)
+    end
+end
+
+function DragonVeinPostUseHandleM019(veinInfo)
+    TerrainSetBegin()
+        TerrainSet(veinInfo.x, veinInfo.z, "TID_床")
+    EffectDelete("魔法陣_G001", veinInfo.x, veinInfo.z)
+    CursorSetPos(veinInfo.x, veinInfo.z)
+    WaitTime(1.0)
+    EffectPlay("水球_発動", veinInfo.x, veinInfo.z)
+    EffectWait()
+
+    for _, effectConfig in ipairs(dragonVeinEffects) do
+        if veinInfo.x == effectConfig.triggerX and veinInfo.z == effectConfig.triggerZ then
+            CursorSetPos(effectConfig.effectX, effectConfig.effectZ)
+            WaitTime(1.0)
+            EffectPlay("カムイ竜脈", effectConfig.effectX, effectConfig.effectZ)
+            EffectWait()
+            for _, point in ipairs(effectConfig.targetPoints) do
+                TerrainSet(point[1], point[2], "TID_床")
+                EffectDelete("瘴気", point[1], point[2])
+            end
+
+            break
+        end
+    end
+
+    TerrainSetEnd()
+end
+
+function RestoreDeletedEffects()
+    local x = UnitGetX(g_pid_Mauve)
+    local z = UnitGetZ(g_pid_Mauve)
+    CursorSetPos(x,z)
+    WaitTime(1.0)
+    EffectPlay( "邪竜紋_発動", x, z )
+    WaitTime( 1.5 )
+    EffectWait()
+
+    CursorSetPos(g_map_width/2, g_map_height/2)
+    WaitTime(1.0)
+    EffectPlay("カムイ竜脈", g_map_width/2, g_map_height/2)
+    EffectWait()
+
+    TerrainSetBegin()
+    for _, effect in ipairs(summonVortexEffects) do
+        local x = effect[1]
+        local z = effect[2]
+
+        local currentTerrain = TerrainGet(x, z)
+
+        if string.sub(currentTerrain, -5) ~= "_M019" then
+            EffectCreateRotateXYZ("瘴気", x, z, effect[3], effect[4], effect[5], effect[6], effect[7])
+
+            local newTerrain = currentTerrain .. "_M019"
+            TerrainSet(x, z, newTerrain)
+        end
+    end
+    TerrainSetEnd()
+    rebuildDragonVeinInfo()
+    ProcessAllUnitsLanding(g_map_width,g_map_height)
+end
+
+function rebuildDragonVeinInfo()
+    local skillIds = {}
+    local dragonVeinPoints = {}
+    local magicCirclePoints = {}
+    local terrainPoints = {}
+
+    for _, config in ipairs(g_dragonVeinConfig) do
+        local x, z = config.point[1], config.point[2]
+        if TerrainGet(x, z) ~= "TID_龙脉_M019_P" then
+            table.insert(skillIds, config.skillId)
+            table.insert(dragonVeinPoints, config.point)
+            table.insert(magicCirclePoints, config.point)
+            table.insert(terrainPoints, {x, z, "TID_龙脉_M019_P"})
+        end
+    end
+
+    DragonVeinEquipSkills(skillIds)
+    DragonVeinRegisterEvents(dragonVeinPoints)
+    DragonVeinCreateMagicCircle(magicCirclePoints)
+    DragonVeinSetTerrain(terrainPoints)
+end
+
+
 function ClearAllMiasma()
-    Log("ClearAllMiasma")
-	MapOverlapSetBegin()
 	TerrainSetBegin()
-	for i = 1, g_width do
-		for j = 1, g_height do
+	for i = 1, g_map_width do
+		for j = 1, g_map_height do
 			if ( MapOverlapGet( i, j ) == "TID_瘴気_永続") then
 
 				MapOverlapSet( i , j, "TID_無し" )
@@ -142,7 +408,6 @@ function ClearAllMiasma()
 		end
 	end
 	MapOverlapSetEnd()
-	TerrainSetEnd()
 end
 -- -----------------------------------
 
@@ -160,6 +425,12 @@ function 青１ターン開始直後()
 	CursorAnimeCreate_FromPid("PID_ザフィーア")
 	Talk( "MID_EV1" )
 	CursorAnimeDelete()
+
+	local skillIds = {}
+    for _, config in ipairs(g_dragonVeinConfig) do
+        table.insert(skillIds, config.skillId)
+    end
+    DragonVeinEquipSkills(skillIds)
 end
 
 function ザフィーア会話( mid )

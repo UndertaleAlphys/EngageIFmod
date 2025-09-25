@@ -159,7 +159,6 @@ function MapOpening()
 
 		Dispos( "Enemy_main", DISPOS_FLAG_NONE )
 
-		スキル装備( g_pid_holtensia, "SID_命中０_砲撃中無効", "SID_神将スキル確率補正１００" )
 		UnitSetItemEquip( g_pid_holtensia, "IID_エルファイアー" )
 		UnitSetItemEquip( "PID_M010_ハイアシンス", "IID_銀身の法" )
 

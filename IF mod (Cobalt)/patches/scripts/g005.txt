@@ -114,8 +114,8 @@ function イベント登録()
     }
     DragonVeinRegisterEvents(dragonVeinPoints)
 
-    EventEntryTurn( ProcessAllUnitsLanding, 1, -1, FORCE_PLAYER )
-    EventEntryTurn( ProcessAllUnitsLanding, 1, -1, FORCE_ENEMY )
+    EventEntryTurn( ProcessAllUnitsLanding(g_map_width,g_map_height), 1, -1, FORCE_PLAYER )
+    EventEntryTurn( ProcessAllUnitsLanding(g_map_width,g_map_height), 1, -1, FORCE_ENEMY )
     EventEntryTurn(ReinforcementTurn7, 7, 7, FORCE_PLAYER)
 
     -- --------------------------------------------------
@@ -280,7 +280,6 @@ function 進撃開始直後()
 
     UpdateBuildingTilesList()
 
-    -- 使用封装函数装备技能
     local skillIds = {
         "SID_DragonVein_G005_EXPLOSION_0", "SID_DragonVein_G005_EXPLOSION_1",
         "SID_DragonVein_G005_EXPLOSION_2", "SID_DragonVein_G005_SKY_0",
