@@ -160,25 +160,25 @@ function Opening()
 	
 	Log("Opening")
 	
-	FadeInAndWait(FADE_NORMAL)
-		Movie("S19")
-		SkipEscape()
-	FadeOutAndWait(FADE_NORMAL)
-	
-	PuppetDemo("M022", "MID_OP1")
-		
-	PuppetDemo("M022", "MID_OP2")
-	
-	スキル装備( g_pid_lueur, "SID_異形兵" )
+	--FadeInAndWait(FADE_NORMAL)
+	--	Movie("S19")
+	--	SkipEscape()
+	--FadeOutAndWait(FADE_NORMAL)
+	--
+	--PuppetDemo("M022", "MID_OP1")
+	--
+	--PuppetDemo("M022", "MID_OP2")
+	--
+	--スキル装備( g_pid_lueur, "SID_異形兵" )
 	GodUnitSetDarkness("GID_マルス", true)
-	
-	-- リュールのヘルプ内容を変更
-	VariableSet( "G_置換_MPID_H_Lueur", 1 )
-	
-	Movie("Scene24")
-	SkipEscape()
-
-	PuppetDemo("M022", "MID_OP4")
+	--
+	---- リュールのヘルプ内容を変更
+	--VariableSet( "G_置換_MPID_H_Lueur", 1 )
+	--
+	--Movie("Scene24")
+	--SkipEscape()
+    --
+	--PuppetDemo("M022", "MID_OP4")
 
 end
 

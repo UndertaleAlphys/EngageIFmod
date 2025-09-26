@@ -91,9 +91,9 @@ function Opening()
 	
 	Log("Opening")
 	
-	PuppetDemo("M024", "MID_OP1")
-	PuppetDemo("M024", "MID_OP2")
-	PuppetDemo("M024", "MID_OP3")
+	--PuppetDemo("M024", "MID_OP1")
+	--PuppetDemo("M024", "MID_OP2")
+	--PuppetDemo("M024", "MID_OP3")
 	
 end
 

@@ -125,16 +125,16 @@ function Opening()
 	
 	Log("Opening")
 
-	PuppetDemo("M021", "MID_OP1")
-	PuppetDemo("M021", "MID_OP2")
-	PuppetDemo("M021", "MID_OP3")
-	PuppetDemo("M021", "MID_OP4")
-	PuppetDemo("M021", "MID_OP5")
-
-	Movie("Scene22")
-	SkipEscape()
-
-	PuppetDemo("M021", "MID_OP5_2")
+	--PuppetDemo("M021", "MID_OP1")
+	--PuppetDemo("M021", "MID_OP2")
+	--PuppetDemo("M021", "MID_OP3")
+	--PuppetDemo("M021", "MID_OP4")
+	--PuppetDemo("M021", "MID_OP5")
+    --
+	--Movie("Scene22")
+	--SkipEscape()
+    --
+	--PuppetDemo("M021", "MID_OP5_2")
 
 end
 
