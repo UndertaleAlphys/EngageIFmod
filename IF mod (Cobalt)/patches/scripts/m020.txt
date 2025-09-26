@@ -1,3 +1,4 @@
+
 Include("Common")
 Include("Common_E")
 
@@ -14,128 +15,298 @@ g_key_thief				= "盗賊登場_済"
 g_last_warp_x			= 10
 g_last_warp_z			= 25
 
+g_map_width = 19
+g_map_height = 27
+
+unitTerrainMap = {}
+attackRange = {}
+bossAttackList = {}
+bossValidAttackList = {}
+hasBeginAttack = 0
+
 -- -----------------------------------
 
 function Startup()
-	
+
 	Log("Startup")
-	
+
 	-- 勝利条件の設定
 	WinRuleSetDestroyBoss( true )		-- 敵将撃破
 	WinRuleSetMID( "MID_RULE_M020_WIN" )
-	
+
 	フラグ登録()
 	イベント登録()
-	
+
 end
 
 function フラグ登録()
-	
+
 	VariableEntry( g_key_warp_first_event, 0 )
 	VariableEntry( g_key_warp_end, 0 )
 	VariableEntry( g_key_warp_end_event, 0 )
-	
+
 	VariableEntry( g_key_thief, 0 )
-	
+
 	E_BattleTalk_VariableEntry()
-	
+
 end
 
 function イベント登録()
-	
+
 	EventEntryTurn(青軍１ターン直前,				1,	1,	FORCE_PLAYER)
 	EventEntryTurn(勝利条件,						1,	1,	FORCE_PLAYER )
-	EventEntryTurn(RangeAttackByTurn,           -1, -1, FORCE_PLAYER)
+	EventEntryTurn(RangeAddByTurn,           -1, -1, FORCE_PLAYER)
+	EventEntryTurn(RangeAttackByTurnInitValue,           -1, -1, FORCE_ENEMY)
+	EventEntryTurn(BossAttackImpl,           -1, -1, FORCE_ENEMY)
 	-- 宝箱
 	EventEntryTbox(宝箱入手,  1, 24, "IID_銀の大剣")
 	EventEntryTbox(宝箱入手,  3, 24, "IID_レスキュー")
-	
+
 	EventEntryTbox(宝箱入手, 17, 24, "IID_勇者の弓")
 	EventEntryTbox(宝箱入手, 19, 24, "IID_秘伝の書")
-	
+
 	-- グリ
 	E_BattleTalkEntry_Gris( g_pid_boss )
 	EventEntryBattleTalk(Talk, g_pid_lueur,	FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_グリ_リュール_済",	"MID_BT2")
 	EventEntryBattleTalk(Talk, "",			FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_グリ_済",			"MID_BT1")
-	
+
 	EventEntryDie(Talk, g_pid_boss, FORCE_ENEMY, condition_true, "MID_BT3")
-	
+
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 10, 3, "PID_リュール", condition_true)
-	
+
 end
 
 function Cleanup()
-	
+
 	Log("Cleanup")
-	
+
 end
 
 -- -----------------------------------
 
 function Opening()
-	
+
 	Log("Opening")
-	
+
 	--PuppetDemo("M020", "MID_OP1")
 	--PuppetDemo("M020", "MID_OP2")
 	--PuppetDemo("M020", "MID_OP3")
-	
+
 end
 
 function MapOpening()
-	
+
 	Log("MapOpening")
-	
-	UnitSetItemEquip( g_pid_boss, "IID_セリカ_ライナロック" )
-	
-	AiSetRejectPower0Attack(g_pid_boss, false)
-	
+
+	UnitSetItemEquip( g_pid_boss, "IID_エクスカリバー" )
+
 end
 
-function RangeAttackByTurn()
-    BattleSetAttack( g_pid_boss, "IID_セリカ_ライナロック" )
+function RangeAddByTurn()
+    local result =
+        FindMostUnitsInSquareArea(g_map_width, g_map_height, 5, FORCE_PLAYER)--local index = ForceUnitGetFirst(FORCE_PLAYER)
+    attackRange = {}
+    local expandedSize = result.squareSize + 2
+    local halfExpanded = (expandedSize - (expandedSize % 2)) / 2
+    MapRangeAddBegin()
+    for x = result.centerX - halfExpanded, result.centerX + halfExpanded do
+        for z = result.centerZ - halfExpanded, result.centerZ + halfExpanded do
+            if x >= 1 and x <= g_map_width and z >= 1 and z <= g_map_height and TerrainGetMoveCost(x, z) ~= "COST_不可"then
+                MapRangeAdd(x, z)
+                table.insert(attackRange,{targetX = x,targetZ = z})
+            end
+        end
+    end
+    MapRangeAddEnd()
 
-    local index = ForceUnitGetFirst(FORCE_PLAYER)
-    while index ~= nil do
-        BattleAddTarget(index)
-        index = ForceUnitGetNext(index)
+    hasBeginAttack = 0
+end
+
+function FindValidPosition(pid, targetX, targetZ, maxRange)
+    local unit = UnitGetByPID(pid)
+    if unit == nil then
+        return nil, nil
     end
 
-    local centerX, centerZ = プレイヤー軍の中心点を算出()
-    BattleStart( centerX, centerZ )
+    for range = maxRange, 1, -1 do
+        for dx = -range, range do
+            for dz = -range, range do
+                if math.abs(dx) + math.abs(dz) == range then
+                    local x = targetX + dx
+                    local z = targetZ + dz
+                    if x >= 1 and x <= g_map_width and z >= 1 and z <= g_map_height then
+                        local terrainCost = TerrainGetMoveCost(x, z)
+                        if terrainCost ~= "COST_不可" then
+                            local existingUnit = UnitGetByPos(x, z)
+                            if existingUnit == nil then
+                                return x, z
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    return nil, nil
+end
+
+
+function RangeAttackByTurnInitValue()
+    unitTerrainMap = {}
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+    TerrainSetBegin()
+        while index ~= nil do
+            local indexX = UnitGetX(index)
+            local indexZ = UnitGetZ(index)
+            local indexTid = TerrainGet(indexX,indexZ)
+            table.insert(unitTerrainMap,{Index = index,Terrain = indexTid,targetX = indexX,targetZ = indexZ})
+            TerrainSet(indexX,indexZ,"TID_柱_Barrier")
+            index = ForceUnitGetNext(index)
+        end
+    TerrainSetEnd()
+
+    local bossStartX = UnitGetX(g_pid_boss)
+    local bossStartZ = UnitGetZ(g_pid_boss)
+    CursorSetPos(bossStartX,bossStartZ)
+    MapCameraWait()
+
+    bossAttackList = {}
+    bossValidAttackList = {}
+
+    for i, pos in ipairs(attackRange) do
+        local targetX = pos.targetX
+        local targetZ = pos.targetZ
+
+        local unit = UnitGetByPos(targetX, targetZ)
+        if unit ~= nil and UnitGetForce(unit) == FORCE_PLAYER then
+            table.insert(bossAttackList,unit)
+            local bossX, bossZ = FindValidPosition(g_pid_boss, targetX, targetZ, 2)
+            if bossX ~= nil and bossZ ~= nil then
+                table.insert(bossValidAttackList,unit)
+            end
+        end
+    end
+
+    --Log("bossAttackList contents:")
+    --for i, unit in ipairs(bossAttackList) do
+    --    local unitX = UnitGetX(unit)
+    --    local unitZ = UnitGetZ(unit)
+    --    Log("  " .. i .. ": Unit " .. UnitGetPID(unit) .. " at (" .. unitX .. ", " .. unitZ .. ")")
+    --end
+    --
+    --Log("Elements in bossAttackList but not in bossValidAttackList:")
+    --for i, attackUnit in ipairs(bossAttackList) do
+    --    local found = false
+    --    for j, validUnit in ipairs(bossValidAttackList) do
+    --        if attackUnit == validUnit then
+    --            found = true
+    --            break
+    --        end
+    --    end
+    --
+    --    if not found then
+    --        local unitX = UnitGetX(attackUnit)
+    --        local unitZ = UnitGetZ(attackUnit)
+    --        Log("  Unit " .. UnitGetPID(attackUnit) .. " at (" .. unitX .. ", " .. unitZ .. ") cannot find valid attack position")
+    --    end
+    --end
 
 end
+
+function BossAttackImpl()
+    if #bossAttackList == 0 and hasBeginAttack == 0 then
+        return
+    end
+
+    if #bossAttackList == 0 and hasBeginAttack ~= 0 then
+        return
+    end
+
+    hasBeginAttack = 1
+
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+    TerrainSetBegin()
+        while index ~= nil do
+            local indexX = UnitGetX(index)
+            local indexZ = UnitGetZ(index)
+            if TerrainGet(indexX,indexZ) ~= "TID_柱_Barrier" then
+                TerrainSet(indexX,indexZ,"TID_柱_Barrier")
+            end
+            index = ForceUnitGetNext(index)
+        end
+    TerrainSetEnd()
+
+    local targetUnit = table.remove(bossAttackList, 1)
+    if targetUnit ~= nil then
+        local targetX = UnitGetX(targetUnit)
+        local targetZ = UnitGetZ(targetUnit)
+
+        local bossX, bossZ = FindValidPosition(g_pid_boss, targetX, targetZ, 2)
+
+        local bossStartX = UnitGetX(g_pid_boss)
+        local bossStartZ = UnitGetZ(g_pid_boss)
+
+        if bossX ~= nil and bossZ ~= nil then
+            CursorSetPos(bossStartX,bossStartZ)
+            MapCameraWait()
+
+            EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
+            MapCameraWait()
+
+            CursorSetPos(bossX,bossZ)
+            MapCameraWait()
+
+            EffectPlay("ワープイン_闇",bossX,bossZ)
+            UnitSetPos(g_pid_boss, bossX, bossZ)
+            MapCameraWait()
+
+            for i, terrainInfo in ipairs(unitTerrainMap) do
+                Log(terrainInfo.Index)
+                if terrainInfo.Index == targetUnit then
+                    CobaltNotice(terrainInfo.Terrain)
+                    Log("In set")
+                    TerrainSetBegin()
+                        TerrainSet(terrainInfo.targetX, terrainInfo.targetZ, terrainInfo.Terrain)
+                    TerrainSetEnd()
+                    break
+                end
+            end
+        end
+    end
+end
+
 -- -----------------------------------
 
 function 青軍１ターン直前()
-	
+
 	CursorSetPos_FromPid( g_pid_boss )
 	PlayFieldBgm(FORCE_PLAYER)
 	Talk( "MID_EV1" )
-	
+
 	グリがワープする()
-	
+
 	CursorSetPos_FromPid( g_pid_lueur )
 	Talk( "MID_EV2" )
-	
+
 end
 
 
 function グリ_ライナワープ終了イベント()
-	
+
 	CursorSetPos_FromPid( g_pid_boss )
-	
+
 	Talk( "MID_EV4" )
-	
+
 	--グリのAI変更
 	AiSetActive(g_pid_boss, false)
 	AiSetBandNo(g_pid_boss, 1)
 	AiSetSequence(g_pid_boss, AI_ORDER_ATTACK, "AI_AT_AttackCS", "")
 	AiSetSequence(g_pid_boss, AI_ORDER_MOVE, "AI_MV_WeakEnemy", "")
-	
+
 	VariableSet( g_key_warp_end_event, 1 )
-	
+
 end
 
 -- -----------------------------------
@@ -145,30 +316,29 @@ function 離脱イベント()
 	if not UnitExistOnMap( unit ) then
 		return
 	end
-	
+
 	UnitRotation( g_pid_lueur, ROTATE_UP)
 	UnitMoveWait()
-	
+
 	VariableSet( "勝利", 1 )
 end
 
 -- -----------------------------------
 
 function MapEnding()
-	
+
 	Log("MapEnding")
-	
+
 end
 
 function Ending()
-	
+
 	Log("Ending")
-	
+
 end
 
 function GameOver()
-	
-	Log("GameOver")
-	
-end
 
+	Log("GameOver")
+
+end

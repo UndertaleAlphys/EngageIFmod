@@ -1949,7 +1949,7 @@ end
 
 
 function CanPassThroughPosition(unit, x, z)
-    -- 检查地形是否可通过
+
     local terrainCost = TerrainGetMoveCost(x, z)
     if terrainCost == "COST_不可" then
         return false
@@ -2178,4 +2178,54 @@ function splitStrToList(str, delimiter)
 
     table.insert(result, string.sub(str, from))
     return result
+end
+
+function FindMostUnitsInSquareArea(mapWidth, mapHeight, squareSize, forceFilter)
+    if mapWidth <= 0 or mapHeight <= 0 or squareSize <= 0 then
+       return nil
+    end
+
+    if squareSize % 2 == 0 then
+        squareSize = squareSize + 1
+    end
+
+    local halfSize = math.floor(squareSize / 2)
+    local maxCount = 0
+    local bestCenterX, bestCenterZ = 0, 0
+    local bestUnitList = {}
+
+    for centerX = halfSize + 1, mapWidth - halfSize do
+        for centerZ = halfSize + 1, mapHeight - halfSize do
+            local unitList = {}
+            local count = 0
+
+            for x = centerX - halfSize, centerX + halfSize do
+                for z = centerZ - halfSize, centerZ + halfSize do
+                    if x >= 1 and x <= mapWidth and z >= 1 and z <= mapHeight then
+                        local unit = UnitGetByPos(x,z)
+                        if unit ~= nil then
+                            if forceFilter == nil or UnitGetForce(unit) == forceFilter then
+                                count = count + 1
+                                table.insert(unitList, unit)
+                            end
+                        end
+                    end
+                end
+            end
+            if count > maxCount then
+                maxCount = count
+                bestCenterX = centerX
+                bestCenterZ = centerZ
+                bestUnitList = unitList
+            end
+        end
+    end
+
+    return {
+        centerX = bestCenterX,
+        centerZ = bestCenterZ,
+        count = maxCount,
+        unitList = bestUnitList,
+        squareSize = squareSize
+    }
 end
