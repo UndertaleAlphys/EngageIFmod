@@ -663,7 +663,7 @@ $P is defeated or lose all Emblems.
 Defeat Boss.
 
 [MID_RULE_M019_WIN]
-Rout the enemy.
+Seize.
 
 [MID_RULE_M020_WIN]
 Defeat Boss.
@@ -844,6 +844,9 @@ DV: Purify miasma
 
 [MTID_DragonVein_M019_P]
 DV: Unleash miasma
+
+[MTID_DragonVein_M020_Silence]
+DV: Silence
 
 [MTID_Quicksand]
 Quicksand

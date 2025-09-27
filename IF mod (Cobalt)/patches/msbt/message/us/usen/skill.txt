@@ -5557,6 +5557,9 @@ Cause an explosion.
 [MSID_H_DragonVein_M019_P]
 Purify miasma.
 
+[MSID_H_DragonVein_M020_Silence]
+Silence all units.
+
 [MSID_Quixotic]
 Quixotic
 
