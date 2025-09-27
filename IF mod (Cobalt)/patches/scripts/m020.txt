@@ -3,7 +3,7 @@ Include("Common")
 Include("Common_E")
 
 g_pid_lueur = "PID_リュール"
-g_pid_boss = "PID_M020_グリ"
+g_pid_boss = "PID_G005_カミラ"
 
 g_key_warp_first_event	= "グリ_ライナワープ初回_イベント_済"
 g_key_warp_end			= "グリ_ライナワープ終了_済"
@@ -24,6 +24,8 @@ attackRange = {}
 bossAttackList = {}
 bossValidAttackList = {}
 hasBeginAttack = 0
+bossRewrapX = 0
+bossRewrapZ = 0
 
 g_dragonVeinConfig_M020 = {
     {
@@ -189,12 +191,7 @@ function DragonVeinPostUseHandleM020(veinInfo)
 
             CursorSetPos((g_map_width+1)/2, (g_map_height+1)/2)
             WaitTime(1.0)
-            EffectPlay("崩壊_開始", (g_map_width+1)/2, (g_map_height+1)/2)
-            WaitTime(0.2)
-            EffectPlay("崩壊_開始", (g_map_width+1)/2, (g_map_height+1)/2+9)
-            WaitTime(0.2)
-            EffectPlay("崩壊_開始", (g_map_width+1)/2, (g_map_height+1)/2-9)
-            EffectWait()
+            EffectPlay("水球", (g_map_width+1)/2, (g_map_height+1)/2)
             AddDivineWindEffectToAllUnits()
 
             CursorSetDistanceMode(distOrg)
@@ -271,6 +268,8 @@ function RangeAddByTurn()
     end
     MapRangeAddEnd()
 
+    bossRewrapX = result.centerX
+    bossRewrapZ = result.centerZ
 
     if VariableGet("Tutorial_M020_Complete") == 0 then
         VariableSet("Tutorial_M020_Complete",1)
@@ -379,39 +378,7 @@ function BossAttackImpl()
         return
     end
 
-    if #bossAttackList == 0 then
-        return
-    end
-    UnitSetPrivateSkill(g_pid_boss,"SID_相手の命中０")
-    while #bossAttackList ~= 0 do
-        local targetUnit = table.remove(bossAttackList, 1)
-        if targetUnit ~= nil then
-            local targetX = UnitGetX(targetUnit)
-            local targetZ = UnitGetZ(targetUnit)
-
-            local bossX, bossZ = FindValidPosition(g_pid_boss, targetX, targetZ, 2)
-
-            local bossStartX = UnitGetX(g_pid_boss)
-            local bossStartZ = UnitGetZ(g_pid_boss)
-
-            if bossX ~= nil and bossZ ~= nil then
-                CursorSetPos(bossStartX,bossStartZ)
-                MapCameraWait()
-
-                EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
-                MapCameraWait()
-
-                CursorSetPos(bossX,bossZ)
-                MapCameraWait()
-
-                EffectPlay("ワープイン_闇",bossX,bossZ)
-                UnitSetPos(g_pid_boss, bossX, bossZ)
-                MapCameraWait()
-
-                Battle(g_pid_boss,targetUnit)
-           end
-       end
-    end
+    UnitSetStatus(g_pid_boss,UNIT_STATUS_MOVE_NOT_ALLOW)
 
     local bossStartX = UnitGetX(g_pid_boss)
     local bossStartZ = UnitGetZ(g_pid_boss)
@@ -422,16 +389,66 @@ function BossAttackImpl()
     EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
     MapCameraWait()
 
-    CursorSetPos(10,25)
+    CursorSetPos(bossRewrapX,bossRewrapZ)
     MapCameraWait()
 
-    EffectPlay("ワープイン_闇",10,25)
-    UnitSetPos(g_pid_boss, 10, 25)
-
+    EffectPlay("ワープイン_闇",bossRewrapX,bossRewrapZ)
+    UnitSetPos(g_pid_boss, bossRewrapX, bossRewrapZ)
     MapCameraWait()
 
-    UnitClearPrivateSkill(g_pid_boss,"SID_相手の命中０")
-    UnitRotation(g_pid_boss, ROTATE_DOWN)
+    --if #bossAttackList == 0 then
+    --    return
+    --end
+    --UnitSetPrivateSkill(g_pid_boss,"SID_相手の命中０")
+    --while #bossAttackList ~= 0 do
+    --    local targetUnit = table.remove(bossAttackList, 1)
+    --    if targetUnit ~= nil then
+    --        local targetX = UnitGetX(targetUnit)
+    --        local targetZ = UnitGetZ(targetUnit)
+    --
+    --        local bossX, bossZ = FindValidPosition(g_pid_boss, targetX, targetZ, 2)
+    --
+    --        local bossStartX = UnitGetX(g_pid_boss)
+    --        local bossStartZ = UnitGetZ(g_pid_boss)
+    --
+    --        if bossX ~= nil and bossZ ~= nil then
+    --            CursorSetPos(bossStartX,bossStartZ)
+    --            MapCameraWait()
+    --
+    --            EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
+    --            MapCameraWait()
+    --
+    --            CursorSetPos(bossX,bossZ)
+    --            MapCameraWait()
+    --
+    --            EffectPlay("ワープイン_闇",bossX,bossZ)
+    --            UnitSetPos(g_pid_boss, bossX, bossZ)
+    --            MapCameraWait()
+    --
+    --            Battle(g_pid_boss,targetUnit)
+    --       end
+    --   end
+    --end
+
+    --local bossStartX = UnitGetX(g_pid_boss)
+    --local bossStartZ = UnitGetZ(g_pid_boss)
+    --
+    --CursorSetPos(bossStartX,bossStartZ)
+    --MapCameraWait()
+    --
+    --EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
+    --MapCameraWait()
+    --
+    --CursorSetPos(10,25)
+    --MapCameraWait()
+    --
+    --EffectPlay("ワープイン_闇",10,25)
+    --UnitSetPos(g_pid_boss, 10, 25)
+    --
+    --MapCameraWait()
+    --
+    --UnitClearPrivateSkill(g_pid_boss,"SID_相手の命中０")
+    --UnitRotation(g_pid_boss, ROTATE_DOWN)
 end
 
 function updateAttackList()
