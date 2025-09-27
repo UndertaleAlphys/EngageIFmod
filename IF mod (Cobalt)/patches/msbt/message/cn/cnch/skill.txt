@@ -4962,6 +4962,8 @@ HP不满时伤害+4
 [MSID_H_DragonVein_M014]
 冰封所有敌人1回合
 
+
+
 [MSID_FriendlyCompetition]
 切磋琢磨
 
@@ -5141,6 +5143,9 @@ HP不满时伤害+4
 
 [MSID_H_DragonVein_M019_P]
 净化瘴气
+
+[MSID_H_DragonVein_M020_Silence]
+使所有单位获得"神风招来"效果
 
 [MSID_Quixotic]
 倾奇者

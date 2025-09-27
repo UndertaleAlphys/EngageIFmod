@@ -540,6 +540,14 @@ end
 -- -----------------------------------
 
 function 離脱イベント()
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+    while index ~= nil do
+        for _, config in ipairs(g_dragonVeinConfig) do
+            UnitClearPrivateSkill(index, config.skillId)
+        end
+        index = ForceUnitGetNext(index)
+    end
+
 	local unit = MindGetUnit()
 	if not UnitExistOnMap( unit ) then
 		return

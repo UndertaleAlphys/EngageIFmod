@@ -18,11 +18,21 @@ g_last_warp_z			= 25
 g_map_width = 19
 g_map_height = 27
 
+needClearSkillList = {"SID_DragonVein_M019_P0","SID_DragonVein_M019_P1","SID_DragonVein_M019_P2","SID_DragonVein_M019_P3","SID_DragonVein_M019_P4","SID_DragonVein_M019_P5","SID_DragonVein_M019_P6","SID_DragonVein_M019_P7"}
 unitTerrainMap = {}
 attackRange = {}
 bossAttackList = {}
 bossValidAttackList = {}
 hasBeginAttack = 0
+
+g_dragonVeinConfig_M020 = {
+    {
+        point = {4, 4},
+        skillId = "SID_DragonVein_M020_Silence0",
+        type = "silence",
+        param = 0
+    }
+}
 
 -- -----------------------------------
 
@@ -47,33 +57,46 @@ function フラグ登録()
 
 	VariableEntry( g_key_thief, 0 )
 
+    VariableEntry( "RangeAttackStop_triggered", 0)
+    VariableEntry( "RangeAttackStop_temp_triggered", 0)
+    VariableEntry( "Tutorial_M020_Complete", 0)
+
 	E_BattleTalk_VariableEntry()
 
 end
 
-function イベント登録()
+    function イベント登録()
 
-	EventEntryTurn(青軍１ターン直前,				1,	1,	FORCE_PLAYER)
-	EventEntryTurn(勝利条件,						1,	1,	FORCE_PLAYER )
-	EventEntryTurn(RangeAddByTurn,           -1, -1, FORCE_PLAYER)
-	EventEntryTurn(RangeAttackByTurnInitValue,           -1, -1, FORCE_ENEMY)
-	EventEntryTurn(BossAttackImpl,           -1, -1, FORCE_ENEMY)
-	-- 宝箱
-	EventEntryTbox(宝箱入手,  1, 24, "IID_銀の大剣")
-	EventEntryTbox(宝箱入手,  3, 24, "IID_レスキュー")
+        EventEntryTurn(青軍１ターン直前,				1,	1,	FORCE_PLAYER)
+        EventEntryTurn(勝利条件,						1,	1,	FORCE_PLAYER )
+        EventEntryTurn(CheckStopRangeAttackCondition,           -1, -1, FORCE_PLAYER)
+        EventEntryTurn(RangeAddByTurn,           2, -1, FORCE_PLAYER)
+        EventEntryTurn(RangeAttackByTurnInitValue,           2, -1, FORCE_ENEMY)
+        EventEntryTurn(BossAttackImpl,	2,-1, FORCE_ENEMY)
+        EventEntryDie(updateAttackList, "", FORCE_PLAYER, condition_true, "")
+        EventEntryTurn(EquipDragonVeinSkillsM020,   1,  1,  FORCE_PLAYER)
 
-	EventEntryTbox(宝箱入手, 17, 24, "IID_勇者の弓")
-	EventEntryTbox(宝箱入手, 19, 24, "IID_秘伝の書")
+        local dragonVeinPoints = {}
+        for _, config in ipairs(g_dragonVeinConfig_M020) do
+            table.insert(dragonVeinPoints, config.point)
+        end
+        DragonVeinRegisterEvents(dragonVeinPoints)
 
-	-- グリ
-	E_BattleTalkEntry_Gris( g_pid_boss )
-	EventEntryBattleTalk(Talk, g_pid_lueur,	FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_グリ_リュール_済",	"MID_BT2")
-	EventEntryBattleTalk(Talk, "",			FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_グリ_済",			"MID_BT1")
+        EventEntryTbox(宝箱入手,  1, 24, "IID_銀の大剣")
+        EventEntryTbox(宝箱入手,  3, 24, "IID_レスキュー")
 
-	EventEntryDie(Talk, g_pid_boss, FORCE_ENEMY, condition_true, "MID_BT3")
+        EventEntryTbox(宝箱入手, 17, 24, "IID_勇者の弓")
+        EventEntryTbox(宝箱入手, 19, 24, "IID_秘伝の書")
 
-	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 10, 3, "PID_リュール", condition_true)
+        -- グリ
+        E_BattleTalkEntry_Gris( g_pid_boss )
+        EventEntryBattleTalk(Talk, g_pid_lueur,	FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_グリ_リュール_済",	"MID_BT2")
+        EventEntryBattleTalk(Talk, "",			FORCE_PLAYER, g_pid_boss, FORCE_ENEMY, true, "戦闘前会話_グリ_済",			"MID_BT1")
+
+        EventEntryDie(Talk, g_pid_boss, FORCE_ENEMY, condition_true, "MID_BT3")
+
+        -- --------------------------------------------------
+        EventEntryEscape(離脱イベント, 10, 3, "PID_リュール", condition_true)
 
 end
 
@@ -95,18 +118,146 @@ function Opening()
 
 end
 
+function initMapM020()
+    local magicCirclePoints = {}
+    for _, config in ipairs(g_dragonVeinConfig_M020) do
+        table.insert(magicCirclePoints, config.point)
+    end
+    DragonVeinCreateMagicCircle(magicCirclePoints)
+
+    local terrainPoints = {}
+    for _, config in ipairs(g_dragonVeinConfig_M020) do
+        if config.type == "silence" then
+            table.insert(terrainPoints, {config.point[1], config.point[2], "TID_龙脉_M020_Silence"})
+        end
+    end
+    DragonVeinSetTerrain(terrainPoints)
+end
+
+function EquipDragonVeinSkillsM020()
+    local skillIds = {}
+    for _, config in ipairs(g_dragonVeinConfig_M020) do
+        table.insert(skillIds, config.skillId)
+    end
+    DragonVeinEquipSkills(skillIds)
+end
+
+function DragonVeinUsed()
+    local unit = MindGetUnit()
+    local x = UnitGetX(unit)
+    local z = UnitGetZ(unit)
+
+    local dragonVeinPoints = {}
+    for _, config in ipairs(g_dragonVeinConfig_M020) do
+        table.insert(dragonVeinPoints, {
+            config.point,
+            config.skillId,
+            config.type,
+            config.param
+        })
+    end
+
+    local veinInfo = DragonVeinPreUseCheck(
+        dragonVeinPoints,
+        x,
+        z
+    )
+
+    if veinInfo then
+        Log("right use")
+        DragonVeinPostUseHandleM020(veinInfo)
+    end
+end
+
+function DragonVeinPostUseHandleM020(veinInfo)
+    TerrainSetBegin()
+        TerrainSet(veinInfo.x, veinInfo.z, "TID_床")
+    TerrainSetEnd()
+
+    EffectDelete("魔法陣_G001", veinInfo.x, veinInfo.z)
+    CursorSetPos(veinInfo.x, veinInfo.z)
+    WaitTime(1.0)
+    EffectPlay("水球_発動", veinInfo.x, veinInfo.z)
+    EffectWait()
+
+    for _, config in ipairs(g_dragonVeinConfig_M020) do
+        if veinInfo.x == config.point[1] and veinInfo.z == config.point[2] then
+            local distOrg = CursorGetDistanceMode()
+
+            CursorSetDistanceMode(CURSOR_DISTANCE_FAR)
+            MapCameraWait()
+
+            CursorSetPos((g_map_width+1)/2, (g_map_height+1)/2)
+            WaitTime(1.0)
+            EffectPlay("崩壊_開始", (g_map_width+1)/2, (g_map_height+1)/2)
+            WaitTime(0.2)
+            EffectPlay("崩壊_開始", (g_map_width+1)/2, (g_map_height+1)/2+9)
+            WaitTime(0.2)
+            EffectPlay("崩壊_開始", (g_map_width+1)/2, (g_map_height+1)/2-9)
+            EffectWait()
+            AddDivineWindEffectToAllUnits()
+
+            CursorSetDistanceMode(distOrg)
+            MapCameraWait()
+
+            MapRangeClear()
+            VariableSet("RangeAttackStop_temp_triggered", 1)
+            break
+        end
+    end
+
+end
+
+function AddDivineWindEffectToAllUnits()
+    local playerIndex = ForceUnitGetFirst(FORCE_PLAYER)
+    while playerIndex ~= nil do
+        UnitSetPrivateSkill(playerIndex, "SID_神風招来効果")
+        playerIndex = ForceUnitGetNext(playerIndex)
+    end
+
+    local enemyIndex = ForceUnitGetFirst(FORCE_ENEMY)
+    while enemyIndex ~= nil do
+        UnitSetPrivateSkill(enemyIndex, "SID_神風招来効果")
+        enemyIndex = ForceUnitGetNext(enemyIndex)
+    end
+end
+
+
 function MapOpening()
 
 	Log("MapOpening")
-
-	UnitSetItemEquip( g_pid_boss, "IID_エクスカリバー" )
+	local index = ForceUnitGetFirst(FORCE_PLAYER)
+    while index ~= nil do
+        for _, skillId in ipairs(needClearSkillList) do
+            UnitClearPrivateSkill(index, skillId)
+        end
+        index = ForceUnitGetNext(index)
+    end
+    initMapM020()
 
 end
 
 function RangeAddByTurn()
+    MapRangeClear()
+    WaitTime(1.0)
+
+    if VariableGet("RangeAttackStop_triggered") == 1 then
+        return
+    end
+
+    CursorSetPos(10,25)
+    MapCameraWait()
+
+    EffectPlay("邪竜紋_発動",10,25)
+    WaitTime(1.0)
+
     local result =
         FindMostUnitsInSquareArea(g_map_width, g_map_height, 5, FORCE_PLAYER)--local index = ForceUnitGetFirst(FORCE_PLAYER)
     attackRange = {}
+
+    CursorSetPos(result.centerX,result.centerZ)
+    MapCameraWait()
+
     local expandedSize = result.squareSize + 2
     local halfExpanded = (expandedSize - (expandedSize % 2)) / 2
     MapRangeAddBegin()
@@ -120,7 +271,10 @@ function RangeAddByTurn()
     end
     MapRangeAddEnd()
 
-    hasBeginAttack = 0
+
+    if VariableGet("Tutorial_M020_Complete") == 0 then
+        VariableSet("Tutorial_M020_Complete",1)
+    end
 end
 
 function FindValidPosition(pid, targetX, targetZ, maxRange)
@@ -153,27 +307,10 @@ function FindValidPosition(pid, targetX, targetZ, maxRange)
 end
 
 
+
 function RangeAttackByTurnInitValue()
-    unitTerrainMap = {}
-    local index = ForceUnitGetFirst(FORCE_PLAYER)
-    TerrainSetBegin()
-        while index ~= nil do
-            local indexX = UnitGetX(index)
-            local indexZ = UnitGetZ(index)
-            local indexTid = TerrainGet(indexX,indexZ)
-            table.insert(unitTerrainMap,{Index = index,Terrain = indexTid,targetX = indexX,targetZ = indexZ})
-            TerrainSet(indexX,indexZ,"TID_柱_Barrier")
-            index = ForceUnitGetNext(index)
-        end
-    TerrainSetEnd()
-
-    local bossStartX = UnitGetX(g_pid_boss)
-    local bossStartZ = UnitGetZ(g_pid_boss)
-    CursorSetPos(bossStartX,bossStartZ)
-    MapCameraWait()
-
     bossAttackList = {}
-    bossValidAttackList = {}
+    bossInValidAttackList = {}
 
     for i, pos in ipairs(attackRange) do
         local targetX = pos.targetX
@@ -181,10 +318,11 @@ function RangeAttackByTurnInitValue()
 
         local unit = UnitGetByPos(targetX, targetZ)
         if unit ~= nil and UnitGetForce(unit) == FORCE_PLAYER then
-            table.insert(bossAttackList,unit)
             local bossX, bossZ = FindValidPosition(g_pid_boss, targetX, targetZ, 2)
-            if bossX ~= nil and bossZ ~= nil then
-                table.insert(bossValidAttackList,unit)
+            if bossX == nil or bossZ == nil then
+                table.insert(bossInValidAttackList,unit)
+            else
+                table.insert(bossAttackList,unit)
             end
         end
     end
@@ -215,68 +353,103 @@ function RangeAttackByTurnInitValue()
 
 end
 
+function CheckStopRangeAttackCondition()
+	if VariableGet("RangeAttackStop_triggered") == 1 then
+		return
+	end
+
+	local index = ForceUnitGetFirst(FORCE_PLAYER)
+	while index ~= nil do
+		local z = UnitGetZ(index)
+		if z >=22 then
+			VariableSet("RangeAttackStop_triggered", 1)
+			return
+		end
+		index = ForceUnitGetNext(index)
+	end
+end
+
 function BossAttackImpl()
-    if #bossAttackList == 0 and hasBeginAttack == 0 then
+    if VariableGet("RangeAttackStop_triggered") == 1 then
         return
     end
 
-    if #bossAttackList == 0 and hasBeginAttack ~= 0 then
+    if VariableGet("RangeAttackStop_temp_triggered") == 1 then
+        VariableSet("RangeAttackStop_temp_triggered",0)
         return
     end
 
-    hasBeginAttack = 1
+    if #bossAttackList == 0 then
+        return
+    end
+    UnitSetPrivateSkill(g_pid_boss,"SID_相手の命中０")
+    while #bossAttackList ~= 0 do
+        local targetUnit = table.remove(bossAttackList, 1)
+        if targetUnit ~= nil then
+            local targetX = UnitGetX(targetUnit)
+            local targetZ = UnitGetZ(targetUnit)
 
-    local index = ForceUnitGetFirst(FORCE_PLAYER)
-    TerrainSetBegin()
-        while index ~= nil do
-            local indexX = UnitGetX(index)
-            local indexZ = UnitGetZ(index)
-            if TerrainGet(indexX,indexZ) ~= "TID_柱_Barrier" then
-                TerrainSet(indexX,indexZ,"TID_柱_Barrier")
-            end
-            index = ForceUnitGetNext(index)
-        end
-    TerrainSetEnd()
+            local bossX, bossZ = FindValidPosition(g_pid_boss, targetX, targetZ, 2)
 
-    local targetUnit = table.remove(bossAttackList, 1)
-    if targetUnit ~= nil then
-        local targetX = UnitGetX(targetUnit)
-        local targetZ = UnitGetZ(targetUnit)
+            local bossStartX = UnitGetX(g_pid_boss)
+            local bossStartZ = UnitGetZ(g_pid_boss)
 
-        local bossX, bossZ = FindValidPosition(g_pid_boss, targetX, targetZ, 2)
+            if bossX ~= nil and bossZ ~= nil then
+                CursorSetPos(bossStartX,bossStartZ)
+                MapCameraWait()
 
-        local bossStartX = UnitGetX(g_pid_boss)
-        local bossStartZ = UnitGetZ(g_pid_boss)
+                EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
+                MapCameraWait()
 
-        if bossX ~= nil and bossZ ~= nil then
-            CursorSetPos(bossStartX,bossStartZ)
-            MapCameraWait()
+                CursorSetPos(bossX,bossZ)
+                MapCameraWait()
 
-            EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
-            MapCameraWait()
+                EffectPlay("ワープイン_闇",bossX,bossZ)
+                UnitSetPos(g_pid_boss, bossX, bossZ)
+                MapCameraWait()
 
-            CursorSetPos(bossX,bossZ)
-            MapCameraWait()
+                Battle(g_pid_boss,targetUnit)
+           end
+       end
+    end
 
-            EffectPlay("ワープイン_闇",bossX,bossZ)
-            UnitSetPos(g_pid_boss, bossX, bossZ)
-            MapCameraWait()
+    local bossStartX = UnitGetX(g_pid_boss)
+    local bossStartZ = UnitGetZ(g_pid_boss)
 
-            for i, terrainInfo in ipairs(unitTerrainMap) do
-                Log(terrainInfo.Index)
-                if terrainInfo.Index == targetUnit then
-                    CobaltNotice(terrainInfo.Terrain)
-                    Log("In set")
-                    TerrainSetBegin()
-                        TerrainSet(terrainInfo.targetX, terrainInfo.targetZ, terrainInfo.Terrain)
-                    TerrainSetEnd()
-                    break
-                end
+    CursorSetPos(bossStartX,bossStartZ)
+    MapCameraWait()
+
+    EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
+    MapCameraWait()
+
+    CursorSetPos(10,25)
+    MapCameraWait()
+
+    EffectPlay("ワープイン_闇",10,25)
+    UnitSetPos(g_pid_boss, 10, 25)
+
+    MapCameraWait()
+
+    UnitClearPrivateSkill(g_pid_boss,"SID_相手の命中０")
+    UnitRotation(g_pid_boss, ROTATE_DOWN)
+end
+
+function updateAttackList()
+    for i = #bossInValidAttackList, 1, -1 do
+        local unit = bossInValidAttackList[i]
+        if unit ~= nil then
+            local targetX = UnitGetX(unit)
+            local targetZ = UnitGetZ(unit)
+
+            local bossX, bossZ = FindValidPosition(g_pid_boss, targetX, targetZ, 2)
+
+            if bossX ~= nil and bossZ ~= nil then
+                table.remove(bossInValidAttackList, i)
+                table.insert(bossAttackList, unit)
             end
         end
     end
 end
-
 -- -----------------------------------
 
 function 青軍１ターン直前()
