@@ -17,6 +17,7 @@ g_last_warp_z			= 25
 
 g_map_width = 19
 g_map_height = 27
+MapDamage = 35
 
 needClearSkillList = {"SID_DragonVein_M019_P0","SID_DragonVein_M019_P1","SID_DragonVein_M019_P2","SID_DragonVein_M019_P3","SID_DragonVein_M019_P4","SID_DragonVein_M019_P5","SID_DragonVein_M019_P6","SID_DragonVein_M019_P7"}
 unitTerrainMap = {}
@@ -57,6 +58,24 @@ g_dragonVeinConfig_M020 = {
             skillId = "SID_DragonVein_M020_Silence4",
             type = "silence",
             param = 0
+    },
+    {
+        point = {18, 6},
+        skillId = "SID_DragonVein_M020_Silence5",
+        type = "silence",
+        param = 0
+    },
+    {
+        point = {2, 11},
+        skillId = "SID_DragonVein_M020_Silence6",
+        type = "silence",
+        param = 0
+    },
+    {
+        point = {7, 23},
+        skillId = "SID_DragonVein_M020_Silence7",
+        type = "silence",
+        param = 0
     }
 }
 
@@ -87,6 +106,10 @@ function フラグ登録()
     VariableEntry( "RangeAttackStop_temp_triggered", 0)
     VariableEntry( "Tutorial_M020_Complete", 0)
 
+    VariableEntry( "reinforcement_1_triggered", 0)
+    VariableEntry( "reinforcement_2_triggered", 0)
+
+
 	E_BattleTalk_VariableEntry()
 
 end
@@ -95,6 +118,9 @@ end
 
         EventEntryTurn(青軍１ターン直前,				1,	1,	FORCE_PLAYER)
         EventEntryTurn(勝利条件,						1,	1,	FORCE_PLAYER )
+        EventEntryTurnAfter(TriggerReinforcement1, -1, -1, FORCE_PLAYER, CheckReinforcementCondition_1)
+        EventEntryTurnAfter(TriggerReinforcement2, -1, -1, FORCE_PLAYER, CheckReinforcementCondition_2)
+
         --EventEntryTurn(CheckStopRangeAttackCondition,           -1, -1, FORCE_PLAYER)
         EventEntryTurn(RangeAddByTurn,           2, -1, FORCE_PLAYER)
         EventEntryTurn(RangeAttackByTurnInitValue,           2, -1, FORCE_ENEMY)
@@ -112,7 +138,7 @@ end
         EventEntryTbox(宝箱入手,  3, 24, "IID_スキルの書・破")
 
         EventEntryTbox(宝箱入手, 17, 24, "IID_金剛の金棒")
-        EventEntryTbox(宝箱入手, 19, 24, "IID_秘伝の書")
+        EventEntryTbox(宝箱入手, 19, 24, "IID_七難即滅")
 
         -- グリ
         E_BattleTalkEntry_Gris( g_pid_boss )
@@ -265,6 +291,10 @@ function RangeAddByTurn()
         return
     end
 
+    if UnitExistOnMap(g_pid_boss) == false then
+        return
+    end
+
     CursorSetPos(10,25)
     MapCameraWait()
 
@@ -372,6 +402,10 @@ function BossAttackImpl()
         return
     end
 
+    if UnitExistOnMap(g_pid_boss) == false then
+        return
+    end
+
     CursorSetPos(bossRewrapX, bossRewrapZ)
     MapCameraWait()
     EffectPlay("カムイ竜脈", bossRewrapX, bossRewrapZ)
@@ -380,7 +414,7 @@ function BossAttackImpl()
     for i, targetUnit in ipairs(bossAttackList) do
         if targetUnit ~= nil and UnitIsExist(targetUnit) then
             local magicDef = UnitGetCapability(targetUnit, CAPABILITY_RES, true)
-            local damage = 40 - magicDef
+            local damage = MapDamage - magicDef
 
             if damage < 0 then
                 damage = 0
@@ -526,6 +560,52 @@ function グリ_ライナワープ終了イベント()
 
 	VariableSet( g_key_warp_end_event, 1 )
 
+end
+
+function CheckReinforcementCondition_1()
+	if VariableGet("reinforcement_1_triggered") == 1 then
+		return false
+	end
+
+	local index = ForceUnitGetFirst(FORCE_PLAYER)
+	while index ~= nil do
+		local z = UnitGetZ(index)
+		if z >= 11 then
+			VariableSet("reinforcement_1_triggered", 1)
+			return true
+		end
+		index = ForceUnitGetNext(index)
+	end
+	return false
+end
+
+function CheckReinforcementCondition_2()
+	if VariableGet("reinforcement_2_triggered") == 1 then
+		return false
+	end
+
+	local index = ForceUnitGetFirst(FORCE_PLAYER)
+	while index ~= nil do
+		local z = UnitGetZ(index)
+		if z >= 20 then
+			VariableSet("reinforcement_2_triggered", 1)
+			return true
+		end
+		index = ForceUnitGetNext(index)
+	end
+	return false
+end
+
+function TriggerReinforcement1()
+    Dispos("Reinforcement1", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+end
+
+function TriggerReinforcement2()
+    Dispos("Reinforcement2", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
 end
 
 -- -----------------------------------
