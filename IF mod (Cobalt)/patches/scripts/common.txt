@@ -903,7 +903,6 @@ function スキル装備( pid, ... )
 			if not UnitHasPrivateSkill( pid, sid ) then
 			
 				UnitSetPrivateSkill( pid, sid )
-				-- Dialog(pid .. "に" .. sid .. "を付与した");
 				
 			end
 			
@@ -1468,11 +1467,9 @@ function GetUnitReachablePositions(unit)
 
     local queue = {{x = unitX, z = unitZ, remainingMove = moveValue}}
 
-    -- Init first position
     table.insert(reachablePositions, {x = unitX, z = unitZ})
 
     visited[unitX .. "," .. unitZ] = true
-    -- do bfs
     while #queue > 0 do
         local current = table.remove(queue, 1)
 
@@ -1482,17 +1479,14 @@ function GetUnitReachablePositions(unit)
             local newX = current.x + dir[1]
             local newZ = current.z + dir[2]
 
-            -- position in map range
             if newX > 0 and newX < g_map_width and newZ > 0 and newZ < g_map_height then
                 local posKey = newX .. "," .. newZ
 
-                -- have not been visited
                 if not visited[posKey] then
                     local terrainCost = GetTerrainMoveCost(newX, newZ, moveType)
 
                     local unitAtPos = UnitGetByPos(newX, newZ)
                     local canPass = CanPassThrough(unit, unitAtPos)
-                    Log(current.remainingMove)
                     if current.remainingMove >= terrainCost and canPass then
 
                         local newRemainingMove = current.remainingMove - terrainCost
@@ -1586,7 +1580,7 @@ function GetUnitActualAttackRange(unit)
     local weaponCount = UnitGetItemCount(unit)
 
     local attackRange = {}
-    local attackRangeMap = {} -- 用于去重
+    local attackRangeMap = {}
 
     for _, pos in ipairs(reachablePositions) do
         local posX = pos.x
@@ -1603,8 +1597,8 @@ function GetUnitActualAttackRange(unit)
                         local targetX = posX + dx
                         local targetZ = posZ + dz
 
-                        if targetX > 0 and targetX < g_map_width and
-                           targetZ > 0 and targetZ < g_map_height then
+                        if targetX > 0 and targetX <= g_map_width and
+                           targetZ > 0 and targetZ <= g_map_height then
 
                             local posKey = targetX .. "," .. targetZ
                             if not attackRangeMap[posKey] then
@@ -1909,15 +1903,10 @@ function FindPath(unit, startX, startZ, targetX, targetZ)
             local nextX = currentX + dir[1]
             local nextZ = currentZ + dir[2]
             local nextPosKey = nextX .. "," .. nextZ
-            Log(nextPosKey)
 
-            -- 检查边界（假设全局变量g_map_width和g_map_height存在）
             if nextX > 0 and nextX <= g_map_width and nextZ > 0 and nextZ <= g_map_height then
-                -- 检查是否已访问过
                 if not visited[nextPosKey] then
-                    -- 检查是否可以通过该位置
                     if CanPassThroughPosition(unit, nextX, nextZ) then
-                        -- 检查是否到达目标
                         if nextX == targetX and nextZ == targetZ then
                             local newPath = {}
                             for i, pos in ipairs(currentPath) do
@@ -2153,11 +2142,9 @@ function StringToTable(str)
         if success and type(result) == "table" then
             return result
         else
-            Log("StringToTable error: " .. tostring(result))
             return {}
         end
     else
-        Log("StringToTable load error: " .. tostring(err))
         return {}
     end
 end

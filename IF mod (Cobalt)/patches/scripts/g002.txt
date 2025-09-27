@@ -27,7 +27,7 @@ g_TerraSheetMap = {
 	" "," "," ","2","2","2","2"," "," "," ","3","3","3"," "," "," "," "," "," "," "," "," "," "," "," "," "," ","1"," "," ",
 	" "," "," "," "," "," "," "," "," "," ","3","3","3"," "," "," ","1"," "," "," "," "," "," ","3","3"," "," "," ","3","3",
 	" "," "," "," "," "," "," "," "," "," ","1","1","1"," ","3"," ","1"," "," "," "," "," "," ","3","3"," "," "," ","3","3",
-	" "," ","3","3","3","3","3"," "," "," ","1","1","1","3","3"," ","1"," "," "," "," "," "," "," ","3","3"," "," ","3","3",
+	" "," ","3","3","3","3","3"," "," "," ","1","1","1"," ","3"," ","1"," "," "," "," "," "," "," ","3","3"," "," ","3","3",
 	" "," "," ","1","1","1"," "," "," "," "," "," "," ","3","3"," ","1"," "," "," ","2","2"," "," "," "," "," "," "," "," ",
 	" "," "," ","1","1","1"," "," "," ","2"," "," "," ","3","3"," ","1"," "," "," ","2","2"," "," "," "," "," "," "," "," ",
 	" "," "," "," "," "," ","2","2","2","2"," "," "," ","3"," "," ","2","2"," "," ","2","2"," "," "," "," "," "," "," "," ",
@@ -156,6 +156,8 @@ function イベント登録()
 
 	EventEntryTurn( 戦闘開始直後,	1,  1, FORCE_PLAYER )
 	EventEntryTurn( SetIvyByTurn, -1, -1, FORCE_PLAYER)
+	EventEntryTurn(UpdateIvyMapRange, 1, -1, FORCE_PLAYER)
+    EventEntryTurn(SetLynnAIMoveToFarthestPlayer, 1, -1, FORCE_PLAYER)
 	EventEntryTurn( 勝利条件_紋章士にフォーカス, 1, 1, FORCE_PLAYER )
 
 	EventEntryTbox(宝箱入手,28, 21, "IID_マスタープルフ")
@@ -198,6 +200,93 @@ function InitIvy()
     end
     MapOverlapSetEnd()
 end
+
+function UpdateIvyMapRange()
+    MapRangeClear()
+
+    local turn = MapGetTurn()
+    local nextTurn = turn + 1
+
+    MapRangeAddBegin()
+    for z = 1, g_Height do
+        for x = 1, g_Width do
+            local key = x + z * g_Width
+            local reverseZ = g_Height + 1 - z
+
+            local currentHasIvy = false
+            if(turn % 3 == 1) then
+                if g_TerraSheetMap[key] == "2" or g_TerraSheetMap[key] == "3" then
+                    currentHasIvy = true
+                end
+            elseif(turn % 3 == 2) then
+                if g_TerraSheetMap[key] == "1" or g_TerraSheetMap[key] == "3" then
+                    currentHasIvy = true
+                end
+            else
+                if g_TerraSheetMap[key] == "1" or g_TerraSheetMap[key] == "2" then
+                    currentHasIvy = true
+                end
+            end
+
+            local nextHasIvy = false
+            if(nextTurn % 3 == 1) then
+                if g_TerraSheetMap[key] == "2" or g_TerraSheetMap[key] == "3" then
+                    nextHasIvy = true
+                end
+            elseif(nextTurn % 3 == 2) then
+                if g_TerraSheetMap[key] == "1" or g_TerraSheetMap[key] == "3" then
+                    nextHasIvy = true
+                end
+            else
+                if g_TerraSheetMap[key] == "1" or g_TerraSheetMap[key] == "2" then
+                    nextHasIvy = true
+                end
+            end
+
+            if not currentHasIvy and nextHasIvy then
+                MapRangeAdd(x, reverseZ)
+            end
+        end
+    end
+    MapRangeAddEnd()
+ end
+
+function SetLynnAIMoveToFarthestPlayer()
+    local lynnPid = "PID_G002_IFMOD_リン"
+
+    if not UnitIsExist(lynnPid) then
+        return
+    end
+
+    local farthestPlayer = nil
+    local maxDistance = -1
+    local lynnX = UnitGetX(lynnPid)
+    local lynnZ = UnitGetZ(lynnPid)
+
+    local playerUnit = ForceUnitGetFirst(FORCE_PLAYER)
+    while playerUnit ~= nil do
+        local playerPid = UnitGetPID(playerUnit)
+
+        if playerPid ~= lynnPid then
+            local playerX = UnitGetX(playerUnit)
+            local playerZ = UnitGetZ(playerUnit)
+
+            local distance = math.abs(lynnX - playerX) + math.abs(lynnZ - playerZ)
+
+            if distance > maxDistance then
+                maxDistance = distance
+                farthestPlayer = playerPid
+            end
+        end
+
+        playerUnit = ForceUnitGetNext(playerUnit)
+    end
+
+    if farthestPlayer ~= nil then
+        AiSetSequence(lynnPid, AI_ORDER_MOVE, "AI_MV_Person", farthestPlayer)
+    end
+end
+
 
 function SetIvyByTurn()
 	local turn = MapGetTurn()

@@ -3,7 +3,7 @@ Include("Common")
 Include("Common_E")
 
 g_pid_lueur = "PID_リュール"
-g_pid_boss = "PID_G005_カミラ"
+g_pid_boss = "PID_M020_グリ"
 
 g_key_warp_first_event	= "グリ_ライナワープ初回_イベント_済"
 g_key_warp_end			= "グリ_ライナワープ終了_済"
@@ -29,10 +29,34 @@ bossRewrapZ = 0
 
 g_dragonVeinConfig_M020 = {
     {
-        point = {4, 4},
+        point = {6, 4},
         skillId = "SID_DragonVein_M020_Silence0",
         type = "silence",
         param = 0
+    },
+    {
+            point = {10, 9},
+            skillId = "SID_DragonVein_M020_Silence1",
+            type = "silence",
+            param = 0
+    },
+    {
+            point = {10, 14},
+            skillId = "SID_DragonVein_M020_Silence2",
+            type = "silence",
+            param = 0
+    },
+    {
+            point = {6, 19},
+            skillId = "SID_DragonVein_M020_Silence3",
+            type = "silence",
+            param = 0
+    },
+    {
+            point = {17, 21},
+            skillId = "SID_DragonVein_M020_Silence4",
+            type = "silence",
+            param = 0
     }
 }
 
@@ -71,11 +95,11 @@ end
 
         EventEntryTurn(青軍１ターン直前,				1,	1,	FORCE_PLAYER)
         EventEntryTurn(勝利条件,						1,	1,	FORCE_PLAYER )
-        EventEntryTurn(CheckStopRangeAttackCondition,           -1, -1, FORCE_PLAYER)
+        --EventEntryTurn(CheckStopRangeAttackCondition,           -1, -1, FORCE_PLAYER)
         EventEntryTurn(RangeAddByTurn,           2, -1, FORCE_PLAYER)
         EventEntryTurn(RangeAttackByTurnInitValue,           2, -1, FORCE_ENEMY)
         EventEntryTurn(BossAttackImpl,	2,-1, FORCE_ENEMY)
-        EventEntryDie(updateAttackList, "", FORCE_PLAYER, condition_true, "")
+        --EventEntryDie(updateAttackList, "", FORCE_PLAYER, condition_true, "")
         EventEntryTurn(EquipDragonVeinSkillsM020,   1,  1,  FORCE_PLAYER)
 
         local dragonVeinPoints = {}
@@ -85,9 +109,9 @@ end
         DragonVeinRegisterEvents(dragonVeinPoints)
 
         EventEntryTbox(宝箱入手,  1, 24, "IID_銀の大剣")
-        EventEntryTbox(宝箱入手,  3, 24, "IID_レスキュー")
+        EventEntryTbox(宝箱入手,  3, 24, "IID_スキルの書・破")
 
-        EventEntryTbox(宝箱入手, 17, 24, "IID_勇者の弓")
+        EventEntryTbox(宝箱入手, 17, 24, "IID_金剛の金棒")
         EventEntryTbox(宝箱入手, 19, 24, "IID_秘伝の書")
 
         -- グリ
@@ -166,7 +190,6 @@ function DragonVeinUsed()
     )
 
     if veinInfo then
-        Log("right use")
         DragonVeinPostUseHandleM020(veinInfo)
     end
 end
@@ -180,7 +203,7 @@ function DragonVeinPostUseHandleM020(veinInfo)
     CursorSetPos(veinInfo.x, veinInfo.z)
     WaitTime(1.0)
     EffectPlay("水球_発動", veinInfo.x, veinInfo.z)
-    EffectWait()
+    WaitTime(1.5)
 
     for _, config in ipairs(g_dragonVeinConfig_M020) do
         if veinInfo.x == config.point[1] and veinInfo.z == config.point[2] then
@@ -309,7 +332,6 @@ end
 
 function RangeAttackByTurnInitValue()
     bossAttackList = {}
-    bossInValidAttackList = {}
 
     for i, pos in ipairs(attackRange) do
         local targetX = pos.targetX
@@ -317,56 +339,28 @@ function RangeAttackByTurnInitValue()
 
         local unit = UnitGetByPos(targetX, targetZ)
         if unit ~= nil and UnitGetForce(unit) == FORCE_PLAYER then
-            local bossX, bossZ = FindValidPosition(g_pid_boss, targetX, targetZ, 2)
-            if bossX == nil or bossZ == nil then
-                table.insert(bossInValidAttackList,unit)
-            else
-                table.insert(bossAttackList,unit)
-            end
+            table.insert(bossAttackList,unit)
         end
     end
 
-    --Log("bossAttackList contents:")
-    --for i, unit in ipairs(bossAttackList) do
-    --    local unitX = UnitGetX(unit)
-    --    local unitZ = UnitGetZ(unit)
-    --    Log("  " .. i .. ": Unit " .. UnitGetPID(unit) .. " at (" .. unitX .. ", " .. unitZ .. ")")
-    --end
-    --
-    --Log("Elements in bossAttackList but not in bossValidAttackList:")
-    --for i, attackUnit in ipairs(bossAttackList) do
-    --    local found = false
-    --    for j, validUnit in ipairs(bossValidAttackList) do
-    --        if attackUnit == validUnit then
-    --            found = true
-    --            break
-    --        end
-    --    end
-    --
-    --    if not found then
-    --        local unitX = UnitGetX(attackUnit)
-    --        local unitZ = UnitGetZ(attackUnit)
-    --        Log("  Unit " .. UnitGetPID(attackUnit) .. " at (" .. unitX .. ", " .. unitZ .. ") cannot find valid attack position")
-    --    end
-    --end
 
 end
 
-function CheckStopRangeAttackCondition()
-	if VariableGet("RangeAttackStop_triggered") == 1 then
-		return
-	end
-
-	local index = ForceUnitGetFirst(FORCE_PLAYER)
-	while index ~= nil do
-		local z = UnitGetZ(index)
-		if z >=22 then
-			VariableSet("RangeAttackStop_triggered", 1)
-			return
-		end
-		index = ForceUnitGetNext(index)
-	end
-end
+--function CheckStopRangeAttackCondition()
+--	if VariableGet("RangeAttackStop_triggered") == 1 then
+--		return
+--	end
+--
+--	local index = ForceUnitGetFirst(FORCE_PLAYER)
+--	while index ~= nil do
+--		local z = UnitGetZ(index)
+--		if z >=22 then
+--			VariableSet("RangeAttackStop_triggered", 1)
+--			return
+--		end
+--		index = ForceUnitGetNext(index)
+--	end
+--end
 
 function BossAttackImpl()
     if VariableGet("RangeAttackStop_triggered") == 1 then
@@ -378,23 +372,58 @@ function BossAttackImpl()
         return
     end
 
-    UnitSetStatus(g_pid_boss,UNIT_STATUS_MOVE_NOT_ALLOW)
-
-    local bossStartX = UnitGetX(g_pid_boss)
-    local bossStartZ = UnitGetZ(g_pid_boss)
-
-    CursorSetPos(bossStartX,bossStartZ)
+    CursorSetPos(bossRewrapX, bossRewrapZ)
     MapCameraWait()
+    EffectPlay("カムイ竜脈", bossRewrapX, bossRewrapZ)
+    WaitTime(1.5)
 
-    EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
-    MapCameraWait()
+    for i, targetUnit in ipairs(bossAttackList) do
+        if targetUnit ~= nil and UnitIsExist(targetUnit) then
+            local magicDef = UnitGetCapability(targetUnit, CAPABILITY_RES, true)
+            local damage = 40 - magicDef
 
-    CursorSetPos(bossRewrapX,bossRewrapZ)
-    MapCameraWait()
+            if damage < 0 then
+                damage = 0
+            end
 
-    EffectPlay("ワープイン_闇",bossRewrapX,bossRewrapZ)
-    UnitSetPos(g_pid_boss, bossRewrapX, bossRewrapZ)
-    MapCameraWait()
+            local currentHp = UnitGetHp(targetUnit)
+            MapDamageBegin()
+            MapDamageAdd(targetUnit, damage)
+            MapDamageEnd()
+            WaitTime(0.2)
+
+            if damage >= currentHp then
+                UnitDie(targetUnit)
+            end
+
+             if UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-15") then
+                UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-20")
+            elseif UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-10") then
+                UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-15")
+            elseif UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-5") then
+                UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-10")
+            else
+                UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-5")
+            end
+        end
+    end
+    --UnitSetStatus(g_pid_boss,UNIT_STATUS_MOVE_NOT_ALLOW)
+    --
+    --local bossStartX = UnitGetX(g_pid_boss)
+    --local bossStartZ = UnitGetZ(g_pid_boss)
+    --
+    --CursorSetPos(bossStartX,bossStartZ)
+    --MapCameraWait()
+    --
+    --EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
+    --MapCameraWait()
+    --
+    --CursorSetPos(bossRewrapX,bossRewrapZ)
+    --MapCameraWait()
+    --
+    --EffectPlay("ワープイン_闇",bossRewrapX,bossRewrapZ)
+    --UnitSetPos(g_pid_boss, bossRewrapX, bossRewrapZ)
+    --MapCameraWait()
 
     --if #bossAttackList == 0 then
     --    return

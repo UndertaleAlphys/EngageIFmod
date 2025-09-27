@@ -114,13 +114,21 @@ function イベント登録()
     }
     DragonVeinRegisterEvents(dragonVeinPoints)
 
-    EventEntryTurn( ProcessAllUnitsLanding(g_map_width,g_map_height), 1, -1, FORCE_PLAYER )
-    EventEntryTurn( ProcessAllUnitsLanding(g_map_width,g_map_height), 1, -1, FORCE_ENEMY )
+    EventEntryTurn( ProcessAllUnitsLandingPlayer, 1, -1, FORCE_PLAYER )
+    EventEntryTurn( ProcessAllUnitsLandingEnemy, 1, -1, FORCE_ENEMY )
     EventEntryTurn(ReinforcementTurn7, 7, 7, FORCE_PLAYER)
 
     -- --------------------------------------------------
     EventEntryEscape(離脱イベント, 24, 2, "PID_リュール", condition_true)
 
+end
+
+function ProcessAllUnitsLandingPlayer()
+    ProcessAllUnitsLanding(g_map_width, g_map_height)
+end
+
+function ProcessAllUnitsLandingEnemy()
+    ProcessAllUnitsLanding(g_map_width, g_map_height)
 end
 
 function ReinforcementTurn7 ()
@@ -153,72 +161,6 @@ function Opening()
 	--FadeOutAndWait(FADE_NORMAL)
 	--PuppetDemo("G005", "MID_OP2")
 
-end
-
-function checkAndSetEngageEnemy()
-    -- 检查艾尔菲是否应该进入交战状态
-    if VariableGet(g_engaged_Aierfei) == 0 then
-        local attackRange = GetUnitActualAttackRange(g_pid_Aierfei)
-        local index = ForceUnitGetFirst(FORCE_PLAYER)
-
-        while index ~= nil do
-            local isIndexInRange = IsUnitInAttackRange(attackRange, index)
-            if isIndexInRange == true then
-                 VariableSet(g_engaged_Aierfei, 1)
-                 UnitSetEngaging(g_pid_Aierfei, true)
-                 break
-            end
-            index = ForceUnitGetNext(index)
-        end
-    end
-
-    -- 检查露娜是否应该进入交战状态
-    if VariableGet(g_engaged_Luna) == 0 then
-        local attackRange = GetUnitActualAttackRange(g_pid_Luna)
-        local index = ForceUnitGetFirst(FORCE_PLAYER)
-
-        while index ~= nil do
-            local isIndexInRange = IsUnitInAttackRange(attackRange, index)
-            if isIndexInRange == true then
-                 VariableSet(g_engaged_Luna, 1)
-                 UnitSetEngaging(g_pid_Luna, true)
-                 break
-            end
-            index = ForceUnitGetNext(index)
-        end
-    end
-
-    -- 检查贝尔加是否应该进入交战状态
-    if VariableGet(g_engaged_Beierjia) == 0 then
-        local attackRange = GetUnitActualAttackRange(g_pid_Beierjia)
-        local index = ForceUnitGetFirst(FORCE_PLAYER)
-
-        while index ~= nil do
-            local isIndexInRange = IsUnitInAttackRange(attackRange, index)
-            if isIndexInRange == true then
-                 VariableSet(g_engaged_Beierjia, 1)
-                 UnitSetEngaging(g_pid_Beierjia, true)
-                 break
-            end
-            index = ForceUnitGetNext(index)
-        end
-    end
-
-    -- 检查哈洛尔德是否应该进入交战状态
-    if VariableGet(g_engaged_Haluoerde) == 0 then
-        local attackRange = GetUnitActualAttackRange(g_pid_Haluoerde)
-        local index = ForceUnitGetFirst(FORCE_PLAYER)
-
-        while index ~= nil do
-            local isIndexInRange = IsUnitInAttackRange(attackRange, index)
-            if isIndexInRange == true then
-                 VariableSet(g_engaged_Haluoerde, 1)
-                 UnitSetEngaging(g_pid_Haluoerde, true)
-                 break
-            end
-            index = ForceUnitGetNext(index)
-        end
-    end
 end
 
 
@@ -266,7 +208,7 @@ function MapOpening()
 
 	Log("MapOpening")
     initMapG005()
-    
+
 end
 
 -- -----------------------------------
@@ -312,6 +254,7 @@ function AiSetCamillaTurnBefore()
 
     while index ~= nil do
         local isIndexInRange = IsUnitInAttackRange(attackRangeCamilla,index)
+        Log(isIndexInRange)
         if isIndexInRange == true then
              VariableSet(g_key_camillaActive , 1)
              AiSetSequence(g_pid_camilla, AI_ORDER_CAUSE, "AI_AC_Everytime")
@@ -388,10 +331,10 @@ function CamillaAiSetTurnBefore()
 
     -- 根据检查结果设置AI模式和标记
     if shouldActivate then
-        AiSet(g_pid_camilla, AI_AC_EveryTime)
+        AiSetSequence(g_pid_camilla,AI_ORDER_CAUSE, "AI_AC_EveryTime")
         VariableSet(g_key_camillaActiveRun, 1)
     else
-        AiSet(g_pid_camilla, AI_AC_Null)
+        AiSetSequence(g_pid_camilla,AI_ORDER_CAUSE, "AI_AC_Null")
     end
 end
 

@@ -202,11 +202,11 @@ function 召喚渦消去と配置(areaname)
 end
 
 function condition_Barrier_Destroy()
-	Log("condition_Barrier_Destroy")
-	Log(VariableGet(g_revive_Gris))
-	Log(VariableGet(g_revive_Marron))
-	Log(VariableGet(g_revive_Mauve))
-	Log(VariableGet(g_revive_Sepia))
+	--Log("condition_Barrier_Destroy")
+	--Log(VariableGet(g_revive_Gris))
+	--Log(VariableGet(g_revive_Marron))
+	--Log(VariableGet(g_revive_Mauve))
+	--Log(VariableGet(g_revive_Sepia))
 	if VariableGet(g_revive_Gris) == 1 and VariableGet(g_revive_Marron) == 1 and VariableGet(g_revive_Mauve) == 1 and VariableGet(g_revive_Sepia) == 1 then
 		return true
 	else
@@ -422,9 +422,9 @@ end
 -- -----------------------------------
 
 function DragonVeinUsed()
-	Log("DragonVeinUsed")
+	--Log("DragonVeinUsed")
 	local used = DraginVein_Skill_Remove("SID_DragonVein_M014","SID_DragonVein_Used")
-	Log(used)
+	--Log(used)
 	if used == true then
 		WaitTime( 0.5 )
 		EffectPlay( "カムイ竜脈", 15, 18 )
@@ -435,7 +435,7 @@ function DragonVeinUsed()
 		TerrainSetEnd()
 		DragonVeinEffect()
 	end
-	Log("DragonVeinUsedComplete")
+	--Log("DragonVeinUsedComplete")
 end
 
 -- -----------------------------------
@@ -636,6 +636,29 @@ function ボス部屋アクティブ化()
 	AiSetSequence("PID_M014_マロン", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
 	AiSetSequence("PID_M014_モーヴ", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
 	AiSetSequence("PID_M014_グリ", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
+    SetAIForAllEnemies()
+end
+
+function SetAIForAllEnemies()
+    --Log("Setting AI for all enemy units")
+
+    local count = 0
+    local unit = ForceUnitGetFirst(FORCE_ENEMY)
+
+    while unit ~= nil do
+        local pid = UnitGetPID(unit)
+
+        AiSetSequence(unit, AI_ORDER_CAUSE, "AI_AC_Everytime")
+        AiSetSequence(unit, AI_ORDER_MOVE, "AI_MV_NearestEnemy")
+        AiSetActive(unit, true)
+
+        --Log("Set AI for enemy unit: " .. pid)
+
+        count = count + 1
+        unit = ForceUnitGetNext(unit)
+    end
+
+    --Log("Finished setting AI for " .. count .. " enemy units")
 end
 
 -- -----------------------------------
