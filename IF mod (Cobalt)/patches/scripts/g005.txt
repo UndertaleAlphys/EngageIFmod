@@ -242,6 +242,8 @@ function 進撃開始直後()
 
 	Talk( "MID_EV2" )
 
+	Dialog("MID_TUT_G005_RULE")
+
 end
 
 function AiSetCamillaTurnBefore()

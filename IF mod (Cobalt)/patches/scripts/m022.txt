@@ -187,7 +187,7 @@ function MapOpening()
 	Log("MapOpening")
 	
 	FadeOutAndWait(FADE_FAST)
-	
+	UnitLearnJobSkill("PID_ヴェイル")
 	UnitSetGodUnit( g_pid_lueur, "GID_マルス" )
 	
 	-- 指輪エフェクトを配置する
@@ -836,6 +836,9 @@ end
 function MapEnding()
 	
 	Log("MapEnding")
+
+	UnitJoin("PID_マデリーン")
+	UnitLearnJobSkill("PID_マデリーン")
 	
 end
 

@@ -576,6 +576,9 @@ function Ending()
 
 	GodUnitSetEscape("GID_ロイ",	false)
 	GodUnitSetEscape("GID_ミカヤ",	false)
+
+    紋章士外伝_レベルキャップ開放( "ロイ", "M019" )
+    紋章士外伝_レベルキャップ開放( "ミカヤ", "M019" )
 	
 	PuppetDemo("M019", "MID_ED1")
 	PuppetDemo("M019", "MID_ED2")

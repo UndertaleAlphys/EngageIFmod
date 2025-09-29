@@ -17,7 +17,7 @@ g_last_warp_z			= 25
 
 g_map_width = 19
 g_map_height = 27
-MapDamage = 35
+MapDamage = 40
 
 needClearSkillList = {"SID_DragonVein_M019_P0","SID_DragonVein_M019_P1","SID_DragonVein_M019_P2","SID_DragonVein_M019_P3","SID_DragonVein_M019_P4","SID_DragonVein_M019_P5","SID_DragonVein_M019_P6","SID_DragonVein_M019_P7"}
 unitTerrainMap = {}
@@ -60,20 +60,8 @@ g_dragonVeinConfig_M020 = {
             param = 0
     },
     {
-        point = {18, 6},
-        skillId = "SID_DragonVein_M020_Silence5",
-        type = "silence",
-        param = 0
-    },
-    {
         point = {2, 11},
         skillId = "SID_DragonVein_M020_Silence6",
-        type = "silence",
-        param = 0
-    },
-    {
-        point = {7, 23},
-        skillId = "SID_DragonVein_M020_Silence7",
         type = "silence",
         param = 0
     }
@@ -134,8 +122,8 @@ end
         end
         DragonVeinRegisterEvents(dragonVeinPoints)
 
-        EventEntryTbox(宝箱入手,  1, 24, "IID_銀の大剣")
-        EventEntryTbox(宝箱入手,  3, 24, "IID_スキルの書・破")
+        EventEntryTbox(宝箱入手,  1, 24, "IID_勇者の斧")
+        EventEntryTbox(宝箱入手,  3, 24, "IID_いかづちの剣")
 
         EventEntryTbox(宝箱入手, 17, 24, "IID_金剛の金棒")
         EventEntryTbox(宝箱入手, 19, 24, "IID_七難即滅")
@@ -164,6 +152,8 @@ function Opening()
 
 	Log("Opening")
 
+    紋章士外伝_レベルキャップ開放( "ロイ", "M019" )
+    紋章士外伝_レベルキャップ開放( "ミカヤ", "M019" )
 	--PuppetDemo("M020", "MID_OP1")
 	--PuppetDemo("M020", "MID_OP2")
 	--PuppetDemo("M020", "MID_OP3")
@@ -398,6 +388,8 @@ function BossAttackImpl()
     end
 
     if VariableGet("RangeAttackStop_temp_triggered") == 1 then
+        UnitSetItemEquip("PID_IFMOD_M020_イルシオン兵_ハイプリースト_BOSS","IID_エルファイアー")
+        UnitSetItemEquip("PID_IFMOD_M020_イルシオン兵_セイジ_BOSS","IID_エルファイアー")
         VariableSet("RangeAttackStop_temp_triggered",0)
         return
     end
@@ -587,7 +579,7 @@ function CheckReinforcementCondition_2()
 	local index = ForceUnitGetFirst(FORCE_PLAYER)
 	while index ~= nil do
 		local z = UnitGetZ(index)
-		if z >= 20 then
+		if z >= 17 then
 			VariableSet("reinforcement_2_triggered", 1)
 			return true
 		end
@@ -634,6 +626,8 @@ function Ending()
 
 	Log("Ending")
 
+	GodUnitSetEscape("GID_セリカ",	true)
+    紋章士外伝_レベルキャップ開放( "セリカ", "M020" )
 end
 
 function GameOver()

@@ -2,7 +2,7 @@ package views
 
 import (
 	"EngageCalculator/models"
-	"EngageCalculator/operations"
+	operations2 "EngageCalculator/models/operations"
 	"EngageCalculator/utils"
 	"fmt"
 	"fyne.io/fyne/v2"
@@ -128,7 +128,7 @@ func NewPersonView(persons map[string]models.Person, personNames []string, jobs 
 		uv.onSpellbookChanged(checked)
 	})
 
-	uv.PersonStatsTable = operations.CreatePersonStatsTable()
+	uv.PersonStatsTable = operations2.CreatePersonStatsTable()
 	uv.HistoryStatsList = createHistoryList(uv, "")
 
 	return uv
@@ -391,7 +391,7 @@ func (uv *PersonView) updatePersonHistoryList(selectedPid string) {
 				uv.SpellbookCheck.SetChecked(entry.Spellbook)       // 更新UI
 
 				// fmt.Println(uv.PersonSimStates[selectedPid])
-				operations.UpdatePersonStatsTable(uv.PersonStatsTable, uv.Persons[selectedPid], uv.Jobs[entry.JobID], simState)
+				operations2.UpdatePersonStatsTable(uv.PersonStatsTable, uv.Persons[selectedPid], uv.Jobs[entry.JobID], simState)
 
 				deleteHistory := func(index int) {
 					// 也需要相应调整删除逻辑
@@ -409,7 +409,7 @@ func (uv *PersonView) updatePersonHistoryList(selectedPid string) {
 	simState := uv.PersonSimStates[selectedPid]
 	// 刷新历史记录列表显示
 	uv.HistoryStatsList.Refresh()
-	operations.UpdatePersonStatsTable(uv.PersonStatsTable, uv.Persons[selectedPid], uv.Jobs[simState.JobID], simState)
+	operations2.UpdatePersonStatsTable(uv.PersonStatsTable, uv.Persons[selectedPid], uv.Jobs[simState.JobID], simState)
 	uv.updateJobPromotionButtons(uv.Persons[selectedPid])
 	uv.updateLevelButtonsState()
 	uv.updateLateralJobSelect(uv.Persons[selectedPid])
@@ -439,7 +439,7 @@ func (uv *PersonView) onLevelUpClicked() {
 			jobGrow := simState.JobGrowStats[i]
 
 			if simState.Spellbook {
-				personGrow += 5
+				personGrow += 10
 			}
 
 			if simState.EffortTalent {
@@ -725,7 +725,7 @@ func createHistoryList(uv *PersonView, pid string) *widget.List {
 				//把simState代入uv.PersonSimStates
 				uv.PersonSimStates[pid] = simState
 				fmt.Println(uv.PersonSimStates[pid])
-				operations.UpdatePersonStatsTable(uv.PersonStatsTable, uv.Persons[pid], uv.Jobs[entry.JobID], simState)
+				operations2.UpdatePersonStatsTable(uv.PersonStatsTable, uv.Persons[pid], uv.Jobs[entry.JobID], simState)
 				deleteHistory := func(index int) {
 					for i := index + 1; i < len(uv.PersonStateHistory[pid].States); i++ {
 						uv.PersonStateHistory[pid].States = append(uv.PersonStateHistory[pid].States[:i], uv.PersonStateHistory[pid].States[i+1:]...)
@@ -949,7 +949,7 @@ func (uv *PersonView) onLevelSliderChanged(value float64) {
 
 					// 如果启用术书，个人职业成长全部+5
 					if simState.Spellbook {
-						personGrow += 5
+						personGrow += 10
 					}
 
 					if simState.EffortTalent {
@@ -1057,7 +1057,7 @@ func (uv *PersonView) onEffortTalentChanged(checked bool) {
 		}
 
 		// 只更新表格，不刷新历史记录列表，避免光标位置变化
-		operations.UpdatePersonStatsTable(uv.PersonStatsTable, uv.CurrentPerson, uv.Jobs[simState.JobID], simState)
+		operations2.UpdatePersonStatsTable(uv.PersonStatsTable, uv.CurrentPerson, uv.Jobs[simState.JobID], simState)
 	}
 }
 
@@ -1078,6 +1078,6 @@ func (uv *PersonView) onSpellbookChanged(checked bool) {
 		}
 
 		// 只更新表格，不刷新历史记录列表，避免光标位置变化
-		operations.UpdatePersonStatsTable(uv.PersonStatsTable, uv.CurrentPerson, uv.Jobs[simState.JobID], simState)
+		operations2.UpdatePersonStatsTable(uv.PersonStatsTable, uv.CurrentPerson, uv.Jobs[simState.JobID], simState)
 	}
 }

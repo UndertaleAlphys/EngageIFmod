@@ -331,14 +331,11 @@ function StealGodRingFromPlayer()
     local stealablePlayerRings = {}
 
     for _, equippedInfo in ipairs(currentPlayerGodTable) do
-        -- 确保数据格式正确
         if type(equippedInfo) == "table" and #equippedInfo >= 2 then
-            local unitPid = equippedInfo[1]  -- PID在索引1
-            local godId = equippedInfo[2]    -- GID在索引2
+            local unitPid = equippedInfo[1]
+            local godId = equippedInfo[2]
 
-            -- 检查该戒指是否可偷取且未被偷取过
             if IsGodStealable(godId) and not IsGodStolen(godId) then
-                -- 检查单位是否处于结合状态
                 local unit = UnitGetByPID(unitPid)
                 local isEngaging = false
                 if unit ~= nil then

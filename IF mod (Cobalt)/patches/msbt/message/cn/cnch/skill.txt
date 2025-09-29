@@ -5147,6 +5147,13 @@ HP不满时伤害+4
 [MSID_H_DragonVein_M020_Silence]
 使所有单位获得"神风招来"效果
 
+[MSID_IFMOD_EngageSeal]
+结合封印
+
+[MSID_H_IFMOD_EngageSeal]
+周围10格的敌方无法进入结合状态，
+每回合失去2结合气和1结合回合
+
 [MSID_Quixotic]
 倾奇者
 

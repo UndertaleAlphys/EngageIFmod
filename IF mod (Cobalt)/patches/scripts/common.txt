@@ -2216,3 +2216,57 @@ function FindMostUnitsInSquareArea(mapWidth, mapHeight, squareSize, forceFilter)
         squareSize = squareSize
     }
 end
+
+function DecimalToBinary(decimal)
+    if decimal == 0 then
+        return "0"
+    end
+
+    local binary = ""
+    local num = math.abs(decimal)
+
+    while num > 0 do
+        binary = (num % 2) .. binary
+        num = math.floor(num / 2)
+    end
+
+    return binary
+end
+
+function DecimalToHex(decimal)
+    if decimal == 0 then
+        return "0"
+    end
+
+    local hex = ""
+    local digits = "0123456789ABCDEF"
+
+    while decimal > 0 do
+        local remainder = decimal % 16
+        hex = string.sub(digits, remainder + 1, remainder + 1) .. hex
+        decimal = math.floor(decimal / 16)
+    end
+
+    return hex
+end
+
+
+function PrintDecimalToBinary(decimal)
+    local binary = DecimalToBinary(decimal)
+    return binary
+end
+
+function HasUnitUsedEngageAttack(pid)
+    local status = UnitGetStatus(pid)
+    local bitValue = 67108864
+    local quotient = math.floor(status / bitValue)
+    return (quotient % 2) == 1
+end
+
+function ResetEngageAttackStatus(pid)
+    UnitClearStatus(pid, 67108864)
+end
+
+function SetHasUsedEngageAttack(pid)
+    UnitSetStatus(pid, 67108864)
+end
