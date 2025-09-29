@@ -2839,6 +2839,13 @@ Its effects can greatly shift the tide of battle—use it wisely!
 The fortress flames will spread over time.  
 Plan your path and escape before it’s too late!
 
+[MID_TUT_G005_RULE]  
+Each turn, Camilla will use a Dragon Vein in the corridor  
+where the most allies are gathered.  
+The Dragon Vein destroys obstacles and grants enemies there  
+the ability to ignore terrain movement costs.  
+Plan your route carefully to advance!
+
 [MID_TUT_M017_RULE]  
 In this chapter, Veyre will steal your Emblems.  
 Defeat the holder to reclaim an Emblem.  

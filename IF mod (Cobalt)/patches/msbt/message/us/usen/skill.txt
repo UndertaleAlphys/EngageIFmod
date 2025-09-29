@@ -5560,6 +5560,14 @@ Purify miasma.
 [MSID_H_DragonVein_M020_Silence]
 Silence all units.
 
+[MSID_H_DragonVein_M021_Rewind]  
+Rewind the Engage status of unit and adjacent
+allies to what it was 2 turns ago.
+
+[MSID_H_DragonVein_M021_Protection]
+Grants unit and allies within 3 tiles
+immunity to Engage Seal for 2 turns.
+
 [MSID_Quixotic]
 Quixotic
 
@@ -5615,3 +5623,11 @@ Effective: Armored.
 [MSID_H_HelmSplitter_CMD]
 Cost 4 engage meter or 2 engage turn.
 Effective: Armored.
+
+[MSID_IFMOD_EngageSeal]  
+Engage Seal  
+
+[MSID_H_IFMOD_EngageSeal]  
+At phase start, reduce the Engage Meter
+of enemies within 10 spaces by 2, 
+or shorten their remaining Engage turn by 1.

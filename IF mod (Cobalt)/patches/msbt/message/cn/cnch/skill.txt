@@ -4962,8 +4962,6 @@ HP不满时伤害+4
 [MSID_H_DragonVein_M014]
 冰封所有敌人1回合
 
-
-
 [MSID_FriendlyCompetition]
 切磋琢磨
 
@@ -5147,12 +5145,13 @@ HP不满时伤害+4
 [MSID_H_DragonVein_M020_Silence]
 使所有单位获得"神风招来"效果
 
-[MSID_IFMOD_EngageSeal]
-结合封印
+[MSID_H_DragonVein_M021_Rewind]
+使自身和周围的我方单位的结合状态
+回溯到2回合以前
 
-[MSID_H_IFMOD_EngageSeal]
-周围10格的敌方无法进入结合状态，
-每回合失去2结合气和1结合回合
+[MSID_H_DragonVein_M021_Protection]
+使周围3格内我方单位免疫结合封，
+持续2回合
 
 [MSID_Quixotic]
 倾奇者
@@ -5205,3 +5204,10 @@ HP不满时伤害+4
 [MSID_H_HelmSplitter_CMD]
 消耗4结合计量条或2结合回合
 挥出克制重装的1斧
+
+[MSID_IFMOD_EngageSeal]
+结合封
+
+[MSID_H_IFMOD_EngageSeal]
+每回合开始时，减少周围10格敌方
+2结合计量条或1结合回合。
