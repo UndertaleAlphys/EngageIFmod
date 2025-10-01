@@ -97,6 +97,8 @@ function フラグ登録()
     VariableEntry( "reinforcement_1_triggered", 0)
     VariableEntry( "reinforcement_2_triggered", 0)
 
+    VariableEntry( "bossRewrapX", 0)
+    VariableEntry( "bossRewrapZ", 0)
 
 	E_BattleTalk_VariableEntry()
 
@@ -115,6 +117,8 @@ end
         EventEntryTurn(BossAttackImpl,	2,-1, FORCE_ENEMY)
         --EventEntryDie(updateAttackList, "", FORCE_PLAYER, condition_true, "")
         EventEntryTurn(EquipDragonVeinSkillsM020,   1,  1,  FORCE_PLAYER)
+        EventEntryFixed(RewrapReturn,g_pid_boss,FORCE_ENEMY)
+
 
         local dragonVeinPoints = {}
         for _, config in ipairs(g_dragonVeinConfig_M020) do
@@ -174,6 +178,27 @@ function initMapM020()
         end
     end
     DragonVeinSetTerrain(terrainPoints)
+end
+
+function RewrapReturn()
+    local bossNowX = UnitGetX(g_pid_boss)
+    local bossNowZ = UnitGetZ(g_pid_boss)
+
+    if bossNowX ~= 10 or bossNowZ ~= 25 then
+        CursorSetPos(bossNowX, bossNowZ)
+        MapCameraWait()
+
+        EffectPlay( "ワープアウト_闇", bossNowX, bossNowZ)
+        EffectWait()
+
+        CursorSetPos(10, 25)
+        MapCameraWait()
+
+        EffectPlay( "ワープアウト_闇", 10, 25)
+        EffectWait()
+
+        UnitSetPos(g_pid_boss,10,25)
+    end
 end
 
 function EquipDragonVeinSkillsM020()
@@ -318,6 +343,9 @@ function RangeAddByTurn()
     if VariableGet("Tutorial_M020_Complete") == 0 then
         VariableSet("Tutorial_M020_Complete",1)
     end
+
+    VariableSet("bossRewrapX", bossRewrapX)
+    VariableSet("bossRewrapZ", bossRewrapZ)
 end
 
 function FindValidPosition(pid, targetX, targetZ, maxRange)
@@ -391,6 +419,7 @@ function BossAttackImpl()
     if VariableGet("RangeAttackStop_temp_triggered") == 1 then
         UnitSetItemEquip("PID_IFMOD_M020_イルシオン兵_ハイプリースト_BOSS","IID_エルファイアー")
         UnitSetItemEquip("PID_IFMOD_M020_イルシオン兵_セイジ_BOSS","IID_エルファイアー")
+        UnitSetItemEquip(g_pid_boss,"IID_エクスカリバー")
         VariableSet("RangeAttackStop_temp_triggered",0)
         return
     end
@@ -399,48 +428,43 @@ function BossAttackImpl()
         return
     end
 
-    CursorSetPos(bossRewrapX, bossRewrapZ)
-    MapCameraWait()
-    EffectPlay("カムイ竜脈", bossRewrapX, bossRewrapZ)
-    WaitTime(1.5)
+    local validTargets = {}
+    bossRewrapXvar = VariableGet("bossRewrapX")
+    bossRewrapZvar = VariableGet("bossRewrapZ")
 
     for i, targetUnit in ipairs(bossAttackList) do
         if targetUnit ~= nil and UnitIsExist(targetUnit) then
             local targetX = UnitGetX(targetUnit)
             local targetZ = UnitGetZ(targetUnit)
 
-            local distanceX = math.abs(targetX - bossRewrapX)
-            local distanceZ = math.abs(targetZ - bossRewrapZ)
+            local distanceX = math.abs(targetX - bossRewrapXvar)
+            local distanceZ = math.abs(targetZ - bossRewrapZvar)
 
             if distanceX <= 3 and distanceZ <= 3 then
-                local magicDef = UnitGetCapability(targetUnit, CAPABILITY_RES, true)
-                local damage = MapDamage - magicDef
-
-                if damage < 0 then
-                    damage = 0
-                end
-
-                local currentHp = UnitGetHp(targetUnit)
-                MapDamageBegin()
-                MapDamageAdd(targetUnit, damage)
-                MapDamageEnd()
-                WaitTime(0.2)
-
-                if damage >= currentHp then
-                    UnitDie(targetUnit)
-                end
-
-                if UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-15") then
-                    UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-20")
-                elseif UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-10") then
-                    UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-15")
-                elseif UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-5") then
-                    UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-10")
-                else
-                    UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-5")
-                end
+                table.insert(validTargets, targetUnit)
             end
         end
+    end
+
+    if #validTargets > 0 then
+        CursorSetPos(UnitGetX(g_pid_boss), UnitGetZ(g_pid_boss))
+        MapCameraWait()
+
+        EffectPlay( "ワープアウト_闇", UnitGetX(g_pid_boss), UnitGetZ(g_pid_boss))
+        EffectWait()
+
+        CursorSetPos(bossRewrapXvar, bossRewrapZvar)
+        MapCameraWait()
+
+        EffectPlay( "ワープアウト_闇", bossRewrapXvar, bossRewrapZvar)
+        EffectWait()
+
+        local unit = UnitGetByPos(bossRewrapXvar,bossRewrapZvar)
+        if unit ~= nil then
+            UnitDie(unit)
+        end
+
+        UnitSetPos(g_pid_boss,bossRewrapXvar,bossRewrapZvar)
     end
 end
 
