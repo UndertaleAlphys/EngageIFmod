@@ -47,7 +47,6 @@ func UpdatePersonStatsTable(table *widget.Table, person models.Person, job model
 				label.SetText(models.LabelGrowStats)
 			}
 		} else if id.Row >= 1 && id.Row <= 9 {
-			// 属性行 (1-9行)
 			row := id.Row - 1
 			if row < len(person.PersonBaseStats) {
 				switch id.Col {
@@ -108,11 +107,10 @@ func UpdatePersonStatsTable(table *widget.Table, person models.Person, job model
 					jobGrow := job.JobGrowStats[row]
 
 					displayGrow := personGrow
-					if simState.Spellbook {
+					if simState.Spellbook && row != 8 {
 						displayGrow += 10
 					}
 
-					// 确保显示的成长值不小于0
 					displayGrow = nonNegative(displayGrow)
 
 					if jobGrow > 0 {
@@ -146,7 +144,6 @@ func UpdatePersonStatsTable(table *widget.Table, person models.Person, job model
 				totalBase = nonNegative(totalBase)
 				label.SetText(strconv.Itoa(totalBase))
 			case 2:
-				// 计算所有属性上限总和
 				totalLimit := 0
 				for i := 0; i < len(person.PersonLimitStats); i++ {
 					personLimit := person.PersonLimitStats[i]
@@ -159,7 +156,6 @@ func UpdatePersonStatsTable(table *widget.Table, person models.Person, job model
 					}
 					totalLimit += limitValue
 				}
-				// 确保总计上限值不小于0
 				totalLimit = nonNegative(totalLimit)
 				label.SetText(strconv.Itoa(totalLimit))
 			case 3:
@@ -168,8 +164,8 @@ func UpdatePersonStatsTable(table *widget.Table, person models.Person, job model
 					personGrow := person.PersonGrowStats[i]
 					jobGrow := job.JobGrowStats[i]
 
-					if simState.Spellbook {
-						personGrow += 5
+					if simState.Spellbook && i != 8 {
+						personGrow += 10
 					}
 
 					if simState.EffortTalent {
@@ -177,7 +173,6 @@ func UpdatePersonStatsTable(table *widget.Table, person models.Person, job model
 					}
 					growValue := personGrow + jobGrow
 
-					// 确保总成长值不小于0
 					totalGrow += nonNegative(growValue)
 				}
 				label.SetText(strconv.Itoa(totalGrow))

@@ -47,12 +47,6 @@ const (
 )
 
 func CanPromoteToJob(person Person, job Job) bool {
-	// 不能转职为当前职业
-	if person.Jid == job.Jid {
-		return false
-	}
-
-	// 检查专属职业限制
 	switch job.Jid {
 	case "JID_神竜ノ子", "JID_神竜ノ王": // 神龙之子/神龙之王只能由琉尔转职
 		if person.Pid != "PID_リュール" {

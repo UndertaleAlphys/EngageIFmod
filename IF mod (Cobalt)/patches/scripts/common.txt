@@ -2270,3 +2270,276 @@ end
 function SetHasUsedEngageAttack(pid)
     UnitSetStatus(pid, 67108864)
 end
+
+
+function SavePlayerUnitsEngageStatus()
+    local playerUnit = ForceUnitGetFirst(FORCE_PLAYER)
+    local unitIndex = 1
+
+    while playerUnit ~= nil do
+        local engageCount = UnitGetEngageCount(playerUnit)
+        local isEngaging = UnitGetEngaging(playerUnit)
+        local engageTurn = UnitGetEngageTurn(playerUnit) + 1
+        local usedEngageAttack = HasUnitUsedEngageAttack(playerUnit)
+        local isEngagingValue = isEngaging and 1 or 0
+        local usedEngageAttackValue = usedEngageAttack and 1 or 0
+
+        local isCamillaUnit = (UnitGetGodUnit(playerUnit) == "GID_カミラ")
+        local camillaSwiftStatus = 0
+
+        if isCamillaUnit then
+            CobaltNotice(UnitGetPID(playerUnit))
+            if UnitHasWholeSkill(playerUnit, "SID_疾風迅雷発動済み") then
+                camillaSwiftStatus = 1
+            end
+        end
+
+        local isBylethUnit = (UnitGetGodUnit(playerUnit) == "GID_ベレト")
+        local bylethSkillStatus = 0
+
+        if isBylethUnit then
+            if UnitHasPrivateSkill(playerUnit, "SID_ベレトエンゲージ技_発動済み") then
+                bylethSkillStatus = 1
+            end
+        end
+
+        local unitGlobalCounterName = "EngageStatus_GlobalCounter" .. unitIndex
+        local unitGlobalCounter = 0
+
+        if VariableGet(unitGlobalCounterName) == 0 then
+            VariableEntry(unitGlobalCounterName, unitGlobalCounter)
+        else
+            unitGlobalCounter = VariableGet(unitGlobalCounterName)
+        end
+
+        if unitGlobalCounter >= 15 then
+            for i = 2, 15 do
+                local sourceVariableName = "PlayerEngageStatus_" .. unitIndex .. "_" .. i
+                local targetVariableName = "PlayerEngageStatus_" .. unitIndex .. "_" .. (i - 1)
+
+                if VariableGet(sourceVariableName) ~= nil and VariableGet(sourceVariableName) ~= 0 then
+                    local data = VariableGet(sourceVariableName)
+                    VariableSet(targetVariableName, data)
+                else
+                    VariableSet(targetVariableName, 0)
+                end
+            end
+            unitGlobalCounter = 15
+        else
+            unitGlobalCounter = unitGlobalCounter + 1
+        end
+
+        VariableSet(unitGlobalCounterName, unitGlobalCounter)
+
+        local variableName = "PlayerEngageStatus_" .. unitIndex .. "_" .. unitGlobalCounter
+        local unitData = {
+            engageCount,
+            isEngagingValue,
+            engageTurn,
+            usedEngageAttackValue,
+            unitGlobalCounter,
+        }
+
+        if isCamillaUnit then
+            unitData[6] = camillaSwiftStatus
+        end
+
+        if isBylethUnit then
+            unitData[6] = bylethSkillStatus
+        end
+
+        local serializedData = SerializeUnitEngageData(unitData, isCamillaUnit, isBylethUnit)
+
+        if VariableGet(variableName) == 0 then
+            VariableEntry(variableName, serializedData)
+        else
+            VariableSet(variableName, serializedData)
+        end
+
+        unitIndex = unitIndex + 1
+        playerUnit = ForceUnitGetNext(playerUnit)
+    end
+end
+
+
+function SerializeUnitEngageData(unitData, isCamillaUnit, isBylethUnit)
+    local result = ""
+    result = result .. tostring(unitData[1]) .. ","
+    result = result .. tostring(unitData[2]) .. ","
+    result = result .. tostring(unitData[3]) .. ","
+    result = result .. tostring(unitData[4]) .. ","
+    result = result .. tostring(unitData[5])
+
+    if isCamillaUnit or isBylethUnit then
+        result = result .. "," .. tostring(unitData[6] or 0)
+    end
+
+    return result
+end
+
+
+
+function splitStringLua(str, delimiter)
+    local result = {}
+    local from = 1
+    local str_len = string.len(str)
+    local delimiter_len = string.len(delimiter)
+
+    if delimiter_len == 0 or str_len == 0 then
+        table.insert(result, str)
+        return result
+    end
+
+    while from <= str_len do
+        local pos = findDelimiterPosition(str, delimiter, from)
+
+        if pos then
+            table.insert(result, string.sub(str, from, pos - 1))
+            from = pos + delimiter_len
+        else
+            table.insert(result, string.sub(str, from))
+            break
+        end
+    end
+
+    if string.sub(str, -delimiter_len) == delimiter then
+        table.insert(result, "")
+    end
+
+    return result
+end
+
+function findDelimiterPosition(str, delimiter, start_pos)
+    local str_len = string.len(str)
+    local delimiter_len = string.len(delimiter)
+
+    for i = start_pos, str_len - delimiter_len + 1 do
+        local match = true
+        for j = 1, delimiter_len do
+            if string.sub(str, i + j - 1, i + j - 1) ~= string.sub(delimiter, j, j) then
+                match = false
+                break
+            end
+        end
+        if match then
+            return i
+        end
+    end
+
+    return nil
+end
+
+
+function DeserializeUnitEngageData(savedData)
+    local result = {}
+    local fields = splitStringLua(savedData, ",")
+
+    for _, field in ipairs(fields) do
+        local value = tonumber(field) or field
+        table.insert(result, value)
+    end
+    return result
+end
+
+function GetPlayerEngageStatusByUnitGlobalCounter(unitIndex, unitGlobalCounter)
+    local variableName = "PlayerEngageStatus_" .. unitIndex .. "_" .. unitGlobalCounter
+    if VariableGet(variableName) ~= nil then
+        local savedData = VariableGet(variableName)
+        if savedData ~= "" then
+            return DeserializeUnitEngageData(savedData)
+        end
+    end
+    return nil
+end
+
+function GetLatestPlayerEngageStatusByUnitWithIndex(unitIndex)
+    local unitGlobalCounterName = "EngageStatus_GlobalCounter" .. unitIndex
+    if VariableGet(unitGlobalCounterName) ~= nil then
+        local unitGlobalCounter = VariableGet(unitGlobalCounterName)
+        unitGlobalCounter = math.min(unitGlobalCounter, 15)
+        return GetPlayerEngageStatusByUnitGlobalCounter(unitIndex, unitGlobalCounter)
+    end
+    return nil
+end
+
+function PrintAllPlayerUnitsEngageStatus()
+    local unitIndex = 1
+    local unitGlobalCounterName = "EngageStatus_GlobalCounter" .. unitIndex
+    if VariableGet(unitGlobalCounterName) ~= nil then
+        local currentCounter = VariableGet(unitGlobalCounterName)
+        local maxRecords = math.min(currentCounter, 15)
+
+        Log("Unit Index: " .. unitIndex .. " (Printing " .. maxRecords .. " history records)")
+        for i = 1, maxRecords do
+            local unitData = GetPlayerEngageStatusByUnitGlobalCounter(unitIndex, i)
+            if unitData then
+                Log("  Record " .. i .. ":")
+                Log("    Engage Count: " .. tostring(unitData[1]))
+                Log("    Is Engaging: " .. tostring(unitData[2]))
+                Log("    Engage Turn: " .. tostring(unitData[3]))
+                Log("    Used Engage Attack: " .. tostring(unitData[4]))
+                Log("    Global Counter: " .. tostring(unitData[5]))
+            else
+                Log("  Record " .. i .. ": No Data")
+            end
+        end
+    else
+        Log("Unit Index: " .. unitIndex .. " (No History Data)")
+    end
+end
+
+
+
+function RollbackUnitEngageStatusByIndex(unitIndex, rollbackSteps)
+    local unitGlobalCounterName = "EngageStatus_GlobalCounter" .. unitIndex
+    if VariableGet(unitGlobalCounterName) ~= nil then
+        local currentUnitGlobalCounter = VariableGet(unitGlobalCounterName)
+        local targetUnitGlobalCounter = math.max(1, math.min(15, currentUnitGlobalCounter - rollbackSteps))
+        VariableSet(unitGlobalCounterName, targetUnitGlobalCounter)
+
+        local unitData = GetPlayerEngageStatusByUnitGlobalCounter(unitIndex, targetUnitGlobalCounter)
+
+        if unitData then
+            local playerUnit = ForceUnitGetFirst(FORCE_PLAYER)
+            while playerUnit ~= nil do
+                if playerUnit == unitIndex then
+                    if unitData[2] == 1 then
+                        UnitSetEngaging(playerUnit, true)
+                        UnitSetEngageTurn(playerUnit, unitData[3])
+                    else
+                        UnitSetEngaging(playerUnit, false)
+                        UnitSetEngageCount(playerUnit, unitData[1])
+                    end
+
+                    if unitData[4] == 0 and unitData[2] == 1 then
+                        ResetEngageAttackStatus(playerUnit)
+                    elseif unitData[4] == 1 and unitData[2] == 1 then
+                        SetHasUsedEngageAttack(playerUnit)
+                    end
+
+                    if #unitData >= 6 and unitData[2] == 1 then
+                        local isCamillaUnit = (UnitGetGodUnit(playerUnit) == "GID_カミラ")
+                        if isCamillaUnit and unitData[6] == 1 then
+                            UnitSetPrivateSkill(playerUnit, "SID_疾風迅雷発動済み")
+                        else
+                             UnitSetEngaging(playerUnit, false)
+                             UnitSetEngaging(playerUnit, true)
+                             UnitSetEngageTurn(playerUnit, unitData[3])
+
+                        end
+                    end
+
+                    if #unitData >= 6 then
+                        local isBylethUnit = (UnitGetGodUnit(playerUnit) == "GID_ベレト")
+                        if isBylethUnit and unitData[6] == 0 then
+                            UnitClearPrivateSkill(playerUnit, "SID_ベレトエンゲージ技_発動済み")
+                        end
+                    end
+
+                    break
+                end
+                playerUnit = ForceUnitGetNext(playerUnit)
+            end
+        end
+    end
+end

@@ -438,7 +438,7 @@ func (uv *PersonView) onLevelUpClicked() {
 			personGrow := uv.CurrentPerson.PersonGrowStats[i]
 			jobGrow := simState.JobGrowStats[i]
 
-			if simState.Spellbook {
+			if simState.Spellbook && i != 8 {
 				personGrow += 10
 			}
 
@@ -948,7 +948,7 @@ func (uv *PersonView) onLevelSliderChanged(value float64) {
 					jobGrow := simState.JobGrowStats[i]
 
 					// 如果启用术书，个人职业成长全部+5
-					if simState.Spellbook {
+					if simState.Spellbook && i != 8 {
 						personGrow += 10
 					}
 

@@ -231,6 +231,7 @@ function DragonVeinPostUseHandleM020(veinInfo)
             CursorSetPos((g_map_width+1)/2, (g_map_height+1)/2)
             WaitTime(1.0)
             EffectPlay("水球", (g_map_width+1)/2, (g_map_height+1)/2)
+            WaitTime(1.5)
             AddDivineWindEffectToAllUnits()
 
             CursorSetDistanceMode(distOrg)
@@ -405,106 +406,44 @@ function BossAttackImpl()
 
     for i, targetUnit in ipairs(bossAttackList) do
         if targetUnit ~= nil and UnitIsExist(targetUnit) then
-            local magicDef = UnitGetCapability(targetUnit, CAPABILITY_RES, true)
-            local damage = MapDamage - magicDef
+            local targetX = UnitGetX(targetUnit)
+            local targetZ = UnitGetZ(targetUnit)
 
-            if damage < 0 then
-                damage = 0
-            end
+            local distanceX = math.abs(targetX - bossRewrapX)
+            local distanceZ = math.abs(targetZ - bossRewrapZ)
 
-            local currentHp = UnitGetHp(targetUnit)
-            MapDamageBegin()
-            MapDamageAdd(targetUnit, damage)
-            MapDamageEnd()
-            WaitTime(0.2)
+            if distanceX <= 3 and distanceZ <= 3 then
+                local magicDef = UnitGetCapability(targetUnit, CAPABILITY_RES, true)
+                local damage = MapDamage - magicDef
 
-            if damage >= currentHp then
-                UnitDie(targetUnit)
-            end
+                if damage < 0 then
+                    damage = 0
+                end
 
-             if UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-15") then
-                UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-20")
-            elseif UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-10") then
-                UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-15")
-            elseif UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-5") then
-                UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-10")
-            else
-                UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-5")
+                local currentHp = UnitGetHp(targetUnit)
+                MapDamageBegin()
+                MapDamageAdd(targetUnit, damage)
+                MapDamageEnd()
+                WaitTime(0.2)
+
+                if damage >= currentHp then
+                    UnitDie(targetUnit)
+                end
+
+                if UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-15") then
+                    UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-20")
+                elseif UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-10") then
+                    UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-15")
+                elseif UnitHasPrivateSkill(targetUnit,"SID_牙呪_効果_最大HP_-5") then
+                    UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-10")
+                else
+                    UnitSetPrivateSkill(targetUnit, "SID_牙呪_効果_最大HP_-5")
+                end
             end
         end
     end
-    --UnitSetStatus(g_pid_boss,UNIT_STATUS_MOVE_NOT_ALLOW)
-    --
-    --local bossStartX = UnitGetX(g_pid_boss)
-    --local bossStartZ = UnitGetZ(g_pid_boss)
-    --
-    --CursorSetPos(bossStartX,bossStartZ)
-    --MapCameraWait()
-    --
-    --EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
-    --MapCameraWait()
-    --
-    --CursorSetPos(bossRewrapX,bossRewrapZ)
-    --MapCameraWait()
-    --
-    --EffectPlay("ワープイン_闇",bossRewrapX,bossRewrapZ)
-    --UnitSetPos(g_pid_boss, bossRewrapX, bossRewrapZ)
-    --MapCameraWait()
-
-    --if #bossAttackList == 0 then
-    --    return
-    --end
-    --UnitSetPrivateSkill(g_pid_boss,"SID_相手の命中０")
-    --while #bossAttackList ~= 0 do
-    --    local targetUnit = table.remove(bossAttackList, 1)
-    --    if targetUnit ~= nil then
-    --        local targetX = UnitGetX(targetUnit)
-    --        local targetZ = UnitGetZ(targetUnit)
-    --
-    --        local bossX, bossZ = FindValidPosition(g_pid_boss, targetX, targetZ, 2)
-    --
-    --        local bossStartX = UnitGetX(g_pid_boss)
-    --        local bossStartZ = UnitGetZ(g_pid_boss)
-    --
-    --        if bossX ~= nil and bossZ ~= nil then
-    --            CursorSetPos(bossStartX,bossStartZ)
-    --            MapCameraWait()
-    --
-    --            EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
-    --            MapCameraWait()
-    --
-    --            CursorSetPos(bossX,bossZ)
-    --            MapCameraWait()
-    --
-    --            EffectPlay("ワープイン_闇",bossX,bossZ)
-    --            UnitSetPos(g_pid_boss, bossX, bossZ)
-    --            MapCameraWait()
-    --
-    --            Battle(g_pid_boss,targetUnit)
-    --       end
-    --   end
-    --end
-
-    --local bossStartX = UnitGetX(g_pid_boss)
-    --local bossStartZ = UnitGetZ(g_pid_boss)
-    --
-    --CursorSetPos(bossStartX,bossStartZ)
-    --MapCameraWait()
-    --
-    --EffectPlay("ワープアウト_闇",bossStartX,bossStartZ)
-    --MapCameraWait()
-    --
-    --CursorSetPos(10,25)
-    --MapCameraWait()
-    --
-    --EffectPlay("ワープイン_闇",10,25)
-    --UnitSetPos(g_pid_boss, 10, 25)
-    --
-    --MapCameraWait()
-    --
-    --UnitClearPrivateSkill(g_pid_boss,"SID_相手の命中０")
-    --UnitRotation(g_pid_boss, ROTATE_DOWN)
 end
+
 
 function updateAttackList()
     for i = #bossInValidAttackList, 1, -1 do

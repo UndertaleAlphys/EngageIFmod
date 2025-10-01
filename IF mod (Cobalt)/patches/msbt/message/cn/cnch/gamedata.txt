@@ -815,6 +815,12 @@ $P被击败或超过$Arg(0)回合
 [MTID_DragonVein_M020_Silence]
 龙脉：神风招来
 
+[MTID_DragonVein_M021_Rewind]
+龙脉：回溯
+
+[MTID_DragonVein_M021_Protection]
+龙脉：神龙加护
+
 [MTID_Quicksand]
 流沙
 
