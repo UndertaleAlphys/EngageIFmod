@@ -848,6 +848,12 @@ DV: Unleash miasma
 [MTID_DragonVein_M020_Silence]
 DV: Silence
 
+[MTID_DragonVein_M021_Rewind]
+DV: Rewind
+
+[MTID_DragonVein_M021_Protection]
+DV: Divine Shield
+
 [MTID_Quicksand]
 Quicksand
 
