@@ -366,9 +366,7 @@ function 自軍ターン前_自警団仲間入り()
 	MapObjectDelete("Eff_Cursor01")
 	MapObjectDelete("Eff_Cursor02")
 	MapObjectDelete("Eff_Cursor03")
-	
-	
-	Dialog( "MID_TUT_NAVI_M012_RESCUE" )
+
 	
 	CursorSetPos_FromPid("PID_フォガート")
 	
@@ -379,7 +377,8 @@ function 自軍ターン前_自警団仲間入り()
 	WaitTime(0.5)
 	
 	CursorSetPos_FromPid(g_pid_lueur)
-	
+
+	Dialog("MID_TUT_M012_RULE")
 end
 
 -- -----------------------------------

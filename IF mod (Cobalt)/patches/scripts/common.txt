@@ -1274,11 +1274,22 @@ end
 
 function DraginVein_Skill_Equip(sid)
 	local index	= ForceUnitGetFirst( FORCE_PLAYER )
-	while ( index != nil ) do
+	while ( index ~= nil ) do
 		if UnitHasWholeSkill(index, "SID_王族") then
 			local pid = UnitGetPID( index )
 			スキル装備(pid, sid)
 			--CobaltNotice(pid .. "装备了技能" .. sid)
+		end
+		index = ForceUnitGetNext( index )
+	end
+end
+
+function DraginVein_Skill_Clear(sid)
+	local index	= ForceUnitGetFirst( FORCE_PLAYER )
+	while ( index ~= nil ) do
+		if UnitHasWholeSkill(index, "SID_王族") then
+			local pid = UnitGetPID( index )
+			スキル解除(pid, sid)
 		end
 		index = ForceUnitGetNext( index )
 	end
@@ -1695,6 +1706,68 @@ function DragonVeinPreUseCheck(dragonVeinPoints, currentX, currentZ)
     end
     return nil
 end
+
+function DragonVeinPreUseCheckMultiType(dragonVeinPoints, currentX, currentZ, targetType,targetIndex)
+    --Log("DragonVeinPreUseCheckMultiType called with currentX=" .. currentX .. ", currentZ=" .. currentZ .. ", targetType=" .. targetType)
+
+    local checkpoints = {}
+    local result = nil
+    --Log("Collecting checkpoints at position (" .. currentX .. ", " .. currentZ .. ")")
+
+    for i, pointInfo in ipairs(dragonVeinPoints) do
+        local point = pointInfo[1]
+        local dragonVeinType = pointInfo[3]
+        --Log("Checking point " .. i .. ": (" .. point[1] .. ", " .. point[2] .. ") with type " .. pointInfo[3])
+        --Log("dragonVeinType " .. pointInfo[3] )
+
+        if currentX == point[1] and currentZ == point[2] then
+            --Log("Point " .. i .. " matches current position, adding to checkpoints")
+            table.insert(checkpoints, pointInfo)
+        end
+    end
+
+    --Log("Found " .. #checkpoints .. " checkpoints at current position")
+
+    for i, pointInfo in ipairs(checkpoints) do
+        local veinType = pointInfo[3]
+        --Log("Processing checkpoint " .. i .. " with type: " .. veinType)
+
+        if veinType ~= targetType then
+            local skillId = pointInfo[2]
+            --Log("Checkpoint " .. i .. " type (" .. veinType .. ") does not match target type (" .. targetType .. "), clearing skill " .. skillId)
+            DraginVein_Skill_Clear(skillId)
+        end
+
+        if veinType == targetType then
+            local skillId = pointInfo[2]
+            local dragonVeinType = pointInfo[3]
+            local param = pointInfo[4]
+            --Log("Checkpoint " .. i .. " type (" .. veinType .. ") matches target type, attempting to remove skill " .. skillId)
+
+            local removeUsedSid = "SID_DragonVein_Used"
+            if targetIndex ~= 1 then
+                removeUsedSid = removeUsedSid .. targetIndex
+            end
+            local used = DraginVein_Skill_Remove(skillId, removeUsedSid)
+            --Log("DraginVein_Skill_Remove returned: " .. tostring(used))
+
+            if used == true then
+                --Log("Skill successfully removed, returning vein info")
+                result = {
+                    type = dragonVeinType,
+                    param = param,
+                    skillId = skillId,
+                    x = currentX,
+                    z = currentZ
+                }
+            end
+        end
+    end
+
+    --Log("No matching vein found, returning nil")
+    return result
+end
+
 
 function DragonVeinPreUseCheckWithTid(dragonVeinPoints,tid,currentX, currentZ,targetX,targetZ,map_height,map_width)
     for _, pointInfo in ipairs(dragonVeinPoints) do
@@ -2288,7 +2361,6 @@ function SavePlayerUnitsEngageStatus()
         local camillaSwiftStatus = 0
 
         if isCamillaUnit then
-            CobaltNotice(UnitGetPID(playerUnit))
             if UnitHasWholeSkill(playerUnit, "SID_疾風迅雷発動済み") then
                 camillaSwiftStatus = 1
             end
@@ -2519,6 +2591,10 @@ function RollbackUnitEngageStatusByIndex(unitIndex, rollbackSteps)
 
                     if #unitData >= 6 and unitData[2] == 1 then
                         local isCamillaUnit = (UnitGetGodUnit(playerUnit) == "GID_カミラ")
+                        if isCamillaUnit then
+                            UnitClearPrivateSkill(playerUnit)
+                            CobaltNotice()
+                        end
                         if isCamillaUnit and unitData[6] == 1 then
                             UnitSetPrivateSkill(playerUnit, "SID_疾風迅雷発動済み")
                         else

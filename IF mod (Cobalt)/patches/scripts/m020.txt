@@ -198,6 +198,7 @@ function RewrapReturn()
         EffectWait()
 
         UnitSetPos(g_pid_boss,10,25)
+        WaitTime(2.0)
     end
 end
 
@@ -493,11 +494,10 @@ function 青軍１ターン直前()
 	PlayFieldBgm(FORCE_PLAYER)
 	Talk( "MID_EV1" )
 
-	グリがワープする()
-
 	CursorSetPos_FromPid( g_pid_lueur )
 	Talk( "MID_EV2" )
 
+    Dialog("MID_TUT_M020_RULE")
 end
 
 
