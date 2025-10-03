@@ -575,12 +575,11 @@ A soulless monster created by secret
 techniques. It has no will of its own
 and only follows its master's orders.
 
-[MPID_MysteriousGroup]
-Unknown Soldier
+[MPID_MysteriousGroup]  
+Mysterious Soldier
 
-[MPID_H_MysteriousGroup]
-Mysterious foreign troops who
-attacked without warning.
+[MPID_H_MysteriousGroup]  
+An unidentified and enigmatic soldier.
 
 [MPID_Troublemaker]
 Ruffian
