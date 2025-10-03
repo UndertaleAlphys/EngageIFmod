@@ -13,6 +13,10 @@ g_deadEnemyList = {}
 
 UnitListHasEngageSeal = {
 "PID_M021_ヴェイル",
+"PID_IFMOD_M021_メイド1",
+"PID_IFMOD_M021_メイド2",
+"PID_IFMOD_M021_メイド3",
+"PID_IFMOD_M021_メイド4",
 "PID_IFMOD_M021_メイド9",
 "PID_IFMOD_M021_メイド10",
 "PID_IFMOD_M021_メイド11",
@@ -37,11 +41,89 @@ g_dragonVeinConfig_M021 = {
         param = 0
     },
     {
-        point = {13, 16},
+        point = {1, 9},
+        skillId = "SID_DragonVein_M021_Protection1",
+        type = "protection",
+        param = 0
+    },
+    {
+        point = {1, 9},
         skillId = "SID_DragonVein_M021_Rewind1",
         type = "rewind",
         param = 0
-    }
+    },
+    {
+        point = {21, 9},
+        skillId = "SID_DragonVein_M021_Protection2",
+        type = "protection",
+        param = 0
+    },
+    {
+        point = {21, 9},
+        skillId = "SID_DragonVein_M021_Rewind2",
+        type = "rewind",
+        param = 0
+    },
+    {
+        point = {5, 13},
+        skillId = "SID_DragonVein_M021_Protection3",
+        type = "protection",
+        param = 0
+    },
+    {
+        point = {5, 13},
+        skillId = "SID_DragonVein_M021_Rewind3",
+        type = "rewind",
+        param = 0
+    },
+    {
+        point = {17, 13},
+        skillId = "SID_DragonVein_M021_Protection4",
+        type = "protection",
+        param = 0
+    },
+    {
+        point = {17, 13},
+        skillId = "SID_DragonVein_M021_Rewind4",
+        type = "rewind",
+        param = 0
+    },
+    {
+        point = {11, 17},
+        skillId = "SID_DragonVein_M021_Protection5",
+        type = "protection",
+        param = 0
+    },
+    {
+        point = {11, 17},
+        skillId = "SID_DragonVein_M021_Rewind5",
+        type = "rewind",
+        param = 0
+    },
+    {
+        point = {7, 21},
+        skillId = "SID_DragonVein_M021_Protection6",
+        type = "protection",
+        param = 0
+    },
+    {
+        point = {7, 21},
+        skillId = "SID_DragonVein_M021_Rewind6",
+        type = "rewind",
+        param = 0
+    },
+    {
+        point = {15, 21},
+        skillId = "SID_DragonVein_M021_Protection7",
+        type = "protection",
+        param = 0
+    },
+    {
+        point = {15, 21},
+        skillId = "SID_DragonVein_M021_Rewind7",
+        type = "rewind",
+        param = 0
+    },
 }
 
 function Startup()
@@ -69,6 +151,30 @@ function フラグ登録()
 
 end
 
+function removeMoveLimitVeyre()
+    local anyMaidMissing = false
+    for i = 1, 8 do
+        local maidPid = "PID_IFMOD_M021_メイド" .. i
+        if not UnitExistOnMap(maidPid) then
+            anyMaidMissing = true
+            break
+        end
+    end
+
+    if anyMaidMissing then
+        for i = 1, 8 do
+            local maidPid = "PID_IFMOD_M021_メイド" .. i
+            if UnitExistOnMap(maidPid) then
+                UnitClearStatus(maidPid, UNIT_STATUS_MOVE_NOT_ALLOW)
+            end
+        end
+
+        if UnitExistOnMap(g_pid_boss) then
+            UnitClearStatus(g_pid_boss, UNIT_STATUS_MOVE_NOT_ALLOW)
+        end
+    end
+end
+
 function condition_reinforcement_1()
     if VariableGet("reinforcement_1") == 1 then
         return false;
@@ -85,15 +191,30 @@ function condition_reinforcement_1()
 end
 
 function condition_reinforcement_2()
-    if VariableGet("reinforcement_2") == 1 then
+   if VariableGet("reinforcement_2") == 1 then
+       return false;
+   end
+
+   local turn = MapGetTurn()
+   if turn >= 8 then
+       return true
+   end
+   if not UnitExistOnMap("PID_IFMOD_M021_メイド11") or not UnitExistOnMap("PID_IFMOD_M021_メイド12") then
+       return true
+   end
+   return false
+end
+
+function condition_reinforcement_3()
+    if VariableGet("reinforcement_3") == 1 then
         return false;
     end
 
     local turn = MapGetTurn()
-    if turn >= 8 then
+    if turn >= 11 then
         return true
     end
-    if not UnitExistOnMap("PID_IFMOD_M021_メイド11") or not UnitExistOnMap("PID_IFMOD_M021_メイド12") then
+    if not UnitExistOnMap("PID_IFMOD_M021_メイド13") or not UnitExistOnMap("PID_IFMOD_M021_メイド14") or not UnitExistOnMap("PID_IFMOD_M021_メイド15")then
         return true
     end
     return false
@@ -188,6 +309,10 @@ function イベント登録()
     EventEntryTurn(Set_Interference_AI_M021, -1, -1, FORCE_ENEMY)
 	EventEntryDie(OnMaid9To15Defeated, "", FORCE_ENEMY, condition_true)
 	EventEntryBattleAfter(ProcessDeadMaidEffects, "", FORCE_PLAYER,"",FORCE_ENEMY)
+	EventEntryTurn(TriggerReinforcement1, -1, -1, FORCE_PLAYER)
+    EventEntryTurn(TriggerReinforcement2, -1, -1, FORCE_PLAYER)
+    EventEntryTurn(TriggerReinforcement3, -1, -1, FORCE_PLAYER)
+    EventEntryTurn(removeMoveLimitVeyre,   -1,  -1, FORCE_PLAYER)
 	-- ヴェイルEvent
 	EventEntryBattleTalk(Talk, g_pid_lueur, FORCE_PLAYER, "PID_M021_ヴェイル", FORCE_ENEMY, true, "戦闘前会話_ヴェイル_リュール_済", "MID_BT2")
 	EventEntryBattleTalk(Talk, "PID_モーヴ", FORCE_PLAYER, "PID_M021_ヴェイル", FORCE_ENEMY, true, "戦闘前会話_ヴェイル_モーヴ_済", "MID_BT3")
@@ -229,9 +354,60 @@ function OnMaid9To15Defeated()
     end
 end
 
+function TriggerReinforcement1()
+    if condition_reinforcement_1() then
+        Dispos("Reinforcement_1_1", DISPOS_FLAG_FOCUS)
+        Yield()
+        WaitTime(0.5)
+
+        Dispos("Reinforcement_1_2", DISPOS_FLAG_FOCUS)
+        Yield()
+        WaitTime(0.5)
+
+        VariableSet("reinforcement_1", 1)
+    end
+end
+
+function TriggerReinforcement2()
+    if condition_reinforcement_2() then
+        Dispos("Reinforcement_2_1", DISPOS_FLAG_FOCUS)
+        Yield()
+        WaitTime(0.5)
+
+        Dispos("Reinforcement_2_2", DISPOS_FLAG_FOCUS)
+        Yield()
+        WaitTime(0.5)
+
+        VariableSet("reinforcement_2", 1)
+    end
+end
+
+function TriggerReinforcement3()
+    if condition_reinforcement_3() then
+        Dispos("Reinforcement_3_1", DISPOS_FLAG_FOCUS)
+        Yield()
+        WaitTime(0.5)
+
+        Dispos("Reinforcement_3_2", DISPOS_FLAG_FOCUS)
+        Yield()
+        WaitTime(0.5)
+
+        Dispos("Reinforcement_3_3", DISPOS_FLAG_FOCUS)
+        Yield()
+        WaitTime(0.5)
+
+        Dispos("Reinforcement_3_4", DISPOS_FLAG_FOCUS)
+        Yield()
+        WaitTime(0.5)
+
+        VariableSet("reinforcement_3", 1)
+    end
+end
+
 function ProcessDeadMaidEffects()
     if #g_deadEnemyList > 0 then
         for i, pos in ipairs(g_deadEnemyList) do
+            WaitTime( 0.5 )
             EffectPlay( "竜化_G1" , pos.x, pos.z )
             WaitTime( 0.5 )
             EffectCreate("魔法陣_G001", pos.x, pos.z)
@@ -276,13 +452,19 @@ end
 function InitMapM021()
 
     local magicCirclePoints = {}
-    for _, config in ipairs(g_dragonVeinConfig_M021) do
+    for index, config in ipairs(g_dragonVeinConfig_M021) do
+        if index > 1 then
+            break
+        end
         table.insert(magicCirclePoints, config.point)
     end
     DragonVeinCreateMagicCircle(magicCirclePoints)
 
     local terrainPoints = {}
-    for _, config in ipairs(g_dragonVeinConfig_M021) do
+    for index, config in ipairs(g_dragonVeinConfig_M021) do
+        if index > 1 then
+            break
+        end
         table.insert(terrainPoints, {config.point[1], config.point[2], "TID_龙脉_M021_Protection"})
     end
     DragonVeinSetTerrain(terrainPoints)
@@ -383,12 +565,12 @@ function DragonVeinPostUseHandleM021(veinInfo)
         while playerUnitIndex ~= nil do
             local unitX = UnitGetX(playerUnitIndex)
             local unitZ = UnitGetZ(playerUnitIndex)
-            --local manhattanDistance = math.abs(unitX - centerX) + math.abs(unitZ - centerZ)
-            --if manhattanDistance <= range then
+            local manhattanDistance = math.abs(unitX - centerX) + math.abs(unitZ - centerZ)
+            if manhattanDistance <= range then
                 EffectPlay( "竜化_G1" , unitX, unitZ )
                 WaitTime( 0.5 )
                 RollbackUnitEngageStatusByIndex(unitIndex, 2)
-            --end
+            end
             unitIndex = unitIndex + 1
             playerUnitIndex = ForceUnitGetNext(playerUnitIndex)
         end
@@ -399,7 +581,7 @@ end
 
 function DragonVeinEffectEnemyPrepare()
     local Turn = MapGetTurn()
-    if Turn % 2 == 0 then
+    if Turn % 2 ~= 0 then
         return
     end
 
@@ -415,12 +597,12 @@ function DragonVeinEffectEnemyPrepare()
 
     local type = VariableGet("DragonVeinTypeEnemy")
 
-    Dialog("MID_M021_DragonVeinEnemy2")
+    Dialog("MID_M021_DragonVeinEnemy")
 end
 
 function DragonVeinEffectApply()
     local Turn = MapGetTurn()
-    if Turn % 2 == 0 then
+    if Turn % 2 ~= 0 then
         return
     end
 
@@ -592,6 +774,18 @@ function MapOpening()
 	Log("MapOpening")
 	UnitLearnJobSkill("PID_モーヴ")
     InitMapM021()
+
+    --ItemGain(nil,"IID_いかづちの剣")
+    --ItemGain(nil,"IID_かぜの大斧")
+    --ItemGain(nil,"IID_IFMOD_逆金棒")
+    --ItemGain(nil,"IID_ドラゴンキラー")
+    --ItemGain(nil,"IID_IFMOD_逆刀")
+    --ItemGain(nil,"IID_IFMOD_逆薙刀")
+    --ItemGain(nil,"IID_ほのおの槍")
+    --ItemGain(nil,"IID_獣狩りの暗器")
+    --ItemGain(nil,"IID_逆手裏剣")
+    --ItemGain(nil,"IID_光の弓")
+
 end
 
 -- -----------------------------------
@@ -665,6 +859,12 @@ function Ending()
 	GodUnitSetEscape("GID_ベレト",		true)
 	GodUnitSetEscape("GID_カムイ",		true)
 	GodUnitSetEscape("GID_エイリーク",	true)
+    GodUnitSetEscape("GID_チキ",		true)
+    GodUnitSetEscape("GID_ヘクトル",		true)
+    GodUnitSetEscape("GID_セネリオ",		true)
+    GodUnitSetEscape("GID_カミラ",		true)
+    GodUnitSetEscape("GID_エーデルガルト",		true)
+    GodUnitSetEscape("GID_クロム",	true)
 
 	FadeInAndWait(FADE_FAST)
 		Movie("S18")
