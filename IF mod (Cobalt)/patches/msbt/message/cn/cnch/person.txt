@@ -513,10 +513,10 @@ $P的妹妹。
 没有自己的意志，只会遵从主人的命令行事。
 
 [MPID_MysteriousGroup]
-神秘团体
+谜之兵
 
 [MPID_H_MysteriousGroup]
-突袭而来的异国军队。
+身份不明的谜之士兵。
 
 [MPID_Troublemaker]
 流氓
@@ -630,6 +630,13 @@ $P的妹妹。
 [MPID_H_Eirik]
 人称“圣魔纹章士”。
 为了和平挺身而战，是位心地善良的公主。
+
+[MPID_Ephraim]
+艾弗拉姆
+
+[MPID_H_Ephraim]
+另一位“圣魔纹章士”。
+为了和平挺身而战，是位骁勇善战的王子。
 
 [MPID_Byleth]
 贝雷特

@@ -1312,11 +1312,11 @@ After that, lose HoldOut in this turn.
 Advance
 
 [MSID_H_ClosingAttack]
-Use to move 1 space toward a foe
-that is 2 spaces away and attack.
+Use to move up to 2 spaces toward a foe
+that is up to 3 spaces away and attack.
 
 [MSID_H_ClosingAttack_CMD]
-Move 1 space and attack.
+Move up to 2 spaces and attack.
 
 [MSID_RoyEngage]
 Rise Above

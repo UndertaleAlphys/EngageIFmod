@@ -29,13 +29,13 @@ g_dragonVeinEffectTurns = {}
 
 g_dragonVeinConfig_M021 = {
     {
-        point = {11, 4},
+        point = {11, 5},
         skillId = "SID_DragonVein_M021_Protection0",
         type = "protection",
         param = 0
     },
     {
-        point = {11, 4},
+        point = {11, 5},
         skillId = "SID_DragonVein_M021_Rewind0",
         type = "rewind",
         param = 0
@@ -185,6 +185,9 @@ function condition_reinforcement_1()
         return true
     end
     if not UnitExistOnMap("PID_IFMOD_M021_メイド9") or not UnitExistOnMap("PID_IFMOD_M021_メイド10") then
+        if turn <=3 then
+            return false
+        end
         return true
     end
     return false
