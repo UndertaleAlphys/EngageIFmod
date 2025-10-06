@@ -631,9 +631,8 @@ within 3 spaces, grants Avo+20.
 Knightly Code
 
 [MSID_H_PrivateSkill_Madeline]
-If foe initiates combat and unit is
-adjacent to an ally, unit takes 2
-less damage.
+Adjacent mounted allies 
+deal +2 Dmg, take -2 Dmg.
 
 [MSID_PrivateSkill_Alfred_E]
 Self-Defense

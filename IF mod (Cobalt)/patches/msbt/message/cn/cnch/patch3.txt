@@ -586,9 +586,8 @@ EX义警队
 理想中的骑士
 
 [MSID_H_PrivateSkill_Madeline]
-受到敌人攻击时
-若有我方单位与自身相邻
-所受伤害-2
+与自身相邻的我方骑乘单位
+伤害+2，所受伤害-2
 
 [MSID_PrivateSkill_Alfred_E]
 保身
