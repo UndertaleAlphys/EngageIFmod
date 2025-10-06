@@ -336,7 +336,7 @@ function イベント登録()
 
 
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 11, 6, "PID_リュール", condition_true)
+	EventEntryEscape(離脱イベント, 11, 6, "", condition_true)
 end
 
 function OnMaid9To15Defeated()

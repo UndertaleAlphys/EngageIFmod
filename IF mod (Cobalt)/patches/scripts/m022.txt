@@ -5,7 +5,32 @@ g_pid_lueur = "PID_リュール"
 g_map_width = 23
 g_map_height = 29
 
+mind_unit_list = {}
+mind_god_list = {}
+
 -- -----------------------------------
+
+god_prefix = "PID_M022_IFMOD_紋章士_"
+
+g_god_list = {
+    "シグルド",
+    "セリカ",
+    "ミカヤ",
+    "ロイ",
+    "リーフ",
+    "ルキナ",
+    "リン",
+    "アイク",
+    "ベレト",
+    "カムイ",
+    "エイリーク","エフラム",
+    "クロード","ディミトリ","エーデルガルト",
+    "ルフレ","クロム",
+    "カミラ",
+    "セネリオ",
+    "ヘクトル",
+    "チキ"
+}
 
 function Startup()
 	
@@ -23,27 +48,28 @@ function Startup()
 end
 
 function フラグ登録()
+    for _,godname in ipairs(g_god_list) do
+        local VariableName = "defeat" .. godname
+        VariableEntry(VariableName,0)
+    end
 
-	
-	-- ------------------------------
-	
+    VariableEntry("DefeatedGodCount",0)
 end
 
 function イベント登録()
 	
 	EventEntryTurnAfter(青１ターン開始直後,	1, 1, FORCE_PLAYER)
 	EventEntryTurn(		勝利条件,			1, 1, FORCE_PLAYER )
+	EventEntryDie(  ProcessEnemyDie,    "", FORCE_ENEMY)
+	EventEntryFixed(ProcessUnitList,"",FORCE_PLAYER)
+    EventEntryFixed(ProcessUnitList,"",FORCE_ENEMY)
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 11, 25, "PID_リュール", condition_true)
 	EventEntryEscape(離脱イベント, 11, 25, "PID_ヴァンドレ", condition_true)
 end
 
 function Cleanup()
-	
 	Log("Cleanup")
-
-	紋章士闇化( false )
-	
 end
 
 -- -----------------------------------
@@ -84,7 +110,90 @@ function MapOpening()
 	FadeInAndWait(FADE_FAST)
 
 	InitMapM022()
+
+    local level = UnitGetBondLevel("PID_リュール")
+    Log(level)
+    if level ~= 10 then
+        UnitSetBondLevel("PID_リュール",10)
+    end
 	
+end
+
+function ProcessUnitList()
+    if #mind_unit_list ~= 0 then
+        local unit = table.remove(mind_unit_list, 1)
+        UnitSetEngageCount(unit,7)
+    end
+end
+
+function ProcessEnemyDie()
+    local godName = string.sub(UnitGetPID(MindGetEventUnit()), #god_prefix + 1)
+    local pid = ""
+    if UnitGetForce(MindGetUnit()) == FORCE_PLAYER then
+        pid = UnitGetPID(MindGetUnit())
+    else
+        pid = UnitGetPID(MindGetTargetUnit())
+    end
+    VariableSet("defeat" .. godName,1)
+    local defeatCount = VariableGet("DefeatedGodCount")
+    VariableSet("DefeatedGodCount",defeatCount+1)
+
+    local isEngaging = UnitGetEngaging(MindGetUnit())
+    local engageTurn = UnitGetEngageTurn(MindGetUnit())
+
+    if godName ~= "エイリーク" and godName ~= "エフラム" and godName ~= "クロード" and godName ~= "ディミトリ" and godName ~= "エーデルガルト" and godName ~= "ルフレ" and godName ~= "クロム"then
+        EffectPlay( "竜化_G1" , UnitGetX(pid), UnitGetZ(pid) )
+        UnitSetEngageCount(MindGetUnit(),7)
+        WaitTime( 0.5 )
+        GodUnitSetEscape("GID_" .. godName,	false)
+        UnitSetGodUnit(pid,"GID_" .. godName)
+        WaitTime( 0.5 )
+        UnitSetEngageCount(MindGetUnit(),7)
+    end
+
+    if godName == "クロード" or godName == "ディミトリ" or godName == "エーデルガルト" then
+        if VariableGet("defeat" .. "クロード" ) == 1 and VariableGet("defeat" .. "ディミトリ" ) == 1 and VariableGet("defeat" .. "エーデルガルト" ) == 1 then
+            EffectPlay( "竜化_G1" , UnitGetX(pid), UnitGetZ(pid) )
+            UnitSetEngageCount(MindGetUnit(),7)
+            WaitTime( 0.5 )
+            GodUnitSetEscape("GID_エーデルガルト",	false)
+            UnitSetGodUnit(pid,"GID_エーデルガルト")
+            WaitTime( 0.5 )
+        end
+    end
+
+    if godName == "ルフレ" or godName == "クロム"  then
+        if VariableGet("defeat" .. "ルフレ" ) == 1 and VariableGet("defeat" .. "クロム" ) == 1 then
+            EffectPlay( "竜化_G1" , UnitGetX(pid), UnitGetZ(pid) )
+            UnitSetEngageCount(MindGetUnit(),7)
+            WaitTime( 0.5 )
+            GodUnitSetEscape("GID_クロム",	false)
+            UnitSetGodUnit(pid,"GID_クロム")
+            WaitTime( 0.5 )
+        end
+    end
+
+     if godName == "エイリーク" or godName == "エフラム"  then
+        if VariableGet("defeat" .. "エイリーク" ) == 1 and VariableGet("defeat" .. "エフラム" ) == 1 then
+            EffectPlay( "竜化_G1" , UnitGetX(pid), UnitGetZ(pid) )
+            UnitSetEngageCount(MindGetUnit(),7)
+            WaitTime( 0.5 )
+            GodUnitSetEscape("エイリーク",	false)
+            UnitSetGodUnit(pid,"GID_エイリーク")
+            WaitTime( 0.5 )
+        end
+    end
+
+    table.insert(mind_unit_list,MindGetUnit())
+
+    if isEngaging then
+        UnitSetEngaging(MindGetUnit(),true)
+        UnitSetEngageTurn(MindGetUnit(),engageTurn)
+    end
+
+    if VariableGet("DefeatedGodCount") == 21 then
+        VariableSet( "勝利", 1 )
+    end
 end
 
 function InitMapM022()
@@ -237,25 +346,6 @@ end
 function GameOver()
 	
 	Log("GameOver")
-	
-end
-
--- -----------------------------------
-
-function 紋章士闇化( enable )
-	
-	GodUnitSetDarkness("GID_マルス",		enable)
-	GodUnitSetDarkness("GID_シグルド",		enable)
-	GodUnitSetDarkness("GID_セリカ",		enable)
-	GodUnitSetDarkness("GID_ミカヤ",		enable)
-	GodUnitSetDarkness("GID_ロイ",			enable)
-	GodUnitSetDarkness("GID_リーフ",		enable)
-	GodUnitSetDarkness("GID_ルキナ",		enable)
-	GodUnitSetDarkness("GID_リン",			enable)
-	GodUnitSetDarkness("GID_アイク",		enable)
-	GodUnitSetDarkness("GID_ベレト",		enable)
-	GodUnitSetDarkness("GID_カムイ",		enable)
-	GodUnitSetDarkness("GID_エイリーク",	enable)
 	
 end
 
