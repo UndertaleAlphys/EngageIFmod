@@ -2878,7 +2878,11 @@ Additionally, every two turns Veyre will invoke the Fell Dragon Mark,
 expanding the range of "Engage Seal" by 1 tile.  
 
 [MID_M021_DragonVeinEnemy]  
-After this turn, the range of "Engage Seal" will expand by 1 tile.  
+After this turn, the range of "Engage Seal" will expand by 1 tile.
+
+[MID_TUT_M022_RULE]  
+In this chapter, when a unit without an Emblem Ring 
+defeats an enemy, it will equip that enemy's Emblem Ring.
 
 [MID_TIPS_WEAPON_TRIANGLE_T]
 Weapon Triangle

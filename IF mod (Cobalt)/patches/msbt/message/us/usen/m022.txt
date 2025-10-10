@@ -1,0 +1,1994 @@
+[MID_MOVIE1_#001]
+$Window(2, "リュール")
+ $Wait(0)
+
+[MID_MOVIE1_#002]
+$Window(2, "ソンブル")
+Ugh... I am your father. How dare you turn
+your sword on me!$Wait(2)
+
+[MID_MOVIE1_#003]
+You mean to strike me down?$Wait(1)
+
+[MID_MOVIE1_#003_2]
+Go on, do it!$Wait(1)
+
+[MID_MOVIE1_#004]
+$Window(2, "ルミエル")
+Why are you here all by yourself?!$Wait(0)
+
+[MID_MOVIE1_#005]
+$Window(2, "リュール")
+The war is finally over, Mother. We don't have
+to worry any─$Wait(2)
+
+[MID_MOVIE1_#006]
+Ah!$Wait(0)
+
+[MID_MOVIE1_#007]
+$Window(2, "ソンブル")
+Die, treacherous whelp...$Wait(0)
+
+[MID_MOVIE1_#008]
+$Window(2, "ルミエル")
+No...$Wait(0)
+
+[MID_MOVIE1_#009]
+$Window(2, "リュール")
+I guess Fell Dragons have to die in the end...
+But I wanted to be...a good dragon.$Wait(0)
+
+[MID_MOVIE1_#010]
+$Window(2, "ルミエル")
+And you will! Someday life will return to you.$Wait(2)
+
+[MID_MOVIE1_#010_2]
+$Window(2, "ルミエル")
+And when that beautiful day...should dawn...$Wait(2)
+
+[MID_MOVIE1_#011]
+I will give you a birthday gift that suits you perfectly.$Wait(0)
+
+[MID_MOVIE1_#012]
+$Window(2, "リュール")
+Thank you, Mother...$Wait(2)
+
+[MID_MOVIE1_#013]
+If I see that day...$Wait(2)
+
+[MID_MOVIE1_#014]
+maybe I'll return...dressed in white...a gleaming
+sword at my side...$Wait(2)
+
+[MID_MOVIE1_#015]
+A Divine Dragon, like you... Ready to save the world.$Wait(0)
+
+[MID_OP1_#001]
+$Type(2)
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+...$Wait(2)
+
+[MID_OP1_#002]
+Not a nightmare... It was a memory...$Wait(2)
+
+[MID_OP1_#003]
+Where am I?$Wait(2)
+
+[MID_OP1_#004]
+Oh... I must have died protecting Veyle.$Wait(2)
+
+[MID_OP1_#005]
+There's no waking up again this time.$Wait(2)
+
+[MID_OP1_#006]
+I had dreamed I would awaken as a hero... Only
+now I realize, that did happen. But it's too late.$Wait(2)
+
+[MID_OP1_#007]
+I wonder if I'll be able to find Mother here.$Wait(0)
+
+[MID_OP1_#008]
+$Window(0, "ヴェイル", "1")
+$Alias("ヴェイル", "MPID_Unknown")
+$Window(2, "ヴェイル")
+$P.$Wait(0)
+
+[MID_OP1_#009]
+$Window(2, "リュール")
+Mo...ther...$Wait(0)
+
+[MID_OP1_#010]
+$Alias("ヴェイル", "MPID_Veyre")
+$Window(2, "ヴェイル")
+...$Wait(0)
+
+[MID_OP1_#011]
+$Window(2, "リュール")
+Veyle? Why are you here?$Wait(0)
+
+[MID_OP1_#012]
+$Window(2, "ヴェイル")
+Papa used the rings to raise Gradlon.$Wait(2)
+
+[MID_OP1_#013]
+The helmet reactivated, my head began to
+swim, and then...I was here.$Wait(2)
+
+[MID_OP1_#014]
+Things didn't go how I wanted them to. And
+now it seems I've died.$Wait(0)
+
+[MID_OP1_#015]
+$Window(2, "リュール")
+...$Wait(0)
+
+[MID_OP1_#016]
+$Window(2, "ヴェイル")
+Papa said you're my big brother.$Wait(2)
+
+[MID_OP1_#016_F]
+$Window(2, "ヴェイル")
+Papa said you're my big sister.$Wait(2)
+
+[MID_OP1_#017]
+You gave your life to protect me. I'm so sorry.
+You should have let me die.$Wait(0)
+
+[MID_OP1_#018]
+$Window(2, "リュール")
+Don't say that! I made the right choice.$Wait(2)
+
+[MID_OP1_#019]
+You have a link back home. There's still a
+chance for you.$Wait(0)
+
+[MID_OP1_#020]
+$Window(2, "ヴェイル")
+No... No more.$Wait(0)
+
+[MID_OP1_#021]
+$Window(2, "リュール")
+What?$Wait(0)
+
+[MID_OP1_#022]
+$Window(2, "ヴェイル")
+I tried so hard. I wanted Papa to look at me
+and not see a defect.$Wait(2)
+
+[MID_OP1_#023]
+I wanted him to forget about the other worlds
+and just be with me.$Wait(2)
+
+[MID_OP1_#024]
+I'd always think, "If only I tried harder..."$Wait(2)
+
+[MID_OP1_#025]
+But it never mattered! I kept getting crushed
+over and over...$Wait(2)
+
+[MID_OP1_#026]
+I'm so tired. If I have to die again and fail
+once more...$Wait(2)
+
+[MID_OP1_#027]
+I'd rather it just end here─with you.$Wait(0)
+
+[MID_OP1_#028]
+$Window(2, "リュール")
+Oh, Veyle...$Wait(0)
+
+[MID_OP1_#029]
+$Window(2, "ヴェイル")
+Hey. Why don't we fall asleep...together?
+The world will end with or without us.$Wait(2)
+
+[MID_OP1_#030]
+And...I feel happy because I finally found you.
+Maybe the others will join us eventually.$Wait(0)
+
+[MID_OP1_#031]
+$Window(2, "リュール")
+Perhaps you're right.$Wait(0)
+
+[MID_OP1_#032]
+$Window(2, "ヴェイル")
+Well, then...$Wait(0)
+
+[MID_OP1_#033]
+$Window(2, "リュール")
+Except...I'm not ready to give up. I want to save
+our world and everyone I care about.$Wait(2)
+
+[MID_OP1_#034]
+Veyle, you have been through so much, and
+I understand why you feel the way you do.$Wait(2)
+
+[MID_OP1_#035]
+But please, don't give up. Not before you
+experience the life you deserve.$Wait(0)
+
+[MID_OP1_#036]
+$Window(2, "ヴェイル")
+I don't care anymore. Even if I returned and
+survived all of it...$Wait(2)
+
+[MID_OP1_#037]
+I can't stop Papa because I can't
+summon Emblems.$Wait(2)
+
+[MID_OP1_#038]
+All I can do is create the Corrupted. A foul
+ability befitting a Fell Dragon.$Wait(0)
+
+[MID_OP1_#039]
+$Window(2, "リュール")
+Corrupted...$Wait(2)
+
+[MID_OP1_#040]
+Veyle, there is something you can do.$Wait(0)
+
+[MID_OP1_#041]
+$Window(2, "ヴェイル")
+Huh?$Wait(0)
+
+[MID_OP1_#042]
+$Window(2, "リュール")
+Revive me as one of the Corrupted.$Wait(0)
+
+[MID_OP1_#043]
+$Window(2, "ヴェイル")
+What?!$Wait(0)
+
+[MID_OP1_#044]
+$Window(2, "リュール")
+You did it to King Hyacinth. It was as if he'd
+come back to life─returned to himself.$Wait(2)
+
+[MID_OP1_#045]
+Perhaps I could go back to the living world in
+the same way.$Wait(0)
+
+[MID_OP1_#046]
+$Window(2, "ヴェイル")
+Maybe, but you aren't thinking this through!$Wait(2)
+
+[MID_OP1_#047]
+You hate the Corrupted. They terrify you!$Wait(2)
+
+[MID_OP1_#048]
+Now you want to be one? If we do that, you'll
+never be able to change back!$Wait(2)
+
+[MID_OP1_#049]
+This way, at least you died as yourself. Would
+you really want to die as one of them?$Wait(0)
+
+[MID_OP1_#050]
+$Window(2, "リュール")
+I'll sacrifice more than that if it saves everyone.$Wait(2)
+
+[MID_OP1_#051]
+How I die doesn't matter. I just want to end
+this war. However I can.$Wait(0)
+
+[MID_OP1_#052]
+$Window(2, "ヴェイル")
+...$Wait(0)
+
+[MID_OP1_#053]
+$Window(2, "リュール")
+Please don't give up, Veyle. If we don't try,
+we lose everything.$Wait(2)
+
+[MID_OP1_#054]
+To me, this is the only way forward.$Wait(0)
+
+[MID_OP1_#055]
+$Window(2, "ヴェイル")
+But...$Wait(0)
+
+[MID_OP1_#056]
+$Window(2, "リュール")
+Veyle... What do you live for?$Wait(0)
+
+[MID_OP1_#057]
+$Window(2, "ヴェイル")
+What do you mean?$Wait(0)
+
+[MID_OP1_#058]
+$Window(2, "リュール")
+My friends told me it doesn't matter where
+you're from. What's important is how you live.$Wait(2)
+
+[MID_OP1_#059]
+How you live and what you do shapes your
+future. So...who do you want to become?$Wait(0)
+
+[MID_OP1_#060]
+$Window(2, "ヴェイル")
+I've never thought about that.$Wait(2)
+
+[MID_OP1_#061]
+But if it were possible for me to change now,
+I suppose...$Wait(2)
+
+[MID_OP1_#062]
+I'd want to be like you. I'd want to become a
+dragon who saves the world.$Wait(0)
+
+[MID_OP1_#063]
+$Window(2, "リュール")
+We really are siblings.$Wait(0)
+
+[MID_OP1_#064]
+$Window(2, "ヴェイル")
+Hm?$Wait(0)
+
+[MID_OP1_#065]
+$Window(2, "リュール")
+I said something very similar a long time ago.$Wait(2)
+
+[MID_OP1_#066]
+Let's go back and save our world. Together.$Wait(0)
+
+[MID_OP1_#067]
+$Window(2, "ヴェイル")
+All right.$Wait(2)
+
+[MID_OP1_#068]
+I'll give it one last try. I hope to see you
+soon, brother.$Wait(0)
+
+[MID_OP1_#068_F]
+I'll give it one last try. I hope to see you
+soon, sister.$Wait(0)
+
+[MID_OP1_#069]
+$Window(2, "リュール")
+You're my dear sister, and I trust you with all of
+my heart.$Wait(0)
+
+[MID_OP2_#001]
+$Type(2)
+$Window(0, "ヴェイル_黒_悪", "2")
+$Window(2, "ヴェイル_黒_悪")
+Hahaha!$Wait(2)
+
+[MID_OP2_#002]
+Stop fighting. You die either way!$Wait(0)
+
+[MID_OP2_#003]
+$Window(0, "モーヴ", "1")
+$Window(2, "モーヴ")
+Lady Veyle, please. Come back to us!$Wait(0)
+
+[MID_OP2_#004]
+$Window(2, "ヴェイル_黒_悪")
+Aww, you miss her, Mauvier? Then I'll kill
+you first.$Wait(2)
+
+[MID_OP2_#005]
+Maybe you'll find what you're after on the
+other side.$Wait(0)
+
+[MID_OP2_#006]
+$Window(2, "モーヴ")
+...$Wait(0)
+
+[MID_OP2_#007]
+$Window(2, "ヴェイル_黒_悪")
+Huh?$Wait(2)
+
+[MID_OP2_#008]
+Ugh...$Wait(0)
+
+[MID_OP2_#009]
+$Window(1, "ヴェイル_黒_悪")
+$Window(2, "モーヴ")
+Lady Veyle?$Wait(0)
+
+[MID_OP2_#010]
+$Window(0, "ヴェイル_黒_善", "2")
+$Window(2, "ヴェイル_黒_善")
+You don't know when to give up, do you?$Wait(2)
+
+[MID_OP2_#011]
+That's right... I'm not going quietly!$Wait(0)
+
+[MID_OP2_#012]
+$Window(1, "ヴェイル_黒_善")
+$Window(1, "モーヴ")
+$Window(0, "ディアマンド", "1")
+$Window(0, "アイビー", "3")
+$Window(2, "ディアマンド")
+She's talking to herself.$Wait(0)
+
+[MID_OP2_#013]
+$Window(2, "アイビー")
+Not herself, exactly.$Wait(0)
+
+[MID_OP2_#014]
+$Window(1, "ディアマンド")
+$Window(1, "アイビー")
+$Window(0, "モーヴ", "1")
+$Window(2, "モーヴ")
+The true Lady Veyle... She's fighting back.$Wait(0)
+
+[MID_OP3_#001]
+$Type(0, "Default")
+$Window(0, "ヴェイル", "2")
+$Window(2, "ヴェイル")
+I know that my brother believed in me. So I...
+I believe in myself!$Wait(2)
+
+[MID_OP3_#001_F]
+$Type(0, "Default")
+$Window(0, "ヴェイル", "2")
+$Window(2, "ヴェイル")
+I know that my sister believed in me. So I...
+I believe in myself!$Wait(2)
+
+[MID_OP3_#002]
+Shut your mouth! You are nothing but a defect!$Wait(2)
+
+[MID_OP3_#002_2]
+Mark my words, you quivering little baby!
+You're gonna be dead soon!$Wait(2)
+
+[MID_OP3_#003]
+No! I won't! You're not in control here, I am!$Wait(2)
+
+[MID_OP3_#004]
+And I won't wear this horrible thing anymore!$Wait(2)
+
+[MID_OP3_#005]
+Wait!$Wait(2)
+
+[MID_OP3_#006]
+There's already a crack in it. I'll break it!$Wait(2)
+
+[MID_OP3_#006_2]
+Then I get to be me again. You'll be gone!$Wait(2)
+
+[MID_OP3_#007]
+Stop...stop it right now!$Wait(2)
+
+[MID_OP3_#007_2]
+I don't want to go! Help me, Father! I beg of you!$Wait(2)
+
+[MID_OP3_#008]
+Papa isn't coming. He doesn't care. It's time now.$Wait(2)
+
+[MID_OP3_#008_2]
+Time to say goodbye.$Wait(2)
+
+[MID_OP3_#009]
+Ngh... Ah! Aaaaah!$Wait(2)
+
+[MID_OP3_#010]
+ $Wait(2)
+
+[MID_OP3_#011]
+ $Wait(0)
+
+[MID_OP3_#012]
+$Window(0, "モーヴ", "1")
+$Window(2, "モーヴ")
+Lady Veyle!$Wait(0)
+
+[MID_OP3_#013]
+$Window(2, "ヴェイル")
+Mauvier. It's all right. I'm myself again.$Wait(0)
+
+[MID_OP3_#014]
+$Window(2, "モーヴ")
+I wish...I could have done something. I'm so sorry.
+But you did it all on your own.$Wait(0)
+
+[MID_OP3_#015]
+$Window(2, "ヴェイル")
+You're wrong about me doing it alone.
+My brother helped me.$Wait(0)
+
+[MID_OP3_#015_F]
+$Window(2, "ヴェイル")
+You're wrong about me doing it alone.
+My sister helped me.$Wait(0)
+
+[MID_OP3_#016]
+$Window(2, "モーヴ")
+The Divine Dragon?$Wait(0)
+
+[MID_OP3_#017]
+$Window(1, "モーヴ")
+$Window(2, "ヴェイル")
+I have to hurry.$Wait(2)
+
+[MID_OP3_#018]
+Guardians of the underworld, cast aside the rules
+that govern life and death...$Wait(2)
+
+[MID_OP3_#018_2]
+so that this body, void of life...may draw breath!$Wait(2)
+
+[MID_OP3_#019]
+Rise up! Corrupted $P!$Wait(0)
+
+[MID_OP3_#020]
+$Window(0, "リュール", "1")
+$Window(2, "リュール")
+...$Wait(0)
+
+[MID_OP4_#001]
+$Type(2)
+$Window(0, "リュール", "1")
+$Window(0, "ヴェイル", "2")
+$Window(0, "モーヴ", "4")
+$Window(2, "モーヴ")
+The Divine One has become corrupted...$Wait(0)
+
+[MID_OP4_#002]
+$Window(1, "モーヴ")
+$Window(0, "ミスティラ", "4")
+$Window(2, "ミスティラ")
+What are we supposed to do now? Fight?$Wait(0)
+
+[MID_OP4_#003]
+$Window(1, "ミスティラ")
+$Window(0, "ディアマンド", "4")
+$Window(2, "ディアマンド")
+No... We can't.$Wait(0)
+
+[MID_OP4_#004]
+$Window(2, "リュール")
+Please, everyone. Listen.$Wait(0)
+
+[MID_OP4_#005]
+$Window(2, "ディアマンド")
+You can speak?$Wait(0)
+
+[MID_OP4_#006]
+$Window(2, "リュール")
+There's nothing to fear. I won't hurt you.$Wait(2)
+
+[MID_OP4_#007]
+I asked Veyle to revive me as one of
+the Corrupted.$Wait(2)
+
+[MID_OP4_#008]
+You must believe me.$Wait(0)
+
+[MID_OP4_#009]
+$Window(1, "ディアマンド")
+$Window(0, "アルフレッド", "4")
+$Window(2, "アルフレッド")
+But are you really...you?$Wait(0)
+
+[MID_OP4_#010]
+$Window(2, "リュール")
+Yes. I'm the same person who took this journey
+with you─the Divine Dragon $P.$Wait(2)
+
+[MID_OP4_#011]
+Whatever form I take, this soul is still mine.$Wait(0)
+
+[MID_OP4_#012]
+$Window(2, "アルフレッド")
+...$Wait(0)
+
+[MID_OP4_#013]
+$Window(1, "アルフレッド")
+$Window(2, "ヴェイル")
+Brother, look what I found.$Wait(0)
+
+[MID_OP4_#013_F]
+$Window(1, "アルフレッド")
+$Window(2, "ヴェイル")
+Sister, look what I found.$Wait(0)
+
+[MID_OP4_#014]
+$Window(2, "リュール")
+The Ring of the Hero-King...$Wait(0)
+
+[MID_OP4_#015]
+$Window(2, "ヴェイル")
+It was lying by your side...as though it wanted
+to be with you.$Wait(2)
+
+[MID_OP4_#016]
+The Emblems in the 12 rings have played their
+roles. They are likely drained of power.$Wait(2)
+
+[MID_OP4_#017]
+Can you still summon them?$Wait(0)
+
+[MID_OP4_#018]
+$Window(2, "リュール")
+You've done so much today. Now it's my turn.$Wait(0)
+
+[MID_OP4_#019]
+$Window(2, "ヴェイル")
+All right.$Wait(0)
+
+[MID_OP4_#020]
+$Window(2, "リュール")
+Marth. I've returned. I'm here for you. Please
+show yourself.$Wait(2)
+
+[MID_OP4_#021]
+Shine on, Emblem of Beginnings!$Wait(2)
+
+[MID_OP4_#022]
+...$Wait(0)
+
+[MID_OP4_#023]
+$Window(2, "ヴェイル")
+Nothing happened.$Wait(0)
+
+[MID_OP4_#024]
+$Window(1, "ヴェイル")
+$Window(2, "リュール")
+...$Wait(2)
+
+[MID_OP4_#025]
+No. This has to work. We have so much
+to protect.$Wait(2)
+
+[MID_OP4_#026]
+Please, Marth. Join me once more!$Wait(2)
+
+[MID_OP4_#027]
+Shine on, Emblem of Beginnings!$Wait(2)
+
+[MID_OP4_#028]
+$Window(0, "マルス", "3")
+$Window(2, "マルス")
+...$Wait(2)
+
+[MID_OP4_#029]
+$Window(2, "リュール")
+Marth!$Wait(2)
+
+[MID_OP4_#030]
+I'm so happy to see you!$Wait(0)
+
+[MID_OP4_#031]
+$Window(2, "マルス")
+...$Wait(2)
+
+[MID_OP4_#032]
+$Window(0, "アルフレッド", "4")
+$Window(2, "アルフレッド")
+But...that's the Fell Dragon version.$Wait(0)
+
+[MID_OP4_#033]
+$Window(1, "アルフレッド")
+$Window(0, "ヴェイル", "4")
+$Window(2, "ヴェイル")
+I used Fell Dragon power to raise my brother.
+He's using that same power to summon.$Wait(0)
+
+[MID_OP4_#033_F]
+$Window(1, "アルフレッド")
+$Window(0, "ヴェイル", "4")
+$Window(2, "ヴェイル")
+I used Fell Dragon power to raise my sister.
+She's using that same power to summon.$Wait(0)
+
+[MID_OP4_#034]
+$Window(1, "マルス")
+$Window(0, "M022_異形兵_ウォーリアー", "3")
+$Window(2, "M022_異形兵_ウォーリアー")
+RAAARGH!$Wait(0)
+
+[MID_OP4_#035]
+$Window(1, "ヴェイル")
+$Window(0, "ディアマンド", "4")
+$Window(2, "ディアマンド")
+What happened? Are they reacting to
+the Emblem?$Wait(0)
+
+[MID_OP4_#036]
+$Window(2, "リュール")
+Time is short. I'll need your help to summon
+all the Emblems again.$Wait(2)
+
+[MID_OP4_#037]
+You don't have to trust me, but this is the
+only way.$Wait(2)
+
+[MID_OP4_#038]
+We must stand together and fight as one!$Wait(0)
+
+[MID_EV1_#001]
+$Type(1)
+$Window(0, "ヴェイル", "t")
+$Anim(1, "ヴェイル", "Angry")
+$Window(2, "ヴェイル")
+Look. The Emblem Rings have been scattered
+on the ground.$Wait(2)
+
+[MID_EV1_#002]
+Please, brother. Get close to a ring and try
+summoning an Emblem!$Wait(0)
+
+[MID_EV1_#002_F]
+Please, sister. Get close to a ring and try
+summoning an Emblem!$Wait(0)
+
+[MID_EV2_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+We've found them.$Wait(2)
+
+[MID_EV2_#002]
+Teach us, Emblem of the Academy. Reignite us,
+Emblem of Awakening.$Wait(2)
+
+[MID_EV2_#003]
+Sweep across, Emblem of Blazing!$Wait(2)
+
+[MID_EV3_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+Here they are.$Wait(2)
+
+[MID_EV3_#002]
+Care for us, Emblem of Echoes. Heal us,
+Emblem of Dawn.$Wait(0)
+
+[MID_EV4_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+Here we go...$Wait(2)
+
+[MID_EV4_#002]
+Fight on, Emblem of Radiance. Provide for us,
+Emblem of the Holy War.$Wait(2)
+
+[MID_EV4_#003]
+Restore calm, Emblem of the Sacred.$Wait(0)
+
+[MID_EV5_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+Now, please show yourself.$Wait(2)
+
+[MID_EV5_#002]
+Rise up, Emblem of Binding. Free us, Emblem
+of Genealogy.$Wait(2)
+
+[MID_EV5_#003]
+Bare your fangs, Emblem of Fates!$Wait(0)
+
+[MID_EV6_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Smile")
+$Window(2, "リュール")
+That's all of the rings!$Wait(0)
+
+[MID_TK_Siglud_#001]
+$Window(0, "M022_紋章士_シグルド", "b")
+$Window(2, "M022_紋章士_シグルド")
+...$Wait(0)
+
+[MID_TK_Celica_#001]
+$Window(0, "M022_紋章士_セリカ", "b")
+$Window(2, "M022_紋章士_セリカ")
+...$Wait(0)
+
+[MID_BT2_#001]
+$Window(0, "M022_紋章士_セリカ", "b")
+$Window(2, "M022_紋章士_セリカ")
+…………$Wait(0)
+
+[MID_TK_Micaiah_#001]
+$Window(0, "M022_紋章士_ミカヤ", "b")
+$Window(2, "M022_紋章士_ミカヤ")
+...$Wait(0)
+
+[MID_TK_Roy_#001]
+$Window(0, "M022_紋章士_ロイ", "b")
+$Window(2, "M022_紋章士_ロイ")
+...$Wait(0)
+
+[MID_TK_Leaf_#001]
+$Window(0, "M022_紋章士_リーフ", "b")
+$Window(2, "M022_紋章士_リーフ")
+...$Wait(0)
+
+[MID_TK_Lucina_#001]
+$Window(0, "M022_紋章士_ルキナ", "b")
+$Window(2, "M022_紋章士_ルキナ")
+...$Wait(0)
+
+[MID_TK_Lin_#001]
+$Window(0, "M022_紋章士_リン", "b")
+$Window(2, "M022_紋章士_リン")
+...$Wait(0)
+
+[MID_TK_Ike_#001]
+$Window(0, "M022_紋章士_アイク", "b")
+$Window(2, "M022_紋章士_アイク")
+...$Wait(0)
+
+[MID_TK_Byleth_#001]
+$Window(0, "M022_紋章士_ベレト", "b")
+$Window(2, "M022_紋章士_ベレト")
+...$Wait(0)
+
+[MID_TK_Kamui_#001]
+$Window(0, "M022_紋章士_カムイ", "b")
+$Window(2, "M022_紋章士_カムイ")
+...$Wait(0)
+
+[MID_TK_Eirik_#001]
+$Window(0, "M022_紋章士_エイリーク", "b")
+$Window(2, "M022_紋章士_エイリーク")
+...$Wait(0)
+
+[MID_TK_Vandre1_#001]
+$Type(1)
+$Window(0, "ヴァンドレ", "t")
+$Anim(1, "ヴァンドレ", "Angry")
+$Window(2, "ヴァンドレ")
+Please come with me, if you would,
+Emblem $Arg(0).$Wait(0)
+
+[MID_TK_Clan1_#001]
+$Type(1)
+$Window(0, "クラン", "t")
+$Anim(1, "クラン", "Angry")
+$Window(2, "クラン")
+Please come with me, Emblem $Arg(0).$Wait(0)
+
+[MID_TK_Fram1_#001]
+$Type(1)
+$Window(0, "フラン", "t")
+$Anim(1, "フラン", "Angry")
+$Window(2, "フラン")
+Please, $Arg(0), fight beside us again!$Wait(0)
+
+[MID_TK_Alfred1_#001]
+$Type(1)
+$Window(0, "アルフレッド", "t")
+$Anim(1, "アルフレッド", "Angry")
+$Window(2, "アルフレッド")
+There you are. Hope you don't mind giving me
+a hand, $Arg(0).$Wait(0)
+
+[MID_TK_Etie1_#001]
+$Type(1)
+$Window(0, "エーティエ", "t")
+$Anim(1, "エーティエ", "Angry")
+$Window(2, "エーティエ")
+You ready to rule the battlefield with
+me, $Arg(0)?$Wait(0)
+
+[MID_TK_Boucheron1_#001]
+$Type(1)
+$Window(0, "ブシュロン", "t")
+$Anim(1, "ブシュロン", "Angry")
+$Window(2, "ブシュロン")
+You were lost, just like me. Ready to join forces
+again, $Arg(0)?$Wait(0)
+
+[MID_TK_Celine1_#001]
+$Type(1)
+$Window(0, "セリーヌ", "t")
+$Anim(1, "セリーヌ", "Angry")
+$Window(2, "セリーヌ")
+What would we do without you, $Arg(0)?
+Will you fight at our side once more?$Wait(0)
+
+[MID_TK_Chloe1_#001]
+$Type(1)
+$Window(0, "クロエ", "t")
+$Anim(1, "クロエ", "Smile")
+$Window(2, "クロエ")
+You and I make such a picturesque pair,
+don't we, $Arg(0)?$Wait(0)
+
+[MID_TK_Louis1_#001]
+$Type(1)
+$Window(0, "ルイ", "t")
+$Anim(1, "ルイ", "Angry")
+$Window(2, "ルイ")
+I can see you have reservations, but I hope that
+you'll join me regardless, $Arg(0).$Wait(0)
+
+[MID_TK_Yunaka1_#001]
+$Type(1)
+$Window(0, "ユナカ", "t")
+$Anim(1, "ユナカ", "Angry")
+$Window(2, "ユナカ")
+I've got you. Come on, $Arg(0)! Let's go!$Wait(0)
+
+[MID_TK_Staluke1_#001]
+$Type(1)
+$Window(0, "スタルーク", "t")
+$Anim(1, "スタルーク", "Angry")
+$Window(2, "スタルーク")
+I apologize that someone more impressive is not
+here to greet you, $Arg(0).$Wait(0)
+
+[MID_TK_Citrinica1_#001]
+$Type(1)
+$Window(0, "シトリニカ", "t")
+$Anim(1, "シトリニカ", "Angry")
+$Window(2, "シトリニカ")
+This is rather sudden, but...will you accept an
+invitation to fight by my side, $Arg(0)?$Wait(0)
+
+[MID_TK_Lapis1_#001]
+$Type(1)
+$Window(0, "ラピス", "t")
+$Anim(1, "ラピス", "Angry")
+$Window(2, "ラピス")
+Help me to be my best, $Arg(0).$Wait(0)
+
+[MID_TK_Diamand1_#001]
+$Type(1)
+$Window(0, "ディアマンド", "t")
+$Anim(1, "ディアマンド", "Angry")
+$Window(2, "ディアマンド")
+Bring your power to bear, and stand next
+to me now, $Arg(0).$Wait(0)
+
+[MID_TK_Umber1_#001]
+$Type(1)
+$Window(0, "アンバー", "t")
+$Anim(1, "アンバー", "Angry")
+$Window(2, "アンバー")
+There you are! Don't worry. We won't ever
+leave you alone again, $Arg(0)!$Wait(0)
+
+[MID_TK_Jade1_#001]
+$Type(1)
+$Window(0, "ジェーデ", "t")
+$Anim(1, "ジェーデ", "Angry")
+$Window(2, "ジェーデ")
+"Finally, the knight recovered a precious ally..."
+Come fight by my side, $Arg(0).$Wait(0)
+
+[MID_TK_Ivy1_#001]
+$Type(1)
+$Window(0, "アイビー", "t")
+$Anim(1, "アイビー", "Angry")
+$Window(2, "アイビー")
+I know how to handle you in your current state,
+$Arg(0). Come with me.$Wait(0)
+
+[MID_TK_Kagetsu1_#001]
+$Type(1)
+$Window(0, "カゲツ", "t")
+$Anim(1, "カゲツ", "Angry")
+$Window(2, "カゲツ")
+It has been too long, $Arg(0). Come, my friend!$Wait(0)
+
+[MID_TK_Zelkova1_#001]
+$Type(1)
+$Window(0, "ゼルコバ", "t")
+$Anim(1, "ゼルコバ", "Angry")
+$Window(2, "ゼルコバ")
+There you are. Care to *join* me, $Arg(0)?$Wait(0)
+
+[MID_TK_Fogato1_#001]
+$Type(1)
+$Window(0, "フォガート", "t")
+$Anim(1, "フォガート", "Angry")
+$Window(2, "フォガート")
+Good thing I found you. Let's stick together,
+all right, $Arg(0)?$Wait(0)
+
+[MID_TK_Pandoro1_#001]
+$Type(1)
+$Window(0, "パンドロ", "t")
+$Anim(1, "パンドロ", "Angry")
+$Window(2, "パンドロ")
+Looking good, $Arg(0). You'll keep me
+safe, right?.$Wait(0)
+
+[MID_TK_Bonet1_#001]
+$Type(1)
+$Window(0, "ボネ", "t")
+$Anim(1, "ボネ", "Angry")
+$Window(2, "ボネ")
+This is rather a different color scheme than
+you had before, $Arg(0).$Wait(0)
+
+[MID_TK_Misutira1_#001]
+$Type(1)
+$Window(0, "ミスティラ", "t")
+$Anim(1, "ミスティラ", "Angry")
+$Window(2, "ミスティラ")
+No matter what's happened, you're still you.
+Let's go save the world, $Arg(0)!$Wait(0)
+
+[MID_TK_Panetone1_#001]
+$Type(1)
+$Window(0, "パネトネ", "t")
+$Anim(1, "パネトネ", "Angry")
+$Window(2, "パネトネ")
+What a relief it is to see you, $Arg(0).
+Now, let's go.$Wait(0)
+
+[MID_TK_Merin1_#001]
+$Type(1)
+$Window(0, "メリン", "t")
+$Anim(1, "メリン", "Angry")
+$Window(2, "メリン")
+I am here to collect you, $Arg(0). I'd be grateful
+for any help you can give.$Wait(0)
+
+[MID_TK_Hortensia1_#001]
+$Type(1)
+$Window(0, "オルテンシア", "t")
+$Anim(1, "オルテンシア", "Angry")
+$Window(2, "オルテンシア")
+Have you been lonely, $Arg(0)? Well, you're
+with me now.$Wait(0)
+
+[MID_TK_Seadas1_#001]
+$Type(1)
+$Window(0, "セアダス", "t")
+$Anim(1, "セアダス", "Angry")
+$Window(2, "セアダス")
+Meeting like this is a sign... Come, $Arg(0),
+let's dance together.$Wait(0)
+
+[MID_TK_Rosado1_#001]
+$Type(1)
+$Window(0, "ロサード", "t")
+$Anim(1, "ロサード", "Smile")
+$Window(2, "ロサード")
+Much as I'd love to draw how great you look
+right now, we need to get going, $Arg(0).$Wait(0)
+
+[MID_TK_Goldmary1_#001]
+$Type(1)
+$Window(0, "ゴルドマリー", "t")
+$Anim(1, "ゴルドマリー", "Angry")
+$Window(2, "ゴルドマリー")
+Sorry to trouble you after all you've been
+through. Just a little more, all right, $Arg(0)?$Wait(0)
+
+[MID_TK_Linden1_#001]
+$Type(1)
+$Window(0, "リンデン", "t")
+$Anim(1, "リンデン", "Angry")
+$Window(2, "リンデン")
+Ah, there you are. It's time you came back
+to us, $Arg(0).$Wait(0)
+
+[MID_TK_Sapir1_#001]
+$Type(1)
+$Window(0, "ザフィーア", "t")
+$Anim(1, "ザフィーア", "Angry")
+$Window(2, "ザフィーア")
+You're looking strong. Wanna lend me that
+strength for a bit, $Arg(0)?$Wait(0)
+
+[MID_TK_Veyre1_#001]
+$Type(1)
+$Window(0, "ヴェイル", "t")
+$Anim(1, "ヴェイル", "Angry")
+$Window(2, "ヴェイル")
+If you don't mind, $Arg(0), would you please
+come with me?$Wait(0)
+
+[MID_TK_Mauve1_#001]
+$Type(1)
+$Window(0, "モーヴ", "t")
+$Anim(1, "モーヴ", "Angry")
+$Window(2, "モーヴ")
+I ask that you join me now, $Arg(0).$Wait(0)
+
+[MID_TK_Anna1_#001]
+$Type(1)
+$Window(0, "アンナ", "t")
+$Anim(1, "アンナ", "Angry")
+$Window(2, "アンナ")
+Nice! The ring still looks all shiny and pretty.
+Let's team up, $Arg(0)!$Wait(0)
+
+[MID_TK_Jean1_#001]
+$Type(1)
+$Window(0, "ジャン", "t")
+$Anim(1, "ジャン", "Angry")
+$Window(2, "ジャン")
+You're a little scary-looking, but I know it's still
+you. Will you help me, $Arg(0)?$Wait(0)
+
+[MID_TK_Lueur2_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+I'm already working with an Emblem, so I'll
+hold on to this ring for now.$Wait(0)
+
+[MID_TK_Vandre2_#001]
+$Type(1)
+$Window(0, "ヴァンドレ", "t")
+$Anim(1, "ヴァンドレ", "Angry")
+$Window(2, "ヴァンドレ")
+I have previously acquired the power of an
+Emblem, but I will keep this ring safe as well.$Wait(0)
+
+[MID_TK_Clan2_#001]
+$Type(1)
+$Window(0, "クラン", "t")
+$Anim(1, "クラン", "Angry")
+$Window(2, "クラン")
+I already have another Emblem, but I'll take this
+one so we know where it is.$Wait(0)
+
+[MID_TK_Fram2_#001]
+$Type(1)
+$Window(0, "フラン", "t")
+$Anim(1, "フラン", "Angry")
+$Window(2, "フラン")
+So many rings! I'll just hold on to this one and
+keep it nice and safe!$Wait(0)
+
+[MID_TK_Alfred2_#001]
+$Type(1)
+$Window(0, "アルフレッド", "t")
+$Anim(1, "アルフレッド", "Angry")
+$Window(2, "アルフレッド")
+Don't think I can use two Emblems at once.
+I'll just hold on to this one for now.$Wait(0)
+
+[MID_TK_Etie2_#001]
+$Type(1)
+$Window(0, "エーティエ", "t")
+$Anim(1, "エーティエ", "Angry")
+$Window(2, "エーティエ")
+I don't have the muscle to engage with two
+Emblems. Maybe someone else will want it.$Wait(0)
+
+[MID_TK_Boucheron2_#001]
+$Type(1)
+$Window(0, "ブシュロン", "t")
+$Anim(1, "ブシュロン", "Angry")
+$Window(2, "ブシュロン")
+I'm already working with an Emblem. Hmm...
+I'll keep this with me for now.$Wait(0)
+
+[MID_TK_Celine2_#001]
+$Type(1)
+$Window(0, "セリーヌ", "t")
+$Anim(1, "セリーヌ", "Angry")
+$Window(2, "セリーヌ")
+I am already under an Emblem's protection.
+But I can, in turn, protect this ring.$Wait(0)
+
+[MID_TK_Chloe2_#001]
+$Type(1)
+$Window(0, "クロエ", "t")
+$Anim(1, "クロエ", "Angry")
+$Window(2, "クロエ")
+Two Emblems is a captivating fairy tale, but I'll
+just give this back to the Divine One.$Wait(0)
+
+[MID_TK_Louis2_#001]
+$Type(1)
+$Window(0, "ルイ", "t")
+$Anim(1, "ルイ", "Angry")
+$Window(2, "ルイ")
+I have all the help I require, so I shall ensure
+this ring is kept safe and sound.$Wait(0)
+
+[MID_TK_Yunaka2_#001]
+$Type(1)
+$Window(0, "ユナカ", "t")
+$Anim(1, "ユナカ", "Angry")
+$Window(2, "ユナカ")
+Can't engage with more than one Emblem, but I
+won't just leave it lying here. I'll take it for now!$Wait(0)
+
+[MID_TK_Staluke2_#001]
+$Type(1)
+$Window(0, "スタルーク", "t")
+$Anim(1, "スタルーク", "Sad")
+$Window(2, "スタルーク")
+I'm sorry. I'm not skilled enough to engage with
+two Emblems. I hope my pocket is acceptable...$Wait(0)
+
+[MID_TK_Citrinica2_#001]
+$Type(1)
+$Window(0, "シトリニカ", "t")
+$Anim(1, "シトリニカ", "Angry")
+$Window(2, "シトリニカ")
+I have a prior engagement─quite literally.
+I'll keep you safe in my hands for now.$Wait(0)
+
+[MID_TK_Lapis2_#001]
+$Type(1)
+$Window(0, "ラピス", "t")
+$Anim(1, "ラピス", "Angry")
+$Window(2, "ラピス")
+I'm not strong enough to engage with more than
+one Emblem, so I'll have to keep this ring safe.$Wait(0)
+
+[MID_TK_Diamand2_#001]
+$Type(1)
+$Window(0, "ディアマンド", "t")
+$Anim(1, "ディアマンド", "Angry")
+$Window(2, "ディアマンド")
+Such additional power would be undeserved...
+I'll make sure this gets to the Divine Dragon.$Wait(0)
+
+[MID_TK_Umber2_#001]
+$Type(1)
+$Window(0, "アンバー", "t")
+$Anim(1, "アンバー", "Angry")
+$Window(2, "アンバー")
+Whoa! Does this mean I can do double engage?!
+Probably not... I'll just keep it safe for now.$Wait(0)
+
+[MID_TK_Jade2_#001]
+$Type(1)
+$Window(0, "ジェーデ", "t")
+$Anim(1, "ジェーデ", "Angry")
+$Window(2, "ジェーデ")
+Ah, a second Emblem. I'll hold on to it for now.$Wait(0)
+
+[MID_TK_Ivy2_#001]
+$Type(1)
+$Window(0, "アイビー", "t")
+$Anim(1, "アイビー", "Angry")
+$Window(2, "アイビー")
+I have already gained an Emblem's power.
+I will deliver this one to the Divine Dragon.$Wait(0)
+
+[MID_TK_Kagetsu2_#001]
+$Type(1)
+$Window(0, "カゲツ", "t")
+$Anim(1, "カゲツ", "Angry")
+$Window(2, "カゲツ")
+A happy discovery. However, I am unable to
+engage with two at once. I will hold on to you.$Wait(0)
+
+[MID_TK_Zelkova2_#001]
+$Type(1)
+$Window(0, "ゼルコバ", "t")
+$Anim(1, "ゼルコバ", "Angry")
+$Window(2, "ゼルコバ")
+An Emblem. But I can't use any more of them.
+I will collect it and carry it to the Divine Dragon.$Wait(0)
+
+[MID_TK_Fogato2_#001]
+$Type(1)
+$Window(0, "フォガート", "t")
+$Anim(1, "フォガート", "Angry")
+$Window(2, "フォガート")
+I'm glad you're OK! We can't engage right now,
+but I'll hold on to ya. Come with me!$Wait(0)
+
+[MID_TK_Pandoro2_#001]
+$Type(1)
+$Window(0, "パンドロ", "t")
+$Anim(1, "パンドロ", "Angry")
+$Window(2, "パンドロ")
+Another one! It's like they're giving 'em away.
+I'll keep this one up my sleeve for a bit.$Wait(0)
+
+[MID_TK_Bonet2_#001]
+$Type(1)
+$Window(0, "ボネ", "t")
+$Anim(1, "ボネ", "Angry")
+$Window(2, "ボネ")
+I cannot have my cake and eat it any more than
+I can engage twice. I'll take this ring for later.$Wait(0)
+
+[MID_TK_Misutira2_#001]
+$Type(1)
+$Window(0, "ミスティラ", "t")
+$Anim(1, "ミスティラ", "Angry")
+$Window(2, "ミスティラ")
+I do love my Emblem friends, but I can't engage
+with two at once. I'll just hold on to ya.$Wait(0)
+
+[MID_TK_Panetone2_#001]
+$Type(1)
+$Window(0, "パネトネ", "t")
+$Anim(1, "パネトネ", "Angry")
+$Window(2, "パネトネ")
+Multiple enemies I can handle. Multiple
+engagement, no way. I'll hold on to you.$Wait(0)
+
+[MID_TK_Merin2_#001]
+$Type(1)
+$Window(0, "メリン", "t")
+$Anim(1, "メリン", "Angry")
+$Window(2, "メリン")
+You have not been engaged yet, I see. I have, so
+I'll just keep you in my pocket, safe and sound.$Wait(0)
+
+[MID_TK_Hortensia2_#001]
+$Type(1)
+$Window(0, "オルテンシア", "t")
+$Anim(1, "オルテンシア", "Angry")
+$Window(2, "オルテンシア")
+I can't leave you here, but I can't engage with
+anyone else. Come on. I'll keep you plenty safe.$Wait(0)
+
+[MID_TK_Seadas2_#001]
+$Type(1)
+$Window(0, "セアダス", "t")
+$Anim(1, "セアダス", "Angry")
+$Window(2, "セアダス")
+I can only dance with one partner at a time.
+I will keep you until it's your moment to shine.$Wait(0)
+
+[MID_TK_Rosado2_#001]
+$Type(1)
+$Window(0, "ロサード", "t")
+$Anim(1, "ロサード", "Shy")
+$Window(2, "ロサード")
+This one's wonderful too! But I already have
+an Emblem. I'll just bring you along, OK?$Wait(0)
+
+[MID_TK_Goldmary2_#001]
+$Type(1)
+$Window(0, "ゴルドマリー", "t")
+$Anim(1, "ゴルドマリー", "Angry")
+$Window(2, "ゴルドマリー")
+Sorry. I'm quite popular, so I already have an
+Emblem, but I won't leave you here.$Wait(0)
+
+[MID_TK_Linden2_#001]
+$Type(1)
+$Window(0, "リンデン", "t")
+$Anim(1, "リンデン", "Angry")
+$Window(2, "リンデン")
+Two Emblems is an intriguing experiment, but...
+Better that I simply hold on to this one.$Wait(0)
+
+[MID_TK_Sapir2_#001]
+$Type(1)
+$Window(0, "ザフィーア", "t")
+$Anim(1, "ザフィーア", "Angry")
+$Window(2, "ザフィーア")
+It's not safe here... Although an Emblem is
+already helping me, I can carry you.$Wait(0)
+
+[MID_TK_Veyre2_#001]
+$Type(1)
+$Window(0, "ヴェイル", "t")
+$Anim(1, "ヴェイル", "Angry")
+$Window(2, "ヴェイル")
+I'm sorry I can't engage with you. Come along
+and it'll be all right. I promise it's true this time.$Wait(0)
+
+[MID_TK_Mauve2_#001]
+$Type(1)
+$Window(0, "モーヴ", "t")
+$Anim(1, "モーヴ", "Angry")
+$Window(2, "モーヴ")
+I already hold the power of an Emblem. Still, I
+promise I will carry you to the Divine Dragon.$Wait(0)
+
+[MID_TK_Anna2_#001]
+$Type(1)
+$Window(0, "アンナ", "t")
+$Anim(1, "アンナ", "Angry")
+$Window(2, "アンナ")
+Found another Emblem! Finders keepers!
+Until someone needs it, I guess.$Wait(0)
+
+[MID_TK_Jean2_#001]
+$Type(1)
+$Window(0, "ジャン", "t")
+$Anim(1, "ジャン", "Angry")
+$Window(2, "ジャン")
+I can't use you, but I can't just leave you here
+either. All right, come with me.$Wait(0)
+
+[MID_ED1_#001]
+$Type(2)
+$Window(0, "リュール", "1")
+$Window(0, "ヴェイル", "3")
+$Window(2, "リュール")
+That's it. I've summoned the Emblems, and
+we've fended off our enemies.$Wait(0)
+
+[MID_ED1_#002]
+$Window(2, "ヴェイル")
+What a relief.$Wait(0)
+
+[MID_ED1_#003]
+$Window(0, "アルフレッド", "2")
+$Window(2, "アルフレッド")
+I think I'd better apologize. To both of you.$Wait(0)
+
+[MID_ED1_#004]
+$Window(2, "リュール")
+What for?$Wait(0)
+
+[MID_ED1_#005]
+$Window(2, "アルフレッド")
+Doubting what you said.$Wait(2)
+
+[MID_ED1_#006]
+I thought this was all one of Sombron's tricks─
+a way to turn us against each other.$Wait(2)
+
+[MID_ED1_#007]
+But when we fought together, I knew it was
+you. Our ally. Our friend.$Wait(0)
+
+[MID_ED1_#008]
+$Window(0, "アイビー", "4")
+$Window(2, "アイビー")
+Corrupted or not, I am glad you returned.$Wait(0)
+
+[MID_ED1_#009]
+$Window(2, "リュール")
+Thank you all for placing your trust in me.$Wait(0)
+
+[MID_ED1_#010]
+$Window(1, "アルフレッド")
+$Window(0, "ミスティラ", "2")
+$Window(2, "ミスティラ")
+And thanks to Lady Veyle! We couldn't have
+won without you.$Wait(0)
+
+[MID_ED1_#011]
+$Window(1, "アイビー")
+$Window(0, "ディアマンド", "4")
+$Window(2, "ディアマンド")
+Yes. Wresting back control of yourself, reviving
+the Divine Dragon... You did much today.$Wait(2)
+
+[MID_ED1_#012]
+If not for your efforts, we'd probably be dead.$Wait(0)
+
+[MID_ED1_#013]
+$Window(2, "ヴェイル")
+Thank you. I did what I could.$Wait(0)
+
+[MID_ED1_#014]
+$Window(1, "ディアマンド")
+$Window(1, "リュール")
+$Window(1, "ヴェイル")
+$Window(0, "ヴェイル", "1")
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+Now we're all together again...$Wait(2)
+
+[MID_ED1_#015]
+...$Wait(0)
+
+[MID_ED1_#016]
+$Window(2, "ヴェイル")
+What's the matter?$Wait(0)
+
+[MID_ED1_#017]
+$Window(2, "リュール")
+I can't move...$Wait(0)
+
+[MID_ED1_#018]
+$Window(2, "ヴェイル")
+What? No...$Wait(0)
+
+[MID_ED1_#019]
+$Window(2, "リュール")
+I'm vanishing.$Wait(0)
+
+[MID_ED1_#020]
+$Window(2, "ヴェイル")
+I knew this was a risk, but it wasn't supposed
+to happen so soon.$Wait(2)
+
+[MID_ED1_#021]
+I gave you all the power I could. It should have
+been enough.$Wait(2)
+
+[MID_ED1_#022]
+Unless... Oh no. Summoning the Emblems must
+have drained you.$Wait(0)
+
+[MID_ED1_#023]
+$Window(2, "リュール")
+I didn't realize.$Wait(0)
+
+[MID_ED1_#024]
+$Window(2, "ヴェイル")
+It's all right. I'll try again. Hang on!$Wait(2)
+
+[MID_ED1_#025]
+Guardians of the underworld, cast aside the
+rules that govern life and death...$Wait(0)
+
+[MID_ED1_#026]
+$Window(2, "リュール")
+...$Wait(0)
+
+[MID_ED1_#027]
+$Window(2, "ヴェイル")
+Your body is rejecting my power! It can't
+take anymore...$Wait(0)
+
+[MID_ED1_#028]
+$Window(2, "リュール")
+Thank you for trying, Veyle. But it seems my
+time has come.$Wait(0)
+
+[MID_ED1_#029]
+$Window(2, "ヴェイル")
+...$Wait(0)
+
+[MID_ED1_#030]
+$Window(2, "リュール")
+It's all right. The 12 Emblems are here.$Wait(2)
+
+[MID_ED1_#031]
+With their help, I know you'll be able to
+stop Sombron.$Wait(0)
+
+[MID_ED1_#032]
+$Window(2, "ヴェイル")
+No! You can't leave! You said we'd save the
+world together!$Wait(0)
+
+[MID_ED1_#033]
+$Window(2, "リュール")
+I'm sorry. You'll have to do that without me.$Wait(2)
+
+[MID_ED1_#034]
+At least I was useful in the end. I can die
+knowing you're all safe.$Wait(2)
+
+[MID_ED1_#035]
+If only I could fight to the end with you,
+my friends...$Wait(0)
+
+[MID_ED1_#036]
+$Window(2, "ヴェイル")
+Brother!$Wait(0)
+
+[MID_ED1_#036_F]
+$Window(2, "ヴェイル")
+Sister!$Wait(0)
+
+[MID_ED1_#037]
+$Window(2, "リュール")
+We got the rings back. We're all together.$Wait(2)
+
+[MID_ED1_#038]
+I wish I could have finished the mission Mother
+gave me...$Wait(2)
+
+[MID_ED1_#039]
+I wish I could see the world come to peace.
+But all I see is...$Wait(2)
+
+[MID_ED1_#040]
+$Window(2, "リュール")
+Light?$Wait(0)
+
+[MID_ED1_#041]
+$Window(1, "ヴェイル")
+$Window(0, "不明", "1")
+$Window(2, "不明")
+Dragon child. You desire the power to fight...
+to the end, alongside everyone.$Wait(0)
+
+[MID_ED1_#042]
+$Window(2, "リュール")
+Marth?$Wait(0)
+
+[MID_MOVIE_#001]
+Dragon child, you who fought bravely, even after death...
+
+[MID_MOVIE_#002]
+Would you rise once more?
+
+[MID_MOVIE_#003]
+I want to fight. It can't end here.
+
+[MID_MOVIE_#004]
+No matter how hard it may be, I have to
+continue until the world is safe.
+
+[MID_MOVIE_#005]
+I must fight...like the Emblems have!
+
+[MID_MOVIE_#006]
+I have heard your wish. And thus, our power is yours.
+
+[MID_ED2_#001]
+$Type(2)
+$Window(0, "リュール", "2")
+$Window(0, "ヴェイル", "1")
+$Window(0, "アルフレッド", "3")
+$Window(2, "アルフレッド")
+The 12 Emblems must have granted
+their power...$Wait(0)
+
+[MID_ED2_#002]
+$Window(2, "ヴェイル")
+Beautiful...$Wait(0)
+
+[MID_ED2_#003]
+$Window(1, "ヴェイル")
+$Window(1, "アルフレッド")
+$Window(2, "リュール")
+How did this...$Wait(0)
+
+[MID_ED2_#004]
+$Window(0, "ルミエル", "1")
+$Window(2, "ルミエル")
+Before your slumber, I made you a promise.$Wait(2)
+
+[MID_ED2_#005]
+I said I'd give you a birthday present that suited
+you perfectly.$Wait(2)
+
+[MID_ED2_#006]
+I always knew this day would come.$Wait(2)
+
+[MID_ED2_#007]
+A very happy birthday to you, $P.$Wait(0)
+
+[MID_ED2_#008]
+$Window(1, "ルミエル")
+$Window(2, "リュール")
+So, this ring...$Wait(0)
+
+[MID_ED2_#009]
+$Window(0, "マルス", "1")
+$Window(2, "マルス")
+That has become your Emblem Ring,
+$P.$Wait(0)
+
+[MID_ED2_#010]
+$Window(2, "リュール")
+Marth!$Wait(0)
+
+[MID_ED2_#011]
+$Window(2, "マルス")
+Lumera's power was held in that ring. You have
+restored the power of the Divine Dragon.$Wait(2)
+
+[MID_ED2_#012]
+She must have known this day would come─
+the day of your rebirth.$Wait(0)
+
+[MID_ED2_#013]
+$Window(2, "リュール")
+I was dead... And now, look at me, I feel...new.
+What do you mean, "Emblem Ring"?$Wait(0)
+
+[MID_ED2_#014]
+$Window(2, "マルス")
+Your life was saved by the combined power of
+12 rings, making you the thirteenth Emblem.$Wait(2)
+
+[MID_ED2_#015]
+The Fire Emblem.$Wait(0)
+
+[MID_ED2_#016]
+$Window(2, "リュール")
+I'm the thirteenth Emblem? The Fire Emblem?$Wait(0)
+
+[MID_ED2_#017]
+$Window(1, "マルス")
+$Window(0, "セリカ", "1")
+$Window(2, "セリカ")
+That's right, $P.$Wait(2)
+
+[MID_ED2_#018]
+And that is your Emblem Ring, much like the
+rings that house our spirits.$Wait(2)
+
+[MID_ED2_#019]
+$Window(1, "セリカ")
+$Window(0, "シグルド", "1")
+$Window(2, "シグルド")
+We Emblems have only ever been spirits.
+But you had a physical form...$Wait(2)
+
+[MID_ED2_#020]
+Perhaps this is now why you seem unique
+among us.$Wait(0)
+
+[MID_ED2_#021]
+$Window(2, "リュール")
+And it's like I was never Corrupted!$Wait(0)
+
+[MID_ED2_#022]
+$Window(1, "シグルド")
+$Window(0, "リーフ", "1")
+$Window(2, "リーフ")
+Your power as an Emblem dwells in the ring,
+just as dragons imbue their power into stones.$Wait(2)
+
+[MID_ED2_#023]
+Though you died, you are now reborn as an
+Emblem with a new body.$Wait(0)
+
+[MID_ED2_#024]
+$Window(2, "リュール")
+But...how?$Wait(2)
+
+[MID_ED2_#025]
+Sombron used your power. I thought you could
+only grant it once every thousand years.$Wait(0)
+
+[MID_ED2_#026]
+$Window(1, "リーフ")
+$Window(0, "ロイ", "1")
+$Window(2, "ロイ")
+The 12 rings have another power. One we
+kept secret.$Wait(0)
+
+[MID_ED2_#027]
+$Window(2, "リュール")
+And what's that?$Wait(0)
+
+[MID_ED2_#028]
+$Window(1, "ロイ")
+$Window(0, "リン", "1")
+$Window(2, "リン")
+Now that you're an Emblem, we can finally
+reveal the truth.$Wait(0)
+
+[MID_ED2_#029]
+$Window(1, "リン")
+$Window(0, "エイリーク", "1")
+$Window(2, "エイリーク")
+We have always been able to perform the
+miracle at any time.$Wait(0)
+
+[MID_ED2_#030]
+$Window(1, "エイリーク")
+$Window(0, "アイク", "1")
+$Window(2, "アイク")
+To use it, we all had to be together and agree
+on who deserved the miracle.$Wait(0)
+
+[MID_ED2_#031]
+$Window(2, "リュール")
+So that means, I...$Wait(0)
+
+[MID_ED2_#032]
+$Window(1, "アイク")
+$Window(0, "ミカヤ", "1")
+$Window(2, "ミカヤ")
+Yes. We all agreed we wished to fight alongside
+you, $P.$Wait(0)
+
+[MID_ED2_#033]
+$Window(1, "ミカヤ")
+$Window(0, "ベレト", "1")
+$Window(2, "ベレト")
+We could do this once and never again. Not in
+all the thousands of years ahead.$Wait(0)
+
+[MID_ED2_#034]
+$Window(1, "ベレト")
+$Window(0, "ルキナ", "1")
+$Window(2, "ルキナ")
+What's more, this will be the last gift that we
+will ever give this world.$Wait(2)
+
+[MID_ED2_#035]
+$Window(1, "ルキナ")
+$Window(0, "カムイ", "1")
+$Window(2, "カムイ")
+This took all of our future power. It was worth it
+to fight alongside you now.$Wait(2)
+
+[MID_ED2_#036]
+$Window(1, "カムイ")
+$Window(0, "マルス", "1")
+$Window(2, "マルス")
+This is the first time we Emblems have shared
+the same wish─for this, for you.$Wait(0)
+
+[MID_ED2_#037]
+$Window(2, "リュール")
+Everyone, you...$Wait(0)
+
+[MID_ED2_#038]
+$Window(2, "マルス")
+This was the only way we could save you.
+No one returns from death.$Wait(2)
+
+[MID_ED2_#039]
+Now, being an Emblem is perhaps not what you
+desired. I hope we have done the right thing.$Wait(0)
+
+[MID_ED2_#040]
+$Window(2, "リュール")
+I've died twice. I didn't expect to be back again.
+So, thank you!$Wait(2)
+
+[MID_ED2_#041]
+My friends and I will do our best to protect this
+world. I'll make the most of what you've done.$Wait(2)
+
+[MID_ED2_#042]
+Oh, and Marth...$Wait(2)
+
+[MID_ED2_#043]
+I'm so glad to see you again.$Wait(2)
+
+[MID_ED2_#044]
+I'm sorry we were separated in Elusia. It's been
+so long since then...$Wait(0)
+
+[MID_ED2_#045]
+$Window(2, "マルス")
+Oh, it was barely a blink, compared to your
+years of slumber.$Wait(2)
+
+[MID_ED2_#046]
+It's good to see you, my fellow Emblem.$Wait(0)
+
+[MID_ED2_#047]
+$Window(2, "リュール")
+Ha! Yes, my fellow Emblem.$Wait(0)
+
+[MID_ED2_#048]
+$Window(1, "マルス")
+$Window(0, "アルフレッド", "1")
+$Window(2, "アルフレッド")
+Glad to have you back, Divine One.$Wait(0)
+
+[MID_ED2_#049]
+$Window(0, "ミスティラ", "3")
+$Window(2, "ミスティラ")
+Don't even think about dying again! You
+hear me?$Wait(0)
+
+[MID_ED2_#050]
+$Window(1, "アルフレッド")
+$Window(0, "ヴァンドレ", "1")
+$Window(2, "ヴァンドレ")
+I don't think I could survive losing you
+a third time.$Wait(0)
+
+[MID_ED2_#051]
+$Window(1, "ミスティラ")
+$Window(0, "アイビー", "3")
+$Window(2, "アイビー")
+How I prayed at the end...to be with you again.
+We all were, and now, here we are.$Wait(0)
+
+[MID_ED2_#052]
+$Window(1, "ヴァンドレ")
+$Window(0, "ディアマンド", "1")
+$Window(2, "ディアマンド")
+And you're an Emblem. I look forward to seeing
+what you can do.$Wait(0)
+
+[MID_ED2_#053]
+$Window(2, "リュール")
+I'm sorry I worried you all.$Wait(2)
+
+[MID_ED2_#054]
+I'm not going anywhere ever again. I am with
+you now, all the way to the end.$Wait(0)
+
+[MID_ED2_#055]
+$Window(1, "ディアマンド")
+$Window(1, "アイビー")
+$Window(0, "ヴェイル", "1")
+$Window(2, "ヴェイル")
+Now we'll always be together!$Wait(0)
+
+[MID_ED2_#056]
+$Window(2, "リュール")
+Veyle, without you, I wouldn't be here.$Wait(2)
+
+[MID_ED2_#057]
+Thank you.$Wait(0)
+
+[MID_ED2_#058]
+$Window(2, "ヴェイル")
+No... You saved my life, too, remember?$Wait(2)
+
+[MID_ED2_#059]
+I should be thanking you.$Wait(0)
+
+[MID_ED2_#060]
+$Window(2, "リュール")
+What is this? An earthquake?!$Wait(0)
+
+[MID_ED2_#061]
+$Window(0, "マルス", "3")
+$Window(2, "マルス")
+No. This is something far different. A greater
+force is in motion.$Wait(2)
+
+[MID_ED2_#062]
+Something is happening in Gradlon.$Wait(0)
+
+[MID_ED2_#063]
+$Window(2, "ヴェイル")
+Let's look.$Wait(0)
+
+[MID_ED3_#001]
+$Type(2)
+$Window(0, "リュール", "2")
+$Window(0, "マルス", "4")
+$Window(0, "ヴェイル", "1")
+$Window(2, "リュール")
+What in the world? What's all that in the
+middle of the sea?$Wait(0)
+
+[MID_ED3_#002]
+$Window(2, "ヴェイル")
+Gradlon... It's back...$Wait(0)
+
+[MID_ED3_#003]
+$Window(2, "マルス")
+A portal is opening in the sky. Soon, Sombron
+will set out to invade other worlds.$Wait(0)
+
+[MID_ED3_#004]
+$Window(2, "リュール")
+We have to stop him.$Wait(0)
+
+[MID_ED3_#005]
+$Window(2, "マルス")
+I wish we could, but there's a barrier in the way.$Wait(0)
+
+[MID_ED3_#006]
+$Window(2, "ヴェイル")
+Yes, and it's covering the entire continent.
+The power that must have taken...$Wait(2)
+
+[MID_ED3_#007]
+Papa doesn't want us to interfere with
+his plans.$Wait(0)
+
+[MID_ED3_#008]
+$Window(2, "リュール")
+How do we break through?$Wait(0)
+
+[MID_ED3_#009]
+$Window(2, "マルス")
+We will need to destroy the Fell Dragon Shards
+that are sustaining the barrier.$Wait(2)
+
+[MID_ED3_#010]
+But I don't know where to find them.$Wait(0)
+
+[MID_ED3_#011]
+$Window(2, "ヴェイル")
+I can help.$Wait(0)
+
+[MID_ED3_#012]
+$Window(2, "リュール")
+You can?$Wait(0)
+
+[MID_ED3_#013]
+$Window(2, "ヴェイル")
+I feel...I guess you'd call it a vortex of Fell
+Dragon power building up in Gradlon.$Wait(2)
+
+[MID_ED3_#014]
+I think there are two of them... No. Three.
+Follow me.$Wait(0)
+
+[MID_ED3_#015]
+$Window(2, "リュール")
+We'll destroy the Fell Dragon Shards and
+shatter the barrier. To Gradlon!$Wait(0)
+

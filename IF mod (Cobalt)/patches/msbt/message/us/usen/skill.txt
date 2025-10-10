@@ -5568,6 +5568,10 @@ allies to what it was 2 turns ago.
 Grants unit and allies within 3 tiles
 immunity to Engage Seal for 2 turns.
 
+[MSID_H_DragonVein_M023_SkySeal]  
+Reduces movement for flying units,  
+while increasing movement for ground units.  
+
 [MSID_Quixotic]
 Quixotic
 
@@ -5629,5 +5633,5 @@ Engage Seal
 
 [MSID_H_IFMOD_EngageSeal]  
 At phase start, reduce the Engage Meter
-of enemies within 10 spaces by 2, 
+of enemies within 7 spaces by 2, 
 or shorten their remaining Engage turn by 1.

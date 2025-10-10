@@ -854,6 +854,9 @@ DV: Rewind
 [MTID_DragonVein_M021_Protection]
 DV: Divine Shield
 
+[MTID_DragonVein_M023_SkySeal]
+DV: Sky Seal
+
 [MTID_Quicksand]
 Quicksand
 
