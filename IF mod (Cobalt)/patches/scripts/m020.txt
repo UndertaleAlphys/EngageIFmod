@@ -589,7 +589,7 @@ function Ending()
 
 	Log("Ending")
 
-	GodUnitSetEscape("GID_セリカ",	true)
+	GodUnitSetEscape("GID_セリカ",	false)
     紋章士外伝_レベルキャップ開放( "セリカ", "M020" )
 end
 

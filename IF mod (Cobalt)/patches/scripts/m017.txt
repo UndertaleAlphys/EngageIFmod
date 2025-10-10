@@ -151,31 +151,13 @@ function MapOpening()
 
 	Dialog( "MID_TUT_M017_RULE" )
 
-    RemoveLiberation()
 end
 
-function RemoveLiberation()
-    local index = ForceUnitGetFirst(FORCE_PLAYER)
-    while index ~= nil do
-        local unit = index
-        UnitPutOffItem(unit, "IID_リベラシオン")
-        index = ForceUnitGetNext(index)
-    end
-
-	index = ForceUnitGetFirst( FORCE_ABSENT )
-	while ( index ~= nil ) do
-        local unit = index
-        UnitPutOffItem(unit, "IID_リベラシオン")
-		index = ForceUnitGetNext( index )
-	end
-
-end
 
 function ProcessDeadEnemyList()
     if #g_deadEnemyList == 0 then
         return
     end
-    Log("process")
     local unitX = g_deadEnemyList[1]
     local unitZ = g_deadEnemyList[2]
     local targetX = g_deadEnemyList[3]
@@ -184,14 +166,15 @@ function ProcessDeadEnemyList()
     CursorSetPos(unitX, unitZ)
     MapCameraWait()
     EffectPlay("ワープアウト_闇", unitX, unitZ)
-    UnitShine(UnitGetByPID(unitPid), 0.3)
     WaitTime(1.0)
 
     CursorSetPos(targetX, targetZ)
     MapCameraWait()
     EffectPlay("ワープイン", targetX, targetZ)
-    UnitShine(UnitGetByPID(nearestEnemy), 0.3)
     WaitTime(1.0)
+
+    UnitSetGodUnit(g_deadEnemyList[5], g_deadEnemyList[6])
+    UnitSetEngageCount(g_deadEnemyList[7], g_deadEnemyList[8])
 
     g_deadEnemyList = {}
 end
@@ -424,8 +407,6 @@ function StealGodRingFromPlayer()
     end
 
     CheckPlayerHasRings()
-
-    Log(GetUnitSkillListFunc(1))
 end
 
 
@@ -465,26 +446,21 @@ function checkDeadEnemy()
         for _, equippedInfo in ipairs(currentPlayerGodTable) do
 
             if type(equippedInfo) == "table" and #equippedInfo >= 2 and equippedInfo[2] == playerGodId then
-                UnitSetGodUnit(equippedInfo[1], playerGodId)  -- 使用索引1的PID
 
                 local engageCountVar = "戒指_" .. playerGodId .. "_计数"
                 local engageCount = VariableGet(engageCountVar)
                 --CobaltNotice("戒指_" .. engageCount .. "_计数")
                 local unit = UnitGetByPID(equippedInfo[1])
-                if unit ~= nil then
-                    UnitSetEngageCount(unit, engageCount)
-                end
                 local targetX = UnitGetX(unit)
                 local targetZ = UnitGetZ(unit)
 
-                g_deadEnemyList = {deadX,deadZ,targetX,targetZ}
+                g_deadEnemyList = {deadX,deadZ,targetX,targetZ,equippedInfo[1],playerGodId,unit,engageCount}
 
                 SetGodAvailable(playerGodId)
                 break
             end
         end
     else
-        -- 在notEquipGodList中，只刷新其偷取状态
         --CobaltNotice(playerGodId)
         SetGodAvailable(playerGodId)
     end
@@ -492,8 +468,7 @@ end
 -- -----------------------------------
 
 function EmptyFunction()
-	-- なにも処理しない
-	-- 空のイベント関数
+
 end
 
 function グリ_AI変更()
@@ -654,14 +629,10 @@ function ConvertToEnemyGodId(godId)
 end
 
 function ConvertToNormalGodId(enemyGodId)
-    Log(enemyGodId)
     if string.sub(enemyGodId, 1, 10) == "GID_M017_敵" then
         local baseName = string.sub(enemyGodId, 11)
-        Log(baseName)
         if baseName then
             local normalGodId = "GID_" .. baseName
-            Log(normalGodId)
-            -- 检查转换后的戒指是否在可夺取列表中
             if IsGodStealable(normalGodId) then
                 return normalGodId
             end
@@ -680,7 +651,6 @@ function IsGodStolen(godId)
 end
 
 function IsGodStealable(godId)
-    Log("IsGodStealable")
     for _, stealableGod in ipairs(canUsedGodList) do
         if stealableGod == godId then
             return true

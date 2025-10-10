@@ -41,6 +41,30 @@ g_dragonVeinConfig_M021 = {
         param = 0
     },
     {
+        point = {3, 5},
+        skillId = "SID_DragonVein_M021_Protection8",
+        type = "protection",
+        param = 0
+    },
+    {
+        point = {3, 5},
+        skillId = "SID_DragonVein_M021_Rewind8",
+        type = "rewind",
+        param = 0
+    },
+    {
+        point = {19, 5},
+        skillId = "SID_DragonVein_M021_Protection9",
+        type = "protection",
+        param = 0
+    },
+    {
+        point = {19, 5},
+        skillId = "SID_DragonVein_M021_Rewind9",
+        type = "rewind",
+        param = 0
+    },
+    {
         point = {1, 9},
         skillId = "SID_DragonVein_M021_Protection1",
         type = "protection",
@@ -142,11 +166,10 @@ end
 
 function フラグ登録()
 	VariableEntry( "DragonVeinEffectTurns", "" )
-	VariableEntry("SealRange",10)
+	VariableEntry("SealRange",7)
 	VariableEntry("DragonVeinTypeEnemy",1)
 	VariableEntry("reinforcement_1", 0)
 	VariableEntry("reinforcement_2", 0)
-	VariableEntry("reinforcement_3", 0)
 	E_BattleTalk_VariableEntry()
 
 end
@@ -181,15 +204,10 @@ function condition_reinforcement_1()
     end
 
     local turn = MapGetTurn()
-    if turn >= 5 then
+    if turn >= 6 then
         return true
     end
-    if not UnitExistOnMap("PID_IFMOD_M021_メイド9") or not UnitExistOnMap("PID_IFMOD_M021_メイド10") then
-        if turn <=3 then
-            return false
-        end
-        return true
-    end
+
     return false
 end
 
@@ -199,29 +217,12 @@ function condition_reinforcement_2()
    end
 
    local turn = MapGetTurn()
-   if turn >= 8 then
-       return true
-   end
-   if not UnitExistOnMap("PID_IFMOD_M021_メイド11") or not UnitExistOnMap("PID_IFMOD_M021_メイド12") then
+   if turn >= 10 then
        return true
    end
    return false
 end
 
-function condition_reinforcement_3()
-    if VariableGet("reinforcement_3") == 1 then
-        return false;
-    end
-
-    local turn = MapGetTurn()
-    if turn >= 11 then
-        return true
-    end
-    if not UnitExistOnMap("PID_IFMOD_M021_メイド13") or not UnitExistOnMap("PID_IFMOD_M021_メイド14") or not UnitExistOnMap("PID_IFMOD_M021_メイド15")then
-        return true
-    end
-    return false
-end
 
 function SaveDragonVeinEffectTurns()
     local serializedData = ""
@@ -311,11 +312,13 @@ function イベント登録()
 	EventEntryTurn(PrintAllPlayerUnitsEngageStatus,   -1, -1, FORCE_PLAYER)
     EventEntryTurn(Set_Interference_AI_M021, -1, -1, FORCE_ENEMY)
 	EventEntryDie(OnMaid9To15Defeated, "", FORCE_ENEMY, condition_true)
+
 	EventEntryBattleAfter(ProcessDeadMaidEffects, "", FORCE_PLAYER,"",FORCE_ENEMY)
 	EventEntryTurn(TriggerReinforcement1, -1, -1, FORCE_PLAYER)
     EventEntryTurn(TriggerReinforcement2, -1, -1, FORCE_PLAYER)
-    EventEntryTurn(TriggerReinforcement3, -1, -1, FORCE_PLAYER)
     EventEntryTurn(removeMoveLimitVeyre,   -1,  -1, FORCE_PLAYER)
+    EventEntryPickup(ReEquipDragonVeinSkill,"",condition_true)
+    EventEntryTurn(RegisterDragonVeinEventAgain, -1, -1, FORCE_PLAYER)
 	-- ヴェイルEvent
 	EventEntryBattleTalk(Talk, g_pid_lueur, FORCE_PLAYER, "PID_M021_ヴェイル", FORCE_ENEMY, true, "戦闘前会話_ヴェイル_リュール_済", "MID_BT2")
 	EventEntryBattleTalk(Talk, "PID_モーヴ", FORCE_PLAYER, "PID_M021_ヴェイル", FORCE_ENEMY, true, "戦闘前会話_ヴェイル_モーヴ_済", "MID_BT3")
@@ -336,7 +339,31 @@ function イベント登録()
 
 
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 11, 6, "", condition_true)
+	EventEntryEscape(離脱イベント, 11, 6, "PID_リュール", condition_true)
+end
+
+function ReEquipDragonVeinSkill()
+    local skillIds = {}
+    for _, config in ipairs(g_dragonVeinConfig_M021) do
+        if TerrainGet(config.point[1],config.point[2]) == "TID_龙脉_M021_Protection" then
+            if UnitHasWholeSkill(MindGetUnit(), "SID_王族") then
+                local pid = UnitGetPID( index )
+                スキル装備(pid, config.skillId)
+            end
+        end
+    end
+    DragonVeinEquipSkills(skillIds)
+end
+
+function RegisterDragonVeinEventAgain()
+    Log("RegisterDragonVeinEventAgain")
+    local points = {}
+    for _, config in ipairs(g_dragonVeinConfig_M021) do
+        if TerrainGet(config.point[1],config.point[2]) == "TID_龙脉_M021_Protection" and config.type == "rewind" then
+            table.insert(points, config.point)
+        end
+    end
+    DragonVeinRegisterEvents(points)
 end
 
 function OnMaid9To15Defeated()
@@ -355,6 +382,7 @@ function OnMaid9To15Defeated()
 
         table.insert(g_deadEnemyList, {x = x, z = z})
     end
+    SetEngageSealRange()
 end
 
 function TriggerReinforcement1()
@@ -382,28 +410,6 @@ function TriggerReinforcement2()
         WaitTime(0.5)
 
         VariableSet("reinforcement_2", 1)
-    end
-end
-
-function TriggerReinforcement3()
-    if condition_reinforcement_3() then
-        Dispos("Reinforcement_3_1", DISPOS_FLAG_FOCUS)
-        Yield()
-        WaitTime(0.5)
-
-        Dispos("Reinforcement_3_2", DISPOS_FLAG_FOCUS)
-        Yield()
-        WaitTime(0.5)
-
-        Dispos("Reinforcement_3_3", DISPOS_FLAG_FOCUS)
-        Yield()
-        WaitTime(0.5)
-
-        Dispos("Reinforcement_3_4", DISPOS_FLAG_FOCUS)
-        Yield()
-        WaitTime(0.5)
-
-        VariableSet("reinforcement_3", 1)
     end
 end
 
@@ -456,7 +462,7 @@ function InitMapM021()
 
     local magicCirclePoints = {}
     for index, config in ipairs(g_dragonVeinConfig_M021) do
-        if index > 1 then
+        if index > 5 then
             break
         end
         table.insert(magicCirclePoints, config.point)
@@ -465,7 +471,7 @@ function InitMapM021()
 
     local terrainPoints = {}
     for index, config in ipairs(g_dragonVeinConfig_M021) do
-        if index > 1 then
+        if index > 5 then
             break
         end
         table.insert(terrainPoints, {config.point[1], config.point[2], "TID_龙脉_M021_Protection"})
@@ -496,8 +502,8 @@ function DragonVeinUsed()
         })
     end
 
-    local targetType = "protection"
-    local targetIndex = 1
+    local targetType = ""
+    local targetIndex = 0
     local playerUnit = ForceUnitGetFirst(FORCE_PLAYER)
     while playerUnit ~= nil do
         if UnitHasWholeSkill(playerUnit, "SID_DragonVein_Used") then
@@ -510,6 +516,10 @@ function DragonVeinUsed()
             break
         end
         playerUnit = ForceUnitGetNext(playerUnit)
+    end
+
+    if targetType == "" then
+       return
     end
 
     local veinInfo = DragonVeinPreUseCheckMultiType(
@@ -690,13 +700,16 @@ function SetEngageSealFlagde()
             end
 
             if #filteredUnits > 0 then
+                CursorSetPos(enemyX, enemyZ)
+                MapCameraWait()
                 EffectPlay("邪竜紋_発動", enemyX, enemyZ)
                 WaitTime(2.0)
                 for i, playerIndex in ipairs(filteredUnits) do
                     local playerX = UnitGetX(playerIndex)
                     local playerZ = UnitGetZ(playerIndex)
+                    CursorSetPos(playerX, playerZ)
                     EffectPlay("エンゲージブレイク_ヒット", playerX, playerZ)
-                    WaitTime(0.5)
+                    WaitTime(0.3)
                     UnitSetPrivateSkill(playerIndex, "SID_IFMOD_EngageSeal_Flagde")
 
                     local isEngaging = UnitGetEngaging(playerIndex)

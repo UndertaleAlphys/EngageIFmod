@@ -2592,8 +2592,7 @@ function RollbackUnitEngageStatusByIndex(unitIndex, rollbackSteps)
                     if #unitData >= 6 and unitData[2] == 1 then
                         local isCamillaUnit = (UnitGetGodUnit(playerUnit) == "GID_カミラ")
                         if isCamillaUnit then
-                            UnitClearPrivateSkill(playerUnit)
-                            CobaltNotice()
+                            UnitClearPrivateSkill(playerUnit,"SID_疾風迅雷効果付与")
                         end
                         if isCamillaUnit and unitData[6] == 1 then
                             UnitSetPrivateSkill(playerUnit, "SID_疾風迅雷発動済み")
@@ -2603,6 +2602,11 @@ function RollbackUnitEngageStatusByIndex(unitIndex, rollbackSteps)
                              UnitSetEngageTurn(playerUnit, unitData[3])
 
                         end
+                    end
+
+                    if #unitData >= 6 and unitData[2] == 0 then
+                        UnitClearPrivateSkill(playerUnit,"SID_疾風迅雷効果付与")
+                        UnitClearPrivateSkill(playerUnit,"SID_疾風迅雷発動済み")
                     end
 
                     if #unitData >= 6 then

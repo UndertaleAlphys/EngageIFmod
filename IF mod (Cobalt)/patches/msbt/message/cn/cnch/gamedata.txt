@@ -821,6 +821,9 @@ $P被击败或超过$Arg(0)回合
 [MTID_DragonVein_M021_Protection]
 龙脉：神龙加护
 
+[MTID_DragonVein_M023_SkySeal]
+龙脉：天锁
+
 [MTID_Quicksand]
 流沙
 
