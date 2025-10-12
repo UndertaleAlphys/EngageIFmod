@@ -2819,11 +2819,11 @@ attacks, but she would attack Alear and Vander first. Make haste!
 [MID_TUT_G002_RULE]
 Lyn will fight at your side. Team up with her to bring Hector down!
 
-[MID_TUT_M012_RULE]  
-When a unit is on Quicksand terrain,  
-it will be pushed 5 tiles in the indicated direction  
-at the end of the enemy phase.  
-Advance while keeping the flow of the sand in mind!  
+[MID_TUT_M012_RULE]
+When a unit is on Quicksand terrain, 
+it will be pushed 5 tiles in the indicated direction 
+at the end of the enemy phase. 
+Advance while keeping the flow of the sand in mind! 
 
 [MID_TUT_M013_RULE]
 Try to visit and rescue as many villages as you can this chapter!
@@ -2842,19 +2842,19 @@ Royal units can use the "Dragon Vein" command on Dragon Vein tiles.
 Its effects can greatly shift the tide of battle—use it wisely!
 
 [MID_TUT_M015_RULE]
-The fortress flames will spread over time.  
+The fortress flames will spread over time. 
 Plan your path and escape before it's too late!
 
-[MID_TUT_G005_RULE]  
-Each turn, Camilla will use a Dragon Vein in the corridor  
-where the most allies are gathered.  
-The Dragon Vein destroys obstacles and grants enemies there  
-the ability to ignore terrain movement costs.  
+[MID_TUT_G005_RULE]
+Each turn, Camilla will use a Dragon Vein in the corridor 
+where the most allies are gathered. 
+The Dragon Vein destroys obstacles and grants enemies there 
+the ability to ignore terrain movement costs. 
 Plan your route carefully to advance!
 
-[MID_TUT_M017_RULE]  
-In this chapter, Veyre will steal your Emblems.  
-Defeat the holder to reclaim an Emblem.  
+[MID_TUT_M017_RULE] 
+In this chapter, Veyre will steal your Emblems. 
+Defeat the holder to reclaim an Emblem. 
 If you lose all Emblems, you are defeated.
 Use your tactics wisely to take them back!
 
@@ -2866,21 +2866,21 @@ Find the suspicious individuals and defeat them!
 $Arg(0)G has been stolen from the army funds.
 $Arg(1)G remains.
 
-[MID_TUT_M020_RULE]  
-Kukri will unleash a wide-range Teleport Ragnarok attack  
-on your army each turn.  
-Make use of Dragon Veins or plan your route carefully!  
+[MID_TUT_M020_RULE] 
+Griss will unleash a wide-range Teleport Ragnarok attack 
+on your army each turn. 
+Make use of Dragon Veins or plan your route carefully! 
 
-[MID_TUT_M021_RULE]  
-In this chapter, some enemies possess the skill "Engage Seal,"  
-which reduces the Engage Meter and duration of nearby allies.  
-Additionally, every two turns Veyre will invoke the Fell Dragon Mark,  
-expanding the range of "Engage Seal" by 1 tile.  
+[MID_TUT_M021_RULE] 
+In this chapter, some enemies possess the skill "Engage Seal," 
+which reduces the Engage Meter and duration of nearby allies. 
+Additionally, every two turns Veyre will invoke the Fell Dragon Mark, 
+expanding the range of "Engage Seal" by 1 tile. 
 
-[MID_M021_DragonVeinEnemy]  
+[MID_M021_DragonVeinEnemy] 
 After this turn, the range of "Engage Seal" will expand by 1 tile.
 
-[MID_TUT_M022_RULE]  
+[MID_TUT_M022_RULE] 
 In this chapter, when a unit without an Emblem Ring 
 defeats an enemy, it will equip that enemy's Emblem Ring.
 

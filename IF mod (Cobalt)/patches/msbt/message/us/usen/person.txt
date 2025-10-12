@@ -712,10 +712,10 @@ Known as the Emblem of the Sacred.
 A compassionate princess who takes
 up her sword for the sake of peace.
 
-[MPID_Ephraim]  
-Ephraim  
+[MPID_Ephraim]
+Ephraim
 
-[MPID_H_Ephraim]  
+[MPID_H_Ephraim]
 Another Emblem of Sacred.  
 A valiant prince who fights for peace 
 with unwavering courage.  

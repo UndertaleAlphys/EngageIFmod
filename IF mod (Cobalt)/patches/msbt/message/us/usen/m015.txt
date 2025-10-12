@@ -390,21 +390,21 @@ $Type(1)
 $Window(0, "リュール", "t")
 $Anim(1, "リュール", "Angry")
 $Window(2, "リュール")
-Huh!?  
+Huh!? 
 Flames just burst out by the gate!$Wait(0)
 
 [MID_EV9_#002]
 $Window(0, "ミスティラ", "b")
 $Anim(1, "ミスティラ", "Angry")
 $Window(2, "ミスティラ")
-A defense mechanism must've been triggered...  
+A defense mechanism must've been triggered... 
 These flames will spread—we must be careful!$Wait(0)
 
 [MID_EV9_#003]
 $Window(0, "リュール", "t")
 $Anim(1, "リュール", "Angry")
 $Window(2, "リュール")
-Then we need to press forward now!  
+Then we need to press forward now! 
 If we don’t, we’ll be trapped in the fire!$Wait(0)
 
 [MID_DIE_LOCAL_Seadas_#001]

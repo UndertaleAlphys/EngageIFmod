@@ -581,7 +581,7 @@ Haha, who's going to stop us? Nobody!$Wait(0)
 $Type(1)
 $Window(0, "リュール", "b")
 $Window(2, "リュール")
-Such astounding strength...  
+Such astounding strength... 
 With the way open, we must move quickly to aid the villages! $Wait(0)
 
 [MID_BT1_#001]

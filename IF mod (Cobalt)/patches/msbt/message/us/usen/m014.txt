@@ -422,21 +422,21 @@ $Type(1)
 $Window(0, "ヴァンドレ", "t")
 $Anim(1, "ヴァンドレ", "Angry")
 $Window(2, "ヴァンドレ")
-Divine, that magic circle...  
+Divine, that magic circle... 
 It appears to be a Dragon Vein that stirs the power of the land. $Wait(0)
 
 [MID_EV2_#002]
 $Window(0, "ヴァンドレ", "t")
 $Anim(1, "ヴァンドレ", "Angry")
 $Window(2, "ヴァンドレ")
-It’s said that only those of royal blood  
+It’s said that only those of royal blood 
 can awaken such overwhelming power… $Wait(0)
 
 [MID_EV2_#003]
 $Window(0, "ヴァンドレ", "t")
 $Anim(1, "ヴァンドレ", "Angry")
 $Window(2, "ヴァンドレ")
-Unleashing the Dragon Vein at the right moment  
+Unleashing the Dragon Vein at the right moment 
 could turn the tide of battle. $Wait(0)
 
 [MID_EV3_#001]
@@ -444,7 +444,7 @@ $Type(1)
 $Window(0, "セピア", "t")
 $Anim(1, "セピア", "Angry")
 $Window(2, "セピア")
-Heheheh... I’ll toy with you a little longer today,  
+Heheheh... I’ll toy with you a little longer today, 
 my dear Divine Dragon… $Wait(0)
 
 [MID_EV4_#001]
@@ -452,7 +452,7 @@ $Type(1)
 $Window(0, "モーヴ", "t")
 $Anim(1, "モーヴ", "Angry")
 $Window(2, "モーヴ")
-Your strength is impressive indeed…  
+Your strength is impressive indeed… 
 It seems I must fight in earnest. $Wait(0)
 
 [MID_EV5_#001]
@@ -460,7 +460,7 @@ $Type(1)
 $Window(0, "マロン", "t")
 $Anim(1, "マロン", "Angry")
 $Window(2, "マロン")
-No matter how hard you try,  
+No matter how hard you try, 
 you can't beat we Four Hounds! $Wait(0)
 
 [MID_EV6_#001]
@@ -468,7 +468,7 @@ $Type(1)
 $Window(0, "グリ", "t")
 $Anim(1, "グリ", "Angry")
 $Window(2, "グリ")
-Come chase me—hurt me harder…  
+Come chase me—hurt me harder… 
 I live for this kind of pain...! $Wait(0)
 
 [MID_BT1_#001]
