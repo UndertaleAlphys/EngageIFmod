@@ -449,9 +449,9 @@ end
 function 毒ガスによる状態異常を付与する( unit,gasType )
 	
 	local skillMap = {
-		[0] = "SID_力封じ_効果-6",
-		[1] = "SID_守備封じ_効果-6",
-		[2] = "SID_速さ封じ_効果-6",
+		[0] = "Str",
+		[1] = "Def",
+		[2] = "Spd",
 		[3] = "SID_移動不可",
 		[4] = "SID_禍事罪穢効果",
 		[5] = "SID_神風招来効果",
@@ -468,7 +468,14 @@ function 毒ガスによる状態異常を付与する( unit,gasType )
 		local maxHp = UnitGetCapability(unitPid, CAPABILITY_HP, false)
 		local hp = UnitGetHp(unitPid)
 		local newHp = math.floor(math.min( hp, (maxHp+1)/2 ))
-		スキル装備(unit, newSkill)
+		if gasType >= 3 then
+			スキル装備(unit, newSkill)
+		else
+			local debuff = UnitGetDebuff(unit, newSkill)
+			if debuff < 6 then
+				UnitSetDebuff(unit, newSkill, 6)
+			end
+		end
 		if gasType == 4 then
 			UnitSetHp( unitPid, newHp )
 		end
