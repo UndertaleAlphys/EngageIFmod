@@ -4190,6 +4190,12 @@ MSID_CrtMoreDmg
 使用体术主动攻击时，
 将交替造成物理与魔法伤害
 
+[MSID_Clarity]
+心头灭却
+
+[MSID_H_Clarity]
+从减益效果中恢复的速度相比通常加倍
+
 [MSID_Aether]
 天空
 
@@ -5162,7 +5168,7 @@ HP不满时伤害+4
 倾奇者
 
 [MSID_H_Quixotic]
-战斗时，双方命中+30，奥义触发率+15
+战斗时，双方命中+30，奥义触发率+15%
 
 [MSID_Heartseeker]
 咒缚

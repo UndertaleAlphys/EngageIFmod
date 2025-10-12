@@ -4533,6 +4533,13 @@ When initiate attack using
 martial art, deals a consecutive
 physical and magical damage.
 
+[MSID_Clarity]
+Clarity
+
+[MSID_H_Clarity]
+Recovers from status reduction effects 
+twice as fast as normal.
+
 [MSID_Aether]
 Aether
 
