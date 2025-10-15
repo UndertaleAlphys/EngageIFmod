@@ -158,9 +158,6 @@ function Opening()
 
     紋章士外伝_レベルキャップ開放( "ロイ", "M019" )
     紋章士外伝_レベルキャップ開放( "ミカヤ", "M019" )
-	--PuppetDemo("M020", "MID_OP1")
-	--PuppetDemo("M020", "MID_OP2")
-	--PuppetDemo("M020", "MID_OP3")
 
 end
 
@@ -200,6 +197,8 @@ function RewrapReturn()
         UnitSetPos(g_pid_boss,10,25)
         WaitTime(2.0)
     end
+
+    AiSetRejectPower0Attack( g_pid_boss, true )
 end
 
 function EquipDragonVeinSkillsM020()
@@ -319,7 +318,7 @@ function RangeAddByTurn()
     WaitTime(1.0)
 
     local result =
-        FindMostUnitsInSquareArea(g_map_width, g_map_height, 5, FORCE_PLAYER)--local index = ForceUnitGetFirst(FORCE_PLAYER)
+        FindMostUnitsInSquareArea(g_map_width, g_map_height, 5, FORCE_PLAYER)
     attackRange = {}
 
     CursorSetPos(result.centerX,result.centerZ)
@@ -341,12 +340,53 @@ function RangeAddByTurn()
     bossRewrapX = result.centerX
     bossRewrapZ = result.centerZ
 
+    if TerrainGetMoveCost(bossRewrapX, bossRewrapZ) == "COST_不可" then
+        local validX, validZ = findNearestValidPositionBFS(bossRewrapX, bossRewrapZ)
+        if validX and validZ then
+            bossRewrapX = validX
+            bossRewrapZ = validZ
+        end
+    end
+
     if VariableGet("Tutorial_M020_Complete") == 0 then
         VariableSet("Tutorial_M020_Complete",1)
     end
 
     VariableSet("bossRewrapX", bossRewrapX)
     VariableSet("bossRewrapZ", bossRewrapZ)
+end
+
+function findNearestValidPositionBFS(centerX, centerZ)
+    local queue = {{x = centerX, z = centerZ}}
+    local visited = {}
+    visited[centerX * 100 + centerZ] = true
+
+    local directions = {{1,0}, {-1,0}, {0,1}, {0,-1}}
+
+    while #queue > 0 do
+        local current = table.remove(queue, 1)
+
+        if current.x >= 1 and current.x <= g_map_width and
+           current.z >= 1 and current.z <= g_map_height and
+           TerrainGetMoveCost(current.x, current.z) ~= "COST_不可" then
+            return current.x, current.z
+        end
+
+        for _, dir in ipairs(directions) do
+            local newX = current.x + dir[1]
+            local newZ = current.z + dir[2]
+            local key = newX * 100 + newZ
+
+            if newX >= 1 and newX <= g_map_width and
+               newZ >= 1 and newZ <= g_map_height and
+               not visited[key] then
+                visited[key] = true
+                table.insert(queue, {x = newX, z = newZ})
+            end
+        end
+    end
+
+    return nil, nil
 end
 
 function FindValidPosition(pid, targetX, targetZ, maxRange)
@@ -395,22 +435,6 @@ function RangeAttackByTurnInitValue()
 
 
 end
-
---function CheckStopRangeAttackCondition()
---	if VariableGet("RangeAttackStop_triggered") == 1 then
---		return
---	end
---
---	local index = ForceUnitGetFirst(FORCE_PLAYER)
---	while index ~= nil do
---		local z = UnitGetZ(index)
---		if z >=22 then
---			VariableSet("RangeAttackStop_triggered", 1)
---			return
---		end
---		index = ForceUnitGetNext(index)
---	end
---end
 
 function BossAttackImpl()
     if VariableGet("RangeAttackStop_triggered") == 1 then
@@ -466,6 +490,7 @@ function BossAttackImpl()
         end
 
         UnitSetPos(g_pid_boss,bossRewrapXvar,bossRewrapZvar)
+        AiSetRejectPower0Attack( g_pid_boss, false )
     end
 end
 

@@ -88,6 +88,10 @@ func CanPromoteToJob(person Person, job Job) bool {
 		if person.Pid != "PID_オルテンシア" {
 			return false
 		}
+	case "JID_メリュジーヌ_味方": // 驯兽师(奥尔坦西亚)
+		if person.Pid != "PID_セレスティア" {
+			return false
+		}
 	case "JID_ダンサー":
 		if person.Pid != "PID_セアダス" {
 			return false

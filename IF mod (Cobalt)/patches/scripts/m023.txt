@@ -6,6 +6,7 @@ g_pid_lueur = "PID_リュール"
 g_map_width		= 32
 g_map_height	= 32
 
+g_pid_sepia = "PID_M023_セピア"
 g_sepia_x = 12
 g_sepia_z = 30
 
@@ -31,7 +32,43 @@ g_dragonVeinConfig_M023 = {
         skillId = "SID_DragonVein_M023_SkySeal0",
         type = "skyseal",
         param = 0
-    }
+    },
+    {
+        point = {8, 29},
+        skillId = "SID_DragonVein_M023_SkySeal1",
+        type = "skyseal",
+        param = 0
+    },
+    {
+        point = {19, 20},
+        skillId = "SID_DragonVein_M023_SkySeal2",
+        type = "skyseal",
+        param = 0
+    },
+    {
+        point = {10, 23},
+        skillId = "SID_DragonVein_M023_SkySeal3",
+        type = "skyseal",
+        param = 0
+    },
+    {
+        point = {10, 10},
+        skillId = "SID_DragonVein_M023_SkySeal4",
+        type = "skyseal",
+        param = 0
+    },
+    {
+        point = {12, 30},
+        skillId = "SID_DragonVein_M023_SkySeal5",
+        type = "skyseal",
+        param = 0
+    },
+    {
+        point = {29, 13},
+        skillId = "SID_DragonVein_M023_SkySeal6",
+        type = "skyseal",
+        param = 0
+    },
 }
 
 
@@ -55,6 +92,10 @@ function フラグ登録()
 	E_BattleTalk_VariableEntry()
 
 	VariableEntry("dragonvein_turn_counter",2)
+    VariableEntry( "reinforcement_1_triggered", 0)
+    VariableEntry( "reinforcement_2_triggered", 0)
+    VariableEntry( "reinforcement_3_triggered", 0)
+    VariableEntry( "reinforcement_4_triggered", 0)
 end
 
 function イベント登録()
@@ -74,9 +115,14 @@ function イベント登録()
 	EventEntryBattleTalk(Talk, "",				FORCE_PLAYER, "PID_M023_グリ",		FORCE_ENEMY, true, "戦闘前会話_グリ_済",			"MID_BT6")
 	EventEntryDie(グリ死亡, "PID_M023_グリ", FORCE_ENEMY, "撃破セリフ_グリ_済")
 
-	EventEntryTurn(DragonVeinUsedByEnemy, -1, -1, FORCE_PLAYER)
-
     EventEntryTurn(EquipDragonVeinSkillsM023,   1,  1,  FORCE_PLAYER)
+
+    EventEntryTurnAfter(TriggerReinforcement1, -1, -1, FORCE_PLAYER, CheckReinforcementCondition_1)
+    EventEntryTurnAfter(TriggerReinforcement2, -1, -1, FORCE_PLAYER, CheckReinforcementCondition_2)
+    EventEntryTurnAfter(TriggerReinforcement4, -1, -1, FORCE_PLAYER, CheckReinforcementCondition_4)
+    EventEntryTurnAfter(TriggerReinforcement3, -1, -1, FORCE_PLAYER, CheckReinforcementCondition_3)
+
+    EventEntryTurnAfter(DragonVeinUsedByEnemy, -1, -1, FORCE_PLAYER)
 
     local dragonVeinPoints = {}
     for _, config in ipairs(g_dragonVeinConfig_M023) do
@@ -92,6 +138,130 @@ function Cleanup()
 	
 	Log("Cleanup")
 	
+end
+
+function CheckReinforcementCondition_1()
+	if VariableGet("reinforcement_1_triggered") == 1 then
+		return false
+	end
+
+	local index = ForceUnitGetFirst(FORCE_PLAYER)
+	while index ~= nil do
+		local z = UnitGetZ(index)
+		if z >= 14 then
+			VariableSet("reinforcement_1_triggered", 1)
+			return true
+		end
+		index = ForceUnitGetNext(index)
+	end
+	return false
+end
+
+function TriggerReinforcement1()
+    Dispos("Reinforcement1_1", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement1_2", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    DragonVeinUsedByEnemy()
+end
+
+function CheckReinforcementCondition_2()
+	if VariableGet("reinforcement_2_triggered") == 1 then
+		return false
+	end
+
+	local index = ForceUnitGetFirst(FORCE_PLAYER)
+	while index ~= nil do
+		local z = UnitGetZ(index)
+		if z >= 21 then
+			VariableSet("reinforcement_2_triggered", 1)
+			return true
+		end
+		index = ForceUnitGetNext(index)
+	end
+	return false
+end
+
+function TriggerReinforcement2()
+    Dispos("Reinforcement2_1", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement2_2", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement2_3", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    DragonVeinUsedByEnemy()
+end
+
+function CheckReinforcementCondition_3()
+	if VariableGet("reinforcement_3_triggered") == 1 then
+		return false
+	end
+
+	local index = ForceUnitGetFirst(FORCE_PLAYER)
+	while index ~= nil do
+		local z = UnitGetZ(index)
+		if z >= 27 then
+			VariableSet("reinforcement_3_triggered", 1)
+			return true
+		end
+		index = ForceUnitGetNext(index)
+	end
+	return false
+end
+
+function TriggerReinforcement3()
+    Dispos("Reinforcement3_1", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement3_2", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement3_3", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    DragonVeinUsedByEnemy()
+end
+
+function CheckReinforcementCondition_4()
+	if VariableGet("reinforcement_4_triggered") == 1 then
+		return false
+	end
+
+    if VariableGet("reinforcement_3_triggered") == 1 then
+        VariableSet("reinforcement_4_triggered", 1)
+        return true
+	end
+
+	return false
+end
+
+function TriggerReinforcement4()
+    Dispos("Reinforcement4_1", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement4_2", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement4_3", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    DragonVeinUsedByEnemy()
 end
 
 function InitMapM023()
@@ -185,6 +355,10 @@ function DragonVeinPostUseHandleM023(veinInfo)
 end
 
 function DragonVeinUsedByEnemy()
+    if UnitExistOnMap(g_pid_sepia) == false then
+        return
+    end
+
     local dragonveinCounter = VariableGet("dragonvein_turn_counter")
     dragonveinCounter = dragonveinCounter - 1
 
@@ -315,6 +489,8 @@ end
 function Ending()
 	
 	Log("Ending")
+
+	UnitJoin("PID_セレスティア","PID_グレゴリー")
 	
 end
 

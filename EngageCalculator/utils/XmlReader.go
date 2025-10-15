@@ -79,7 +79,7 @@ func GetOrderedPersonKeys(personCanRead map[string]string) []string {
 		"PID_パネトネ", "PID_メリン", "PID_オルテンシア", "PID_セアダス",
 		"PID_ロサード", "PID_ゴルドマリー", "PID_リンデン", "PID_ザフィーア",
 		"PID_ヴェイル", "PID_モーヴ", "PID_アンナ", "PID_ジャン", "PID_マデリーン",
-		//"PID_セレスティア", "PID_グレゴリー",
+		"PID_セレスティア", "PID_グレゴリー",
 	}
 
 	// 过滤出实际存在于personCanRead中的PID
