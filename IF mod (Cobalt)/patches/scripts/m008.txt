@@ -39,7 +39,7 @@ function イベント登録()
 	EventEntryTurn(BattleStartAfterイベント, 1, 1,  FORCE_PLAYER)
 	EventEntryTurn(勝利条件_敵将フォーカス, 1, 1, FORCE_PLAYER, condition_true, "PID_M008_アイビー")
 	EventEntryTurnAfter(弓砲台チュートリアル, 2, 2,  FORCE_PLAYER)
-	EventEntryTurnAfter(Victory, 11, 11,  FORCE_ENEMY)
+	EventEntryTurn(Victory, 12, 12,  FORCE_PLAYER)
 	
 	EventEntryPickup(チュートリアル_ロイ, "PID_ディアマンド", "チュートリアル_ロイ_済")
 	

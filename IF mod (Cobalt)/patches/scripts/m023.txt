@@ -124,6 +124,7 @@ function イベント登録()
 
     EventEntryTurnAfter(DragonVeinUsedByEnemy, -1, -1, FORCE_PLAYER)
 
+
     local dragonVeinPoints = {}
     for _, config in ipairs(g_dragonVeinConfig_M023) do
         table.insert(dragonVeinPoints, config.point)
@@ -139,6 +140,16 @@ function Cleanup()
 	Log("Cleanup")
 	
 end
+
+function Set_Interference_AI_M023()
+    for i = 1, 4 do
+        local maidPid = "PID_IFMOD_M023_メイド" .. i
+        if IsExistForcePlayerNearby(maidPid, 10) == false then
+            UnitSetStatus(maidPid, UNIT_STATUS_FIXED)
+        end
+    end
+end
+
 
 function CheckReinforcementCondition_1()
 	if VariableGet("reinforcement_1_triggered") == 1 then
@@ -393,56 +404,25 @@ function DragonVeinUsedByEnemy()
 end
 
 function EnemyDragonVeinApplyEffect()
-    local index = ForceUnitGetFirst(FORCE_PLAYER)
-    while index ~= nil do
-        if UnitGetMoveCost(index) == "COST_飛行" then
-            UnitClearPrivateSkill(index, "SID_IFMOD_M023_移動半減")
-            UnitSetPrivateSkill(index, "SID_IFMOD_M023_移動半分に増加")
-        else
-            UnitClearPrivateSkill(index, "SID_IFMOD_M023_移動半分に増加")
-            UnitSetPrivateSkill(index, "SID_IFMOD_M023_移動半減")
-        end
-        index = ForceUnitGetNext(index)
-    end
-
-    index = ForceUnitGetFirst(FORCE_ENEMY)
-    while index ~= nil do
-        if UnitGetMoveCost(index) == "COST_飛行" then
-            UnitClearPrivateSkill(index, "SID_IFMOD_M023_移動半減")
-            UnitSetPrivateSkill(index, "SID_IFMOD_M023_移動半分に増加")
-        else
-            UnitClearPrivateSkill(index, "SID_IFMOD_M023_移動半分に増加")
-            UnitSetPrivateSkill(index, "SID_IFMOD_M023_移動半減")
-        end
-        index = ForceUnitGetNext(index)
-    end
-
+    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_EF")
+    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_PF")
+    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半減_PN")
+    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半減_EN")
+    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半減_PF")
+    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半減_EF")
+    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_PN")
+    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_EN")
 end
 
 function DragonVeinApplyEffect()
-    local index = ForceUnitGetFirst(FORCE_PLAYER)
-    while index ~= nil do
-        if UnitGetMoveCost(index) == "COST_飛行" then
-            UnitClearPrivateSkill(index, "SID_IFMOD_M023_移動半分に増加")
-            UnitSetPrivateSkill(index, "SID_IFMOD_M023_移動半減")
-        else
-            UnitClearPrivateSkill(index, "SID_IFMOD_M023_移動半減")
-            UnitSetPrivateSkill(index, "SID_IFMOD_M023_移動半分に増加")
-        end
-        index = ForceUnitGetNext(index)
-    end
-
-    index = ForceUnitGetFirst(FORCE_ENEMY)
-    while index ~= nil do
-        if UnitGetMoveCost(index) == "COST_飛行" then
-            UnitClearPrivateSkill(index, "SID_IFMOD_M023_移動半分に増加")
-            UnitSetPrivateSkill(index, "SID_IFMOD_M023_移動半減")
-        else
-            UnitClearPrivateSkill(index, "SID_IFMOD_M023_移動半減")
-            UnitSetPrivateSkill(index, "SID_IFMOD_M023_移動半分に増加")
-        end
-        index = ForceUnitGetNext(index)
-    end
+    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半減_PF")
+    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半減_EF")
+    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_PN")
+    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_EN")
+    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_EF")
+    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_PF")
+    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半減_PN")
+    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半減_EN")
 end
 
 -- -----------------------------------
@@ -488,13 +468,7 @@ function MapEnding()
 	
 	Talk( "MID_EV4" )
 
-	紋章士外伝_レベルキャップ開放( "GID_マルス", "M023" )
-    紋章士外伝_レベルキャップ開放( "GID_ルキナ", "M023" )
-    紋章士外伝_レベルキャップ開放( "GID_アイク", "M023" )
-    紋章士外伝_レベルキャップ開放( "GID_ベレト", "M023" )
-    紋章士外伝_レベルキャップ開放( "GID_カムイ", "M023" )
-    紋章士外伝_レベルキャップ開放( "GID_エイリーク", "M023" )
-    紋章士外伝_レベルキャップ開放( "GID_リン", "M023" )
+
 end
 
 function Ending()
@@ -502,6 +476,15 @@ function Ending()
 	Log("Ending")
 
 	UnitJoin("PID_セレスティア","PID_グレゴリー")
+    UnitLearnJobSkill("PID_セレスティア")
+    UnitLearnJobSkill("PID_グレゴリー")
+    紋章士外伝_レベルキャップ開放( "マルス", "M023" )
+    紋章士外伝_レベルキャップ開放( "ルキナ", "M023" )
+    紋章士外伝_レベルキャップ開放( "アイク", "M023" )
+    紋章士外伝_レベルキャップ開放( "ベレト", "M023" )
+    紋章士外伝_レベルキャップ開放( "カムイ", "M023" )
+    紋章士外伝_レベルキャップ開放( "エイリーク", "M023" )
+    紋章士外伝_レベルキャップ開放( "リン", "M023" )
 	
 end
 
