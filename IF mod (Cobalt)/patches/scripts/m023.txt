@@ -150,7 +150,7 @@ function CheckReinforcementCondition_1()
 	local index = ForceUnitGetFirst(FORCE_PLAYER)
 	while index ~= nil do
 		local z = UnitGetZ(index)
-		if (z >= 14 and x <= 24) or MapGetTurn() >= 2 then
+		if (z >= 14 and x <= 24) or MapGetTurn() >= 5 then
 			VariableSet("reinforcement_1_triggered", 1)
 			return true
 		end
@@ -450,7 +450,7 @@ end
 function Opening()
 	
 	Log("Opening")
-	
+
 	--PuppetDemo("M023", "MID_OP1")
 	--PuppetDemo("M023", "MID_OP2")
 	
@@ -487,7 +487,14 @@ function MapEnding()
 	MapCameraWait()
 	
 	Talk( "MID_EV4" )
-	
+
+	紋章士外伝_レベルキャップ開放( "GID_マルス", "M023" )
+    紋章士外伝_レベルキャップ開放( "GID_ルキナ", "M023" )
+    紋章士外伝_レベルキャップ開放( "GID_アイク", "M023" )
+    紋章士外伝_レベルキャップ開放( "GID_ベレト", "M023" )
+    紋章士外伝_レベルキャップ開放( "GID_カムイ", "M023" )
+    紋章士外伝_レベルキャップ開放( "GID_エイリーク", "M023" )
+    紋章士外伝_レベルキャップ開放( "GID_リン", "M023" )
 end
 
 function Ending()

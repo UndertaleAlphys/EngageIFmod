@@ -333,7 +333,13 @@ function MapEnding()
 	UnitJoin("PID_マデリーン")
 	UnitLearnJobSkill("PID_マデリーン")
 
-    紋章士外伝_レベルキャップ開放( "セリカ", "M022" )
+    紋章士外伝_レベルキャップ開放( "GID_マルス", "M022" )
+    紋章士外伝_レベルキャップ開放( "GID_ルキナ", "M022" )
+    紋章士外伝_レベルキャップ開放( "GID_アイク", "M022" )
+    紋章士外伝_レベルキャップ開放( "GID_ベレト", "M022" )
+    紋章士外伝_レベルキャップ開放( "GID_カムイ", "M022" )
+    紋章士外伝_レベルキャップ開放( "GID_エイリーク", "M022" )
+    紋章士外伝_レベルキャップ開放( "GID_リン", "M022" )
 end
 
 function Ending()
@@ -355,7 +361,7 @@ function Ending()
 	
 	PuppetDemo("M022", "MID_ED2")
 	PuppetDemo("M022", "MID_ED3")
-	
+
 end
 
 function GameOver()
