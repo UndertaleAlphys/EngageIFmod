@@ -145,10 +145,12 @@ function CheckReinforcementCondition_1()
 		return false
 	end
 
+
+
 	local index = ForceUnitGetFirst(FORCE_PLAYER)
 	while index ~= nil do
 		local z = UnitGetZ(index)
-		if z >= 14 then
+		if (z >= 14 and x <= 24) or MapGetTurn() >= 2 then
 			VariableSet("reinforcement_1_triggered", 1)
 			return true
 		end
@@ -177,7 +179,7 @@ function CheckReinforcementCondition_2()
 	local index = ForceUnitGetFirst(FORCE_PLAYER)
 	while index ~= nil do
 		local z = UnitGetZ(index)
-		if z >= 21 then
+		if (z >= 21 and x <= 24) or MapGetTurn() >= 7 then
 			VariableSet("reinforcement_2_triggered", 1)
 			return true
 		end
@@ -210,7 +212,8 @@ function CheckReinforcementCondition_3()
 	local index = ForceUnitGetFirst(FORCE_PLAYER)
 	while index ~= nil do
 		local z = UnitGetZ(index)
-		if z >= 27 then
+		local x = UnitGetX(index)
+		if (z >= 27 and x <= 21) or MapGetTurn() >= 9 then
 			VariableSet("reinforcement_3_triggered", 1)
 			return true
 		end
@@ -413,6 +416,7 @@ function EnemyDragonVeinApplyEffect()
         end
         index = ForceUnitGetNext(index)
     end
+
 end
 
 function DragonVeinApplyEffect()
