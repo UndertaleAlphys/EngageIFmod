@@ -854,7 +854,7 @@
 特效药
 
 [MIID_H_Medicine]
-可回复自身30HP。
+可回复自身40HP。
 
 [MIID_Antidote]
 解毒剂

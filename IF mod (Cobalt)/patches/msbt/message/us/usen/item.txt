@@ -918,7 +918,7 @@ Drink to recover 10 HP.
 Elixir
 
 [MIID_H_Medicine]
-Drink to recover 30 HP.
+Drink to recover 40 HP.
 
 [MIID_Antidote]
 Antitoxin
