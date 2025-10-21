@@ -5256,12 +5256,12 @@ Impenetrable Stance
 
 [MSID_H_Impenetrable]
 Grant the unit "Impenetrable",
-cost 2 engage meter
+cost 3 engage meter or 1 engage turn
 to grant immunity to break.
 
 [MSID_H_Impenetrable_Dragon]
 Grant the unit "Impenetrable",
-cost 2 engage meter
+cost 3 engage meter or 1 engage turn
 to grant immunity to break.
 [Dragon] -1 engage meter cost.
 
@@ -5383,11 +5383,10 @@ Friendly Rivalry
 At start of player phase, the Emblem
 will randomly switch.
 If sycned emblem is:
-Edelgard, grants immunity to break
-from weapon advantage;
+Edelgard, grants immunity to break;
 Dimitri, grants mov+1 and canto;
-Claude, unit pays no extra cost on
-any terrain.
+Claude, grants mov+1, and unit pays 
+no extra cost on any terrain.
 
 [MSID_ClassPresidentsEngage]
 Combat Arts
