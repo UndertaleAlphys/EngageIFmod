@@ -4682,7 +4682,7 @@ during battle get Dmg+5.
 Sensei
 
 [MSID_H_Sensei]
-This unit will "Rally"
+Unit will "Rally"
 automatically after
 ending his/her turn.
 
@@ -5641,3 +5641,12 @@ Engage Seal
 At phase start, reduce the Engage Meter
 of enemies within 7 spaces by 2, 
 or shorten their remaining Engage turn by 1.
+
+[MSID_PrivateSkill_Selestia]
+Friendly Boost
+
+[MSID_H_PrivateSkill_Selestia]
+Grants the unit "Rally" command,
+use to +1 Str/Mag/Spd to all allies in 2 radius.
+If unit initiates combat and defeats a foe,
+unit will "Rally" automatically.

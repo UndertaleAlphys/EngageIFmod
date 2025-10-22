@@ -568,13 +568,6 @@ EX义警队
 打倒敌人时，必杀+10
 效果持续1回合
 
-[MSID_PrivateSkill_Selestia]
-开心果
-
-[MSID_H_PrivateSkill_Selestia]
-打倒敌人时，周围2格内的我方单位
-命中+20，效果持续1回合
-
 [MSID_PrivateSkill_Gregory]
 生存战略
 
