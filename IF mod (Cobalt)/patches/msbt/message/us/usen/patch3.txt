@@ -612,14 +612,6 @@ When an ally within 2 spaces
 defeats a foe, grants Crit+10
 to unit for 1 turn.
 
-[MSID_PrivateSkill_Selestia]
-Friendly Boost
-
-[MSID_H_PrivateSkill_Selestia]
-When unit defeats a foe, grants
-Hit+20 to allies within 2 spaces for
-1 turn.
-
 [MSID_PrivateSkill_Gregory]
 Survival Plan
 

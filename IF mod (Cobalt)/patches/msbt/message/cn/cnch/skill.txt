@@ -5222,3 +5222,12 @@ HP不满时伤害+4
 [MSID_H_IFMOD_EngageSeal]
 每回合开始时，减少周围7格敌方
 2结合计量条或1结合回合。
+
+[MSID_PrivateSkill_Selestia]
+开心果
+
+[MSID_H_PrivateSkill_Selestia]
+可使用"支援"指令，
+使周围两格内友方的力、魔力、速+1
+自身发动攻击击倒敌人的行动结束后
+可以发动支援效果。
