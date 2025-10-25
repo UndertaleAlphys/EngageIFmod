@@ -344,7 +344,7 @@ function Ending()
 	FadeOutAndWait(FADE_NORMAL)
 	
 	スキル解除( g_pid_lueur, "SID_異形兵" )
-	--GodUnitCreate("GID_リュール")
+	GodUnitCreate("GID_リュール")
 	
 	-- リュールのヘルプ内容を変更
 	VariableSet( "G_置換_MPID_H_Lueur", 2 )

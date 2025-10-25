@@ -69,6 +69,30 @@ g_dragonVeinConfig_M023 = {
         type = "skyseal",
         param = 0
     },
+     {
+        point = {21, 8},
+        skillId = "SID_DragonVein_M023_SkySeal7",
+        type = "skyseal",
+        param = 0
+    },
+     {
+        point = {21, 8},
+        skillId = "SID_DragonVein_M023_SkySeal7",
+        type = "skyseal",
+        param = 0
+    },
+     {
+        point = {28, 21},
+        skillId = "SID_DragonVein_M023_SkySeal8",
+        type = "skyseal",
+        param = 0
+    },
+    {
+        point = {15, 4},
+        skillId = "SID_DragonVein_M023_SkySeal9",
+        type = "skyseal",
+        param = 0
+    },
 }
 
 
@@ -179,7 +203,13 @@ function TriggerReinforcement1()
     Yield()
     WaitTime(0.5)
 
-    DragonVeinUsedByEnemy()
+    if CheckStatusLueur() == -1 then
+        EnemyDragonVeinApplyEffect()
+    end
+
+    if CheckStatusLueur() == 1 then
+        DragonVeinApplyEffect()
+    end
 end
 
 function CheckReinforcementCondition_2()
@@ -212,7 +242,13 @@ function TriggerReinforcement2()
     Yield()
     WaitTime(0.5)
 
-    DragonVeinUsedByEnemy()
+    if CheckStatusLueur() == -1 then
+        EnemyDragonVeinApplyEffect()
+    end
+
+    if CheckStatusLueur() == 1 then
+        DragonVeinApplyEffect()
+    end
 end
 
 function CheckReinforcementCondition_3()
@@ -224,7 +260,7 @@ function CheckReinforcementCondition_3()
 	while index ~= nil do
 		local z = UnitGetZ(index)
 		local x = UnitGetX(index)
-		if (z >= 27 and x <= 21) or MapGetTurn() >= 9 then
+		if (z >= 27 and x <= 21) or MapGetTurn() >= 10 then
 			VariableSet("reinforcement_3_triggered", 1)
 			return true
 		end
@@ -246,7 +282,13 @@ function TriggerReinforcement3()
     Yield()
     WaitTime(0.5)
 
-    DragonVeinUsedByEnemy()
+    if CheckStatusLueur() == -1 then
+        EnemyDragonVeinApplyEffect()
+    end
+
+    if CheckStatusLueur() == 1 then
+        DragonVeinApplyEffect()
+    end
 end
 
 function CheckReinforcementCondition_4()
@@ -275,7 +317,13 @@ function TriggerReinforcement4()
     Yield()
     WaitTime(0.5)
 
-    DragonVeinUsedByEnemy()
+    if CheckStatusLueur() == -1 then
+        EnemyDragonVeinApplyEffect()
+    end
+
+    if CheckStatusLueur() == 1 then
+        DragonVeinApplyEffect()
+    end
 end
 
 function InitMapM023()
@@ -307,6 +355,7 @@ function EquipDragonVeinSkillsM023()
     end
     DragonVeinEquipSkills(skillIds)
 end
+
 
 function DragonVeinUsed()
     local unit = MindGetUnit()
@@ -403,26 +452,96 @@ function DragonVeinUsedByEnemy()
     VariableSet("dragonvein_turn_counter",dragonveinCounter)
 end
 
+function CheckStatusLueur()
+   for i = 1, 5 do
+       if UnitHasPrivateSkill(g_pid_lueur, "SID_IFMOD_Move-" .. i) then
+           return -1
+       end
+       if UnitHasPrivateSkill(g_pid_lueur, "SID_IFMOD_Move+" .. i) then
+           return 1
+       end
+   end
+   return 0
+end
+
 function EnemyDragonVeinApplyEffect()
-    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_EF")
-    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_PF")
-    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半減_PN")
-    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半減_EN")
-    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半減_PF")
-    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半減_EF")
-    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_PN")
-    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_EN")
+ local index = ForceUnitGetFirst(FORCE_PLAYER)
+    while index ~= nil do
+        local basicMove = UnitGetCapability(index,CAPABILITY_MOVE,false)
+        if basicMove % 2 == 1 then
+            basicMove = basicMove - 1
+        end
+        local halfValue = basicMove/2
+        local addSkillId = "SID_IFMOD_Move+" .. halfValue
+        local subSkillId = "SID_IFMOD_Move-" .. halfValue
+        if UnitGetMoveCost(index) == "COST_飛行" then
+            UnitRemovePrivateSkill(index, subSkillId)
+            UnitSetPrivateSkill(index, addSkillId)
+        else
+            UnitRemovePrivateSkill(index, addSkillId)
+            UnitSetPrivateSkill(index, subSkillId)
+        end
+        index = ForceUnitGetNext(index)
+    end
+
+    index = ForceUnitGetFirst(FORCE_ENEMY)
+    while index ~= nil do
+        local basicMove = UnitGetCapability(index,CAPABILITY_MOVE,false)
+        if basicMove % 2 == 1 then
+            basicMove = basicMove - 1
+        end
+        local halfValue = basicMove/2
+        local addSkillId = "SID_IFMOD_Move+" .. halfValue
+        local subSkillId = "SID_IFMOD_Move-" .. halfValue
+        if UnitGetMoveCost(index) == "COST_飛行" then
+            UnitRemovePrivateSkill(index, subSkillId)
+            UnitSetPrivateSkill(index, addSkillId)
+        else
+            UnitRemovePrivateSkill(index, addSkillId)
+            UnitSetPrivateSkill(index, subSkillId)
+        end
+        index = ForceUnitGetNext(index)
+    end
 end
 
 function DragonVeinApplyEffect()
-    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半減_PF")
-    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半減_EF")
-    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_PN")
-    UnitSetPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_EN")
-    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_EF")
-    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半分に増加_PF")
-    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半減_PN")
-    UnitClearPrivateSkill(1, "SID_IFMOD_M023_移動半減_EN")
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+    while index ~= nil do
+        local basicMove = UnitGetCapability(index,CAPABILITY_MOVE,false)
+        if basicMove % 2 == 1 then
+            basicMove = basicMove - 1
+        end
+        local halfValue = basicMove/2
+        local addSkillId = "SID_IFMOD_Move+" .. halfValue
+        local subSkillId = "SID_IFMOD_Move-" .. halfValue
+        if UnitGetMoveCost(index) == "COST_飛行" then
+            UnitClearPrivateSkill(index, addSkillId)
+            UnitSetPrivateSkill(index, subSkillId)
+        else
+            UnitClearPrivateSkill(index, subSkillId)
+            UnitSetPrivateSkill(index, addSkillId)
+        end
+        index = ForceUnitGetNext(index)
+    end
+
+    index = ForceUnitGetFirst(FORCE_ENEMY)
+    while index ~= nil do
+        local basicMove = UnitGetCapability(index,CAPABILITY_MOVE,false)
+        if basicMove % 2 == 1 then
+            basicMove = basicMove - 1
+        end
+        local halfValue = basicMove/2
+        local addSkillId = "SID_IFMOD_Move+" .. halfValue
+        local subSkillId = "SID_IFMOD_Move-" .. halfValue
+        if UnitGetMoveCost(index) == "COST_飛行" then
+            UnitClearPrivateSkill(index, addSkillId)
+            UnitSetPrivateSkill(index, subSkillId)
+        else
+            UnitClearPrivateSkill(index, subSkillId)
+            UnitSetPrivateSkill(index, addSkillId)
+        end
+        index = ForceUnitGetNext(index)
+    end
 end
 
 -- -----------------------------------

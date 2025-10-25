@@ -93,14 +93,10 @@ function MapOpening()
 end
 
 function InitMapM024()
-    TerrainSetBegin()
-    for _,point in ipairs(arenaPoint) do
-        TerrainSet(point[1],point[2],"TID_防衛床_M024")
-    end
-    for _,point in ipairs(removeBarrierPoint) do
-        TerrainSet(point[1],point[2],"TID_平地")
-    end
-    TerrainSetEnd()
+    Log("InitMapM024")
+    EffectCreate( "魔法障壁_展開_E005", 10,24 )
+    EffectCreateRotateXYZ("魔法障壁_展開_E005", 10, 24, 10.0, effect[4], effect[5], effect[6], 5)
+    EffectCreate( "魔法障壁_展開_E005", 23,25 )
 end
 -- -----------------------------------
 
@@ -109,8 +105,6 @@ function 勝利条件_M024()
 	WinRule()
 	CursorAnimeDelete()
 end
-
-
 
 function MapEnding()
 	
