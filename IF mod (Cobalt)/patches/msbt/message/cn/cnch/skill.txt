@@ -4017,7 +4017,7 @@ MSID_CrtMoreDmg
 状态异常无效
 
 [MSID_H_ImmuneStatus]
-免疫毒、沉默、冰封、虚弱、break效果
+免疫负面效果和毒伤害
 
 [MSID_Commander]
 大将星
