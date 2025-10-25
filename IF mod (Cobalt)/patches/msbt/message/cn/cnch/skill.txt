@@ -2071,78 +2071,39 @@ HP为75%及以下时
 神龙加护
 
 [MSID_H_GodDragonProtection]
-使所有对自身的克制效果无效
+自身受到的毒伤害、
+逐回合恢复的能力值降低效果均减半，
+降低自身受到的克制效果。
 
 [MSID_ConnectPerson_1]
 系承牵绊者
 
 [MSID_H_ConnectPerson_1]
-使自己和周围2格内
-同步或结合中的我方单位
-命中、回避+20
+回合开始时，自身邻接的
+我方单位结合计量条+1
 
 [MSID_ConnectPerson_2]
 系承牵绊者+
 
 [MSID_H_ConnectPerson_2]
-使自己和周围2格内
-同步或结合中的我方单位
-命中、回避+30
+回合开始时，自身2格内的
+我方单位结合计量条+1
 
 [MSID_BlessingOfEleos]
 艾雷欧斯的祝福
 
 [MSID_H_BlessingOfEleos]
-自身发动攻击时
-自身的必杀及必避提升，
-幅度为结束行动的我方单位总数×2
+可使用"支援"指令，
+使周围两格内友方的
+能力降低效果减少1
 
 [MSID_LueurEngage]
 以心
 
 [MSID_H_LueurEngage]
-自身发动攻击并打倒敌人时
-结合解除前,结合对象的全基本能力值+4
-
-[MSID_H_LueurEngage_Dragon]
-自身发动攻击并打倒敌人时
-结合解除前,结合对象的全基本能力值+4
-【龙族】7种基本能力值额外+1
-
-[MSID_H_LueurEngage_Coop]
-自身发动攻击并打倒敌人时
-结合解除前,结合对象的全基本能力值+4
-【连携】力额外+2
-
-[MSID_H_LueurEngage_Horse]
-自身发动攻击并打倒敌人时
-结合解除前,结合对象的全基本能力值+4
-【骑马】技额外+2
-
-[MSID_H_LueurEngage_Covert]
-自身发动攻击并打倒敌人时
-结合解除前,结合对象的全基本能力值+4
-【隐密】速度额外+2
-
-[MSID_H_LueurEngage_Heavy]
-自身发动攻击并打倒敌人时
-结合解除前,结合对象的全基本能力值+4
-【重装】守备额外+2
-
-[MSID_H_LueurEngage_Fly]
-自身发动攻击并打倒敌人时
-结合解除前,结合对象的全基本能力值+4
-【飞行】魔防额外+2
-
-[MSID_H_LueurEngage_Magic]
-自身发动攻击并打倒敌人时
-结合解除前，结合对象的全基本能力值+4
-【魔道】魔力额外+2
-
-[MSID_H_LueurEngage_Prana]
-自身发动攻击并打倒敌人时
-结合解除前,结合对象的全基本能力值+4
-【气功】幸运额外+2
+自身发动攻击并打倒敌人时，
+结合状态的持续回合数+1。
+（不可超过最大持续回合数）
 
 [MSID_LueurEngageAtk]
 神龙破
@@ -4018,6 +3979,13 @@ MSID_CrtMoreDmg
 
 [MSID_H_ImmuneStatus]
 免疫负面效果和毒伤害
+
+[MSID_ResistStatus]
+状态异常耐性
+
+[MSID_H_ResistStatus]
+自身受到逐回合恢复的能力降低效果、
+受到的毒伤害和受到妨害杖的命中率减半
 
 [MSID_Commander]
 大将星
