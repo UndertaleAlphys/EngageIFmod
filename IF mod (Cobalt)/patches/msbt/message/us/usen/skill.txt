@@ -2243,89 +2243,39 @@ Dragon gain Effective: Fell Dragon.
 Holy Shield
 
 [MSID_H_GodDragonProtection]
-Neutralizes Effective against
-this unit.
+Halves stat-reduction effects, poison damage, 
+and reduces damage from effectiveness.
 
 [MSID_ConnectPerson_1]
 Bond Forger
 
 [MSID_H_ConnectPerson_1]
-Grants Hit/Avo+20 to unit and allies
-within 2 spaces that are synced or
-engaged with an Emblem.
+At the start of each turn, 
+grants +1 to the Engage meter 
+of all adjacent allies.
 
 [MSID_ConnectPerson_2]
 Bond Forger+
 
 [MSID_H_ConnectPerson_2]
-Grants Hit/Avo+30 to unit and allies
-within 2 spaces that are synced or
-engaged with an Emblem.
+At the start of each turn, 
+grants +1 to the Engage meter 
+of all allies within 2 radius.
 
 [MSID_BlessingOfEleos]
 Boon of Elyos
 
 [MSID_H_BlessingOfEleos]
-If unit initiates combat, grants bonus
-to Crit and Ddg equal to 2× the
-number of allies who have acted
-this turn.
+Grants the unit "Rally" command,
+use to -1 Debuff to all allies in 2 radius.
 
 [MSID_LueurEngage]
 Attuned
 
 [MSID_H_LueurEngage]
-If unit initiates combat and defeats
-foe, grants engage partner +4 to all
-seven basic stats while engaged.
-
-[MSID_H_LueurEngage_Dragon]
-If unit initiates combat and defeats
-foe, grants engage partner +4 to all
-seven basic stats while engaged.
-[Dragon] Extra +1 to all stats.
-
-[MSID_H_LueurEngage_Coop]
-If unit initiates combat and defeats
-foe, grants engage partner +4 to all
-seven basic stats while engaged.
-[Backup] Extra +2 to Str.
-
-[MSID_H_LueurEngage_Horse]
-If unit initiates combat and defeats
-foe, grants engage partner +4 to all
-seven basic stats while engaged.
-[Cavalry] Extra +2 to Dex.
-
-[MSID_H_LueurEngage_Covert]
-If unit initiates combat and defeats
-foe, grants engage partner +4 to all
-seven basic stats while engaged.
-[Covert] Extra +2 to Spd.
-
-[MSID_H_LueurEngage_Heavy]
-If unit initiates combat and defeats
-foe, grants engage partner +4 to all
-seven basic stats while engaged.
-[Armored] Extra +2 to Def.
-
-[MSID_H_LueurEngage_Fly]
-If unit initiates combat and defeats
-foe, grants engage partner +4 to all
-seven basic stats while engaged.
-[Flying] Extra +2 to Res.
-
-[MSID_H_LueurEngage_Magic]
-If unit initiates combat and defeats
-foe, grants engage partner +4 to all
-seven basic stats while engaged.
-[Mystical] Extra +2 to Mag.
-
-[MSID_H_LueurEngage_Prana]
-If unit initiates combat and defeats
-foe, grants engage partner +4 to all
-seven basic stats while engaged.
-[Qi Adept] Extra +2 to Lck.
+If unit initiates combat and defeats a foe,
+extends Engage duration by 1.
+(Cannot exceed the maximum duration.)
 
 [MSID_LueurEngageAtk]
 Dragon Blast
@@ -4335,8 +4285,15 @@ regardless of distance to attacker.
 Immune Status
 
 [MSID_H_ImmuneStatus]
-Immune to Poison, Silence,
-Freeze, Enfeeble, Break.
+Nullifies status reduction effects 
+and damage from poison.
+
+[MSID_ResistStatus]
+Resist Status
+
+[MSID_H_ResistStatus]
+Halves stat-reduction effects, poison
+damage, and the Hit of status staves.
 
 [MSID_Commander]
 General
