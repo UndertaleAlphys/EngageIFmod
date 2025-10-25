@@ -616,8 +616,12 @@ to unit for 1 turn.
 Survival Plan
 
 [MSID_H_PrivateSkill_Gregory]
-When there are more foes than allies
-within 3 spaces, grants Avo+20.
+If unit's HP is above 50%, 
+grants +1 Dmg and +5 Hit/Crit
+when unit initiates combat.
+If unit's HP is not above 50%, 
+inflicts -1 Dmg and -5 Hit/Crit
+on foe when they initiate combat.
 
 [MSID_PrivateSkill_Madeline]
 Knightly Code
