@@ -909,7 +909,7 @@
 女神像
 
 [MIID_H_GoddessIcon]
-使用后幸运+2。
+使用后幸运+4。
 
 [MIID_Dracoshield]
 龙之盾
@@ -969,7 +969,7 @@ HP药
 幸运药
 
 [MIID_H_LckTonic]
-战斗结束前幸运+2。
+战斗结束前幸运+4。
 
 [MIID_DefTonic]
 防守药

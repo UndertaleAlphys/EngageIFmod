@@ -980,7 +980,7 @@ permanently.
 Goddess Icon
 
 [MIID_H_GoddessIcon]
-Expend to grant Lck+2 to user
+Expend to grant Lck+4 to user
 permanently.
 
 [MIID_Dracoshield]
@@ -1050,7 +1050,7 @@ duration of a battle.
 Luck Tonic
 
 [MIID_H_LckTonic]
-Drink to grant Lck+2 for the
+Drink to grant Lck+4 for the
 duration of a battle.
 
 [MIID_DefTonic]
