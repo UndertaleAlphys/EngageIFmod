@@ -151,7 +151,7 @@ function イベント登録()
 	EventEntryBattleTalk( クロム_ルキナと戦闘,		"",				FORCE_PLAYER, "PID_G006_クロム",	FORCE_ENEMY, true, condition_クロム_ルキナと戦闘 )
 	EventEntryBattleTalk( ルフレ_リュールと戦闘,	g_pid_lueur,	FORCE_PLAYER, "PID_G006_ルフレ",	FORCE_ENEMY, true, g_key_battleTalk_reflet_lueur )
 	EventEntryBattleTalk( ルフレ_ルキナと戦闘,		"",				FORCE_PLAYER, "PID_G006_ルフレ",	FORCE_ENEMY, true, condition_ルフレ_ルキナと戦闘 )
-
+	EventEntryFixed(MapOverlapAllClearFixed,"",FORCE_PLAYER)
 	
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 13, 4, "PID_リュール", condition_true)
@@ -325,6 +325,17 @@ function Crystal3_Destroy()
 
 	if VariableGet( g_key_FirstBrokenCrystal ) == 0 then
 		Crystal_Destroy_First()
+	end
+end
+
+function MapOverlapAllClearFixed()
+
+	local num = VariableGet( g_key_BrokenCrystalNum )
+
+	if ( num == g_CrystalMaxNum ) then
+		MapOverlapSetBegin()
+		MapOverlapAllClear()
+		MapOverlapSetEnd()
 	end
 end
 
@@ -637,8 +648,6 @@ function Crystal_All_Destroy()
 	Barrier_Destroy()
 	
 	クロムとルフレのスキル解除()
-
-	MapOverlapAllClear()
 
 	InitTerrain()
 
