@@ -104,10 +104,10 @@ function Opening()
 
 	Log("Opening")
 
-	PuppetDemo("M016", "MID_OP1")
-	PuppetDemo("M016", "MID_OP2")
-	PuppetDemo("M016", "MID_OP3")
-	PuppetDemo("M016", "MID_OP4")
+	-- PuppetDemo("M016", "MID_OP1")
+	-- PuppetDemo("M016", "MID_OP2")
+	-- PuppetDemo("M016", "MID_OP3")
+	-- PuppetDemo("M016", "MID_OP4")
 
 end
 
@@ -153,7 +153,7 @@ function MapOpening()
 	Yield()
 	WaitTime( 0.5 )
 
-	Talk("MID_EV1")
+	-- Talk("MID_EV1")
 
 	UnitRotation("PID_ロサード",		ROTATE_LEFT)
 	UnitRotation("PID_ゴルドマリー",	ROTATE_LEFT)

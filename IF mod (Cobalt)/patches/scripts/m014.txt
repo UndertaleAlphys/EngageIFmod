@@ -626,19 +626,8 @@ function ボス部屋増援()
 end
 
 function ボス部屋アクティブ化()
-	Log("Active")
 	UnitClearStatus("PID_M014_オルテンシア", UNIT_STATUS_MOVE_NOT_ALLOW)
-	AiSetSequence("PID_M014_オルテンシア", AI_ORDER_CAUSE, "AI_AC_Everytime")
-	AiSetSequence("PID_M014_セピア", AI_ORDER_CAUSE, "AI_AC_Everytime")
-	AiSetSequence("PID_M014_マロン", AI_ORDER_CAUSE, "AI_AC_Everytime")
-	AiSetSequence("PID_M014_モーヴ", AI_ORDER_CAUSE, "AI_AC_Everytime")
-	AiSetSequence("PID_M014_グリ", AI_ORDER_CAUSE, "AI_AC_Everytime")
-	AiSetSequence("PID_M014_セピア", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
-	AiSetSequence("PID_M014_マロン", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
-	AiSetSequence("PID_M014_モーヴ", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
-	AiSetSequence("PID_M014_グリ", AI_ORDER_MOVE,"AI_MV_NearestEnemy")
     SetAIForAllEnemies()
-	Log("Active end")
 end
 
 function SetAIForAllEnemies()
