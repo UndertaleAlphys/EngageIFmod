@@ -847,7 +847,8 @@ Divine Fist Art
 [MIID_H_GodFist]
 A scroll of a legendary martial skill.
 If user initiates combat, attacks
-twice.
+twice. Deals extra damage when Crit.
+Reverse the weapon triangle and double its effect.
 Halves Str & Mag until unit attacks again.
 
 [MIID_FireBreath]
