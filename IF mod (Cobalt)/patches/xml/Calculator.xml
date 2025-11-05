@@ -11,11 +11,11 @@
       <Param Name="ユニット防御力計算" Condition="相手の攻撃属性 == 魔法属性;" Function="魔防;守備;" />
       <Param Name="赤" Condition="" Function="1;" />
       <Param Name="緑" Condition="" Function="2;" />
-      <Param Name="青" Condition="" Function="3;" />
-      <Param Name="黄" Condition="" Function="4;" />
+      <Param Name="青" Condition="" Function="4;" />
+      <Param Name="黄" Condition="" Function="8;" />
       <Param Name="武器の色" Condition="武器の種類 == 剣 || 武器の種類 == 魔道書; 武器の種類 == 斧 || 武器の種類 == 弓; 武器の種類 == 槍 || 武器の種類 == 短剣; 武器の種類 == 拳 || 武器の種類 == 特殊; " Function="赤;緑;青;黄;0;" />
       <Param Name="相手の武器の色" Condition="相手の武器の種類 == 剣 || 相手の武器の種類 == 魔道書; 相手の武器の種類 == 斧 || 相手の武器の種類 == 弓; 相手の武器の種類 == 槍 || 相手の武器の種類 == 短剣; 相手の武器の種類 == 拳 || 相手の武器の種類 == 特殊; " Function="赤;緑;青;黄;0;" />
-      <Param Name="戦知識の色判定" Condition="スキル所持(&quot;戦知識_効果_赤&quot;);スキル所持(&quot;戦知識_効果_緑&quot;);スキル所持(&quot;戦知識_効果_青&quot;);スキル所持(&quot;戦知識_効果_黄&quot;);" Function="赤;緑;青;黄;0;" />
+      <Param Name="戦知識の色判定" Condition="" Function="cond(スキル所持(&quot;戦知識_効果_赤&quot;),赤,0)+cond(スキル所持(&quot;戦知識_効果_緑&quot;),緑,0)+cond(スキル所持(&quot;戦知識_効果_青&quot;),青,0)+cond(スキル所持(&quot;戦知識_効果_黄&quot;),黄,0);" />
       <Param Name="毒判定" Condition="生存 &amp;&amp; 相手の生存 &amp;&amp; HP &gt; 0 &amp;&amp; 相手のHP &gt; 0;" Function="1;0;" />
       <Param Name="死の吐息判定" Condition="生存 &amp;&amp; HP &gt; 0 &amp;&amp; 周囲の敵数(2) &gt; 0;" Function="1;0;" />
       <Param Name="封じ判定" Condition="生存 &amp;&amp; 相手の生存 &amp;&amp; HP &gt; 0;" Function="1;0;" />
