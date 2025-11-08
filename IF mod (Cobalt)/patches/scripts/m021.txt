@@ -9,6 +9,9 @@ g_veil_zoen = 10
 
 g_map_width = 21
 g_map_height = 28
+
+g_flag_battle = "flag_battle"
+
 g_deadEnemyList = {}
 
 UnitListHasEngageSeal = {
@@ -170,6 +173,7 @@ function フラグ登録()
 	VariableEntry("DragonVeinTypeEnemy",1)
 	VariableEntry("reinforcement_1", 0)
 	VariableEntry("reinforcement_2", 0)
+    VariableEntry("g_flag_battle", 0)
 	E_BattleTalk_VariableEntry()
 
 end
@@ -184,7 +188,7 @@ function removeMoveLimitVeyre()
         end
     end
 
-    if anyMaidMissing then
+    if (anyMaidMissing) or (VariableGet(g_flag_battle) != 0) then
         for i = 1, 8 do
             local maidPid = "PID_IFMOD_M021_メイド" .. i
             if UnitExistOnMap(maidPid) then
@@ -204,7 +208,7 @@ function condition_reinforcement_1()
     end
 
     local turn = MapGetTurn()
-    if turn >= 6 then
+    if turn >= 5 then
         return true
     end
 
@@ -217,9 +221,19 @@ function condition_reinforcement_2()
    end
 
    local turn = MapGetTurn()
-   if turn >= 10 then
+   if turn >= 9 then
        return true
    end
+
+    local playerUnit = ForceUnitGetFirst(FORCE_PLAYER)
+    while playerUnit ~= nil do
+       local unitZ = UnitGetZ(playerUnit)
+       if unitZ >= 15 then
+           return true
+       end
+       playerUnit = ForceUnitGetNext(playerUnit)
+    end
+
    return false
 end
 
@@ -313,10 +327,22 @@ function イベント登録()
     EventEntryTurn(Set_Interference_AI_M021, -1, -1, FORCE_ENEMY)
 	EventEntryDie(OnMaid9To15Defeated, "", FORCE_ENEMY, condition_true)
 
+	EventEntryFixed(SetEngageSealRange, "", FORCE_PLAYER)
+    EventEntryFixed(SetEngageSealRange, "", FORCE_ENEMY)
+
 	EventEntryBattleAfter(ProcessDeadMaidEffects, "", FORCE_PLAYER,"",FORCE_ENEMY)
 	EventEntryTurn(TriggerReinforcement1, -1, -1, FORCE_PLAYER)
     EventEntryTurn(TriggerReinforcement2, -1, -1, FORCE_PLAYER)
     EventEntryTurn(removeMoveLimitVeyre,   -1,  -1, FORCE_PLAYER)
+    EventEntryBattleAfter(EmptyFunction, "PID_IFMOD_M021_メイド1", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle )
+    EventEntryBattleAfter(EmptyFunction, "PID_IFMOD_M021_メイド2", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle )
+    EventEntryBattleAfter(EmptyFunction, "PID_IFMOD_M021_メイド3", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle )
+    EventEntryBattleAfter(EmptyFunction, "PID_IFMOD_M021_メイド4", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle )
+    EventEntryBattleAfter(EmptyFunction, "PID_IFMOD_M021_メイド5", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle )
+    EventEntryBattleAfter(EmptyFunction, "PID_IFMOD_M021_メイド6", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle )
+    EventEntryBattleAfter(EmptyFunction, "PID_IFMOD_M021_メイド7", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle )
+    EventEntryBattleAfter(EmptyFunction, "PID_IFMOD_M021_メイド8", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle )
+    
     EventEntryPickup(ReEquipDragonVeinSkill,"",condition_true)
     EventEntryTurn(RegisterDragonVeinEventAgain, -1, -1, FORCE_PLAYER)
 	-- ヴェイルEvent
@@ -842,7 +868,9 @@ function MapEnding()
 
 	Log("MapEnding")
 
+end
 
+function EmptyFunction()
 
 end
 
