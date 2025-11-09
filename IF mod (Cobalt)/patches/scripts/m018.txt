@@ -168,33 +168,19 @@ end
 
 function StealMoney()
     local StealMoneyValue = 500 * (4-VariableGet("DefeatThiefTimes"))
-    local NowMoney = GoldGet()
-    NowMoney = NowMoney - StealMoneyValue
-    MessSetArgument(0,StealMoneyValue)
-    MessSetArgument(1,NowMoney)
-    Dialog("MID_TUT_M018_TURNPROCESS")
-    GoldSet(NowMoney)
-end
-
-function StealMoney()
-    local StealMoneyValue = 500 * (4-VariableGet("DefeatThiefTimes"))
-    local NowMoney = VariableGet("FinalGetMoney")
-
-	if NowMoney == 0 then
-       return
+    local OldMoney = VariableGet("FinalGetMoney")
+    NewMoney = OldMoney - StealMoneyValue
+	if NewMoney < 0 then
+       NewMoney = 0
     end
-
-    NowMoney = NowMoney - StealMoneyValue
-
-	if NowMoney < 0 then
-       NowMoney = 0
-    end
-
-	VariableSet("FinalGetMoney",NowMoney)
-
-    MessSetArgument(0,StealMoneyValue)
-    MessSetArgument(1,NowMoney)
-    Dialog("MID_TUT_M018_TURNPROCESS")
+	-- Actually Stolen
+	StealMoneyValue = NewMoney - OldMoney
+	VariableSet("FinalGetMoney",NewMoney)
+    if StealMoneyValue > 0 then
+		MessSetArgument(0,StealMoneyValue)
+    	MessSetArgument(1,NewMoney)
+    	Dialog("MID_TUT_M018_TURNPROCESS")
+	end
 end
 
 
