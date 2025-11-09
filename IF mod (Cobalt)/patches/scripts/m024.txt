@@ -4,7 +4,20 @@ g_pid_lueur = "PID_リュール"
 	
 g_map_width = 30
 g_map_height = 30
+
+g_get_item = "g_get_item"
+g_defeated_FormidableEnemy = "g_defeated_FormidableEnemy"
 -- -----------------------------------
+FormidableEnemy = {
+    "PID_IFMOD_M024_上忍_BOSS1",
+    "PID_IFMOD_M024_上忍_BOSS2",
+    "PID_IFMOD_M024_ソードマスター_BOSS1",
+    "PID_IFMOD_M024_ソードマスター_BOSS2",
+    "PID_IFMOD_M024_ハルバーディア_BOSS1",
+    "PID_IFMOD_M024_ハルバーディア_BOSS2",
+    "PID_IFMOD_M024_ウルフナイト_BOSS1",
+    "PID_IFMOD_M024_ウルフナイト_BOSS2",
+}
 
 arenaPoint = {
     {29,28},
@@ -32,9 +45,15 @@ arenaPoint = {
 }
 
 addBuildPoint = {
-    {10,13},
-    {9,13},
-    {9,14},
+    {13,10},
+    {12,10},
+    {12,11},
+}
+
+barrierPointList = {
+    {24, 25},
+    {27, 23},
+    {28, 23},
 }
 
 removeBarrierPoint = {
@@ -46,116 +65,121 @@ removeBarrierPoint = {
     {15,23}
 }
 
-summonVortexEffects = {
-    {18, 14, 10.0, 0, 0, 0, 5},
-    {19, 14, 10.0, 0, 0, 0, 5},
-    {20, 14, 10.0, 0, 0, 0, 5},
-
-    {18, 8, 10.0, 0, 0, 0, 5},
-    {19, 8, 10.0, 0, 0, 0, 5},
-    {20, 8, 10.0, 0, 0, 0, 5},
-
-    {19, 4, 10.0, 0, 0, 0, 5},
-    {20, 4, 10.0, 0, 0, 0, 5},
-    {21, 4, 10.0, 0, 0, 0, 5},
-    {21, 3, 10.0, 0, 0, 0, 5},
-
-    {13, 3, 10.0, 0, 45, 0, 5},
-    {14, 4, 10.0, 0, 45, 0, 5},
-    {15, 5, 10.0, 0, 45, 0, 5},
-
-    {21, 14, 10.0, 0, 0, 0, 5},
-    {21, 13, 10.0, 0, 0, 0, 5},
-    {21, 12, 10.0, 0, 0, 0, 5},
-    {21, 11, 10.0, 0, 0, 0, 5},
-    {21, 10, 10.0, 0, 0, 0, 5},
-    {21, 9, 10.0, 0, 0, 0, 5},
-    {21, 8, 10.0, 0, 0, 0, 5},
-
-    {10, 5, 10.0, 0, 0, 0, 5},
-    {10, 4, 10.0, 0, 0, 0, 5},
-    {10, 3, 10.0, 0, 0, 0, 5},
-    {10, 2, 10.0, 0, 0, 0, 5},
-
-    {17, 13, 10.0, 0, 0, 0, 5},
-    {17, 12, 10.0, 0, 0, 0, 5},
-    {17, 12, 10.0, 0, 0, 0, 5},
-    {17, 11, 10.0, 0, 0, 0, 5},
-    {17, 10, 10.0, 0, 0, 0, 5},
-    {17, 9, 10.0, 0, 0, 0, 5},
-    {17, 8, 10.0, 0, 0, 0, 5},
-    {17, 7, 10.0, 0, 0, 0, 5},
-    {17, 6, 10.0, 0, 0, 0, 5},
-    {17, 5, 10.0, 0, 0, 0, 5},
-
-    {14, 20, 10.0, 0, 0, 0, 5},
-    {14, 19, 10.0, 0, 0, 0, 5},
-    {14, 18, 10.0, 0, 0, 0, 5},
-    {13, 18, 10.0, 0, 0, 0, 5},
-    {12, 18, 10.0, 0, 0, 0, 5},
-
-    {17, 18, 10.0, 0, 0, 0, 5},
-    {17, 17, 10.0, 0, 0, 0, 5},
-
-    {21, 21, 10.0, 0, 0, 0, 5},
-    {20, 21, 10.0, 0, 0, 0, 5},
-    {19, 21, 10.0, 0, 0, 0, 5},
-    {19, 20, 10.0, 0, 0, 0, 5},
-
-    {10, 17, 10.0, 0, 0, 0, 5},
-    {10, 18, 10.0, 0, 0, 0, 5},
-    {10, 19, 10.0, 0, 0, 0, 5},
-
-    {10, 13, 10.0, 0, 0, 0, 5},
-    {10, 12, 10.0, 0, 0, 0, 5},
-    {10, 11, 10.0, 0, 0, 0, 5},
-
-    {7, 12, 10.0, 0, 0, 0, 5},
-    {7, 11, 10.0, 0, 0, 0, 5},
-    {7, 10, 10.0, 0, 0, 0, 5},
-
-    {11, 11, 10.0, 0, 0, 0, 5},
-    {12, 11, 10.0, 0, 0, 0, 5},
-    {13, 11, 10.0, 0, 0, 0, 5},
-    {14, 11, 10.0, 0, 0, 0, 5},
-    {15, 11, 10.0, 0, 0, 0, 5},
-    {16, 11, 10.0, 0, 0, 0, 5},
-
-    {6, 13, 10.0, 0, 0, 0, 5},
-    {5, 13, 10.0, 0, 0, 0, 5},
-    {4, 13, 10.0, 0, 0, 0, 5},
-    {3, 13, 10.0, 0, 0, 0, 5},
-    {2, 13, 10.0, 0, 0, 0, 5},
-    {1, 13, 10.0, 0, 0, 0, 5},
-    {6, 13, 5.0, 0, 0, 0, 5},
-    {5, 13, 5.0, 0, 0, 0, 5},
-    {4, 13, 5.0, 0, 0, 0, 5},
-    {3, 13, 5.0, 0, 0, 0, 5},
-    {2, 13, 5.0, 0, 0, 0, 5},
-    {1, 13, 5.0, 0, 0, 0, 5}
+CreateEffectsList = {
+    {27, 23, -5.0, 0, 90, 90, 5},
+    {24, 25, -5.0, 0, 0, 90, 5},
 }
+
+function ProcessEnemyDie()
+    local unit = MindGetEventUnit()
+    local pid = UnitGetPID(unit)
+    if pid == "PID_IFMOD_M024_上忍_BOSS1" or
+       pid == "PID_IFMOD_M024_上忍_BOSS2" or
+       pid == "PID_IFMOD_M024_ソードマスター_BOSS1" or
+       pid == "PID_IFMOD_M024_ソードマスター_BOSS2" or
+       pid == "PID_IFMOD_M024_ハルバーディア_BOSS1" or
+       pid == "PID_IFMOD_M024_ハルバーディア_BOSS2" or
+       pid == "PID_IFMOD_M024_ウルフナイト_BOSS1" or
+       pid == "PID_IFMOD_M024_ウルフナイト_BOSS2" then
+       Log("ProcessEnemyDie")
+       local DieCount = VariableGet(g_defeated_FormidableEnemy)
+       DieCount = DieCount + 1
+       VariableSet(g_defeated_FormidableEnemy,DieCount)
+
+       if DieCount == 8 then
+           ClearMagicBarrier()
+       end
+    end
+end
+
+function ClearMagicBarrier()
+    EffectDelete("魔法障壁_展開_E005",27,23)
+    EffectDelete("魔法障壁_展開_E005",24,25)
+    TerrainSetBegin()
+    for _ , point in ipairs(barrierPointList) do
+        TerrainSet(point[1], point[2], "TID_地面")
+    end
+    for _ , point in ipairs(arenaPoint) do
+        TerrainSet(point[1], point[2], "TID_防衛床")
+    end
+    TerrainSetEnd()
+    UnitClearPrivateSkill("PID_リュール", "SID_不動_隠蔽")
+    UnitClearPrivateSkill("PID_E005_Boss", "SID_不動_隠蔽")
+end
+
+function ClearUnmovableStatus1()
+    Log("ClearUnmovableStatus1")
+    local enemyUnits = ForceUnitGetFirst(FORCE_ENEMY)
+    while enemyUnits ~= nil do
+        local x = UnitGetX(enemyUnits)
+        local z = UnitGetZ(enemyUnits)
+        if x >= 1 and x <= 12 and z >= 1 and z <= 8 then
+            UnitClearStatus(enemyUnits, UNIT_STATUS_MOVE_NOT_ALLOW)
+        end
+        enemyUnits = ForceUnitGetNext(enemyUnits)
+    end
+end
+
+function ClearUnmovableStatus2()
+    Log("ClearUnmovableStatus2")
+    local enemyUnits = ForceUnitGetFirst(FORCE_ENEMY)
+    while enemyUnits ~= nil do
+        local x = UnitGetX(enemyUnits)
+        local z = UnitGetZ(enemyUnits)
+        if x >= 9 and x <= 11 and z >= 11 and z <= 14 then
+            UnitClearStatus(enemyUnits, UNIT_STATUS_MOVE_NOT_ALLOW)
+        end
+        enemyUnits = ForceUnitGetNext(enemyUnits)
+    end
+end
 
 function Startup()
 	
 	Log("Startup")
-	WinRuleSetEnemyNumberLessThanOrEqualTo( -1 )	-- ○人以下になったらゲームクリア。0で敵全滅。-1を設定したら判定無効化
-
-    WinRuleSetMID( "MID_RULE_M024_WIN", 15 )
-	
+	WinRuleSetDestroyBoss(true)
+   
 	フラグ登録()
 	イベント登録()
 	
 end
 
 function フラグ登録()
-
+    VariableEntry(g_get_item,0)
+    VariableEntry(g_defeated_FormidableEnemy,0)
 end
 
 function イベント登録()
 
 	EventEntryTurn(勝利条件_M024, 1, 1, FORCE_PLAYER)
     EventEntryTurn(ClearLeuerStatus, 1, 1, FORCE_PLAYER)
-	-- --------------------------------------------------
+
+    EventEntryArea(getItemSecret, 19, 30, 19, 30, FORCE_PLAYER)
+    EventEntryDie(ProcessEnemyDie, "", FORCE_ENEMY)
+
+    EventEntryTbox(宝箱入手,  4, 6, "IID_ブーツ")
+	EventEntryTbox(宝箱入手,  3, 4, "IID_勇者の剣")
+	EventEntryTbox(宝箱入手, 10,12, "IID_神風招来")
+	EventEntryTbox(宝箱入手, 21,20, "IID_銀の大斧")
+
+    EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_上忍1_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_上忍2_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_上忍3_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_上忍4_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_上忍5_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_異形竜_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_ソードマスター1_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_ソードマスター2_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_ソードマスター3_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_ソードマスター4_Freeze",	FORCE_ENEMY)
+	EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_ソードマスター5_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus1, "", FORCE_PLAYER, "PID_IFMOD_M024_ソードマスター_BOSS2",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus2, "", FORCE_PLAYER, "PID_IFMOD_M024_ハルバーディア1_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus2, "", FORCE_PLAYER, "PID_IFMOD_M024_ハルバーディア2_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus2, "", FORCE_PLAYER, "PID_IFMOD_M024_ハルバーディア3_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus2, "", FORCE_PLAYER, "PID_IFMOD_M024_ハルバーディア4_Freeze",	FORCE_ENEMY)
+	EventEntryBattleAfter(ClearUnmovableStatus2, "", FORCE_PLAYER, "PID_IFMOD_M024_ハルバーディア5_Freeze",	FORCE_ENEMY)
+    EventEntryBattleAfter(ClearUnmovableStatus2, "", FORCE_PLAYER, "PID_IFMOD_M024_ハルバーディア_BOSS2",	FORCE_ENEMY)
+    -- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 6, 13, "PID_リュール", condition_true)
 	
 end
@@ -184,18 +208,111 @@ function MapOpening()
     InitMapM024()
 	UnitSetStatus("PID_リュール",UNIT_STATUS_DEFECT)
     UnitSetGodUnit("PID_リュール",nil)
+
+    Dialog("MID_TUT_M024_RULE")
 end
 
 function InitMapM024()
     Log("InitMapM024")
     TerrainSetBegin()
-        TerrainSet(13, 10, "TID_建造物")
-        TerrainSet(12, 10, "TID_建造物")
-        TerrainSet(12, 11, "TID_建造物")
-        TerrainSet(24, 25, "TID_建造物")
-        TerrainSet(27, 23, "TID_建造物")
-        TerrainSet(28, 23, "TID_建造物")
+        for _ , point in ipairs(addBuildPoint) do
+            TerrainSet(point[1], point[2], "TID_建造物")
+        end
+        for _ , point in ipairs(barrierPointList) do
+            TerrainSet(point[1], point[2], "TID_魔法障壁")
+        end
     TerrainSetEnd()
+
+    for _ , effect in ipairs(CreateEffectsList) do
+        EffectCreateRotateXYZ("魔法障壁_展開_E005", effect[1], effect[2], effect[3], effect[4], effect[5], effect[6], effect[7])
+    end
+
+    for x = 1,30 do
+        for y = 1,30 do
+            if TerrainGet(x,y) == "TID_砂漠" then
+                TerrainSet(x,y, "TID_砂漠_M024")
+            end
+        end
+    end
+
+    EffectCreate("ドロップアイテム", 19, 30)
+    TerrainSetOne(19, 30, "TID_謎の平地")
+
+    local index	= ForceUnitGetFirst( FORCE_ENEMY )
+    
+    while ( index != nil ) do
+        AiSetRejectPower0Attack( index, false )
+        index = ForceUnitGetNext( index )
+    end
+
+    UnitSetPrivateSkill("PID_リュール", "SID_不動_隠蔽")
+    UnitSetPrivateSkill("PID_E005_Boss", "SID_不動_隠蔽")
+end
+
+function getItemSecret()
+    if VariableGet(g_get_item) == 1 then
+        return false
+    end
+    ItemGain(MindGetUnit(), "IID_巧者の和弓")
+    EffectDelete("ドロップアイテム", 19, 30)
+    TerrainSetOne(19, 30, "TID_砂漠_M024")
+
+    local unit = UnitGetByPos(19, 30)
+    if unit ~= nil then
+        EffectPlay("竜化_G1", 19, 30)
+        WaitTime(0.5)
+        local targetX, targetY = FindNearestValidPosition(19, 25)
+        if targetX ~= nil and targetY ~= nil then
+            UnitSetPos(unit, targetX, targetY)
+            CursorSetPos(targetX, targetY)
+            MapCameraWait()
+        end
+    end
+    VariableSet(g_get_item,1)
+end
+
+function FindNearestValidPosition(startX, startY)
+    local queue = {}
+    local visited = {}
+    local directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
+
+    table.insert(queue, {x = startX, y = startY})
+    visited[startX .. "," .. startY] = true
+
+    while #queue > 0 do
+        local current = table.remove(queue, 1)
+        if IsPositionValid(current.x, current.y) then
+            return current.x, current.y
+        end
+        for _, dir in ipairs(directions) do
+            local newX = current.x + dir[1]
+            local newY = current.y + dir[2]
+            local key = newX .. "," .. newY
+            if not visited[key] and IsWithinBounds(newX, newY) and IsPassable(newX, newY) then
+                table.insert(queue, {x = newX, y = newY})
+                visited[key] = true
+            end
+        end
+    end
+
+    return nil, nil
+end
+
+function IsPassable(x, y)
+    local terrainCost = TerrainGetMoveCost(x, y)
+    return terrainCost != "COST_不可" and terrainCost != "COST_空"
+end
+
+function IsWithinBounds(x, y)
+    return x >= 1 and x <= g_map_width and y >= 1 and y <= g_map_height
+end
+
+function IsPositionValid(x, y)
+    local unit = UnitGetByPos(x, y)
+    if unit ~= nil then
+        return false
+    end
+    return IsPassable(x, y)
 end
 
 function ClearLeuerStatus()
