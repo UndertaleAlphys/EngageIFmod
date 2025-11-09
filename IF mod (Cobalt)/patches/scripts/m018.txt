@@ -24,6 +24,7 @@ function 変数登録()
 	VariableEntry("VisitedTopRight", 0)
 	VariableEntry("VisitedBottomLeft", 0)
 	VariableEntry("VisitedBottomRight", 0)
+	VariableEntry("FinalGetMoney",20000)
 
 end
 
@@ -175,6 +176,27 @@ function StealMoney()
     GoldSet(NowMoney)
 end
 
+function StealMoney()
+    local StealMoneyValue = 500 * (4-VariableGet("DefeatThiefTimes"))
+    local NowMoney = VariableGet("FinalGetMoney")
+
+	if NowMoney == 0 then
+       return
+    end
+
+    NowMoney = NowMoney - StealMoneyValue
+
+	if NowMoney < 0 then
+       NowMoney = 0
+    end
+
+	VariableSet("FinalGetMoney",NowMoney)
+
+    MessSetArgument(0,StealMoneyValue)
+    MessSetArgument(1,NowMoney)
+    Dialog("MID_TUT_M018_TURNPROCESS")
+end
+
 
 function リンデンのひとこと()
 	CursorSetPos(26, 14);
@@ -294,6 +316,9 @@ function Ending()
 	
 	Log("Ending");
 
+	local NowMoney = GoldGet()
+	local AddMoney = VariableGet("FinalGetMoney")
+	GoldSet(NowMoney + AddMoney)
 	
 end
 
