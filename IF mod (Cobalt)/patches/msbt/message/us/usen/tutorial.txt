@@ -2886,6 +2886,10 @@ After this turn, the range of "Engage Seal" will expand by 1 tile.
 In this chapter, when a unit without an Emblem Ring 
 defeats an enemy, it will equip that enemy's Emblem Ring.
 
+[MID_TUT_M024_RULE]
+Alear cannot sync with an Emblem in this chapter.
+Defeat all bosses to dispel the magic barrier.
+
 [MID_TIPS_WEAPON_TRIANGLE_T]
 Weapon Triangle
 

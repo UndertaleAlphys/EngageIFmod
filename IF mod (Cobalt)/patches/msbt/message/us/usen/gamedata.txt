@@ -579,10 +579,10 @@ Defeat:
 Rout the enemy.
 
 [MID_RULE_DESTROY_BOSS]
-Defeat enemy commander.
+Defeat Boss.
 
 [MID_RULE_DESTROY_BOSS_TURN]
-Defeat enemy commander in $Arg(0) turns.
+Defeat Boss in $Arg(0) turns.
 
 [MID_RULE_SURVIVE_TURN]
 Survive for $Arg(0) turns.
