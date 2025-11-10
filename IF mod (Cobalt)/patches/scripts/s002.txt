@@ -50,7 +50,7 @@ function イベント登録()
 	EventEntryDie(EmptyFunction, "PID_アンナ", FORCE_ALL, "S_アンナ_死亡")
 	
 	-- 宝箱
-	EventEntryTbox(宝箱入手, 11, 3, "IID_2000G");
+	EventEntryTbox(宝箱入手, 11, 3, "IID_鉄身の法");
 	EventEntryTbox(宝箱入手, 15, 3, "IID_女神の像");
 	
 	-- 戦闘後増援
