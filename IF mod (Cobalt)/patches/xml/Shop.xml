@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Book Count="4">
-  <Sheet Name="武器屋" Count="129">
+  <Sheet Name="武器屋" Count="94">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -102,41 +102,6 @@
       <Param Condition="" Iid="IID_キルソード" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_キラーランス" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_キラーアクス" Stock="-1" Attribute="0" />
-      <Param Condition="M023" Iid="" Stock="" Attribute="" />
-      <Param Condition="" Iid="IID_漆黒剣" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_炎剣" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_大根" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_和傘" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_霞刀" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_竹刀" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_麗刀" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_猛刀" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_追い剥ぎの刀" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_狩人の弓" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_小枝" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_魔封じの槍" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_指南槍" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_大槍" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_小槍" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_竹竿" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_松の木" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_追い剥ぎの薙刀" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_捨て身の薙刀" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_紅薙刀" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_フライパン" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_獣の骨" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_追い剥ぎの斧" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_狂戦士の斧" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_雄斧" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_殺斧" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_鯉のぼり" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_クワ" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_金剛の金棒" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_鍛錬棒" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_勇者の槍" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_針手裏剣" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_暗殺手裏剣" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_果物ナイフ" Stock="-1" Attribute="0" />
     </Data>
   </Sheet>
   <Sheet Name="道具屋" Count="104">
