@@ -124,7 +124,7 @@ function ClearUnmovableStatus1()
     while enemyUnits ~= nil do
         local x = UnitGetX(enemyUnits)
         local z = UnitGetZ(enemyUnits)
-        if x >= 1 and x <= 12 and z >= 1 and z <= 8 then
+        if x >= 1 and x <= 13 and z >= 1 and z <= 8 then
             UnitClearStatus(enemyUnits, UNIT_STATUS_MOVE_NOT_ALLOW)
         end
         enemyUnits = ForceUnitGetNext(enemyUnits)

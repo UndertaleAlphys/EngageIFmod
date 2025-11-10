@@ -1,6 +1,8 @@
 Include("Common")
 g_pid_lueur = "PID_リュール"
 g_pid_lumiere = "PID_M025_ルミエル"
+g_reaction_boss = "g_reaction_boss"
+
 
 g_key_beam_turn = "エンゲージビームターン"
 g_beam_degree = 30
@@ -45,6 +47,7 @@ function Startup()
 end
 
 function フラグ登録()
+	VariableEntry("g_reaction_boss", 0)
 end
 
 function イベント登録()
@@ -53,6 +56,7 @@ function イベント登録()
 	EventEntryTurn(PutOffBossRod, -1, -1, FORCE_ENEMY)
 	EventEntryTbox(宝箱入手, 6, 24, "IID_シンクエディア")
 	EventEntryTbox(宝箱入手, 20, 24, "IID_竜の盾")
+	EventEntryFixed(SetBossAI2nd,"PID_M025_ルミエル",FORCE_ENEMY)
 	
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 10, 8, "PID_リュール", condition_true)
@@ -130,15 +134,19 @@ function ReEquipBossRod()
 		turnType = 4
 	end
 
+	UnitPutOffItem("PID_M025_ルミエル", "IID_ヴィレグランツ")
+	ItemGainSilent("PID_M025_ルミエル", "IID_ヴィレグランツ")
+	UnitSetItemEquip("PID_M025_ルミエル","IID_ヴィレグランツ")
+	
 	for index, rod in ipairs(bossRodList) do
 		if turnType != index then
 			ItemGainSilent( "PID_M025_ルミエル", rod )
 		end
 	end
+	
 end
 
 function PutOffBossRod()
-	Log("PutOffBossRod")
 	local turn = MapGetTurn()
 	local turnType = turn % 4
 	if turnType == 0 then
@@ -151,6 +159,24 @@ function PutOffBossRod()
 			UnitPutOffItem("PID_M025_ルミエル", rod)
 		end
 	end
+	
+	VariableSet("g_reaction_boss",0)
+	AiSetSequence( "PID_M025_ルミエル", AI_ORDER_ATTACK, "AI_AT_Interference", "" )
+	
+	UnitPutOffItem("PID_M025_ルミエル", "IID_ヴィレグランツ")
+end
+
+function SetBossAI2nd()
+	if VariableGet("g_reaction_boss") == 1 then
+		return	
+	end
+
+	UnitClearStatus("PID_M025_ルミエル",UNIT_STATUS_FIXED)
+	AiSetSequence( "PID_M025_ルミエル", AI_ORDER_ATTACK, "AI_AT_AttackToInterference", "" )
+	
+	ItemGainSilent("PID_M025_ルミエル", "IID_ヴィレグランツ")
+        
+	VariableSet("g_reaction_boss", 1)
 end
 
 function 離脱イベント()
