@@ -528,10 +528,9 @@ and protect them with daggers.
 Adventurer
 
 [MJID_H_Adventurer]
-Glory-seekers who investigate
-ruins for treasure. 
-With their bows and staves,
-they're capable of many things.
+Glory-seekers who investigate ruins 
+for treasure. With their bows and 
+staves, they're capable of many things.
 
 [MJID_H_WyvernLord]
 High-ranking wyvern riders. 
@@ -553,10 +552,9 @@ they heal allies with staves.
 Strategist
 
 [MJID_H_Strategist]
-Tacticians who command the 
-battlefield from horseback. 
-With their magic and staves,
-they turn the tide of battle.
+Tacticians who command the battlefield 
+from horseback. With their magic and 
+staves, they turn the tide of battle.
 
 [MJID_Thief]
 Outlaw
