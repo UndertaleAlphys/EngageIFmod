@@ -104,6 +104,9 @@ function ProcessEnemyDie()
 end
 
 function ClearMagicBarrier()
+    CursorSetPos(26,25)
+    MapCameraWait()
+    EffectPlay( "水晶障壁_破壊", 26, 25 )
     EffectDelete("魔法障壁_展開_E005",27,23)
     EffectDelete("魔法障壁_展開_E005",24,25)
     TerrainSetBegin()
@@ -116,6 +119,8 @@ function ClearMagicBarrier()
     TerrainSetEnd()
     UnitClearPrivateSkill("PID_リュール", "SID_不動_隠蔽")
     UnitClearPrivateSkill("PID_E005_Boss", "SID_不動_隠蔽")
+    UnitClearPrivateSkill("PID_リュール", "SID_M024_Damage_Down")
+    UnitClearPrivateSkill("PID_E005_Boss", "SID_M024_Damage_Down")
 end
 
 function ClearUnmovableStatus1()
@@ -166,6 +171,8 @@ function イベント登録()
 
     EventEntryArea(getItemSecret, 19, 30, 19, 30, FORCE_PLAYER)
     EventEntryDie(ProcessEnemyDie, "", FORCE_ENEMY)
+
+
 
     EventEntryTbox(宝箱入手,  4, 6, "IID_ブーツ")
 	EventEntryTbox(宝箱入手,  3, 4, "IID_勇者の剣")
@@ -245,6 +252,9 @@ function InitMapM024()
             if TerrainGet(x,y) == "TID_砂漠" then
                 TerrainSet(x,y, "TID_砂漠_M024")
             end
+            -- if TerrainGet(x,y) == "TID_防衛床_M024" then
+            --    TerrainSet(x,y, "TID_防衛床")
+            -- end
         end
     end
 
@@ -260,6 +270,8 @@ function InitMapM024()
 
     UnitSetPrivateSkill("PID_リュール", "SID_不動_隠蔽")
     UnitSetPrivateSkill("PID_E005_Boss", "SID_不動_隠蔽")
+    UnitSetPrivateSkill("PID_リュール", "SID_M024_Damage_Down")
+    UnitSetPrivateSkill("PID_E005_Boss", "SID_M024_Damage_Down")
 end
 
 function getItemSecret()

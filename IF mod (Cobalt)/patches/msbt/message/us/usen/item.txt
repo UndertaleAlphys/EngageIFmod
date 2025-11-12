@@ -487,7 +487,7 @@ Short Shuriken
 [MIID_H_SmallKnife]
 An easy-to-use throwing knife.
 Inflicts debuff on foe after combat.
-(Skl/Spd -1 Def/Res -2)
+(Dex/Spd -1 Def/Res -2)
 
 [MIID_IronKnife]
 Iron Shuriken
@@ -2581,7 +2581,7 @@ Dragonstone+
 The dragon stone owned by
 Emblem Corrin, magic weapon.
 Cannot follow up
--5 Skl/-4 Spd/+9 Def/+7 Res
+-5 Dex/-4 Spd/+9 Def/+7 Res
 
 [MIID_Camilla_DualClub]
 Dual Club
@@ -2625,7 +2625,7 @@ Only the most skilled masters
 can use this shuriken.
 Cannot follow up/ Lower 
 foe's stats when hit.
-(Str/Mag/Skl/Spd/Luck -2 Def/Res -5)
+(Str/Mag/Dex/Spd/Luck -2 Def/Res -5)
 
 [MIID_BeastHunter]
 Hunter's Knife
@@ -2654,7 +2654,7 @@ If user initiates combat, attacks twice.
 After the battle,
 Halves Str until unit attacks again.
 Inflicts debuff on foe after combat.
-(Str/Mag/Skl/Spd/Luck -2 Def/Res -5)
+(Str/Mag/Dex/Spd/Luck -2 Def/Res -5)
 
 [MIID_SpyBow]
 Spy Yumi
@@ -2703,18 +2703,18 @@ Def Evil Stone
 
 [MIID_H_DefEvilStone]
 A Dragon stone used for defense.
-Skl -2 Spd -1 Def +4 Res +5
+Dex -2 Spd -1 Def +4 Res +5
 
 [MIID_H_SuperEvilStone]
 A Dragon stone that can
 unleash extreme power.
-Skl +8 Spd +6 Def -5 Res -3
+Dex +8 Spd +6 Def -5 Res -3
 Inflicts stacking debuff on unit after combat
 (Str/Dex-2)
 
 [MIID_H_EvilStone]
 A Dragon stone used for attack.
-Skl +5 Spd +3 Def -2
+Dex +5 Spd +3 Def -2
 
 [MIID_Nosferatu]
 Nosferatu
@@ -2774,7 +2774,7 @@ Ivy only.
 When in possession, if foe
 attack with tome, has a chance
 to reduce the damage by half.
-(Skl %)
+(Dex %)
 
 [MIID_AxeSplitter]
 Axe Splitter
@@ -2961,11 +2961,11 @@ Secret Paper
 Routing Sheet
 
 [MIID_H_SecretBookM1]
-Expend to grant Skl-1 to user
+Expend to grant Dex-1 to user
 permanently.
 
 [MIID_H_SecretBookP1]
-Expend to grant Skl+1 to user
+Expend to grant Dex+1 to user
 permanently.
 
 [MIID_SpeedwingP1]

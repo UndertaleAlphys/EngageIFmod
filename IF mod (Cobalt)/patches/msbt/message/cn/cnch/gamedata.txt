@@ -327,6 +327,9 @@
 仅差最后一个邪龙纹，但在那的却是……
 
 [MCID_M026_PREFIX]
+终章
+
+[MCID_M026P_PREFIX]
 第26章
 
 [MCID_M026]
@@ -334,6 +337,9 @@
 
 [MCID_M026_PLACE]
 异界之门
+
+[MCID_M026P]
+光与影
 
 [MCID_S001_PREFIX]
 外传
@@ -651,6 +657,9 @@ $P被击败或所有纹章士被夺取
 $P被击败或超过$Arg(0)回合
 
 [MID_RULE_M025_WIN]
+目标地点压制
+
+[MID_RULE_M026P_WIN]
 敌将击破
 
 [MID_RULE_M026_WIN]

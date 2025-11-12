@@ -3504,9 +3504,17 @@ MSID_CrtMoreDmg
 [MSID_StaffSavant]
 无限之杖
 
+[MSID_StaffSavant+]
+无限之杖
+
 [MSID_H_StaffSavant]
 使用杖时不消耗耐久，
 杖射程若不足10则补至10。
+
+[MSID_H_StaffSavant+]
+使用杖时不消耗耐久，
+杖射程若不足10则补至10，
+杖的效果范围+1。
 
 [MSID_PointBlank]
 近接射击

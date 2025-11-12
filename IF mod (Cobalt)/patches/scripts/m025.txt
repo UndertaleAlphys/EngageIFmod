@@ -2,41 +2,65 @@ Include("Common")
 g_pid_lueur = "PID_リュール"
 g_pid_lumiere = "PID_M025_ルミエル"
 g_reaction_boss = "g_reaction_boss"
-
-
-g_key_beam_turn = "エンゲージビームターン"
-g_beam_degree = 30
-g_pillar_degree = 10
-g_beam_damage = 40
+g_reinforcement_l1 = "g_reinforcement_l1"
+g_reinforcement_l2 = "g_reinforcement_l2"
+g_reinforcement_l3 = "g_reinforcement_l3"
+g_reinforcement_r1 = "g_reinforcement_r1"
+g_reinforcement_r2 = "g_reinforcement_r2"
+g_reinforcement_r3 = "g_reinforcement_r3"
+g_reinforcement_m1 = "g_reinforcement_m1"
+g_reinforcement_m1_multiflag = "g_reinforcement_m1_multiflag"
 
 g_map_width = 27
 g_map_height = 32
 
-g_key_target_x = "エンゲージビーム_ターゲット座標X"
-g_key_target_z = "エンゲージビーム_ターゲット座標Z"
-
-MAP_NONE = 0
-MAP_BEAM = 1
-MAP_HIDE = 2
-
-g_key_beamBehavior_switch = "ビーム挙動切り替え_済"
-g_key_beamDir_west = "ビーム方向_西"
-
-bossRodList = {
-	"IID_ウィークネス",
-	"IID_フリーズ",
-	"IID_神風招来",
-	"IID_禍事罪穢"
+CreateEffectsList = {
+    {20, 2, -5.0, 0, 0, 90, 5},
+	{20, 3, -5.0, 0, 0, 90, 5},
+    {7, 3, -5.0, 0, 0, 90, 5},
+	{4, 7, -5.0, 0, 90, 90, 5},
+	{22, 7, -5.0, 0, 90, 90, 5},
+	{4, 14, -5.0, 0, 90, 90, 5},
+	{22, 14, -5.0, 0, 90, 90, 5},
+	{8, 17, -5.0, 0, 0, 90, 5},
+	{18, 17, -5.0, 0, 0, 90, 5},
+	{13, 20, -5.0, 0, 90, 90, 5},
+	{9, 24, -5.0, 0, 0, 90, 5},
+	{17, 24, -5.0, 0, 0, 90, 5},
+	{12, 27, -4.0, 0, 90, 90, 5},
+	{14, 27, -4.0, 0, 90, 90, 5},
 }
 
+lightningEffectsMap = {
+    {{20, 2}, {20, 3}},  
+    {{7, 3}},            
+    {{4, 7}},            
+    {{22, 7}},           
+    {{4, 14}},           
+    {{22, 14}},          
+    {{8, 17}},           
+    {{18, 17}},          
+    {{13, 20}},
+	{{9, 24}},
+	{{17, 24}},
+	{{12, 27}, {14, 27}},           
+}
+
+areaIndexReinforcementMap = {
+	{3,"l1"},
+	{4,"r1"},
+	{5, "l2"},
+	{6, "r2"},
+	{7, "l3"},
+	{8, "r3"},
+}
 -- -----------------------------------
 
 function Startup()
 	
 	Log("Startup")
 	
-	-- 勝利条件設定：敵将撃破
-	WinRuleSetDestroyBoss(true)
+	WinRuleSetEnemyNumberLessThanOrEqualTo(-1)
 	WinRuleSetMID( "MID_RULE_M025_WIN" )
 	
 	
@@ -47,22 +71,114 @@ function Startup()
 end
 
 function フラグ登録()
-	VariableEntry("g_reaction_boss", 0)
+    local reinforcementVars = {
+        "g_reinforcement_l1", "g_reinforcement_l2", "g_reinforcement_l3",
+        "g_reinforcement_r1", "g_reinforcement_r2", "g_reinforcement_r3",
+        "g_reinforcement_m1", "g_reinforcement_m1_multiflag"
+    }
+    
+    for _, varName in ipairs(reinforcementVars) do
+        VariableEntry(varName, 0)
+    end
 end
 
 function イベント登録()
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
-	EventEntryTurn(ReEquipBossRod, 2, -1, FORCE_PLAYER)
-	EventEntryTurn(PutOffBossRod, -1, -1, FORCE_ENEMY)
 	EventEntryTbox(宝箱入手, 6, 24, "IID_シンクエディア")
 	EventEntryTbox(宝箱入手, 20, 24, "IID_竜の盾")
-	EventEntryFixed(SetBossAI2nd,"PID_M025_ルミエル",FORCE_ENEMY)
+	EventEntryTurn(function() GenericReinforcement("g_reinforcement_l1", "Reinforcement_l1", "ReinforcementL1") end, -1, -1, FORCE_PLAYER)
+	EventEntryTurn(function() GenericReinforcement("g_reinforcement_l2", "Reinforcement_l2", "ReinforcementL2") end, -1, -1, FORCE_PLAYER)
+	EventEntryTurn(function() GenericReinforcement("g_reinforcement_l3", "Reinforcement_l3", "ReinforcementL3") end, -1, -1, FORCE_PLAYER)
+	EventEntryTurn(function() GenericReinforcement("g_reinforcement_r1", "Reinforcement_r1", "ReinforcementR1") end, -1, -1, FORCE_PLAYER)
+	EventEntryTurn(function() GenericReinforcement("g_reinforcement_r2", "Reinforcement_r2", "ReinforcementR2") end, -1, -1, FORCE_PLAYER)
+	EventEntryTurn(function() GenericReinforcement("g_reinforcement_r3", "Reinforcement_r3", "ReinforcementR3") end, -1, -1, FORCE_PLAYER)
+	EventEntryTurn(function() GenericReinforcement("g_reinforcement_m1", "Reinforcement_m1", "ReinforcementM1") end, -1, -1, FORCE_PLAYER)
+	EventEntryTurn(function() GenericReinforcement("g_reinforcement_m2", "Reinforcement_m2", "ReinforcementM2") end, -1, -1, FORCE_PLAYER)
+
+	local lightningAreas = {
+        {20, 1, 20, 4},
+        {7, 3, 7, 4},
+        {3, 7, 5, 7},
+        {21, 7, 23, 7},
+        {3, 14, 5, 14},
+        {21, 14, 23, 14},
+        {8, 16, 8, 18},
+        {18, 16, 18, 18},
+        {12, 20, 14, 20},
+		{9, 23, 9, 24},
+		{17, 23, 17, 24},
+		{11, 27, 15, 27},
+    }
+    
+    for i, area in ipairs(lightningAreas) do
+        EventEntryDestroy(function() LightningDestroy(i) end, area[1], area[2], area[3], area[4])
+    end
+	
+	EventEntryTurn(SetAiRod1, -1, -1, FORCE_ENEMY)
+	EventEntryFixed(SetAiRod2, "PID_M025_ルミエル", FORCE_ENEMY)
+	EventEntryFixed(SetAiRod3, "PID_M026_ソンブル_人型", FORCE_ENEMY)
+	EventEntryFixed(SetAiRod4, "PID_IFMOD_M025_メイド8", FORCE_ENEMY)
+	EventEntryTurn(Set_Interference_AI_M025, -1, -1, FORCE_ENEMY)
 	
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 10, 8, "PID_リュール", condition_true)
+	EventEntryEscape(OccupyVictory, 13, 29, "", condition_true)
 	
 end
 
+function InitMapM025()
+    Log("InitMapM025")
+    for _ , effect in ipairs(CreateEffectsList) do
+        EffectCreateRotateXYZ("魔法障壁_展開_E005", effect[1], effect[2], effect[3], effect[4], effect[5], effect[6], effect[7])
+    end
+	EventActionObject(8, 17, MAP_ACTION_DONE)
+	EventActionObject(18, 17, MAP_ACTION_DONE)
+end
+
+function LightningDestroy(areaIndex)
+    local effects = lightningEffectsMap[areaIndex]
+    if effects then
+        for _, coord in ipairs(effects) do
+            EffectDelete("魔法障壁_展開_E005", coord[1], coord[2])
+        end
+    end
+
+	for _, mapping in ipairs(areaIndexReinforcementMap) do
+        if mapping[1] == areaIndex then
+            local reinforcementKey = "g_reinforcement_" .. mapping[2]
+			Log(reinforcementKey)
+            VariableSet(reinforcementKey, 1)
+            break
+        end
+    end
+
+	if (areaIndex == 7 or areaIndex == 8) and VariableGet("g_reinforcement_m1_multiflag") == 0 then
+        VariableSet("g_reinforcement_m1", 1)
+		VariableSet("g_reinforcement_m1_multiflag", 1)
+        Log("g_reinforcement_m1")
+    end
+end
+
+function Set_Interference_AI_M025()
+	local maidPids = {
+        "PID_IFMOD_M025_メイド2",
+        "PID_IFMOD_M025_メイド3",
+        "PID_IFMOD_M025_メイド4",
+        "PID_IFMOD_M025_メイド5",
+        "PID_IFMOD_M025_メイド6",
+        "PID_IFMOD_M025_メイド7",
+        "PID_IFMOD_M025_メイド10",
+        "PID_IFMOD_M025_メイド11",
+        "PID_IFMOD_M025_メイド12",
+        "PID_IFMOD_M025_メイド13"
+    }
+    
+    for _, pid in ipairs(maidPids) do
+        if IsExistForcePlayerNearby(pid, 10) == false then
+            UnitSetStatus(pid, UNIT_STATUS_FIXED)
+        end
+    end
+end
 -- -----------------------------------
 function EmptyFunction()
 
@@ -73,6 +189,19 @@ function Cleanup()
 	
 	Log("Cleanup")
 	
+end
+
+function GenericReinforcement(reinforcementVar, disposName, logName)
+    if VariableGet(reinforcementVar) == 0 then
+        return
+    end
+    
+    Dispos(disposName, DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+    
+    VariableSet(reinforcementVar, 0)
+    Log(logName)
 end
 
 -- -----------------------------------
@@ -93,11 +222,7 @@ end
 function MapOpening()
 	
 	Log("MapOpening")
-	
-	ItemGain(nil,"IID_ウィークネス")
-	ItemGain(nil,"IID_フリーズ")
-	ItemGain(nil,"IID_神風招来")
-	ItemGain(nil,"IID_禍事罪穢")
+	InitMapM025()
 end
 
 -- -----------------------------------
@@ -127,56 +252,71 @@ function GameOver()
 	
 end
 
-function ReEquipBossRod()
-	local turn = MapGetTurn()
-	local turnType = (turn - 1) % 4
-	if turnType == 0 then
-		turnType = 4
+function SetAiRod1()
+	if UnitExistOnMap("PID_M025_ルミエル") == false then
+		SetAiRod2()
+		return
 	end
 
-	UnitPutOffItem("PID_M025_ルミエル", "IID_ヴィレグランツ")
-	ItemGainSilent("PID_M025_ルミエル", "IID_ヴィレグランツ")
-	UnitSetItemEquip("PID_M025_ルミエル","IID_ヴィレグランツ")
-	
-	for index, rod in ipairs(bossRodList) do
-		if turnType != index then
-			ItemGainSilent( "PID_M025_ルミエル", rod )
-		end
+	if IsExistForcePlayerNearby("PID_M025_ルミエル",10) == false then
+		UnitSetStatus( "PID_M025_ルミエル", UNIT_STATUS_FIXED )
 	end
-	
+
+	if MapGetTurn()%4 == 1 then
+		Set_Interference_AI_by_Pid("PID_M025_ルミエル")
+	else
+		AiSetSequence( "PID_M025_ルミエル", AI_ORDER_ATTACK, "AI_AT_Interference", "" )
+	end
+
+	if IsExistForcePlayerNearby("PID_M025_ルミエル",2) == true then
+		AiSetSequence( "PID_M025_ルミエル", AI_ORDER_ATTACK, "AI_AT_Attack", "" )
+	end
 end
 
-function PutOffBossRod()
-	local turn = MapGetTurn()
-	local turnType = turn % 4
-	if turnType == 0 then
-		turnType = 4
+function SetAiRod2()
+	if UnitExistOnMap("PID_M026_ソンブル_人型") == false then
+		SetAiRod3()
+		return
 	end
 
-	for index, rod in ipairs(bossRodList) do
-		if turnType != index then
-			Log(index)
-			UnitPutOffItem("PID_M025_ルミエル", rod)
-		end
+	if IsExistForcePlayerNearby("PID_M026_ソンブル_人型",10) == false then
+		UnitSetStatus( "PID_M026_ソンブル_人型", UNIT_STATUS_FIXED )
 	end
-	
-	VariableSet("g_reaction_boss",0)
-	AiSetSequence( "PID_M025_ルミエル", AI_ORDER_ATTACK, "AI_AT_Interference", "" )
-	
-	UnitPutOffItem("PID_M025_ルミエル", "IID_ヴィレグランツ")
+
+	if MapGetTurn()%4 == 1 then
+		Set_Interference_AI_by_Pid("PID_M026_ソンブル_人型")
+	else
+		AiSetSequence( "PID_M026_ソンブル_人型", AI_ORDER_ATTACK, "AI_AT_Interference", "" )
+	end
+
+	if IsExistForcePlayerNearby("PID_M026_ソンブル_人型",2) == true then
+		AiSetSequence( "PID_M026_ソンブル_人型", AI_ORDER_ATTACK, "AI_AT_Attack", "" )
+	end
 end
 
-function SetBossAI2nd()
-	if VariableGet("g_reaction_boss") == 1 then
-		return	
+function SetAiRod3()
+	if UnitExistOnMap("PID_IFMOD_M025_メイド8") == false then
+		SetAiRod4()
+		return
 	end
 
-	UnitClearStatus("PID_M025_ルミエル",UNIT_STATUS_FIXED)
-	AiSetSequence( "PID_M025_ルミエル", AI_ORDER_ATTACK, "AI_AT_AttackToInterference", "" )
-	
-	ItemGainSilent("PID_M025_ルミエル", "IID_ヴィレグランツ")
-        
-	VariableSet("g_reaction_boss", 1)
+	Set_Interference_AI_by_Pid("PID_IFMOD_M025_メイド8")
+
+	if IsExistForcePlayerNearby("PID_IFMOD_M025_メイド8",2) == true then
+		AiSetSequence( "PID_IFMOD_M025_メイド8", AI_ORDER_ATTACK, "AI_AT_Attack", "" )
+	end
+end
+
+function SetAiRod4()
+	if UnitExistOnMap("PID_IFMOD_M025_メイド9") == false then
+		return
+	end
+
+	Set_Interference_AI_by_Pid("PID_IFMOD_M025_メイド9")
+
+	if IsExistForcePlayerNearby("PID_IFMOD_M025_メイド9",2) == true then
+		AiSetSequence( "PID_IFMOD_M025_メイド9", AI_ORDER_ATTACK, "AI_AT_Attack", "" )
+	end
 end
 
 function 離脱イベント()
@@ -186,6 +326,17 @@ function 離脱イベント()
 	end
 	
 	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+function OccupyVictory()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
 	UnitMoveWait()
 	
 	VariableSet( "勝利", 1 )

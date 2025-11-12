@@ -3791,11 +3791,21 @@ increase 20% of enemy's Str.
 [MSID_StaffSavant]
 Staff Savant
 
+[MSID_StaffSavant+]
+Staff Savant+
+
 [MSID_H_StaffSavant]
 The durability of the user's 
-staves/rods will not decrease.
+staves will not decrease.
 Sets the max range of the
-user's staves/rods to 10.
+user's staves to 10.
+
+[MSID_H_StaffSavant+]
+The durability of the user's 
+staves will not decrease.
+Sets the max range of the
+user's staves to 10.
+Grants staves AOE+1.
 
 [MSID_PointBlank]
 Point Blank

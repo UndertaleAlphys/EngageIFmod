@@ -1,0 +1,279 @@
+Include("Common")
+
+g_pid_lueur						= "PID_リュール"
+maid_Name_Prefix = "PID_IFMOD_M026_メイド_"
+
+player_God_Table = {}
+
+-- -----------------------------------
+
+function Startup()
+	
+	Log("Startup")
+	
+	WinRuleSetEnemyNumberLessThanOrEqualTo(-1)
+	WinRuleSetMID( "MID_RULE_M026P_WIN" )
+
+	フラグ登録()
+
+	イベント登録()
+	
+end
+
+function フラグ登録()
+	VariableEntry("player_God_Table", "")
+end
+
+function イベント登録()
+	EventEntryTurn(SetPlayerGodTable, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(SetMaidAIFirstTurn, 1, 1, FORCE_ENEMY)
+	EventEntryTurn(SetMaidAIRemainTurn, 2, -1, FORCE_ENEMY)
+	EventEntryEscape(離脱イベント, 15, 11, "", condition_true)	
+end
+
+function Cleanup()
+	
+	Log("Cleanup")
+	
+end
+
+-- -----------------------------------
+
+function Opening()	
+	Log("Opening")
+end
+
+function MapOpening()
+	Log("MapOpening")
+
+	TerrainSetBegin()
+	for x = 1,4 do
+		for y = 1,7 do
+			TerrainSet(x, y, "TID_平地")
+		end
+	end
+	TerrainSetEnd()
+
+    ItemGain(nil,"IID_ドロー_M026")
+    ItemGain(nil,"IID_ドロー_M0261")
+    ItemGain(nil,"IID_ドロー_M0262")
+end
+
+function 離脱イベント()
+	local unit = MindGetUnit()
+	if not UnitExistOnMap( unit ) then
+		return
+	end
+	
+	UnitRotation( g_pid_lueur, ROTATE_UP)
+	UnitMoveWait()
+	
+	VariableSet( "勝利", 1 )
+end
+
+
+function MapEnding()
+	
+	Log("MapEnding")
+	
+end
+
+function Ending()
+	
+	Log("Ending")
+	
+
+end
+
+function GameOver()
+	
+	Log("GameOver")
+
+end
+
+
+function SetPlayerGodTable()
+	UnitClearPrivateSkill("PID_リュール", "SID_不動_隠蔽")
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+
+    while index ~= nil do
+        local unitPid = UnitGetPID(index)
+        local equippedRing = UnitGetGodUnit(index)
+        if equippedRing ~= nil then
+            table.insert(player_God_Table, {unitPid,equippedRing})
+		else
+            table.insert(player_God_Table, {unitPid,"EmptyGod"})
+        end
+        index = ForceUnitGetNext(index)
+    end
+
+    local playerGodTableStr = TableToString(player_God_Table)
+    VariableSet("player_God_Table", playerGodTableStr)
+
+end
+
+function SetMaidAIFirstTurn()
+    local current_Player_God_Table = StringToTable(VariableGet("player_God_Table"))
+    local maid_God_Table = {
+        { "Marth", {"マルス", "チキ"} },
+        { "Siglud", {"シグルド"} },
+        { "Celica", {"セリカ"} },
+        { "Micaiah", {"ミカヤ"} },
+        { "Roy", {"ロイ"} },
+        { "Leaf", {"リーフ"} },
+        { "Lucina", {"ルキナ","クロム"} },
+        { "Lin", {"リン","ヘクトル"} },
+        { "Ike", {"アイク","セネリオ"} },
+        { "Byleth", {"ベレト","エーデルガルト"} },
+        { "Kamui", {"カムイ","カミラ"} },
+        { "Eirik", {"エイリーク"} }
+    }
+    
+    ProcessMaidAITargets(maid_God_Table, current_Player_God_Table, 1)
+    
+    ProcessMaidAITargets(maid_God_Table, current_Player_God_Table, 2)
+    
+    ProcessRemainingMaids(maid_God_Table, current_Player_God_Table)
+end
+
+function ProcessMaidAITargets(maid_God_Table, current_Player_God_Table, valueIndex)
+    local index = ForceUnitGetFirst(FORCE_ENEMY)
+    while index ~= nil do
+        local pid = UnitGetPID(index)
+        if string.sub(pid, 1, string.len(maid_Name_Prefix)) == maid_Name_Prefix then
+            local targetGid = string.sub(pid, string.len(maid_Name_Prefix) + 1)
+            
+            local targetValues = FindTargetValues(maid_God_Table, targetGid)
+            
+            if targetValues ~= nil and #targetValues >= valueIndex then
+                local targetPerson = FindMatchingPlayer(current_Player_God_Table, targetValues[valueIndex])
+                
+                if targetPerson ~= nil then
+                    RemoveEntryFromTable(maid_God_Table, targetGid)
+                    RemoveEntryFromTable(current_Player_God_Table, targetPerson)
+                    
+                    AiSetSequence(maid_Name_Prefix .. targetGid, AI_ORDER_ATTACK, "AI_AT_InterferencePerson", targetPerson)
+                end
+            end
+        end
+        index = ForceUnitGetNext(index)
+    end
+end
+
+function ProcessRemainingMaids(maid_God_Table, current_Player_God_Table)
+    local emptyGodCount, nonEmptyGodCount = CountPlayerGodTypes(current_Player_God_Table)
+    
+    local index = ForceUnitGetFirst(FORCE_ENEMY)
+    while index ~= nil do
+        local pid = UnitGetPID(index)
+        if string.sub(pid, 1, string.len(maid_Name_Prefix)) == maid_Name_Prefix then
+            local targetGid = string.sub(pid, string.len(maid_Name_Prefix) + 1)
+            
+            if IsMaidExists(maid_God_Table, targetGid) then
+                local targetPerson = nil
+                
+                if nonEmptyGodCount > 0 then
+                    targetPerson, nonEmptyGodCount = SelectNonEmptyGodTarget(current_Player_God_Table, nonEmptyGodCount)
+                end
+                
+                if targetPerson == nil and emptyGodCount > 0 then
+                    targetPerson, emptyGodCount = SelectEmptyGodTarget(current_Player_God_Table, emptyGodCount)
+                end
+                
+                if targetPerson ~= nil then
+                    AiSetSequence(maid_Name_Prefix .. targetGid, AI_ORDER_ATTACK, "AI_AT_InterferencePerson", targetPerson)
+                    RemoveEntryFromTable(maid_God_Table, targetGid)
+                end
+            end
+        end
+        index = ForceUnitGetNext(index)
+    end
+end
+
+function FindTargetValues(maid_God_Table, targetGid)
+    for _, entry in ipairs(maid_God_Table) do
+        if entry[1] == targetGid then
+            return entry[2]
+        end
+    end
+    return nil
+end
+
+function FindMatchingPlayer(current_Player_God_Table, targetValue)
+    for _, playerEntry in ipairs(current_Player_God_Table) do
+        local playerRing = playerEntry[2]
+        if playerRing ~= "EmptyGod" then
+            local ringName = string.sub(playerRing, 5)
+            if ringName == targetValue then
+                return playerEntry[1]
+            end
+        end
+    end
+    return nil
+end
+
+function RemoveEntryFromTable(tableData, searchValue)
+    for i, entry in ipairs(tableData) do
+        if entry[1] == searchValue then
+            table.remove(tableData, i)
+            break
+        end
+    end
+end
+
+function CountPlayerGodTypes(current_Player_God_Table)
+    local emptyGodCount = 0
+    local nonEmptyGodCount = 0
+    
+    for _, entry in ipairs(current_Player_God_Table) do
+        if entry[2] == "EmptyGod" then
+            emptyGodCount = emptyGodCount + 1
+        else
+            nonEmptyGodCount = nonEmptyGodCount + 1
+        end
+    end
+    
+    return emptyGodCount, nonEmptyGodCount
+end
+
+function IsMaidExists(maid_God_Table, targetGid)
+    for _, entry in ipairs(maid_God_Table) do
+        if entry[1] == targetGid then
+            return true
+        end
+    end
+    return false
+end
+
+function SelectNonEmptyGodTarget(current_Player_God_Table, nonEmptyGodCount)
+    for i, playerEntry in ipairs(current_Player_God_Table) do
+        if playerEntry[2] ~= "EmptyGod" then
+            local targetPerson = playerEntry[1]
+            table.remove(current_Player_God_Table, i)
+            return targetPerson, nonEmptyGodCount - 1
+        end
+    end
+    return nil, nonEmptyGodCount
+end
+
+function SelectEmptyGodTarget(current_Player_God_Table, emptyGodCount)
+    for i, playerEntry in ipairs(current_Player_God_Table) do
+        if playerEntry[2] == "EmptyGod" then
+            local targetPerson = playerEntry[1]
+            table.remove(current_Player_God_Table, i)
+            return targetPerson, emptyGodCount - 1
+        end
+    end
+    return nil, emptyGodCount
+end
+
+function SetMaidAIRemainTurn()
+    local index = ForceUnitGetFirst(FORCE_ENEMY)
+    while index ~= nil do
+        local pid = UnitGetPID(index)
+        if string.sub(pid, 1, string.len(maid_Name_Prefix)) == maid_Name_Prefix then
+            AiSetSequence(pid, AI_ORDER_ATTACK, "AI_AT_Heal", "")
+        end
+        index = ForceUnitGetNext(index)
+    end
+end

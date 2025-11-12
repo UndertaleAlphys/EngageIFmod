@@ -245,7 +245,7 @@ Freezing Breath
 
 [MIID_H_IceBreath]
 An icy breath attack.
--3 Skl/-2 Spd/+4 Def/+3 Res
+-3 Dex/-2 Spd/+4 Def/+3 Res
 
 [MIID_IceBall]
 Iceball
@@ -468,7 +468,7 @@ Starsphere
 
 [MSID_H_BallsProtection_Star]
 Each turn, get stats bonus in turn:
-Str/Def → Mag/Res → Skl/Spd/Luck
+Str/Def → Mag/Res → Dex/Spd/Luck
 (The increased stats = Level/10,
 round up, maximum at 4.)
 
@@ -519,15 +519,15 @@ Draconic Form
 Unit transforms into and fights as a
 dragon while engaged. Grants 
 Str/Mag+3 Def/Res+4 
-Skl/Luck+8 Spd -4
+Dex/Luck+8 Spd -4
 
 [MSID_H_TikiEngage_Dragon]
 Unit transforms into and fights as a
 dragon while engaged. Grants 
 Str/Mag+3 Def/Res+4 
-Skl/Luck+8 Spd -4
+Dex/Luck+8 Spd -4
 [Dragon] Get extra stats,
-Skl/Luck+2 Str/Mag/Def/Res+1
+Dex/Luck+2 Str/Mag/Def/Res+1
 
 [MSID_TikiEngageAtk]
 Divine Blessing
