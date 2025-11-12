@@ -649,7 +649,7 @@ Defeat ALL Bosses.
 Defeat ALL Bosses.
 
 [MID_RULE_M015_WIN]
-All allies escape. 
+Seadall escapes. 
 
 [MID_RULE_M015_LOSE]
 $P or Seadall is defeated.
