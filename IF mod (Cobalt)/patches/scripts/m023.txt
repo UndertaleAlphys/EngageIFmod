@@ -409,7 +409,6 @@ function DragonVeinPostUseHandleM023(veinInfo)
             MapCameraWait()
 
             DragonVeinApplyEffect()
-            VariableSet("dragonvein_turn_counter",2)
 
             break
         end
