@@ -180,11 +180,10 @@ function CheckReinforcementCondition_1()
 		return false
 	end
 
-
-
 	local index = ForceUnitGetFirst(FORCE_PLAYER)
 	while index ~= nil do
 		local z = UnitGetZ(index)
+        local x = UnitGetX(index)
 		if (z >= 14 and x <= 24) or MapGetTurn() >= 5 then
 			VariableSet("reinforcement_1_triggered", 1)
 			return true

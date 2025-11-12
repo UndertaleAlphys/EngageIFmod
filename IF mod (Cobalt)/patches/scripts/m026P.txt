@@ -1,9 +1,11 @@
 Include("Common")
 
 g_pid_lueur						= "PID_リュール"
+g_pid_boss 						= "PID_M026P_ソンブル_人型"
 maid_Name_Prefix = "PID_IFMOD_M026_メイド_"
 
 player_God_Table = {}
+player_Pos_Table = {}
 
 -- -----------------------------------
 
@@ -22,13 +24,15 @@ end
 
 function フラグ登録()
 	VariableEntry("player_God_Table", "")
+    VariableEntry("player_Pos_Table", "")
 end
 
 function イベント登録()
 	EventEntryTurn(SetPlayerGodTable, 1, 1, FORCE_PLAYER)
+    EventEntryTurn(SetPlayerPosTable, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(SetMaidAIFirstTurn, 1, 1, FORCE_ENEMY)
 	EventEntryTurn(SetMaidAIRemainTurn, 2, -1, FORCE_ENEMY)
-	EventEntryEscape(離脱イベント, 15, 11, "", condition_true)	
+	EventEntryEscape(離脱イベント, 29, 14, "", condition_true)	
 end
 
 function Cleanup()
@@ -45,18 +49,6 @@ end
 
 function MapOpening()
 	Log("MapOpening")
-
-	TerrainSetBegin()
-	for x = 1,4 do
-		for y = 1,7 do
-			TerrainSet(x, y, "TID_平地")
-		end
-	end
-	TerrainSetEnd()
-
-    ItemGain(nil,"IID_ドロー_M026")
-    ItemGain(nil,"IID_ドロー_M0261")
-    ItemGain(nil,"IID_ドロー_M0262")
 end
 
 function 離脱イベント()
@@ -110,6 +102,29 @@ function SetPlayerGodTable()
     local playerGodTableStr = TableToString(player_God_Table)
     VariableSet("player_God_Table", playerGodTableStr)
 
+end
+
+function SetPlayerPosTable()
+    local index = ForceUnitGetFirst(FORCE_PLAYER)
+    while index ~= nil do
+        local unitPid = UnitGetPID(index)
+        local unitX = UnitGetX(index)
+        local unitZ = UnitGetZ(index)
+        table.insert(player_Pos_Table, {unitPid, unitX, unitZ})
+        index = ForceUnitGetNext(index)
+    end
+
+    local playerPosTableStr = TableToString(player_Pos_Table)
+    VariableSet("player_Pos_Table", playerPosTableStr)
+
+    -- local currentList = StringToTable(VariableGet("player_Pos_Table"))
+    -- for i, info in ipairs(currentList) do
+    --     if type(info) == "table" and #info >= 3 then
+    --        Log("  " .. i .. ": PID=" .. info[1] .. ", X=" .. info[2] .. ", Z=" .. info[3])
+    --    else
+    --        Log("  " .. i .. ": " .. tostring(info))
+    --    end
+    --end
 end
 
 function SetMaidAIFirstTurn()

@@ -64,10 +64,8 @@ function イベント登録()
 
 	-- EventEntryEscape(離脱イベント２, 23, 1, "", condition_離脱イベント２)
 	-- EventEntryEscape(離脱イベント２, 24, 1, "", condition_離脱イベント２)
-	EventEntryEscape(EmptyFunction, 23, 1, "PID_G006_クロム", condition_true)
-	EventEntryEscape(EmptyFunction, 24, 1, "PID_G006_クロム", condition_true)
-	EventEntryEscape(EmptyFunction, 24, 2, "PID_G006_クロム", condition_true)
-	EventEntryArea(PersonEscape, 23, 1, 24, 2, FORCE_PLAYER, condition_true)
+	EventEntryEscape(Victory, 23, 1, "PID_セアダス", condition_true)
+	EventEntryEscape(Victory, 24, 1, "PID_セアダス", condition_true)
 
 	-- 増援エリアイベント_東0
 	EventEntryArea(EmptyFunction, 17, 8, 18, 13, FORCE_PLAYER, "エリアイベント0_済")
@@ -736,6 +734,12 @@ function 離脱イベント()
 	UnitMoveWait()
 
 	VariableSet( "勝利", 1 )
+end
+
+function Victory()
+
+	VariableSet( "勝利", 1 )
+
 end
 
 -- -----------------------------------
