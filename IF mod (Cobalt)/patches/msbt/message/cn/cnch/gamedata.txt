@@ -1024,6 +1024,9 @@ $P被击败或超过$Arg(0)回合
 [MTID_BowCannon]
 弓弩炮台
 
+[MTID_DaggerCannon]
+暗器炮台
+
 [MTID_MagicCannon]
 魔炮台
 
