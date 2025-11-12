@@ -310,7 +310,7 @@ Chapter 23
 The Four Hounds
 
 [MCID_M023_PLACE]
-Lava Fields
+Grasslands
 
 [MCID_M023_OUTLINE]
 Seeking to break the barrier in the
@@ -321,15 +321,14 @@ down a Fell Dragon Shard.
 Chapter 24
 
 [MCID_M024]
-Recollections
+Fell Heir Nil
 
 [MCID_M024_PLACE]
-Mountainous Region
+Sand Fortress
 
 [MCID_M024_OUTLINE]
-Armed with a powerful artifact
-from Zephia, the party heads to a
-lake in pursuit of a sunken shard.
+With the first shard broken, the party heads to a
+fortress in pursuit of another shard.
 
 [MCID_M025_PREFIX]
 Chapter 25
@@ -341,15 +340,20 @@ The Final Guardian
 Gradlon Temple
 
 [MCID_M025_OUTLINE]
-After meeting the Divine Dragon's
-past self, only one shard remains.
+Only one shard remains.
 But a dark surprise lies in wait...
 
-[MCID_M026_PREFIX]
+[MCID_M026P_PREFIX]
 Chapter 26
 
+[MCID_M026_PREFIX]
+Endgame
+
+[MCID_M026P]
+Empty Emblems
+
 [MCID_M026]
-The Last Engage
+When Heaven's Light Covers the Snow
 
 [MCID_M026_PLACE]
 Portal to Other Worlds
@@ -684,6 +688,9 @@ Defeat Boss.
 $P is defeated or $Arg(0) turns pass.
 
 [MID_RULE_M025_WIN]
+Seize.
+
+[MID_RULE_M026P_WIN]
 Defeat Boss.
 
 [MID_RULE_M026_WIN]

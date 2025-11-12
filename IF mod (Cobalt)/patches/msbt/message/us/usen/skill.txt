@@ -5154,6 +5154,14 @@ When the enemy is in
 a negative effect terrain,
 Dmg+7.
 
+[MSID_Freeze]
+Immobilize
+
+[MSID_H_Freeze]
+When this unit hits,
+inflicts Freeze effect
+on foe.
+
 [MSID_Amaterasu]
 Amaterasu
 

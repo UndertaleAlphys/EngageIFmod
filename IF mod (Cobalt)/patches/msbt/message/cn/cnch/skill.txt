@@ -3505,7 +3505,7 @@ MSID_CrtMoreDmg
 无限之杖
 
 [MSID_StaffSavant+]
-无限之杖
+无限之杖+
 
 [MSID_H_StaffSavant]
 使用杖时不消耗耐久，
