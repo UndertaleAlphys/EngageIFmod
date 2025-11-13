@@ -5551,7 +5551,10 @@ immunity to Engage Seal for 2 turns.
 
 [MSID_H_DragonVein_M023_SkySeal]  
 Reduces movement for flying units,  
-while increasing movement for ground units.  
+while increasing movement for ground units. 
+
+[MSID_H_DragonVein_M026_Block]
+Freeze fog into ice barriers.
 
 [MSID_Quixotic]
 Quixotic
