@@ -4,8 +4,75 @@ g_pid_lueur						= "PID_リュール"
 g_pid_boss 						= "PID_M026P_ソンブル_人型"
 maid_Name_Prefix = "PID_IFMOD_M026_メイド_"
 
+g_map_width = 30
+g_map_height = 30
+
 player_God_Table = {}
 player_Pos_Table = {}
+magic_Barrier_Point_Terra = {}
+
+magic_Barrier_Point = {
+    {30, 9}, {30, 8},
+    {29, 10}, {29, 9},
+    {28, 10}, {28, 9},
+    {27, 10}, {27, 9},
+    
+    {26, 11}, {26, 10},
+    {25, 19}, {25, 18}, {25, 17}, {25, 16}, {25, 15}, {25, 14}, {25, 13}, {25, 12}, {25, 11},
+    {24, 18}, {24, 17}, {24, 16}, {24, 15}, {24, 14}, {24, 13}, {24, 12},
+    {23, 17}, {23, 16}, {23, 15}, {23, 14}, {23, 13},
+    
+    {26, 19}, {26, 20},
+    {27, 20}, {27, 21},
+    {28, 21}, {28, 22},
+    {29, 21}, {29, 22},
+    {30, 22}, {30, 23},
+}
+
+convert_Terrain_Type = {
+    "TID_平地",
+    "TID_海",
+    "TID_林",
+    "TID_茂み",
+    "TID_瓦礫",
+    "TID_竜１",
+    "TID_竜２",
+    "TID_竜３",
+    "TID_竜４",
+    "TID_竜５",
+    "TID_竜６",
+    "TID_竜７",
+}
+
+convert_Exclude_Point = {
+    {26,12}, {26,13}, {26,14}, {26,15}, {26,16}, {26,17}, {26,18},
+    {27,11}, {27,12}, {27,13}, {27,14}, {27,15}, {27,16}, {27,17}, {27,18}, {27,19},
+    {28,11}, {28,12}, {28,13}, {28,14}, {28,15}, {28,16}, {28,17}, {28,18}, {28,19}, {28,20},
+    {29,11}, {29,12}, {29,13}, {29,14}, {29,15}, {29,16}, {29,17}, {29,18}, {29,19}, {29,20},
+    {30,10}, {30,11}, {30,12}, {30,13}, {30,14}, {30,15}, {30,16}, {30,17}, {30,18}, {30,19}, {30,20}, {30,21}
+}
+
+maid_Positon_Summon_Direction = {
+    {12,21,1},
+    {8,18,2},
+    {28,26,3},
+    {27,22,1},
+    {18,15,4},
+    {14,14,2},
+    {5,14,4},
+    {8,11,1},
+    {13,5,4},
+    {17,4,2},
+    {26,7,2},
+    {28,4,3}
+}
+
+Directions = {
+    {-1,0},
+    {0,1},
+    {1,0},
+    {0,-1}
+}
 
 -- -----------------------------------
 
@@ -25,11 +92,13 @@ end
 function フラグ登録()
 	VariableEntry("player_God_Table", "")
     VariableEntry("player_Pos_Table", "")
+    VariableEntry("magic_Barrier_Point_Terra", "")
 end
 
 function イベント登録()
 	EventEntryTurn(SetPlayerGodTable, 1, 1, FORCE_PLAYER)
     EventEntryTurn(SetPlayerPosTable, 1, 1, FORCE_PLAYER)
+    EventEntryTurn(RevertBanTerrainToNormal, 2, 2, FORCE_PLAYER)
 	EventEntryTurn(SetMaidAIFirstTurn, 1, 1, FORCE_ENEMY)
 	EventEntryTurn(SetMaidAIRemainTurn, 2, -1, FORCE_ENEMY)
 	EventEntryEscape(離脱イベント, 29, 14, "", condition_true)	
@@ -49,8 +118,8 @@ end
 
 function MapOpening()
 	Log("MapOpening")
-
-    EffectCreateRotateXYZ( "水晶障壁_ループ", 40, 4,0, 0, 0, 0, 5)
+    InitMapM026P()
+    EffectCreateRotateXYZ( "水晶障壁_ループ", 40, 7, 0, 0, 0, 0, 5)
 end
 
 function 離脱イベント()
@@ -118,18 +187,19 @@ function SetPlayerPosTable()
 
     local playerPosTableStr = TableToString(player_Pos_Table)
     VariableSet("player_Pos_Table", playerPosTableStr)
-
-    -- local currentList = StringToTable(VariableGet("player_Pos_Table"))
-    -- for i, info in ipairs(currentList) do
-    --     if type(info) == "table" and #info >= 3 then
-    --        Log("  " .. i .. ": PID=" .. info[1] .. ", X=" .. info[2] .. ", Z=" .. info[3])
-    --    else
-    --        Log("  " .. i .. ": " .. tostring(info))
-    --    end
-    --end
 end
 
 function SetMaidAIFirstTurn()
+
+    CursorSetPos(25, 14)
+    MapCameraWait()
+    EffectPlay( "水晶障壁_破壊", 25, 14 )
+    EffectDelete("水晶障壁_ループ", 40, 7)
+    EffectWait()
+
+    ResetMagicBarrierPoint()
+    RevertConvertedTerrainOnlyAtMaidSummonDirection()
+
     local current_Player_God_Table = StringToTable(VariableGet("player_God_Table"))
     local maid_God_Table = {
         { "Marth", {"マルス", "チキ"} },
@@ -293,4 +363,168 @@ function SetMaidAIRemainTurn()
         end
         index = ForceUnitGetNext(index)
     end
+end
+
+function ProcessTerrainWithExclusion(processFunc)
+    local excludeMap = {}
+    for _, excludePoint in ipairs(convert_Exclude_Point) do
+        local x, z = excludePoint[1], excludePoint[2]
+        if not excludeMap[x] then
+            excludeMap[x] = {}
+        end
+        excludeMap[x][z] = true
+    end
+    
+    TerrainSetBegin()
+    processFunc(excludeMap)
+    TerrainSetEnd()
+end
+
+function IsMaidSummonDirectionPoint(x, z)
+    for _, summonInfo in ipairs(maid_Positon_Summon_Direction) do
+        local maidX, maidZ = summonInfo[1], summonInfo[2]
+        local directionIndex = summonInfo[3]
+        local direction = Directions[directionIndex]
+        local targetX = maidX + direction[1]
+        local targetZ = maidZ + direction[2]
+        
+        if x == targetX and z == targetZ then
+            return true
+        end
+    end
+    return false
+end
+
+function InitMapM026P()
+    SetMagicBarrierTerrain()
+    ConvertAllTerrainWithBarrier()
+end
+
+function SetMagicBarrierTerrain()
+    ProcessTerrainWithExclusion(function(excludeMap)
+        local barrierPoints = magic_Barrier_Point
+        
+        for i, point in ipairs(barrierPoints) do
+            local x = point[1]
+            local z = point[2]
+            
+            local originalTerrain = TerrainGet(x, z)
+            table.insert(magic_Barrier_Point_Terra, {x, z, originalTerrain})
+            
+            TerrainSet(x, z, "TID_魔法障壁")
+        end
+    end)
+    
+    local barrierPointTerraStr = TableToString(magic_Barrier_Point_Terra)
+    VariableSet("magic_Barrier_Point_Terra", barrierPointTerraStr)
+end
+
+function ResetMagicBarrierPoint()
+    local barrierPointTerraStr = VariableGet("magic_Barrier_Point_Terra")
+    if barrierPointTerraStr == "" then
+        return
+    end
+    
+    local savedTerrainData = StringToTable(barrierPointTerraStr)
+    
+    ProcessTerrainWithExclusion(function(excludeMap)
+        for i, terrainInfo in ipairs(savedTerrainData) do
+            if type(terrainInfo) == "table" and #terrainInfo >= 3 then
+                local x = terrainInfo[1]
+                local z = terrainInfo[2]
+                local originalTerrain = terrainInfo[3]
+                TerrainSet(x, z, originalTerrain)
+            end
+        end
+    end)
+    
+    VariableSet("magic_Barrier_Point_Terra", "")
+    magic_Barrier_Point_Terra = {}
+end
+
+function ConvertAllTerrainWithBarrier()
+    ProcessTerrainWithExclusion(function(excludeMap)
+        for x = 1, g_map_width do
+            for z = 1, g_map_height do
+                if not (excludeMap[x] and excludeMap[x][z]) then
+                    local currentTerrain = TerrainGet(x, z)
+                    for _, baseTerrain in ipairs(convert_Terrain_Type) do
+                        if currentTerrain == baseTerrain then
+                            TerrainSet(x, z, baseTerrain .. "_Barrier_M026P")
+                            break
+                        end
+                    end
+                end
+            end
+        end
+    end)
+end
+
+function RevertConvertedTerrainOnlyAtMaidSummonDirection()
+    ProcessTerrainWithExclusion(function(excludeMap)
+        for _, summonInfo in ipairs(maid_Positon_Summon_Direction) do
+            local maidX, maidZ = summonInfo[1], summonInfo[2]
+            local directionIndex = summonInfo[3]
+            
+            local direction = Directions[directionIndex]
+            local targetX = maidX + direction[1]
+            local targetZ = maidZ + direction[2]
+            
+            if targetX >= 1 and targetX <= g_map_width and targetZ >= 1 and targetZ <= g_map_height then
+                if not (excludeMap[targetX] and excludeMap[targetX][targetZ]) then
+                    local currentTerrain = TerrainGet(targetX, targetZ)
+                    
+                    for _, baseTerrain in ipairs(convert_Terrain_Type) do
+                        local convertedTerrain = baseTerrain .. "_Barrier_M026P"
+                        
+                        if currentTerrain == convertedTerrain then
+                            TerrainSet(targetX, targetZ, baseTerrain)
+                            break
+                        end
+                    end
+                end
+            end
+        end
+        
+        for x = 1, g_map_width do
+            for z = 1, g_map_height do
+                if not (excludeMap[x] and excludeMap[x][z]) then
+                    if not IsMaidSummonDirectionPoint(x, z) then
+                        local currentTerrain = TerrainGet(x, z)
+                        
+                        for _, baseTerrain in ipairs(convert_Terrain_Type) do
+                            local barrierTerrain = baseTerrain .. "_Barrier_M026P"
+                            local banTerrain = baseTerrain .. "_Ban_M026P"
+                            
+                            if currentTerrain == barrierTerrain then
+                                TerrainSet(x, z, banTerrain)
+                                break
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end)
+end
+
+function RevertBanTerrainToNormal()
+    ProcessTerrainWithExclusion(function(excludeMap)
+        for x = 1, g_map_width do
+            for z = 1, g_map_height do
+                if not (excludeMap[x] and excludeMap[x][z]) then
+                    local currentTerrain = TerrainGet(x, z)
+                    
+                    for _, baseTerrain in ipairs(convert_Terrain_Type) do
+                        local banTerrain = baseTerrain .. "_Ban_M026P"
+                        
+                        if currentTerrain == banTerrain then
+                            TerrainSet(x, z, baseTerrain)
+                            break
+                        end
+                    end
+                end
+            end
+        end
+    end)
 end
