@@ -2,12 +2,44 @@ Include("Common")
 Include("Common_E")
 
 g_pid_lueur = "PID_リュール"
+g_used_dragonVein = "used_dragonVein"
+g_pid_boss = "PID_M024_リュール"
 
+attackRowEvenLow1 = 3
+attackRowEvenHigh1 = 7
+
+attackRowOddLow = 11
+attackRowOddHigh = 15
+
+attackRowEvenLow2 = 19
+attackRowEvenHigh2 = 23
+
+g_map_height = 27
+g_map_width = 30
+
+g_dragonVeinDamageList = {}
+g_dragonVeinBlockList = {}
 
 g_dragonVeinConfig_M026 = {
-  
+  	{
+        point = {9, 19},
+        skillId = "SID_DragonVein_M026_Block",
+        type = "block",
+        param = 0
+    },
 }
 
+fogPoint = {
+	{21, 4},
+	{21, 5},
+	{21, 6},
+	{24, 12},
+	{24, 13},
+	{24, 14},
+	{21, 20},
+	{21, 21},
+	{21, 22},
+}
 
 -- -----------------------------------
 
@@ -25,14 +57,21 @@ function Startup()
 end
 
 function フラグ登録()
-
+	VariableEntry(g_used_dragonVein,0)
 end
 
 function イベント登録()
 
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 9, 19, "PID_リュール", condition_true)
-	
+	EventEntryEscape(離脱イベント, 4, 13, "", condition_true)
+	EventEntryTurn(EquipDragonVeinSkillsM026, 1, 1, FORCE_PLAYER)
+	EventEntryTurn(DragonVeinUsedByEnemyPredict, -1, -1, FORCE_PLAYER)
+	EventEntryTurn(DragonVeinUsedByEnemyProcess, -1, -1, FORCE_ENEMY)
+	local dragonVeinPoints = {}
+    for _, config in ipairs(g_dragonVeinConfig_M026) do
+        table.insert(dragonVeinPoints, config.point)
+    end
+    DragonVeinRegisterEvents(dragonVeinPoints)
 end
 
 function Cleanup()
@@ -52,8 +91,8 @@ end
 function MapOpening()
 	
 	Log("MapOpening")
+	InitMapM026()
 end
-
 
 function MapEnding()
 	
@@ -65,7 +104,6 @@ function Ending()
 	
 	Log("Ending")
 
-	
 end
 
 function GameOver()
@@ -87,4 +125,286 @@ function 離脱イベント()
 	UnitMoveWait()
 	
 	VariableSet( "勝利", 1 )
+end
+
+function InitMapM026()
+	Log("InitMapM026")
+	local magicCirclePoints = {}
+    for _, config in ipairs(g_dragonVeinConfig_M026) do
+        table.insert(magicCirclePoints, config.point)
+    end
+    DragonVeinCreateMagicCircle(magicCirclePoints)
+
+    local terrainPoints = {}
+    for _, config in ipairs(g_dragonVeinConfig_M026) do
+        table.insert(terrainPoints, {config.point[1], config.point[2], "TID_龙脉_M023_SkySeal"})
+    end
+    DragonVeinSetTerrain(terrainPoints)
+end
+
+function EquipDragonVeinSkillsM026()
+	Log("EquipDragonVeinSkillsM026")
+    local skillIds = {}
+    for _, config in ipairs(g_dragonVeinConfig_M026) do
+        table.insert(skillIds, config.skillId)
+    end
+    DragonVeinEquipSkills(skillIds)
+end
+
+function DragonVeinUsed()
+    local unit = MindGetUnit()
+    local x = UnitGetX(unit)
+    local z = UnitGetZ(unit)
+    local dragonVeinPoints = {}
+    for _, config in ipairs(g_dragonVeinConfig_M026) do
+        table.insert(dragonVeinPoints, {
+            config.point,
+            config.skillId,
+            config.type,
+            config.param
+        })
+    end
+
+
+    local veinInfo = DragonVeinPreUseCheck(
+        dragonVeinPoints,
+        x,
+        z
+    )
+
+    if veinInfo then
+        DragonVeinPostUseHandleM026(veinInfo)
+    end
+end
+
+function DragonVeinPostUseHandleM026(veinInfo)
+	Log("DragonVeinPostUseHandleM026")
+    TerrainSetBegin()
+        TerrainSet(veinInfo.x, veinInfo.z, "TID_道")
+    TerrainSetEnd()
+
+    EffectDelete("魔法陣_G001", veinInfo.x, veinInfo.z)
+    CursorSetPos(veinInfo.x, veinInfo.z)
+    WaitTime(1.0)
+    EffectPlay("水球_発動", veinInfo.x, veinInfo.z)
+    WaitTime(1.5)
+
+    for _, config in ipairs(g_dragonVeinConfig_M026) do
+        if veinInfo.x == config.point[1] and veinInfo.z == config.point[2] then
+            local distOrg = CursorGetDistanceMode()
+
+            CursorSetDistanceMode(CURSOR_DISTANCE_MIDDLE)
+            MapCameraWait()
+
+            CursorSetPos(26, 13)
+            WaitTime(1.0)
+            EffectPlay("水球", 26, 13)
+            WaitTime(1.5)
+
+            CursorSetDistanceMode(distOrg)
+            MapCameraWait()
+
+            DragonVeinApplyEffect()
+
+            break
+        end
+    end
+end
+
+function DragonVeinApplyEffect()
+	Log("DragonVeinApplyEffect")
+    VariableSet(g_used_dragonVein, 1)
+	MapOverlapSetBegin()
+	for _ , point in ipairs( fogPoint ) do
+		Log(point[1], point[2])
+		MapOverlapSet( point[1], point[2], "TID_ブロック_M026" )
+		Log("MapOverlapSet")
+	end
+	MapOverlapSetEnd()
+
+	MapDangerRangeUpdate()
+end
+
+function DragonVeinUsedByEnemyPredict()
+	Log("DragonVeinUsedByEnemyPredict")
+	if MapGetTurn() == 1 then
+		return
+	end
+	local Turn = MapGetTurn() % 2
+	local bossX = UnitGetX(g_pid_boss)
+	local bossZ = UnitGetZ(g_pid_boss)
+
+	CursorSetPos(bossX, bossZ)	
+	MapCameraWait()
+
+	EffectCreate("邪竜紋_準備",bossX, bossZ)
+	WaitTime(1.0)
+
+	MapDangerRangeUpdate()
+
+	if Turn == 1 then
+		Dialog("MID_TUT_M026_DRAGONVEIN_ENEMY1")
+	else
+		Dialog("MID_TUT_M026_DRAGONVEIN_ENEMY2")
+	end
+end
+
+function DragonVeinUsedByEnemyProcess()
+	Log("DragonVeinUsedByEnemyProcess")
+	if MapGetTurn() == 1 then
+		return
+	end
+	
+	local bossX = UnitGetX(g_pid_boss)
+	local bossZ = UnitGetZ(g_pid_boss)
+
+	CursorSetPos(bossX, bossZ)	
+	MapCameraWait()
+
+	EffectDelete("邪竜紋_準備", bossX, bossZ)
+	EffectPlay("邪竜紋_発動", bossX, bossZ)
+    WaitTime(1.0)
+
+	if MapGetTurn() % 2 == 1 then
+		PlayAllAvalancheEffects()
+        ProcessDragonVeinDamage(attackRowOddLow, attackRowOddHigh)
+		ApplyDragonVeinDamage()
+    else
+		PlayAllAvalancheEffects()
+        ProcessDragonVeinDamage(attackRowEvenLow1, attackRowEvenHigh1)
+        ProcessDragonVeinDamage(attackRowEvenLow2, attackRowEvenHigh2)
+		ApplyDragonVeinDamage()
+    end
+
+	MapRangeClear()
+end
+
+function PlayAvalancheEffect(lowRow, highRow)
+    EffectPlay("雪崩", g_map_width - 1, (lowRow + highRow) / 2)
+end
+
+function PlayAllAvalancheEffects()
+	local distOrg = CursorGetDistanceMode()
+
+	CursorSetDistanceMode(CURSOR_DISTANCE_FAR)
+	MapCameraWait()
+
+	CursorSetPos(15,13)
+	MapCameraWait()
+    if MapGetTurn() % 2 == 1 then
+        PlayAvalancheEffect(attackRowOddLow, attackRowOddHigh)
+    else
+        PlayAvalancheEffect(attackRowEvenLow1, attackRowEvenHigh1)
+        PlayAvalancheEffect(attackRowEvenLow2, attackRowEvenHigh2)
+    end
+    WaitTime(4.0)
+    MapCameraWait()
+
+	CursorSetDistanceMode(distOrg)
+	MapCameraWait()
+end
+
+function ProcessDragonVeinDamage(lowRow, highRow)
+    Log("ProcessDragonVeinDamage " .. lowRow .. " to " .. highRow)
+    for z = lowRow, highRow do
+        local blockX = nil
+        for x = 1, g_map_width do
+            if MapOverlapGet(x, z) == "TID_ブロック_M026" then
+                blockX = x
+				table.insert(g_dragonVeinBlockList, {
+                    x = x,
+                    z = z
+                })
+                break
+            end
+        end
+        for x = 1, g_map_width do
+            local unit = UnitGetByPos(x, z)
+            if unit and UnitGetForce(unit) == FORCE_PLAYER then
+                if blockX == nil or x > blockX then
+                    table.insert(g_dragonVeinDamageList, {
+                        unit = unit,
+                        x = x,
+                        z = z
+                    })
+                end
+            end
+        end
+    end
+end
+
+function ApplyDragonVeinDamage()
+    if #g_dragonVeinDamageList > 0 or #g_dragonVeinBlockList > 0 then
+		if #g_dragonVeinBlockList > 0 then
+            MapOverlapSetBegin()
+            for _, blockInfo in ipairs(g_dragonVeinBlockList) do
+                MapOverlapSet(blockInfo.x, blockInfo.z, "TID_霧_永続")
+            end
+            MapOverlapSetEnd()
+        end
+
+        if #g_dragonVeinDamageList > 0 then
+            local centerX = 0
+            local centerZ = 0
+            for _, damageInfo in ipairs(g_dragonVeinDamageList) do
+                centerX = centerX + damageInfo.x
+                centerZ = centerZ + damageInfo.z
+            end
+            centerX = math.floor(centerX / #g_dragonVeinDamageList)
+            centerZ = math.floor(centerZ / #g_dragonVeinDamageList)
+            
+            CursorSetPos(centerX, centerZ)
+            MapCameraWait()
+            
+            MapDamageBegin()
+            for _, damageInfo in ipairs(g_dragonVeinDamageList) do
+				local damage = UnitGetCapability(damageInfo.unit,CAPABILITY_HP,true)/2
+                MapDamageAdd(damageInfo.unit, damage)
+            end
+            MapDamageEnd()
+        end
+        
+        g_dragonVeinDamageList = {}
+		g_dragonVeinBlockList = {}
+    end
+end
+
+function MapDangerRangeUpdate()
+    Log("MapDangerRangeUpdate")
+    MapRangeClear()
+    if MapGetTurn() == 1 then
+        return
+    end
+    
+    if MapGetTurn() % 2 == 1 then
+		MapRangeAddBegin()
+        AddDangerRange(attackRowOddLow, attackRowOddHigh)
+		MapRangeAddEnd()
+    else
+		MapRangeAddBegin()
+        AddDangerRange(attackRowEvenLow1, attackRowEvenHigh1)
+        AddDangerRange(attackRowEvenLow2, attackRowEvenHigh2)
+		MapRangeAddEnd()
+    end
+end
+
+function AddDangerRange(lowRow, highRow)
+    Log("AddDangerRange " .. lowRow .. " to " .. highRow)
+    
+    for z = lowRow, highRow do
+        local blockX = nil
+        
+        for x = 1, g_map_width do
+            if MapOverlapGet(x, z) == "TID_ブロック_M026" then
+                blockX = x
+                break
+            end
+        end
+        
+        for x = 1, g_map_width do
+            if blockX == nil or x > blockX then
+                MapRangeAdd(x, z)
+            end
+        end
+    end
 end

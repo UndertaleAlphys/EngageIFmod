@@ -2863,6 +2863,12 @@ $P的兵种变成“神龙之王”后，即可在后院游玩“飞龙射手”
 本章节中，琉尔无法与纹章士同步，
 击败所有敌将后将解除魔法障壁。
 
+[MID_TUT_M026_DRAGONVEIN_ENEMY1]  
+本回合，中间的山道将发生雪崩。 
+
+[MID_TUT_M026_DRAGONVEIN_ENEMY2]  
+本回合，两侧的山道将发生雪崩。
+
 [MID_TIPS_WEAPON_TRIANGLE_T]
 武器之间的克制三角
 

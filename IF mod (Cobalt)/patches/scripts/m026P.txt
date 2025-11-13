@@ -49,6 +49,8 @@ end
 
 function MapOpening()
 	Log("MapOpening")
+
+    EffectCreateRotateXYZ( "水晶障壁_ループ", 40, 4,0, 0, 0, 0, 5)
 end
 
 function 離脱イベント()

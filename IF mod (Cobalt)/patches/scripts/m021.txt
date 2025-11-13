@@ -15,19 +15,20 @@ g_flag_battle = "flag_battle"
 g_deadEnemyList = {}
 
 UnitListHasEngageSeal = {
-"PID_M021_ヴェイル",
-"PID_IFMOD_M021_メイド1",
-"PID_IFMOD_M021_メイド2",
-"PID_IFMOD_M021_メイド3",
-"PID_IFMOD_M021_メイド4",
-"PID_IFMOD_M021_メイド9",
-"PID_IFMOD_M021_メイド10",
-"PID_IFMOD_M021_メイド11",
-"PID_IFMOD_M021_メイド12",
-"PID_IFMOD_M021_メイド13",
-"PID_IFMOD_M021_メイド14",
-"PID_IFMOD_M021_メイド15",
+    "PID_M021_ヴェイル",
+    "PID_IFMOD_M021_メイド1",
+    "PID_IFMOD_M021_メイド2",
+    "PID_IFMOD_M021_メイド3",
+    "PID_IFMOD_M021_メイド4",
+    "PID_IFMOD_M021_メイド9",
+    "PID_IFMOD_M021_メイド10",
+    "PID_IFMOD_M021_メイド11",
+    "PID_IFMOD_M021_メイド12",
+    "PID_IFMOD_M021_メイド13",
+    "PID_IFMOD_M021_メイド14",
+    "PID_IFMOD_M021_メイド15",
 }
+
 g_dragonVeinEffectTurns = {}
 
 g_dragonVeinConfig_M021 = {
