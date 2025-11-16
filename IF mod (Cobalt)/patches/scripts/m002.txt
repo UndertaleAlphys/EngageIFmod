@@ -162,7 +162,7 @@ function MapOpening()
 	
 	CursorSetPos(6, 3)
 	
-	UnitSetEngageCount(g_pid_lueur, 0)
+	UnitSetEngageMeter(g_pid_lueur, 0)
 	
 	FadeInAndWait(FADE_FAST)
 	
@@ -183,7 +183,7 @@ end
 -- ---------------------------------------------------------
 
 function エンゲージカウント上書き()
-	UnitSetEngageCount( g_pid_lueur, 0 )
+	UnitSetEngageMeter( g_pid_lueur, 0 )
 end
 
 -- ---------------------------------------------------------
@@ -597,7 +597,7 @@ function 二回戦開始()
 	VariableSet( "敵軍フェイズスキップ", 0 )
 	VariableSet( "行動後フェイズ終了", 0 )
 	
-	UnitSetEngageCount(g_pid_lueur, 0)
+	UnitSetEngageMeter(g_pid_lueur, 0)
 	
 	FadeInAndWait(FADE_NORMAL)
 	
@@ -615,7 +615,7 @@ function 二回戦開始()
 			
 			-- シグルドとエンゲージ
 			UnitCreateGodUnit(g_pid_rumiere, "GID_M002_シグルド")
-			UnitSetEngageCount(g_pid_rumiere, 7)
+			UnitSetEngageMeter(g_pid_rumiere, 7)
 			
 			-- 紋章氣マス配置
 			MapOverlapSetOne(8, 4, "TID_紋章氣")

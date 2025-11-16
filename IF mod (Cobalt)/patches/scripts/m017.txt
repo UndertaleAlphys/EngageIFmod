@@ -175,7 +175,7 @@ function ProcessDeadEnemyList()
     WaitTime(1.0)
 
     UnitSetGodUnit(g_deadEnemyList[5], g_deadEnemyList[6])
-    UnitSetEngageCount(g_deadEnemyList[7], g_deadEnemyList[8])
+    UnitSetEngageMeterM017(g_deadEnemyList[7], g_deadEnemyList[8])
 
     g_deadEnemyList = {}
 end
@@ -329,7 +329,7 @@ function StealGodRingFromPlayer()
                     if UnitExistOnMap(unitPid) then
                         local unitX = UnitGetX(unitPid)
                         local unitZ = UnitGetZ(unitPid)
-                        local engageCount = UnitGetEngageCount(unitPid)
+                        local engageCount = UnitGetEngageMeter(unitPid)
 
                         local distance = 二点間距離(veyleX, veyleZ, unitX, unitZ)
 

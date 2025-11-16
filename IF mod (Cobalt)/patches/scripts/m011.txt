@@ -1240,7 +1240,7 @@ function 四狗とアイビー登場()
 	Talk("MID_EV8")
 	
 	UnitCreateGodUnit("PID_アイビー", "GID_リン")
-	UnitSetEngageCount("PID_アイビー", 7)
+	UnitSetEngageMeter("PID_アイビー", 7)
 	
 	Tutorial( "TUTID_紋章士リン" )
 	
@@ -1256,7 +1256,7 @@ function 四狗とアイビー登場()
 	FadeInAndWait( FADE_FAST )
 	
 	UnitCreateGodUnit(g_pid_lueur, "GID_ルキナ")
-	UnitSetEngageCount(g_pid_lueur, 7)
+	UnitSetEngageMeter(g_pid_lueur, 7)
 	
 	Talk("MID_EV10")
 	

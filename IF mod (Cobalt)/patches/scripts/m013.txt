@@ -130,7 +130,7 @@ function MapOpening()
 	TerraSetInit()
 	-- 神将作成・バディ化
 	UnitCreateGodUnit("PID_ミスティラ", "GID_アイク");
-	UnitSetEngageCount("PID_ミスティラ", 7)
+	UnitSetEngageMeter("PID_ミスティラ", 7)
 
 	CursorSetPos( 11, 12 )
 	MapCameraWait()

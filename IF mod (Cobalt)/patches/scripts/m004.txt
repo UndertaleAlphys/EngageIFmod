@@ -209,7 +209,7 @@ function セリーヌ合流とセリカ顕現()
 	
 	-- 神将作成・バディ化
 	UnitCreateGodUnit("PID_セリーヌ", "GID_セリカ")
-	UnitSetEngageCount("PID_セリーヌ", 7)
+	UnitSetEngageMeter("PID_セリーヌ", 7)
 	
 	-- セリーヌ移動
 	UnitMovePos( "PID_セリーヌ", 5, 4, MOVE_FLAG_NONE )

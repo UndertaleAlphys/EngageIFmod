@@ -454,7 +454,7 @@ function マルスの顕現とシンクロ()
 	-- 神将作成・バディ化
 	GodUnitCreate("GID_マルス")
 	UnitSetGodUnit(g_pid_lueur, "GID_マルス")
-	UnitSetEngageCount(g_pid_lueur, 7)
+	UnitSetEngageMeter(g_pid_lueur, 7)
 	
 	local maxHp = UnitGetCapability(g_pid_lueur, CAPABILITY_HP, true)
 	UnitSetHp(g_pid_lueur, maxHp)

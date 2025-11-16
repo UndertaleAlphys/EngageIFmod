@@ -373,7 +373,7 @@ function セアダス加入()
 
 	-- Dialog("セアダス・カムイ　エンゲージ")
 	UnitCreateGodUnit("PID_セアダス", "GID_カムイ")
-	UnitSetEngageCount("PID_セアダス", 7)
+	UnitSetEngageMeter("PID_セアダス", 7)
 
 	Talk("MID_EV2")
 

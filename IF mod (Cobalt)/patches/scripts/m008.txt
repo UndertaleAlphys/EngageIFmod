@@ -125,7 +125,7 @@ function MapOpening()
 	CursorSetDistanceMode(CURSOR_DISTANCE_NEAR)
 	MapCameraWait()
 	
-	UnitSetEngageCount("PID_ディアマンド", 7)
+	UnitSetEngageMeter("PID_ディアマンド", 7)
 	
 end
 
@@ -297,7 +297,7 @@ function God_Leaf_Create()
 	GodUnitCreate( "GID_リーフ" )
 	local mind_pid	= UnitGetPID( MindGetUnit() )
 	UnitSetGodUnit(mind_pid, "GID_リーフ")
-	UnitSetEngageCount(mind_pid, 7)
+	UnitSetEngageMeter(mind_pid, 7)
 end
 
 function MapEnding()

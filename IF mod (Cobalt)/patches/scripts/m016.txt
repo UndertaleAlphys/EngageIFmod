@@ -142,7 +142,7 @@ function MapOpening()
 	-- Talk("MID_OP7")
 
 	UnitCreateGodUnit( "PID_ロサード", "GID_エイリーク" )
-	UnitSetEngageCount( "PID_ロサード", 7 )
+	UnitSetEngageMeter( "PID_ロサード", 7 )
 
 	UnitLearnJobSkill("PID_ロサード")
 	UnitLearnJobSkill("PID_ゴルドマリー")

@@ -2350,7 +2350,7 @@ function SavePlayerUnitsEngageStatus()
     local unitIndex = 1
 
     while playerUnit ~= nil do
-        local engageCount = UnitGetEngageCount(playerUnit)
+        local engageCount = UnitGetEngageMeter(playerUnit)
         local isEngaging = UnitGetEngaging(playerUnit)
         local engageTurn = UnitGetEngageTurn(playerUnit) + 1
         local usedEngageAttack = HasUnitUsedEngageAttack(playerUnit)
@@ -2580,7 +2580,7 @@ function RollbackUnitEngageStatusByIndex(unitIndex, rollbackSteps)
                         UnitSetEngageTurn(playerUnit, unitData[3])
                     else
                         UnitSetEngaging(playerUnit, false)
-                        UnitSetEngageCount(playerUnit, unitData[1])
+                        UnitSetEngageMeter(playerUnit, unitData[1])
                     end
 
                     if unitData[4] == 0 and unitData[2] == 1 then
