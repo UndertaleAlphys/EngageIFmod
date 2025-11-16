@@ -10,6 +10,8 @@ player_God_Table = {}
 notEquipGodList = {}
 g_deadEnemyList = {}
 
+lastActionUnit = ""
+
 -- -----------------------------------
 
 function Startup()
@@ -159,6 +161,14 @@ function ProcessDeadEnemyList()
     if #g_deadEnemyList == 0 then
         return
     end
+
+    if lastActionUnit ~= nil then
+        if lastActionUnit == g_deadEnemyList[5] or lastActionUnit == g_deadEnemyList[7] then
+            lastActionUnit = nil
+            return
+        end
+    end
+
     local unitX = g_deadEnemyList[1]
     local unitZ = g_deadEnemyList[2]
     local targetX = g_deadEnemyList[3]
@@ -409,18 +419,22 @@ function StealGodRingFromPlayer()
     CheckPlayerHasRings()
 end
 
-
-
--- 检查被击杀敌方单位的戒指
 function checkDeadEnemy()
-    local deadUnit = MindGetEventUnit()  -- 获取被击杀的单位
-    local deadX = UnitGetX(deadUnit)
-    local deadZ = UnitGetZ(deadUnit)
-    if deadUnit == nil then
-        return
+    lastActionUnit = MindGetUnit()
+    local EventUnit = MindGetEventUnit() 
+    local EventX = UnitGetX(EventUnit)
+    local EventZ = UnitGetZ(EventUnit)
+
+    if UnitGetForce(lastActionUnit) == FORCE_ENEMY then
+        local temp = lastActionUnit
+        lastActionUnit = EventUnit
+        EventUnit = temp
+        EventX = UnitGetX(EventUnit)
+        EventZ = UnitGetZ(EventUnit)
     end
 
-    local enemyGodId = UnitGetGodUnit(deadUnit)  -- 获取敌方单位装备的戒指
+
+    local enemyGodId = UnitGetGodUnit(EventUnit)  -- 获取敌方单位装备的戒指
     if enemyGodId == nil then
         return  -- 没有装备戒指，直接返回
     end
