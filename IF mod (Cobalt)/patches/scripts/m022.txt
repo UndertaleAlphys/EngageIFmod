@@ -128,7 +128,7 @@ function ProcessUnitList()
     if #mind_unit_list ~= 0 then
         local unit = table.remove(mind_unit_list, 1)
         if UnitGetGodUnit(unit) ~= nil then
-            UnitSetEngageCount(unit,7)
+            UnitSetEngageMeterM017(unit,7)
             local level = UnitGetBondLevel(unit)
             if level <= 10 then
                 UnitSetBondLevel(unit,10)

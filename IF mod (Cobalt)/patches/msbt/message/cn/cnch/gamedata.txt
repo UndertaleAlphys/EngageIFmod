@@ -833,7 +833,7 @@ $P被击败或超过$Arg(0)回合
 龙脉：天锁
 
 [MTID_DragonVein_M026_Block]
-龙脉：屏障
+龙脉：冰锁
 
 [MTID_Quicksand]
 流沙

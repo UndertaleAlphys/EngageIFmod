@@ -746,8 +746,8 @@ function SetEngageSealFlagde()
                         local postEngageTurn = math.max(0,engageTurn+1)
                         UnitSetEngageTurn(playerIndex,postEngageTurn)
                     else
-                        local preEngageCount = UnitGetEngageCount(playerIndex)
-                        UnitSetEngageCount(playerIndex,math.max(0,preEngageCount-2))
+                        local preEngageCount = UnitGetEngageMeter(playerIndex)
+                        UnitSetEngageMeter(playerIndex,math.max(0,preEngageCount-2))
                     end
                 end
             end

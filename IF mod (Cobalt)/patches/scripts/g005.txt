@@ -288,10 +288,10 @@ function initMapG005()
     }
     DragonVeinSetTerrain(terrainPoints)
 
-    UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Luna", 7)
-    UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Beierjia", 7)
-    UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Haluoerde", 7)
-    UnitSetEngageCount("PID_G005_IFMOD_幻影兵_Aierfei", 7)
+    UnitSetEngageMeter("PID_G005_IFMOD_幻影兵_Luna", 7)
+    UnitSetEngageMeter("PID_G005_IFMOD_幻影兵_Beierjia", 7)
+    UnitSetEngageMeter("PID_G005_IFMOD_幻影兵_Haluoerde", 7)
+    UnitSetEngageMeter("PID_G005_IFMOD_幻影兵_Aierfei", 7)
 
     TerrainSetBegin()
     for z = 1, g_map_height do

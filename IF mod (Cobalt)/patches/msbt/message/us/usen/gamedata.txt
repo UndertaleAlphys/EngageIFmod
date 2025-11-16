@@ -353,7 +353,7 @@ Endgame
 Empty Emblems
 
 [MCID_M026]
-When Heaven's Light Covers the Snow
+Heaven's Light Covers the Snow
 
 [MCID_M026_PLACE]
 Portal to Other Worlds
@@ -660,7 +660,7 @@ Defeat ALL Bosses.
 [MID_RULE_M017_WIN]
 Defeat ALL Bosses.
 
-[MID_RULE_M017_LOSE]
+[MID_RUMSID_DragonVeinLE_M017_LOSE]
 $P is defeated or lose all Emblems.
 
 [MID_RULE_M018_WIN]
@@ -863,6 +863,9 @@ DV: Divine Shield
 
 [MTID_DragonVein_M023_SkySeal]
 DV: Sky Seal
+
+[MTID_DragonVein_M026_Block]
+DV: Obstruct
 
 [MTID_Quicksand]
 Quicksand

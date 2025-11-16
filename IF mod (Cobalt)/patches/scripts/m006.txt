@@ -283,7 +283,7 @@ function 戦闘後会話_ミカヤエンゲージ()
 	
 	-- 神将顕現・シンクロ
 	UnitCreateGodUnit("PID_ユナカ", "GID_ミカヤ")
-	UnitSetEngageCount("PID_ユナカ", 7)
+	UnitSetEngageMeter("PID_ユナカ", 7)
 	
 	VariableSet( g_key_engage_michaiah, 1 )
 	

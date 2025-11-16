@@ -86,7 +86,7 @@ function MapOpening()
 	
 	-- マルスとシンクロ
 	UnitCreateGodUnit(g_pid_lueur, "GID_M000_マルス")
-	UnitSetEngageCount(g_pid_lueur, 4)
+	UnitSetEngageMeter(g_pid_lueur, 4)
 	
 	
 	CursorSetPos(5, 4)
@@ -113,7 +113,7 @@ end
 -- -----------------------------------
 
 function エンゲージカウント上書き()
-	UnitSetEngageCount(g_pid_lueur, 4)
+	UnitSetEngageMeter(g_pid_lueur, 4)
 end
 
 -- -----------------------------------
@@ -223,7 +223,7 @@ function condition_エンゲージしよう()
 		return false
 	end
 	
-	if ( UnitGetEngageCount( g_pid_lueur ) == 7 ) and ( not UnitIsStatus( g_pid_lueur, UNIT_STATUS_ENGAGING ) ) then
+	if ( UnitGetEngageMeter( g_pid_lueur ) == 7 ) and ( not UnitIsStatus( g_pid_lueur, UNIT_STATUS_ENGAGING ) ) then
 		return true
 	end
 	
