@@ -3505,3 +3505,17 @@ Fruit Knife
 Use to recover 10 HP.
 Inflicts debuff on foe after combat.
 (Dex -2 Def/Res -3)
+
+[MIID_Bolverk]
+Bölverk
+
+[MIID_H_Bolverk]
+A pitch-black dragonstone 
+exclusive to Sombron.
+
+[MIID_Skadi]
+Skadi
+
+[MIID_H_Skadi]
+Effective:
+Flying, Cavalry, Armored.
