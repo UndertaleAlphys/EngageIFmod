@@ -11,13 +11,25 @@ g_reinforcement_r3 = "g_reinforcement_r3"
 g_reinforcement_m1 = "g_reinforcement_m1"
 g_reinforcement_m1_multiflag = "g_reinforcement_m1_multiflag"
 
+g_key_band1_active			= "Band1Actice_済"
+g_key_band2_active			= "Band2Actice_済"
+g_key_band3_active			= "Band3Actice_済"
+g_key_band4_active			= "Band4Actice_済"
+g_key_band5_active			= "Band5Actice_済"
+g_key_band6_active			= "Band6Actice_済"
+g_key_band7_active			= "Band7Actice_済"
+g_key_band8_active			= "Band8Actice_済"
+g_key_band9_active			= "Band9Actice_済"
+g_key_band10_active			= "Band10Actice_済"
+g_key_band11_active			= "Band11Actice_済"
+
 g_map_width = 27
 g_map_height = 32
 
 CreateEffectsList = {
-    {20, 2, -5.0, 0, 0, 90, 5},
-	{20, 3, -5.0, 0, 0, 90, 5},
     {7, 3, -5.0, 0, 0, 90, 5},
+	{20, 2, -5.0, 0, 0, 90, 5},
+	{20, 3, -5.0, 0, 0, 90, 5},
 	{4, 7, -5.0, 0, 90, 90, 5},
 	{22, 7, -5.0, 0, 90, 90, 5},
 	{4, 14, -5.0, 0, 90, 90, 5},
@@ -32,8 +44,8 @@ CreateEffectsList = {
 }
 
 lightningEffectsMap = {
-    {{20, 2}, {20, 3}},  
-    {{7, 3}},            
+    {{7, 3}},         
+	{{20, 2}, {20, 3}},     
     {{4, 7}},            
     {{22, 7}},           
     {{4, 14}},           
@@ -80,6 +92,18 @@ function フラグ登録()
     for _, varName in ipairs(reinforcementVars) do
         VariableEntry(varName, 0)
     end
+
+	VariableEntry(g_key_band1_active, 0)
+	VariableEntry(g_key_band2_active, 0)
+	VariableEntry(g_key_band3_active, 0)
+	VariableEntry(g_key_band4_active, 0)
+	VariableEntry(g_key_band5_active, 0)
+	VariableEntry(g_key_band6_active, 0)
+	VariableEntry(g_key_band7_active, 0)
+	VariableEntry(g_key_band8_active, 0)
+	VariableEntry(g_key_band9_active, 0)
+	VariableEntry(g_key_band10_active, 0)
+	VariableEntry(g_key_band11_active, 0)
 end
 
 function イベント登録()
@@ -96,8 +120,8 @@ function イベント登録()
 	EventEntryTurn(function() GenericReinforcement("g_reinforcement_m2", "Reinforcement_m2", "ReinforcementM2") end, -1, -1, FORCE_PLAYER)
 
 	local lightningAreas = {
+		{7, 3, 7, 4},
         {20, 1, 20, 4},
-        {7, 3, 7, 4},
         {3, 7, 5, 7},
         {21, 7, 23, 7},
         {3, 14, 5, 14},
@@ -157,6 +181,30 @@ function LightningDestroy(areaIndex)
 		VariableSet("g_reinforcement_m1_multiflag", 1)
         Log("g_reinforcement_m1")
     end
+    
+	if areaIndex == 1 then
+        VariableSet(g_key_band1_active, 1)
+	elseif areaIndex == 2 then
+        VariableSet(g_key_band2_active, 1)
+	elseif areaIndex == 3 then
+        VariableSet(g_key_band3_active, 1)
+	elseif areaIndex == 4 then
+        VariableSet(g_key_band4_active, 1)
+	elseif areaIndex == 5 then
+        VariableSet(g_key_band5_active, 1)
+	elseif areaIndex == 6 then
+        VariableSet(g_key_band6_active, 1)
+	elseif areaIndex == 7 then
+        VariableSet(g_key_band7_active, 1)
+	elseif areaIndex == 8 then
+        VariableSet(g_key_band7_active, 1)
+	elseif areaIndex == 9 then
+        VariableSet(g_key_band9_active, 1)
+	elseif areaIndex == 10 then
+        VariableSet(g_key_band9_active, 1)
+	elseif areaIndex == 11 then
+        VariableSet(g_key_band9_active, 1)
+	end
 end
 
 function Set_Interference_AI_M025()

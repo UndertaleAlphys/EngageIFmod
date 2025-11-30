@@ -2240,13 +2240,13 @@ Master Lance
 An Emblem's lance that can strike
 from a distance. If user initiates
 combat, attacks twice.
-The type of damage varies by distance.
+Damage type varies by distance.
 
 [MIID_H_Leaf_MasterLance]
 Lance wielded by Emblem Leif.
 If user initiates combat, attacks
 twice. Can strike close or at range.
-The type of damage varies by distance.
+Damage type varies by distance.
 
 [MIID_Leaf_LightBrand]
 Light Brand
@@ -2281,7 +2281,8 @@ Parallel Falchion
 
 [MIID_H_Lucina_ParallelFalchion]
 Sacred sword wielded by Emblem
-Lucina. Effective: Dragon.
+Lucina. Effective: Dragon. Lck+20
+Damage type varies by distance.
 
 [MIID_Lin_KillerBow]
 Killer Bow
@@ -2342,7 +2343,7 @@ Ragnell
 [MIID_H_Ike_Ragnell]
 Sacred sword wielded by Emblem
 Ike. Grants Def+2/
-The type of damage varies by distance.
+Damage type varies by distance.
 
 [MIID_Byleth_Aymr]
 Aymr

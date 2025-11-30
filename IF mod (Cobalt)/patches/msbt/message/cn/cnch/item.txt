@@ -2171,7 +2171,7 @@ HP吸收/不可追击
 
 [MIID_H_Lucina_ParallelFalchion]
 纹章士露琪娜的传说神剑。
-克制龙。
+龙特效/幸运+20/攻击属性随距离变化
 
 [MIID_Lin_KillerBow]
 必杀弓

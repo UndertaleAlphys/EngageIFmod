@@ -186,7 +186,7 @@ function ProcessDeadEnemyList()
 
     UnitSetGodUnit(g_deadEnemyList[5], g_deadEnemyList[6])
     UnitSetEngageMeterM017(g_deadEnemyList[7], g_deadEnemyList[8])
-
+    
     g_deadEnemyList = {}
 end
 
