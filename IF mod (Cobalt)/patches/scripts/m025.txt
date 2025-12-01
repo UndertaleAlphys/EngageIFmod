@@ -108,8 +108,8 @@ end
 
 function イベント登録()
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
-	EventEntryTbox(宝箱入手, 6, 24, "IID_シンクエディア")
-	EventEntryTbox(宝箱入手, 20, 24, "IID_竜の盾")
+	EventEntryTbox(宝箱入手, 6, 24, "IID_レンダウィル")
+	EventEntryTbox(宝箱入手, 20, 24, "IID_覇神の法")
 	EventEntryTurn(function() GenericReinforcement("g_reinforcement_l1", "Reinforcement_l1", "ReinforcementL1") end, -1, -1, FORCE_PLAYER)
 	EventEntryTurn(function() GenericReinforcement("g_reinforcement_l2", "Reinforcement_l2", "ReinforcementL2") end, -1, -1, FORCE_PLAYER)
 	EventEntryTurn(function() GenericReinforcement("g_reinforcement_l3", "Reinforcement_l3", "ReinforcementL3") end, -1, -1, FORCE_PLAYER)

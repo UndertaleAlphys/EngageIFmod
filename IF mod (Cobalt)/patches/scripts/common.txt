@@ -1239,7 +1239,7 @@ function 飛行ユニットの０ダメージ攻撃を許可()
 	end
 end
 
-function Set_Interference_AI_by_Pid(pid)
+function Set_Interference_AI_by_Pid_old(pid)
 	local targetresult_pid = ""
 	local min_distance = 64
 	local index	= ForceUnitGetFirst( FORCE_PLAYER )
@@ -1262,6 +1262,20 @@ function Set_Interference_AI_by_Pid(pid)
 		index = ForceUnitGetNext( index )
 	end
 		
+	AiSetSequence( pid, AI_ORDER_ATTACK, "AI_AT_InterferencePerson", targetresult_pid )
+	AiSetActive(pid, true)
+	
+	if targetresult_pid == "" then
+		AiSetSequence ( pid, AI_ORDER_ATTACK, "AI_AT_Attack", "" )
+	end
+	
+	return targetresult_pid
+end
+
+function Set_Interference_AI_by_Pid(pid)
+	local targetresult_pid = UnitGetPID(BestEnfeebleTarget(pid))
+	local min_distance = 64
+    Log("AI Set")
 	AiSetSequence( pid, AI_ORDER_ATTACK, "AI_AT_InterferencePerson", targetresult_pid )
 	AiSetActive(pid, true)
 	
