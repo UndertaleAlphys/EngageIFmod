@@ -162,17 +162,22 @@ function ProcessDeadEnemyList()
         return
     end
 
+    Log("ProcessDeadEnemyList")
+
     if lastActionUnit ~= nil then
+        Log("lastActionUnit: " .. lastActionUnit)
         if lastActionUnit == g_deadEnemyList[5] or lastActionUnit == g_deadEnemyList[7] then
             lastActionUnit = nil
             return
         end
+        Log("step1")
     end
 
     local unitX = g_deadEnemyList[1]
     local unitZ = g_deadEnemyList[2]
     local targetX = g_deadEnemyList[3]
     local targetZ = g_deadEnemyList[4]
+    Log("step2")
 
     CursorSetPos(unitX, unitZ)
     MapCameraWait()
@@ -184,8 +189,10 @@ function ProcessDeadEnemyList()
     EffectPlay("ワープイン", targetX, targetZ)
     WaitTime(1.0)
 
+    Log("step3")
     UnitSetGodUnit(g_deadEnemyList[5], g_deadEnemyList[6])
     UnitSetEngageMeterM017(g_deadEnemyList[7], g_deadEnemyList[8])
+    Log("step4")
     
     g_deadEnemyList = {}
 end
@@ -424,7 +431,6 @@ function checkDeadEnemy()
     local EventUnit = MindGetEventUnit() 
     local EventX = UnitGetX(EventUnit)
     local EventZ = UnitGetZ(EventUnit)
-
     if UnitGetForce(lastActionUnit) == FORCE_ENEMY then
         local temp = lastActionUnit
         lastActionUnit = EventUnit
@@ -433,22 +439,19 @@ function checkDeadEnemy()
         EventZ = UnitGetZ(EventUnit)
     end
 
-
     local enemyGodId = UnitGetGodUnit(EventUnit)  -- 获取敌方单位装备的戒指
     if enemyGodId == nil then
         return  -- 没有装备戒指，直接返回
     end
-
     -- 将敌方戒指ID转换为我方版本
     local playerGodId = ConvertToNormalGodId(enemyGodId)
-
+    Log(playerGodId)
     if playerGodId == enemyGodId then
         return
     end
 
     local currentNotEquipGodList = StringToTable(VariableGet("notEquipGodList"))
     local currentPlayerGodTable = StringToTable(VariableGet("player_God_Table"))
-
     local isInNotEquipList = false
     for _, godId in ipairs(currentNotEquipGodList) do
         if godId == playerGodId then
@@ -456,6 +459,7 @@ function checkDeadEnemy()
             break
         end
     end
+
     if not isInNotEquipList then
         for _, equippedInfo in ipairs(currentPlayerGodTable) do
 
@@ -468,8 +472,8 @@ function checkDeadEnemy()
                 local targetX = UnitGetX(unit)
                 local targetZ = UnitGetZ(unit)
 
-                g_deadEnemyList = {deadX,deadZ,targetX,targetZ,equippedInfo[1],playerGodId,unit,engageCount}
-
+                g_deadEnemyList = {EventX,EventZ,targetX,targetZ,equippedInfo[1],playerGodId,unit,engageCount}
+                Log(#g_deadEnemyList)
                 SetGodAvailable(playerGodId)
                 break
             end
