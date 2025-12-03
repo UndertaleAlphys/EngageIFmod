@@ -1274,8 +1274,6 @@ end
 
 function Set_Interference_AI_by_Pid(pid)
 	local targetresult_pid = UnitGetPID(BestEnfeebleTarget(pid))
-	local min_distance = 64
-    Log("AI Set")
 	AiSetSequence( pid, AI_ORDER_ATTACK, "AI_AT_InterferencePerson", targetresult_pid )
 	AiSetActive(pid, true)
 	

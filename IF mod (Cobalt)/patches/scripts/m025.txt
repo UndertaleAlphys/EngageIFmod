@@ -301,6 +301,7 @@ function GameOver()
 end
 
 function SetAiRod1()
+	Log("SetAiRod1")
 	if UnitExistOnMap("PID_M025_ルミエル") == false then
 		SetAiRod2()
 		return
@@ -308,6 +309,8 @@ function SetAiRod1()
 
 	if IsExistForcePlayerNearby("PID_M025_ルミエル",10) == false then
 		UnitSetStatus( "PID_M025_ルミエル", UNIT_STATUS_FIXED )
+		SetAiRod2()
+		return
 	end
 
 	if MapGetTurn()%4 == 1 then
@@ -322,6 +325,7 @@ function SetAiRod1()
 end
 
 function SetAiRod2()
+	Log("SetAiRod2")
 	if UnitExistOnMap("PID_M026_ソンブル_人型") == false then
 		SetAiRod3()
 		return
@@ -329,6 +333,8 @@ function SetAiRod2()
 
 	if IsExistForcePlayerNearby("PID_M026_ソンブル_人型",10) == false then
 		UnitSetStatus( "PID_M026_ソンブル_人型", UNIT_STATUS_FIXED )
+		SetAiRod3()
+		return
 	end
 
 	if MapGetTurn()%4 == 1 then
@@ -343,7 +349,14 @@ function SetAiRod2()
 end
 
 function SetAiRod3()
+	Log("SetAiRod3")
 	if UnitExistOnMap("PID_IFMOD_M025_メイド8") == false then
+		SetAiRod4()
+		return
+	end
+
+	if IsExistForcePlayerNearby("PID_IFMOD_M025_メイド8",10) == false then
+		UnitSetStatus( "PID_IFMOD_M025_メイド8", UNIT_STATUS_FIXED )
 		SetAiRod4()
 		return
 	end
@@ -351,11 +364,12 @@ function SetAiRod3()
 	Set_Interference_AI_by_Pid("PID_IFMOD_M025_メイド8")
 
 	if IsExistForcePlayerNearby("PID_IFMOD_M025_メイド8",2) == true then
-		AiSetSequence( "PID_IFMOD_M025_メイド8", AI_ORDER_ATTACK, "AI_AT_Attack", "" )
+		AiSetSequence( "PID_IFMOD_M025_メイド8", AI_ORDER_ATTACK, "AI_AT_Attack", "" )	
 	end
 end
 
 function SetAiRod4()
+	Log("SetAiRod4")
 	if UnitExistOnMap("PID_IFMOD_M025_メイド9") == false then
 		return
 	end
