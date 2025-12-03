@@ -14,7 +14,7 @@ attackRowOddHigh = 15
 attackRowEvenLow2 = 19
 attackRowEvenHigh2 = 23
 
-g_map_height = 27
+g_map_height = 25
 g_map_width = 30
 
 g_dragonVeinDamageList = {}
@@ -22,20 +22,85 @@ g_dragonVeinBlockList = {}
 
 g_dragonVeinConfig_M026 = {
   	{
-        point = {9, 19},
-        skillId = "SID_DragonVein_M026_Block",
+        point = {7, 19},
+        skillId = "SID_DragonVein_M026_Block0",
         type = "block",
         param = 0
     },
+    {
+        point = {9, 13},
+        skillId = "SID_DragonVein_M026_Block1",
+        type = "block",
+        param = 0
+    },
+    {
+        point = {11, 7},
+        skillId = "SID_DragonVein_M026_Block2",
+        type = "block",
+        param = 0
+    },
+    {
+        point = {14, 12},
+        skillId = "SID_DragonVein_M026_Block3",
+        type = "block",
+        param = 0
+    },
+    {
+        point = {17, 20},
+        skillId = "SID_DragonVein_M026_Block4",
+        type = "block",
+        param = 0
+    },
+    {
+        point = {19, 14},
+        skillId = "SID_DragonVein_M026_Block5",
+        type = "block",
+        param = 0
+    },
+    {
+        point = {20, 5},
+        skillId = "SID_DragonVein_M026_Block6",
+        type = "block",
+        param = 0
+    },{
+        point = {22, 21},
+        skillId = "SID_DragonVein_M026_Block7",
+        type = "block",
+        param = 0
+    },
+    {
+        point = {24, 15},
+        skillId = "SID_DragonVein_M026_Block8",
+        type = "block",
+        param = 0
+    },
+    {
+        point = {22, 4},
+        skillId = "SID_DragonVein_M026_Block9",
+        type = "block",
+        param = 0
+    },
+    {
+        point = {26, 19},
+        skillId = "SID_DragonVein_M026_Block10",
+        type = "block",
+        param = 0
+    },
+    {
+        point = {26, 7},
+        skillId = "SID_DragonVein_M026_Block11",
+        type = "block",
+        param = 0
+    }
 }
 
 fogPoint = {
 	{21, 4},
 	{21, 5},
 	{21, 6},
-	{24, 12},
-	{24, 13},
-	{24, 14},
+	{26, 12},
+	{26, 13},
+	{26, 14},
 	{21, 20},
 	{21, 21},
 	{21, 22},
@@ -64,9 +129,11 @@ function イベント登録()
 
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 4, 13, "", condition_true)
+    EventEntryTurn(WinRule, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(EquipDragonVeinSkillsM026, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(DragonVeinUsedByEnemyPredict, -1, -1, FORCE_PLAYER)
 	EventEntryTurn(DragonVeinUsedByEnemyProcess, -1, -1, FORCE_ENEMY)
+    EventEntryTurn(Reinforcement, -1, -1, FORCE_PLAYER)
 	local dragonVeinPoints = {}
     for _, config in ipairs(g_dragonVeinConfig_M026) do
         table.insert(dragonVeinPoints, config.point)
@@ -127,8 +194,55 @@ function 離脱イベント()
 	VariableSet( "勝利", 1 )
 end
 
+function Reinforcement()
+    local Turn = MapGetTurn()
+
+    if Turn < 6 then
+        return
+    end
+
+    Turn = Turn % 4
+
+    if Turn == 1 then
+        Reinforcement1()
+    end
+
+    if Turn == 2 then
+        Reinforcement2()
+    end
+
+    if Turn == 3 then
+        Reinforcement3()
+    end
+
+    if Turn == 0 then
+        Reinforcement4()
+    end
+end
+
 function InitMapM026()
 	Log("InitMapM026")
+    TerrainSetBegin()
+    MapOverlapSetBegin()
+	for x = 1, g_map_width do
+		for z = 1, g_map_height do
+			if MapOverlapGet(x, z) == "TID_霧_永続" then
+				MapOverlapSet(x, z, "TID_無し")
+			end
+            if TerrainGet(x, z) == "TID_弓砲台" then
+                TerrainSet(x, z, "TID_弓砲台_暗器砲台")
+            end
+		end
+	end
+
+    TerrainSet(29,13,"TID_王座")
+
+	for _, point in ipairs(fogPoint) do
+		MapOverlapSet(point[1], point[2], "TID_霧_永続")
+	end
+	MapOverlapSetEnd()
+    TerrainSetEnd()
+
 	local magicCirclePoints = {}
     for _, config in ipairs(g_dragonVeinConfig_M026) do
         table.insert(magicCirclePoints, config.point)
@@ -137,7 +251,7 @@ function InitMapM026()
 
     local terrainPoints = {}
     for _, config in ipairs(g_dragonVeinConfig_M026) do
-        table.insert(terrainPoints, {config.point[1], config.point[2], "TID_龙脉_M023_SkySeal"})
+        table.insert(terrainPoints, {config.point[1], config.point[2], "TID_龙脉_M026_Block"})
     end
     DragonVeinSetTerrain(terrainPoints)
 end
@@ -241,12 +355,6 @@ function DragonVeinUsedByEnemyPredict()
 	WaitTime(1.0)
 
 	MapDangerRangeUpdate()
-
-	if Turn == 1 then
-		Dialog("MID_TUT_M026_DRAGONVEIN_ENEMY1")
-	else
-		Dialog("MID_TUT_M026_DRAGONVEIN_ENEMY2")
-	end
 end
 
 function DragonVeinUsedByEnemyProcess()
@@ -360,6 +468,16 @@ function ApplyDragonVeinDamage()
             for _, damageInfo in ipairs(g_dragonVeinDamageList) do
 				local damage = UnitGetCapability(damageInfo.unit,CAPABILITY_HP,true)/2
                 MapDamageAdd(damageInfo.unit, damage)
+                local isEngaging = UnitGetEngaging(damageInfo.unit)
+
+                if isEngaging then
+                    local engageTurn = UnitGetEngageTurn(damageInfo.unit)
+                    local postEngageTurn = math.max(0,engageTurn+2)
+                    UnitSetEngageTurn(damageInfo.unit,postEngageTurn)
+                else
+                    local preEngageCount = UnitGetEngageMeter(damageInfo.unit)
+                    UnitSetEngageMeter(damageInfo.unit,math.max(0,preEngageCount-4))
+                end
             end
             MapDamageEnd()
         end
@@ -407,4 +525,60 @@ function AddDangerRange(lowRow, highRow)
             end
         end
     end
+end
+
+function Reinforcement1()
+    Dispos("Reinforcement1_1", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement1_2", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement1_3", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+end
+
+function Reinforcement2()
+    Dispos("Reinforcement2_1", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement2_2", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement2_3", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+end
+
+function Reinforcement3()
+    Dispos("Reinforcement3_1", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement3_2", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement3_3", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+end
+
+function Reinforcement4()
+    Dispos("Reinforcement4_1", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement4_2", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
+
+    Dispos("Reinforcement4_3", DISPOS_FLAG_FOCUS)
+    Yield()
+    WaitTime(0.5)
 end

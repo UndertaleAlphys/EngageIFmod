@@ -75,7 +75,7 @@ function フラグ登録()
 end
 
 function イベント登録()
-	
+
 	EventEntryTurn(BattleStartAfter, 1, 1, FORCE_PLAYER)
 	EventEntryTurn( 勝利条件, 1, 1, FORCE_PLAYER )
 	

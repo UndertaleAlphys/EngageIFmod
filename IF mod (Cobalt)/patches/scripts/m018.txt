@@ -167,14 +167,18 @@ function ProcessDeadCount()
 end
 
 function StealMoney()
+	Log("StealMoney")
     local StealMoneyValue = 500 * (4-VariableGet("DefeatThiefTimes"))
+	Log(StealMoneyValue)
     local OldMoney = VariableGet("FinalGetMoney")
+	Log(OldMoney)
     NewMoney = OldMoney - StealMoneyValue
+	Log(NewMoney)
 	if NewMoney < 0 then
        NewMoney = 0
     end
 	-- Actually Stolen
-	StealMoneyValue = NewMoney - OldMoney
+	StealMoneyValue = OldMoney - NewMoney
 	VariableSet("FinalGetMoney",NewMoney)
     if StealMoneyValue > 0 then
 		MessSetArgument(0,StealMoneyValue)

@@ -74,6 +74,11 @@ Directions = {
     {0,-1}
 }
 
+darkEmblemNames = {
+        "Marth", "Siglud", "Celica", "Micaiah", "Roy", "Leaf",
+        "Lucina", "Lin", "Ike", "Byleth", "Kamui", "Eirik"
+    }
+
 -- -----------------------------------
 
 function Startup()
@@ -93,15 +98,179 @@ function フラグ登録()
 	VariableEntry("player_God_Table", "")
     VariableEntry("player_Pos_Table", "")
     VariableEntry("magic_Barrier_Point_Terra", "")
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Marth", 0)
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Siglud", 0)
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Celica", 0)
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Micaiah", 0)
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Roy", 0)
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Leaf", 0)
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Lucina", 0)
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Lin", 0)
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Ike", 0)
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Byleth", 0)
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Kamui", 0)
+    VariableEntry("Defeat_PID_IFMOD_M026_DarkEmblem_Eirik", 0)
+
+    VariableEntry("M026P_Magic_Circle_1", 0)
+    VariableEntry("M026P_Magic_Circle_2", 0)
+    VariableEntry("M026P_Magic_Circle_3", 0)
+    VariableEntry("M026P_Magic_Circle_4", 0)
+    VariableEntry("M026P_Magic_Circle_5", 0)
+    VariableEntry("M026P_Magic_Circle_6", 0)
 end
 
 function イベント登録()
+    EventEntryTurn(WinRule, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(SetPlayerGodTable, 1, 1, FORCE_PLAYER)
     EventEntryTurn(SetPlayerPosTable, 1, 1, FORCE_PLAYER)
     EventEntryTurn(RevertBanTerrainToNormal, 2, 2, FORCE_PLAYER)
 	EventEntryTurn(SetMaidAIFirstTurn, 1, 1, FORCE_ENEMY)
 	EventEntryTurn(SetMaidAIRemainTurn, 2, -1, FORCE_ENEMY)
-	EventEntryEscape(離脱イベント, 29, 14, "", condition_true)	
+	EventEntryEscape(離脱イベント, 29, 14, "", condition_true)
+
+    EventEntryDie(Process_DarkEmblem_Marth,"PID_IFMOD_M026_DarkEmblem_Marth", FORCE_ENEMY, condition_true )
+    EventEntryDie(Process_DarkEmblem_Siglud,"PID_IFMOD_M026_DarkEmblem_Siglud", FORCE_ENEMY, condition_true )
+    EventEntryDie(Process_DarkEmblem_Celica,"PID_IFMOD_M026_DarkEmblem_Celica", FORCE_ENEMY, condition_true )
+    EventEntryDie(Process_DarkEmblem_Micaiah,"PID_IFMOD_M026_DarkEmblem_Micaiah", FORCE_ENEMY, condition_true )
+    EventEntryDie(Process_DarkEmblem_Roy,"PID_IFMOD_M026_DarkEmblem_Roy", FORCE_ENEMY, condition_true )
+    EventEntryDie(Process_DarkEmblem_Leaf,"PID_IFMOD_M026_DarkEmblem_Leaf", FORCE_ENEMY, condition_true )
+    EventEntryDie(Process_DarkEmblem_Lucina,"PID_IFMOD_M026_DarkEmblem_Lucina", FORCE_ENEMY, condition_true )
+    EventEntryDie(Process_DarkEmblem_Lin,"PID_IFMOD_M026_DarkEmblem_Lin", FORCE_ENEMY, condition_true )
+    EventEntryDie(Process_DarkEmblem_Ike,"PID_IFMOD_M026_DarkEmblem_Ike", FORCE_ENEMY, condition_true )
+    EventEntryDie(Process_DarkEmblem_Byleth,"PID_IFMOD_M026_DarkEmblem_Byleth", FORCE_ENEMY, condition_true )
+    EventEntryDie(Process_DarkEmblem_Kamui,"PID_IFMOD_M026_DarkEmblem_Kamui", FORCE_ENEMY, condition_true )
+    EventEntryDie(Process_DarkEmblem_Eirik,"PID_IFMOD_M026_DarkEmblem_Eirik", FORCE_ENEMY, condition_true )
+
+    EventEntryFixed(Create_Magic_Circle, "", FORCE_PLAYER,condition_true)
+    EventEntryFixed(Create_Magic_Circle, "", FORCE_ENEMY,condition_true)
+
+    EventEntryArea(TransportFunc1, 4, 20, 4, 20, FORCE_PLAYER, condition_true)
+    EventEntryArea(TransportFunc2, 28, 22, 28, 22, FORCE_PLAYER, condition_true)
+    EventEntryArea(TransportFunc3, 16, 13, 16, 13, FORCE_PLAYER, condition_true)
+    EventEntryArea(TransportFunc4, 4, 7, 4, 7, FORCE_PLAYER, condition_true)
+    EventEntryArea(TransportFunc5, 15, 3, 15, 3, FORCE_PLAYER, condition_true)
+    EventEntryArea(TransportFunc6, 28, 4, 28, 4, FORCE_PLAYER, condition_true)
+end
+
+Magic_Circle_Point = {
+    {4,20},
+    {28,22},
+    {16,13},
+    {4,7},
+    {15,3},
+    {28,4}
+}
+
+Magic_Transport_Point = {
+    {13,22},
+    {15,22},
+    {17,22},
+    {13,21},
+    {15,21},
+    {17,21}
+}
+
+function Create_Magic_Circle()
+    Log("Create_Magic_Circle")
+    Log(VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Marth"))
+    Log(VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Siglud"))
+    Log(VariableGet("M026P_Magic_Circle_1"))
+    if VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Marth") == 1 and
+        VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Siglud") == 1 and
+        VariableGet("M026P_Magic_Circle_1") == 0 then
+        EffectPlay("竜化_G1", 4, 20)
+        EffectCreate("魔法陣_G001", 4, 20)
+        VariableSet("M026P_Magic_Circle_1", 1)
+    end
+    
+    if VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Celica") == 1 and
+       VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Micaiah") == 1 and
+       VariableGet("M026P_Magic_Circle_2") == 0 then
+        EffectPlay("竜化_G1", 28, 22)
+        EffectCreate("魔法陣_G001", 28, 22)
+        VariableSet("M026P_Magic_Circle_2", 1)
+    end
+    
+    if VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Roy") == 1 and
+       VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Leaf") == 1 and
+       VariableGet("M026P_Magic_Circle_3") == 0 then
+        EffectPlay("竜化_G1", 16 , 13)
+        EffectCreate("魔法陣_G001", 16, 13)
+        VariableSet("M026P_Magic_Circle_3", 1)
+    end
+    
+    if VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Lucina") == 1 and
+       VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Lin") == 1 and
+       VariableGet("M026P_Magic_Circle_4") == 0 then
+        EffectPlay("竜化_G1", 4, 7)
+        EffectCreate("魔法陣_G001", 4, 7)
+        VariableSet("M026P_Magic_Circle_4", 1)
+    end
+    
+    if VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Ike") == 1 and
+       VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Byleth") == 1 and
+       VariableGet("M026P_Magic_Circle_5") == 0 then
+        EffectPlay("竜化_G1", 15, 3)
+        EffectCreate("魔法陣_G001", 15, 3)
+        VariableSet("M026P_Magic_Circle_5", 1)
+    end
+    
+    if VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Kamui") == 1 and
+       VariableGet("Defeat_PID_IFMOD_M026_DarkEmblem_Eirik") == 1 and
+       VariableGet("M026P_Magic_Circle_6") == 0 then
+        EffectPlay("竜化_G1", 28, 4)
+        EffectCreate("魔法陣_G001", 28, 4)
+        VariableSet("M026P_Magic_Circle_6", 1)
+    end
+end
+
+
+function Process_DarkEmblem_Marth()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Marth", 1)
+end
+
+function Process_DarkEmblem_Siglud()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Siglud", 1)
+end
+
+function Process_DarkEmblem_Celica()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Celica", 1)
+end
+
+function Process_DarkEmblem_Micaiah()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Micaiah", 1)
+end
+
+function Process_DarkEmblem_Roy()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Roy", 1)
+end
+
+function Process_DarkEmblem_Leaf()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Leaf", 1)
+end
+
+function Process_DarkEmblem_Lucina()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Lucina", 1)
+end
+
+function Process_DarkEmblem_Lin()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Lin", 1)
+end
+
+function Process_DarkEmblem_Ike()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Ike", 1)
+end
+
+function Process_DarkEmblem_Byleth()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Byleth", 1)
+end
+
+function Process_DarkEmblem_Kamui()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Kamui", 1)
+end
+
+function Process_DarkEmblem_Eirik()
+    VariableSet("Defeat_PID_IFMOD_M026_DarkEmblem_Eirik", 1)
 end
 
 function Cleanup()
@@ -509,6 +678,12 @@ function RevertConvertedTerrainOnlyAtMaidSummonDirection()
 end
 
 function RevertBanTerrainToNormal()
+    local index = ForceUnitGetFirst(FORCE_ENEMY)
+    while index ~= nil do
+        UnitClearStatus(index,UNIT_STATUS_MOVE_NOT_ALLOW)
+        index = ForceUnitGetNext(index)
+    end
+
     ProcessTerrainWithExclusion(function(excludeMap)
         for x = 1, g_map_width do
             for z = 1, g_map_height do
@@ -527,4 +702,156 @@ function RevertBanTerrainToNormal()
             end
         end
     end)
+end
+
+function TransportFunc1()
+    if VariableGet("M026P_Magic_Circle_1") == 0 then
+        return false
+    end
+
+    local unit = UnitGetByPos(4, 20)
+    if unit ~= nil then
+        EffectPlay("竜化_G1", 4, 20)
+        WaitTime(0.5)
+        local targetX, targetY = FindNearestValidPosition(13, 22)
+        if targetX ~= nil and targetY ~= nil then
+            UnitSetPos(unit, targetX, targetY)
+            CursorSetPos(targetX, targetY)
+            MapCameraWait()
+        end
+    end
+end
+
+function TransportFunc2()
+    if VariableGet("M026P_Magic_Circle_2") == 0 then
+        return false
+    end
+
+    local unit = UnitGetByPos(28, 22)
+    if unit ~= nil then
+        EffectPlay("竜化_G1", 28, 22)
+        WaitTime(0.5)
+        local targetX, targetY = FindNearestValidPosition(15, 22)
+        if targetX ~= nil and targetY ~= nil then
+            UnitSetPos(unit, targetX, targetY)
+            CursorSetPos(targetX, targetY)
+            MapCameraWait()
+        end
+    end
+end
+
+function TransportFunc3()
+    if VariableGet("M026P_Magic_Circle_3") == 0 then
+        return false
+    end
+
+    local unit = UnitGetByPos(16, 13)
+    if unit ~= nil then
+        EffectPlay("竜化_G1", 16, 13)
+        WaitTime(0.5)
+        local targetX, targetY = FindNearestValidPosition(17, 22)
+        if targetX ~= nil and targetY ~= nil then
+            UnitSetPos(unit, targetX, targetY)
+            CursorSetPos(targetX, targetY)
+            MapCameraWait()
+        end
+    end
+end
+
+function TransportFunc4()
+    if VariableGet("M026P_Magic_Circle_4") == 0 then
+        return false
+    end
+
+    local unit = UnitGetByPos(4, 7)
+    if unit ~= nil then
+        EffectPlay("竜化_G1", 4, 7)
+        WaitTime(0.5)
+        local targetX, targetY = FindNearestValidPosition(13, 21)
+        if targetX ~= nil and targetY ~= nil then
+            UnitSetPos(unit, targetX, targetY)
+            CursorSetPos(targetX, targetY)
+            MapCameraWait()
+        end
+    end
+end
+
+function TransportFunc5()
+    if VariableGet("M026P_Magic_Circle_5") == 0 then
+        return false
+    end
+
+    local unit = UnitGetByPos(15, 3)
+    if unit ~= nil then
+        EffectPlay("竜化_G1", 15, 3)
+        WaitTime(0.5)
+        local targetX, targetY = FindNearestValidPosition(15, 21)
+        if targetX ~= nil and targetY ~= nil then
+            UnitSetPos(unit, targetX, targetY)
+            CursorSetPos(targetX, targetY)
+            MapCameraWait()
+        end
+    end
+end
+
+function TransportFunc6()
+    if VariableGet("M026P_Magic_Circle_6") == 0 then
+        return false
+    end
+
+    local unit = UnitGetByPos(28, 4)
+    if unit ~= nil then
+        EffectPlay("竜化_G1", 28, 4)
+        WaitTime(0.5)
+        local targetX, targetY = FindNearestValidPosition(17, 21)
+        if targetX ~= nil and targetY ~= nil then
+            UnitSetPos(unit, targetX, targetY)
+            CursorSetPos(targetX, targetY)
+            MapCameraWait()
+        end
+    end
+end
+
+function FindNearestValidPosition(startX, startY)
+    local queue = {}
+    local visited = {}
+    local directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
+
+    table.insert(queue, {x = startX, y = startY})
+    visited[startX .. "," .. startY] = true
+
+    while #queue > 0 do
+        local current = table.remove(queue, 1)
+        if IsPositionValid(current.x, current.y) then
+            return current.x, current.y
+        end
+        for _, dir in ipairs(directions) do
+            local newX = current.x + dir[1]
+            local newY = current.y + dir[2]
+            local key = newX .. "," .. newY
+            if not visited[key] and IsWithinBounds(newX, newY) and IsPassable(newX, newY) then
+                table.insert(queue, {x = newX, y = newY})
+                visited[key] = true
+            end
+        end
+    end
+
+    return nil, nil
+end
+
+function IsPassable(x, y)
+    local terrainCost = TerrainGetMoveCost(x, y)
+    return terrainCost != "COST_不可" and terrainCost != "COST_空"
+end
+
+function IsWithinBounds(x, y)
+    return x >= 1 and x <= g_map_width and y >= 1 and y <= g_map_height
+end
+
+function IsPositionValid(x, y)
+    local unit = UnitGetByPos(x, y)
+    if unit ~= nil then
+        return false
+    end
+    return IsPassable(x, y)
 end

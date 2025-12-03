@@ -159,6 +159,7 @@ function イベント登録()
 	EventEntryTurn(UpdateIvyMapRange, 1, -1, FORCE_PLAYER)
     EventEntryTurn(SetLynnAIMoveToFarthestPlayer, 1, -1, FORCE_PLAYER)
 	EventEntryTurn( 勝利条件_紋章士にフォーカス, 1, 1, FORCE_PLAYER )
+	EventEntryTurn(SetRodAi, -1, -1, FORCE_ENEMY)
 
 	EventEntryTbox(宝箱入手,28, 21, "IID_マスタープルフ")
 	EventEntryTbox(宝箱入手,13, 21, "IID_チェンジプルフ")
@@ -172,6 +173,24 @@ function イベント登録()
 
 -- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 25, 3, "PID_リュール", condition_true)
+end
+
+function SetRodAi()
+
+	if UnitExistOnMap("PID_G002_IFMOD_幻影兵_モンク2") == false then
+		return
+	end
+
+	if IsExistForcePlayerNearby("PID_G002_IFMOD_幻影兵_モンク2",7) == false then
+		UnitSetStatus( "PID_G002_IFMOD_幻影兵_モンク2", UNIT_STATUS_FIXED )
+		return
+	end
+
+	Set_Interference_AI_by_Pid("PID_G002_IFMOD_幻影兵_モンク2")
+
+	if IsExistForcePlayerNearby("PID_G002_IFMOD_幻影兵_モンク2",2) == true then
+		AiSetSequence( "PID_G002_IFMOD_幻影兵_モンク2", AI_ORDER_ATTACK, "AI_AT_Attack", "" )
+	end
 end
 
 function Lin_Defeated()

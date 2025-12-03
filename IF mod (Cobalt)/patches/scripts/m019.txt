@@ -292,7 +292,9 @@ function イベント登録()
 	EventEntryDie(Talk, "PID_M019_モーヴ", FORCE_ENEMY, condition_true, "MID_BT6");
 	EventEntryDie(deleteDragonVeinEnmey, "PID_M019_モーヴ", FORCE_ENEMY, condition_true);
 
-
+    EventEntryTurn(SetAiRod1, -1, -1, FORCE_ENEMY)
+	EventEntryFixed(SetAiRod2, "PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1", FORCE_ENEMY)
+	EventEntryFixed(SetAiRod3, "PID_IFMOD_M019_イルシオン兵_グリフォンナイト3", FORCE_ENEMY)
 	
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 2, 10, "PID_リュール", condition_true)
@@ -309,6 +311,48 @@ function Opening()
 	--PuppetDemo("M019", "MID_OP2")
 
 end
+
+function SetAiRod1()
+
+	if UnitExistOnMap("PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1") == false then
+        SetAiRod2()
+		return
+	end
+
+	if IsExistForcePlayerNearby("PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1",10) == false then
+		UnitSetStatus( "PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1", UNIT_STATUS_FIXED )
+        SetAiRod2()
+		return
+	end
+
+	Set_Interference_AI_by_Pid("PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1")
+
+	if IsExistForcePlayerNearby("PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1",2) == true then
+		AiSetSequence( "PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1", AI_ORDER_ATTACK, "AI_AT_Attack", "" )
+	end
+end
+
+function SetAiRod2()
+
+	if UnitExistOnMap("PID_IFMOD_M019_イルシオン兵_グリフォンナイト3") == false then
+        SetAiRod3()
+		return
+	end
+
+	Set_Interference_AI_by_Pid("PID_IFMOD_M019_イルシオン兵_グリフォンナイト3")
+
+end
+
+function SetAiRod3()
+
+	if UnitExistOnMap("PID_IFMOD_M019_イルシオン兵_グリフォンナイト_BOSS2") == false then
+		return
+	end
+
+	Set_Interference_AI_by_Pid("PID_IFMOD_M019_イルシオン兵_グリフォンナイト_BOSS2")
+
+end
+
 
 function MapOpening()
 	initMapM019()
