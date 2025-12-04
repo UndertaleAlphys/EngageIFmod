@@ -165,10 +165,6 @@ function MapOpening()
 	
 	Log("MapOpening")
 	InitMapM026()
-    ItemGain(nil, "IID_神風招来")
-    ItemGain(nil, "IID_ドロー")
-    ItemGain(nil, "IID_七難即滅")
-    ItemGain(nil, "IID_ノードゥス")
 end
 
 function MapEnding()
