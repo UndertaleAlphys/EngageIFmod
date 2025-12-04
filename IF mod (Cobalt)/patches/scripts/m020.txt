@@ -437,6 +437,7 @@ function RangeAttackByTurnInitValue()
 end
 
 function BossAttackImpl()
+    Log("BossAttackImpl")
     if VariableGet("RangeAttackStop_triggered") == 1 then
         return
     end
@@ -457,6 +458,8 @@ function BossAttackImpl()
     bossRewrapXvar = VariableGet("bossRewrapX")
     bossRewrapZvar = VariableGet("bossRewrapZ")
 
+    Log(bossRewrapXvar)
+    Log(bossRewrapZvar)
     for i, targetUnit in ipairs(bossAttackList) do
         if targetUnit ~= nil and UnitIsExist(targetUnit) then
             local targetX = UnitGetX(targetUnit)
@@ -485,8 +488,9 @@ function BossAttackImpl()
         EffectWait()
 
         local unit = UnitGetByPos(bossRewrapXvar,bossRewrapZvar)
-        if unit ~= nil then
+        while unit ~= nil do
             UnitDie(unit)
+            unit = UnitGetByPos(bossRewrapXvar,bossRewrapZvar)
         end
 
         UnitSetPos(g_pid_boss,bossRewrapXvar,bossRewrapZvar)

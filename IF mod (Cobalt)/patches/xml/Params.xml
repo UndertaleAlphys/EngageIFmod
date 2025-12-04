@@ -141,9 +141,9 @@
       <Param Out="" Name="アイテム売却率" English="Item sale rate" Value="0.4" Min="0" Max="1" Step="0.1" Enum="" />
       <Param Out="" Name="錬成売却率" English="Forging sale rate" Value="0.2" Min="0" Max="1" Step="0.1" Enum="" />
       <Param Out="" Name="シルバーカード割引率" English="Silver Card discount rate" Value="0.3" Min="0" Max="1" Step="0.1" Enum="" />
-      <Param Out="" Name="巻き戻し最大回数ノーマル" English="Max rewinds Normal" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
-      <Param Out="" Name="巻き戻し最大回数ハード" English="Max rewinds Hard" Value="-1" Min="-1" Max="100" Step="1" Enum="" />
-      <Param Out="" Name="巻き戻し最大回数ルナティック" English="Max rewinds Lunatic" Value="100" Min="-1" Max="100" Step="1" Enum="" />
+      <Param Out="" Name="巻き戻し最大回数ノーマル" English="Max rewinds Normal" Value="-1" Min="-1" Max="30" Step="1" Enum="" />
+      <Param Out="" Name="巻き戻し最大回数ハード" English="Max rewinds Hard" Value="-1" Min="-1" Max="30" Step="1" Enum="" />
+      <Param Out="" Name="巻き戻し最大回数ルナティック" English="Max rewinds Lunatic" Value="30" Min="-1" Max="100" Step="1" Enum="" />
       <Param Out="" Name="巻き戻し最大項目数" English="Max rewind items" Value="1000" Min="1" Max="10000" Step="1" Enum="" />
       <Param Out="" Name="リレープレイ中有効期間" English="リレープレイ中有効期間" Value="24" Min="0" Max="720" Step="1" Enum="" />
       <Param Out="" Name="リレー個人賞最小数" English="リレー個人賞最小数" Value="3" Min="1" Max="99" Step="1" Enum="" />

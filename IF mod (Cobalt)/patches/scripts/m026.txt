@@ -134,11 +134,17 @@ function イベント登録()
 	EventEntryTurn(DragonVeinUsedByEnemyPredict, -1, -1, FORCE_PLAYER)
 	EventEntryTurn(DragonVeinUsedByEnemyProcess, -1, -1, FORCE_ENEMY)
     EventEntryTurn(Reinforcement, -1, -1, FORCE_PLAYER)
+    EventEntryDie( Boss_Defeated, "PID_M024_リュール", FORCE_ENEMY, condition_true)
+
 	local dragonVeinPoints = {}
     for _, config in ipairs(g_dragonVeinConfig_M026) do
         table.insert(dragonVeinPoints, config.point)
     end
     DragonVeinRegisterEvents(dragonVeinPoints)
+end
+
+function Boss_Defeated()
+    VariableSet( "勝利", 1 )
 end
 
 function Cleanup()
@@ -159,6 +165,10 @@ function MapOpening()
 	
 	Log("MapOpening")
 	InitMapM026()
+    ItemGain(nil, "IID_神風招来")
+    ItemGain(nil, "IID_ドロー")
+    ItemGain(nil, "IID_七難即滅")
+    ItemGain(nil, "IID_ノードゥス")
 end
 
 function MapEnding()
@@ -197,7 +207,7 @@ end
 function Reinforcement()
     local Turn = MapGetTurn()
 
-    if Turn < 6 then
+    if Turn < 8 then
         return
     end
 

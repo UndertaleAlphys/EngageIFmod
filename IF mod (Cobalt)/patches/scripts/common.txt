@@ -1274,6 +1274,8 @@ end
 
 function Set_Interference_AI_by_Pid(pid)
 	local targetresult_pid = UnitGetPID(BestEnfeebleTarget(pid))
+	local min_distance = 64
+    
 	AiSetSequence( pid, AI_ORDER_ATTACK, "AI_AT_InterferencePerson", targetresult_pid )
 	AiSetActive(pid, true)
 	
@@ -2268,27 +2270,30 @@ function FindMostUnitsInSquareArea(mapWidth, mapHeight, squareSize, forceFilter)
 
     for centerX = halfSize + 1, mapWidth - halfSize do
         for centerZ = halfSize + 1, mapHeight - halfSize do
-            local unitList = {}
-            local count = 0
+            local centerTerrainCost = TerrainGetMoveCost(centerX, centerZ)
+            if centerTerrainCost ~= "COST_不可" then
+                local unitList = {}
+                local count = 0
 
-            for x = centerX - halfSize, centerX + halfSize do
-                for z = centerZ - halfSize, centerZ + halfSize do
-                    if x >= 1 and x <= mapWidth and z >= 1 and z <= mapHeight then
-                        local unit = UnitGetByPos(x,z)
-                        if unit ~= nil then
-                            if forceFilter == nil or UnitGetForce(unit) == forceFilter then
-                                count = count + 1
-                                table.insert(unitList, unit)
+                for x = centerX - halfSize, centerX + halfSize do
+                    for z = centerZ - halfSize, centerZ + halfSize do
+                        if x >= 1 and x <= mapWidth and z >= 1 and z <= mapHeight then
+                            local unit = UnitGetByPos(x,z)
+                            if unit ~= nil then
+                                if forceFilter == nil or UnitGetForce(unit) == forceFilter then
+                                    count = count + 1
+                                    table.insert(unitList, unit)
+                                end
                             end
                         end
                     end
                 end
-            end
-            if count > maxCount then
-                maxCount = count
-                bestCenterX = centerX
-                bestCenterZ = centerZ
-                bestUnitList = unitList
+                if count > maxCount then
+                    maxCount = count
+                    bestCenterX = centerX
+                    bestCenterZ = centerZ
+                    bestUnitList = unitList
+                end
             end
         end
     end
