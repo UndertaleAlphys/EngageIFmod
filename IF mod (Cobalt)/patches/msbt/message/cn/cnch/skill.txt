@@ -4873,7 +4873,7 @@ HP不满时伤害+4
 弑杖
 
 [MSID_H_RodKilling]
-对方装备杖时回避+30
+对方装备杖时回避+50
 
 [MSID_OtherHalf]
 半身

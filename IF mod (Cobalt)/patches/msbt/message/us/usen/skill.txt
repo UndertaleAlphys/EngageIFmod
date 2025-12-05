@@ -5273,10 +5273,10 @@ Take -3 Dmg when fighting in
 a space with a terrain effect.
 
 [MSID_RodKilling]
-Rodbreaker
+Staffbreaker
 
 [MSID_H_RodKilling]
-Avo+30 if the enemy
+Avo+50 if the enemy
 uses staves.
 
 [MSID_OtherHalf]
