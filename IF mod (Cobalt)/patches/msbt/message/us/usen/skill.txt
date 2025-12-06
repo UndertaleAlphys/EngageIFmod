@@ -1508,7 +1508,7 @@ within this unit's weapon range,
 and if the unit is able to chain 
 attack, join the chain attack.
 If this unit is at max HP,
-chain attack twice.
+deals 2x Dmg.
 
 [MSID_DualSupport]
 Dual Support
