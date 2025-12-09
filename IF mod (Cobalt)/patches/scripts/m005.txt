@@ -501,6 +501,9 @@ end
 function Interference_Target_Choose_person2()
 	
 	if VariableGet(g_key_inside_active) == 1 then
+		if UnitExistOnMap("PID_M005_IFMOD_Inside_モンク2") == false then
+			return
+		end
 		Set_Interference_AI_by_Pid("PID_M005_IFMOD_Inside_モンク2")
 	end
 end
