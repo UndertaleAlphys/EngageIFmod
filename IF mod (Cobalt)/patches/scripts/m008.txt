@@ -287,9 +287,9 @@ function God_Leaf_Create()
 	
 	Talk("MID_BT3")
 
-	Movie("Kengen05")
-	SkipEscape()
-	FadeInAndWait( FADE_FAST )
+	-- Movie("Kengen05")
+	-- SkipEscape()
+	-- FadeInAndWait( FADE_FAST )
 	
 	-- PuppetDemo("M008", "MID_ED1")
 	-- リーフを自軍に追加

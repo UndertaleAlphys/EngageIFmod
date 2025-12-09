@@ -58,10 +58,8 @@ function イベント登録()
 	EventEntryArea(ボス部屋手前小隊アクティブ化, 8, 12, 18, 25, FORCE_PLAYER, g_key_pltn4_active)
 	
 	EventEntryTurn( Interference_Target_Choose, -1, -1, FORCE_ENEMY)
-	EventEntryTurn( Interference_Target_Choose_person2, -1, -1, FORCE_ENEMY)
 	
 	EventEntryFixed(Interference_Target_Choose_person2, "PID_M005_IFMOD_Inside_モンク", FORCE_ENEMY)
-	EventEntryFixed(Interference_Target_Choose, "PID_M005_IFMOD_Inside_モンク2", FORCE_ENEMY)
 	
 	-- 増援
 	EventEntryTurn(増援出現, -1, -1, FORCE_PLAYER, condition_増援出現)
@@ -103,7 +101,7 @@ function イベント登録()
 	-- 壊れる壁
 	EventEntryDestroy(玉座左壁破壊, 6, 20, 7, 21)
 	EventEntryDoor(玉座左壁破壊, 12, 11, 14, 11)
-	
+	EventEntryDestroy(玉座左壁破壊, 12, 11, 14, 11)
 	-- --------------------------------------------------
 	EventEntryEscape(離脱イベント, 13, 4, "PID_リュール", condition_true)
 end
@@ -492,16 +490,18 @@ end
 function Interference_Target_Choose()
 	
 	if VariableGet(g_key_inside_active) == 1 then
-		local pid = "PID_M005_IFMOD_Inside_モンク"
-		g_interference_except = Set_Interference_AI_by_Pid(pid)
+		if UnitExistOnMap("PID_M005_IFMOD_Inside_モンク") == false then
+			Interference_Target_Choose_person2()
+			return
+		end
+		Set_Interference_AI_by_Pid("PID_M005_IFMOD_Inside_モンク")
 	end
 end
 
 function Interference_Target_Choose_person2()
 	
 	if VariableGet(g_key_inside_active) == 1 then
-		local pid = "PID_M005_IFMOD_Inside_モンク2"
-		Set_Interference_AI_by_Pid(pid)
+		Set_Interference_AI_by_Pid("PID_M005_IFMOD_Inside_モンク2")
 	end
 end
 
