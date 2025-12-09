@@ -317,7 +317,10 @@ end
 
 function Interference_Target_Choose()
 	local pid = "PID_M009_IFMOD_イルシオン兵_ロッドナイト2"
-    	g_interference_except = Set_Interference_AI_by_Pid(pid)
+	if UnitExistOnMap("PID_M005_IFMOD_Inside_モンク") == false then
+		return
+	end
+    g_interference_except = Set_Interference_AI_by_Pid(pid)
 end
 
 ------------------------------------------------------
