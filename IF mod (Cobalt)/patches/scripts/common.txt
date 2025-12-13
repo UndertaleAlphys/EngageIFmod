@@ -1282,8 +1282,10 @@ function Set_Interference_AI_by_Pid(pid)
 	if targetresult_pid == "" then
 		AiSetSequence ( pid, AI_ORDER_ATTACK, "AI_AT_Attack", "" )
 	end
-	
-    CobaltNotice(targetresult_pid)
+    
+    -- if targetresult_pid ~= nil then
+    --    CobaltNotice(targetresult_pid)
+    -- end
 
 	return targetresult_pid
 end
