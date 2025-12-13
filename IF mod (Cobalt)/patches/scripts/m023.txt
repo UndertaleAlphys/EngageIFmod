@@ -218,6 +218,7 @@ function CheckReinforcementCondition_2()
 
 	local index = ForceUnitGetFirst(FORCE_PLAYER)
 	while index ~= nil do
+        local x = UnitGetX(index)
 		local z = UnitGetZ(index)
 		if (z >= 21 and x <= 24) or MapGetTurn() >= 7 then
 			VariableSet("reinforcement_2_triggered", 1)
