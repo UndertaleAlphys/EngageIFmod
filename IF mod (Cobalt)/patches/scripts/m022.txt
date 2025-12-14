@@ -65,8 +65,6 @@ function イベント登録()
 	EventEntryTurnAfter(青１ターン開始直後,	1, 1, FORCE_PLAYER)
 	EventEntryTurn(		勝利条件,			1, 1, FORCE_PLAYER )
 	EventEntryDie(  ProcessEnemyDie,    "", FORCE_ENEMY)
-	EventEntryFixed(ProcessUnitList,"",FORCE_PLAYER)
-    EventEntryFixed(ProcessUnitList,"",FORCE_ENEMY)
     EventEntryTurn(	ProcessUnitList,-1, -1, FORCE_PLAYER )
 
 	-- --------------------------------------------------
@@ -203,17 +201,13 @@ function ProcessEnemyDie()
 
     table.insert(mind_unit_list,MindGetUnit())
 
+    UnitSetEngageMeterM017(index,7)
+    local level = UnitGetBondLevel(index)
+    if level <= 10 then
+        UnitSetBondLevel(index,10)
+    end
+
     if VariableGet("DefeatedGodCount") == 21 then
-        if #mind_unit_list ~= 0 then
-            local unit = table.remove(mind_unit_list, 1)
-            if UnitGetGodUnit(unit) ~= nil then
-                UnitSetEngageMeterM017(unit,7)
-                local level = UnitGetBondLevel(unit)
-                if level <= 10 then
-                    UnitSetBondLevel(unit,10)
-                end
-            end
-        end
         VariableSet( "勝利", 1 )
     end
 end
