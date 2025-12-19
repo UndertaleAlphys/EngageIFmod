@@ -90,13 +90,7 @@ g_dragonVeinConfig_M023 = {
         skillId = "SID_DragonVein_M023_SkySeal8",
         type = "skyseal",
         param = 0
-    },
-    {
-        point = {15, 4},
-        skillId = "SID_DragonVein_M023_SkySeal9",
-        type = "skyseal",
-        param = 0
-    },
+    }
 }
 
 
