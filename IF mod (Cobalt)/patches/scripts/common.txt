@@ -2377,6 +2377,9 @@ function SavePlayerUnitsEngageStatus()
         local usedEngageAttack = HasUnitUsedEngageAttack(playerUnit)
         local isEngagingValue = isEngaging and 1 or 0
         local usedEngageAttackValue = usedEngageAttack and 1 or 0
+        if isEngagingValue == 0 then
+            engageTurn = 0
+        end
         if engageTurn == 4 then
             engageCount = 0
             isEngagingValue = 0
