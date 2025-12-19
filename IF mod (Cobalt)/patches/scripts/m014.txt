@@ -4,10 +4,12 @@ Include("Common_E")
 g_pid_lueur = "PID_リュール";
 g_key_area = "ボス部屋アクティブ_済"
 g_key_bosszou = "ボス部屋増援_済"
+g_flag_battle = "flag_battle"
 g_revive_Sepia = "Revive_Sepia"
 g_revive_Gris = "Revive_Gris"
 g_revive_Mauve = "Revive_Mauve"
 g_revive_Marron = "Revive_Marron"
+g_barrier = "barrier"
 g_key_tutorial_summon = "Revive_Marron"
 g_reinforcement_turn = "増援ターン_BOSS"
 
@@ -58,6 +60,8 @@ function フラグ登録()
 	VariableEntry(g_revive_Gris, 0)
 	VariableEntry(g_key_tutorial_summon,0)
 	VariableEntry(g_reinforcement_turn,2)
+	VariableEntry("g_flag_battle", 0)
+    VariableEntry(g_barrier, 0)
 	E_BattleTalk_VariableEntry()
 	
 end
@@ -68,7 +72,7 @@ function イベント登録()
 	EventEntryTurn(Set_Interference_AI_M014, -1, -1, FORCE_ENEMY)
 	EventEntryTurn(SetBossReinforcement, -1, -1, FORCE_ENEMY)
 	EventEntryTurn(SetDragonVeinSkill, 1, 1, FORCE_PLAYER)
-	EventEntryArea(ボス部屋アクティブ化, 10, 18, 20, 27, FORCE_PLAYER, g_key_area)
+	EventEntryArea(ボス部屋アクティブ化, 10, 18, 20, 27, FORCE_PLAYER)
 	EventEntryFixed(DragonVeinUsed ,"", FORCE_PLAYER)
 
 
@@ -85,6 +89,11 @@ function イベント登録()
 	EventEntryReviveAfter(	Rewrap_Mauve, "PID_M014_モーヴ", FORCE_ENEMY, "2" )
 	EventEntryReviveAfter(	Rewrap_Marron, "PID_M014_マロン", FORCE_ENEMY, "3" )
 	EventEntryReviveAfter(	Rewrap_Gris, "PID_M014_グリ", FORCE_ENEMY, "4" )
+	EventEntryBattleAfter(Battle_Sepia, "PID_M014_セピア", FORCE_ENEMY, "", FORCE_PLAYER )
+    EventEntryBattleAfter(Battle_Mauve, "PID_M014_モーヴ", FORCE_ENEMY, "", FORCE_PLAYER )
+    EventEntryBattleAfter(Battle_Marron, "PID_M014_マロン", FORCE_ENEMY, "", FORCE_PLAYER )
+    EventEntryBattleAfter(Battle_Gris, "PID_M014_グリ", FORCE_ENEMY, "", FORCE_PLAYER )
+    EventEntryBattleAfter(Battle_Boss, "PID_M014_オルテンシア", FORCE_ENEMY, "", FORCE_PLAYER )
 
 	EventEntryDie(Talk, "PID_M014_オルテンシア", FORCE_ENEMY, condition_true, "MID_BT3");
 	
@@ -145,19 +154,12 @@ function SetDragonVeinSkill()
 end
 
 function SetBossReinforcement()
-	if VariableGet(g_key_area) == 0 then
+
+	if VariableGet("g_flag_battle") == 0 then
 		return
 	end
 
-	if VariableGet(g_reinforcement_turn) == 0 then
-		return
-	end
-
-	local remainTurn = VariableGet(g_reinforcement_turn) - 1
-	VariableSet(g_reinforcement_turn, remainTurn)
-	if(remainTurn == 0) then
-	  	ボス部屋増援()
-	end
+	ボス部屋増援()
 end
 
 -- -----------------------------------
@@ -202,11 +204,7 @@ function 召喚渦消去と配置(areaname)
 end
 
 function condition_Barrier_Destroy()
-	--Log("condition_Barrier_Destroy")
-	--Log(VariableGet(g_revive_Gris))
-	--Log(VariableGet(g_revive_Marron))
-	--Log(VariableGet(g_revive_Mauve))
-	--Log(VariableGet(g_revive_Sepia))
+
 	if VariableGet(g_revive_Gris) == 1 and VariableGet(g_revive_Marron) == 1 and VariableGet(g_revive_Mauve) == 1 and VariableGet(g_revive_Sepia) == 1 then
 		return true
 	else
@@ -239,6 +237,49 @@ function Barrier_Destroy()
 		TerrainSet( 26, 19, "TID_平地" )
 		TerrainSet( 27, 19, "TID_平地" )
 	TerrainSetEnd()
+
+	VariableSet(g_barrier,1)
+end
+
+function Battle_Sepia()
+	if VariableGet(g_barrier) == 0 then
+		return
+	end
+
+	VariableSet("g_flag_battle",1)
+end
+
+function Battle_Mauve()
+	if VariableGet(g_barrier) == 0 then
+		return
+	end
+
+	VariableSet("g_flag_battle",1)
+end
+
+function Battle_Marron()
+	if VariableGet(g_barrier) == 0 then
+		return
+	end
+
+	VariableSet("g_flag_battle",1)
+end
+
+function Battle_Gris() 
+	if VariableGet(g_barrier) == 0 then
+		return
+	end
+
+	VariableSet("g_flag_battle",1)
+end
+
+function Battle_Boss()
+
+	if VariableGet(g_barrier) == 0 then
+		return
+	end
+
+	VariableSet("g_flag_battle",1)
 end
 
 function Rewrap_Sepia()
