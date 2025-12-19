@@ -297,8 +297,8 @@ function イベント登録()
 	EventEntryFixed(SetAiRod3, "PID_IFMOD_M019_イルシオン兵_グリフォンナイト3", FORCE_ENEMY)
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 2, 10, "PID_リュール", condition_true)
-    EventEntryEscape(離脱イベント, 24, 11, "", condition_true)
+	-- EventEntryEscape(離脱イベント, 2, 10, "PID_リュール", condition_true)
+    -- EventEntryEscape(離脱イベント, 24, 11, "", condition_true)
 end
 
 -- -----------------------------------
@@ -313,14 +313,13 @@ function Opening()
 end
 
 function SetAiRod1()
-
 	if UnitExistOnMap("PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1") == false then
         SetAiRod2()
 		return
 	end
 
-	if IsExistForcePlayerNearby("PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1",10) == false then
-		UnitSetStatus( "PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1", UNIT_STATUS_FIXED )
+	if IsExistForcePlayerNearby("PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1",12) == false then
+        UnitSetStatus( "PID_IFMOD_M019_イルシオン兵_ロイヤルナイト1", UNIT_STATUS_FIXED )
         SetAiRod2()
 		return
 	end

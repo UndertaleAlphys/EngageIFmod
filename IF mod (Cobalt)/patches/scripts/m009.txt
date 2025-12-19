@@ -79,7 +79,7 @@ function イベント登録()
 	EventEntryBattleBefore(ゼルコバ_戦闘開始, "PID_M009_ゼルコバ",FORCE_ENEMY, "", FORCE_ALL);
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 3, 9, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 3, 9, "PID_リュール", condition_true)
 	
 end
 
@@ -374,9 +374,15 @@ function aiChangeIvyNearestBand()
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_マージナイト", true)
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_マージナイト2", true)
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_マージナイト3", true)
-
+	AiSetRejectPower0Attack( "PID_M009_IFMOD_イルシオン兵_マージナイト", false )
+	AiSetRejectPower0Attack( "PID_M009_IFMOD_イルシオン兵_マージナイト2", false )
+	AiSetRejectPower0Attack( "PID_M009_IFMOD_イルシオン兵_マージナイト3", false )
+	
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ランスナイト4", true)
 	AiSetActiveAll(FORCE_ENEMY, "PID_M009_IFMOD_イルシオン兵_ソードナイト3", true)
+	AiSetRejectPower0Attack( "PID_M009_IFMOD_イルシオン兵_ランスナイト4", false )
+	AiSetRejectPower0Attack( "PID_M009_IFMOD_イルシオン兵_ソードナイト3", false )
+	
 	VariableSet("IvyNearestBandActive", 1 )
 end
 

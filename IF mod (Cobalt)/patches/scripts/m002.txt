@@ -130,7 +130,7 @@ function イベント登録()
 	EventEntryDie(ルミエル撃破イベント, g_pid_rumiere, FORCE_ENEMY, condition_ルミエル撃破イベント)
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 3, 3, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 3, 3, "PID_リュール", condition_true)
 	
 end
 

@@ -10,7 +10,6 @@ g_pid_sepia = "PID_M023_セピア"
 g_sepia_x = 12
 g_sepia_z = 30
 
--- 大岩の塊ポイントリスト
 g_rockPoint = {
 	{  1, 23 },
 	{  1, 24 },
@@ -24,6 +23,11 @@ g_rockPoint = {
 	{ 30, 30 },
 	{ 29,  1 },
 	{ 28,  1 }
+}
+
+g_fortPoint = {
+    {27,5},
+    {28,11}
 }
 
 g_dragonVeinConfig_M023 = {
@@ -103,7 +107,7 @@ function Startup()
 	Log("Startup")
 	
 	-- 勝利条件設定：敵将撃破
-	WinRuleSetDestroyBoss(true)
+	WinRuleSetEnemyNumberLessThanOrEqualTo(-1)
 	WinRuleSetMID( "MID_RULE_M023_WIN" )
 	
 	フラグ登録()
@@ -138,7 +142,7 @@ function イベント登録()
 	EventEntryBattleTalk(Talk, "PID_モーヴ",	FORCE_PLAYER, "PID_M023_グリ",		FORCE_ENEMY, true, "戦闘前会話_グリ_モーヴ_済",		"MID_BT9")
 	EventEntryBattleTalk(Talk, "",				FORCE_PLAYER, "PID_M023_グリ",		FORCE_ENEMY, true, "戦闘前会話_グリ_済",			"MID_BT6")
 	EventEntryDie(グリ死亡, "PID_M023_グリ", FORCE_ENEMY, "撃破セリフ_グリ_済")
-
+    EventEntryDie(DefeatSepia, "PID_M023_セピア", FORCE_ENEMY, condition_true)
     EventEntryTurn(EquipDragonVeinSkillsM023,   1,  1,  FORCE_PLAYER)
 
     EventEntryTurnAfter(TriggerReinforcement1, -1, -1, FORCE_PLAYER, CheckReinforcementCondition_1)
@@ -155,8 +159,8 @@ function イベント登録()
     end
     DragonVeinRegisterEvents(dragonVeinPoints)
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 24, 5, "PID_リュール", condition_true)
-	
+	-- EventEntryEscape(離脱イベント, 24, 5, "PID_リュール", condition_true)
+	EventEntryEscape(離脱イベント, 12, 30, "", condition_true)
 end
 
 function Cleanup()
@@ -333,6 +337,11 @@ function InitMapM023()
         local z = point[2]
         TerrainSet( x, z, "TID_平地")
     end
+    for _,point in ipairs(g_fortPoint) do
+        local x = point[1]
+        local z = point[2]
+        TerrainSet( x, z, "TID_砦")
+    end
     TerrainSetEnd()
 
     local magicCirclePoints = {}
@@ -346,6 +355,9 @@ function InitMapM023()
         table.insert(terrainPoints, {config.point[1], config.point[2], "TID_龙脉_M023_SkySeal"})
     end
     DragonVeinSetTerrain(terrainPoints)
+    TerrainSetBegin()
+        TerrainSet( 12, 30, "TID_王座_M023")
+    TerrainSetEnd()
 end
 
 function EquipDragonVeinSkillsM023()
@@ -356,6 +368,11 @@ function EquipDragonVeinSkillsM023()
     DragonVeinEquipSkills(skillIds)
 end
 
+function DefeatSepia()
+    TerrainSetBegin()
+        TerrainSet( 12, 30, "TID_王座_M023_Defeated")
+    TerrainSetEnd()
+end
 
 function DragonVeinUsed()
     local unit = MindGetUnit()

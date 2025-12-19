@@ -647,7 +647,7 @@ $P被击败或所有纹章士被夺取
 收回所有纹章士戒指
 
 [MID_RULE_M023_WIN]
-敌将击破
+压制
 
 [MID_RULE_M024_WIN]
 敌将击破
@@ -831,6 +831,12 @@ $P被击败或超过$Arg(0)回合
 
 [MTID_DragonVein_M023_SkySeal]
 龙脉：天锁
+
+[MTID_DragonVein_M023_SkyBless]
+龙脉：天翔
+
+[MTID_DragonVein_M024_TakeBack]
+龙脉：澄澈
 
 [MTID_DragonVein_M026_Block]
 龙脉：冰锁

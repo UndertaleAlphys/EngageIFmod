@@ -128,7 +128,7 @@ end
 function イベント登録()
 
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 4, 13, "", condition_true)
+	-- EventEntryEscape(離脱イベント, 4, 13, "", condition_true)
     EventEntryTurn(WinRule, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(EquipDragonVeinSkillsM026, 1, 1, FORCE_PLAYER)
 	EventEntryTurn(DragonVeinUsedByEnemyPredict, -1, -1, FORCE_PLAYER)

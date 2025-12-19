@@ -81,7 +81,7 @@ function イベント登録()
     EventEntryDoor(OpenDoor3, 20, 15, 20, 16)
 
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 5, 4, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 5, 4, "PID_リュール", condition_true)
 
 end
 

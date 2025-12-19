@@ -70,7 +70,7 @@ function イベント登録()
 	EventEntryDie(ボス死亡, g_pid_boss, FORCE_ENEMY, g_key_Boss_Die )
 
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 21, 13, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 21, 13, "PID_リュール", condition_true)
 
 	
 end

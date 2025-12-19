@@ -67,7 +67,7 @@ function イベント登録()
 	EventEntryTurn(Reinforcement_Turn8, 8, 8, FORCE_PLAYER)
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 10, 15, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 10, 15, "PID_リュール", condition_true)
 end
 
 

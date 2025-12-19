@@ -104,7 +104,7 @@ function イベント登録()
 	EventEntryDie(Talk, "PID_M014_モーヴ", FORCE_ENEMY, condition_true, "MID_BT10");
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 15, 7, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 15, 7, "PID_リュール", condition_true)
 	
 end
 

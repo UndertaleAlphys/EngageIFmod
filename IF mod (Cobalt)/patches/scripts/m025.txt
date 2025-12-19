@@ -145,7 +145,7 @@ function イベント登録()
 	EventEntryTurn(Set_Interference_AI_M025, -1, -1, FORCE_ENEMY)
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 10, 8, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 10, 8, "PID_リュール", condition_true)
 	EventEntryEscape(OccupyVictory, 13, 29, "", condition_true)
 	
 end

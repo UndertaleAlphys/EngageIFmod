@@ -103,7 +103,7 @@ function イベント登録()
 	EventEntryDoor(玉座左壁破壊, 12, 11, 14, 11)
 	EventEntryDestroy(玉座左壁破壊, 12, 11, 14, 11)
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 13, 4, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 13, 4, "PID_リュール", condition_true)
 end
 
 -- -----------------------------------

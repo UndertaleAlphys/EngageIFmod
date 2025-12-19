@@ -88,7 +88,7 @@ function イベント登録()
 
 
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 27, 11, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 27, 11, "PID_リュール", condition_true)
 
 end
 

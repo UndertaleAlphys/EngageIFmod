@@ -126,7 +126,7 @@ function イベント登録()
     EventEntryTurn(RevertBanTerrainToNormal, 2, 2, FORCE_PLAYER)
 	EventEntryTurn(SetMaidAIFirstTurn, 1, 1, FORCE_ENEMY)
 	EventEntryTurn(SetMaidAIRemainTurn, 2, -1, FORCE_ENEMY)
-	EventEntryEscape(離脱イベント, 29, 14, "", condition_true)
+	-- EventEntryEscape(離脱イベント, 29, 14, "", condition_true)
 
     EventEntryDie(Process_DarkEmblem_Marth,"PID_IFMOD_M026_DarkEmblem_Marth", FORCE_ENEMY, condition_true )
     EventEntryDie(Process_DarkEmblem_Siglud,"PID_IFMOD_M026_DarkEmblem_Siglud", FORCE_ENEMY, condition_true )

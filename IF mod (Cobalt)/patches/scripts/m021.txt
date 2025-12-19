@@ -11,6 +11,7 @@ g_map_width = 21
 g_map_height = 28
 
 g_flag_battle = "flag_battle"
+g_flag_remove_move_limit = "flag_remove_move_limit"
 
 g_deadEnemyList = {}
 
@@ -175,6 +176,7 @@ function フラグ登録()
 	VariableEntry("reinforcement_1", 0)
 	VariableEntry("reinforcement_2", 0)
     VariableEntry("g_flag_battle", 0)
+    VariableEntry("g_flag_remove_move_limit", 0)
 	E_BattleTalk_VariableEntry()
 
 end
@@ -189,6 +191,7 @@ function removeMoveLimitVeyre()
         end
     end
 
+
     if (anyMaidMissing) or (VariableGet(g_flag_battle) != 0) then
         for i = 1, 8 do
             local maidPid = "PID_IFMOD_M021_メイド" .. i
@@ -200,6 +203,7 @@ function removeMoveLimitVeyre()
         if UnitExistOnMap(g_pid_boss) then
             UnitClearStatus(g_pid_boss, UNIT_STATUS_MOVE_NOT_ALLOW)
         end
+        VariableSet("g_flag_remove_move_limit", 1)
     end
 end
 
@@ -345,6 +349,7 @@ function イベント登録()
     EventEntryBattleAfter(EmptyFunction, "PID_IFMOD_M021_メイド8", FORCE_ENEMY, "", FORCE_PLAYER, true, g_flag_battle )
     
     EventEntryPickup(ReEquipDragonVeinSkill,"",condition_true)
+    EventEntryPickup(removeMoveLimitVeyre,"",condition_true)
     EventEntryTurn(RegisterDragonVeinEventAgain, -1, -1, FORCE_PLAYER)
 	-- ヴェイルEvent
 	EventEntryBattleTalk(Talk, g_pid_lueur, FORCE_PLAYER, "PID_M021_ヴェイル", FORCE_ENEMY, true, "戦闘前会話_ヴェイル_リュール_済", "MID_BT2")
@@ -366,7 +371,7 @@ function イベント登録()
 
 
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 11, 6, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 11, 6, "PID_リュール", condition_true)
 end
 
 function ReEquipDragonVeinSkill()
@@ -380,6 +385,9 @@ function ReEquipDragonVeinSkill()
         end
     end
     DragonVeinEquipSkills(skillIds)
+    if UnitGetEngaging(MindGetUnit()) == false then
+        UnitClearPrivateSkill(MindGetUnit(), "SID_疾風迅雷発動済み")
+    end
 end
 
 function RegisterDragonVeinEventAgain()
@@ -471,9 +479,11 @@ function Set_Interference_AI_M021()
     end
 
     if allOutsideRange then
-        for i = 1, 8 do
-            local maidPid = "PID_IFMOD_M021_メイド" .. i
-            UnitSetStatus(maidPid, UNIT_STATUS_FIXED)
+        if VariableGet("g_flag_remove_move_limit") == 0 then
+            for i = 1, 8 do
+                local maidPid = "PID_IFMOD_M021_メイド" .. i
+                UnitSetStatus(maidPid, UNIT_STATUS_FIXED)
+            end
         end
     end
 

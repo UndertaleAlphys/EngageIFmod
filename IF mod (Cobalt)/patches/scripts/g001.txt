@@ -224,7 +224,7 @@ function イベント登録()
 	EventEntryBattleTalk( マルスと戦闘,		"",				FORCE_PLAYER, "PID_G001_チキ_特効無効",	FORCE_ENEMY, true, condition_マルスと戦闘 )
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 3, 6, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 3, 6, "PID_リュール", condition_true)
 end
 
 -- -----------------------------------
