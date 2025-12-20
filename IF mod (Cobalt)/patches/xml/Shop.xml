@@ -156,7 +156,7 @@
       <Param Condition="" Iid="IID_守備の薬" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_魔力の薬" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_魔防の薬" Stock="1" Attribute="0" />
-      <Param Condition="" Iid="IID_チェンジプルフ" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_チェンジプルフ" Stock="3" Attribute="0" />
       <Param Condition="" Iid="IID_リライブ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_調合薬" Stock="1" Attribute="0" />
       <Param Condition="M008" Iid="" Stock="" Attribute="" />
@@ -184,7 +184,7 @@
       <Param Condition="" Iid="IID_リライブ" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_調合薬" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_フリーズ" Stock="1" Attribute="0" />
-      <Param Condition="" Iid="IID_チェンジプルフ" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_チェンジプルフ" Stock="3" Attribute="0" />
       <Param Condition="M013" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_ぎんの晶石" Stock="-1" Attribute="0" />
       <Param Condition="M014" Iid="" Stock="" Attribute="" />
@@ -193,21 +193,21 @@
       <Param Condition="" Iid="IID_調合薬" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_特効薬" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_マスタープルフ" Stock="3" Attribute="0" />
-      <Param Condition="" Iid="IID_チェンジプルフ" Stock="2" Attribute="0" />
+      <Param Condition="" Iid="IID_チェンジプルフ" Stock="3" Attribute="0" />
       <Param Condition="M017" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_リブロー" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_リカバー" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_ウィークネス" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_調合薬" Stock="1" Attribute="0" />
-      <Param Condition="" Iid="IID_チェンジプルフ" Stock="2" Attribute="0" />
+      <Param Condition="" Iid="IID_チェンジプルフ" Stock="4" Attribute="0" />
       <Param Condition="M019" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_調合薬" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_リブロー" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_リカバー" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_フリーズ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_ドロー" Stock="1" Attribute="0" />
-      <Param Condition="" Iid="IID_チェンジプルフ" Stock="2" Attribute="0" />
-      <Param Condition="M023" Iid="" Stock="" Attribute="" />
+      <Param Condition="" Iid="IID_チェンジプルフ" Stock="4" Attribute="0" />
+      <Param Condition="M022" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_マスタープルフ" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_チェンジプルフ" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_リブロー" Stock="2" Attribute="0" />

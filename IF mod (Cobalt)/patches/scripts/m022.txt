@@ -65,7 +65,8 @@ function イベント登録()
 	EventEntryTurnAfter(青１ターン開始直後,	1, 1, FORCE_PLAYER)
 	EventEntryTurn(		勝利条件,			1, 1, FORCE_PLAYER )
 	EventEntryDie(  ProcessEnemyDie,    "", FORCE_ENEMY)
-
+    EventEntryPickup(ReEquipSkill,"",condition_true)
+    
 	-- --------------------------------------------------
 	-- EventEntryEscape(離脱イベント, 11, 25, "PID_リュール", condition_true)
 	-- EventEntryEscape(離脱イベント, 11, 25, "PID_ヴァンドレ", condition_true)
@@ -73,6 +74,14 @@ end
 
 function Cleanup()
 	Log("Cleanup")
+end
+
+function ReEquipSkill()
+
+    if UnitGetEngaging(MindGetUnit()) == false then
+        UnitClearPrivateSkill(MindGetUnit(), "SID_疾風迅雷発動済み")
+    end
+
 end
 
 -- -----------------------------------
