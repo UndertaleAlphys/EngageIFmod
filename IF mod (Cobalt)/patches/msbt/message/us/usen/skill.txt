@@ -5553,6 +5553,9 @@ immunity to Engage Seal for 2 turns.
 Reduces movement for flying units,  
 while increasing movement for ground units. 
 
+[MSID_H_DragonVein_M024_TakeBack] 
+Dispel damage mitigation from $P and Nil.
+
 [MSID_H_DragonVein_M026_Block]
 Freeze fog into ice barriers.
 
