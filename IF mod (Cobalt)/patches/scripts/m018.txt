@@ -61,7 +61,7 @@ function イベント登録()
 	EventEntryDie(EmptyFunction, "PID_リンデン", FORCE_ALL, "S_リンデン_死亡_済")
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 15, 12, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 15, 12, "PID_リュール", condition_true)
 
 	EventEntryTalk(TalkToThiefM018,"",FORCE_PLAYER, "PID_IFMOD_M018_イルシオン兵_上忍_Ally1", FORCE_ALLY,Condition_CanTalkTopLeft)
     EventEntryTalk(TalkToThiefM018,"",FORCE_PLAYER, "PID_IFMOD_M018_イルシオン兵_上忍_Ally2", FORCE_ALLY,Condition_CanTalkTopRight)

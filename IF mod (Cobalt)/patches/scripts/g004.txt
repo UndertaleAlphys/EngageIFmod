@@ -172,7 +172,7 @@ function イベント登録()
 	EventEntryTbox(宝箱入手, 16, 27, "IID_10000G")
 
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 2, 30, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 2, 30, "PID_リュール", condition_true)
 
 end
 

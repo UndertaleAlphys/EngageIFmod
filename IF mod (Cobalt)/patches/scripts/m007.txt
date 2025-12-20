@@ -79,7 +79,7 @@ function イベント登録()
 	EventEntryDie(Talk, "PID_M007_オルテンシア", FORCE_ENEMY, condition_true, "MID_BT3")
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 4, 10, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 4, 10, "PID_リュール", condition_true)
 	
 end
 

@@ -172,7 +172,7 @@ function イベント登録()
 	EventEntryDie( Boss_Defeated, g_pid_boss, FORCE_ENEMY, condition_true)
 
 -- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 25, 3, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 25, 3, "PID_リュール", condition_true)
 end
 
 function SetRodAi()

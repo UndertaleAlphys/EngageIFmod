@@ -97,7 +97,7 @@ function イベント登録()
 	
 	EventEntryDie(VariableSet,			"", FORCE_ENEMY, condition_勝利判定, "勝利", 1)
 	
-	EventEntryEscape(離脱イベント, 6, 2, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 6, 2, "PID_リュール", condition_true)
 end
 
 function Cleanup()

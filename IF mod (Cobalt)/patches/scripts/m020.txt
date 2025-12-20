@@ -140,7 +140,7 @@ end
         EventEntryDie(Talk, g_pid_boss, FORCE_ENEMY, condition_true, "MID_BT3")
 
         -- --------------------------------------------------
-        EventEntryEscape(離脱イベント, 10, 3, "PID_リュール", condition_true)
+        -- EventEntryEscape(離脱イベント, 10, 3, "PID_リュール", condition_true)
 
 end
 

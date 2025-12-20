@@ -110,7 +110,7 @@ function イベント登録()
 	EventEntryBattleAfter(ヴェイル_AI変更, "PID_M017_ヴェイル", FORCE_ENEMY, "", FORCE_PLAYER, false)
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 23, 6, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 23, 6, "PID_リュール", condition_true)
 end
 
 -- -----------------------------------
@@ -607,7 +607,7 @@ function MapEnding()
 
 	紋章士外伝_レベルキャップ開放( "シグルド", "M017" )
 	紋章士外伝_レベルキャップ開放( "リーフ", "M017" )
-
+    GodUnitCreate("GID_エーデルガルト")
 	Log("MapEnding")
 	
 end

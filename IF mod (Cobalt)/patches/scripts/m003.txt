@@ -35,7 +35,7 @@ function イベント登録()
 	EventEntryTurn(増援, 4, 4, FORCE_PLAYER)
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 9, 4, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 9, 4, "PID_リュール", condition_true)
 	
 end
 
@@ -80,8 +80,7 @@ function MapOpening()
 		SkipEscape()
 		Movie("Scene05")
 	FadeInAndWait(FADE_FAST)
-	SoundPostEvent("Stop_BGM_Slow") --(仮)MID_OP2でBGMを止めていたので代わりにここで止める
-	
+	SoundPostEvent("Stop_BGM_Slow") 
 	Dispos("Lueur", DISPOS_FLAG_NONE)
 	Yield()
 	

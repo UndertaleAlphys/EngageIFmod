@@ -81,6 +81,16 @@ CreateEffectsList = {
     {24, 25, -5.0, 0, 0, 90, 5},
 }
 
+g_dragonVeinConfig_M024 = {
+    {
+        point = {28, 21},
+        skillId = "SID_DragonVein_M024_TakeBack",
+        type = "skyseal",
+        param = 0
+    }
+}
+
+
 function ProcessEnemyDie()
     local unit = MindGetEventUnit()
     local pid = UnitGetPID(unit)
@@ -119,8 +129,7 @@ function ClearMagicBarrier()
     TerrainSetEnd()
     UnitClearPrivateSkill("PID_リュール", "SID_不動_隠蔽")
     UnitClearPrivateSkill("PID_E005_Boss", "SID_不動_隠蔽")
-    UnitClearPrivateSkill("PID_リュール", "SID_M024_Damage_Down")
-    UnitClearPrivateSkill("PID_E005_Boss", "SID_M024_Damage_Down")
+
 end
 
 function ClearUnmovableStatus1()
@@ -197,8 +206,13 @@ function イベント登録()
 	EventEntryBattleAfter(ClearUnmovableStatus2, "", FORCE_PLAYER, "PID_IFMOD_M024_ハルバーディア5_Freeze",	FORCE_ENEMY)
     EventEntryBattleAfter(ClearUnmovableStatus2, "", FORCE_PLAYER, "PID_IFMOD_M024_ハルバーディア_BOSS2",	FORCE_ENEMY)
     -- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 26, 26, "PID_リュール", condition_true)
-	
+	-- EventEntryEscape(離脱イベント, 26, 26, "PID_リュール", condition_true)
+	EventEntryTurn(EquipDragonVeinSkillsM024,   1,  1,  FORCE_PLAYER)
+    local dragonVeinPoints = {}
+    for _, config in ipairs(g_dragonVeinConfig_M024) do
+        table.insert(dragonVeinPoints, config.point)
+    end
+    DragonVeinRegisterEvents(dragonVeinPoints)
 end
 
 function Cleanup()
@@ -272,6 +286,26 @@ function InitMapM024()
     UnitSetPrivateSkill("PID_E005_Boss", "SID_不動_隠蔽")
     UnitSetPrivateSkill("PID_リュール", "SID_M024_Damage_Down")
     UnitSetPrivateSkill("PID_E005_Boss", "SID_M024_Damage_Down")
+
+    local magicCirclePoints = {}
+    for _, config in ipairs(g_dragonVeinConfig_M024) do
+        table.insert(magicCirclePoints, config.point)
+    end
+    DragonVeinCreateMagicCircle(magicCirclePoints)
+
+    local terrainPoints = {}
+    for _, config in ipairs(g_dragonVeinConfig_M024) do
+        table.insert(terrainPoints, {config.point[1], config.point[2], "TID_龙脉_M024_TakeBack"})
+    end
+    DragonVeinSetTerrain(terrainPoints)
+end
+
+function EquipDragonVeinSkillsM024()
+    local skillIds = {}
+    for _, config in ipairs(g_dragonVeinConfig_M024) do
+        table.insert(skillIds, config.skillId)
+    end
+    DragonVeinEquipSkills(skillIds)
 end
 
 function getItemSecret()
@@ -353,7 +387,7 @@ function 勝利条件_M024()
 end
 
 function MapEnding()
-	
+	DragonVeinApplyEffect()
 	Log("MapEnding")
 	
 end
@@ -383,3 +417,66 @@ function 離脱イベント()
 	VariableSet( "勝利", 1 )
 end
 
+function DragonVeinUsed()
+    local unit = MindGetUnit()
+    local x = UnitGetX(unit)
+    local z = UnitGetZ(unit)
+
+    local dragonVeinPoints = {}
+    for _, config in ipairs(g_dragonVeinConfig_M024) do
+        table.insert(dragonVeinPoints, {
+            config.point,
+            config.skillId,
+            config.type,
+            config.param
+        })
+    end
+
+    local veinInfo = DragonVeinPreUseCheck(
+        dragonVeinPoints,
+        x,
+        z
+    )
+
+    if veinInfo then
+        DragonVeinPostUseHandleM024(veinInfo)
+    end
+end
+
+function DragonVeinPostUseHandleM024(veinInfo)
+    TerrainSetBegin()
+        TerrainSet(veinInfo.x, veinInfo.z, "TID_床")
+    TerrainSetEnd()
+
+    EffectDelete("魔法陣_G001", veinInfo.x, veinInfo.z)
+    CursorSetPos(veinInfo.x, veinInfo.z)
+    WaitTime(1.0)
+    EffectPlay("水球_発動", veinInfo.x, veinInfo.z)
+    WaitTime(1.5)
+
+    for _, config in ipairs(g_dragonVeinConfig_M024) do
+        if veinInfo.x == config.point[1] and veinInfo.z == config.point[2] then
+            local distOrg = CursorGetDistanceMode()
+
+            CursorSetDistanceMode(CURSOR_DISTANCE_MIDDLE)
+            MapCameraWait()
+
+            CursorSetPos(27, 26)
+            WaitTime(1.0)
+            EffectPlay("水球", 27, 26)
+            WaitTime(1.5)
+
+            CursorSetDistanceMode(distOrg)
+            MapCameraWait()
+
+            DragonVeinApplyEffect()
+
+            break
+        end
+    end
+end
+
+function DragonVeinApplyEffect()
+    UnitClearPrivateSkill("PID_リュール", "SID_M024_Damage_Down")
+    UnitClearPrivateSkill("PID_E005_Boss", "SID_M024_Damage_Down")
+end

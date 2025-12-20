@@ -860,7 +860,7 @@ unit's Spd+3.
 Unyielding
 
 [MSID_H_Fortitude_1]
-If the unit is attacked, and his/her
+If the unit is attacked, and their
 HP is lower than 50% after battle,
 grant +1 Mov, and when initiate
 combat, Dmg+5. At the end of each
@@ -871,7 +871,7 @@ initiate any combat, lose the effect.
 Unyielding+
 
 [MSID_H_Fortitude_2]
-If the unit is attacked, and his/her
+If the unit is attacked, and their
 HP is lower than 70% after battle,
 grant +1 Mov, and when initiate
 combat, Dmg+7. At the end of each
@@ -4651,7 +4651,7 @@ Sensei
 [MSID_H_Sensei]
 Unit will "Rally"
 automatically after
-ending his/her turn.
+ending their turn.
 
 [MSID_H_RainbowCry]
 Grants the unit "Rally" command,
@@ -4803,7 +4803,7 @@ Dark ensei
 [MSID_H_Sensei_M010]
 This unit will "Rally"
 automatically at the
-start of his/her turn.
+start of their turn.
 
 [MSID_MicaiahEngage_M011]
 Dark Augment
@@ -5552,6 +5552,9 @@ immunity to Engage Seal for 2 turns.
 [MSID_H_DragonVein_M023_SkySeal]  
 Reduces movement for flying units,  
 while increasing movement for ground units. 
+
+[MSID_H_DragonVein_M024_TakeBack] 
+Dispel damage mitigation from $P and Nil.
 
 [MSID_H_DragonVein_M026_Block]
 Freeze fog into ice barriers.

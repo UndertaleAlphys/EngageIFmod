@@ -9,9 +9,9 @@ function HubSolanelNoticeP0()
 	
 	Log("HubSolanelNoticeP0")
 
-	if (CanStartGod()) then
-		Notice("MID_TUT_HUB_GOD_START_NOTICE")
-	end
+	-- if (CanStartGod()) then
+	--	Notice("MID_TUT_HUB_GOD_START_NOTICE")
+	-- end
 
 end
 
@@ -29,9 +29,9 @@ function CanStartGod()
 		end
 	end
 
-	if (HubIsCompleteChapter("M017")) then
-		return true;
-	end
+	-- if (HubIsCompleteChapter("M017")) then
+	--	return true;
+	-- end
 
 	return false;
 
@@ -39,24 +39,24 @@ end
 
 function ScriptStartGod()
 
-	FadeOutAndWait(FADE_FAST)
-	PuppetDemo("HubCommon", "MID_HUB_DLC1")
-	PuppetDemo("G007", "MID_OP1")
+	-- FadeOutAndWait(FADE_FAST)
+	-- PuppetDemo("HubCommon", "MID_HUB_DLC1")
+	-- PuppetDemo("G007", "MID_OP1")
 
-	Movie("Kengen13")
-	SkipEscape()
+	-- Movie("Kengen13")
+	-- SkipEscape()
 
-	PuppetDemo("G007", "MID_OP1_2")
+	-- PuppetDemo("G007", "MID_OP1_2")
 
-	if GodUnitExists("GID_ベレト") then
-		PuppetDemo("G007", "MID_OP2")
-	end
+	-- if GodUnitExists("GID_ベレト") then
+	--	PuppetDemo("G007", "MID_OP2")
+	-- end
 
-	PuppetDemo("G007", "MID_OP3")
-	FadeInAndWait(FADE_FAST)
+	-- PuppetDemo("G007", "MID_OP3")
+	-- FadeInAndWait(FADE_FAST)
 
-	GodUnitCreate( "GID_エーデルガルト" )
-	Tutorial("TUTID_紋章士エーデルガルト")
+	-- GodUnitCreate( "GID_エーデルガルト" )
+	-- Tutorial("TUTID_紋章士エーデルガルト")
 
 end
 

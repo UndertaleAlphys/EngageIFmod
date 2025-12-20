@@ -679,7 +679,7 @@ Defeat Boss.
 Recover all of the Emblem Rings.
 
 [MID_RULE_M023_WIN]
-Defeat ALL Bosses.
+Seize.
 
 [MID_RULE_M024_WIN]
 Defeat Boss.
@@ -863,6 +863,12 @@ DV: Divine Shield
 
 [MTID_DragonVein_M023_SkySeal]
 DV: Sky Seal
+
+[MTID_DragonVein_M023_SkyBless]
+DV: Sky Bless
+
+[MTID_DragonVein_M024_TakeBack]
+DV: Clear
 
 [MTID_DragonVein_M026_Block]
 DV: Obstruct

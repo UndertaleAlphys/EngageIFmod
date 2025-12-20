@@ -78,7 +78,7 @@ function Startup()
 	EventEntryDestroy(Reinforcement5, 2,  2, 2,  2)
 	EventEntryDestroy(Reinforcement6, 2,  10, 2,  10)
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 5, 20, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 5, 20, "PID_リュール", condition_true)
 end
 
 function Cleanup()

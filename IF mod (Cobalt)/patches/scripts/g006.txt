@@ -154,7 +154,7 @@ function イベント登録()
 	EventEntryFixed(MapOverlapAllClearFixed,"",FORCE_PLAYER)
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 13, 4, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 13, 4, "PID_リュール", condition_true)
 end
 
 function Cleanup()

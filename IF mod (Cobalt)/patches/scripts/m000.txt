@@ -57,7 +57,7 @@ function イベント登録()
 	
 	EventEntryDie(Talk, "PID_M000_ソンブル", FORCE_ENEMY, condition_true, "MID_BT2")
 	
-	EventEntryEscape(離脱イベント, 5, 4, "PID_M000_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 5, 4, "PID_M000_リュール", condition_true)
 end
 
 function Cleanup()

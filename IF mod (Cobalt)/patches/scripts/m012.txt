@@ -303,7 +303,7 @@ function イベント登録()
 	EventEntryDie(EmptyFunction, "PID_M012_IFMOD_忍2", FORCE_ENEMY, "S_M012_村人Ｃ_死亡")
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 16, 9, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 16, 9, "PID_リュール", condition_true)
 	
 end
 
