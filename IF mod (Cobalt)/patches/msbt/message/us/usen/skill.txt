@@ -5403,17 +5403,16 @@ Dmg by 20%.
 Weapon Sync
 
 [MSID_H_WeaponSynchronized]
-If unit initiates combat using same
-weapon type as the synced Emblem,
-grants Atk+3.
+Grants Atk +3 when synced with an Emblem 
+wielding the same weapon type.
+
 
 [MSID_WeaponSynchronized+]
 Weapon Sync+
 
 [MSID_H_WeaponSynchronized+]
-If unit initiates combat using same
-weapon type as the synced Emblem,
-grants Atk+5.
+Grants Atk +5 when synced with an Emblem 
+wielding the same weapon type.
 
 [MSID_BreakThroughLimit]
 Limit Breaker

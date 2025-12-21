@@ -4996,15 +4996,15 @@ HP不满时伤害+4
 武器同步
 
 [MSID_H_WeaponSynchronized]
-自身发动攻击时
-若与同步的纹章士装备同种武器则攻击力+3
+若与同步的纹章士装备同种武器
+则攻击力+3
 
 [MSID_WeaponSynchronized+]
 武器同步+
 
 [MSID_H_WeaponSynchronized+]
-自身发动攻击时
-若与同步的纹章士装备同种武器则攻击力+5
+若与同步的纹章士装备同种武器
+则攻击力+5
 
 [MSID_BreakThroughLimit]
 限界突破
