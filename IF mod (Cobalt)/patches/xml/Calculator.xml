@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Book Count="2">
-  <Sheet Name="共通" Count="81">
+  <Sheet Name="共通" Count="74">
     <Header>
       <Param Name="名前" Ident="Name" Type="PublicString" Min="" Max="" Chg="" />
       <Param Name="条件式" Ident="Condition" Type="string[]" Min="" Max="" Chg="" />
@@ -49,14 +49,7 @@
       <Param Name="素早い動作速度" Condition="" Function="1;" />
       <Param Name="間合い判断値" Condition="" Function="0.5;" />
       <Param Name="攻撃速度計算" Condition="" Function="速さ;" />
-      <Param Name="速度補正" Condition="" Function="cond(スキル所持(&quot;追撃しにくい&quot;), -3, 0) + cond(スキル所持(&quot;追撃しにくい-5&quot;), -5, 0) + cond(スキル所持(&quot;追撃しやすい&quot;), 3, 0) + cond(相手のスキル所持(&quot;追撃されやすい&quot;), 5, 0) + cond(スキル所持(&quot;追撃しやすくされやすい&quot;), 5, 0) + cond(相手のスキル所持(&quot;追撃しやすくされやすい&quot;), 5, 0) + cond(スキル所持(&quot;飛燕の一撃&quot;) &amp;&amp; 立場 == 攻め, 5, 0);" />
-      <Param Name="追撃係数初始" Condition="" Function="攻撃速度 - 相手の攻撃速度 + 速度補正;" />
-      <Param Name="追撃係数挟撃" Condition="スキル所持(&quot;挟撃&quot;) &amp;&amp; 挟撃中 &amp;&amp; 追撃係数初始 &lt; 5 &amp;&amp; 立場 == 攻め;" Function="5;追撃係数初始;" />
-      <Param Name="追撃係数切り返し" Condition="スキル所持(&quot;切り返し&quot;) &amp;&amp; ( HP*100 &gt;= MaxHP*75 ) &amp;&amp; 追撃係数挟撃 &lt; 5 &amp;&amp; 立場 == 受け;" Function="5;追撃係数挟撃;" />
-      <Param Name="追撃係数切り返し＋" Condition="スキル所持(&quot;切り返し＋&quot;) &amp;&amp; ( HP*100 &gt;= MaxHP*50 ) &amp;&amp; 追撃係数切り返し &lt; 5 &amp;&amp; 立場 == 受け;" Function="5;追撃係数切り返し;" />
-      <Param Name="追撃係数ヘクトルエンゲージ技_効果" Condition="スキル所持(&quot;ヘクトルエンゲージ技_効果&quot;) &amp;&amp; 立場 == 受け &amp;&amp; 追撃係数切り返し＋&lt;5;" Function="5;追撃係数切り返し＋;" />
-      <Param Name="追撃係数相性激化" Condition="(相手のスキル所持(&quot;相性激化&quot;) || スキル所持(&quot;相性激化&quot;)) &amp;&amp; 武器相性 == 有利 &amp;&amp; 追撃係数ヘクトルエンゲージ技_効果&lt;5;" Function="5;追撃係数ヘクトルエンゲージ技_効果;" />
-      <Param Name="追撃係数" Condition="スキル所持(&quot;追撃不可&quot;) || スキル所持(&quot;守備隊形&quot;) || 相手のスキル所持(&quot;守備隊形&quot;) || 相手のスキル所持(&quot;ヘクトルエンゲージ技_効果&quot;) || ((相手のスキル所持(&quot;相性激化&quot;) || スキル所持(&quot;相性激化&quot;)) &amp;&amp; 武器相性 == 不利);" Function="0;追撃係数相性激化;" />
+      <Param Name="追撃係数" Condition="" Function="FollowUpAbility;" />
       <Param Name="追撃条件" Condition="追撃係数 &gt;= 5;" Function="1;0;" />
       <Param Name="チェインアタック威力計算" Condition="" Function="max(相手のMaxHP*0.1, 1);" />
       <Param Name="チェインアタック命中率計算" Condition="" Function="100;" />
