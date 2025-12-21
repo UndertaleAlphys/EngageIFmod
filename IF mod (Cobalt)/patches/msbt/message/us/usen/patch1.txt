@@ -96,7 +96,8 @@ brimming with confidence.
 Severance
 
 [MSID_H_Severance]
-Add 30% of foe's (maxHP - HP) to Dmg dealt
+Adds damage equal to 30% of foe’s lost HP.
+This damage cannot be mitigated or countered.
 
 [MPID_Senerio]
 Soren
@@ -513,9 +514,7 @@ be targeted by enemies.
 Block Recovery
 
 [MSID_H_PreventionReturn]
-When unit attacks a broken foe
-with weapon advantage,
-the foe will remain broken.
+Negates foe’s Revival Stone.
 
 [MSID_SenerioEngage]
 Flare
