@@ -2393,7 +2393,7 @@ HP吸收/不可追击
 
 [MIID_H_Lueur_Oligoludia]
 纹章士$P的剑。
-克制异形。
+异形特效/龙特效
 
 [MIID_Lueur_DragonFist]
 神龙体术

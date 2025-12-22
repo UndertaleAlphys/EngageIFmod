@@ -2509,7 +2509,8 @@ Oligoludia
 
 [MIID_H_Lueur_Oligoludia]
 Sword wielded by Emblem
-$P. Effective: Corrupted.
+$P. 
+Effective: Corrupted, Dragon.
 
 [MIID_Lueur_DragonFist]
 Dragon's Fist
@@ -3086,7 +3087,7 @@ Dragon Spirit
 
 [MIID_H_DragonSpirit]
 A anti-dragon scroll.
-Deffective: Dragon
+Effective: Dragon
 Ineffective otherwise
 Halves Mag until unit attacks again.
 

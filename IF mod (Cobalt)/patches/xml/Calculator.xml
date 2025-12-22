@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Book Count="2">
-  <Sheet Name="共通" Count="74">
+  <Sheet Name="共通" Count="76">
     <Header>
       <Param Name="名前" Ident="Name" Type="PublicString" Min="" Max="" Chg="" />
       <Param Name="条件式" Ident="Condition" Type="string[]" Min="" Max="" Chg="" />
@@ -30,6 +30,8 @@
       <Param Name="他には弱い_命中値補正" Condition="武器特効&lt;=1 &amp;&amp; スキル所持(&quot;他には弱い&quot;);" Function="-10;0;" />
       <Param Name="DebuffMultiplier" Condition="スキル所持(&quot;DebuffHalved&quot;);" Function="0.5;1;" />
       <Param Name="ReverseDebuffMultiplier" Condition="相手のスキル所持(&quot;DebuffHalved&quot;);" Function="0.5;1;" />
+      <Param Name="DragonskinMultiplier" Condition="相手のスキル所持(&quot;竜鱗&quot;)&amp;&amp;スキル所持(&quot;リュール邪竜特効&quot;)==0;相手のスキル所持(&quot;竜鱗&quot;)&amp;&amp;スキル所持(&quot;リュール邪竜特効&quot;);" Function="0.5;0.75;1;" />
+      <Param Name="ReverseDragonskinMultiplier" Condition="スキル所持(&quot;竜鱗&quot;)&amp;&amp;相手のスキル所持(&quot;リュール邪竜特効&quot;)==0;スキル所持(&quot;竜鱗&quot;)&amp;&amp;相手のスキル所持(&quot;リュール邪竜特効&quot;);" Function="0.5;0.75;1;" />
       <Param Name="攻撃力計算" Condition="" Function="ユニット攻撃力 + 武器攻撃力 * 武器特効 + 他には弱い_攻撃力補正 + (相性補正_攻撃 * 無効補正 * 逆転補正);" />
       <Param Name="防御力計算" Condition="" Function="ユニット防御力 + 地形防御 + (相性補正_防御 * 無効補正 * 逆転補正);" />
       <Param Name="命中値計算" Condition="" Function="int(技*1.5+幸運*0.5)+ 武器命中 + 支援命中 + (相性補正_命中 * 無効補正 * 逆転補正) + チェインアタック命中値 + 他には弱い_命中値補正;" />

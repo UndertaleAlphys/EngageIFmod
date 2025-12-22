@@ -4317,14 +4317,12 @@ to this unit is reduced to 25%.
 Dragonskin
 
 [MSID_H_DragonSkin]
-Negates Counter, Countermagic, 
-Poison, Lethality. 
-Will not be Break, 
-will not be affected by weapon triangle, 
-taken damage is reduced by half.
-Engage attack and critical damage 
-is reduced to 25%.
-Nullify enemy's chain attack.
+Halves damage taken, crits, and off. skills.
+Halves damage taken from Engage Attacks.
+Prevents lethal, poison, and counter skills.
+Unit cannot be Broken.
+Negates all weapon effectiveness.
+Takes no damage from chain attacks.
 
 [MSID_Pavise]
 Pavise
