@@ -474,11 +474,26 @@ HP未达最大值，无法使用。
 [MSID_H_NominateDecoy_CMD]
 使我方单位容易成为敌方目标。
 
-[MSID_PreventionReturn]
+[MSID_BlockRecovery]
 阻止复原
 
-[MSID_H_PreventionReturn]
-使对方的复活石无效
+[MSID_H_BlockRecovery]
+对方使用复活石时，
+复活时的HP恢复量变为50%。
+
+[MSID_BlockRecovery+]
+阻止复原+
+
+[MSID_H_BlockRecovery+]
+对方使用复活石时，
+复活时的HP恢复量变为20%。
+
+[MSID_BlockRecovery++]
+阻止复原++
+
+[MSID_H_BlockRecovery++]
+对方使用复活石时，
+复活时的HP恢复量变为1。
 
 [MSID_Severance]
 斩绝

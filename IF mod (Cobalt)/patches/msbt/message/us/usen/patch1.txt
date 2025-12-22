@@ -510,11 +510,26 @@ by foes 3 times.
 Makes one ally more likely to
 be targeted by enemies.
 
-[MSID_PreventionReturn]
+[MSID_BlockRecovery]
 Block Recovery
 
-[MSID_H_PreventionReturn]
-Negates foe’s Revival Stone.
+[MSID_H_BlockRecovery]
+When foe uses a Revival Stone,
+they recover only 50% of their HP.
+
+[MSID_BlockRecovery+]
+Block Recovery+
+
+[MSID_H_BlockRecovery+]
+When foe uses a Revival Stone,
+they recover only 20% of their HP.
+
+[MSID_BlockRecovery++]
+Block Recovery++
+
+[MSID_H_BlockRecovery++]
+When foe uses a Revival Stone,
+they recover only 1 HP.
 
 [MSID_SenerioEngage]
 Flare
