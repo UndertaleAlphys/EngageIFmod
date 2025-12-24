@@ -113,6 +113,34 @@ function ProcessEnemyDie()
     end
 end
 
+function SetDamageReduction()
+    local playerUnit = ForceUnitGetFirst(FORCE_PLAYER)
+    while playerUnit ~= nil do
+        UnitSetPrivateSkill(playerUnit, "SID_M024_Damage_Down")
+        playerUnit = ForceUnitGetNext(playerUnit)
+    end
+
+    local enemyUnit = ForceUnitGetFirst(FORCE_ENEMY)
+    while enemyUnit ~= nil do
+        UnitSetPrivateSkill(enemyUnit, "SID_M024_Damage_Down")
+        enemyUnit = ForceUnitGetNext(enemyUnit)
+    end
+end
+
+function ClearDamageReduction()
+    local playerUnit = ForceUnitGetFirst(FORCE_PLAYER)
+    while playerUnit ~= nil do
+        UnitClearPrivateSkill(playerUnit, "SID_M024_Damage_Down")
+        playerUnit = ForceUnitGetNext(playerUnit)
+    end
+
+    local enemyUnit = ForceUnitGetFirst(FORCE_ENEMY)
+    while enemyUnit ~= nil do
+        UnitClearPrivateSkill(enemyUnit, "SID_M024_Damage_Down")
+        enemyUnit = ForceUnitGetNext(enemyUnit)
+    end
+end
+
 function ClearMagicBarrier()
     CursorSetPos(26,25)
     MapCameraWait()
@@ -284,8 +312,7 @@ function InitMapM024()
 
     UnitSetPrivateSkill("PID_リュール", "SID_不動_隠蔽")
     UnitSetPrivateSkill("PID_E005_Boss", "SID_不動_隠蔽")
-    UnitSetPrivateSkill("PID_リュール", "SID_M024_Damage_Down")
-    UnitSetPrivateSkill("PID_E005_Boss", "SID_M024_Damage_Down")
+    SetDamageReduction()
 
     local magicCirclePoints = {}
     for _, config in ipairs(g_dragonVeinConfig_M024) do
@@ -477,6 +504,7 @@ function DragonVeinPostUseHandleM024(veinInfo)
 end
 
 function DragonVeinApplyEffect()
-    UnitClearPrivateSkill("PID_リュール", "SID_M024_Damage_Down")
-    UnitClearPrivateSkill("PID_E005_Boss", "SID_M024_Damage_Down")
+    UnitClearPrivateSkill("PID_リュール", "SID_不動_隠蔽")
+    UnitClearPrivateSkill("PID_E005_Boss", "SID_不動_隠蔽")
+    ClearDamageReduction()
 end
