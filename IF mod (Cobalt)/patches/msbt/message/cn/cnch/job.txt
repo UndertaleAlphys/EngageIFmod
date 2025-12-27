@@ -47,35 +47,35 @@
 拥有能打开异界之门的强大魔力。
 
 [MJID_AvenirLC]
-王室贵族
+王家骑士
 
 [MJID_H_AvenirLC]
 拥有高贵王室血统之人。
-驾驭战马，擅长枪术。
+驾驭战马，擅长枪术与剑术。
 
 [MJID_Avenir]
-阿巴尼尔
+未来骑士
 
 [MJID_H_Avenir]
 驰骋战场的白马王子。
-不仅擅长枪术，也精通剑术。
+不仅枪术登峰造极，也精通剑术。
 
 [MJID_FleurageLC]
-王室贵族
+战术师
 
 [MJID_H_FleurageLC]
 拥有高贵王室血统之人。
 擅长魔道，也能以剑战斗。
 
 [MJID_Fleurage]
-弗罗剌祝
+神军师
 
 [MJID_H_Fleurage]
 使用魔法并斩杀敌人的魔法剑士。
 也能以杖战斗。
 
 [MJID_SuccesseurLC]
-领主
+铁之领主
 
 [MJID_H_SuccesseurLC]
 继承引领众人的君主血脉之人。
@@ -89,7 +89,7 @@
 不仅擅长剑术，也精通斧术。
 
 [MJID_TirailleurLC]
-领主
+影之猎手
 
 [MJID_H_TirailleurLC]
 继承引领众人的君主血脉之人。
@@ -103,35 +103,35 @@
 能以百发百中的弓术狙击敌人。
 
 [MJID_LindwurmLC]
-驯兽师
+龙骑术士
 
 [MJID_H_LindwurmLC]
 与野兽心灵相通，并驱使其作战的骑士。
 驾驭飞龙，擅长魔法与杖术。
 
 [MJID_Lindwurm]
-魔龙骑士
+龙翼贤者
 
 [MJID_H_Lindwurm]
 自空中歼灭敌人的魔龙骑士。
-擅长强大的魔法与杖术。
+擅长强大的魔法，还能使用斧与杖。
 
 [MJID_SleipnirLC]
-驯兽师
+飞马司祭
 
 [MJID_H_SleipnirLC]
-与野兽心灵相通，并驱使其作战的骑士。
+与野兽心灵相通，并驱使其作战的司祭。
 驾驭飞马，擅长魔法与杖术。
 
 [MJID_Sleipnir]
-圣飞马骑士
+圣洁骑士
 
 [MJID_H_Sleipnir]
 驾驭圣洁天马“斯雷普尼尔”的骑士。
-擅长高等杖术与魔法。
+擅长魔法与杖术，还能使用剑。
 
 [MJID_PitchforkLC]
-义警队
+沙之歌者
 
 [MJID_H_PitchforkLC]
 手持武器，捍卫国家的自卫团。
@@ -145,7 +145,7 @@
 用薙刀和咒术迷惑敌人。
 
 [MJID_CupidoLC]
-义警队
+星之游侠
 
 [MJID_H_CupidoLC]
 手持武器，捍卫国家的自卫团。
@@ -208,7 +208,7 @@
 虽力大无穷，但防守较弱。
 
 [MJID_Berserker]
-狂斗士
+狂战士
 
 [MJID_H_Berserker]
 力大无比的铁腕斗士。
@@ -232,7 +232,7 @@
 弓圣
 
 [MJID_H_Sniper]
-精通弓术的狙击手。
+立于弓术顶点之人。
 能以强力一箭射穿对手要害。
 
 [MJID_BowKnight]
@@ -309,7 +309,7 @@
 狼骑士
 
 [MJID_H_WolfKnight]
-骑着狼穿梭于战场之中的骑士。
+骑着狼形傀儡穿梭于战场之中的骑士。
 能使用短剑，并能扰乱敌阵。
 
 [MJID_SwordPegasus]
@@ -359,7 +359,7 @@
 
 [MJID_H_Sage]
 拥有强大魔力的高等魔道士。
-不仅能使用魔道书，也善于操杖。
+以令人惊叹的魔道之力击溃敌人。
 
 [MJID_MageKnight]
 黑暗骑士
@@ -372,15 +372,14 @@
 僧侣
 
 [MJID_H_Monk]
-以杖治愈受伤伙伴的僧兵。
-亦精通以气功护身之术。
+精通以气功护身之术者。
 
 [MJID_MasterMonk]
 僧侣大师
 
 [MJID_H_MasterMonk]
 精通气功的高等僧侣。
-不仅能使用治疗术，也善于体术。
+体术登封造极。
 
 [MJID_HighPriest]
 主教
@@ -393,8 +392,8 @@
 上忍
 
 [MJID_H_MasterNinja]
-忍者们的统领
-能以暗器和剑取走对手的项上人头
+忍者们的统领。
+能以暗器和剑取走对手的项上人头。
 
 [MJID_Dancer]
 舞蹈家
@@ -448,12 +447,12 @@
 忍
 
 [MJID_H_Ninja]
-精通暗杀之术的忍者
+精通暗杀之术的忍者。
 能以手里剑降低敌方的能力
 
 [MJID_H_DarkMage]
-学习法术的邪术师
-以魔道攻击敌人
+学习邪恶法术的邪术师。
+以魔道攻击敌人。
 
 [MJID_DarkMage]
 暗魔法师
@@ -469,7 +468,7 @@
 冒险者
 
 [MJID_H_Adventurer]
-喜欢冒险的人。
+于遗迹中寻觅宝藏的探险家。
 不仅能够用弓护身，治疗方面也很擅长。
 
 [MJID_H_WyvernLord]
@@ -518,7 +517,8 @@
 佣兵
 
 [MJID_H_Mercenary]
-收钱办事的雇佣战士，能力均衡，是队伍中的中坚力量
+收钱办事的雇佣战士，
+能力均衡，是队伍中的中坚力量。
 
 [MJID_BasicBowknight]
 佣兵/盗贼
@@ -536,8 +536,8 @@
 管家
 
 [MJID_H_Butler]
-为主人尽心尽力的管家
-用法杖治愈主人，用暗器保护主人
+为主人尽心尽力的管家，
+用法杖治愈主人，用暗器保护主人。
 
 [MJID_BasicSage]
 魔法师/暗魔法师

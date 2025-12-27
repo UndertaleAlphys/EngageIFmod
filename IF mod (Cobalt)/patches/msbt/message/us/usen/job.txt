@@ -52,15 +52,15 @@ of the Emblem Rings. Capable now
 of opening a gate to another world.
 
 [MJID_AvenirLC]
-Noble
+Noble Knight
 
 [MJID_H_AvenirLC]
 One born into a noble royal family.
-A proficient horseman and skilled
-lancer.
+A proficient horseman, skilled
+lancer and sworder.
 
 [MJID_Avenir]
-Avenir
+Future Knight
 
 [MJID_H_Avenir]
 A dashing prince who rides a white
@@ -68,7 +68,7 @@ horse into battle. Excels with a lance
 and serviceable with a blade.
 
 [MJID_FleurageLC]
-Noble
+Tactician
 
 [MJID_H_FleurageLC]
 One born into a noble royal family.
@@ -76,7 +76,7 @@ A proficient magic user who is also
 serviceable with a sword.
 
 [MJID_Fleurage]
-Vidame
+Grandmaster
 
 [MJID_H_Fleurage]
 Magic-wielding swordswoman who
@@ -84,7 +84,7 @@ can cut through enemy mages. She
 is also capable of wielding staves.
 
 [MJID_SuccesseurLC]
-Lord
+Iron Lord
 
 [MJID_H_SuccesseurLC]
 One born into a family that leads
@@ -99,21 +99,21 @@ lead a nation. Skilled with both the
 blade and the axe.
 
 [MJID_TirailleurLC]
-Lord
+Shadow Hunter
 
 [MJID_H_TirailleurLC]
 One born into a family that leads
 a nation. Proficient with a bow.
 
 [MJID_Tirailleur]
-Tireur d'élite
+Deadeye
 
 [MJID_H_Tirailleur]
 An archer gifted with incredible
 aim. Each shot can eliminate a foe.
 
 [MJID_LindwurmLC]
-Wing Tamer
+Dragon Mage
 
 [MJID_H_LindwurmLC]
 A knight who has a rapport with
@@ -121,15 +121,15 @@ beasts. Rides a wyvern into battle
 and uses magic and staves.
 
 [MJID_Lindwurm]
-Malig Knight
+Winged Sage
 
 [MJID_H_Lindwurm]
-A magic-using wyvern rider who
-destroys enemies from above. Can
-use powerful magic and staves.
+A magic-using wyvern rider who destroys 
+enemies from above. Uses powerful magic,
+also skilled in axes and rods.
 
 [MJID_SleipnirLC]
-Wing Tamer
+Pegasus Priest
 
 [MJID_H_SleipnirLC]
 A knight who has a rapport with
@@ -137,15 +137,15 @@ beasts. Rides a pegasus into battle
 and is skilled with tome and staff.
 
 [MJID_Sleipnir]
-Seraph Knight
+Sacred Knight
 
 [MJID_H_Sleipnir]
 A knight who rides the charming
-pegasus Sleipnir. Uses powerful
-staves and is skilled with tomes.
+pegasus Sleipnir. Uses powerful staves 
+and tomes, also skilled with swords.
 
 [MJID_PitchforkLC]
-Sentinel
+Desert Singer
 
 [MJID_H_PitchforkLC]
 A Sentinel who takes up arms to
@@ -161,7 +161,7 @@ unbound by rules.
 Confounds enemies with naginatas and magic.
 
 [MJID_CupidoLC]
-Sentinel
+Star Ranger
 
 [MJID_H_CupidoLC]
 A Sentinel who takes up arms to
@@ -404,7 +404,7 @@ Sage
 [MJID_H_Sage]
 Experienced mages who can call
 upon great power. Capable of using
-both tomes and staves.
+both tomes and magic.
 
 [MJID_MageKnight]
 Dark Knight
@@ -418,8 +418,7 @@ melee combat.
 Martial Monk
 
 [MJID_H_Monk]
-Combat monks who use staves to
-heal wounded allies. They are versed
+Combat monks who are versed
 in the martial arts of self-defense.
 
 [MJID_MasterMonk]
@@ -428,7 +427,7 @@ Martial Master
 [MJID_H_MasterMonk]
 Experienced monks trained in the
 martial arts. They excel at hand-to-
-hand combat as well as healing.
+hand combat.
 
 [MJID_HighPriest]
 High Priest
