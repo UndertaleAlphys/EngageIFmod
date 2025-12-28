@@ -1,0 +1,866 @@
+[MID_OP1_#001]
+$Type(2)
+$Window(0, "ディアマンド", "1")
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+Diamant, where's the king?$Wait(0)
+
+[MID_OP1_#002]
+$Window(2, "ディアマンド")
+He's headed to the front line. Our orders are to
+wait here with the rear guard.$Wait(0)
+
+[MID_OP1_#003]
+$Window(2, "リュール")
+Will do.$Wait(0)
+
+[MID_OP1_#004]
+$Window(2, "ディアマンド")
+Here. Take this.$Wait(0)
+
+[MID_OP1_#005]
+$Window(2, "リュール")
+The ring? You didn't give it to your father?$Wait(0)
+
+[MID_OP1_#006]
+$Window(2, "ディアマンド")
+I tried. He wouldn't take it.$Wait(0)
+
+[MID_OP1_#007]
+$Window(0, "ロイ", "3")
+$Window(2, "ロイ")
+The king said that if anything should happen,
+he wants you to keep my ring safe.$Wait(0)
+
+[MID_OP1_#008]
+$Window(2, "リュール")
+But what if he needs it?$Wait(0)
+
+[MID_OP1_#009]
+$Window(2, "ディアマンド")
+Father wants a fair fight.$Wait(2)
+
+[MID_OP1_#010]
+Not to say that using the ring is unfair. But we
+Brodians have a particular sense of pride.$Wait(2)
+
+[MID_OP1_#011]
+He wants to stand in his own strength and
+asked us to respect that.$Wait(0)
+
+[MID_OP1_#012]
+$Window(2, "リュール")
+I understand. I'm just not sure our enemies will
+have the same code of honor.$Wait(2)
+
+[MID_OP1_#013]
+Let's be at the ready. If push comes to shove,
+I want to be able to help.$Wait(0)
+
+[MID_OP1_#014]
+$Window(2, "ディアマンド")
+It's a plan.$Wait(0)
+
+[MID_OP1_#015]
+$Window(2, "ロイ")
+Agreed.$Wait(0)
+
+[MID_OP1_#016]
+$Window(2, "リュール")
+It looks like the battle has begun.$Wait(0)
+
+[MID_MOVIE1_#001]
+$Window(2, "モリオン")
+HYAAAH!$Wait(0)
+
+[MID_MOVIE1_#002]
+$Window(2, "ハイアシンス")
+Your invasions of my country come at
+a very high price.$Wait(0)
+
+[MID_MOVIE1_#002_2]
+$Window(2, "ハイアシンス")
+And now you will pay it!$Wait(0)
+
+[MID_MOVIE1_#003]
+$Window(2, "モリオン")
+Hahaha! Do you really think you can withstand
+the might of Brodia?$Wait(0)
+
+[MID_MOVIE1_#004]
+$Window(2, "ハイアシンス")
+Yes. My army is blessed by Lord Sombron himself.$Wait(0)
+
+[MID_MOVIE1_#005]
+$Window(2, "モリオン")
+Damn you!$Wait(0)
+
+[MID_MOVIE1_#006]
+$Window(2, "モリオン")
+Heh...$Wait(0)
+
+[MID_MOVIE1_#007]
+$Window(2, "モリオン")
+Well then! Is that all the power your dragon's got?$Wait(0)
+
+[MID_MOVIE1_#008]
+$Window(2, "ハイアシンス")
+He is not yet at full strength.$Wait(0)
+
+[MID_MOVIE1_#008_2]
+$Window(2, "ハイアシンス")
+Not until the ritual...$Wait(0)
+
+[MID_MOVIE1_#009]
+$Window(2, "モリオン")
+Ritual?$Wait(0)
+
+[MID_MOVIE1_#010]
+$Window(2, "ハイアシンス")
+The one by which we shall reignite his true glory.$Wait(0)
+
+[MID_MOVIE1_#010_2]
+$Window(2, "ハイアシンス")
+And for that...we need a sacrifice of
+sovereign blood.$Wait(0)
+
+[MID_MOVIE1_#011]
+$Window(2, "ハイアシンス")
+The blood thus offered...$Wait(0)
+
+[MID_MOVIE1_#011_2]
+$Window(2, "ハイアシンス")
+will be yours!$Wait(0)
+
+[MID_MOVIE1_#012]
+$Window(2, "モリオン")
+What?$Wait(0)
+
+[MID_MOVIE1_#013]
+$Window(2, "モリオン")
+AAH!$Wait(0)
+
+[MID_MOVIE1_#014]
+$Window(2, "ハイアシンス")
+Hahaha...$Wait(0)
+
+[MID_OP2_#001]
+$Type(0, "Default")
+$Window(0, "ディアマンド", "4")
+$Window(2, "ディアマンド")
+Father!$Wait(0)
+
+[MID_OP2_#002]
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+Come on, Diamant. There's still time to rescue him!$Wait(0)
+
+[MID_OP2_#003]
+$Window(1, "ディアマンド")
+$Window(1, "リュール")
+$Window(0, "ハイアシンス", "1")
+$Window(2, "ハイアシンス")
+You have lost this battle, Former King of Brodia.$Wait(0)
+
+[MID_OP2_#004]
+$Window(0, "グリ", "3")
+$Window(2, "グリ")
+Well, he's not getting any lighter. Come on.$Wait(0)
+
+[MID_OP2_#005]
+$Window(1, "グリ")
+$Window(0, "マロン", "3")
+$Window(2, "マロン")
+We know what to do, Your Majesty. See you later.$Wait(0)
+
+[MID_OP2_#006]
+$Window(2, "ハイアシンス")
+Mm.$Wait(0)
+
+[MID_OP2_#007]
+$Window(1, "ハイアシンス")
+$Window(1, "マロン")
+$Window(0, "リュール", "2")
+$Window(0, "ディアマンド", "4")
+$Window(2, "ディアマンド")
+My father! They're trying to take him away!$Wait(0)
+
+[MID_OP2_#008]
+$Window(2, "リュール")
+We won't let them!$Wait(0)
+
+[MID_OP2_#009]
+$Window(0, "アイビー", "1")
+$Window(2, "アイビー")
+So you say... But you are wrong.$Wait(0)
+
+[MID_OP2_#010]
+$Window(2, "リュール")
+Princess Ivy!$Wait(0)
+
+[MID_OP2_#011]
+$Window(0, "ハイアシンス", "3")
+$Window(2, "ハイアシンス")
+Whatever the cost, you will hold them here, child.$Wait(0)
+
+[MID_OP2_#012]
+$Window(2, "アイビー")
+Yes.$Wait(0)
+
+[MID_OP2_#013]
+$Window(2, "ハイアシンス")
+Oh, and, Ivy? Don't forget that ring was given
+to you by our Lord Sombron.$Wait(2)
+
+[MID_OP2_#014]
+Your failure to protect it was a grievous one.$Wait(0)
+
+[MID_OP2_#015]
+$Window(2, "アイビー")
+...$Wait(0)
+
+[MID_OP2_#016]
+$Window(2, "ハイアシンス")
+It is your duty to reclaim the ring now. I take my
+leave to Elusia. Do not fail me again.$Wait(0)
+
+[MID_OP2_#017]
+$Window(1, "ハイアシンス")
+$Window(2, "アイビー")
+So...you want me to buy time for you as I die here.$Wait(0)
+
+[MID_OP2_#017_2]
+$Window(1, "ハイアシンス")
+$Window(2, "アイビー")
+Very well. I die for you, Father...$Wait(0)
+
+[MID_OP2_#018]
+$Window(2, "ディアマンド")
+You're not going to stop us.$Wait(2)
+
+[MID_OP2_#019]
+$Window(2, "リュール")
+We have to get King Morion back from them
+right now. We have to!$Wait(0)
+
+[MID_OP3_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Angry")
+$Window(2, "リュール")
+The storm keeps getting harsher.$Wait(0)
+
+[MID_OP3_#002]
+$Window(0, "ディアマンド", "b")
+$Anim(1, "ディアマンド", "Angry")
+$Window(2, "ディアマンド")
+We must drive back Princess Ivy's forces!$Wait(2)
+
+[MID_OP3_#003]
+$Anim(1, "ディアマンド", "Pain")
+Dragging away Father like that... What could
+King Hyacinth be planning?$Wait(0)
+
+[MID_OP3_#004]
+$Anim(1, "リュール", "Pain")
+$Window(2, "リュール")
+I don't know. But with so many of the
+Corrupted...this will be a tough battle.$Wait(0)
+
+[MID_OP4_#001]
+$Type(1)
+$Window(0, "ジェーデ", "t")
+$Anim(1, "ジェーデ", "Sad")
+$Window(2, "ジェーデ")
+The snow's really swirling now. I wonder if I'll
+be able to find Prince Diamant.$Wait(2)
+
+[MID_OP4_#002]
+$Anim(1, "ジェーデ", "Normal")
+Couldn't be a worse time for meditation, but
+I've gotta clear my head.$Wait(0)
+
+[MID_EV1_#001]
+$Type(1)
+$Window(0, "M009_カゲツ", "b")
+$Anim(1, "M009_カゲツ", "Sad")
+$Window(2, "M009_カゲツ")
+I fear this will not end well.$Wait(0)
+
+[MID_EV1_#002]
+$Window(0, "M009_ゼルコバ", "t")
+$Anim(1, "M009_ゼルコバ", "Angry")
+$Window(2, "M009_ゼルコバ")
+Princess Ivy, did the king perhaps grant you
+*another* ring?$Wait(0)
+
+[MID_EV1_#003]
+$Window(1, "M009_カゲツ")
+$Window(0, "M009_アイビー", "b")
+$Anim(1, "M009_アイビー", "StandBy")
+$Window(2, "M009_アイビー")
+No. You heard him, didn't you? If I want a ring,
+I must reclaim the one I lost.$Wait(2)
+
+[MID_EV1_#004]
+This time, with no reinforcements. We must
+make do.$Wait(2)
+
+[MID_EV1_#005]
+$Anim(1, "M009_アイビー", "Pain")
+If you want to leave...I'll understand.$Wait(0)
+
+[MID_EV1_#006]
+$Anim(1, "M009_ゼルコバ", "Angry")
+$Window(2, "M009_ゼルコバ")
+What will *you* do?$Wait(0)
+
+[MID_EV1_#007]
+$Anim(1, "M009_アイビー", "StandBy")
+$Window(2, "M009_アイビー")
+I have no choice but to stay. Even if I know
+it's hopeless.$Wait(2)
+
+[MID_EV1_#008]
+$Anim(1, "M009_アイビー", "Die")
+Even if I know I will die.$Wait(0)
+
+[MID_EV1_#009]
+$Window(2, "M009_ゼルコバ")
+...$Wait(0)
+
+[MID_EV1_#010]
+$Anim(1, "M009_アイビー", "Angry")
+$Window(2, "M009_アイビー")
+You two, head to the northern and southern
+forts. The Corrupted are standing by there.$Wait(0)
+
+[MID_EV14_#001]
+$Type(1)
+$Window(0, "M009_カゲツ", "b")
+$Anim(1, "M009_カゲツ", "Angry")
+$Window(2, "M009_カゲツ")
+All right. Time to attack!$Wait(0)
+
+[MID_EV15_#001]
+$Type(1)
+$Window(0, "M009_ゼルコバ", "b")
+$Anim(1, "M009_ゼルコバ", "Angry")
+$Window(2, "M009_ゼルコバ")
+Bring out the *Corrupted.*$Wait(0)
+
+[MID_TK1_#001]
+$Type(1)
+$Window(0, "リュール", "t")
+$Anim(1, "リュール", "Surprise")
+$Window(2, "リュール")
+Excuse me. Are you all right?$Wait(0)
+
+[MID_TK1_#002]
+$Window(0, "ジェーデ", "b")
+$Anim(1, "ジェーデ", "Normal")
+$Window(2, "ジェーデ")
+Oh, yes. I was meditating for a moment. Who
+are you? A new border guard?$Wait(0)
+
+[MID_TK1_#003]
+$Anim(1, "リュール", "Smile")
+$Window(2, "リュール")
+No. I'm the Divine Dragon $P.$Wait(0)
+
+[MID_TK1_#004]
+$Anim(1, "ジェーデ", "Surprise")
+$Window(2, "ジェーデ")
+How rude of me!$Wait(2)
+
+[MID_TK1_#005]
+$Anim(1, "ジェーデ", "Strike")
+I am Jade, a royal knight of Brodia. Prince
+Diamant has told me about you.$Wait(2)
+
+[MID_TK1_#006]
+$Anim(1, "ジェーデ", "Angry")
+May I join your ranks, Divine One?$Wait(0)
+
+[MID_TK1_#007]
+$Window(2, "リュール")
+Of course. Welcome, Jade.$Wait(0)
+
+[MID_TK1_#008]
+$Anim(1, "ジェーデ", "Smile")
+$Window(2, "ジェーデ")
+Thank you. Now then, I'll show you why they
+call me the "Iron Wall."$Wait(0)
+
+[MID_TK1P_#001]
+$Type(2)
+$Window(0, "リュール", "1")
+$Window(0, "ジェーデ", "2")
+$Window(2, "リュール")
+Excuse me. Are you all right?$Wait(0)
+
+[MID_TK1P_#002]
+$Window(2, "ジェーデ")
+Oh, yes. I was meditating for a moment. Who
+are you? A new border guard?$Wait(0)
+
+[MID_TK1P_#003]
+$Window(2, "リュール")
+No. I'm the Divine Dragon $P.$Wait(0)
+
+[MID_TK1P_#004]
+$Window(2, "ジェーデ")
+How rude of me!$Wait(2)
+
+[MID_TK1P_#005]
+I am Jade, a royal knight of Brodia. Prince
+Diamant has told me about you.$Wait(2)
+
+[MID_TK1P_#006]
+May I join your ranks, Divine One?$Wait(0)
+
+[MID_TK1P_#007]
+$Window(2, "リュール")
+Of course. Welcome, Jade.$Wait(0)
+
+[MID_TK1P_#008]
+$Window(2, "ジェーデ")
+Thank you. Now then, I'll show you why they
+call me the "Iron Wall."$Wait(0)
+
+[MID_TK2_#001]
+$Type(1)
+$Window(0, "ディアマンド", "t")
+$Anim(1, "ディアマンド", "Angry")
+$Window(2, "ディアマンド")
+Jade!$Wait(0)
+
+[MID_TK2_#002]
+$Window(0, "ジェーデ", "b")
+$Anim(1, "ジェーデ", "Surprise")
+$Window(2, "ジェーデ")
+Prince Diamant!$Wait(2)
+
+[MID_TK2_#003]
+$Anim(1, "ジェーデ", "Normal")
+I'm so glad you're safe. Is everything all right
+at the castle?$Wait(2)
+
+[MID_TK2_#004]
+$Anim(1, "ディアマンド", "Angry")
+$Window(2, "ディアマンド")
+Yes. The Divine Dragon helped us. However,
+Father... He's in peril.$Wait(2)
+
+[MID_TK2_#005]
+Jade, I relieve you of your border duties. You're
+with me from now on!$Wait(0)
+
+[MID_TK2_#006]
+$Anim(1, "ジェーデ", "Status")
+$Window(2, "ジェーデ")
+Of course!$Wait(0)
+
+[MID_TK3_#001]
+$Type(1)
+$Window(0, "ジェーデ", "t")
+$Anim(1, "ジェーデ", "Surprise")
+$Window(2, "ジェーデ")
+Prince Diamant!$Wait(0)
+
+[MID_TK3_#002]
+$Window(0, "ディアマンド", "b")
+$Anim(1, "ディアマンド", "Relax")
+$Window(2, "ディアマンド")
+Jade, you're safe!$Wait(0)
+
+[MID_TK3_#003]
+$Anim(1, "ジェーデ", "Angry")
+$Window(2, "ジェーデ")
+Yes. I'm here to help. The Divine Dragon told
+me everything.$Wait(2)
+
+[MID_TK3_#004]
+Let's bring King Morion back.$Wait(0)
+
+[MID_TK3_#005]
+$Anim(1, "ディアマンド", "Angry")
+$Window(2, "ディアマンド")
+Thank goodness. I'm glad to have you with us.$Wait(0)
+
+[MID_BT1_#001]
+$Type(1)
+$Window(0, "M009_アイビー", "b")
+$Anim(1, "M009_アイビー", "Angry")
+$Window(2, "M009_アイビー")
+My father's orders were plain. You will not pass.$Wait(0)
+
+[MID_BT2_#001]
+$Type(1)
+$Window(0, "M009_アイビー", "b")
+$Anim(1, "M009_アイビー", "Pain")
+$Window(2, "M009_アイビー")
+Father... I'm sorry...$Wait(0)
+
+[MID_BT3_#001]
+$Type(1)
+$Window(0, "M009_ゼルコバ", "b")
+$Anim(1, "M009_ゼルコバ", "Angry")
+$Window(2, "M009_ゼルコバ")
+I could have run, but I *remained.* Now,
+I must *fight.*$Wait(0)
+
+[MID_BT4_#001]
+$Type(1)
+$Window(0, "M009_ゼルコバ", "b")
+$Anim(1, "M009_ゼルコバ", "Pain")
+$Window(2, "M009_ゼルコバ")
+I can't take any *more.* Back to Princess Ivy
+I go.$Wait(0)
+
+[MID_BT5_#001]
+$Type(1)
+$Window(0, "M009_カゲツ", "b")
+$Anim(1, "M009_カゲツ", "Angry")
+$Window(2, "M009_カゲツ")
+If Princess Ivy stays, I stay!$Wait(0)
+
+[MID_BT6_#001]
+$Type(1)
+$Window(0, "M009_カゲツ", "b")
+$Anim(1, "M009_カゲツ", "Pain")
+$Window(2, "M009_カゲツ")
+I cannot fall here... I must protect Princess Ivy...$Wait(0)
+
+[MID_BT7_#001]
+$Type(1)
+$Window(0, "ジェーデ", "t")
+$Anim(1, "ジェーデ", "StandBy")
+$Window(2, "ジェーデ")
+So much for meditation. Now... Think you can
+get through my defenses?$Wait(0)
+
+[MID_DIE_LOCAL_Jade_#001]
+$Type(1)
+$Window(0, "ジェーデ", "b")
+$Anim(1, "ジェーデ", "Pain")
+$Window(2, "ジェーデ")
+I failed you, Prince Diamant. You will have to
+save the king without me...$Wait(0)
+
+[MID_DIE_CASUAL_LOCAL_Jade_#001]
+$Type(1)
+$Window(0, "ジェーデ", "b")
+$Anim(1, "ジェーデ", "Pain")
+$Window(2, "ジェーデ")
+I am wounded. I must retreat.$Wait(0)
+
+[MID_ED1_#001]
+$Type(2)
+$Window(0, "アイビー", "1")
+$Window(0, "リュール", "2")
+$Window(2, "アイビー")
+You've won... Please, kill me.$Wait(0)
+
+[MID_ED1_#002]
+$Window(2, "リュール")
+No. I will not take your life.$Wait(0)
+
+[MID_ED1_#003]
+$Window(2, "アイビー")
+Don't be naive. If I live, what's to stop me from
+hunting you down?$Wait(0)
+
+[MID_ED1_#004]
+$Window(2, "リュール")
+You can't return to Elusia after this. Your
+kingdom's through with you.$Wait(0)
+
+[MID_ED1_#005]
+$Window(2, "アイビー")
+What gives you that idea?$Wait(0)
+
+[MID_ED1_#006]
+$Window(2, "リュール")
+If King Hyacinth had wanted you to survive,
+he would have given you an Emblem Ring.$Wait(2)
+
+[MID_ED1_#007]
+Besides, he had no need to stall us. The weather
+alone would have slowed us down.$Wait(2)
+
+[MID_ED1_#008]
+I don't understand it, but...the king used you.
+He never meant for you to survive.$Wait(0)
+
+[MID_ED1_#009]
+$Window(2, "アイビー")
+I suppose you're right.$Wait(0)
+
+[MID_ED1_#010]
+$Window(2, "リュール")
+Your father has already sacrificed your life.$Wait(2)
+
+[MID_ED1_#011]
+I won't do the same.$Wait(0)
+
+[MID_ED1_#012]
+$Window(2, "アイビー")
+You will not grant me the release of death.
+How cruel.$Wait(2)
+
+[MID_ED1_#013]
+But...you are my deity, and I respect your will.$Wait(0)
+
+[MID_ED1_#014]
+$Window(2, "リュール")
+Huh?$Wait(0)
+
+[MID_ED1_#015]
+$Window(2, "アイビー")
+Could I ask you to forget that?$Wait(0)
+
+[MID_ED1_#016]
+$Window(2, "リュール")
+All right...$Wait(0)
+
+[MID_ED1_#017]
+$Window(2, "アイビー")
+In exchange, I offer information.$Wait(2)
+
+[MID_ED1_#018]
+I will tell you where King Morion is being taken,
+and why.$Wait(0)
+
+[MID_ED1_#019]
+$Window(2, "リュール")
+...$Wait(0)
+
+[MID_ED1_#020]
+$Window(0, "ディアマンド", "4")
+$Window(2, "ディアマンド")
+Well? Out with it!$Wait(0)
+
+[MID_ED1_#021]
+$Window(2, "アイビー")
+My father intends to perform a ritual that will
+restore the Fell Dragon's power.$Wait(0)
+
+[MID_ED1_#022]
+$Window(2, "リュール")
+A ritual?$Wait(0)
+
+[MID_ED1_#023]
+$Window(2, "アイビー")
+You see, though the Fell Dragon has been freed,
+his abilities are diminished.$Wait(2)
+
+[MID_ED1_#024]
+Imprisonment drained him. He is exhausted and
+can't transform into a dragon.$Wait(2)
+
+[MID_ED1_#025]
+Ideally he would have all 12 rings, but securing
+them will take time.$Wait(2)
+
+[MID_ED1_#026]
+In the interim, Sombron decided to temporarily
+regain his powers through an ancient ritual...$Wait(2)
+
+[MID_ED1_#027]
+in which he consumes sovereign blood.$Wait(0)
+
+[MID_ED1_#028]
+$Window(2, "ディアマンド")
+You can't mean my father!$Wait(0)
+
+[MID_ED1_#029]
+$Window(2, "リュール")
+But then King Morion...$Wait(0)
+
+[MID_ED1_#030]
+$Window(2, "アイビー")
+Yes. My father took him as an offering to
+Sombron. That was his aim from the start.$Wait(0)
+
+[MID_ED1_#031]
+$Window(2, "リュール")
+That's horrific.$Wait(0)
+
+[MID_ED1_#032]
+$Window(2, "アイビー")
+The ritual will take place at Destinea Cathedral.
+You must hurry.$Wait(2)
+
+[MID_ED1_#033]
+And do be careful. Since the Fell Dragon's
+return, Father has not been himself.$Wait(0)
+
+[MID_ED1_#034]
+$Window(2, "リュール")
+I see...$Wait(0)
+
+[MID_ED1_#035]
+$Window(2, "アイビー")
+That is the extent of what I know. Come,
+Zelkov, Kagetsu. Let us leave this place.$Wait(0)
+
+[MID_ED1_#036]
+$Window(2, "リュール")
+What are you going to do?$Wait(0)
+
+[MID_ED1_#037]
+$Window(2, "アイビー")
+Whatever I can. Without taking sides.$Wait(2)
+
+[MID_ED1_#038]
+If we meet again, Divine Dragon... I pray it is not
+as enemies.$Wait(0)
+
+[MID_ED1_#039]
+$Window(1, "アイビー")
+$Window(2, "リュール")
+Let's head to Elusia.$Wait(0)
+
+[MID_ED1_#040]
+$Window(2, "ディアマンド")
+Yes, we have to hurry!$Wait(0)
+
+[MID_ED2_#001]
+$Type(2)
+$Window(0, "リュール", "2")
+$Window(2, "リュール")
+The deeper we venture into Elusia, the worse
+this blizzard gets.$Wait(2)
+
+[MID_ED2_#002]
+Is this the way to Destinea Cathedral?$Wait(0)
+
+[MID_ED2_#003]
+$Window(0, "アルフレッド", "4")
+$Window(2, "アルフレッド")
+I don't know. In this snow, it's hard to tell
+where we're going.$Wait(0)
+
+[MID_ED2_#004]
+$Window(0, "ディアマンド", "3")
+$Window(2, "ディアマンド")
+Gah... We don't have time to get lost!$Wait(2)
+
+[MID_ED2_#005]
+Hold on. I see someone up ahead.$Wait(0)
+
+[MID_ED2_#006]
+$Window(0, "ヴェイル_包帯", "1")
+$Window(2, "ヴェイル_包帯")
+Hm? Is that you, $P?$Wait(0)
+
+[MID_ED2_#007]
+$Window(2, "リュール")
+Veyle!$Wait(0)
+
+[MID_ED2_#008]
+$Window(2, "ディアマンド")
+You know her?$Wait(0)
+
+[MID_ED2_#009]
+$Window(2, "リュール")
+She's a friend. Veyle, how did you get here?$Wait(0)
+
+[MID_ED2_#010]
+$Window(2, "ヴェイル_包帯")
+I... I don't know.$Wait(0)
+
+[MID_ED2_#011]
+$Window(2, "リュール")
+You don't know how you crossed the border
+into another country?$Wait(0)
+
+[MID_ED2_#012]
+$Window(2, "ヴェイル_包帯")
+Well, how about you? You look worried.
+Is something the matter?$Wait(0)
+
+[MID_ED2_#013]
+$Window(2, "リュール")
+We're trying to reach Destinea Cathedral,
+but we got lost in the snow.$Wait(0)
+
+[MID_ED2_#014]
+$Window(2, "ヴェイル_包帯")
+If it's the cathedral you're looking for, head
+that way.$Wait(0)
+
+[MID_ED2_#015]
+$Window(2, "リュール")
+You know where it is?$Wait(0)
+
+[MID_ED2_#016]
+$Window(2, "ヴェイル_包帯")
+Uh-huh. You're close. See that really tall tree
+over there? Use that as a landmark.$Wait(0)
+
+[MID_ED2_#017]
+$Window(2, "リュール")
+I appreciate your help.$Wait(0)
+
+[MID_ED2_#018]
+$Window(2, "ヴェイル_包帯")
+I owed you for patching me up the other day.
+That was so kind...$Wait(2)
+
+[MID_ED2_#019]
+Huh. Were you wearing that ring
+before, $P?$Wait(0)
+
+[MID_ED2_#020]
+$Window(2, "リュール")
+Yes. It's very important to me.$Wait(0)
+
+[MID_ED2_#021]
+$Window(2, "ヴェイル_包帯")
+I didn't notice it the other day. It's pretty.$Wait(2)
+
+[MID_ED2_#022]
+Really...pretty...$Wait(0)
+
+[MID_ED2_#023]
+$Window(2, "リュール")
+Veyle?$Wait(0)
+
+[MID_ED2_#024]
+$Window(2, "ヴェイル_包帯")
+Em...blem...Ring...$Wait(0)
+
+[MID_ED2_#025]
+$Window(2, "リュール")
+Veyle!$Wait(0)
+
+[MID_ED2_#026]
+$Window(2, "ヴェイル_包帯")
+...$Wait(2)
+
+[MID_ED2_#027]
+Oh! I'm sorry! I'd better be on my way!$Wait(0)
+
+[MID_ED2_#028]
+$Window(1, "ヴェイル_包帯")
+$Window(2, "リュール")
+Where are you going? It's not safe!$Wait(0)
+
+[MID_ED2_#029]
+$Window(2, "アルフレッド")
+She's gone.$Wait(0)
+
+[MID_ED2_#030]
+$Window(2, "ディアマンド")
+There's no time to search for her. Not when
+Father's life hangs in the balance.$Wait(0)
+
+[MID_ED2_#031]
+$Window(2, "リュール")
+You're right. Let's hurry.$Wait(2)
+
+[MID_ED2_#032]
+Veyle... What in the world?$Wait(0)
+
