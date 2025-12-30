@@ -474,28 +474,26 @@ function BossAttackImpl()
         end
     end
 
-    if #validTargets > 0 then
-        CursorSetPos(UnitGetX(g_pid_boss), UnitGetZ(g_pid_boss))
-        MapCameraWait()
+    CursorSetPos(UnitGetX(g_pid_boss), UnitGetZ(g_pid_boss))
+    MapCameraWait()
 
-        EffectPlay( "ワープアウト_闇", UnitGetX(g_pid_boss), UnitGetZ(g_pid_boss))
-        EffectWait()
+    EffectPlay( "ワープアウト_闇", UnitGetX(g_pid_boss), UnitGetZ(g_pid_boss))
+    EffectWait()
 
-        CursorSetPos(bossRewrapXvar, bossRewrapZvar)
-        MapCameraWait()
+    CursorSetPos(bossRewrapXvar, bossRewrapZvar)
+    MapCameraWait()
 
-        EffectPlay( "ワープアウト_闇", bossRewrapXvar, bossRewrapZvar)
-        EffectWait()
+    EffectPlay( "ワープアウト_闇", bossRewrapXvar, bossRewrapZvar)
+    EffectWait()
 
-        local unit = UnitGetByPos(bossRewrapXvar,bossRewrapZvar)
-        while unit ~= nil do
-            UnitDie(unit)
-            unit = UnitGetByPos(bossRewrapXvar,bossRewrapZvar)
-        end
-
-        UnitSetPos(g_pid_boss,bossRewrapXvar,bossRewrapZvar)
-        AiSetRejectPower0Attack( g_pid_boss, false )
+    local unit = UnitGetByPos(bossRewrapXvar,bossRewrapZvar)
+    while unit ~= nil do
+        UnitDie(unit)
+        unit = UnitGetByPos(bossRewrapXvar,bossRewrapZvar)
     end
+
+    UnitSetPos(g_pid_boss,bossRewrapXvar,bossRewrapZvar)
+    AiSetRejectPower0Attack( g_pid_boss, false )
 end
 
 
