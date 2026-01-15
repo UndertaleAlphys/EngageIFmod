@@ -362,6 +362,8 @@ function MapOpening()
 	UnitRotation( "PID_M019_マロン", ROTATE_DOWN_LEFT )
 	UnitMoveWait()
 	
+    UnitLearnJobSkill("PID_ザフィーア")
+    
 end
 
 function disposDragonVeinEnemy()

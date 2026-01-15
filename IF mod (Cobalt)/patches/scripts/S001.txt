@@ -57,7 +57,7 @@ function イベント登録()
 	EventEntryDie( ジャン父親死亡,	"PID_S001_ジャン_父親",	FORCE_ALLY,		condition_true )
 	EventEntryDie( 村人死亡,		"",						FORCE_ALLY,		condition_村人死亡 )
 
-	EventEntryEscape(離脱イベント, 4, 3, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 4, 3, "PID_リュール", condition_true)
 end
 
 -- -----------------------------------
