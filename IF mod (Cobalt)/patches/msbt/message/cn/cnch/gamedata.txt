@@ -628,7 +628,7 @@ $P或赛安达斯被击败
 [MID_RULE_M017_WIN]
 敌将全灭
 
-[MID_RUMSID_DragonVeinLE_M017_LOSE]
+[MID_RULE_M017_LOSE]
 $P被击败或所有纹章士被夺取
 
 [MID_RULE_M018_WIN]

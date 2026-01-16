@@ -2365,25 +2365,25 @@ get +10 Hit and take 1 less damage.
 Alabaster Duty
 
 [MSID_H_PrivateSkill_Vandre]
-If unit is adjacent to the Divine
-Dragon, grants Divine
-Dragon Dmg+3, Hit+15.
+If adjacent to $P, 
+grants $P 
+Hit+15, Dmg+3.
 
 [MSID_PrivateSkill_Clan]
 Verdant Faith
 
 [MSID_H_PrivateSkill_Clan]
-If unit is adjacent to the Divine
-Dragon, grants Divine Dragon
-Avo+15 and suffers -3 damage.
+If adjacent to $P, 
+grants $P 
+Avo+15, Dmg Taken-3.
 
 [MSID_PrivateSkill_Fran]
 Crimson Cheer
 
 [MSID_H_PrivateSkill_Fran]
-If unit is adjacent to the Divine
-Dragon, grants Divine Dragon
-Dmg+2 and suffers -2 damage.
+If adjacent to $P, 
+grants $P
+Dmg+2, Dmg Taken-2.
 
 [MSID_PrivateSkill_Alfred]
 Ride-by Attack

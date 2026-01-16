@@ -97,7 +97,7 @@ Severance
 
 [MSID_H_Severance]
 Adds damage equal to 30% of foe’s lost HP.
-This damage cannot be mitigated or countered.
+This damage cannot be mitigated.
 
 [MPID_Senerio]
 Soren

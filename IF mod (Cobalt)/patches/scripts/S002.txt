@@ -58,7 +58,7 @@ function イベント登録()
 	EventEntryTurn(増援_Lunatic, -1, -1, FORCE_PLAYER, condition_増援_Lunatic)
 	
 	-- --------------------------------------------------
-	EventEntryEscape(離脱イベント, 3, 5, "PID_リュール", condition_true)
+	-- EventEntryEscape(離脱イベント, 3, 5, "PID_リュール", condition_true)
 
 end
 

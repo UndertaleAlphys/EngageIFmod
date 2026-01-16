@@ -104,7 +104,7 @@
       <Param Condition="" Iid="IID_キラーアクス" Stock="-1" Attribute="0" />
     </Data>
   </Sheet>
-  <Sheet Name="道具屋" Count="104">
+  <Sheet Name="道具屋" Count="84">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -127,26 +127,6 @@
       <Param Condition="" Iid="IID_守備の薬" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_魔力の薬" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_魔防の薬" Stock="1" Attribute="0" />
-      <Param Condition="" Iid="IID_天使の衣_P1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_力のしずくP1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_精霊の粉P1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_秘伝の書P1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_はやての羽P1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_女神の像P1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_竜の盾P1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_魔よけP1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_ブーツP1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_天使の衣_M1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_力のしずくM1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_精霊の粉M1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_秘伝の書M1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_はやての羽M1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_女神の像M1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_竜の盾M1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_魔よけM1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_ブーツM1" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_EXPの書" Stock="-1" Attribute="0" />
-      <Param Condition="" Iid="IID_スキルの書・無限" Stock="-1" Attribute="0" />
       <Param Condition="M005" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_HPの薬" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_力の薬" Stock="1" Attribute="0" />

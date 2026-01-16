@@ -36,6 +36,11 @@ end
 function イベント登録()
 
 	EventEntryTurn( Interference_Target_Choose, -1, -1, FORCE_ENEMY, judgeIvyNearetBandActive)
+	EventEntryTurn(EmptyFunction, 1, 1, FORCE_PLAYER,  "ジェーデ会話_リュール_済")
+	EventEntryTurn(EmptyFunction, 1, 1, FORCE_PLAYER, "ジェーデ会話_ディアマンド_済")
+	
+	EventEntryTurn(EmptyFunction, 1, 1, FORCE_PLAYER, "ジェーデ会話_リュール_済")
+	EventEntryTurn(EmptyFunction, 1, 1, FORCE_PLAYER, "ジェーデ会話_ディアマンド_済")
 
 	EventEntryTurn(BattleStartAfterイベント, 1, 1,  FORCE_PLAYER);
 	EventEntryTurn(勝利条件, 1, 1, FORCE_PLAYER)
@@ -412,4 +417,7 @@ function GameOver()
 	
 	Log("GameOver");
 	
+end
+
+function EmptyFunction()
 end
