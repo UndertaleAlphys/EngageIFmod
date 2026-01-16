@@ -104,7 +104,7 @@
       <Param Condition="" Iid="IID_キラーアクス" Stock="-1" Attribute="0" />
     </Data>
   </Sheet>
-  <Sheet Name="道具屋" Count="104">
+  <Sheet Name="道具屋" Count="84">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
