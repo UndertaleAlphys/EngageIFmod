@@ -1,0 +1,1027 @@
+[MID_MSG_CC_DLC_JOB_OPEN]
+可以轉職為
+"附魔師"或"魔法加農砲兵"了。
+（需有各兵種的專用道具）
+
+[MID_MSG_EVIL_COMPLETE_REWARD]
+邪龍之章通關獎勵
+
+[MID_DLC_News_Patch3_Title]
+Ver.2.0.0 更新內容
+
+[MID_DLC_News_Patch3]
+【擴展票】
+
+・新增故事
+　通關所有戰鬥地圖後，
+　將有新夥伴加入，
+　還可轉職成特殊兵種"附魔師"及"魔法加農砲兵"。
+
+【免費更新】
+
+・將贈送結合武器的強化材料
+　通關第四章後，進入據點即可領取。
+
+・在Nintendo eShop也可免費取得連動內容
+
+[MID_MSG_GET_ITEM_Patch3]
+已獲免費更新特典2
+
+[MID_SYS_EvilMap]
+邪龍之章
+
+[MID_SysDialog_Move_EvilMap]
+前往邪龍之章
+
+[MID_MSG_Encount_EvilMap]
+邪龍之章已出現遭遇戰
+
+[MID_Hub_Well_GotoEvil]
+前往邪龍之章
+
+[MID_Hub_Well_GotoEvil_Dialog_Message]
+是否要開始邪龍之章？
+
+[MID_Hub_Well_GotoEvil_Dialog_Yes]
+開始
+
+[MID_Hub_Well_GotoEvil_Dialog_Message_After]
+要前往邪龍之章嗎？
+
+[MCID_E001_PREFIX]
+邪龍之章1
+
+[MCID_E001]
+異國雙龍
+
+[MCID_E001_PLACE]
+手鐲祭壇
+
+[MCID_E002_PREFIX]
+邪龍之章2
+
+[MCID_E002]
+動盪不安的花城
+
+[MCID_E002_PLACE]
+華美之園
+
+[MCID_E002_OUTLINE]
+神龍與愛爾、伊爾一同擊退刺客後，
+便前往費列聶王國，欲取回紋章士手鐲。
+
+[MCID_E003_PREFIX]
+邪龍之章3
+
+[MCID_E003]
+士兵們的作戰之道
+
+[MCID_E003_PLACE]
+威嚴之路
+
+[MCID_E003_OUTLINE]
+一行人讓費列聶的紋章士沉眠後，
+便前往布羅帝亞王國，欲取回新的手鐲。
+
+[MCID_E004_PREFIX]
+邪龍之章4
+
+[MCID_E004]
+王者之戰
+
+[MCID_E004_PLACE]
+極寒森林
+
+[MCID_E004_OUTLINE]
+手鐲還剩三個尚未取回。
+此時，一行人發現伊爾席翁的詭異行動。
+
+[MCID_E005_PREFIX]
+邪龍之章5
+
+[MCID_E005]
+邪龍繼承者
+
+[MCID_E005_PLACE]
+沙塵堡壘
+
+[MCID_E006_PREFIX]
+邪龍之章6
+
+[MCID_E006]
+七手鐲
+
+[MCID_E006_PLACE]
+墜落的索拉涅爾
+
+[MCID_E006_OUTLINE]
+愛爾與所有手環皆遭人奪走後，
+神龍決意前往伊爾口中的昔日浮游島。
+
+[MID_RULE_DLC_LOSE]
+$P、愛爾或伊爾被擊敗
+
+[MID_RULE_DLC_LOSE2]
+$P或愛爾被擊敗
+
+[MID_RULE_E001_WIN]
+擊敗？ ？ ？
+
+[MID_RULE_E002_WIN]
+擊敗阿爾弗雷德與錫莉奴
+
+[MID_RULE_E003_WIN]
+擊敗帝亞曼德與史塔盧克
+
+[MID_RULE_E004_WIN]
+擊敗艾比與蜜絲提拉
+
+[MID_RULE_E005_WIN]
+擊敗伊爾
+
+[MID_RULE_E006_WIN]
+擊敗大邪龍伊爾
+
+[MTID_Cemetery]
+墓園
+
+[MTID_Dragon]
+邪龍陣
+
+[MPID_El]
+愛爾
+
+[MPID_H_El]
+繼承邪龍血脈的雙胞胎姊姊。
+與弟弟攜手奮戰的堅強女性。
+
+[MPID_Il]
+伊爾
+
+[MPID_H_Il]
+繼承邪龍血脈的雙胞胎弟弟。
+支持著姐姐的善良青年。
+
+[MPID_H_Il_E005]
+繼承邪龍血脈的雙胞胎弟弟。
+背叛姊姊與神龍後，顯露本性的青年。
+
+[MPID_Il_E006]
+大邪龍伊爾
+
+[MPID_H_Il_E006]
+繼承父王尚卜爾的遺志，
+利用七手環之力化為大邪龍的青年。
+
+[MPID_Rafale]
+拉法爾
+
+[MPID_H_Rafale]
+繼承邪龍血脈的青年。
+答應神龍的邀請，再次與其並肩作戰。
+
+[MPID_Selestia]
+賽勒斯提雅
+
+[MPID_H_Selestia]
+四翼的首領。
+魔龍族的後裔，情感豐富，相當為夥伴著想。
+
+[MPID_Gregory]
+孤雷葛里
+
+[MPID_H_Gregory_E]
+四翼的一員。
+個性爽朗，行動卻非常謹慎的膽小魔術師。
+
+[MPID_H_Gregory]
+四翼的副官。
+個性爽朗，行動卻非常謹慎的膽小魔術師。
+
+[MPID_Madeline]
+瑪德琳
+
+[MPID_H_Madeline]
+四翼的一員。
+理性且信念堅定的重裝騎士。
+
+[MPID_MorphWolf]
+異形狼
+
+[MPID_H_MorphWolf]
+邪龍用秘術製造出來的異形狼。
+行動敏捷，會以尖爪與利牙發動攻擊。
+
+[MPID_MorphWolfSilver]
+銀異形狼
+
+[MPID_H_MorphWolfSilver]
+邪龍用秘術製造出的黑銀異形狼，非常罕見。
+擊倒後可獲得大量的經驗值。
+
+[MPID_MorphDragonF]
+異形飛龍
+
+[MPID_H_MorphDragonF]
+邪龍用秘術製造出的巨大異形飛龍。
+會在空中翱翔，噴出猛烈的吐息。
+
+[MPID_MorphDragonFGold]
+金異形飛龍
+
+[MPID_H_MorphDragonFGold]
+邪龍用秘術製造出的金色飛龍，非常少見。
+擊倒後可獲得大量的金幣。
+
+[MPID_ShadowSiblings]
+邪龍的兄弟姊妹
+
+[MPID_H_FogatoHide]
+神秘的敵人。
+覬覦紋章士手鐲的刺客。
+
+[MPID_H_AlfredR]
+異世界的費列聶王。
+非常好戰，殲滅敵人毫不手軟。
+
+[MPID_H_CelineR]
+異世界的費列聶公主。
+感情用事，對其他人非常傲慢。
+
+[MPID_H_DiamandR]
+異世界的布羅帝亞國王。
+優柔寡斷，懦弱又沒有信念。
+
+[MPID_H_StalukeR]
+異世界的布羅帝亞王子。
+自尊心很強，看不起軟弱的哥哥。
+
+[MPID_H_IvyR]
+異世界的伊爾席翁女王。
+迷戀高貴的自己，十分鄙視下賤的妹妹。
+
+[MPID_H_HortensiaR]
+異世界的伊爾席翁公主。
+因喪父之痛導致精神崩潰。
+
+[MPID_H_MisutiraR]
+異世界的索爾姆女王。
+嚴肅且不知變通。
+
+[MPID_H_FogatoR]
+異世界的索爾姆王子。
+上戰場也不忘笑容的享樂主義者。
+
+[MPID_alias_El]
+誠心的邪龍
+
+[MPID_alias_Rafale]
+贖罪的邪龍
+
+[MPID_alias_Selestia]
+全新的愛
+
+[MPID_alias_Gregory]
+過往的傷痕
+
+[MPID_alias_Madeline]
+讚頌之藍
+
+[MJID_ShadowPrincessR]
+邪龍之女
+
+[MJID_H_ShadowPrincessR]
+繼承邪龍血統。
+手執長槍，能用龍石化成龍參戰。
+
+[MJID_ShadowLordR]
+邪龍之子
+
+[MJID_H_ShadowLordRE]
+繼承邪龍血統。
+不善戰鬥，卻仍為了和平揮舞戰斧。
+
+[MJID_H_ShadowLordRE_E005]
+繼承邪龍血統。
+顯露本性，為達目的揮舞戰斧。
+
+[MJID_H_ShadowLordR]
+繼承邪龍血統。
+手執戰斧，能用龍石化成龍參戰。
+
+[MJID_ShadowDragonR]
+大邪龍
+
+[MJID_H_ShadowDragonR]
+獲得紋章士手鐲之力的邪龍。
+能發動強大的攻擊將戰場破壞殆盡。
+
+[MJID_MorphWolf]
+異形狼
+
+[MJID_H_MorphWolf]
+將世界導向毀滅的邪龍使徒。
+會用帶有詛咒的獠牙對獵物窮追不捨。
+
+[MJID_MorphFlyingDragon]
+異形飛龍
+
+[MJID_H_MorphFlyingDragon]
+將世界導向毀滅的邪龍使徒。
+所使出的邪惡吐息能將遠處的獵物一網打盡。
+
+[MJID_AvenirR]
+EX王室貴族
+
+[MJID_H_AvenirR]
+渴望爭鬥的好戰之人。
+駕馭戰馬，善於槍擊。
+
+[MJID_FleurageR]
+EX王室貴族
+
+[MJID_H_FleurageR]
+渴望爭鬥的好戰之人。
+善於魔道，也能以劍戰鬥。
+
+[MJID_SuccesseurR]
+EX領主
+
+[MJID_H_SuccesseurR]
+失去榮耀並忘記騎士精神之人。
+善於劍術。
+
+[MJID_TirailleurR]
+EX領主
+
+[MJID_H_TirailleurR]
+失去榮耀並忘記騎士精神之人。
+善於弓術。
+
+[MJID_LindwurmR]
+EX馴獸師
+
+[MJID_H_LindwurmR]
+控制野獸並信仰邪龍之人。
+駕馭飛龍，善於魔法與杖術。
+
+[MJID_SleipnirR]
+EX馴獸師
+
+[MJID_H_SleipnirR]
+控制野獸並信仰邪龍之人。
+駕馭飛馬，善於魔法與杖術。
+
+[MJID_PitchforkR]
+EX義警隊
+
+[MJID_H_PitchforkR]
+藉正義之名肅清異己之人。
+善於槍術。
+
+[MJID_CupidoR]
+EX義警隊
+
+[MJID_H_CupidoR]
+藉正義之名肅清異己之人。
+駕馭戰馬，善於弓術。
+
+[MIID_ElAttack]
+邪惡火花
+
+[MIID_H_ElAttack]
+使用邪龍石力量的攻擊。
+能使對手的防禦力減半。
+
+[MIID_ElAttack2]
+腐壞火花
+
+[MIID_H_ElAttack2]
+使用邪龍石魔力的攻擊。
+能使對手的防禦力減半。
+（以物理攻擊力施展的魔法攻擊）
+
+[MIID_Evilstone]
+邪龍石
+
+[MIID_H_Evilstone]
+蘊含邪龍力量的龍石。
+能使對手的防禦力減半。
+
+[MIID_TrueEvilstone]
+邪龍石·滅
+
+[MIID_H_TrueEvilstone]
+蘊含邪龍力量的龍石。
+能使對手的防禦力減半/能攻擊遠方敵人。
+
+[MIID_Evilstone_Magic]
+邪龍石·魔
+
+[MIID_H_Evilstone_Magic]
+蘊含邪龍魔力的龍石。
+能使對手的防禦力減半。
+（以物理攻擊力施展的魔法攻擊）
+
+[MIID_Evilstone_Slayer_Horse]
+邪龍石·屠
+
+[MIID_H_Evilstone_Slayer_Horse]
+蘊含邪龍特殊力量的龍石。
+能使對手的防禦力減半/克制騎馬。
+
+[MIID_Evilstone_Slayer_Fly]
+邪龍石·墮
+
+[MIID_H_Evilstone_Slayer_Fly]
+蘊含邪龍特殊力量的龍石。
+能使對手的防禦力減半/克制飛行。
+
+[MIID_H_Liberation_E006]
+神龍專用。
+攻擊大邪龍伊爾時，攻擊力+15。
+
+[MIID_H_Liberation_E006_Normal]
+神龍專用。
+攻擊大邪龍伊爾時，攻擊力+30。
+
+[MIID_IlAttack]
+邪龍的強擊
+
+[MIID_H_IlAttack]
+從龐大身軀發出的連續長射程攻擊。
+
+[MIID_IlBeam]
+邪龍破·橫掃
+
+[MIID_H_IlBeam]
+用黑暗光束將敵人一掃而空的廣域必中攻擊。
+無視防禦力。
+
+[MIID_IlRush]
+破壞衝動
+
+[MIID_H_IlRush]
+破壞自身周圍的地形。
+不分敵我，使受到波及的單位立即死亡，
+並吸收其生命力增強自身力量。
+
+[MIID_IlAbsorp]
+渴求力量
+
+[MIID_H_IlAbsorp]
+不分敵我，使自身周圍的單位立即死亡，
+並吸收其生命力增強自身力量。
+
+[MIID_IlSummon]
+召喚漩渦
+
+[MIID_H_IlSummon]
+在周圍創造出能召喚異形兵的漩渦。
+
+[MIID_MiasmaBreath]
+瘴氣吐息
+
+[MIID_H_MiasmaBreath]
+充滿瘴氣的吐息攻擊。
+無視防禦力/賦予地形"瘴氣"的效果。
+
+[MIID_MiasmaBall]
+瘴氣團
+
+[MIID_H_MiasmaBall]
+長射程的瘴氣攻擊。
+無視防禦力/賦予地形"瘴氣"的效果。
+使對方陷入冰封與沉默狀態。
+
+[MIID_ElBento]
+愛爾便當
+
+[MIID_H_ElBento]
+愛爾塞滿心目中所有美味料理製成的便當。
+食用後可回復20HP。
+
+[MIID_RafaleBento]
+拉法爾便當
+
+[MIID_H_RafaleBento]
+拉法爾充滿自信地裝好成功料理的便當。
+食用後可回復20HP。
+
+[MIID_SelestiaBento]
+賽勒斯提雅便當
+
+[MIID_H_SelestiaBento]
+賽勒斯提雅用來不及吃的料理製成的便當。
+食用後可回復20HP。
+
+[MIID_GregoryBento]
+孤雷葛里便當
+
+[MIID_H_GregoryBento]
+孤雷葛里溫柔地裝好成功料理的便當。
+食用後可回復20HP。
+
+[MIID_MadelineBento]
+瑪德琳便當
+
+[MIID_H_MadelineBento]
+瑪德琳用反覆摸索做出的拿手菜製成的便當。
+食用後可回復20HP。
+
+[MIID_EnchantSeal]
+神秘包包
+
+[MIID_H_EnchantSeal]
+可轉職成附魔師。
+
+[MIID_MageCannonSeal]
+魔法大砲
+
+[MIID_H_MageCannonSeal]
+可轉職成魔法加農砲兵。
+
+[MSID_PrivateSkill_El]
+守護者
+
+[MSID_H_PrivateSkill_El]
+拉法爾受到敵人攻擊時
+必殺+10，效果持續1回合
+
+[MSID_H_PrivateSkill_El_E]
+伊爾受到敵人攻擊時
+必殺+10，效果持續1回合
+
+[MSID_PrivateSkill_Rafale]
+爭強好勝
+
+[MSID_H_PrivateSkill_Rafale]
+周圍2格內的我方單位
+打倒敵人時，必殺+10
+效果持續1回合
+
+[MSID_PrivateSkill_Il]
+自卑情結
+
+[MSID_H_PrivateSkill_Il]
+周圍2格內的我方單位
+打倒敵人時，必殺+10
+效果持續1回合
+
+[MSID_PrivateSkill_Gregory]
+生存戰略
+
+[MSID_H_PrivateSkill_Gregory]
+自身HP>50%且發動攻擊時：
+造成傷害+1，命中·必殺+5。
+自身HP≤50%且受到攻擊時：
+對方造成傷害-1，命中·必殺-5。
+
+[MSID_PrivateSkill_Madeline]
+理想中的騎士
+
+[MSID_H_PrivateSkill_Madeline]
+與自身相鄰的我方騎乘單位
+傷害+2，所受傷害-2
+
+[MSID_PrivateSkill_Alfred_E]
+保身
+
+[MSID_PrivateSkill_Celine_E]
+戰場之花
+
+[MSID_PrivateSkill_Diamand_E]
+猶豫不決
+
+[MSID_PrivateSkill_Staluke_E]
+自命不凡
+
+[MSID_PrivateSkill_Ivy_E]
+居然傷到我了？
+
+[MSID_PrivateSkill_Hortensia_E]
+秘密支援
+
+[MSID_PrivateSkill_Misutira_E]
+王者尊嚴
+
+[MSID_PrivateSkill_Fogato_E]
+殺戮者
+
+[MSID_JobSkill_MorphFlyingDragon]
+瘴氣領域
+
+[MSID_H_JobSkill_MorphFlyingDragon]
+我軍行動階段開始時
+對自身周圍2格的地形賦予"瘴氣"效果
+
+[MSID_JobSkill_ShadowPrincessR]
+抑制紋章氣
+
+[MSID_H_JobSkill_ShadowPrincessR]
+受到結合技攻擊時
+所受傷害-20%
+
+[MSID_JobSkill_ShadowLordR]
+增進紋章氣
+
+[MSID_H_JobSkill_ShadowLordR]
+我軍行動階段開始時
+相鄰我方單位的結合計量條+1
+
+[MSID_DisplaySkill_DamageCut]
+邪龍陣加護
+
+[MSID_H_DisplaySkill_DamageCut]
+所受傷害-50
+受到對方必殺攻擊的幾率-50
+
+[MSID_ChainAttackDamageWeaken+]
+撕裂牽絆者+
+
+[MSID_H_ChainAttackDamageWeaken+]
+使敵人連鎖攻擊的
+命中率必定為10%
+並減少所受傷害
+
+[MSID_H_SenerioEngage_DarkSide]
+使用魔法攻擊時
+可回復造成傷害50%的HP
+
+[MSID_H_SenerioEngageAtk_DarkSide]
+以炎、雷、風魔法（克制飛行）
+對範圍內的敵人發動3連擊
+
+[MAID_ElWear]
+雙龍公主服裝
+
+[MAID_H_ElWear]
+來自異世界的夥伴－邪龍族後裔愛爾的便服。
+在多年的縫縫補補下，下半身的服裝與手套變成特殊造型。
+
+[MAID_RafaleWear]
+雙龍王子服裝
+
+[MAID_H_RafaleWear]
+來自異世界的夥伴－邪龍族後裔拉法爾的便服。
+造型簡約大方，以免搶去與愛爾成對的吊墜的風采。
+
+[MAID_SelestiaWear]
+魔龍族洋裝
+
+[MAID_H_SelestiaWear]
+來自異世界的夥伴－四翼首領賽勒斯提雅的便服。
+要將長髮綁得整齊漂亮得花不少功夫，有時還會請夥伴幫忙打理。
+
+[MAID_GregoryWear]
+信徒斗篷
+
+[MAID_H_GregoryWear]
+來自異世界的夥伴－四翼副官孤雷葛里的便服。
+斗篷上的邪龍信徒紋章是效忠主人的象徵，令他相當自豪。
+
+[MAID_MadelineWear]
+成熟風百褶裙
+
+[MAID_H_MadelineWear]
+來自異世界的夥伴－四翼瑪德琳的便服。
+融入了瑪德琳最喜歡的緞帶，但仍不失成熟穩重的感覺。
+
+[MID_LVUP_1_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Die")
+$Window(2, "エル")
+凡事本就不會那麼順利。 $Wait(0)
+
+[MID_LVUP_2_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Normal")
+$Window(2, "エル")
+不重要，繼續努力。 $Wait(0)
+
+[MID_LVUP_3_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Normal")
+$Window(2, "エル")
+結果就是這樣，
+不是我能決定的。 $Wait(0)
+
+[MID_LVUP_4_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Smile")
+$Window(2, "エル")
+能讓神龍大人滿意就好。 $Wait(0)
+
+[MID_LVUP_LIMIT_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Smile")
+$Window(2, "エル")
+看來我的實力已達巔峰。 $Wait(0)
+
+[MID_LVUP_CC_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Smile")
+$Window(2, "エル")
+感謝神龍大人讓我面目一新，
+我會好好珍惜這份禮物的。 $Wait(0)
+
+[MID_LVUP_1_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Sad")
+$Window(2, "ラファール")
+吾才不是廢棄物…$Wait(0)
+
+[MID_LVUP_2_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Angry")
+$Window(2, "ラファール")
+吾不會在此止步！
+繼續！ $Wait(0)
+
+[MID_LVUP_3_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Serious")
+$Window(2, "ラファール")
+這也是理所當然，
+沒什麼好高興的。 $Wait(0)
+
+[MID_LVUP_4_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Strike")
+$Window(2, "ラファール")
+哈哈哈，看到了嗎，神龍！
+這一切都是吾的力量！ $Wait(0)
+
+[MID_LVUP_LIMIT_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Smile")
+$Window(2, "ラファール")
+無論是在這裡，還是原本的世界…
+吾都已擁有強大的力量。 $Wait(0)
+
+[MID_LVUP_CC_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "StandBy")
+$Window(2, "ラファール")
+無論變成什麼模樣，吾一樣要消滅敵人。
+可以出發了嗎？ $Wait(0)
+
+[MID_LVUP_1_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Sad")
+$Window(2, "セレスティア")
+真奇怪，以魔龍族來說，
+我應該還很年輕啊…$Wait(0)
+
+[MID_LVUP_2_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Smile")
+$Window(2, "セレスティア")
+小小的變化也會讓我雀躍不已，這大概就是少女心吧。 $Wait(0)
+
+[MID_LVUP_3_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Angry")
+$Window(2, "セレスティア")
+我想獲得四翼首領應有的力量。 $Wait(0)
+
+[MID_LVUP_4_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Relax")
+$Window(2, "セレスティア")
+熱血沸騰起來了，
+現在的我彷彿無所不能。 $Wait(0)
+
+[MID_LVUP_LIMIT_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Smile")
+$Window(2, "セレスティア")
+我變得更強了，
+已不是原本世界的我可以比擬的了。 $Wait(0)
+
+[MID_LVUP_CC_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Smile")
+$Window(2, "セレスティア")
+真開心，我沒什麼機會試穿它衣服。
+這套適合我嗎，神龍大人？ $Wait(0)
+
+[MID_LVUP_1_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Sad")
+$Window(2, "グレゴリー")
+改變雖然令人恐懼，
+但一成不變也很可怕…$Wait(0)
+
+[MID_LVUP_2_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Shy")
+$Window(2, "グレゴリー")
+好！這樣就不會那麼怕痛了…
+對吧？ $Wait(0)
+
+[MID_LVUP_3_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Angry")
+$Window(2, "グレゴリー")
+我要用這份力量
+創造一個沒有恐懼和疼痛的世界。 $Wait(0)
+
+[MID_LVUP_4_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Surprise")
+$Window(2, "グレゴリー")
+發、發生什麼事了？
+我可以感到開心吧？ $Wait(0)
+
+[MID_LVUP_LIMIT_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Status")
+$Window(2, "グレゴリー")
+要是獲得更強大的力量，
+我似乎會變得很嚇人。 $Wait(0)
+
+[MID_LVUP_CC_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Smile")
+$Window(2, "グレゴリー")
+怎麼樣……適合我嗎？
+希望不會被敵人小看了。 $Wait(0)
+
+[MID_LVUP_1_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Sad")
+$Window(2, "マデリーン")
+真是太沒出息了，
+下次一定要拿出成果。 $Wait(0)
+
+[MID_LVUP_2_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Serious")
+$Window(2, "マデリーン")
+算是勉強及格吧？
+還得變得更強才行。 $Wait(0)
+
+[MID_LVUP_3_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Smile")
+$Window(2, "マデリーン")
+成功了！
+別因為我年紀小就小看我哦。 $Wait(0)
+
+[MID_LVUP_4_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Relax")
+$Window(2, "マデリーン")
+我不需要他人的稱讚…
+但還是想稱讚自己拿出這樣的成果。 $Wait(0)
+
+[MID_LVUP_LIMIT_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Relax")
+$Window(2, "マデリーン")
+多虧有夥伴們，
+我才能成長到極致。 $Wait(0)
+
+[MID_LVUP_CC_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Shy")
+$Window(2, "マデリーン")
+一名騎士得駕馭任何戰鬥服…
+不過，這打扮適合我嗎？ $Wait(0)
+
+[MID_RELAY_Stamp_El_0]
+振作點哦。
+
+[MID_RELAY_Stamp_Rafale_0]
+別讓吾失望了。
+
+[MID_RELAY_Stamp_Selestia_0]
+越來越有趣了！
+
+[MID_RELAY_Stamp_Gregory_0]
+饒了我吧，我怕痛。
+
+[MID_RELAY_Stamp_Madeline_0]
+請不要把我當小孩子。
+
+[MID_BGM_DLC_Evt_Twin_ST_Play]
+雙龍的冀望
+
+[MID_BGM_DLC_Evt_Twin_Exposed_ST_Play]
+你的夢想無法成真
+
+[MID_BGM_DLC_Sys_Gmap_ST_Play]
+龍之旅途
+
+[MID_BGM_DLC_Field_P14_Map_ST_Play]
+救世與喪失
+
+[MID_BGM_DLC_Field_P14_Combat_ST_Play]
+救世與失去～叛
+
+[MID_BGM_DLC_Field_P15_ST_Play]
+反向結合
+
+[MID_BGM_DLC_Boss_07_Pre_ST_Play]
+流轉之人
+
+[MID_BGM_DLC_Boss_07_Start_ST_Play]
+流轉之人～烈
+
+[MID_BGM_DLC_Sys_ED2_ST_Play]
+旅途終將落幕～全
+
+[MID_BGM_DLC_Mov_GOP_Full_ST_Play]
+Emblem Engage!　～完整版
+
+[MID_BGM_DLC_Field_P15_Pre_ST_Play]
+從假寐中甦醒
+
+[MID_BGM_DLC_Evt_Twin_Past_ST_Play]
+回憶
+
+[MID_Hub_Well_Difficulty_Change]
+更改難度
+
+[MID_Hub_Well_Difficulty_Change_Confirm]
+是否更改邪龍之章的難度？
+（不會更改主線故事的難度
+此外，可不限次數自由更改本章難度）
+
+[MID_Hub_Well_Difficulty_Change_Before]
+目前難度
+
+[MID_Hub_Well_Difficulty_Change_Normal]
+更改為普通
+
+[MID_Hub_Well_Difficulty_Change_Hard]
+改為困難
+
+[MID_Hub_Well_Difficulty_Change_Lunatic]
+改為超難
+
+[MID_Hub_Well_Difficulty_Change_Cancel]
+取消
+
+[MID_Hub_Well_Difficulty_Change_Dialog]
+已將邪龍之章難度改為"$Arg(0)"。
+
+[MID_FORTUNE_TROUBLE_El]
+啃了太多檸檬，
+結果引來眾人的擔心。
+
+[MID_FORTUNE_TROUBLE_Rafale]
+看到甜點時，
+嘴角會不自覺地上揚。
+
+[MID_FORTUNE_TROUBLE_Selestia]
+當鳥兒停在頭上的角時，
+自己常會動彈不得。
+
+[MID_FORTUNE_TROUBLE_Gregory]
+最近喜歡的玩偶
+變得有點髒髒的。
+
+[MID_FORTUNE_TROUBLE_Madeline]
+很喜歡緞帶，
+卻非常不會綁蝴蝶結。
+
+[MID_Movie_E07]
+異世界的記憶
+
+[MID_H_Movie_E07]
+神龍$P受邪龍雙胞胎的召喚，
+來到了異世界的艾雷歐斯大陸。
+在這即將毀滅的世界，展開了七手鐲的爭奪戰。
+
