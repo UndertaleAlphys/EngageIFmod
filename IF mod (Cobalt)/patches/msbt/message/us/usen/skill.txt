@@ -860,23 +860,21 @@ unit's Spd+3.
 Unyielding
 
 [MSID_H_Fortitude_1]
-If the unit is attacked, and their
-HP is lower than 50% after battle,
-grant +1 Mov, and when initiate
-combat, Dmg+5. At the end of each
-player's phase, if the unit has not
-initiate any combat, lose the effect.
+When attacked, if unit's HP≤50% 
+after combat, grants +1 Mov, 
+and +5 Dmg when unit initiates combat.
+Unit would lose the effect if they 
+didn't initiates any combat each turn.
 
 [MSID_Fortitude_2]
 Unyielding+
 
 [MSID_H_Fortitude_2]
-If the unit is attacked, and their
-HP is lower than 70% after battle,
-grant +1 Mov, and when initiate
-combat, Dmg+7. At the end of each
-player's phase, if the unit has not
-initiate any combat, lose the effect.
+When attacked, if unit's HP≤70% 
+after combat, grants +1 Mov, 
+and +7 Dmg when unit initiates combat.
+Unit would lose the effect if they 
+didn't initiates any combat each turn.
 
 [MSID_Fortitude_3]
 Unyielding++
@@ -1514,10 +1512,9 @@ deals 2x Dmg.
 Dual Support
 
 [MSID_H_DualSupport]
-When taken damage, and the unit
-has allies nearby, this unit take
-less damage.
-Each support level increase this value by 1.
+If unit is adjacent to allies, 
+they take less Dmg. Value determined 
+by the sum of support levels.
 
 [MSID_LucinaEngage]
 Bonded
