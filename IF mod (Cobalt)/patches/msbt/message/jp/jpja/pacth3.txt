@@ -1,0 +1,1028 @@
+[MID_MSG_CC_DLC_JOB_OPEN]
+「エンチャント」や「マージカノン」への
+クラスチェンジが可能になりました。
+（専用のアイテムが必要です）
+
+[MID_MSG_EVIL_COMPLETE_REWARD]
+邪竜の章クリア報酬
+
+[MID_DLC_News_Patch3_Title]
+Ver.2.0.0 更新内容
+
+[MID_DLC_News_Patch3]
+【エキスパンション・パス】
+
+・追加ストーリー
+　配信されるマップをすべてクリアすると、
+　新たな仲間が加わるほか、
+　特殊兵種「エンチャント」「マージカノン」への
+　クラスチェンジが可能になります。
+
+【無料アップデート】
+
+・エンゲージ武器の強化素材をプレゼント
+　4章クリア以降、拠点に行くと入手できます。
+
+・ニンテンドーeショップで無料の連携コンテンツが
+　ダウンロード可能になりました。
+
+[MID_MSG_GET_ITEM_Patch3]
+アップデート特典を受け取りました
+
+[MID_SYS_EvilMap]
+邪竜の章
+
+[MID_SysDialog_Move_EvilMap]
+邪竜の章へ
+
+[MID_MSG_Encount_EvilMap]
+邪竜の章に遭遇戦が出現しました
+
+[MID_Hub_Well_GotoEvil]
+邪竜の章へ
+
+[MID_Hub_Well_GotoEvil_Dialog_Message]
+邪竜の章を開始しますか？
+
+[MID_Hub_Well_GotoEvil_Dialog_Yes]
+開始する
+
+[MID_Hub_Well_GotoEvil_Dialog_Message_After]
+邪竜の章へ移動しますか？
+
+[MCID_E001_PREFIX]
+邪竜の章1
+
+[MCID_E001]
+異邦の双竜
+
+[MCID_E001_PLACE]
+腕輪の祭壇
+
+[MCID_E002_PREFIX]
+邪竜の章2
+
+[MCID_E002]
+不穏な花園
+
+[MCID_E002_PLACE]
+華麗なる園
+
+[MCID_E002_OUTLINE]
+刺客を撃退した神竜は、エル、イルと共に
+紋章士の腕輪を求めてフィレネ王国へ向かう。
+
+[MCID_E003_PREFIX]
+邪竜の章3
+
+[MCID_E003]
+兵どもの戦道
+
+[MCID_E003_PLACE]
+威厳ある通り
+
+[MCID_E003_OUTLINE]
+フィレネの紋章士を鎮めた一行は、
+新たな腕輪を求めてブロディア王国へ向かう。
+
+[MCID_E004_PREFIX]
+邪竜の章4
+
+[MCID_E004]
+王者の戦い
+
+[MCID_E004_PLACE]
+極寒の森
+
+[MCID_E004_OUTLINE]
+残る腕輪はあと三つ。
+そんな中、一行はイルシオンの不審な動きを察知する。
+
+[MCID_E005_PREFIX]
+邪竜の章5
+
+[MCID_E005]
+邪竜を継ぐもの
+
+[MCID_E005_PLACE]
+砂塵の砦
+
+[MCID_E006_PREFIX]
+邪竜の章6
+
+[MCID_E006]
+七つの腕輪
+
+[MCID_E006_PLACE]
+墜ちたソラネル
+
+[MCID_E006_OUTLINE]
+エルと全ての腕輪を奪われた神竜は、
+イルが語ったかつての浮遊島へ向かう決意をする。
+
+[MID_RULE_DLC_LOSE]
+$P、エル、イルいずれかの敗走
+
+[MID_RULE_DLC_LOSE2]
+$P、またはエルの敗走
+
+[MID_RULE_E001_WIN]
+？？？の撃破
+
+[MID_RULE_E002_WIN]
+アルフレッドとセリーヌの撃破
+
+[MID_RULE_E003_WIN]
+ディアマンドとスタルークの撃破
+
+[MID_RULE_E004_WIN]
+アイビーとミスティラの撃破
+
+[MID_RULE_E005_WIN]
+イルの撃破
+
+[MID_RULE_E006_WIN]
+大邪竜イルの撃破
+
+[MTID_Cemetery]
+墓地
+
+[MTID_Dragon]
+邪竜陣
+
+[MPID_El]
+エル
+
+[MPID_H_El]
+邪竜の血を引く双子の姉。
+弟と共に戦う気丈な女性。
+
+[MPID_Il]
+イル
+
+[MPID_H_Il]
+邪竜の血を引く双子の弟。
+姉を支える心優しき青年。
+
+[MPID_H_Il_E005]
+邪竜の血を引く双子の弟。
+姉と神竜を裏切り、本性を現した青年。
+
+[MPID_Il_E006]
+大邪竜イル
+
+[MPID_H_Il_E006]
+父王ソンブルの遺志を継ぎ、
+七つの腕輪の力で大邪竜と化した青年。
+
+[MPID_Rafale]
+ラファール
+
+[MPID_H_Rafale]
+邪竜の血を引く青年。
+神竜の誘いに応じ、再び共闘する。
+
+[MPID_Selestia]
+セレスティア
+
+[MPID_H_Selestia]
+四翼のリーダー。
+魔竜族の末裔で、情に厚く仲間思い。
+
+[MPID_Gregory]
+グレゴリー
+
+[MPID_H_Gregory_E]
+四翼の一員。
+気さくだが、行動は慎重な臆病者の魔術師。
+
+[MPID_H_Gregory]
+四翼の副官。
+気さくだが、行動は慎重な臆病者の魔術師。
+
+[MPID_Madeline]
+マデリーン
+
+[MPID_H_Madeline]
+四翼の一員。
+理知的で確固たる信念を持つ重装騎士。
+
+[MPID_MorphWolf]
+異形狼
+
+[MPID_H_MorphWolf]
+邪竜が秘術で生み出した異形の狼。
+素早い動きで、爪と牙による攻撃を仕掛ける。
+
+[MPID_MorphWolfSilver]
+銀の異形狼
+
+[MPID_H_MorphWolfSilver]
+邪竜が秘術で生み出した、希少な黒銀の異形狼。
+倒すと多くの経験値を得られる。
+
+[MPID_MorphDragonF]
+異形飛竜
+
+[MPID_H_MorphDragonF]
+邪竜が秘術で生み出した巨大な異形飛竜。
+空を飛び回り、激しいブレスを吐く。
+
+[MPID_MorphDragonFGold]
+金の異形飛竜
+
+[MPID_H_MorphDragonFGold]
+邪竜が秘術で生み出した、希少な金色の飛竜。
+倒すと多くのお金を得られる。
+
+[MPID_ShadowSiblings]
+邪竜のきょうだい
+
+[MPID_H_FogatoHide]
+謎の敵。
+紋章士の腕輪を狙う刺客。
+
+[MPID_H_AlfredR]
+異界のフィレネ王。
+好戦的で、敵の殲滅に容赦がない。
+
+[MPID_H_CelineR]
+異界のフィレネ王女。
+感情的で、他者に対し非常に傲慢。
+
+[MPID_H_DiamandR]
+異界のブロディア王。
+優柔不断で、臆病かつ信念を持たない。
+
+[MPID_H_StalukeR]
+異界のブロディア王子。
+プライドが高く、軟弱な兄を見下している。
+
+[MPID_H_IvyR]
+異界のイルシオン女王。
+高貴な自分に陶酔し、卑しい妹を蔑む。
+
+[MPID_H_HortensiaR]
+異界のイルシオン王女。
+父を喪った悲しみで精神が崩壊している。
+
+[MPID_H_MisutiraR]
+異界のソルム女王。
+厳格で融通が利かない。
+
+[MPID_H_FogatoR]
+異界のソルム王子。
+戦場でも笑顔を絶やさない快楽主義者。
+
+[MPID_alias_El]
+誠心たる邪竜
+
+[MPID_alias_Rafale]
+贖罪の邪竜
+
+[MPID_alias_Selestia]
+新たなる愛
+
+[MPID_alias_Gregory]
+古傷
+
+[MPID_alias_Madeline]
+讃える青
+
+[MJID_ShadowPrincessR]
+邪竜ノ娘
+
+[MJID_H_ShadowPrincessR]
+邪竜の血を引く娘。
+槍を振るい、竜石で竜化して戦う。
+
+[MJID_ShadowLordR]
+邪竜ノ子
+
+[MJID_H_ShadowLordRE]
+邪竜の血を引く子。
+戦いを好まないが、平和のために斧を振るう。
+
+[MJID_H_ShadowLordRE_E005]
+邪竜の血を引く子。
+本性を現し、目的のために斧を振るう。
+
+[MJID_H_ShadowLordR]
+邪竜の血を引く子。
+斧を振るい、竜石で竜化して戦う。
+
+[MJID_ShadowDragonR]
+大邪竜
+
+[MJID_H_ShadowDragonR]
+紋章士の腕輪の力を得た邪竜。
+強力な攻撃で戦場を破壊し尽くす。
+
+[MJID_MorphWolf]
+異形狼
+
+[MJID_H_MorphWolf]
+世界を破滅へ導く邪竜の使徒。
+呪いを受けた牙で獲物を執拗に追う。
+
+[MJID_MorphFlyingDragon]
+異形飛竜
+
+[MJID_H_MorphFlyingDragon]
+世界を破滅へ導く邪竜の使徒。
+邪悪なブレスで遠くの獲物を一網打尽にする。
+
+[MJID_AvenirR]
+EXアヴニール
+
+[MJID_H_AvenirR]
+争いを渇望する好戦的な者。
+馬を駆り、槍撃に長ける。
+
+[MJID_FleurageR]
+EXフロラージュ
+
+[MJID_H_FleurageR]
+争いを渇望する好戦的な者。
+魔道に優れ、剣でも戦える。
+
+[MJID_SuccesseurR]
+EXスクセサール
+
+[MJID_H_SuccesseurR]
+誇りを失い、騎士道を忘れた者。
+剣術に長ける。
+
+[MJID_TirailleurR]
+EXティラユール
+
+[MJID_H_TirailleurR]
+誇りを失い、騎士道を忘れた者。
+弓術に長ける。
+
+[MJID_LindwurmR]
+EXリンドブルム
+
+[MJID_H_LindwurmR]
+獣を御し、邪竜を信仰する者。
+ドラゴンを駆り、魔法と杖術に長ける。
+
+[MJID_SleipnirR]
+EXスレイプニル
+
+[MJID_H_SleipnirR]
+獣を御し、邪竜を信仰する者。
+ペガサスを駆り、魔法と杖術に長ける。
+
+[MJID_PitchforkR]
+EXピッチフォーク
+
+[MJID_H_PitchforkR]
+正義の名の下に異分子を粛清する者。
+槍術に長ける。
+
+[MJID_CupidoR]
+EXクピードー
+
+[MJID_H_CupidoR]
+正義の名の下に異分子を粛清する者。
+馬を駆り、弓術に長ける。
+
+[MIID_ElAttack]
+邪な火花
+
+[MIID_H_ElAttack]
+邪竜石の力を使った攻撃。
+相手の守備を半減させる。
+
+[MIID_ElAttack2]
+朽ちた火花
+
+[MIID_H_ElAttack2]
+邪竜石の魔力を使った攻撃。
+相手の守備を半減させる。
+（物理攻撃力で計算する魔法攻撃）
+
+[MIID_Evilstone]
+邪竜石
+
+[MIID_H_Evilstone]
+邪竜の力が込められた竜石。
+相手の守備を半減させる。
+
+[MIID_TrueEvilstone]
+邪竜石・滅
+
+[MIID_H_TrueEvilstone]
+邪竜の力が込められた竜石。
+相手の守備を半減させる／離れた敵を攻撃できる。
+
+[MIID_Evilstone_Magic]
+邪竜石・魔
+
+[MIID_H_Evilstone_Magic]
+邪竜の魔力が込められた竜石。
+相手の守備を半減させる。
+（物理攻撃力で計算する魔法攻撃）
+
+[MIID_Evilstone_Slayer_Horse]
+邪竜石・屠
+
+[MIID_H_Evilstone_Slayer_Horse]
+邪竜の特殊な力が込められた竜石。
+相手の守備を半減させる／騎馬特効。
+
+[MIID_Evilstone_Slayer_Fly]
+邪竜石・堕
+
+[MIID_H_Evilstone_Slayer_Fly]
+邪竜の特殊な力が込められた竜石。
+相手の守備を半減させる／飛行特効。
+
+[MIID_H_Liberation_E006]
+神竜専用。
+大邪竜イルへの攻撃時、攻撃力+15。
+
+[MIID_H_Liberation_E006_Normal]
+神竜専用。
+大邪竜イルへの攻撃時、攻撃力+30。
+
+[MIID_IlAttack]
+邪竜の強撃
+
+[MIID_H_IlAttack]
+巨体から繰り出される連続長射程攻撃。
+
+[MIID_IlBeam]
+邪竜破・薙
+
+[MIID_H_IlBeam]
+闇のビームで敵を一掃する広域必中攻撃。
+防御無視。
+
+[MIID_IlRush]
+破壊衝動
+
+[MIID_H_IlRush]
+自身の周囲の地形を破壊する。
+敵味方問わず、巻き込まれたユニットを即死させ、
+その生命力を吸収して自身の力を高める。
+
+[MIID_IlAbsorp]
+力の渇望
+
+[MIID_H_IlAbsorp]
+敵味方問わず、自身の周囲のユニットを即死させ、
+その生命力を吸収して自身の力を高める。
+
+[MIID_IlSummon]
+召喚の渦
+
+[MIID_H_IlSummon]
+周囲に異形兵を召喚する渦を作り出す。
+
+[MIID_MiasmaBreath]
+瘴気のブレス
+
+[MIID_H_MiasmaBreath]
+瘴気に満ちたブレス攻撃。
+防御無視／地形に「瘴気」を付与する。
+
+[MIID_MiasmaBall]
+瘴気弾
+
+[MIID_H_MiasmaBall]
+長射程の瘴気攻撃。
+防御無視／地形に「瘴気」を付与する。
+相手を氷封・沈黙状態にする。
+
+[MIID_ElBento]
+エルの弁当
+
+[MIID_H_ElBento]
+エルが思う美味しい料理を詰め込んだ弁当。
+食べるとHP20回復。
+
+[MIID_RafaleBento]
+ラファールの弁当
+
+[MIID_H_RafaleBento]
+ラファールが会心料理を自信満々に詰めた弁当。
+食べるとHP20回復。
+
+[MIID_SelestiaBento]
+セレスティアの弁当
+
+[MIID_H_SelestiaBento]
+セレスティアがつまみ食いした残りを詰めた弁当。
+食べるとHP20回復。
+
+[MIID_GregoryBento]
+グレゴリーの弁当
+
+[MIID_H_GregoryBento]
+グレゴリーが会心料理を優しく詰めた弁当。
+食べるとHP20回復。
+
+[MIID_MadelineBento]
+マデリーンの弁当
+
+[MIID_H_MadelineBento]
+マデリーンが試行錯誤した得意料理の弁当。
+食べるとHP20回復。
+
+[MIID_EnchantSeal]
+神秘の鞄
+
+[MIID_H_EnchantSeal]
+エンチャントにクラスチェンジできる。
+
+[MIID_MageCannonSeal]
+魔法の大筒
+
+[MIID_H_MageCannonSeal]
+マージカノンにクラスチェンジできる。
+
+[MSID_PrivateSkill_El]
+守り手
+
+[MSID_H_PrivateSkill_El]
+ラファールが攻撃された時、
+必殺+10（1ターン）
+
+[MSID_H_PrivateSkill_El_E]
+イルが攻撃された時、
+必殺+10（1ターン）
+
+[MSID_PrivateSkill_Rafale]
+負けず嫌い
+
+[MSID_H_PrivateSkill_Rafale]
+周囲2マスの味方が
+敵を撃破した時、必殺+10
+（1ターン）
+
+[MSID_PrivateSkill_Il]
+劣等感
+
+[MSID_H_PrivateSkill_Il]
+周囲2マスの味方が
+敵を撃破した時、必殺+10
+（1ターン）
+
+[MSID_PrivateSkill_Gregory]
+生存戦略
+
+[MSID_H_PrivateSkill_Gregory]
+自分のHPが50%より多く、攻撃した時
+与えるダメージ+1、命中・必殺+5。
+自分のHPが50%以下で、攻撃された時
+受けるダメージ-1、敵の命中・必殺-5。
+
+[MSID_PrivateSkill_Madeline]
+理想の騎士
+
+[MSID_H_PrivateSkill_Madeline]
+自分と隣接する味方騎馬ユニットの
+与えるダメージ+2、受けるダメージ-2
+
+[MSID_PrivateSkill_Alfred_E]
+保身
+
+[MSID_PrivateSkill_Celine_E]
+戦場の花
+
+[MSID_PrivateSkill_Diamand_E]
+優柔不断
+
+[MSID_PrivateSkill_Staluke_E]
+自惚れ
+
+[MSID_PrivateSkill_Ivy_E]
+まさか私が？
+
+[MSID_PrivateSkill_Hortensia_E]
+秘密の支援
+
+[MSID_PrivateSkill_Misutira_E]
+王者の尊厳
+
+[MSID_PrivateSkill_Fogato_E]
+殺戮者
+
+[MSID_JobSkill_MorphFlyingDragon]
+瘴気の領域
+
+[MSID_H_JobSkill_MorphFlyingDragon]
+自軍フェーズ開始時
+周囲2マスの地形に「瘴気」を付与
+
+[MSID_JobSkill_ShadowPrincessR]
+紋章気抑制
+
+[MSID_H_JobSkill_ShadowPrincessR]
+エンゲージ技を受けた時
+受けるダメージ-20%
+
+[MSID_JobSkill_ShadowLordR]
+紋章気促進
+
+[MSID_H_JobSkill_ShadowLordR]
+自軍フェーズ開始時
+隣接する味方のエンゲージカウント+1
+
+[MSID_DisplaySkill_DamageCut]
+邪竜陣の加護
+
+[MSID_H_DisplaySkill_DamageCut]
+受けるダメージ-50
+必殺を受ける確率-50
+
+[MSID_ChainAttackDamageWeaken+]
+絆を断つ者+
+
+[MSID_H_ChainAttackDamageWeaken+]
+敵のチェインアタックの
+命中率を10%にし、
+受けるダメージを軽減する
+
+[MSID_H_SenerioEngage_DarkSide]
+魔法攻撃した時、
+与えたダメージの50%自分のHP回復
+
+[MSID_H_SenerioEngageAtk_DarkSide]
+範囲内の敵に
+炎・雷・風魔法（飛行特効）の3連続攻撃
+
+[MAID_ElWear]
+双竜の公女の服
+
+[MAID_H_ElWear]
+異界の仲間、邪竜の末裔エルの私服。
+長年修繕を繰り返した結果、下半身の服と手袋が特徴的な形になった。
+
+[MAID_RafaleWear]
+双竜の王子の服
+
+[MAID_H_RafaleWear]
+異界の仲間、邪竜の末裔ラファールの私服。
+エルとお揃いのペンダントを目立たせるため、シンプルなデザインになっている。
+
+[MAID_SelestiaWear]
+魔竜族のドレス
+
+[MAID_H_SelestiaWear]
+異界の仲間、四翼のリーダー、セレスティアの私服。
+長い髪を綺麗にまとめるのは一苦労で、仲間に手伝ってもらうこともある。
+
+[MAID_GregoryWear]
+信徒のローブ
+
+[MAID_H_GregoryWear]
+異界の仲間、四翼の副官グレゴリーの私服。
+マントの邪竜信徒の紋章は、主への忠誠の証であり、彼の誇りである。
+
+[MAID_MadelineWear]
+おめかしプリーツ
+
+[MAID_H_MadelineWear]
+異界の仲間、四翼のマデリーンの私服。
+マデリーンの大好きなリボンを取り入れつつ、大人っぽい雰囲気に仕上げた。
+
+[MID_LVUP_1_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Die")
+$Window(2, "エル")
+物事、そう上手くはいかないものですね。 $Wait(0)
+
+[MID_LVUP_2_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Normal")
+$Window(2, "エル")
+些細なことです、精進します。 $Wait(0)
+
+[MID_LVUP_3_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Normal")
+$Window(2, "エル")
+結果は結果です、
+私が決めることではありません。 $Wait(0)
+
+[MID_LVUP_4_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Smile")
+$Window(2, "エル")
+神竜様のお役に立てるなら幸いです。 $Wait(0)
+
+[MID_LVUP_LIMIT_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Smile")
+$Window(2, "エル")
+私の力も、極みに達したようですね。 $Wait(0)
+
+[MID_LVUP_CC_El]
+$Type(1)
+$Window(0, "エル", "t")
+$Anim(1, "エル", "Smile")
+$Window(2, "エル")
+新たな装いを感謝します、神竜様。
+この贈り物、大切にしますね。 $Wait(0)
+
+[MID_LVUP_1_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Sad")
+$Window(2, "ラファール")
+吾は出来損ないではない…$Wait(0)
+
+[MID_LVUP_2_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Angry")
+$Window(2, "ラファール")
+吾はここで終わらぬ！
+次だ！ $Wait(0)
+
+[MID_LVUP_3_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Serious")
+$Window(2, "ラファール")
+当然の結果だ、
+喜ぶほどのことではない。 $Wait(0)
+
+[MID_LVUP_4_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Strike")
+$Window(2, "ラファール")
+フハハ、見たか神竜！
+これが吾の力だ！ $Wait(0)
+
+[MID_LVUP_LIMIT_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "Smile")
+$Window(2, "ラファール")
+ここでも、元の世界でも…
+吾は強大な力を手に入れたぞ。 $Wait(0)
+
+[MID_LVUP_CC_Rafale]
+$Type(1)
+$Window(0, "ラファール", "t")
+$Anim(1, "ラファール", "StandBy")
+$Window(2, "ラファール")
+どんな姿になろうと、吾は敵を滅ぼすのみ。
+行くぞ。 $Wait(0)
+
+[MID_LVUP_1_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Sad")
+$Window(2, "セレスティア")
+おかしいわね、魔竜族としては
+まだ若いはずなんだけど…$Wait(0)
+
+[MID_LVUP_2_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Smile")
+$Window(2, "セレスティア")
+小さな変化も嬉しいわ、これが乙女心ってやつね。 $Wait(0)
+
+[MID_LVUP_3_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Angry")
+$Window(2, "セレスティア")
+四翼のリーダーに相応しい力が欲しいわ。 $Wait(0)
+
+[MID_LVUP_4_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Relax")
+$Window(2, "セレスティア")
+燃えてきたわ、
+今の私なら何でもできそう。 $Wait(0)
+
+[MID_LVUP_LIMIT_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Smile")
+$Window(2, "セレスティア")
+強くなったわ、
+元の世界の私とは比べ物にならないくらいにね。 $Wait(0)
+
+[MID_LVUP_CC_Selestia]
+$Type(1)
+$Window(0, "セレスティア", "t")
+$Anim(1, "セレスティア", "Smile")
+$Window(2, "セレスティア")
+嬉しい、他の服を着る機会なんてなかったから。
+似合ってるかしら、神竜様？ $Wait(0)
+
+[MID_LVUP_1_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Sad")
+$Window(2, "グレゴリー")
+変わるのも怖いけど、
+変わらないのも怖いね…$Wait(0)
+
+[MID_LVUP_2_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Shy")
+$Window(2, "グレゴリー")
+よし！これで少しは痛くなくなったかな…
+だよね？ $Wait(0)
+
+[MID_LVUP_3_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Angry")
+$Window(2, "グレゴリー")
+僕はこの力で、
+恐怖も痛みもない世界を作るんだ。 $Wait(0)
+
+[MID_LVUP_4_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Surprise")
+$Window(2, "グレゴリー")
+な、何が起きたの？
+喜んでいいんだよね？ $Wait(0)
+
+[MID_LVUP_LIMIT_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Status")
+$Window(2, "グレゴリー")
+これ以上強くなったら、
+僕、怖い人になっちゃいそうだよ。 $Wait(0)
+
+[MID_LVUP_CC_Gregory]
+$Type(1)
+$Window(0, "グレゴリー", "t")
+$Anim(1, "グレゴリー", "Smile")
+$Window(2, "グレゴリー")
+どう……似合うかな？
+敵に侮られないといいんだけど。 $Wait(0)
+
+[MID_LVUP_1_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Sad")
+$Window(2, "マデリーン")
+不甲斐ないです、
+次は必ず成果を出します。 $Wait(0)
+
+[MID_LVUP_2_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Serious")
+$Window(2, "マデリーン")
+ギリギリ合格点でしょうか？
+もっと強くならなくては。 $Wait(0)
+
+[MID_LVUP_3_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Smile")
+$Window(2, "マデリーン")
+やりました！
+子供だと思って侮らないでくださいね。 $Wait(0)
+
+[MID_LVUP_4_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Relax")
+$Window(2, "マデリーン")
+他の方からの称賛は求めませんが…
+この成果を出した自分を褒めたいです。 $Wait(0)
+
+[MID_LVUP_LIMIT_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Relax")
+$Window(2, "マデリーン")
+仲間たちのおかげで、
+私はここまで成長できました。 $Wait(0)
+
+[MID_LVUP_CC_Madeline]
+$Type(1)
+$Window(0, "マデリーン", "t")
+$Anim(1, "マデリーン", "Shy")
+$Window(2, "マデリーン")
+騎士たるもの、どんな戦闘服も着こなさなければ…
+でも、似合ってますか？ $Wait(0)
+
+[MID_RELAY_Stamp_El_0]
+しっかりしなさい。
+
+[MID_RELAY_Stamp_Rafale_0]
+我を失望させるな。
+
+[MID_RELAY_Stamp_Selestia_0]
+楽しくなってきたわ！
+
+[MID_RELAY_Stamp_Gregory_0]
+勘弁してよ、痛いのは嫌だ。
+
+[MID_RELAY_Stamp_Madeline_0]
+子供扱いしないでください。
+
+[MID_BGM_DLC_Evt_Twin_ST_Play]
+双竜の願い
+
+[MID_BGM_DLC_Evt_Twin_Exposed_ST_Play]
+あなたの夢は叶わない
+
+[MID_BGM_DLC_Sys_Gmap_ST_Play]
+竜の旅
+
+[MID_BGM_DLC_Field_P14_Map_ST_Play]
+救世と喪失
+
+[MID_BGM_DLC_Field_P14_Combat_ST_Play]
+救世と喪失～叛
+
+[MID_BGM_DLC_Field_P15_ST_Play]
+裏の結合
+
+[MID_BGM_DLC_Boss_07_Pre_ST_Play]
+流れる者
+
+[MID_BGM_DLC_Boss_07_Start_ST_Play]
+流れる者～烈
+
+[MID_BGM_DLC_Sys_ED2_ST_Play]
+旅は終わる～全
+
+[MID_BGM_DLC_Mov_GOP_Full_ST_Play]
+Emblem Engage! ～Full Ver.
+
+[MID_BGM_DLC_Field_P15_Pre_ST_Play]
+まどろみからの目覚め
+
+[MID_BGM_DLC_Evt_Twin_Past_ST_Play]
+追憶
+
+[MID_Hub_Well_Difficulty_Change]
+難易度変更
+
+[MID_Hub_Well_Difficulty_Change_Confirm]
+邪竜の章の難易度を変更しますか？
+（本編の難易度は変更されません。
+また、本章の難易度は何度でも自由に変更できます）
+
+[MID_Hub_Well_Difficulty_Change_Before]
+現在の難易度
+
+[MID_Hub_Well_Difficulty_Change_Normal]
+ノーマルに変更
+
+[MID_Hub_Well_Difficulty_Change_Hard]
+ハードに変更
+
+[MID_Hub_Well_Difficulty_Change_Lunatic]
+ルナティックに変更
+
+[MID_Hub_Well_Difficulty_Change_Cancel]
+やめる
+
+[MID_Hub_Well_Difficulty_Change_Dialog]
+邪竜の章の難易度を「$Arg(0)」に変更しました。
+
+[MID_FORTUNE_TROUBLE_El]
+レモンを丸かじりして、
+周囲に心配された。
+
+[MID_FORTUNE_TROUBLE_Rafale]
+お菓子を見て、
+口元が緩んでしまった。
+
+[MID_FORTUNE_TROUBLE_Selestia]
+頭の角に鳥が止まり、
+動けなくなった。
+
+[MID_FORTUNE_TROUBLE_Gregory]
+お気に入りのぬいぐるみが、
+薄汚れてきた。
+
+[MID_FORTUNE_TROUBLE_Madeline]
+リボンは好きだが、
+蝶結びが苦手。
+
+[MID_Movie_E07]
+異界の記憶
+
+[MID_H_Movie_E07]
+邪竜の双子に喚ばれ、
+異界のエレオス大陸へと渡った神竜$P。
+滅びゆく世界で、七つの腕輪を巡る争いが幕を開けた。
