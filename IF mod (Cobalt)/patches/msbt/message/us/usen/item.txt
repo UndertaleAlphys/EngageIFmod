@@ -2342,8 +2342,7 @@ Ragnell
 
 [MIID_H_Ike_Ragnell]
 Sacred sword wielded by Emblem
-Ike. Grants Def+2/
-Damage type varies by distance.
+Ike. Grants Def+2.
 
 [MIID_Byleth_Aymr]
 Aymr

@@ -2230,7 +2230,7 @@ HP吸收/不可追擊
 
 [MIID_H_Ike_Ragnell]
 紋章士艾克的傳說神劍。
-防守+2/攻擊屬性隨距離變化。
+防守+2。
 
 [MIID_Byleth_Aymr]
 艾姆魯

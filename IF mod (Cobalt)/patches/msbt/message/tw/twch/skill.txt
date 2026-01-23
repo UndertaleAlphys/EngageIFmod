@@ -1544,14 +1544,14 @@ HP為50%及以下時，
 
 [MSID_H_BraveGeneral_1]
 HP為75%及以下時
-技、運+6
+力、技、速+2
 
 [MSID_BraveGeneral_2]
 勇將+
 
 [MSID_H_BraveGeneral_2]
 HP為75%及以下時
-技、運+8
+力、技、速+3
 
 [MSID_IkeEngage]
 不動
@@ -2079,15 +2079,15 @@ HP為75%及以下時
 繫承牽絆者
 
 [MSID_H_ConnectPerson_1]
-回合開始時，自身鄰接的
-我方單位結合計量條+1
+回合開始時，自身2格內的
+我方單位結合計量條+2
 
 [MSID_ConnectPerson_2]
 繫承牽絆者+
 
 [MSID_H_ConnectPerson_2]
-回合開始時，自身2格內的
-我方單位結合計量條+1
+回合開始時，自身3格內的
+我方單位結合計量條+3
 
 [MSID_BlessingOfEleos]
 艾雷歐斯的祝福
@@ -2095,7 +2095,7 @@ HP為75%及以下時
 [MSID_H_BlessingOfEleos]
 可使用"支援"指令，
 使周圍兩格內友方的
-能力降低效果減少1
+能力降低效果減少4
 
 [MSID_LueurEngage]
 以心
@@ -4994,7 +4994,7 @@ HP不滿時傷害+4
 
 [MSID_H_Charisma]
 自身的攻擊觸發連鎖攻擊時
-連鎖攻擊的傷害提升為120%
+連鎖攻擊的傷害提升為150%
 
 [MSID_WeaponSynchronized]
 武器同步
@@ -5022,30 +5022,27 @@ HP不滿時傷害+4
 連花月風閃
 
 [MSID_H_ClassPresidentsEngageAtk]
-將戰鬥雙方HP回復至上限，
-然後使用艾姆魯、阿萊德巴爾
-和費魯諾特施展50%傷害的連續攻擊
+使用艾姆魯（冰封）、阿萊德巴爾（break）、
+和費魯諾特（沉默）施展50%傷害的連續攻擊。
 
 [MSID_H_ClassPresidentsEngageAtk_Dragon]
-將戰鬥雙方HP回復至上限，
-然後使用艾姆魯、阿萊德巴爾
-和費魯諾特施展50%傷害的連續攻擊
+使用艾姆魯（冰封）、阿萊德巴爾（break）、
+和費魯諾特（沉默）施展50%傷害的連續攻擊。
 【龍族】傷害+10%
 
 [MSID_H_ClassPresidentsEngageAtk_CMD]
-使用斧頭、槍、弓施展連續攻擊
+使用槍、弓、斧頭施展連續攻擊後
+給予對方debuff
 
 [MSID_ClassPresidentsEngageAtk+]
 連花月風閃+
 
 [MSID_H_ClassPresidentsEngageAtk+]
-將戰鬥雙方HP回復至上限，
-然後使用艾姆魯（冰封）、阿萊德巴爾（break）
+使用艾姆魯（冰封）、阿萊德巴爾（break）、
 和費魯諾特（沉默）施展50%傷害必定命中的連續攻擊。
 
 [MSID_H_ClassPresidentsEngageAtk+_Dragon]
-將戰鬥雙方HP回復至上限，
-然後使用艾姆魯（冰封）、阿萊德巴爾（break）
+使用艾姆魯（冰封）、阿萊德巴爾（break）、
 和費魯諾特（沉默）施展50%傷害必定命中的連續攻擊。
 【龍族】傷害+10%
 

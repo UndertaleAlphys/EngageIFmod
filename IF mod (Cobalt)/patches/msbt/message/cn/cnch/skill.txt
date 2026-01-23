@@ -1544,14 +1544,14 @@ HP为50%及以下时，
 
 [MSID_H_BraveGeneral_1]
 HP为75%及以下时
-技、运+6
+力、技、速+2
 
 [MSID_BraveGeneral_2]
 勇将+
 
 [MSID_H_BraveGeneral_2]
 HP为75%及以下时
-技、运+8
+力、技、速+3
 
 [MSID_IkeEngage]
 不动
@@ -2079,15 +2079,15 @@ HP为75%及以下时
 系承牵绊者
 
 [MSID_H_ConnectPerson_1]
-回合开始时，自身邻接的
-我方单位结合计量条+1
+回合开始时，自身2格内的
+我方单位结合计量条+2
 
 [MSID_ConnectPerson_2]
 系承牵绊者+
 
 [MSID_H_ConnectPerson_2]
-回合开始时，自身2格内的
-我方单位结合计量条+1
+回合开始时，自身3格内的
+我方单位结合计量条+3
 
 [MSID_BlessingOfEleos]
 艾雷欧斯的祝福
@@ -2095,7 +2095,7 @@ HP为75%及以下时
 [MSID_H_BlessingOfEleos]
 可使用"支援"指令，
 使周围两格内友方的
-能力降低效果减少1
+能力降低效果减少4
 
 [MSID_LueurEngage]
 以心
@@ -4994,7 +4994,7 @@ HP不满时伤害+4
 
 [MSID_H_Charisma]
 自身的攻击触发连锁攻击时
-连锁攻击的伤害提升为120%
+连锁攻击的伤害提升为150%
 
 [MSID_WeaponSynchronized]
 武器同步
@@ -5022,30 +5022,28 @@ HP不满时伤害+4
 连花月风闪
 
 [MSID_H_ClassPresidentsEngageAtk]
-将战斗双方HP回复至上限，
-然后使用艾姆鲁、阿莱德巴尔
+使用艾姆鲁（冰封）、阿莱德巴尔（break）
+和费鲁诺特（沉默）施展50%伤害的连续攻击。
 和费鲁诺特施展50%伤害的连续攻击
 
 [MSID_H_ClassPresidentsEngageAtk_Dragon]
-将战斗双方HP回复至上限，
-然后使用艾姆鲁、阿莱德巴尔
-和费鲁诺特施展50%伤害的连续攻击
+使用艾姆鲁（冰封）、阿莱德巴尔（break）
+和费鲁诺特（沉默）施展50%伤害的连续攻击。
 【龙族】伤害+10%
 
 [MSID_H_ClassPresidentsEngageAtk_CMD]
-使用斧、枪、弓施展连续攻击
+使用枪、弓、斧施展连续攻击后
+给予对方debuff
 
 [MSID_ClassPresidentsEngageAtk+]
 连花月风闪+
 
 [MSID_H_ClassPresidentsEngageAtk+]
-将战斗双方HP回复至上限，
-然后使用艾姆鲁（冰封）、阿莱德巴尔（break）
+使用艾姆鲁（冰封）、阿莱德巴尔（break）
 和费鲁诺特（沉默）施展50%伤害必定命中的连续攻击。
 
 [MSID_H_ClassPresidentsEngageAtk+_Dragon]
-将战斗双方HP回复至上限，
-然后使用艾姆鲁（冰封）、阿莱德巴尔（break）
+使用艾姆鲁（冰封）、阿莱德巴尔（break）
 和费鲁诺特（沉默）施展50%伤害必定命中的连续攻击。
 【龙族】伤害+10%
 

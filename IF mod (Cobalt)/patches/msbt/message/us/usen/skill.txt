@@ -1673,14 +1673,14 @@ Resolve
 
 [MSID_H_BraveGeneral_1]
 The unit's HP <= 75%,
-Grants +6 Dex/Luck.
+Grants +2 Str/Dex/Spd.
 
 [MSID_BraveGeneral_2]
 Resolve+
 
 [MSID_H_BraveGeneral_2]
 The unit's HP <= 75%,
-Grants +8 Dex/Luck.
+Grants +3 Str/Dex/Spd.
 
 [MSID_IkeEngage]
 Laguz Friend
@@ -2248,23 +2248,23 @@ Bond Forger
 
 [MSID_H_ConnectPerson_1]
 At the start of each turn, 
-grants +1 to the Engage meter 
-of all adjacent allies.
+grants +2 to the Engage meter 
+of all allies within 2 radius.
 
 [MSID_ConnectPerson_2]
 Bond Forger+
 
 [MSID_H_ConnectPerson_2]
 At the start of each turn, 
-grants +1 to the Engage meter 
-of all allies within 2 radius.
+grants +3 to the Engage meter 
+of all allies within 3 radius.
 
 [MSID_BlessingOfEleos]
 Boon of Elyos
 
 [MSID_H_BlessingOfEleos]
 Grants the unit "Rally" command,
-use to -1 Debuff to all allies in 2 radius.
+use to -4 Debuff to all allies in 2 radius.
 
 [MSID_LueurEngage]
 Attuned
@@ -5392,7 +5392,7 @@ Charm
 [MSID_H_Charisma]
 If unit's attack triggers a chain
 attack, increases chain attack
-Dmg by 20%.
+Dmg by 50%.
 
 [MSID_WeaponSynchronized]
 Weapon Sync
@@ -5423,31 +5423,27 @@ equipped weapons.
 Houses Unite
 
 [MSID_H_ClassPresidentsEngageAtk]
-Use to restore unit's and foe's HP to full,
-then attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
+Use to attack with Aymr(Freeze), Areadbhar(Break),
+and Failnaught(Silence) at 50% damage.
 
 [MSID_H_ClassPresidentsEngageAtk_Dragon]
-Use to restore unit's and foe's HP to full,
-then attack with Aymr, Areadbhar,
-and Failnaught at 50% damage.
+Use to attack with Aymr(Freeze), Areadbhar(Break),
+and Failnaught(Silence) at 50% damage.
 [Dragon] +10% damage.
 
 [MSID_H_ClassPresidentsEngageAtk_CMD]
-Attacks with axe, lance, and
-bow.
+Attacks with lance, bow, and
+axe. Inflicts debuff on foe.
 
 [MSID_ClassPresidentsEngageAtk+]
 Houses Unite+
 
 [MSID_H_ClassPresidentsEngageAtk+]
-Use to restore unit's and foe's HP to full,
-then attack with Aymr(Freeze), Areadbhar(Break),
+Use to attack with Aymr(Freeze), Areadbhar(Break),
 and Failnaught(Silence) at 50% damage and 100% hit.
 
 [MSID_H_ClassPresidentsEngageAtk+_Dragon]
-Use to restore unit's and foe's HP to full,
-then attack with Aymr(Freeze), Areadbhar(Break),
+Use to attack with Aymr(Freeze), Areadbhar(Break),
 and Failnaught(Silence) at 50% damage and 100% hit.
 [Dragon] +10% damage.
 
