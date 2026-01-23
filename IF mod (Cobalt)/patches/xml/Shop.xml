@@ -31,6 +31,8 @@
       <Param Condition="" Iid="IID_初心の法" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_鉄身の法" Stock="-1" Attribute="0" />
 	  <Param Condition="M006" Iid="" Stock="" Attribute="" />
+	  <Param Condition="" Iid="IID_アーマーキラー" Stock="1" Attribute="0" />
+	  <Param Condition="" Iid="IID_ドラゴンキラー" Stock="1" Attribute="0" />
 	  <Param Condition="" Iid="IID_ナイトキラー" Stock="1" Attribute="0" />
 	  <Param Condition="" Iid="IID_聖なる槍" Stock="1" Attribute="0" />
 	  <Param Condition="" Iid="IID_ハンマー" Stock="1" Attribute="0" />
@@ -179,9 +181,6 @@
       <Param Condition="" Iid="IID_チェンジプルフ" Stock="3" Attribute="0" />
       <Param Condition="" Iid="IID_リライブ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_調合薬" Stock="1" Attribute="0" />
-	  <Param Condition="M006" Iid="" Stock="" Attribute="" />
-	  <Param Condition="" Iid="IID_アーマーキラー" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ドラゴンキラー" Stock="1" Attribute="0" />
       <Param Condition="M008" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_リライブ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_マスタープルフ" Stock="2" Attribute="0" />
