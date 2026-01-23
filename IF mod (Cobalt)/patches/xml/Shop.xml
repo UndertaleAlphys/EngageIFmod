@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Book Count="4">
-  <Sheet Name="武器屋" Count="94">
+  <Sheet Name="武器屋" Count="134">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -12,7 +12,7 @@
       <Param Condition="" Iid="IID_弾_物理" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_弾_魔法" Stock="-1" Attribute="0" />
       <Param Condition="M004" Iid="" Stock="" Attribute="" />
-	  <Param Condition="" Iid="IID_小太刀" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_小太刀" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_ほそみの剣" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_鉄の剣" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_ほそみの槍" Stock="-1" Attribute="0" />
@@ -30,6 +30,7 @@
       <Param Condition="" Iid="IID_サージ" Stock="2" Attribute="0" />
       <Param Condition="" Iid="IID_初心の法" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_鉄身の法" Stock="-1" Attribute="0" />
+<<<<<<< HEAD
 	  <Param Condition="M006" Iid="" Stock="" Attribute="" />
 	  <Param Condition="" Iid="IID_アーマーキラー" Stock="1" Attribute="0" />
 	  <Param Condition="" Iid="IID_ドラゴンキラー" Stock="1" Attribute="0" />
@@ -38,8 +39,16 @@
 	  <Param Condition="" Iid="IID_ハンマー" Stock="1" Attribute="0" />
 	  <Param Condition="" Iid="IID_針手裏剣" Stock="1" Attribute="0" />
 	  <Param Condition="" Iid="IID_エルウィンド" Stock="1" Attribute="0" />
+=======
+      <Param Condition="M006" Iid="" Stock="" Attribute="" />
+      <Param Condition="" Iid="IID_ナイトキラー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_聖なる槍" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ハンマー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_針手裏剣" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_エルウィンド" Stock="1" Attribute="0" />
+>>>>>>> c8abd3cf52b954661ace7759266b286a24daeb26
       <Param Condition="M008" Iid="" Stock="" Attribute="" />
-	  <Param Condition="" Iid="IID_小太刀" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_小太刀" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_鉄の大剣" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_鋼の剣" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_手槍" Stock="1" Attribute="0" />
@@ -49,20 +58,20 @@
       <Param Condition="" Iid="IID_鉄の大斧" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_鋼の斧" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_鋼の弓" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_鋼のナイフ" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_鋼のナイフ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_護身の法" Stock="1" Attribute="0" />
       <Param Condition="M011" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_キルソード" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_キラーランス" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_キラーアクス" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_キラーボウ" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_暗殺手裏剣" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_エルサンダー" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ライトニング" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_聖なる槍" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_獣狩りの暗器" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_龍神・辰" Stock="1" Attribute="0" />
-	  <Param Condition="M014" Iid="" Stock="" Attribute="" />
+      <Param Condition="" Iid="IID_キラーランス" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_キラーアクス" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_キラーボウ" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_暗殺手裏剣" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_エルサンダー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ライトニング" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_聖なる槍" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_獣狩りの暗器" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_龍神・辰" Stock="1" Attribute="0" />
+      <Param Condition="M014" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_鋼の剣" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_鋼の槍" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_鋼の斧" Stock="-1" Attribute="0" />
@@ -98,30 +107,30 @@
       <Param Condition="" Iid="IID_銀の斧" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_エルファイアー" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_銀の弓" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_キラーボウ" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_キラーボウ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_銀のナイフ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_銀身の法" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_キルソード" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_キラーランス" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_キラーアクス" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_エルサンダー" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_暗殺手裏剣" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_アーマーキラー" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ドラゴンキラー" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ナイトキラー" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_聖なる槍" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ハンマー" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_獣狩りの暗器" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_針手裏剣" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_エルウィンド" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_龍神・辰" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_いかづちの剣" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ほのおの槍" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_かぜの大斧" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_光の弓" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_爆炎手裏剣" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ボルガノン" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ノヴァ" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_エルサンダー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_暗殺手裏剣" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_アーマーキラー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ドラゴンキラー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ナイトキラー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_聖なる槍" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ハンマー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_獣狩りの暗器" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_針手裏剣" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_エルウィンド" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_龍神・辰" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_いかづちの剣" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ほのおの槍" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_かぜの大斧" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_光の弓" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_爆炎手裏剣" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ボルガノン" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ノヴァ" Stock="1" Attribute="0" />
       <Param Condition="M020" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_鋼の大剣" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_鋼の大槍" Stock="-1" Attribute="0" />
@@ -133,20 +142,20 @@
       <Param Condition="" Iid="IID_銀の弓" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_銀のナイフ" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_銀身の法" Stock="-1" Attribute="0" />
-	  <Param Condition="" Iid="IID_銀の大剣" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_銀の大剣" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_銀の大槍" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_銀の大斧" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_勇者の剣" Stock="2" Attribute="0" />
-	  <Param Condition="" Iid="IID_勇者の槍" Stock="2" Attribute="0" />
-	  <Param Condition="" Iid="IID_勇者の斧" Stock="2" Attribute="0" />
-	  <Param Condition="" Iid="IID_勇者の弓" Stock="2" Attribute="0" />
-	  <Param Condition="" Iid="IID_強者の暗器" Stock="2" Attribute="0" />
-	  <Param Condition="" Iid="IID_ノヴァ" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ライトニング" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ボルガノン" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_勇者の剣" Stock="2" Attribute="0" />
+      <Param Condition="" Iid="IID_勇者の槍" Stock="2" Attribute="0" />
+      <Param Condition="" Iid="IID_勇者の斧" Stock="2" Attribute="0" />
+      <Param Condition="" Iid="IID_勇者の弓" Stock="2" Attribute="0" />
+      <Param Condition="" Iid="IID_強者の暗器" Stock="2" Attribute="0" />
+      <Param Condition="" Iid="IID_ノヴァ" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ライトニング" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ボルガノン" Stock="1" Attribute="0" />
     </Data>
   </Sheet>
-  <Sheet Name="道具屋" Count="84">
+  <Sheet Name="道具屋" Count="97">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -181,6 +190,12 @@
       <Param Condition="" Iid="IID_チェンジプルフ" Stock="3" Attribute="0" />
       <Param Condition="" Iid="IID_リライブ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_調合薬" Stock="1" Attribute="0" />
+<<<<<<< HEAD
+=======
+      <Param Condition="M006" Iid="" Stock="" Attribute="" />
+      <Param Condition="" Iid="IID_アーマーキラー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ドラゴンキラー" Stock="1" Attribute="0" />
+>>>>>>> c8abd3cf52b954661ace7759266b286a24daeb26
       <Param Condition="M008" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_リライブ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_マスタープルフ" Stock="2" Attribute="0" />
@@ -208,8 +223,8 @@
       <Param Condition="" Iid="IID_フリーズ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_チェンジプルフ" Stock="3" Attribute="0" />
       <Param Condition="" Iid="IID_ぎんの晶石" Stock="-1" Attribute="0" />
-	  <Param Condition="M012" Iid="" Stock="" Attribute="" />
-	  <Param Condition="" Iid="IID_知識の書" Stock="1" Attribute="0" />
+      <Param Condition="M012" Iid="" Stock="" Attribute="" />
+      <Param Condition="" Iid="IID_知識の書" Stock="1" Attribute="0" />
       <Param Condition="M014" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_リブロー" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_リカバー" Stock="1" Attribute="0" />
@@ -223,15 +238,15 @@
       <Param Condition="" Iid="IID_ウィークネス" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_調合薬" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_チェンジプルフ" Stock="4" Attribute="0" />
-	  <Param Condition="" Iid="IID_天使の衣" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_力のしずく" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_精霊の粉" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_秘伝の書" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_はやての羽" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_女神の像" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_竜の盾" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_魔よけ" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ブーツ" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_天使の衣" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_力のしずく" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_精霊の粉" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_秘伝の書" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_はやての羽" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_女神の像" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_竜の盾" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_魔よけ" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ブーツ" Stock="1" Attribute="0" />
       <Param Condition="M018" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_調合薬" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_リブロー" Stock="1" Attribute="0" />
@@ -243,7 +258,7 @@
       <Param Condition="" Iid="IID_マスタープルフ" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_チェンジプルフ" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_リブロー" Stock="2" Attribute="0" />
-	  <Param Condition="" Iid="IID_ウィークネス" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ウィークネス" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_ドロー" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_リザーブ" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_特効薬" Stock="2" Attribute="0" />
