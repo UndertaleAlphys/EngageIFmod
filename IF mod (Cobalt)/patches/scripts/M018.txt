@@ -32,7 +32,7 @@ function イベント登録()
 	
 	-- 宝箱
 	EventEntryTbox(宝箱入手, 6, 20, "IID_天使の衣");
-	EventEntryTbox(宝箱入手, 27, 11, "IID_龍神・辰");
+	EventEntryTbox(宝箱入手, 27, 11, "IID_斧斬りの刀");
 	
 	EventEntryTurn(火炎砲台チュートリアル, 1, 1, FORCE_PLAYER, "火炎砲台チュートリアル_済");
 	EventEntryTurn(リンデンのひとこと, 1, 1, FORCE_PLAYER, "リンデンのひとこと_済");

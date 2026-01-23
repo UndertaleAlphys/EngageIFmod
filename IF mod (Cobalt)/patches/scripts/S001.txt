@@ -162,7 +162,7 @@ end
 
 function 民家訪問１()
 	Talk( "MID_EV3" )
-	ItemGain( MindGetUnit(), "IID_調合薬" )
+	ItemGain( MindGetUnit(), "IID_女神の像" )
 end
 
 -- -----------------------------------
@@ -253,7 +253,7 @@ function MapEnding()
 	if VariableGet( g_key_villager_dead ) == 0 then
 		Talk( "MID_ED1" )
 		ItemGain(nil, "IID_2000G")
-		ItemGain(nil, "IID_レスキュー")
+		ItemGain(nil, "IID_チェンジプルフ")
 		
 	elseif VariableGet( g_key_villager_all_dead ) == 0 then
 		Talk( "MID_ED2" )

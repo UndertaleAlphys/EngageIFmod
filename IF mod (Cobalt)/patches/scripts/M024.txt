@@ -212,7 +212,7 @@ function イベント登録()
 
 
     EventEntryTbox(宝箱入手,  4, 6, "IID_ブーツ")
-	EventEntryTbox(宝箱入手,  3, 4, "IID_勇者の剣")
+	EventEntryTbox(宝箱入手,  3, 4, "IID_10000G")
 	EventEntryTbox(宝箱入手, 10,12, "IID_神風招来")
 	EventEntryTbox(宝箱入手, 21,20, "IID_銀の大斧")
 

@@ -480,7 +480,7 @@ end
 function 訪問イベント()
 
 	Talk( "MID_EV4" )
-	ItemGain( MindGetUnit(), "IID_キルソード" )
+	ItemGain( MindGetUnit(), "IID_魔よけ" )
 
 end
 

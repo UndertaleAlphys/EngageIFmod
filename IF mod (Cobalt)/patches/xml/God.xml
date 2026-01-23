@@ -966,25 +966,25 @@
     <Data>
       <Param Out="" Level="0" Exp="0" RelianceLevel="" Cost="0" />
       <Param Out="" Level="1" Exp="0" RelianceLevel="" Cost="0" />
-      <Param Out="" Level="2" Exp="10" RelianceLevel="" Cost="300" />
-      <Param Out="" Level="3" Exp="20" RelianceLevel="" Cost="500" />
-      <Param Out="" Level="4" Exp="30" RelianceLevel="" Cost="700" />
-      <Param Out="" Level="5" Exp="40" RelianceLevel="C" Cost="900" />
-      <Param Out="" Level="6" Exp="50" RelianceLevel="" Cost="1100" />
-      <Param Out="" Level="7" Exp="60" RelianceLevel="" Cost="1300" />
-      <Param Out="" Level="8" Exp="70" RelianceLevel="" Cost="1500" />
-      <Param Out="" Level="9" Exp="80" RelianceLevel="" Cost="1700" />
-      <Param Out="" Level="10" Exp="90" RelianceLevel="B" Cost="1900" />
-      <Param Out="" Level="11" Exp="97" RelianceLevel="" Cost="500" />
-      <Param Out="" Level="12" Exp="104" RelianceLevel="" Cost="500" />
-      <Param Out="" Level="13" Exp="111" RelianceLevel="" Cost="500" />
-      <Param Out="" Level="14" Exp="118" RelianceLevel="" Cost="500" />
-      <Param Out="" Level="15" Exp="125" RelianceLevel="" Cost="500" />
-      <Param Out="" Level="16" Exp="132" RelianceLevel="" Cost="500" />
-      <Param Out="" Level="17" Exp="139" RelianceLevel="" Cost="500" />
-      <Param Out="" Level="18" Exp="146" RelianceLevel="" Cost="500" />
-      <Param Out="" Level="19" Exp="153" RelianceLevel="" Cost="500" />
-      <Param Out="" Level="20" Exp="160" RelianceLevel="A" Cost="500" />
+      <Param Out="" Level="2" Exp="10" RelianceLevel="" Cost="200" />
+      <Param Out="" Level="3" Exp="20" RelianceLevel="" Cost="400" />
+      <Param Out="" Level="4" Exp="30" RelianceLevel="" Cost="600" />
+      <Param Out="" Level="5" Exp="40" RelianceLevel="C" Cost="800" />
+      <Param Out="" Level="6" Exp="50" RelianceLevel="" Cost="800" />
+      <Param Out="" Level="7" Exp="60" RelianceLevel="" Cost="1000" />
+      <Param Out="" Level="8" Exp="70" RelianceLevel="" Cost="1200" />
+      <Param Out="" Level="9" Exp="80" RelianceLevel="" Cost="1400" />
+      <Param Out="" Level="10" Exp="90" RelianceLevel="B" Cost="1600" />
+      <Param Out="" Level="11" Exp="97" RelianceLevel="" Cost="400" />
+      <Param Out="" Level="12" Exp="104" RelianceLevel="" Cost="400" />
+      <Param Out="" Level="13" Exp="111" RelianceLevel="" Cost="400" />
+      <Param Out="" Level="14" Exp="118" RelianceLevel="" Cost="400" />
+      <Param Out="" Level="15" Exp="125" RelianceLevel="" Cost="400" />
+      <Param Out="" Level="16" Exp="132" RelianceLevel="" Cost="400" />
+      <Param Out="" Level="17" Exp="139" RelianceLevel="" Cost="400" />
+      <Param Out="" Level="18" Exp="146" RelianceLevel="" Cost="400" />
+      <Param Out="" Level="19" Exp="153" RelianceLevel="" Cost="400" />
+      <Param Out="" Level="20" Exp="160" RelianceLevel="A" Cost="400" />
     </Data>
   </Sheet>
 </Book>

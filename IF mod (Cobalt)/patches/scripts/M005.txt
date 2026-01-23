@@ -94,7 +94,7 @@ function イベント登録()
 	
 	
 	-- 宝箱
-	EventEntryTbox(宝箱入手, 2, 23, "IID_小太刀")
+	EventEntryTbox(宝箱入手, 2, 23, "IID_チェンジプルフ")
 	EventEntryTbox(宝箱入手, 4, 24, "IID_天使の衣")
 	
 	

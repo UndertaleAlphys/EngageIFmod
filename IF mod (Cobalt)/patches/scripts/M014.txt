@@ -79,8 +79,8 @@ function イベント登録()
 	-- 宝箱
 	EventEntryTbox(宝箱入手,  3, 26, "IID_追い剥ぎの刀")
 	EventEntryTbox(宝箱入手,  6, 26, "IID_IFMOD_逆薙刀")
-	EventEntryTbox(宝箱入手, 24, 26, "IID_槍砕きの金棒")
-	EventEntryTbox(宝箱入手, 27, 26, "IID_ライトニング")
+	EventEntryTbox(宝箱入手, 24, 26, "IID_5000G")
+	EventEntryTbox(宝箱入手, 27, 26, "IID_秘伝の書")
 	
 	-- オルテンシア
 	EventEntryBattleTalk(Talk, "PID_アイビー", FORCE_PLAYER, "PID_M014_オルテンシア", FORCE_ENEMY, true, "戦闘前会話_オルテンシア_アイビー_済", "MID_BT2");

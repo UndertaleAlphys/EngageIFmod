@@ -828,17 +828,6 @@ function MapOpening()
 	UnitLearnJobSkill("PID_モーヴ")
     InitMapM021()
 
-    --ItemGain(nil,"IID_いかづちの剣")
-    --ItemGain(nil,"IID_かぜの大斧")
-    --ItemGain(nil,"IID_IFMOD_逆金棒")
-    --ItemGain(nil,"IID_ドラゴンキラー")
-    --ItemGain(nil,"IID_IFMOD_逆刀")
-    --ItemGain(nil,"IID_IFMOD_逆薙刀")
-    --ItemGain(nil,"IID_ほのおの槍")
-    --ItemGain(nil,"IID_獣狩りの暗器")
-    --ItemGain(nil,"IID_逆手裏剣")
-    --ItemGain(nil,"IID_光の弓")
-
 end
 
 -- -----------------------------------
