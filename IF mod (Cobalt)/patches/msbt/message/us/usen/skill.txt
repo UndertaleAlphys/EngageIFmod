@@ -1271,7 +1271,7 @@ Grants staff range +3 and
 area of effect +1.
 
 [MSID_HoldOut_1]
-HoldOut
+Hold Out
 
 [MSID_H_HoldOut_1]
 If unit had 30% HP or more at start
@@ -1280,7 +1280,7 @@ damage from the lethal attack.
 After that, lose HoldOut in this turn.
 
 [MSID_HoldOut_2]
-HoldOut+
+Hold Out+
 
 [MSID_H_HoldOut_2]
 If unit had 20% HP or more at start
@@ -1289,7 +1289,7 @@ damage from the lethal attack.
 After that, lose HoldOut in this turn.
 
 [MSID_HoldOut_3]
-HoldOut++
+Hold Out++
 
 [MSID_H_HoldOut_3]
 If unit had 10% HP or more at start
@@ -1298,7 +1298,7 @@ damage from the lethal attack.
 After that, lose HoldOut in this turn.
 
 [MSID_HoldOut_4]
-HoldOut+++
+Hold Out+++
 
 [MSID_H_HoldOut_4]
 If unit had 2HP or more at start
@@ -2689,7 +2689,7 @@ Unit deals +50% damage against
 broken foes.
 
 [MSID_JobSkill_Sniper]
-CertainDeath Blow
+Certain Death Blow
 
 [MSID_H_JobSkill_Sniper]
 When initiate battle, grants
@@ -3569,7 +3569,7 @@ Skill x 0.5% chance of triggering 5
 consecutive hits with half damage.
 
 [MSID_GrislyWound]
-GrislyWound
+Grisly Wound
 
 [MSID_H_GrislyWound]
 The enemy's HP is reduced 
@@ -3631,7 +3631,7 @@ During even-numbered
 Turns, damage+4.
 
 [MSID_OddShaped]
-OddShaped
+Odd Shaped
 
 [MSID_H_OddShaped]
 During odd-numbered 
@@ -4162,7 +4162,7 @@ If this unit use non-Blue
 weapon in the next battle, Dmg+3.
 
 [MSID_HoldOut_Cooldown]
-HoldOut <Cooling>
+Hold Out <Cooling>
 
 [MSID_H_HoldOut_Cooldown]
 Lose its effect in this turn,
@@ -4547,9 +4547,8 @@ Get Seal Defense and Seal Resistance.
 
 [MSID_H_Pioneer]
 Grants the unit "Shieldbreaker" command,
-use 3 engage meter or 1 engage turn
-to get Seal Defense and Seal Resistance 
-for the next battle.
+use 2 engage meter to get Seal Defense 
+and Seal Resistance for the next battle.
 If the foe is defeated, apply the effect
 to the enemies in 2 radius of the foe.
 
@@ -4634,7 +4633,7 @@ use to grant allies in 2 radius
 Hit+20/Weapon's Mt+20%
 
 [MSID_Reclaim]
-Latter Hit Faster
+Latter Hits Faster
 
 [MSID_H_Reclaim]
 The non-first attacks
@@ -4889,7 +4888,7 @@ this unit, deals the same damage
 taken by this unit to the foe.
 
 [MSID_CounterMagic_2]
-CounterMagic+
+Counter Magic+
 
 [MSID_H_CounterMagic_2]
 When hit by magical attacks,
@@ -5010,7 +5009,7 @@ Cannot get when chain attack.
 杀死敌人时获取
 
 [MSID_Repay]
-PayBack
+Pay Back
 
 [MSID_H_Repay]
 When being attacked, or suffer
@@ -5621,3 +5620,10 @@ Grants the unit "Rally" command,
 use to +1 Str/Mag/Spd to all allies in 2 radius.
 If unit initiates combat and defeats a foe,
 unit will "Rally" automatically.
+
+[MSID_ProvokeStrike]
+Provoke Strike
+
+[MSID_H_ProvokeStrike_CMD]
+Pull foe 1 space toward unit,
+then counterattacks with +20 Avo.

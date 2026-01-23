@@ -217,6 +217,7 @@ Ver.1.2.0 更新内容
 [MIID_H_Camilla_BoltAxe]
 纹章士卡米拉的魔法斧。
 能攻击远方敌人。
+无必杀/无奥义
 
 [MIID_Camilla_Lightning]
 闪电

@@ -380,6 +380,7 @@
 [MJID_H_MasterMonk]
 精通氣功的高等僧侶。
 體術登封造極。
+可使用特殊指令：引誘打擊。
 
 [MJID_HighPriest]
 主教

@@ -233,6 +233,7 @@ Bolt Axe
 [MIID_H_Camilla_BoltAxe]
 Magic axe wielded by Emblem
 Camilla. Can strike close or at range.
+Cannot Crit/Trigger Skills
 
 [MIID_Camilla_Lightning]
 Lightning

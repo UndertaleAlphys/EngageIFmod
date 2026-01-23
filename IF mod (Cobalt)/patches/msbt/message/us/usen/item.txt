@@ -40,7 +40,7 @@ Slim Sword
 
 [MIID_H_SmallSword]
 A light, unusually accurate sword.
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 
 [MIID_BraveSword]
 Brave Sword
@@ -56,7 +56,7 @@ Levin Sword
 [MIID_H_ThunderSword]
 A magical sword that can strike
 close or at range.
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 
 [MIID_Liberation]
 Libération
@@ -178,7 +178,7 @@ Slim Lance
 
 [MIID_H_SmallLance]
 A light, unusually accurate lance.
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 
 [MIID_BraveLance]
 Brave Lance
@@ -195,7 +195,7 @@ Javelin
 [MIID_H_HandLance]
 A light throwing lance that can
 strike close or at range.
-Cannot Crit/Trigger skill/follow up
+Cannot Crit/Trigger Skills/follow up
 /+5 foe's ability to follow up
 
 [MIID_RiderKiller]
@@ -229,7 +229,7 @@ Flame Naginata
 [MIID_H_FlameSpear]
 A magical lance that can strike
 close or at range.
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 
 [MIID_GodLance]
 Brionac
@@ -302,7 +302,7 @@ Compact Axe
 
 [MIID_H_SmallAxe]
 A light, unusually accurate axe.
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 
 [MIID_BraveAxe]
 Brave Axe
@@ -319,7 +319,7 @@ Hand Axe
 [MIID_H_HandAxe]
 A light throwing axe that can
 strike close or at range.
-Cannot Crit/Trigger skill/follow up
+Cannot Crit/Trigger Skills/follow up
 /+5 foe's ability to follow up
 
 [MIID_Tomahawk]
@@ -470,7 +470,7 @@ Shining Bow
 [MIID_H_LightBow]
 A magical bow whose arrows pierce
 with light. Effective: Flying.
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 
 [MIID_GodBow]
 Pursuer
@@ -572,7 +572,7 @@ Fire
 
 [MIID_H_Fire]
 A standard tome of fire magic.
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 
 [MIID_Thunder]
 Thunder
@@ -797,7 +797,7 @@ Initiate Art
 A scroll of a fundamental martial
 skill. If user initiates combat, 
 attacks twice.
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 
 [MIID_BasicFist]
 Iron-Body Art
@@ -2255,7 +2255,7 @@ Light Brand
 Magical sword wielded by Emblem
 Leif. Grants Lck+10. Can strike
 close or at range.
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 
 [MIID_Leaf_MasterBow]
 Master Bow
@@ -2598,7 +2598,7 @@ Bronze Bow
 
 [MIID_H_BronzeBow]
 A light, unusually accurate lance.
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 
 [MIID_Kodachi]
 Kodachi
@@ -2606,7 +2606,7 @@ Kodachi
 [MIID_H_Kodachi]
 A light throwing katana that can
 strike close or at range.
-Cannot Crit/Trigger skill/follow up
+Cannot Crit/Trigger Skills/follow up
 /+5 foe's ability to follow up
 
 [MIID_Wakizashi]
@@ -3065,7 +3065,7 @@ Bolt Axe
 
 [MIID_H_IFMOD_BoltAxe]
 Magic weapon/
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 
 [MIID_IFMOD_CalamityGate]
 Calamity Gate
@@ -3354,7 +3354,7 @@ Res+8
 Diamant's Lance
 
 [MIID_H_DiamandLance]
-Cannot Crit/Trigger skill
+Cannot Crit/Trigger Skills
 Inflicts stacking debuff on unit
 (Str/Dex-2)
 Grants Str+4 for two foes
