@@ -426,8 +426,8 @@ Martial Master
 
 [MJID_H_MasterMonk]
 Experienced monks trained in the
-martial arts. They excel at hand-to-
-hand combat.
+martial arts. They can use the 
+special command: Provoke Strike.
 
 [MJID_HighPriest]
 High Priest
