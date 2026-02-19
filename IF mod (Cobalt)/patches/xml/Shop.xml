@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Book Count="4">
-  <Sheet Name="武器屋" Count="134">
+  <Sheet Name="武器屋" Count="136">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
@@ -30,14 +30,14 @@
       <Param Condition="" Iid="IID_サージ" Stock="2" Attribute="0" />
       <Param Condition="" Iid="IID_初心の法" Stock="-1" Attribute="0" />
       <Param Condition="" Iid="IID_鉄身の法" Stock="-1" Attribute="0" />
-	  <Param Condition="M006" Iid="" Stock="" Attribute="" />
-	  <Param Condition="" Iid="IID_アーマーキラー" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ドラゴンキラー" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ナイトキラー" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_聖なる槍" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_ハンマー" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_針手裏剣" Stock="1" Attribute="0" />
-	  <Param Condition="" Iid="IID_エルウィンド" Stock="1" Attribute="0" />
+      <Param Condition="M006" Iid="" Stock="" Attribute="" />
+      <Param Condition="" Iid="IID_アーマーキラー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ドラゴンキラー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ナイトキラー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_聖なる槍" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_ハンマー" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_針手裏剣" Stock="1" Attribute="0" />
+      <Param Condition="" Iid="IID_エルウィンド" Stock="1" Attribute="0" />
       <Param Condition="M008" Iid="" Stock="" Attribute="" />
       <Param Condition="" Iid="IID_小太刀" Stock="1" Attribute="0" />
       <Param Condition="" Iid="IID_鉄の大剣" Stock="1" Attribute="0" />
@@ -146,7 +146,7 @@
       <Param Condition="" Iid="IID_ボルガノン" Stock="1" Attribute="0" />
     </Data>
   </Sheet>
-  <Sheet Name="道具屋" Count="97">
+  <Sheet Name="道具屋" Count="94">
     <Header>
       <Param Name="条件" Ident="Condition" Type="PublicArray" Min="" Max="" Chg="" />
       <Param Name="アイテム" Ident="Iid" Type="string" Min="" Max="" Chg="" />
