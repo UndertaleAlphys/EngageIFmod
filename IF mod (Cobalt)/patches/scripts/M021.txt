@@ -177,6 +177,13 @@ function フラグ登録()
 	VariableEntry("reinforcement_2", 0)
     VariableEntry("g_flag_battle", 0)
     VariableEntry("g_flag_remove_move_limit", 0)
+
+    for unitIndex = 1,15 do
+        Log(UnitIndex)
+        local unitGlobalCounterName = "EngageStatus_GlobalCounter" .. unitIndex
+        VariableEntry(unitGlobalCounterName, 0)
+    end
+
 	E_BattleTalk_VariableEntry()
 
 end
@@ -496,7 +503,7 @@ function Set_Interference_AI_M021()
 end
 
 function InitMapM021()
-
+    Log("InitMapM021")
     local magicCirclePoints = {}
     for index, config in ipairs(g_dragonVeinConfig_M021) do
         if index > 5 then
@@ -504,6 +511,7 @@ function InitMapM021()
         end
         table.insert(magicCirclePoints, config.point)
     end
+    Log(#magicCirclePoints)
     DragonVeinCreateMagicCircle(magicCirclePoints)
 
     local terrainPoints = {}
@@ -755,6 +763,14 @@ function SetEngageSealFlagde()
                         local engageTurn = UnitGetEngageTurn(playerIndex)
                         local postEngageTurn = math.max(0,engageTurn+1)
                         UnitSetEngageTurn(playerIndex,postEngageTurn)
+                        local bondLevel = UnitGetBondLevel(playerIndex)
+                        local maxEngageTurn = 3
+                        if bondLevel >= 11 then
+                            maxEngageTurn = 4
+                        end
+                        if postEngageTurn >= maxEngageTurn then
+                            UnitSetEngaging(playerIndex,false)
+                        end
                     else
                         local preEngageCount = UnitGetEngageMeter(playerIndex)
                         UnitSetEngageMeter(playerIndex,math.max(0,preEngageCount-2))
@@ -845,6 +861,12 @@ function BattleStartAfterイベント()
 	end
 
 	Dialog("MID_TUT_M021_RULE")
+    
+    for unitIndex = 1,15 do
+        Log(UnitIndex)
+        local unitGlobalCounterName = "EngageStatus_GlobalCounter" .. unitIndex
+        VariableSet(unitGlobalCounterName, 0)
+    end
 end
 
 

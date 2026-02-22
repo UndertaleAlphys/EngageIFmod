@@ -2614,14 +2614,15 @@ function RollbackUnitEngageStatusByIndex(unitIndex, rollbackSteps)
             local playerUnit = ForceUnitGetFirst(FORCE_PLAYER)
             while playerUnit ~= nil do
                 if playerUnit == unitIndex then
-                    if unitData[2] == 1 then
+                    local bondLevel = UnitGetBondLevel(unitIndex)
+                    local maxEngageTurn = 3
+                    if bondLevel >= 11 then
+                        maxEngageTurn = 4
+                    end
+                    if unitData[2] == 1 and unitData[3] < maxEngageTurn then
                         UnitSetEngaging(playerUnit, true)
-                        if unitData[3] ~= 4 then
-                            UnitSetEngageTurn(playerUnit, unitData[3])
-                        else
-                            UnitSetEngaging(playerUnit, false)
-                            UnitSetEngageMeter(playerUnit, 0)
-                        end
+                        UnitSetEngageTurn(playerUnit, unitData[3])
+
                     else
                         UnitSetEngaging(playerUnit, false)
                         UnitSetEngageMeter(playerUnit, unitData[1])
@@ -2638,23 +2639,12 @@ function RollbackUnitEngageStatusByIndex(unitIndex, rollbackSteps)
                         if isCamillaUnit then
                             UnitClearPrivateSkill(playerUnit,"SID_疾風迅雷効果付与")
                         end
+
                         if isCamillaUnit and unitData[6] == 1 then
                             UnitSetPrivateSkill(playerUnit, "SID_疾風迅雷発動済み")
-                            if UnitData[3] ~= 4 then
-                                UnitSetEngageTurn(playerUnit, UnitData[3])
-                            else
-                                UnitSetEngaging(playerUnit, false)
-                                UnitSetEngageMeter(playerUnit, 0)
-                            end
                         else
                             UnitSetEngaging(playerUnit, false)
                             UnitSetEngaging(playerUnit, true)
-                            if UnitData[3] ~= 4 then
-                                UnitSetEngageTurn(playerUnit, UnitData[3])
-                            else
-                                UnitSetEngaging(playerUnit, false)
-                                UnitSetEngageMeter(playerUnit, 0)
-                            end
                         end
                     end
 

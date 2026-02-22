@@ -3170,7 +3170,8 @@ Holy Sword
 Hexing Rod
 
 [MIID_H_HexingRod]
-Halves foe's MaxHP.
+In this chapter, foe's
+max HP is reduced by half.
 
 [MIID_Lucina_NobleSword]
 Noble Sword

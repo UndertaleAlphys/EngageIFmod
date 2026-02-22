@@ -1202,24 +1202,32 @@ unit's HP restore to the same value.
 Augment
 
 [MSID_H_MicaiahEngage]
-Sets staff range to 10.
-At the start of player phase, 
-restores 10 HP to allies within 10 spaces.
-Healing scales with Mag and distance.
+The range of all the staves are set
+to 10. At the start of player's phase,
+heal all allies within in 10 radius 10HP.
+Each 3 Mag of the healer increase the
+value by 1, and each space between
+decrease the value by 1.
 
 [MSID_H_MicaiahEngage_Dragon]
-Sets staff range to 10.
-At the start of player phase, 
-restores 10 HP to allies within 10 spaces.
-Healing scales with Mag and distance.
-[Dragon] Range increased to 11.
+The range of all the staves are set
+to 10. At the start of player's phase,
+heal all allies within in 10 radius 10HP.
+Each 3 Mag of the healer increase the
+value by 1, and each space between
+decrease the value by 1.
+[Dragon] The range of both effects
+are increased to 11.
 
 [MSID_H_MicaiahEngage_Prana]
-Sets staff range to 10.
-At the start of player phase, 
-restores 10 HP to allies within 10 spaces.
-Healing scales with Mag and distance.
-[Qi Adept] Staff healing +20%.
+The range of all the staves are set
+to 10. At the start of player's phase,
+heal all allies within in 10 radius 10HP.
+Each 3 Mag of the healer increase the
+value by 1, and each space between
+decrease the value by 1.
+[Qi Adept] +20% to HP healed
+by staves.
 
 [MSID_MicaiahEngageAtk]
 Great Sacrifice
@@ -4768,62 +4776,65 @@ this unit gets Str+2 (Max+20)
 the foe suffers Str-2 (Max-10)
 
 [MSID_Declaim_1]
-Hindsight
+Hindsight Awareness
 
 [MSID_Declaim_2]
-Hindsight+
+Hindsight Awareness+
 
 [MSID_H_Declaim_1]
-Reduces damage taken by 50% the first time 
-unit takes damage during combat.
-Increases damage taken by 50% afterward.
-
+The first damage taken during
+battle is reduced by 50%, but
+the latter are increase by 50%.
 
 [MSID_H_Declaim_2]
-Negates damage taken the first time 
-unit takes damage during combat.
-Doubles damage taken afterward.
+The first damage taken during
+battle is negated, but the latter 
+are increase by 100%.
 
 [MSID_Sensei_M010]
-Dark Sensei
+Dark ensei
 
 [MSID_H_Sensei_M010]
-Triggers Rally skills 
-at the start of unit’s turn.
+This unit will "Rally"
+automatically at the
+start of their turn.
 
 [MSID_MicaiahEngage_M011]
 Dark Augment
 
 [MSID_H_MicaiahEngage_M011]
-Sets staff range to 10.
-At the start of each phase, 
-foes within 10 spaces lose 10 HP.
-Damage scales with Mag–Res and distance.
-Cannot reduce HP below 1.
+The range of all the staves are set
+to 10. At the start of a phase,
+all enemies within in 10 radius lose 10HP.
+Each 3 (unit's Mag - foe's Res) of the healer 
+increase the value by 1, and each space 
+between decrease the value by 1.
+This damage is not lethal.
 
 [MSID_BreakPursuit_M011]
 Dark Break Defenses
 
 [MSID_H_BreakPursuit_M011]
-If unit is not at weapon-triangle 
-disadvantage, inflicts Break and 
-makes a follow-up attack at 50% Dmg.
+Unless this unit has disadvantage in weapon
+triangle, break the enemy and makes an 
+extra attack at 50% damage.
 
 [MSID_BlackMagic_M011]
 Dark Resonance
 
 [MSID_H_BlackMagic_M011]
-When using a tome and HP > 6,
-costs 5 HP to reduce foe’s max HP by 5.
-Stacks up to -20.
+When attacking with a tome, if
+this unit's HP > 6, cost 5 HP to
+decrease the foe's Max HP by 5
+when hit. (Max -20)
 
 [MSID_Approach_M011]
 Dark Momentum
 
 [MSID_H_Approach_M011]
-If unit moves 5 or more spaces,
-grants Atk +5 on first attack 
-and foe cannot counterattack.
+If unit cost mov points>=5,
+grants Atk+5 to first attack,
+foe cannot counter.
 
 [MSID_HoldOut_M011]
 Dark HoldOut
@@ -4832,10 +4843,10 @@ Dark HoldOut
 Dark HoldOut <Cooling>
 
 [MSID_H_HoldOut_M011]
-If HP is at least 30% at the start of combat,
-survives lethal damage and 
-restores HP to 30% after combat.
-Loses Hold Out for 1 turn afterward.
+If this unit's HP>=30% at the start 
+of battle, negate the lethal damage
+and restore HP to 30% after battle.
+After that, lose HoldOut for a turn.
 
 [MSID_Shuttle]
 Shuttle
@@ -4849,7 +4860,7 @@ is lower than this unit, they
 suffer Avo-15, Ddg-5.
 
 [MSID_Galeforce_Ready]
-Galeforce <Ready>
+Galeforce <Available>
 
 [MSID_Galeforce_Cooldown]
 Galeforce <Cooling>
